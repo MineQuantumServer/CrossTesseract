@@ -1,0 +1,46 @@
+{
+  "scope": "Latest frozen development launch classes versus final compiled main classes; later changes only affect stock status presentation/button gating and client-only development screenshot timing.",
+  "launches": [
+    {
+      "server": "A",
+      "frozen_launch": "scratch/dev-launch/7f2900b3bd174ab6af4c74431c59874a/runServerA.sh",
+      "transfer_and_quota_class_parity": true,
+      "stock_presentation_and_dev_capture_differences": [
+        "dev/crosstesseract/client/TesseractScreen.class",
+        "dev/crosstesseract/client/UiSmoke.class",
+        "dev/crosstesseract/network/Packets.class"
+      ]
+    },
+    {
+      "server": "B",
+      "frozen_launch": "scratch/dev-launch/44693d1eb48548c08771d3a0b7337b0d/runServerB.sh",
+      "transfer_and_quota_class_parity": true,
+      "stock_presentation_and_dev_capture_differences": [
+        "dev/crosstesseract/client/TesseractScreen.class",
+        "dev/crosstesseract/client/UiSmoke.class",
+        "dev/crosstesseract/network/Packets.class"
+      ]
+    },
+    {
+      "server": "C",
+      "frozen_launch": "scratch/dev-launch/8f2a6cbf20bf457ca497e0f42b4bd982/runServerC.sh",
+      "transfer_and_quota_class_parity": true,
+      "stock_presentation_and_dev_capture_differences": [
+        "dev/crosstesseract/client/TesseractScreen.class",
+        "dev/crosstesseract/client/UiSmoke.class",
+        "dev/crosstesseract/network/Packets.class"
+      ]
+    },
+    {
+      "server": "Perf",
+      "frozen_launch": "scratch/dev-launch/0a93ec61fd414e388147877df214121f/runServerPerf.sh",
+      "transfer_and_quota_class_parity": true,
+      "stock_presentation_and_dev_capture_differences": [
+        "dev/crosstesseract/client/TesseractScreen.class",
+        "dev/crosstesseract/client/UiSmoke.class",
+        "dev/crosstesseract/network/Packets.class"
+      ]
+    }
+  ],
+  "binary_sha256": "ccab2954e92e9ba9b4020c6b5b9a22812e2a76503df6cc0aa8039c26189821d7"
+}

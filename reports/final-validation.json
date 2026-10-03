@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-03T02:38:39.078233+00:00",
+  "checks": {
+    "final_jar_and_sources_match_manifest": true,
+    "unit_backend_property_tests_27_no_skips": true,
+    "eight_native_mod_combinations_pass": true,
+    "three_jvm_conservation_and_atomic_quota_pass": true,
+    "three_jvm_ae_directed_requests_and_material_bridge_pass": true,
+    "official_cold_install_uses_final_jar": true,
+    "real_client_c2s_stock_request_cancel_pass": true,
+    "real_100_500_1000_endpoints_perf_and_jfr_pass": true,
+    "jar_crc_four_migrations_optional_classes_absent": true,
+    "documentation_relative_links_valid": true,
+    "script_syntax_valid": true,
+    "test_minecraft_jvms_stopped": true,
+    "base_three_server_launch_scripts_generated": true
+  },
+  "scope": "Final artifact and saved evidence review; does not replace the native/network tests.",
+  "ae_native_grid_service_merge_complete": false,
+  "remaining_unverified": "docs/TASKS.md"
+}

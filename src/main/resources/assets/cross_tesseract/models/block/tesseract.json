@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "cross_tesseract:block/tesseract_side",
+    "down": "cross_tesseract:block/tesseract_top",
+    "up": "cross_tesseract:block/tesseract_top",
+    "north": "cross_tesseract:block/tesseract_side",
+    "south": "cross_tesseract:block/tesseract_side",
+    "west": "cross_tesseract:block/tesseract_side",
+    "east": "cross_tesseract:block/tesseract_side"
+  }
+}

@@ -1,0 +1,6 @@
+// External resolver override only; reference source and dependency versions stay unchanged.
+beforeSettings { settings -> settings.pluginManagement.repositories.maven { url='https://maven-central.storage-download.googleapis.com/maven2' } }
+allprojects {
+    buildscript.repositories.all { repo -> if(repo instanceof MavenArtifactRepository && repo.url.toString().contains('repo.maven.apache.org'))repo.url='https://maven-central.storage-download.googleapis.com/maven2' }
+    repositories.all { repo -> if(repo instanceof MavenArtifactRepository && repo.url.toString().contains('repo.maven.apache.org'))repo.url='https://maven-central.storage-download.googleapis.com/maven2' }
+}

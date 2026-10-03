@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-02T14:14:50Z",
+  "cluster": "dev_three_v1",
+  "endpoint": "3ae38bcb-e093-4659-bff5-e7a3f2341ca2",
+  "persistent_player_slots": 1,
+  "new_device_grants": 0,
+  "offline_status": "STATUS database_unavailable tickets=0 {registered_loaded_endpoints=12, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=16, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.017055, tick_ms_p95=0.069975, tick_ms_p99=0.251598, tick_ms_samples=1841, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=25.365599, sql_ms_p95=56.89678, sql_ms_p99=56.89678, sql_ms_samples=16, db_transaction_ms_p50=4.908458, db_transaction_ms_p95=27.730637, db_transaction_ms_p99=48.839027, db_transaction_ms_samples=253, db_transactions=252, db_deadlock_retries=0, db_active_connections=0}\n",
+  "management_response": "CHUNK database_unavailable\n",
+  "management_roundtrip_ms_during_mysql_outage": 1.1669820014503784,
+  "test_elapsed_seconds": 7.380032796998421,
+  "final_status": "STATUS online tickets=0 {registered_loaded_endpoints=12, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=16, errors=2, queue_rejected=0, quarantined=0, tick_ms_p50=0.017186, tick_ms_p95=0.069875, tick_ms_p99=0.242464, tick_ms_samples=1927, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=25.365599, sql_ms_p95=56.89678, sql_ms_p99=56.89678, sql_ms_samples=16, db_transaction_ms_p50=4.955839, db_transaction_ms_p95=28.919423, db_transaction_ms_p99=53.246948, db_transaction_ms_samples=259, db_transactions=257, db_deadlock_retries=0, db_active_connections=0}\n",
+  "scope": "Actual MySQL container stopped/restarted; Minecraft remains responsive, own tickets revoked and persistent quota retained. Expired sessions require a new fenced boot."
+}

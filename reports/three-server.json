@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-03T02:12:58Z",
+  "cluster": "dev_three_v1",
+  "owner": "9c5c265a-d454-40e3-8daf-659eb6af2a05",
+  "member": "ef7acb47-bada-4866-9244-ec27b6d5794a",
+  "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70",
+  "locations": [
+    [
+      6560,
+      0
+    ],
+    [
+      6561,
+      0
+    ],
+    [
+      6562,
+      0
+    ]
+  ],
+  "totals": {
+    "rxFE": 76000,
+    "rxItem": 144,
+    "rxFluid": 6000
+  },
+  "final_buffers": [
+    {
+      "txFE": 0,
+      "rxFE": 0,
+      "txItem": 0,
+      "rxItem": 0,
+      "txFluid": 0,
+      "rxFluid": 0,
+      "checkpoint": 51,
+      "id": "93caedab-dd23-4e01-9ab2-d1a9495e0c60",
+      "registered": true,
+      "pause": "",
+      "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70"
+    },
+    {
+      "txFE": 0,
+      "rxFE": 27000,
+      "txItem": 0,
+      "rxItem": 48,
+      "txFluid": 0,
+      "rxFluid": 2000,
+      "checkpoint": 7,
+      "id": "fb8cf0bd-e875-434f-a5f9-f1a44fe5655d",
+      "registered": true,
+      "pause": "",
+      "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70"
+    },
+    {
+      "txFE": 0,
+      "rxFE": 49000,
+      "txItem": 0,
+      "rxItem": 96,
+      "txFluid": 0,
+      "rxFluid": 4000,
+      "checkpoint": 7,
+      "id": "4e9c69f0-1d45-4cba-b590-275dff0bfd4e",
+      "registered": true,
+      "pause": "",
+      "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70"
+    }
+  ],
+  "checks": [
+    "channel created on A, owner invites through B, offline member accepts through C",
+    "A -> B/C: exact FE/item/fluid conservation and both receivers served; no broadcast copies",
+    "A/B -> C: concurrent sources add, and existing receive credits are not recycled in BOTH mode",
+    "actual NeoForge tickets on A/B occupy two persistent global slots; C third request refused",
+    "three Minecraft JVMs concurrently request same player quota: exactly two ACTIVE grants",
+    "same chunk two devices use two slots; closing one leaves the other mod ticket installed",
+    "member device uses member quota; removal disables resource capability within bounded refresh"
+  ],
+  "servers": [
+    "STATUS online tickets=0 {registered_loaded_endpoints=31, active_endpoints=4, worker_queue=0, actual_tickets=0, transactions=86, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.031978, tick_ms_p95=0.363916, tick_ms_p99=2.781184, tick_ms_samples=869, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=12.810607, sql_ms_p95=39.811599, sql_ms_p99=68.06003, sql_ms_samples=87, db_transaction_ms_p50=5.414637, db_transaction_ms_p95=21.964416, db_transaction_ms_p99=31.890376, db_transaction_ms_samples=271, db_transactions=270, db_deadlock_retries=0, db_active_connections=0}\n",
+    "STATUS online tickets=0 {registered_loaded_endpoints=12, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=34, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.025098, tick_ms_p95=0.15377, tick_ms_p99=0.884718, tick_ms_samples=916, delivery_ms_p50=64.626765, delivery_ms_p95=64.626765, delivery_ms_p99=64.626765, delivery_ms_samples=4, sql_ms_p50=28.064519, sql_ms_p95=112.243301, sql_ms_p99=283.725668, sql_ms_samples=35, db_transaction_ms_p50=3.762498, db_transaction_ms_p95=25.213258, db_transaction_ms_p99=58.582503, db_transaction_ms_samples=258, db_transactions=257, db_deadlock_retries=1, db_active_connections=0}\n",
+    "STATUS online tickets=0 {registered_loaded_endpoints=9, active_endpoints=6, worker_queue=0, actual_tickets=0, transactions=155, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.033891, tick_ms_p95=0.691328, tick_ms_p99=2.862747, tick_ms_samples=671, delivery_ms_p50=58.794509, delivery_ms_p95=60.995528, delivery_ms_p99=60.995528, delivery_ms_samples=7, sql_ms_p50=22.544374, sql_ms_p95=50.838109, sql_ms_p99=85.07449, sql_ms_samples=156, db_transaction_ms_p50=4.01692, db_transaction_ms_p95=9.82546, db_transaction_ms_p99=24.041552, db_transaction_ms_samples=760, db_transactions=759, db_deadlock_retries=1, db_active_connections=0}\n"
+  ],
+  "scope": "three independent Minecraft processes, real backend, console fixtures; online-player GUI not exercised"
+}

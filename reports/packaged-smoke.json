@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-03T02:35:29Z",
+  "passed": true,
+  "scope": "official NeoForge installer, actual packaged mod Jar-in-Jar only; no optional mods; real MySQL/Redis, two native FE capabilities and SQL/WAL delivery, clean stop",
+  "jar": "scratch/packaged/server/mods/cross_tesseract-0.1.0-dev.jar",
+  "sha256": "ccab2954e92e9ba9b4020c6b5b9a22812e2a76503df6cc0aa8039c26189821d7",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.252",
+  "capabilities": "cross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:item",
+  "status": "STATUS online tickets=0 {registered_loaded_endpoints=8, active_endpoints=8, worker_queue=0, actual_tickets=0, transactions=32, errors=0, queue_rejected=0, quarantined=0, tick_ms_p50=0.039058, tick_ms_p95=1.580715, tick_ms_p99=18.123454, tick_ms_samples=148, delivery_ms_p50=80.630106, delivery_ms_p95=80.630106, delivery_ms_p99=80.630106, delivery_ms_samples=1, sql_ms_p50=38.198106, sql_ms_p95=91.538267, sql_ms_p99=219.896045, sql_ms_samples=32, db_transaction_ms_p50=10.957991, db_transaction_ms_p95=49.304686, db_transaction_ms_p99=79.218568, db_transaction_ms_samples=107, db_transactions=107, db_deadlock_retries=0, db_active_connections=1}\n",
+  "log": "logs/packaged-smoke.log"
+}

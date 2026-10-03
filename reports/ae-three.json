@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-03T02:13:36Z",
+  "cluster": "dev_three_v1",
+  "channel": "fcbb4626-6158-4b58-8efc-a9486ff203e0",
+  "endpoints": [
+    "72ed5428-bbd8-4c05-9ec6-c24cf54b37f2",
+    "4ad8ad64-5857-4e2d-8fba-a256dbd7c98f",
+    "14573fd5-4e31-49dc-bbea-f52201ca3884"
+  ],
+  "server_capabilities": [
+    [
+      "dev-A",
+      "cross_tesseract:ae_proxy_v1,cross_tesseract:ae_storage_v1,cross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:item,cross_tesseract:mek_chemical,cross_tesseract:mek_heat"
+    ],
+    [
+      "dev-B",
+      "cross_tesseract:ae_proxy_v1,cross_tesseract:ae_storage_v1,cross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:item"
+    ],
+    [
+      "dev-C",
+      "cross_tesseract:ae_proxy_v1,cross_tesseract:ae_storage_v1,cross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:gt_eu,cross_tesseract:item"
+    ]
+  ],
+  "initial_native_states": [
+    {
+      "activeShadows": 2,
+      "shadows": 2,
+      "grid": "000543c4-675f-4180-a561-29d3410f8422",
+      "state": "ae_proxy_experimental",
+      "used": 3,
+      "powered": true,
+      "active": true
+    },
+    {
+      "used": 3,
+      "state": "ae_proxy_experimental",
+      "grid": "2335f3cf-e603-4dc2-a926-834e317ceed3",
+      "shadows": 2,
+      "activeShadows": 2,
+      "active": true,
+      "powered": true
+    },
+    {
+      "activeShadows": 2,
+      "active": true,
+      "powered": true,
+      "used": 3,
+      "state": "ae_proxy_experimental",
+      "grid": "ee9a5e49-4822-4839-a6e2-1b3b27a8257f",
+      "shadows": 2
+    }
+  ],
+  "checks": [
+    "three JVMs advertise real native grid identities; each installs two real remote channel consumers and requires local power",
+    "B/C native misses immediately return zero and persist separate authorized directed requests; no balance is created by intent",
+    "native synchronous AE insertion -> actual SQL/WAL allocations -> two remote AE extraction interfaces: total 24 diamonds; FE remains usable across differing optional mod combinations",
+    "two bridges on the same actual A grid advertise one grid; B/C account for two A consumers without recursively multiplying shadows",
+    "native B power loss withdraws experimental proxy admission on A/C and blocks B synchronous storage",
+    "member removal suspends B native proxy nodes and storage; surviving authorized grids continue independently"
+  ],
+  "ae_level1": "actual cross-JVM material bridge verified",
+  "ae_level2": "experimental real-node proxy verified; native IGrid/controller/power/security/crafting/request merge NOT implemented"
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cross_tesseract:block/tesseract"
+    }
+  }
+}

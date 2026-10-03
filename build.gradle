@@ -1,0 +1,116 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+group = 'dev.crosstesseract'
+version = '0.1.0-dev'
+base { archivesName = 'cross_tesseract' }
+java { toolchain.languageVersion = JavaLanguageVersion.of(21); withSourcesJar() }
+sourceSets {
+    gtApi {
+        java.srcDir 'scratch/upstream/gregtech/src/main/java'
+        java.include 'com/gregtechceu/gtceu/api/capability/IEnergyContainer.java'
+        java.include 'com/gregtechceu/gtceu/api/capability/IEnergyInfoProvider.java'
+    }
+}
+repositories {
+    mavenCentral()
+    maven { url = 'https://modmaven.dev/' }
+    maven { url = 'https://api.modrinth.com/maven' }
+    maven { url = 'https://maven.blamejared.com/' }
+}
+neoForge {
+    version = '21.1.252'
+    addModdingDependenciesTo sourceSets.gtApi
+    runs {
+        client { client() }
+        clientSmoke {
+            client();gameDirectory=project.file('run-ui');jvmArgument '-Xmx2G'
+            systemProperty 'cross_tesseract.uiSmoke','true'
+            systemProperty 'cross_tesseract.config',project.file('config/ui-smoke.properties').absolutePath
+            programArguments.addAll('--quickPlaySingleplayer','ui-smoke','--username','CTUITest','--width','1280','--height','900')
+        }
+        server { server(); programArgument '--nogui' }
+        gameTestServer {
+            type = 'gameTestServer'
+            jvmArgument '-Xmx2G'
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'cross_tesseract'
+            if(providers.gradleProperty('gameTestBackend').isPresent()) systemProperty 'cross_tesseract.config',project.file('config/gametest.properties').absolutePath
+            if(providers.gradleProperty('gameTestBackend').isPresent()) systemProperty 'cross_tesseract.compatTests','true'
+        }
+        ['A','B','C'].each { sid ->
+            create("server${sid}") {
+                server()
+                gameDirectory = project.file("run-${sid}")
+                programArgument '--nogui'
+                systemProperty 'cross_tesseract.config', project.file("run-${sid}/cross-tesseract.properties").absolutePath
+                systemProperty 'cross_tesseract.testHarness', 'true'
+                jvmArgument '-Xmx2G'
+                if(providers.gradleProperty('aePrototype').isPresent())systemProperty 'cross_tesseract.aeNetworkPrototype','true'
+            }
+        }
+        serverPerf {
+            server();gameDirectory=project.file('run-perf');programArgument '--nogui'
+            systemProperty 'cross_tesseract.config',project.file('run-perf/cross-tesseract.properties').absolutePath
+            systemProperty 'cross_tesseract.testHarness','true'
+            jvmArgument '-Xmx2G'
+        }
+        configureEach { logLevel = org.slf4j.event.Level.INFO }
+    }
+    mods { cross_tesseract { sourceSet sourceSets.main } }
+}
+configurations {
+    localRuntime
+    runtimeClasspath.extendsFrom localRuntime
+}
+dependencies {
+    compileOnly sourceSets.gtApi.output
+    compileOnly('maven.modrinth:ae2:19.2.18') { transitive=false }
+    compileOnly('maven.modrinth:mekanism:10.7.19.85') { transitive=false }
+    def optionalTestMods = providers.gradleProperty('testMods').getOrElse('').split(',').toList().toSet()
+    if(optionalTestMods.contains('gregtech'))localRuntime files('scratch/upstream/gregtech/build/libs/gtceu-1.21.1-8.0.0.jar')
+    if (optionalTestMods.contains('mekanism')) localRuntime('maven.modrinth:mekanism:10.7.19.85') { transitive=false }
+    if (optionalTestMods.contains('ae2')) {
+        localRuntime('maven.modrinth:ae2:19.2.18') { transitive=false }
+        localRuntime('org.appliedenergistics:guideme:21.1.1')
+    }
+    // Hard pins; jar-in-jar contains libraries only, never optional mods.
+    jarJar(implementation('com.zaxxer:HikariCP:6.2.1')) { version { strictly '[6.2.1]'; prefer '6.2.1' } }
+    jarJar(implementation('com.mysql:mysql-connector-j:9.2.0')) { version { strictly '[9.2.0]'; prefer '9.2.0' } }
+    jarJar(implementation('redis.clients:jedis:5.2.0') { exclude group: 'com.google.code.gson', module: 'gson' }) { version { strictly '[5.2.0]'; prefer '5.2.0' } }
+    jarJar(implementation('org.apache.commons:commons-pool2:2.12.0')) { version { strictly '[2.12.0]'; prefer '2.12.0' } }
+    jarJar(implementation('org.json:json:20240303')) { version { strictly '[20240303]'; prefer '20240303' } }
+    // NeoForge dev runs do not automatically load non-mod Java libraries from implementation.
+    additionalRuntimeClasspath 'com.zaxxer:HikariCP:6.2.1'
+    additionalRuntimeClasspath 'com.mysql:mysql-connector-j:9.2.0'
+    additionalRuntimeClasspath('redis.clients:jedis:5.2.0') { exclude group:'com.google.code.gson',module:'gson' }
+    additionalRuntimeClasspath 'org.apache.commons:commons-pool2:2.12.0'
+    additionalRuntimeClasspath 'org.json:json:20240303'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testImplementation 'net.jqwik:jqwik:1.9.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.compilerArgs += ['-Xlint:deprecation'] }
+tasks.named('compileGtApiJava').configure {
+    doFirst {
+        if (!file('scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/capability/IEnergyContainer.java').exists()) {
+            throw new GradleException('Run scripts/fetch-references.sh to fetch the exact FortyTwoCn source APIs. These API classes are compile-only and never included in the mod jar.')
+        }
+        [ 'IEnergyContainer.java':'8d6318138badaf39bfe2f273e7f2db4459aa43ba968734a074b5877be15ff9c1',
+          'IEnergyInfoProvider.java':'051eeca5ab738de1c21fe95d67d07b54161d27b4f0a1cda8fc3c7cdd025d64dc'].each { name,expected ->
+            def actual=java.security.MessageDigest.getInstance('SHA-256').digest(file("scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/capability/$name").bytes).encodeHex().toString()
+            if(actual!=expected)throw new GradleException("Read-only GregTech API source hash mismatch: $name")
+        }
+    }
+}
+test {
+    useJUnitPlatform()
+    maxParallelForks = 1
+    systemProperty 'ct.integration', System.getProperty('ct.integration', 'false')
+    testLogging { events 'passed', 'skipped', 'failed' }
+}
+dependencyLocking {
+    lockAllConfigurations()
+    def combination = providers.gradleProperty('testMods').getOrElse('').split(',').toList().findAll { it }.sort().join('-')
+    if (combination) lockFile = file("gradle/locks/${combination}.lockfile")
+}

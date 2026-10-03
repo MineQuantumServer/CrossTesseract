@@ -1,0 +1,18 @@
+CrossServer Tesseract source and original art: MIT, LICENSE-cross_tesseract.txt.
+Optional mods are NOT included. No Tesseract source or restricted visual assets copied.
+
+Bundled independent libraries (their licenses/notices remain inside nested JARs):
+HikariCP 6.2.1 - Apache License 2.0 - https://github.com/brettwooldridge/HikariCP/tree/HikariCP-6.2.1
+MySQL Connector/J 9.2.0 - GPLv2 with Universal FOSS Exception 1.0
+  https://github.com/mysql/mysql-connector-j/tree/9.2.0
+  https://oss.oracle.com/licenses/universal-foss-exception/
+  This project's MIT license is listed by that exception; Connector/J remains independent.
+Jedis 5.2.0 - MIT - https://github.com/redis/jedis/tree/v5.2.0
+Apache Commons Pool 2.12.0 - Apache License 2.0
+  https://commons.apache.org/proper/commons-pool/
+JSON-java 20240303 - public domain - https://github.com/stleary/JSON-java/tree/20240303
+
+Compile-only referenced APIs (never bundled):
+GregTech IEnergyContainer / IEnergyInfoProvider from FortyTwoCn/GregTech-Modern
+  commit c72dc16b52795cbb0456b6e15e13cc4a85c0ed1b, LGPL-3.0.
+AE2 19.2.18 APIs and Mekanism 10.7.19.85 APIs; see docs/THIRD_PARTY.md.

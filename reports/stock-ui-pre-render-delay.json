@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-03T02:01:12.098512+00:00",
+  "passed": true,
+  "command": "scripts/ui-smoke-headless.sh -PtestMods=ae2",
+  "log": "logs/stock-ui-smoke.log",
+  "scope": "actual Minecraft client and integrated ServerPlayer; no human intervention; native AE insertion, SQL/WAL, C2S stock view/request/cancel",
+  "checks": [
+    "English and small-window Chinese GUI bounds",
+    "remote-known 32 diamonds and local-ready zero in SEND mode",
+    "actual SQL/WAL arrival: 32 local-ready diamonds",
+    "C2S request records one unallocated demand, never reports immediate delivery",
+    "C2S cancellation preserves all 32 owned diamonds",
+    "isolated fresh coordinates, client chunk confirmation, clean stop"
+  ],
+  "screenshots": [
+    "reports/screenshots/ui-en.png",
+    "reports/screenshots/ui-zh-small.png",
+    "reports/screenshots/ui-stock-zh-remote.png",
+    "reports/screenshots/ui-stock-zh-pending.png"
+  ]
+}

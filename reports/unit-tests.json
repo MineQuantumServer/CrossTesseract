@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-03T02:36:00.861569+00:00",
+  "command": "scripts/gradle-dev.sh build -Dct.integration=true",
+  "log": "logs/stock-final-build.log",
+  "suites": [
+    {
+      "class": "dev.crosstesseract.AeProxyAndThermalTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml": "build/test-results/test/TEST-dev.crosstesseract.AeProxyAndThermalTest.xml"
+    },
+    {
+      "class": "dev.crosstesseract.AuthorityIntegrationTest",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml": "build/test-results/test/TEST-dev.crosstesseract.AuthorityIntegrationTest.xml"
+    },
+    {
+      "class": "dev.crosstesseract.BufferSafetyTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml": "build/test-results/test/TEST-dev.crosstesseract.BufferSafetyTest.xml"
+    },
+    {
+      "class": "dev.crosstesseract.JournalAndHeatTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml": "build/test-results/test/TEST-dev.crosstesseract.JournalAndHeatTest.xml"
+    },
+    {
+      "class": "dev.crosstesseract.MigrationConcurrencyTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml": "build/test-results/test/TEST-dev.crosstesseract.MigrationConcurrencyTest.xml"
+    }
+  ],
+  "total": {
+    "tests": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

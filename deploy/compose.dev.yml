@@ -1,0 +1,24 @@
+# Local isolated development only; fixed image digests, never exposed on all interfaces.
+services:
+  mysql:
+    image: mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+    ports: ["127.0.0.1:13306:3306"]
+    environment:
+      MYSQL_DATABASE: cross_tesseract
+      MYSQL_USER: ct_dev
+      MYSQL_PASSWORD: ${CT_DEV_MYSQL_PASSWORD:?Set a development password}
+      MYSQL_ROOT_PASSWORD: ${CT_DEV_MYSQL_ROOT_PASSWORD:?Set a development root password}
+    volumes: ["ct_mysql:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  redis:
+    image: redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+    ports: ["127.0.0.1:16379:6379"]
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: ["ct_redis:/data"]
+volumes:
+  ct_mysql: {}
+  ct_redis: {}

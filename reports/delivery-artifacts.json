@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-03T02:39:14.428928+00:00",
+  "version": "0.1.0-dev",
+  "command": "python3 scripts/package-delivery.py",
+  "artifacts": [
+    {
+      "path": "build/distributions/cross_tesseract-0.1.0-dev-project.zip",
+      "bytes": 5155127,
+      "sha256": "dded58d406044608fa7b25037c774733564f5beb4f0a7a9e5e72c66a1cde2b53",
+      "entries": 156
+    },
+    {
+      "path": "build/distributions/cross_tesseract-0.1.0-dev-test-evidence.zip",
+      "bytes": 10528390,
+      "sha256": "ab1e15beb2fb23f0a837a23fa0b61ab1572e1dfc20a9d82b47f4cf04f49bbbd2",
+      "entries": 173
+    }
+  ],
+  "exclusions": [
+    "worlds",
+    "database volumes",
+    "credentials files",
+    "upstream repositories/runtime mods",
+    "Minecraft/NeoForge binaries",
+    "JDK",
+    "Gradle cache",
+    "user files"
+  ]
+}

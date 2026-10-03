@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-03T02:36:00.861569+00:00",
+  "command": "scripts/gradle-dev.sh build -Dct.integration=true",
+  "log": "logs/stock-final-build.log",
+  "java": "Temurin 21.0.8+9",
+  "gradle": "9.2.1",
+  "moddev": "2.0.148",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.252",
+  "artifacts": [
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev-sources.jar",
+      "bytes": 125475,
+      "sha256": "fa1661299e73a0b26c6126b0d7fc86eb3d8d98831ebfb99591e5a968509ac740"
+    },
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev.jar",
+      "bytes": 4028891,
+      "sha256": "ccab2954e92e9ba9b4020c6b5b9a22812e2a76503df6cc0aa8039c26189821d7"
+    }
+  ],
+  "references": {
+    "ae2": {
+      "sha": "db17504a86128fdf3dae31f5fb7a112a646e0b93",
+      "read_only_unmodified": true
+    },
+    "gregtech": {
+      "sha": "c72dc16b52795cbb0456b6e15e13cc4a85c0ed1b",
+      "read_only_unmodified": true
+    },
+    "mekanism": {
+      "sha": "bcd7a8bf594cff9614eb12238fe3776f19da24d9",
+      "read_only_unmodified": true
+    },
+    "tesseract": {
+      "sha": "cedf6df38a02d1f204733f2d8723d7f99861d972",
+      "read_only_unmodified": true
+    },
+    "modularui-modern": {
+      "sha": "8ecb104d0c38b1eb9baab5c837624034db7ca873",
+      "read_only_unmodified": true
+    }
+  },
+  "jarjar": {
+    "jars": [
+      {
+        "identifier": {
+          "group": "com.mysql",
+          "artifact": "mysql-connector-j"
+        },
+        "version": {
+          "range": "[9.2.0]",
+          "artifactVersion": "9.2.0"
+        },
+        "path": "META-INF/jarjar/mysql-connector-j-9.2.0.jar",
+        "isObfuscated": false
+      },
+      {
+        "identifier": {
+          "group": "com.zaxxer",
+          "artifact": "HikariCP"
+        },
+        "version": {
+          "range": "[6.2.1]",
+          "artifactVersion": "6.2.1"
+        },
+        "path": "META-INF/jarjar/HikariCP-6.2.1.jar",
+        "isObfuscated": false
+      },
+      {
+        "identifier": {
+          "group": "org.apache.commons",
+          "artifact": "commons-pool2"
+        },
+        "version": {
+          "range": "[2.12.0]",
+          "artifactVersion": "2.12.0"
+        },
+        "path": "META-INF/jarjar/commons-pool2-2.12.0.jar",
+        "isObfuscated": false
+      },
+      {
+        "identifier": {
+          "group": "org.json",
+          "artifact": "json"
+        },
+        "version": {
+          "range": "[20240303]",
+          "artifactVersion": "20240303"
+        },
+        "path": "META-INF/jarjar/json-20240303.jar",
+        "isObfuscated": false
+      },
+      {
+        "identifier": {
+          "group": "redis.clients",
+          "artifact": "jedis"
+        },
+        "version": {
+          "range": "[5.2.0]",
+          "artifactVersion": "5.2.0"
+        },
+        "path": "META-INF/jarjar/jedis-5.2.0.jar",
+        "isObfuscated": false
+      }
+    ]
+  },
+  "checks": {
+    "optional_upstream_implementation_classes_absent": true,
+    "assets_languages_migrations_own_license_present": true
+  }
+}

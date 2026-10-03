@@ -1,0 +1,32 @@
+# Server-only. Client machines never receive this file or connect to the backend.
+backend.enabled=false
+cluster.id=example_cluster
+server.id=UNCONFIGURED
+# Unique per independent server process; the world UUID is persisted under the world directory.
+# Credentials should normally come from CT_MYSQL_URL, CT_MYSQL_USER, CT_MYSQL_PASSWORD, CT_REDIS_URI.
+mysql.url=jdbc:mysql://db.internal:3306/cross_tesseract?sslMode=VERIFY_IDENTITY&connectTimeout=1500&socketTimeout=3000
+mysql.user=cross_tesseract
+mysql.password=
+redis.uri=rediss://redis.internal:6379
+chunkLoading.maxPerPlayer=2
+backend.poolSize=4
+backend.queueSize=128
+transfer.batchMillis=200
+limits.maxChannelsPerPlayer=32
+limits.maxEndpointsPerChannel=256
+# Independent server limits; all require restart.
+limits.endpointChecksPerTick=16
+limits.completionsPerTick=64
+limits.serializationsPerTick=16
+limits.localWorkBudgetMicros=2000
+limits.loadedEndpoints=8192
+limits.ticketChangesPerTick=2
+transfer.maxDepositsPerBatch=8
+buffers.itemPerSlot=64
+buffers.fluidPerSlot=16000
+buffers.fe=2000000
+buffers.eu=16777216
+buffers.chemicalPerSlot=64000
+filters.blacklist=
+filters.whitelist=
+# Item/fluid/chemical registry IDs, comma separated. Device filters add restrictions.
