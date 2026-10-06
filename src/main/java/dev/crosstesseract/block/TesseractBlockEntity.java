@@ -78,6 +78,8 @@ public final class TesseractBlockEntity extends BlockEntity implements MenuProvi
     public boolean registering() { return registering; }
     public void registering(boolean value) { registering=value; }
     public boolean registered() { return registered; }
+    /** A failed durable identity/checkpoint must be reviewed, not retried every rotation. */
+    public boolean registrationRecoveryRequired(){return !registered && !recoveryError.isEmpty();}
     public boolean endpointActive(){return endpointActive && recoveryError.isEmpty() && !binding;}
     public boolean binding(){return binding;}
     public void beginBinding(long expected){
@@ -191,7 +193,7 @@ public final class TesseractBlockEntity extends BlockEntity implements MenuProvi
     @Override public Component getDisplayName() {return Component.translatable("block.cross_tesseract.tesseract");}
     @Override public AbstractContainerMenu createMenu(int id,Inventory inventory,Player player) {return new TesseractMenu(id,inventory,worldPosition);}
     @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider registries) {
-        super.saveAdditional(tag,registries);tag.putUUID("instance",id);tag.putUUID("device_owner",owner);tag.putLong("checkpoint",buffer.revision());
+        super.saveAdditional(tag,registries);tag.putUUID("instance",id);tag.putUUID("device_owner",owner);tag.putLong("checkpoint",Math.max(savedCheckpoint,buffer.revision()));
         if(channel!=null)tag.putUUID("channel",channel);tag.putBoolean("chunk_desired",chunkDesired);
         var port=new CompoundTag();for(String kind:CompatLoader.resources()){var config=new CompoundTag();config.putString("mode",mode(kind).name());config.putInt("sides",sideMask(kind));config.putLong("rate",rate(kind));port.put(kind,config);}tag.put("ports",port);
         tag.putString("filter",filterText());tag.putBoolean("whitelist",whitelist);tag.putLong("eu_voltage",euVoltage);tag.putLong("eu_amperage",euAmperage);

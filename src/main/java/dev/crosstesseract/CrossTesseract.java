@@ -50,6 +50,7 @@ public final class CrossTesseract {
             // Optional test classes are reached only through the already-loaded optional module.
             if(Boolean.getBoolean("cross_tesseract.compatTests"))e.register(dev.crosstesseract.test.CoreBackendGameTests.class);
             if(Boolean.getBoolean("cross_tesseract.compatTests"))e.register(dev.crosstesseract.test.RuntimeDeltaGameTests.class);
+            if(Boolean.getBoolean("cross_tesseract.compatTests"))e.register(dev.crosstesseract.test.RegistrationRecoveryGameTests.class);
             if(Boolean.getBoolean("cross_tesseract.compatTests"))for(var module:CompatLoader.modules())if(module.gameTests()!=null)e.register(module.gameTests());
         });
         NeoForge.EVENT_BUS.addListener(RuntimeEvents::starting);

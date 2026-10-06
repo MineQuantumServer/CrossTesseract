@@ -151,7 +151,7 @@ public final class RuntimeService {
         if(old!=null && old!=be && !old.isRemoved()){be.pause("cloned_endpoint");return;}
         if(old!=be){loaded.put(be.id(),be);rotation.remove(be.id());rotation.addLast(be.id());}
         if(closing.containsKey(be.id())){be.pause("endpoint_closing");return;}
-        if(!online() || be.registering() || be.registered())return;
+        if(!online() || be.registering() || be.registered() || be.registrationRecoveryRequired())return;
         be.registering(true);
         UUID id=be.id();var pos=be.getBlockPos();
         Endpoint requested=new Endpoint(id,config.server(),world,be.owner(),null,be.getLevel().dimension().location().toString(),pos.getX(),pos.getY(),pos.getZ(),be.endpointVersion(),"ACTIVE",be.savedCheckpoint(),"");
@@ -167,7 +167,7 @@ public final class RuntimeService {
             if(be.chunkDesired() && !grantByEndpoint.containsKey(id))be.chunkDesired(false);
             Grant ownGrant=grantByEndpoint.get(id);if(ownGrant!=null)ticketWork.put(id,ownGrant);
             var close=closing.get(id);if(close!=null)flushClosing(close);
-        },code->{if(be.id().equals(id) && tracked(be)){be.registering(false);be.pause(code);var close=closing.get(id);if(close!=null)flushClosing(close);}});
+        },code->{if(be.id().equals(id) && tracked(be)){be.registering(false);if(Set.of("journal_missing","journal_generation_conflict","checkpoint_version_conflict","world_id_mismatch","cloned_endpoint","backup_generation_conflict","invalid_checkpoint","allocation_not_found","payload_corrupt","registry_missing","resource_unsupported","location_sealed").contains(code)){be.quarantineLocal(code);metrics.quarantined.increment();}else be.pause(code);var close=closing.get(id);if(close!=null)flushClosing(close);}});
     }
     private boolean same(TesseractBlockEntity be,UUID id){return !be.isRemoved() && be.id().equals(id) && loaded.get(id)==be;}
     public void requestStock(TesseractBlockEntity be,UUID actor,UUID request,Resource payload,long amount,boolean coalesce,Consumer<StockRequest> success,Consumer<String> failure){
@@ -189,11 +189,18 @@ public final class RuntimeService {
     public void seal(TesseractBlockEntity be,String reason){tickets.remove(be.id());be.chunkDesired(false);close(be,reason);}
     private void close(TesseractBlockEntity be,String reason){
         if(journal==null || backend==null)return;
+        // The buffer was never restored. Its empty/default state is not a checkpoint.
+        // Preserve the original WAL; physical removal can seal SQL ownership separately.
+        if(be.registrationRecoveryRequired()){
+            if(reason!=null){UUID id=be.id();submit(a->{a.sealEndpoint(id,reason);a.confirmChunkOff(id);return true;},x->{},x->{});}
+            return;
+        }
         var entry=closing.get(be.id());if(entry==null){entry=new Closing(be,reason);closing.put(be.id(),entry);closingRotation.addLast(be.id());}else if(reason!=null)entry.sealReason=reason;
         unindex(be.id());flushClosing(entry);
     }
     private void flushClosing(Closing entry){
         var be=entry.be;if(entry.writing || be.inFlight() || be.registering() || heatInFlight.contains(be.id()))return;
+        if(be.registrationRecoveryRequired()){closing.remove(be.id(),entry);closingRotation.remove(be.id());close(be,entry.sealReason);return;}
         var reservation=completions.tryReserve();if(reservation==null){entry.retry=System.nanoTime()+TimeUnit.SECONDS.toNanos(1);return;}
         // IO is admitted even offline. Persistent quota is not released merely by losing a lease.
         var snapshot=be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot());String reason=entry.sealReason,review=entry.quarantineReason;entry.writing=true;
@@ -247,7 +254,7 @@ public final class RuntimeService {
         int checks=Math.min(limits.checks()-priority,rotation.size());long now=System.nanoTime();
         for(int i=0;i<checks && System.nanoTime()-start<limits.tickNanos();i++){
             UUID id=rotation.pollFirst();var be=loaded.get(id);if(be==null || be.isRemoved())continue;rotation.addLast(id);
-            if(!be.registered()){if(now>=nextPoll.getOrDefault(id,0L)){schedule(id,now+TimeUnit.SECONDS.toNanos(1));register(be);}continue;}
+            if(!be.registered()){if(!be.registrationRecoveryRequired() && now>=nextPoll.getOrDefault(id,0L)){schedule(id,now+TimeUnit.SECONDS.toNanos(1));register(be);}continue;}
             index(be);
             if(!online() || be.channel()==null || !be.pauseReason().isEmpty()){for(var module:CompatLoader.modules())module.suspended(be);continue;}
             if(limits.transfer().localFast() || !be.inFlight() && now>=nextPoll.getOrDefault(id,0L))exchangeLocal(be);
