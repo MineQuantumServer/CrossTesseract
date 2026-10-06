@@ -166,13 +166,14 @@ public final class RuntimeService {
                     // for an unbound endpoint that will never enter an ordinary transfer batch.
                     long revision;try{revision=Math.addExact(restored.revision(),1);}catch(ArithmeticException overflow){throw new DomainException("invalid_checkpoint");}
                     var durable=new LocalSnapshot(restored.endpoint(),restored.world(),restored.generation(),revision,restored.deposits(),restored.credits(),restored.thermal());
-                    journal.write(durable);var remaining=new HashMap<UUID,Long>();for(var credit:durable.credits())remaining.put(credit.transaction(),credit.remaining());a.checkpoint(id,revision,remaining);
+                    journal.write(durable);dev.crosstesseract.test.Faults.registrationHit(id);var remaining=new HashMap<UUID,Long>();for(var credit:durable.credits())remaining.put(credit.transaction(),credit.remaining());a.checkpoint(id,revision,remaining);
                     local=Optional.of(restored);
                 }return Map.entry(result,local);
             }catch(java.io.IOException | DomainException e){a.quarantineEndpoint(id,errorCode(e));throw e;}
         },result->{
             if(!be.id().equals(id) || !tracked(be))return;
-            be.applyEndpoint(result.getKey());result.getValue().ifPresent(s->{try{be.buffer().restore(s);be.thermal().restore(s.thermal());}catch(DomainException e){be.quarantineLocal(e.code());submit(a->{a.quarantineEndpoint(id,e.code());return true;},x->{},x->{});}});
+            try{result.getValue().ifPresent(s->{be.buffer().restore(s);be.thermal().restore(s.thermal());});be.applyEndpoint(result.getKey());}
+            catch(DomainException error){be.registering(false);be.quarantineLocal(error.code());submit(a->{a.quarantineEndpoint(id,error.code());return true;},x->{},x->{});var close=closing.get(id);if(close!=null)flushClosing(close);return;}
             if(same(be,id)){for(var m:CompatLoader.modules())m.attach(be);index(be);schedule(id,System.nanoTime());}
             if(be.chunkDesired() && !grantByEndpoint.containsKey(id))be.chunkDesired(false);
             Grant ownGrant=grantByEndpoint.get(id);if(ownGrant!=null)ticketWork.put(id,ownGrant);
@@ -201,7 +202,7 @@ public final class RuntimeService {
         if(journal==null || backend==null)return;
         // The buffer was never restored. Its empty/default state is not a checkpoint.
         // Preserve the original WAL; physical removal can seal SQL ownership separately.
-        if(be.registrationRecoveryRequired()){
+        if(!be.registered() && !be.registering()){
             if(reason!=null){UUID id=be.id();submit(a->{a.sealEndpoint(id,reason);a.confirmChunkOff(id);return true;},x->{},x->{});}
             return;
         }
@@ -210,7 +211,12 @@ public final class RuntimeService {
     }
     private void flushClosing(Closing entry){
         var be=entry.be;if(entry.writing || be.inFlight() || be.registering() || heatInFlight.contains(be.id()))return;
-        if(be.registrationRecoveryRequired()){closing.remove(be.id(),entry);closingRotation.remove(be.id());close(be,entry.sealReason);return;}
+        if(!be.registered()){
+            // Registration may have fsynced a newer WAL before a SQL response failed.
+            // Empty memory has never acquired that ownership and is not a checkpoint.
+            closing.remove(be.id(),entry);closingRotation.remove(be.id());idle.remove(be.id());nextPoll.remove(be.id());ioVersions.remove(be.id());nextHeat.remove(be.id());
+            close(be,entry.sealReason);return;
+        }
         var reservation=completions.tryReserve();if(reservation==null){entry.retry=System.nanoTime()+TimeUnit.SECONDS.toNanos(1);return;}
         // IO is admitted even offline. Persistent quota is not released merely by losing a lease.
         var snapshot=be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot());String reason=entry.sealReason,review=entry.quarantineReason;entry.writing=true;
@@ -473,7 +479,7 @@ public final class RuntimeService {
                 for(var be:loaded.values())if(be.registered()){
                     snapshots.put(be.id(),be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()));
                 }
-                for(var entry:closing.values()){var be=entry.be;snapshots.put(be.id(),be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()));if(entry.sealReason!=null)sealed.put(be.id(),entry.sealReason);if(entry.quarantineReason!=null)reviewed.put(be.id(),entry.quarantineReason);}
+                for(var entry:closing.values()){var be=entry.be;if(be.registered())snapshots.put(be.id(),be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()));if(entry.sealReason!=null)sealed.put(be.id(),entry.sealReason);if(entry.quarantineReason!=null)reviewed.put(be.id(),entry.quarantineReason);}
                 shutdownIo=Executors.newSingleThreadExecutor(threadFactory("ct-shutdown"));
                 var prepared=shutdownIo.submit(()->{
                     long renewed=System.nanoTime();backend.heartbeat();
@@ -483,6 +489,8 @@ public final class RuntimeService {
                         if(sealed.containsKey(snapshot.endpoint())){backend.sealEndpoint(snapshot.endpoint(),sealed.get(snapshot.endpoint()));backend.confirmChunkOff(snapshot.endpoint());}
                         if(System.nanoTime()-renewed>TimeUnit.SECONDS.toNanos(2)){backend.heartbeat();renewed=System.nanoTime();}
                     }
+                    for(var id:reviewed.keySet())if(!snapshots.containsKey(id))backend.quarantineEndpoint(id,reviewed.get(id));
+                    for(var id:sealed.keySet())if(!snapshots.containsKey(id)){backend.sealEndpoint(id,sealed.get(id));backend.confirmChunkOff(id);}
                     return !journalFailed;
                 });
                 clean=prepared.get(8,TimeUnit.SECONDS);

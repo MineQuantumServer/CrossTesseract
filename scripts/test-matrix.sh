@@ -25,7 +25,7 @@ rows=[]
 for label in ('base','mekanism','ae2','ae2-mekanism','gregtech','gregtech-mekanism','ae2-gregtech','ae2-gregtech-mekanism'):
     path=Path('logs')/f'matrix-{label}.log';s=path.read_text();match=re.search(r'All (\d+) required tests passed',s)
     mods={'mekanism':'(mekanism)','ae2':'(ae2)','gregtech':'(gtceu)'}
-    expected=9+sum((3 if m=='ae2' else 2) for m in mods if m in label.split('-'))
+    expected=10+sum((3 if m=='ae2' else 2) for m in mods if m in label.split('-'))
     present=all(token in s for m,token in mods.items() if m in label.split('-'))
     rows.append({'combination':label,'passed':bool(match) and int(match[1])>=expected and present and 'BUILD SUCCESSFUL' in s,'required_native_tests':int(match[1]) if match else None,'minimum_expected_tests':expected,'optional_mods_present':present,'log':str(path)})
 Path('reports/compat-matrix.json').write_text(json.dumps({'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'scope':'Real NeoForge GameTest JVMs with real MySQL/Redis; GT is exact FortyTwoCn source plus disclosed local ModularUI 3.3.1 alternative.','combinations':rows},indent=2)+'\n')
