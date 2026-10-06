@@ -8,6 +8,8 @@ import java.util.*;
 
 public final class CompatLoader {
     private static final List<CompatModule> MODULES=new ArrayList<>();
+    // Compatibility switches require restart. Publish only immutable startup resource identities.
+    private static volatile Set<String> RESOURCES=Protocol.BASE;
     public static void register(RegisterCapabilitiesEvent event) {
         for(var spec:Map.of("ae2","ae2.AeModule","mekanism","mekanism.MekModule","gtceu","gregtech.GtModule").entrySet()) {
             if(!ModList.get().isLoaded(spec.getKey()) || !Boolean.parseBoolean(System.getProperty("cross_tesseract.compat."+spec.getKey(),"true"))) continue;
@@ -15,12 +17,13 @@ public final class CompatLoader {
                 // No optional type is referenced by a core descriptor, annotation or scanner entry.
                 var module=(CompatModule)Class.forName("dev.crosstesseract.compat."+spec.getValue()).getConstructor().newInstance();
                 module.register(event);MODULES.add(module);
+                var resources=new HashSet<>(RESOURCES);resources.addAll(module.resources());RESOURCES=Set.copyOf(resources);
             } catch(ReflectiveOperationException | LinkageError e) {
                 throw new IllegalStateException("Installed optional mod API incompatible: "+spec.getKey(),e);
             }
         }
     }
-    public static Set<String> resources() { var set=new HashSet<>(Protocol.BASE);for(var m:MODULES)set.addAll(m.resources());return Set.copyOf(set); }
+    public static Set<String> resources() { return RESOURCES; }
     public static List<CompatModule> modules() { return Collections.unmodifiableList(MODULES); }
     public static Set<String> capabilities(){var set=new HashSet<>(resources());for(var module:MODULES)set.addAll(module.features());return Set.copyOf(set);}
     public static boolean aeAvailable(){return MODULES.stream().anyMatch(m->m.getClass().getName().endsWith("AeModule"));}

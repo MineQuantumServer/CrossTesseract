@@ -23,13 +23,20 @@ public final class LocalBuffer {
         long count=0; for(Stack stack:tx(kind)) if(stack!=null)count=Math.addExact(count,stack.amount());
         for(Deposit deposit:deposits.values()) if(deposit.resource().kind().equals(kind))count=Math.addExact(count,deposit.amount()); return count;
     }
-    public long receiveAmount(String kind) { return credits.values().stream().filter(c->c.resource().kind().equals(kind)).mapToLong(Credit::remaining).reduce(0,Math::addExact); }
+    public long receiveAmount(String kind) {
+        long amount=0;for(Credit credit:credits.values())if(credit.resource().kind().equals(kind))amount=Math.addExact(amount,credit.remaining());return amount;
+    }
     public Stack sent(String kind,int slot) { DomainException.require(slot>=0 && slot<slots(kind),"invalid_slot"); return tx(kind)[slot]; }
     private Stack[] tx(String kind) { return sending.computeIfAbsent(kind,k->new Stack[slots(k)]); }
     public List<Credit> received(String kind) { return credits.values().stream().filter(c->c.resource().kind().equals(kind) && c.remaining()>0).toList(); }
     public static int creditLimit(String kind){return kind.equals(Protocol.FE)||kind.equals(Protocol.EU)?32:slots(kind);}
     public long receiveRoom(String kind) {
-        int used=received(kind).size(); return credits.size()>=64 || used>=creditLimit(kind)?0:slots(kind)*slotCapacity(kind)-Math.min(slots(kind)*slotCapacity(kind),receiveAmount(kind));
+        // Zero credits remain recovery tombstones until SQL confirms consumption. They occupy
+        // the global bound, but not a positive per-kind slot. No temporary inventory list/cache.
+        if(credits.size()>=64)return 0;
+        int used=0;
+        for(Credit credit:credits.values())if(credit.resource().kind().equals(kind) && credit.remaining()>0 && ++used>=creditLimit(kind))return 0;
+        long capacity=slots(kind)*slotCapacity(kind);return capacity-Math.min(capacity,receiveAmount(kind));
     }
     public long insert(Resource resource,int slot,long amount,boolean simulate) {
         DomainException.require(amount>=0 && slot>=0 && slot<slots(resource.kind()),"invalid_amount");

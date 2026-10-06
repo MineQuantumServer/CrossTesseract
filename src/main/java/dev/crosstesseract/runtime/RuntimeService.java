@@ -294,7 +294,11 @@ public final class RuntimeService {
     private void wakeChannel(UUID channel,boolean remote){
         var ids=channelEndpoints.get(channel);if(ids==null)return;
         // At most the configured per-channel endpoint limit; hints do not create assets.
-        for(UUID id:ids){var be=loaded.get(id);if(be!=null && be.registered() && be.pauseReason().isEmpty() && be.channel()!=null && !be.binding() && CompatLoader.resources().stream().anyMatch(kind->!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,false)&&be.buffer().receiveRoom(kind)>0))signal(channel,id);}
+        var resources=CompatLoader.resources();
+        for(UUID id:ids){var be=loaded.get(id);
+            if(be==null || !be.registered() || !be.pauseReason().isEmpty() || be.channel()==null || be.binding())continue;
+            for(String kind:resources)if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){signal(channel,id);break;}
+        }
         if(remote)metrics.remoteWake.increment();else metrics.localWake.increment();
     }
     private boolean tracked(TesseractBlockEntity be){var entry=closing.get(be.id());return loaded.get(be.id())==be || entry!=null && entry.be==be;}
