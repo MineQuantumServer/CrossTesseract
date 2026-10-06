@@ -378,7 +378,6 @@ public final class RuntimeService {
     public void reclaimSealed(UUID actor,UUID id,long expected,String confirmation,Consumer<Long> success,Consumer<String> failure){
         if(loaded.containsKey(id) || closing.containsKey(id)){failure.accept("endpoint_still_loaded");return;}
         submit(a->{var snapshot=journal.read(id).orElseGet(()->new LocalSnapshot(id,world,a.session().generation(),0,List.of(),List.of()));
-            var remaining=new HashMap<UUID,Long>();for(Credit c:snapshot.credits())remaining.put(c.transaction(),c.remaining());a.checkpoint(id,snapshot.revision(),remaining);
             return a.reclaimSealed(actor,snapshot,expected,confirmation);
         },success,failure);
     }
@@ -442,7 +441,7 @@ public final class RuntimeService {
             if(!installed){submit(a->{a.sealEndpoint(id,"invalid_world_position");return true;},x->{},x->{});}
         }
     }
-    private void fail(Throwable e){onlineUntil=0;status=errorCode(e);metrics.errors.increment();long now=System.nanoTime();if(now-lastLog>TimeUnit.SECONDS.toNanos(10)){lastLog=now;CrossTesseract.LOG.warn("CrossServer Tesseract paused: {} ({})",status,e.getClass().getSimpleName());}}
+    private void fail(Throwable e){onlineUntil=0;status=errorCode(e);metrics.errors.increment();long now=System.nanoTime();if(now-lastLog>TimeUnit.SECONDS.toNanos(10)){lastLog=now;CrossTesseract.LOG.warn("CrossServer Tesseract paused: {} ({})",status,e.getClass().getSimpleName());if(Boolean.getBoolean("cross_tesseract.compatTests") && e instanceof net.minecraft.gametest.framework.GameTestAssertException)CrossTesseract.LOG.warn("CT_NATIVE_CALLBACK_ASSERTION",e);}}
     public static String errorCode(Throwable error){if(error instanceof DomainException e)return e.code();if(error instanceof java.sql.SQLException e)return e.getErrorCode()==1644&&"cross_tesseract_history_limit".equals(e.getMessage())?"history_limit":"database_unavailable";if(error instanceof java.io.IOException)return "journal_unavailable";if(error instanceof redis.clients.jedis.exceptions.JedisException)return "redis_unavailable";return "backend_error";}
     public void stop(){
         stopping=true;onlineUntil=0;tickets.clear();scheduler.shutdownNow();

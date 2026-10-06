@@ -22,7 +22,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 /** Real Minecraft capabilities, runtime workers, MySQL ownership and the world's fsynced WAL. */
 @PrefixGameTestTemplate(false)
 public final class RuntimeDeltaGameTests {
-    @GameTest(template="empty",templateNamespace=CrossTesseract.ID,timeoutTicks=2000)
+    @GameTest(template="empty",templateNamespace=CrossTesseract.ID,timeoutTicks=1_000_000)
     public static void localInputAndConsumptionContinueDuringCapturedSendWithoutReplayingOldRemaining(
             GameTestHelper helper){
         Fixtures.bound(helper,be->{

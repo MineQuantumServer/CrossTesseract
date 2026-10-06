@@ -722,14 +722,35 @@ public final class Authority implements AutoCloseable {
             // Sealing disables deposits and allocation. Read the immutable set of owned
             // channels, lock them in UUID order BEFORE endpoint/transfer rows, then revalidate.
             var channels=new TreeSet<UUID>();for(var deposit:checkpoint.deposits())channels.add(deposit.channel());
+            for(var credit:checkpoint.credits())channels.add(credit.channel());
             for(var transfer:query(c,"SELECT channel_id FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND kind='ALLOCATE' AND remaining>0",cluster(),checkpoint.endpoint()))channels.add(uuid(transfer,"channel_id"));
             for(UUID channel:channels){var row=one(c,"SELECT status FROM ct_channels WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),channel);require(row!=null && !"DELETED".equals(str(row,"status")),"channel_not_found");}
             var e=localEndpoint(c,checkpoint.endpoint(),false);version(e,expected);
             require("SEALED".equals(str(e,"state")),"endpoint_not_sealed");require(checkpoint.revision()>=num(e,"checkpoint"),"stale_checkpoint");
             require(one(c,"SELECT endpoint_id FROM ct_chunk_grants WHERE cluster_id=? AND endpoint_id=?",cluster(),checkpoint.endpoint())==null,"revocation_pending");
             require(one(c,"SELECT exchange_id FROM ct_heat_exchanges WHERE cluster_id=? AND endpoint_id=? AND state='PREPARED' LIMIT 1",cluster(),checkpoint.endpoint())==null,"heat_exchange_pending");
+            // Reconcile durable LOCAL consumption inside this recovery transaction. A WAL
+            // receipt is not permission to promote RESERVED ownership to a spendable credit.
+            // The endpoint is already SEALED, and the operator has explicitly accepted the
+            // external-save uncertainty. No normal timeout or lease expiry calls this path.
+            require(checkpoint.credits().size()<=64,"invalid_checkpoint");
+            var seenCredits=new HashSet<UUID>();
+            for(var credit:checkpoint.credits()){
+                require(seenCredits.add(credit.transaction()),"invalid_checkpoint");
+                var row=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND transfer_id=? AND kind='ALLOCATE' FOR UPDATE",cluster(),checkpoint.endpoint(),credit.transaction());
+                require(row!=null && channels.contains(uuid(row,"channel_id")),"invalid_checkpoint");
+                var owned=allocation(c,row);
+                require(owned.channel().equals(credit.channel()) && owned.payload().equals(credit.resource()) && owned.amount()==credit.original() && credit.remaining()<=owned.remaining(),"invalid_checkpoint");
+                if(Set.of("RESERVED","QUARANTINED").contains(owned.state())){
+                    require(credit.remaining()==owned.remaining(),"allocation_not_local");
+                }else{
+                    require(Set.of("LOCAL","CONSUMED").contains(owned.state()),"invalid_checkpoint");
+                    update(c,"UPDATE ct_transfers SET remaining=?,state=? WHERE cluster_id=? AND transfer_id=?",credit.remaining(),credit.remaining()==0?"CONSUMED":"LOCAL",cluster(),credit.transaction());
+                }
+            }
+            update(c,"UPDATE ct_endpoints SET checkpoint=? WHERE cluster_id=? AND endpoint_id=?",checkpoint.revision(),cluster(),checkpoint.endpoint());
             var allocated=query(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND kind='ALLOCATE' AND remaining>0 FOR UPDATE",cluster(),checkpoint.endpoint());
-            for(var transfer:allocated)require(channels.contains(uuid(transfer,"channel_id")),"binding_changed");
+            for(var transfer:allocated){require(channels.contains(uuid(transfer,"channel_id")),"binding_changed");allocation(c,transfer);}
             long reclaimed=0;
             for(var d:checkpoint.deposits()){
                 var old=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND transfer_id=?",cluster(),d.transaction());

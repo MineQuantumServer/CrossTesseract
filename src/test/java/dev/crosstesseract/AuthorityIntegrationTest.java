@@ -220,12 +220,25 @@ class AuthorityIntegrationTest {
     @Test void sealedRecoveryUsesOriginalOwnershipAndCannotRepeatReclaimedAssets() throws Exception {
         var a=servers.getFirst();UUID ch=a.createChannel(owner,"sealed_recovery",BusinessIds.next());var initial=device(0,owner,900,0);var e=a.bind(owner,initial.id(),initial.version(),ch);var r=new Resource(Protocol.FE,new byte[0]);UUID deposited=BusinessIds.next(),pending=BusinessIds.next();
         a.deposit(deposited,e.id(),ch,r,50);a.demand(e.id(),ch,Protocol.FE,10);var allocated=a.allocate(BusinessIds.next(),e.id(),ch,Protocol.FE,10).orElseThrow();a.markLocal(e.id(),allocated.id());a.checkpoint(e.id(),1,Map.of(allocated.id(),6L));a.sealEndpoint(e.id(),"removed");
-        var snapshot=new LocalSnapshot(e.id(),a.session().world(),a.session().generation(),1,List.of(new LocalSnapshot.Deposit(deposited,ch,r,50),new LocalSnapshot.Deposit(pending,ch,r,20)),List.of(new LocalSnapshot.Credit(allocated.id(),ch,r,10,6)));
+        var snapshot=new LocalSnapshot(e.id(),a.session().world(),a.session().generation(),2,List.of(new LocalSnapshot.Deposit(deposited,ch,r,50),new LocalSnapshot.Deposit(pending,ch,r,20)),List.of(new LocalSnapshot.Credit(allocated.id(),ch,r,10,3)));
         long version=a.endpoint(e.id()).version();rejected("recovery_confirmation_required",()->a.reclaimSealed(owner,snapshot,version,""));
-        assertEquals(26,a.reclaimSealed(owner,snapshot,version,"ACKNOWLEDGE_EXTERNAL_SAVE_UNCERTAINTY"));assertEquals("RETIRED",a.endpoint(e.id()).state());
+        assertEquals(23,a.reclaimSealed(owner,snapshot,version,"ACKNOWLEDGE_EXTERNAL_SAVE_UNCERTAINTY"));assertEquals("RETIRED",a.endpoint(e.id()).state());
         rejected("stale_version",()->a.reclaimSealed(owner,snapshot,version,"ACKNOWLEDGE_EXTERNAL_SAVE_UNCERTAINTY"));
-        long balance=a.database().transaction(c->Sql.num(Sql.one(c,"SELECT SUM(amount) AS n FROM ct_balances WHERE cluster_id=? AND channel_id=?",cluster,ch),"n"));assertEquals(66,balance,"70 accepted - 4 externally extracted; committed deposit not replayed");
+        long balance=a.database().transaction(c->Sql.num(Sql.one(c,"SELECT SUM(amount) AS n FROM ct_balances WHERE cluster_id=? AND channel_id=?",cluster,ch),"n"));assertEquals(63,balance,"70 accepted - 7 externally extracted, including late WAL consumption; committed deposit not replayed");
         var replacement=device(0,owner,900,0);assertNotEquals(e.id(),replacement.id());
+    }
+    @Test void sealedReservedReceiptIsNeverPromotedByCheckpointOrReclaimedWithUnprovenConsumption() throws Exception {
+        var a=servers.getFirst();UUID ch=a.createChannel(owner,"sealed_reserved",BusinessIds.next());var initial=device(0,owner,901,0);var e=a.bind(owner,initial.id(),initial.version(),ch);var r=new Resource(Protocol.FE,new byte[0]);
+        a.deposit(BusinessIds.next(),e.id(),ch,r,50);a.demand(e.id(),ch,Protocol.FE,10);var allocation=a.allocate(BusinessIds.next(),e.id(),ch,Protocol.FE,10).orElseThrow();
+        rejected("allocation_not_local",()->a.checkpoint(e.id(),1,Map.of(allocation.id(),10L)));
+        a.sealEndpoint(e.id(),"removed");long version=a.endpoint(e.id()).version();
+        var impossible=new LocalSnapshot(e.id(),a.session().world(),a.session().generation(),1,List.of(),List.of(new LocalSnapshot.Credit(allocation.id(),ch,r,10,9)));
+        rejected("allocation_not_local",()->a.reclaimSealed(owner,impossible,version,"ACKNOWLEDGE_EXTERNAL_SAVE_UNCERTAINTY"));
+        assertEquals("RESERVED",a.allocations(e.id()).getFirst().state());assertEquals(10,a.allocations(e.id()).getFirst().remaining());
+        var valid=new LocalSnapshot(e.id(),a.session().world(),a.session().generation(),1,List.of(),List.of(new LocalSnapshot.Credit(allocation.id(),ch,r,10,10)));
+        assertEquals(10,a.reclaimSealed(owner,valid,version,"ACKNOWLEDGE_EXTERNAL_SAVE_UNCERTAINTY"));
+        assertEquals("RETIRED",a.endpoint(e.id()).state());
+        long balance=a.database().transaction(c->Sql.num(Sql.one(c,"SELECT SUM(amount) AS n FROM ct_balances WHERE cluster_id=? AND channel_id=?",cluster,ch),"n"));assertEquals(50,balance);
     }
     @Test void quotaReductionIsDeterministicAndRetainsSlotsUntilRevocationAck() throws Exception {
         var a=servers.getFirst();UUID player=BusinessIds.next();var first=device(0,player,910,0);var second=device(1,player,911,0);a.reserveChunk(player,first.id(),BusinessIds.next(),false);servers.get(1).reserveChunk(player,second.id(),BusinessIds.next(),false);long version=a.policy().get("policy_version");
