@@ -34,7 +34,7 @@ def package(name, paths):
                 raise RuntimeError('Missing/unsafe file: ' + str(path))
             relative = path.relative_to(ROOT)
             if any(part in ('.git', '.gradle', 'scratch', 'shared', 'volumes')
-                   or part.startswith('run-') for part in relative.parts):
+                   or part.startswith('run-') for part in relative.parts[:-1]):
                 raise RuntimeError('Forbidden delivery path: ' + str(relative))
             if relative.name == '.env' or relative.name.endswith('.local.properties'):
                 raise RuntimeError('Credential file in delivery: ' + str(relative))
