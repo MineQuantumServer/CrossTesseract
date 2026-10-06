@@ -15,7 +15,9 @@ public final class Faults {
     private record Point(String phase,UUID endpoint){}
     private static final AtomicReference<Point> armed=new AtomicReference<>();
     private static final String REGISTRATION_PHASE="after_restore_wal";
-    private static final Set<String> phases=Set.of("after_send_wal","after_deposit","after_allocation","after_receive_wal","after_local_sql",REGISTRATION_PHASE);
+    private static final String UNHYDRATED_SEAL_PHASE="before_unhydrated_seal";
+    private static final String BEFORE_REGISTER_SQL="before_register_sql",AFTER_REGISTER_SQL="after_register_sql";
+    private static final Set<String> phases=Set.of("after_send_wal","after_deposit","after_allocation","after_receive_wal","after_local_sql",REGISTRATION_PHASE,UNHYDRATED_SEAL_PHASE,BEFORE_REGISTER_SQL,AFTER_REGISTER_SQL);
     private static final int MAX_HOLDS=16;
     private static final long HOLD_NANOS=TimeUnit.SECONDS.toNanos(5);
     private static final Object admission=new Object();
@@ -31,6 +33,14 @@ public final class Faults {
     public static Hold holdLostRegistrationConfirmation(String cluster,UUID endpoint){
         return hold(cluster,REGISTRATION_PHASE,endpoint,true);
     }
+    /** One checked failure before the unhydrated SQL seal attempt; the database stays running. */
+    public static Hold holdFailUnhydratedSealOnce(String cluster,UUID endpoint){
+        return hold(cluster,UNHYDRATED_SEAL_PHASE,endpoint,true);
+    }
+    /** New endpoint: fail before registerEndpoint starts; no SQL registration was committed. */
+    public static Hold holdFailedBeforeSqlRegistration(String cluster,UUID endpoint){return hold(cluster,BEFORE_REGISTER_SQL,endpoint,true);}
+    /** Fail to return registration after its real SQL commit; this is not a network COMMIT ACK fault. */
+    public static Hold holdLostAfterSqlRegistration(String cluster,UUID endpoint){return hold(cluster,AFTER_REGISTER_SQL,endpoint,true);}
     private static Hold hold(String cluster,String phase,UUID endpoint,boolean failSqlOnRelease){
         DomainException.require((Boolean.getBoolean("cross_tesseract.testHarness")||Boolean.getBoolean("cross_tesseract.compatTests")) && isolated(cluster) && phases.contains(phase) && endpoint!=null,"forbidden");
         synchronized(admission){
@@ -53,6 +63,24 @@ public final class Faults {
         if(hold!=null && hold.phase.equals(REGISTRATION_PHASE) && hold.awaitRelease() && hold.claimSqlFailure()){
             CrossTesseract.LOG.warn("CT_TEST_FAULT after_restore_wal endpoint={} injected=SQL_confirmation_failure actual_database_outage=false",endpoint);
             throw new SQLException("CT_TEST_CHECKPOINT_CONFIRMATION_LOST after_restore_wal","08006");
+        }
+    }
+    /** Closing worker only. This tests retained SQL intent, not a real database outage. */
+    public static void unhydratedSealHit(UUID endpoint) throws SQLException {
+        crash(UNHYDRATED_SEAL_PHASE,endpoint);
+        var hold=holds.get(endpoint);
+        if(hold!=null && hold.phase.equals(UNHYDRATED_SEAL_PHASE) && hold.awaitRelease() && hold.claimSqlFailure()){
+            CrossTesseract.LOG.warn("CT_TEST_FAULT before_unhydrated_seal endpoint={} injected=SQL_seal_attempt_failure actual_database_outage=false",endpoint);
+            throw new SQLException("CT_TEST_SQL_SEAL_ATTEMPT_FAILED before_unhydrated_seal","08006");
+        }
+    }
+    public static void registrationBeforeSqlHit(UUID endpoint) throws SQLException {registrationBoundaryHit(endpoint,BEFORE_REGISTER_SQL,false);}
+    public static void registrationAfterSqlHit(UUID endpoint) throws SQLException {registrationBoundaryHit(endpoint,AFTER_REGISTER_SQL,true);}
+    private static void registrationBoundaryHit(UUID endpoint,String phase,boolean committed) throws SQLException {
+        crash(phase,endpoint);var hold=holds.get(endpoint);
+        if(hold!=null && hold.phase.equals(phase) && hold.awaitRelease() && hold.claimSqlFailure()){
+            CrossTesseract.LOG.warn("CT_TEST_FAULT {} endpoint={} injected=SQL_registration_boundary_failure register_sql_committed={} actual_database_outage=false",phase,endpoint,committed);
+            throw new SQLException("CT_TEST_REGISTRATION_BOUNDARY_FAILURE "+phase,"08006");
         }
     }
     private static void crash(String phase,UUID endpoint){

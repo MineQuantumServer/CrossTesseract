@@ -55,6 +55,7 @@ public final class RuntimeService {
     private volatile Authority backend;
     private volatile RedisTransport redis;
     private volatile LocalJournal journal;
+    private volatile Path journalDirectory;
     private volatile long onlineUntil;
     private volatile String status="connecting";
     private volatile boolean stopping;
@@ -74,6 +75,7 @@ public final class RuntimeService {
     private volatile int effectiveQuota;
     private long lastLog;
     private volatile long lastInternalTrace;
+    private long lastClosingRejection;
     private long nextHistorySweep;
     private RuntimeService(MinecraftServer server,BackendConfig config,RuntimeLimits limits) {
         this.server=server;this.config=config;this.limits=limits;effectiveQuota=config.quota();tickets=new ChunkTickets(server);
@@ -86,7 +88,7 @@ public final class RuntimeService {
                 Path directory=server.getWorldPath(LevelResource.ROOT).resolve("cross_tesseract");Files.createDirectories(directory);
                 Path identity=directory.resolve("world-id");
                 if(Files.exists(identity))world=UUID.fromString(Files.readString(identity,StandardCharsets.UTF_8).trim());else {world=BusinessIds.next();Files.writeString(identity,world.toString(),StandardCharsets.UTF_8,StandardOpenOption.CREATE_NEW);}
-                journal=new LocalJournal(directory.resolve("journal"));backend=new Authority(config);redis=new RedisTransport(config);
+                journalDirectory=directory.resolve("journal");journal=new LocalJournal(journalDirectory);backend=new Authority(config);redis=new RedisTransport(config);
                 redis.healthy();backend.join(world,boot,CompatLoader.capabilities());joined=true;
                 maintain();
             }catch(Exception | LinkageError e){fail(e);}
@@ -156,7 +158,7 @@ public final class RuntimeService {
         UUID id=be.id();var pos=be.getBlockPos();
         Endpoint requested=new Endpoint(id,config.server(),world,be.owner(),null,be.getLevel().dimension().location().toString(),pos.getX(),pos.getY(),pos.getZ(),be.endpointVersion(),"ACTIVE",be.savedCheckpoint(),"");
         long trustedCheckpoint=Math.max(requested.checkpoint(),locallyClosed.getOrDefault(id,0L));
-        submit(a->{var result=a.registerEndpoint(requested,trustedCheckpoint);
+        submit(a->{dev.crosstesseract.test.Faults.registrationBeforeSqlHit(id);var result=a.registerEndpoint(requested,trustedCheckpoint);dev.crosstesseract.test.Faults.registrationAfterSqlHit(id);
             try{var local=journal.read(id);DomainException.require(local.isPresent() || result.checkpoint()==0,"journal_missing");
                 if(local.isPresent()){
                     var s=local.orElseThrow();DomainException.require(s.world().equals(world) && s.generation()==a.session().generation() && s.revision()>=Math.max(trustedCheckpoint,result.checkpoint()),"journal_generation_conflict");
@@ -196,45 +198,82 @@ public final class RuntimeService {
             if(same(be,id)){be.bindingSucceeded(endpoint);index(be);success.accept(endpoint);}else {if(tracked(be)){be.bindingSucceeded(endpoint);var close=closing.get(id);if(close!=null)flushClosing(close);}failure.accept("endpoint_not_found");}
         },code->{if(tracked(be))be.bindingFailed(code);failure.accept(code);});
     }
-    public void unload(TesseractBlockEntity be){close(be,null);loaded.remove(be.id(),be);rotation.remove(be.id());unindex(be.id());nextPoll.remove(be.id());idle.remove(be.id());}
-    public void seal(TesseractBlockEntity be,String reason){tickets.remove(be.id());be.chunkDesired(false);close(be,reason);}
+    public void unload(TesseractBlockEntity be){if(!closingIdentity(be))return;close(be,null);loaded.remove(be.id(),be);rotation.remove(be.id());unindex(be.id());nextPoll.remove(be.id());idle.remove(be.id());}
+    public void seal(TesseractBlockEntity be,String reason){if(!closingIdentity(be))return;tickets.remove(be.id());be.chunkDesired(false);close(be,reason);}
+    private boolean closingIdentity(TesseractBlockEntity be){
+        var current=loaded.get(be.id());var entry=closing.get(be.id());
+        return (current==null || current==be) && (entry==null || entry.be==be);
+    }
+    private Closing reserveClosing(TesseractBlockEntity be,String reason){
+        if(!closingIdentity(be))return null;
+        UUID id=be.id();var entry=closing.get(id);
+        if(entry==null){
+            var flight=transfers.get(id);boolean admitted=loaded.get(id)==be || flight!=null && flight.be==be;
+            if(!admitted && loaded.size()+closing.size()>=limits.loadedLimit()){
+                journalFailed=true;be.pause("endpoint_load_limit");metrics.rejected.increment();long now=System.nanoTime();
+                if(lastClosingRejection==0 || now-lastClosingRejection>=TimeUnit.SECONDS.toNanos(10)){
+                    lastClosingRejection=now;CrossTesseract.LOG.warn("CT_CLOSING_REJECTED endpoint={} reason=endpoint_load_limit WAL_SQL_unchanged=true recovery_review_required=true shutdown_unclean=true",id);
+                }
+                return null;
+            }
+            entry=new Closing(be,reason);closing.put(id,entry);closingRotation.addLast(id);
+        }else if(reason!=null)entry.sealReason=reason;
+        return entry;
+    }
     private void close(TesseractBlockEntity be,String reason){
-        if(journal==null || backend==null)return;
-        // The buffer was never restored. Its empty/default state is not a checkpoint.
-        // Preserve the original WAL; physical removal can seal SQL ownership separately.
-        if(!be.registered() && !be.registering()){
-            if(reason!=null){UUID id=be.id();submit(a->{a.sealEndpoint(id,reason);a.confirmChunkOff(id);return true;},x->{},x->{});}
-            return;
-        }
-        var entry=closing.get(be.id());if(entry==null){entry=new Closing(be,reason);closing.put(be.id(),entry);closingRotation.addLast(be.id());}else if(reason!=null)entry.sealReason=reason;
+        if(!closingIdentity(be) || journal==null || backend==null)return;
+        var entry=closing.get(be.id());
+        // Empty, unrestored memory is not a checkpoint. Plain unload can release it;
+        // physical removal/review must retain its SQL intent until confirmed.
+        if(!be.registered() && !be.registering() && reason==null && (entry==null || entry.sealReason==null && entry.quarantineReason==null))return;
+        entry=reserveClosing(be,reason);if(entry==null)return;
         unindex(be.id());flushClosing(entry);
     }
     private void flushClosing(Closing entry){
         var be=entry.be;if(entry.writing || be.inFlight() || be.registering() || heatInFlight.contains(be.id()))return;
-        if(!be.registered()){
+        if(!be.registered() && entry.sealReason==null && entry.quarantineReason==null){
             // Registration may have fsynced a newer WAL before a SQL response failed.
-            // Empty memory has never acquired that ownership and is not a checkpoint.
+            // No SQL removal/review intent remains; preserve WAL and allow fresh reload.
             closing.remove(be.id(),entry);closingRotation.remove(be.id());idle.remove(be.id());nextPoll.remove(be.id());ioVersions.remove(be.id());nextHeat.remove(be.id());
-            close(be,entry.sealReason);return;
+            return;
         }
         var reservation=completions.tryReserve();if(reservation==null){entry.retry=System.nanoTime()+TimeUnit.SECONDS.toNanos(1);return;}
         // IO is admitted even offline. Persistent quota is not released merely by losing a lease.
-        var snapshot=be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot());String reason=entry.sealReason,review=entry.quarantineReason;entry.writing=true;
+        UUID id=be.id();LocalSnapshot snapshot=be.registered()?be.buffer().snapshot(id,world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()):null;
+        String reason=entry.sealReason,review=entry.quarantineReason;long knownCheckpoint=Math.max(Math.max(be.savedCheckpoint(),be.buffer().revision()),locallyClosed.getOrDefault(id,0L));entry.writing=true;
         try{workers.execute(()->{
             try{
-                journal.write(snapshot);var remaining=new HashMap<UUID,Long>();for(var credit:snapshot.credits())remaining.put(credit.transaction(),credit.remaining());
-                backend.checkpoint(snapshot.endpoint(),snapshot.revision(),remaining);
-                if(review!=null)backend.quarantineEndpoint(snapshot.endpoint(),review);
-                if(reason!=null){backend.sealEndpoint(snapshot.endpoint(),reason);backend.confirmChunkOff(snapshot.endpoint());if(snapshot.deposits().isEmpty() && snapshot.credits().stream().allMatch(c->c.remaining()==0) && snapshot.thermal().microjoules()==0 && snapshot.thermal().residual()==0 && snapshot.thermal().pending()==null)backend.retireEmptySealed(snapshot.endpoint());}
+                if(snapshot!=null){
+                    journal.write(snapshot);var remaining=new HashMap<UUID,Long>();for(var credit:snapshot.credits())remaining.put(credit.transaction(),credit.remaining());
+                    backend.checkpoint(id,snapshot.revision(),remaining);
+                }
+                persistClosingSql(id,reason,review,snapshot==null,knownCheckpoint);
+                if(reason!=null && snapshot!=null && snapshot.deposits().isEmpty() && snapshot.credits().stream().allMatch(c->c.remaining()==0) && snapshot.thermal().microjoules()==0 && snapshot.thermal().residual()==0 && snapshot.thermal().pending()==null)backend.retireEmptySealed(id);
                 reservation.complete(()->{
                     entry.writing=false;
-                    if(!Objects.equals(reason,entry.sealReason) || !Objects.equals(review,entry.quarantineReason) || be.buffer().revision()!=snapshot.revision()){
+                    if(!Objects.equals(reason,entry.sealReason) || !Objects.equals(review,entry.quarantineReason) || snapshot!=null && be.buffer().revision()!=snapshot.revision()){
                         entry.retry=0;flushClosing(entry);return;
                     }
-                    if(closing.remove(snapshot.endpoint(),entry)){closingRotation.remove(snapshot.endpoint());idle.remove(snapshot.endpoint());nextPoll.remove(snapshot.endpoint());locallyClosed.put(snapshot.endpoint(),snapshot.revision());while(locallyClosed.size()>limits.loadedLimit())locallyClosed.remove(locallyClosed.keySet().iterator().next());ioVersions.remove(snapshot.endpoint());nextHeat.remove(snapshot.endpoint());var current=loaded.get(snapshot.endpoint());if(current!=null && current!=be){current.pause("connecting");schedule(current.id(),System.nanoTime());}}
+                    if(closing.remove(id,entry)){
+                        closingRotation.remove(id);idle.remove(id);nextPoll.remove(id);
+                        if(snapshot!=null){locallyClosed.put(id,snapshot.revision());while(locallyClosed.size()>limits.loadedLimit())locallyClosed.remove(locallyClosed.keySet().iterator().next());}
+                        ioVersions.remove(id);nextHeat.remove(id);var current=loaded.get(id);if(current!=null && current!=be){current.pause("connecting");schedule(current.id(),System.nanoTime());}
+                    }
                 });
             }catch(Exception | LinkageError error){String code=errorCode(error);if(error instanceof java.io.IOException || code.equals("checkpoint_version_conflict"))journalFailed=true;reservation.complete(()->{entry.writing=false;entry.retry=System.nanoTime()+TimeUnit.SECONDS.toNanos(2);be.pause(code);});}
         });}catch(RejectedExecutionException error){reservation.complete(()->{entry.writing=false;entry.retry=System.nanoTime()+TimeUnit.SECONDS.toNanos(1);});}
+    }
+    private void persistClosingSql(UUID id,String reason,String review,boolean unhydrated,long knownCheckpoint) throws Exception {
+        try{
+            if(review!=null)backend.quarantineEndpoint(id,review);
+            if(reason!=null){if(unhydrated)dev.crosstesseract.test.Faults.unhydratedSealHit(id);backend.sealEndpoint(id,reason);backend.confirmChunkOff(id);}
+        }catch(DomainException error){
+            // Only the fenced, locking localEndpoint read may establish SQL absence.
+            // A transport failure, WAL/partial WAL or known revision remains uncertain.
+            if(!unhydrated || !"endpoint_not_found".equals(error.code()) || knownCheckpoint!=0 || journal.read(id).isPresent()
+                || !Files.notExists(journalDirectory.resolve(id+".ctj"),LinkOption.NOFOLLOW_LINKS)
+                || !Files.notExists(journalDirectory.resolve(id+".pending"),LinkOption.NOFOLLOW_LINKS))throw error;
+        }
     }
     private void schedule(UUID id,long due){
         if(loaded.containsKey(id))nextPoll.put(id,due);else {nextPoll.remove(id);idle.remove(id);}var previous=dueByEndpoint.remove(id);if(previous!=null)dueWork.remove(previous);
@@ -405,8 +444,9 @@ public final class RuntimeService {
         },success,failure);
     }
     public void quarantineLocalIo(TesseractBlockEntity be,String reason){
+        if(!closingIdentity(be))return;
         be.quarantineLocal(reason);tickets.remove(be.id());if(journal==null || backend==null)return;
-        var entry=closing.get(be.id());if(entry==null){entry=new Closing(be,null);closing.put(be.id(),entry);closingRotation.addLast(be.id());}entry.quarantineReason=reason;unindex(be.id());flushClosing(entry);
+        var entry=reserveClosing(be,null);if(entry==null)return;entry.quarantineReason=reason;unindex(be.id());flushClosing(entry);
     }
     public void chunkOn(TesseractBlockEntity be,UUID actor,UUID request,boolean admin,Consumer<String> result){
         UUID id=be.id();submit(a->a.reserveChunk(actor,id,request,admin),grant->{
@@ -475,11 +515,11 @@ public final class RuntimeService {
                 Runnable refresh=maintenanceCompletion.getAndSet(null);if(refresh!=null)refresh.run();
                 Runnable done;while((done=completions.poll())!=null)done.run();
                 DomainException.require(completions.count()==0 && transfers.isEmpty() && heatInFlight.isEmpty(),"shutdown_inflight");
-                var snapshots=new LinkedHashMap<UUID,LocalSnapshot>();var sealed=new HashMap<UUID,String>();var reviewed=new HashMap<UUID,String>();
+                var snapshots=new LinkedHashMap<UUID,LocalSnapshot>();var sealed=new HashMap<UUID,String>();var reviewed=new HashMap<UUID,String>();var unhydratedCheckpoints=new HashMap<UUID,Long>();
                 for(var be:loaded.values())if(be.registered()){
                     snapshots.put(be.id(),be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()));
                 }
-                for(var entry:closing.values()){var be=entry.be;if(be.registered())snapshots.put(be.id(),be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()));if(entry.sealReason!=null)sealed.put(be.id(),entry.sealReason);if(entry.quarantineReason!=null)reviewed.put(be.id(),entry.quarantineReason);}
+                for(var entry:closing.values()){var be=entry.be;if(be.registered())snapshots.put(be.id(),be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot()));else unhydratedCheckpoints.put(be.id(),Math.max(Math.max(be.savedCheckpoint(),be.buffer().revision()),locallyClosed.getOrDefault(be.id(),0L)));if(entry.sealReason!=null)sealed.put(be.id(),entry.sealReason);if(entry.quarantineReason!=null)reviewed.put(be.id(),entry.quarantineReason);}
                 shutdownIo=Executors.newSingleThreadExecutor(threadFactory("ct-shutdown"));
                 var prepared=shutdownIo.submit(()->{
                     long renewed=System.nanoTime();backend.heartbeat();
@@ -489,8 +529,8 @@ public final class RuntimeService {
                         if(sealed.containsKey(snapshot.endpoint())){backend.sealEndpoint(snapshot.endpoint(),sealed.get(snapshot.endpoint()));backend.confirmChunkOff(snapshot.endpoint());}
                         if(System.nanoTime()-renewed>TimeUnit.SECONDS.toNanos(2)){backend.heartbeat();renewed=System.nanoTime();}
                     }
-                    for(var id:reviewed.keySet())if(!snapshots.containsKey(id))backend.quarantineEndpoint(id,reviewed.get(id));
-                    for(var id:sealed.keySet())if(!snapshots.containsKey(id)){backend.sealEndpoint(id,sealed.get(id));backend.confirmChunkOff(id);}
+                    var unresolved=new HashSet<UUID>(reviewed.keySet());unresolved.addAll(sealed.keySet());
+                    for(var id:unresolved)if(!snapshots.containsKey(id))persistClosingSql(id,sealed.get(id),reviewed.get(id),true,unhydratedCheckpoints.getOrDefault(id,Long.MAX_VALUE));
                     return !journalFailed;
                 });
                 clean=prepared.get(8,TimeUnit.SECONDS);
