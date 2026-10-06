@@ -297,6 +297,9 @@ public final class RuntimeService {
         var resources=CompatLoader.resources();
         for(UUID id:ids){var be=loaded.get(id);
             if(be==null || !be.registered() || !be.pauseReason().isEmpty() || be.channel()==null || be.binding())continue;
+            // A previously recorded hint already schedules a fresh capture and SQL checks.
+            // Do not mistake an in-flight lease without a next-run signal for pending work.
+            if(coordinator.hasPendingSignal(channel,id))continue;
             for(String kind:resources)if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){signal(channel,id);break;}
         }
         if(remote)metrics.remoteWake.increment();else metrics.localWake.increment();

@@ -18,6 +18,33 @@ class ChannelCoordinatorTest {
     private static UUID channel(int id) { return new UUID(0, id + 1L); }
     private static UUID endpoint(int id) { return new UUID(1, id + 1L); }
 
+    @Test void pendingProbeTracksNextRunSignalsAcrossFlightRemovalAndRebinding() {
+        var coordinator=new ChannelCoordinator(2,2);
+        assertFalse(coordinator.hasPendingSignal(channel(0),endpoint(0)));
+        assertTrue(coordinator.signal(channel(0),endpoint(0)));
+        assertTrue(coordinator.hasPendingSignal(channel(0),endpoint(0)));
+        assertFalse(coordinator.hasPendingSignal(channel(1),endpoint(0)));
+        var old=coordinator.poll(1);assertNotNull(old);
+        assertFalse(coordinator.hasPendingSignal(channel(0),endpoint(0)),"a lease is not a recorded future wake");
+        assertTrue(coordinator.signal(channel(0),endpoint(0)));
+        assertTrue(coordinator.hasPendingSignal(channel(0),endpoint(0)));
+        assertEquals(1,coordinator.endpointCount(),"probes and repeated wakes add no admission");
+        assertTrue(coordinator.remove(endpoint(0)));
+        assertFalse(coordinator.hasPendingSignal(channel(0),endpoint(0)));
+        assertTrue(coordinator.signal(channel(1),endpoint(0)));
+        assertFalse(coordinator.hasPendingSignal(channel(0),endpoint(0)));
+        assertTrue(coordinator.hasPendingSignal(channel(1),endpoint(0)));
+        assertTrue(coordinator.complete(old),"old finish must not erase newly bound work");
+        assertTrue(coordinator.hasPendingSignal(channel(1),endpoint(0)));
+        var fresh=coordinator.poll(1);assertNotNull(fresh);
+        assertEquals(channel(1),fresh.channel());assertFalse(coordinator.hasPendingSignal(channel(1),endpoint(0)));
+        assertTrue(coordinator.signal(channel(1),endpoint(0)));
+        assertTrue(coordinator.complete(fresh));
+        assertTrue(coordinator.hasPendingSignal(channel(1),endpoint(0)),"first in-flight wake survives finish");
+        coordinator.clear();assertFalse(coordinator.hasPendingSignal(channel(1),endpoint(0)));
+        assertNull(coordinator.poll(1));assertEquals(0,coordinator.endpointCount());
+    }
+
     @Test void duplicateSignalsHaveOneAdmissionAndOneImmutableLeaseEntry() {
         var coordinator = new ChannelCoordinator(2, 3);
         assertTrue(coordinator.signal(channel(0), endpoint(0)));
@@ -43,6 +70,9 @@ class ChannelCoordinatorTest {
         var first = coordinator.poll(1);
         assertNotNull(first);
         assertEquals(List.of(endpoint(0)), first.endpoints());
+        assertFalse(coordinator.hasPendingSignal(channel(0), endpoint(0)));
+        assertTrue(coordinator.hasPendingSignal(channel(0), endpoint(1)));
+        assertTrue(coordinator.hasPendingSignal(channel(0), endpoint(2)));
         assertTrue(coordinator.signal(channel(0), endpoint(0)));
         assertTrue(coordinator.signal(channel(0), endpoint(0)));
         assertTrue(coordinator.signal(channel(0), endpoint(3)));
@@ -292,6 +322,10 @@ class ChannelCoordinatorTest {
                 default -> throw new AssertionError();
             }
             int count = accounted(pending, flight, revoked);
+            for (int candidate = 0; candidate < 8; candidate++)
+                assertEquals(pending.contains(endpoint(candidate)),
+                        coordinator.hasPendingSignal(channel(0), endpoint(candidate)),
+                        "pending probes must match future work even across revoked leases");
             assertEquals(count, coordinator.endpointCount());
             assertTrue(count >= 0 && count <= 6);
             assertEquals(active != null || !pending.isEmpty() ? 1 : 0, coordinator.channelCount());

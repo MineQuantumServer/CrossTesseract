@@ -56,6 +56,14 @@ public final class ChannelCoordinator {
         return true;
     }
 
+    /** A recorded next-run signal, not a permission or asset authorization.
+     * A lease alone is not ready: its first in-flight wake must still be retained. */
+    public boolean hasPendingSignal(UUID channel,UUID endpoint) {
+        Objects.requireNonNull(channel,"channel");Objects.requireNonNull(endpoint,"endpoint");
+        EndpointState entry=endpoints.get(endpoint);
+        return entry!=null && !entry.removed && entry.channel.id.equals(channel) && entry.channel.ready.contains(endpoint);
+    }
+
     /** Takes up to maxDevices from the oldest ready channel, or returns null. */
     public Lease poll(int maxDevices) {
         if (maxDevices <= 0) throw new IllegalArgumentException("device limit must be positive");
