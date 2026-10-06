@@ -1,0 +1,2904 @@
+{
+  "schema_version": 1,
+  "report_kind": "offline_matched_scale_jfr_summary",
+  "derived_from_parsed_json_only": true,
+  "generated_utc": "2026-10-06T15:58:14.262744+00:00",
+  "input": {
+    "path": "reports/optimization-jfr-75392af.json",
+    "bytes": 6202886,
+    "sha256": "5f24e60d48f414669771cc85802fe17170a35ba276e366739bb2d22df9489d04"
+  },
+  "reader_generated_utc": "2026-10-06T15:48:34.895675Z",
+  "limitations": [
+    "Only conservative inner intervals of post-reset observed 1000 OFF/ACTIVE are selected; not whole nominal 120-second phases.",
+    "The monitor's reset marker is indirect. Both archived drivers reset metrics after five-second warmup; raw request/reply and reset evidence remain in the plan.",
+    "JFR Instant and observer UTC are aligned as same-host wall clocks. No cross-JVM nanoTime subtraction or clock interpolation is used; wall/monotonic drift is checked, not corrected.",
+    "The original RCON buffer has no body nonce; saved replies do not independently attest per-event response attribution.",
+    "Execution/native samples are separate counts, sampling fractions and samples/second, never measured CPU milliseconds, tick duration or causal attribution.",
+    "Recorded GC/park/monitor/sleep durations are threshold/configuration-dependent. Edge-crossing duration events are excluded, and nested GC phases are not added together.",
+    "ObjectAllocationSample weights are sampled allocation estimates, not exact object counts, all allocation bytes or retained heap.",
+    "Source references use the declared frozen revision and recorded line table; the legacy harness has no class-loader source attestation.",
+    "No whole-server wall MSPT, actual TPS, per-tick p95 attribution, factory-container persistence or longitudinal capacity result is created."
+  ],
+  "validation": {
+    "four_plan_windows_match_reader": true,
+    "all_scanned_event_totals_match_type_counts": true,
+    "sampling_bucket_totals_match_event_counts": true,
+    "all_retained_stack_example_times_within_windows": true,
+    "all_mod_source_labels_match_declared_recording_revision": true,
+    "scope": "Validated against parsed counters/metadata and selected frozen git source; no JFR was reopened."
+  },
+  "recordings": {
+    "baseline": {
+      "declared_source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+      "raw_jfr_evidence_from_reader": {
+        "path": "reports/raw/opt-baseline-87bf217.jfr",
+        "bytes": 8891604,
+        "sha256": "456506711b90adecb18f2ff461e6e5bbf88336145f1bf052778ae2ae2f72f6e1"
+      },
+      "reader_source": {
+        "path": "scripts/OptimizationJfr.java",
+        "bytes": 20952,
+        "sha256": "a5ac57de8e8f9da03f717ab5a1e347d7a7f238dc684df8958acd229668a7bc5d"
+      },
+      "jvm_pid_matches_monitor": true,
+      "event_range_first_utc": "2026-10-06T09:52:38.311485088Z",
+      "event_range_last_utc": "2026-10-06T10:05:30.573362924Z",
+      "scanned_events": 160779,
+      "recorded_data_loss_events": 0,
+      "coverage_concerns": [
+        "OFF: sparse main/Runtime execution samples; percentile attribution and stable hotspot rankings are not established."
+      ],
+      "observed_active_settings": {
+        "jdk.CPULoad:enabled": [
+          "true"
+        ],
+        "jdk.CPULoad:period": [
+          "1000 ms"
+        ],
+        "jdk.DataLoss:enabled": [
+          "true"
+        ],
+        "jdk.ExecutionSample:enabled": [
+          "true"
+        ],
+        "jdk.ExecutionSample:period": [
+          "10 ms"
+        ],
+        "jdk.GCPhasePause:enabled": [
+          "true"
+        ],
+        "jdk.GCPhasePause:threshold": [
+          "0 ms"
+        ],
+        "jdk.GarbageCollection:enabled": [
+          "true"
+        ],
+        "jdk.GarbageCollection:threshold": [
+          "0 ms"
+        ],
+        "jdk.JavaMonitorEnter:enabled": [
+          "true"
+        ],
+        "jdk.JavaMonitorEnter:stackTrace": [
+          "true"
+        ],
+        "jdk.JavaMonitorEnter:threshold": [
+          "10 ms"
+        ],
+        "jdk.NativeMethodSample:enabled": [
+          "true"
+        ],
+        "jdk.NativeMethodSample:period": [
+          "20 ms"
+        ],
+        "jdk.ObjectAllocationSample:enabled": [
+          "true"
+        ],
+        "jdk.ObjectAllocationSample:stackTrace": [
+          "true"
+        ],
+        "jdk.ObjectAllocationSample:throttle": [
+          "300/s"
+        ],
+        "jdk.ThreadPark:enabled": [
+          "true"
+        ],
+        "jdk.ThreadPark:stackTrace": [
+          "true"
+        ],
+        "jdk.ThreadPark:threshold": [
+          "10 ms"
+        ],
+        "jdk.ThreadSleep:enabled": [
+          "true"
+        ],
+        "jdk.ThreadSleep:stackTrace": [
+          "true"
+        ],
+        "jdk.ThreadSleep:threshold": [
+          "10 ms"
+        ]
+      },
+      "windows": [
+        {
+          "name": "OFF",
+          "start_utc_inclusive": "2026-10-06T10:01:27.192361Z",
+          "end_utc_exclusive": "2026-10-06T10:03:25.189835Z",
+          "seconds": 117.997474,
+          "monitor_rounds": [
+            33,
+            92
+          ],
+          "monitor_samples": 60,
+          "clock_offset_range_ms": 0.0011920928955078125,
+          "all_execution_samples": 107,
+          "main_execution_samples": 79,
+          "runtime_tick_inclusive_samples": 20,
+          "runtime_fraction_of_main_execution_samples": 0.25316455696202533,
+          "main_native_samples": 129,
+          "main_stack_truncated_samples": 0,
+          "top_runtime_leaf_methods": [
+            {
+              "identity": "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 3,
+              "recorded_frame": {
+                "class": "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap",
+                "method": "get",
+                "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 327,
+                "bytecode_index": 105,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.0379746835443038
+            },
+            {
+              "identity": "java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 3,
+              "recorded_frame": {
+                "class": "java.util.concurrent.ConcurrentHashMap",
+                "method": "get",
+                "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 946,
+                "bytecode_index": 127,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.0379746835443038
+            },
+            {
+              "identity": "net.minecraft.world.level.chunk.LevelChunk.getBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk$EntityCreationType;)Lnet/minecraft/world/level/block/entity/BlockEntity;",
+              "count": 3,
+              "recorded_frame": {
+                "class": "net.minecraft.world.level.chunk.LevelChunk",
+                "method": "getBlockEntity",
+                "descriptor": "(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk$EntityCreationType;)Lnet/minecraft/world/level/block/entity/BlockEntity;",
+                "line": 330,
+                "bytecode_index": 5,
+                "frame_type": "JIT compiled"
+              },
+              "fraction_of_role_samples": 0.0379746835443038
+            },
+            {
+              "identity": "java.util.HashMap.newNode(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;",
+              "count": 2,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "newNode",
+                "descriptor": "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;",
+                "line": 1909,
+                "bytecode_index": 0,
+                "frame_type": "JIT compiled"
+              },
+              "fraction_of_role_samples": 0.02531645569620253
+            },
+            {
+              "identity": "java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+              "count": 2,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "putVal",
+                "descriptor": "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+                "line": 641,
+                "bytecode_index": 91,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.02531645569620253
+            },
+            {
+              "identity": "dev.crosstesseract.block.TesseractBlockEntity.authorize(Ldev/crosstesseract/core/Models$PermissionSnapshot;JJ)V",
+              "count": 1,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                "method": "authorize",
+                "descriptor": "(Ldev/crosstesseract/core/Models$PermissionSnapshot;JJ)V",
+                "line": 135,
+                "bytecode_index": 234,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+              },
+              "fraction_of_role_samples": 0.012658227848101266
+            },
+            {
+              "identity": "dev.crosstesseract.block.TesseractBlockEntity.pumpNeighbors()V",
+              "count": 1,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                "method": "pumpNeighbors",
+                "descriptor": "()V",
+                "line": 61,
+                "bytecode_index": 4,
+                "frame_type": "Inlined",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+              },
+              "fraction_of_role_samples": 0.012658227848101266
+            },
+            {
+              "identity": "java.util.Arrays.binarySearch0([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I",
+              "count": 1,
+              "recorded_frame": {
+                "class": "java.util.Arrays",
+                "method": "binarySearch0",
+                "descriptor": "([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I",
+                "line": 2341,
+                "bytecode_index": 48,
+                "frame_type": "JIT compiled"
+              },
+              "fraction_of_role_samples": 0.012658227848101266
+            }
+          ],
+          "top_main_inclusive_mod_methods": [
+            {
+              "identity": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f562cc3a710.34340031.accept(Ljava/lang/Object;)V",
+              "count": 20,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f562cc3a710.34340031",
+                "method": "accept",
+                "descriptor": "(Ljava/lang/Object;)V",
+                "line": -1,
+                "bytecode_index": 4,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+              },
+              "fraction_of_role_samples": 0.25316455696202533
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeEvents.tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+              "count": 20,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                "method": "tick",
+                "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                "line": 8,
+                "bytecode_index": 13,
+                "frame_type": "Inlined",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+              },
+              "fraction_of_role_samples": 0.25316455696202533
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.tick()V",
+              "count": 20,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 175,
+                "bytecode_index": 146,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.25316455696202533
+            },
+            {
+              "identity": "dev.crosstesseract.block.TesseractBlockEntity.pumpNeighbors()V",
+              "count": 10,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                "method": "pumpNeighbors",
+                "descriptor": "()V",
+                "line": 61,
+                "bytecode_index": 4,
+                "frame_type": "Inlined",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+              },
+              "fraction_of_role_samples": 0.12658227848101267
+            },
+            {
+              "identity": "dev.crosstesseract.block.NeighborPump.tick()V",
+              "count": 9,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.NeighborPump",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 24,
+                "bytecode_index": 66,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/block/NeighborPump.java"
+              },
+              "fraction_of_role_samples": 0.11392405063291139
+            }
+          ],
+          "allocation_sampling": {
+            "sample_events": 1907,
+            "estimated_weight_bytes": 351591544,
+            "main_runtime_sample_events": 77,
+            "main_runtime_estimated_weight_bytes": 33190840,
+            "weight_scope": "JFR ObjectAllocationSample statistical weights; not exact allocation counts/bytes or retained heap."
+          },
+          "retained_main_allocation_classes": [
+            {
+              "identity": "MAIN:[Ljava.util.HashMap$Node;",
+              "count": 50,
+              "estimated_weight_bytes": 28417904
+            },
+            {
+              "identity": "MAIN:java.util.HashMap$Node",
+              "count": 50,
+              "estimated_weight_bytes": 32186968
+            },
+            {
+              "identity": "MAIN:[Ljava.lang.Object;",
+              "count": 39,
+              "estimated_weight_bytes": 22534256
+            },
+            {
+              "identity": "MAIN:java.util.HashMap",
+              "count": 28,
+              "estimated_weight_bytes": 14020136
+            }
+          ],
+          "allocation_class_ranking_scope": "Subset of reader top25 overall class/role sample-count entries; not complete per-main/per-Runtime class attribution.",
+          "periodic_cpu_load_fractions": {
+            "jvmSystem": {
+              "recorded_samples": 117,
+              "mean": 0.006892747038768398,
+              "min": 0.00401606410741806,
+              "max": 0.012269938364624977
+            },
+            "jvmUser": {
+              "recorded_samples": 117,
+              "mean": 0.015231108468057763,
+              "min": 0.008016032166779041,
+              "max": 0.09456740319728851
+            },
+            "machineTotal": {
+              "recorded_samples": 117,
+              "mean": 0.03388270078242844,
+              "min": 0.016032064333558083,
+              "max": 0.20523138344287872
+            }
+          },
+          "excluded_cross_boundary_duration_events": {
+            "jdk.ThreadPark": 27,
+            "jdk.ThreadSleep": 4
+          },
+          "gc": {
+            "jdk.GarbageCollection:GLOBAL": {
+              "recorded_events": 2,
+              "duration_sum_ms": 444.740608,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 440.018468,
+              "p50_ms": 4.72214,
+              "p95_ms": 440.018468,
+              "p99_ms": 440.018468,
+              "gc_recorded_sum_of_pauses_ms": 10.357265,
+              "gc_recorded_longest_pause_ms": 5.447664,
+              "raw_event_list_capped": false
+            },
+            "jdk.GCPhasePause:GLOBAL": {
+              "recorded_events": 3,
+              "duration_sum_ms": 10.357265,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 5.447664,
+              "p50_ms": 4.72214,
+              "p95_ms": 5.447664,
+              "p99_ms": 5.447664,
+              "gc_recorded_sum_of_pauses_ms": null,
+              "gc_recorded_longest_pause_ms": null,
+              "raw_event_list_capped": false
+            }
+          }
+        },
+        {
+          "name": "ACTIVE",
+          "start_utc_inclusive": "2026-10-06T10:03:31.192968Z",
+          "end_utc_exclusive": "2026-10-06T10:05:29.189854Z",
+          "seconds": 117.996886,
+          "monitor_rounds": [
+            95,
+            154
+          ],
+          "monitor_samples": 60,
+          "clock_offset_range_ms": 0.001430511474609375,
+          "all_execution_samples": 736,
+          "main_execution_samples": 149,
+          "runtime_tick_inclusive_samples": 36,
+          "runtime_fraction_of_main_execution_samples": 0.24161073825503357,
+          "main_native_samples": 94,
+          "main_stack_truncated_samples": 0,
+          "top_runtime_leaf_methods": [
+            {
+              "identity": "java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 6,
+              "recorded_frame": {
+                "class": "java.util.concurrent.ConcurrentHashMap",
+                "method": "get",
+                "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 946,
+                "bytecode_index": 127,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.040268456375838924
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.lambda$maintain$3(Ljava/util/ArrayList;JLjava/util/List;)V",
+              "count": 3,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "lambda$maintain$3",
+                "descriptor": "(Ljava/util/ArrayList;JLjava/util/List;)V",
+                "line": 87,
+                "bytecode_index": 78,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.020134228187919462
+            },
+            {
+              "identity": "net.neoforged.neoforge.common.extensions.IBlockStateExtension.onNeighborChange(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)V",
+              "count": 3,
+              "recorded_frame": {
+                "class": "net.neoforged.neoforge.common.extensions.IBlockStateExtension",
+                "method": "onNeighborChange",
+                "descriptor": "(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)V",
+                "line": 388,
+                "bytecode_index": 18,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.020134228187919462
+            },
+            {
+              "identity": "dev.crosstesseract.block.TesseractBlockEntity.pumpNeighbors()V",
+              "count": 2,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                "method": "pumpNeighbors",
+                "descriptor": "()V",
+                "line": 61,
+                "bytecode_index": 4,
+                "frame_type": "Inlined",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+              },
+              "fraction_of_role_samples": 0.013422818791946308
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.tick()V",
+              "count": 2,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 187,
+                "bytecode_index": 546,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.013422818791946308
+            },
+            {
+              "identity": "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get(J)Ljava/lang/Object;",
+              "count": 2,
+              "recorded_frame": {
+                "class": "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap",
+                "method": "get",
+                "descriptor": "(J)Ljava/lang/Object;",
+                "line": 658,
+                "bytecode_index": 108,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.013422818791946308
+            },
+            {
+              "identity": "java.util.HashMap.getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 2,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "getOrDefault",
+                "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 1147,
+                "bytecode_index": 2,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.013422818791946308
+            },
+            {
+              "identity": "java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+              "count": 2,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "putVal",
+                "descriptor": "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+                "line": 641,
+                "bytecode_index": 91,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.013422818791946308
+            }
+          ],
+          "top_main_inclusive_mod_methods": [
+            {
+              "identity": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f562cc3a710.34340031.accept(Ljava/lang/Object;)V",
+              "count": 36,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f562cc3a710.34340031",
+                "method": "accept",
+                "descriptor": "(Ljava/lang/Object;)V",
+                "line": -1,
+                "bytecode_index": 4,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+              },
+              "fraction_of_role_samples": 0.24161073825503357
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeEvents.tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+              "count": 36,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                "method": "tick",
+                "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                "line": 8,
+                "bytecode_index": 13,
+                "frame_type": "Inlined",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+              },
+              "fraction_of_role_samples": 0.24161073825503357
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.tick()V",
+              "count": 36,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 187,
+                "bytecode_index": 546,
+                "frame_type": "JIT compiled",
+                "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.24161073825503357
+            }
+          ],
+          "allocation_sampling": {
+            "sample_events": 14423,
+            "estimated_weight_bytes": 6376703480,
+            "main_runtime_sample_events": 268,
+            "main_runtime_estimated_weight_bytes": 83128264,
+            "weight_scope": "JFR ObjectAllocationSample statistical weights; not exact allocation counts/bytes or retained heap."
+          },
+          "retained_main_allocation_classes": [
+            {
+              "identity": "MAIN:java.util.HashMap$Node",
+              "count": 146,
+              "estimated_weight_bytes": 40514472
+            }
+          ],
+          "allocation_class_ranking_scope": "Subset of reader top25 overall class/role sample-count entries; not complete per-main/per-Runtime class attribution.",
+          "periodic_cpu_load_fractions": {
+            "jvmSystem": {
+              "recorded_samples": 117,
+              "mean": 0.05639863090637403,
+              "min": 0.01006036251783371,
+              "max": 0.07597535848617554
+            },
+            "jvmUser": {
+              "recorded_samples": 117,
+              "mean": 0.05967120281778849,
+              "min": 0.02213279716670513,
+              "max": 0.13374485075473785
+            },
+            "machineTotal": {
+              "recorded_samples": 117,
+              "mean": 0.4147636026271388,
+              "min": 0.07042253762483597,
+              "max": 0.5414937734603882
+            }
+          },
+          "excluded_cross_boundary_duration_events": {
+            "jdk.ThreadPark": 15,
+            "jdk.ThreadSleep": 3
+          },
+          "gc": {
+            "jdk.GarbageCollection:GLOBAL": {
+              "recorded_events": 28,
+              "duration_sum_ms": 2494.034941,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 392.423064,
+              "p50_ms": 3.13221,
+              "p95_ms": 369.61934,
+              "p99_ms": 392.423064,
+              "gc_recorded_sum_of_pauses_ms": 90.08551699999998,
+              "gc_recorded_longest_pause_ms": 6.997081,
+              "raw_event_list_capped": false
+            },
+            "jdk.GCPhasePause:GLOBAL": {
+              "recorded_events": 35,
+              "duration_sum_ms": 90.085517,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 6.997081,
+              "p50_ms": 2.776923,
+              "p95_ms": 5.007866,
+              "p99_ms": 6.997081,
+              "gc_recorded_sum_of_pauses_ms": null,
+              "gc_recorded_longest_pause_ms": null,
+              "raw_event_list_capped": false
+            }
+          },
+          "representative_runtime_stacks": [
+            {
+              "samples": 3,
+              "fraction_of_role_samples": 0.020134228187919462,
+              "first_sample_utc": "2026-10-06T10:04:55.851610477Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "lambda$maintain$3",
+                  "descriptor": "(Ljava/util/ArrayList;JLjava/util/List;)V",
+                  "line": 87,
+                  "bytecode_index": 78,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f562cfc4d10.531636775",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 16,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 175,
+                  "bytecode_index": 146,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f562cc3a710.34340031",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f562ce95fd0.1084375280",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            },
+            {
+              "samples": 3,
+              "fraction_of_role_samples": 0.020134228187919462,
+              "first_sample_utc": "2026-10-06T10:03:57.351220384Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.concurrent.ConcurrentHashMap",
+                  "method": "get",
+                  "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                  "line": 946,
+                  "bytecode_index": 127,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "same",
+                  "descriptor": "(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/util/UUID;)Z",
+                  "line": 140,
+                  "bytecode_index": 23,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "lambda$transfer$35",
+                  "descriptor": "(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/util/UUID;Ldev/crosstesseract/runtime/RuntimeService$BatchResult;)V",
+                  "line": 229,
+                  "bytecode_index": 3,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f562d08e390.2002977089",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 16,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "lambda$submit$7",
+                  "descriptor": "(Ljava/util/function/Consumer;Ljava/lang/Object;)V",
+                  "line": 117,
+                  "bytecode_index": 2,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f562d02bb48.1214548617",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 8,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 175,
+                  "bytecode_index": 146,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f562cc3a710.34340031",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f562ce95fd0.1084375280",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "monitor_input": {
+        "path": "reports/optimization-scale-baseline-scale-late-20261006T100021Z-09d5b0.json",
+        "bytes": 865017,
+        "sha256": "3de61e00bf9780647ff77c5fe62cb89b2c3c5ba428650a29add822c6d6d21438"
+      }
+    },
+    "current": {
+      "declared_source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+      "raw_jfr_evidence_from_reader": {
+        "path": "reports/raw/opt-fast-75392af.jfr",
+        "bytes": 8636605,
+        "sha256": "6bf315e53ef62da20171dadc1e070b77825a6e7c9221fc78d8d58f12916d3b9e"
+      },
+      "reader_source": {
+        "path": "scripts/OptimizationJfr.java",
+        "bytes": 20952,
+        "sha256": "a5ac57de8e8f9da03f717ab5a1e347d7a7f238dc684df8958acd229668a7bc5d"
+      },
+      "jvm_pid_matches_monitor": true,
+      "event_range_first_utc": "2026-10-06T13:51:32.561570130Z",
+      "event_range_last_utc": "2026-10-06T14:04:24.897678428Z",
+      "scanned_events": 180200,
+      "recorded_data_loss_events": 0,
+      "coverage_concerns": [],
+      "observed_active_settings": {
+        "jdk.CPULoad:enabled": [
+          "true"
+        ],
+        "jdk.CPULoad:period": [
+          "1000 ms"
+        ],
+        "jdk.DataLoss:enabled": [
+          "true"
+        ],
+        "jdk.ExecutionSample:enabled": [
+          "true"
+        ],
+        "jdk.ExecutionSample:period": [
+          "10 ms"
+        ],
+        "jdk.GCPhasePause:enabled": [
+          "true"
+        ],
+        "jdk.GCPhasePause:threshold": [
+          "0 ms"
+        ],
+        "jdk.GarbageCollection:enabled": [
+          "true"
+        ],
+        "jdk.GarbageCollection:threshold": [
+          "0 ms"
+        ],
+        "jdk.JavaMonitorEnter:enabled": [
+          "true"
+        ],
+        "jdk.JavaMonitorEnter:stackTrace": [
+          "true"
+        ],
+        "jdk.JavaMonitorEnter:threshold": [
+          "10 ms"
+        ],
+        "jdk.NativeMethodSample:enabled": [
+          "true"
+        ],
+        "jdk.NativeMethodSample:period": [
+          "20 ms"
+        ],
+        "jdk.ObjectAllocationSample:enabled": [
+          "true"
+        ],
+        "jdk.ObjectAllocationSample:stackTrace": [
+          "true"
+        ],
+        "jdk.ObjectAllocationSample:throttle": [
+          "300/s"
+        ],
+        "jdk.ThreadPark:enabled": [
+          "true"
+        ],
+        "jdk.ThreadPark:stackTrace": [
+          "true"
+        ],
+        "jdk.ThreadPark:threshold": [
+          "10 ms"
+        ],
+        "jdk.ThreadSleep:enabled": [
+          "true"
+        ],
+        "jdk.ThreadSleep:stackTrace": [
+          "true"
+        ],
+        "jdk.ThreadSleep:threshold": [
+          "10 ms"
+        ]
+      },
+      "windows": [
+        {
+          "name": "OFF",
+          "start_utc_inclusive": "2026-10-06T14:00:20.211519Z",
+          "end_utc_exclusive": "2026-10-06T14:02:18.208774Z",
+          "seconds": 117.997255,
+          "monitor_rounds": [
+            257,
+            316
+          ],
+          "monitor_samples": 60,
+          "clock_offset_range_ms": 0.0011920928955078125,
+          "all_execution_samples": 117,
+          "main_execution_samples": 107,
+          "runtime_tick_inclusive_samples": 38,
+          "runtime_fraction_of_main_execution_samples": 0.35514018691588783,
+          "main_native_samples": 121,
+          "main_stack_truncated_samples": 0,
+          "top_runtime_leaf_methods": [
+            {
+              "identity": "java.util.HashMap.getNode(Ljava/lang/Object;)Ljava/util/HashMap$Node;",
+              "count": 7,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "getNode",
+                "descriptor": "(Ljava/lang/Object;)Ljava/util/HashMap$Node;",
+                "line": 578,
+                "bytecode_index": 63,
+                "frame_type": "JIT compiled"
+              },
+              "fraction_of_role_samples": 0.06542056074766354
+            },
+            {
+              "identity": "java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 6,
+              "recorded_frame": {
+                "class": "java.util.concurrent.ConcurrentHashMap",
+                "method": "get",
+                "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 946,
+                "bytecode_index": 127,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.056074766355140186
+            },
+            {
+              "identity": "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 3,
+              "recorded_frame": {
+                "class": "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap",
+                "method": "get",
+                "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 327,
+                "bytecode_index": 105,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.028037383177570093
+            },
+            {
+              "identity": "java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+              "count": 3,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "putVal",
+                "descriptor": "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+                "line": 641,
+                "bytecode_index": 91,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.028037383177570093
+            },
+            {
+              "identity": "dev.crosstesseract.block.NeighborPump.tick()V",
+              "count": 2,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.NeighborPump",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 24,
+                "bytecode_index": 66,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/block/NeighborPump.java"
+              },
+              "fraction_of_role_samples": 0.018691588785046728
+            },
+            {
+              "identity": "java.util.Comparators$NaturalOrderComparator.compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I",
+              "count": 2,
+              "recorded_frame": {
+                "class": "java.util.Comparators$NaturalOrderComparator",
+                "method": "compare",
+                "descriptor": "(Ljava/lang/Comparable;Ljava/lang/Comparable;)I",
+                "line": 52,
+                "bytecode_index": 2,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.018691588785046728
+            },
+            {
+              "identity": "java.util.HashMap.remove(Ljava/lang/Object;Ljava/lang/Object;)Z",
+              "count": 2,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "remove",
+                "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Z",
+                "line": 1157,
+                "bytecode_index": 9,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.018691588785046728
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f1934edeb30.824807511.applyAsLong(Ljava/lang/Object;)J",
+              "count": 1,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f1934edeb30.824807511",
+                "method": "applyAsLong",
+                "descriptor": "(Ljava/lang/Object;)J",
+                "line": -1,
+                "bytecode_index": 1,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.009345794392523364
+            }
+          ],
+          "top_main_inclusive_mod_methods": [
+            {
+              "identity": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018.accept(Ljava/lang/Object;)V",
+              "count": 38,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                "method": "accept",
+                "descriptor": "(Ljava/lang/Object;)V",
+                "line": -1,
+                "bytecode_index": 4,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+              },
+              "fraction_of_role_samples": 0.35514018691588783
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeEvents.tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+              "count": 38,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                "method": "tick",
+                "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                "line": 8,
+                "bytecode_index": 13,
+                "frame_type": "Inlined",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+              },
+              "fraction_of_role_samples": 0.35514018691588783
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.tick()V",
+              "count": 38,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 323,
+                "bytecode_index": 912,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.35514018691588783
+            },
+            {
+              "identity": "dev.crosstesseract.block.NeighborPump.tick()V",
+              "count": 10,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.NeighborPump",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 24,
+                "bytecode_index": 66,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/block/NeighborPump.java"
+              },
+              "fraction_of_role_samples": 0.09345794392523364
+            },
+            {
+              "identity": "dev.crosstesseract.block.TesseractBlockEntity.pumpNeighbors()V",
+              "count": 10,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                "method": "pumpNeighbors",
+                "descriptor": "()V",
+                "line": 61,
+                "bytecode_index": 4,
+                "frame_type": "Inlined",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+              },
+              "fraction_of_role_samples": 0.09345794392523364
+            }
+          ],
+          "allocation_sampling": {
+            "sample_events": 1920,
+            "estimated_weight_bytes": 348053104,
+            "main_runtime_sample_events": 89,
+            "main_runtime_estimated_weight_bytes": 67962336,
+            "weight_scope": "JFR ObjectAllocationSample statistical weights; not exact allocation counts/bytes or retained heap."
+          },
+          "retained_main_allocation_classes": [
+            {
+              "identity": "MAIN:[Ljava.lang.Object;",
+              "count": 40,
+              "estimated_weight_bytes": 30722968
+            },
+            {
+              "identity": "MAIN:[Ljava.util.HashMap$Node;",
+              "count": 38,
+              "estimated_weight_bytes": 33019408
+            },
+            {
+              "identity": "MAIN:java.util.HashMap$Node",
+              "count": 34,
+              "estimated_weight_bytes": 25507168
+            },
+            {
+              "identity": "MAIN:java.util.HashMap",
+              "count": 25,
+              "estimated_weight_bytes": 18274832
+            },
+            {
+              "identity": "MAIN:[J",
+              "count": 17,
+              "estimated_weight_bytes": 9086232
+            }
+          ],
+          "allocation_class_ranking_scope": "Subset of reader top25 overall class/role sample-count entries; not complete per-main/per-Runtime class attribution.",
+          "periodic_cpu_load_fractions": {
+            "jvmSystem": {
+              "recorded_samples": 118,
+              "mean": 0.005443740604540049,
+              "min": 0.0,
+              "max": 0.010080644860863686
+            },
+            "jvmUser": {
+              "recorded_samples": 118,
+              "mean": 0.0159909670967293,
+              "min": 0.008080808445811272,
+              "max": 0.0829959511756897
+            },
+            "machineTotal": {
+              "recorded_samples": 118,
+              "mean": 0.033080635750192704,
+              "min": 0.016096578910946846,
+              "max": 0.1475728154182434
+            }
+          },
+          "excluded_cross_boundary_duration_events": {
+            "jdk.ThreadPark": 30,
+            "jdk.ThreadSleep": 4
+          },
+          "gc": {
+            "jdk.GarbageCollection:GLOBAL": {
+              "recorded_events": 2,
+              "duration_sum_ms": 5.645443,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 3.631631,
+              "p50_ms": 2.013812,
+              "p95_ms": 3.631631,
+              "p99_ms": 3.631631,
+              "gc_recorded_sum_of_pauses_ms": 5.645443,
+              "gc_recorded_longest_pause_ms": 3.631631,
+              "raw_event_list_capped": false
+            },
+            "jdk.GCPhasePause:GLOBAL": {
+              "recorded_events": 2,
+              "duration_sum_ms": 5.645443,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 3.631631,
+              "p50_ms": 2.013812,
+              "p95_ms": 3.631631,
+              "p99_ms": 3.631631,
+              "gc_recorded_sum_of_pauses_ms": null,
+              "gc_recorded_longest_pause_ms": null,
+              "raw_event_list_capped": false
+            }
+          }
+        },
+        {
+          "name": "ACTIVE",
+          "start_utc_inclusive": "2026-10-06T14:02:26.211502Z",
+          "end_utc_exclusive": "2026-10-06T14:04:24.208653Z",
+          "seconds": 117.997151,
+          "monitor_rounds": [
+            320,
+            379
+          ],
+          "monitor_samples": 60,
+          "clock_offset_range_ms": 0.011682510375976562,
+          "all_execution_samples": 700,
+          "main_execution_samples": 258,
+          "runtime_tick_inclusive_samples": 155,
+          "runtime_fraction_of_main_execution_samples": 0.6007751937984496,
+          "main_native_samples": 92,
+          "main_stack_truncated_samples": 0,
+          "top_runtime_leaf_methods": [
+            {
+              "identity": "java.util.HashMap.getNode(Ljava/lang/Object;)Ljava/util/HashMap$Node;",
+              "count": 24,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "getNode",
+                "descriptor": "(Ljava/lang/Object;)Ljava/util/HashMap$Node;",
+                "line": 578,
+                "bytecode_index": 63,
+                "frame_type": "JIT compiled"
+              },
+              "fraction_of_role_samples": 0.09302325581395349
+            },
+            {
+              "identity": "java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 21,
+              "recorded_frame": {
+                "class": "java.util.concurrent.ConcurrentHashMap",
+                "method": "get",
+                "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 946,
+                "bytecode_index": 127,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.08139534883720931
+            },
+            {
+              "identity": "java.util.HashMap.getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+              "count": 18,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "getOrDefault",
+                "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+                "line": 1147,
+                "bytecode_index": 2,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.06976744186046512
+            },
+            {
+              "identity": "java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+              "count": 14,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "putVal",
+                "descriptor": "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;",
+                "line": 641,
+                "bytecode_index": 91,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.05426356589147287
+            },
+            {
+              "identity": "java.util.HashSet.<init>(Ljava/util/Collection;)V",
+              "count": 12,
+              "recorded_frame": {
+                "class": "java.util.HashSet",
+                "method": "<init>",
+                "descriptor": "(Ljava/util/Collection;)V",
+                "line": 121,
+                "bytecode_index": 24,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.046511627906976744
+            },
+            {
+              "identity": "java.util.stream.AbstractPipeline.exactOutputSizeIfKnown(Ljava/util/Spliterator;)J",
+              "count": 11,
+              "recorded_frame": {
+                "class": "java.util.stream.AbstractPipeline",
+                "method": "exactOutputSizeIfKnown",
+                "descriptor": "(Ljava/util/Spliterator;)J",
+                "line": 470,
+                "bytecode_index": 16,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.04263565891472868
+            },
+            {
+              "identity": "java.util.HashMap$HashIterator.nextNode()Ljava/util/HashMap$Node;",
+              "count": 4,
+              "recorded_frame": {
+                "class": "java.util.HashMap$HashIterator",
+                "method": "nextNode",
+                "descriptor": "()Ljava/util/HashMap$Node;",
+                "line": 1609,
+                "bytecode_index": 95,
+                "frame_type": "Inlined"
+              },
+              "fraction_of_role_samples": 0.015503875968992248
+            },
+            {
+              "identity": "java.util.HashMap.removeNode(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node;",
+              "count": 4,
+              "recorded_frame": {
+                "class": "java.util.HashMap",
+                "method": "removeNode",
+                "descriptor": "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node;",
+                "line": 843,
+                "bytecode_index": 190,
+                "frame_type": "JIT compiled"
+              },
+              "fraction_of_role_samples": 0.015503875968992248
+            }
+          ],
+          "top_main_inclusive_mod_methods": [
+            {
+              "identity": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018.accept(Ljava/lang/Object;)V",
+              "count": 155,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                "method": "accept",
+                "descriptor": "(Ljava/lang/Object;)V",
+                "line": -1,
+                "bytecode_index": 4,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+              },
+              "fraction_of_role_samples": 0.6007751937984496
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeEvents.tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+              "count": 155,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                "method": "tick",
+                "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                "line": 8,
+                "bytecode_index": 13,
+                "frame_type": "Inlined",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+              },
+              "fraction_of_role_samples": 0.6007751937984496
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.tick()V",
+              "count": 155,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "tick",
+                "descriptor": "()V",
+                "line": 305,
+                "bytecode_index": 129,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.6007751937984496
+            },
+            {
+              "identity": "dev.crosstesseract.runtime.RuntimeService.wakeChannel(Ljava/util/UUID;Z)V",
+              "count": 112,
+              "recorded_frame": {
+                "class": "dev.crosstesseract.runtime.RuntimeService",
+                "method": "wakeChannel",
+                "descriptor": "(Ljava/util/UUID;Z)V",
+                "line": 297,
+                "bytecode_index": 101,
+                "frame_type": "JIT compiled",
+                "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+              },
+              "fraction_of_role_samples": 0.43410852713178294
+            }
+          ],
+          "allocation_sampling": {
+            "sample_events": 14358,
+            "estimated_weight_bytes": 5438078344,
+            "main_runtime_sample_events": 3096,
+            "main_runtime_estimated_weight_bytes": 1635831608,
+            "weight_scope": "JFR ObjectAllocationSample statistical weights; not exact allocation counts/bytes or retained heap."
+          },
+          "retained_main_allocation_classes": [
+            {
+              "identity": "MAIN:java.util.HashMap$Node",
+              "count": 526,
+              "estimated_weight_bytes": 283329608
+            },
+            {
+              "identity": "MAIN:[Ljava.util.HashMap$Node;",
+              "count": 408,
+              "estimated_weight_bytes": 215578080
+            },
+            {
+              "identity": "MAIN:[Ljava.lang.Object;",
+              "count": 365,
+              "estimated_weight_bytes": 190966552
+            },
+            {
+              "identity": "MAIN:java.util.stream.ReferencePipeline$Head",
+              "count": 285,
+              "estimated_weight_bytes": 148769600
+            },
+            {
+              "identity": "MAIN:java.util.HashMap",
+              "count": 254,
+              "estimated_weight_bytes": 134487968
+            },
+            {
+              "identity": "MAIN:java.util.Spliterators$IteratorSpliterator",
+              "count": 201,
+              "estimated_weight_bytes": 105913872
+            },
+            {
+              "identity": "MAIN:java.util.stream.ReferencePipeline$2",
+              "count": 144,
+              "estimated_weight_bytes": 74528632
+            },
+            {
+              "identity": "MAIN:java.util.ImmutableCollections$SetN$SetNIterator",
+              "count": 121,
+              "estimated_weight_bytes": 62985168
+            }
+          ],
+          "allocation_class_ranking_scope": "Subset of reader top25 overall class/role sample-count entries; not complete per-main/per-Runtime class attribution.",
+          "periodic_cpu_load_fractions": {
+            "jvmSystem": {
+              "recorded_samples": 117,
+              "mean": 0.037722494325831406,
+              "min": 0.02277432754635811,
+              "max": 0.05714285746216774
+            },
+            "jvmUser": {
+              "recorded_samples": 117,
+              "mean": 0.04830860403867868,
+              "min": 0.02434077113866806,
+              "max": 0.12909835577011108
+            },
+            "machineTotal": {
+              "recorded_samples": 117,
+              "mean": 0.33009103500944936,
+              "min": 0.2566191554069519,
+              "max": 0.4621676802635193
+            }
+          },
+          "excluded_cross_boundary_duration_events": {
+            "jdk.ThreadPark": 22,
+            "jdk.ThreadSleep": 3
+          },
+          "gc": {
+            "jdk.GarbageCollection:GLOBAL": {
+              "recorded_events": 29,
+              "duration_sum_ms": 2487.742256,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 395.161684,
+              "p50_ms": 3.830608,
+              "p95_ms": 393.021648,
+              "p99_ms": 395.161684,
+              "gc_recorded_sum_of_pauses_ms": 109.18644599999999,
+              "gc_recorded_longest_pause_ms": 7.016379,
+              "raw_event_list_capped": false
+            },
+            "jdk.GCPhasePause:GLOBAL": {
+              "recorded_events": 36,
+              "duration_sum_ms": 109.186446,
+              "duration_sum_scope": "Sum within this one event type and role only; concurrent waits may overlap; never sum nested GC event types.",
+              "max_ms": 7.016379,
+              "p50_ms": 3.208335,
+              "p95_ms": 6.186312,
+              "p99_ms": 7.016379,
+              "gc_recorded_sum_of_pauses_ms": null,
+              "gc_recorded_longest_pause_ms": null,
+              "raw_event_list_capped": false
+            }
+          },
+          "representative_runtime_stacks": [
+            {
+              "samples": 9,
+              "fraction_of_role_samples": 0.03488372093023256,
+              "first_sample_utc": "2026-10-06T14:02:29.787704581Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.HashMap",
+                  "method": "getNode",
+                  "descriptor": "(Ljava/lang/Object;)Ljava/util/HashMap$Node;",
+                  "line": 578,
+                  "bytecode_index": 63,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "java.util.HashMap",
+                  "method": "get",
+                  "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                  "line": 564,
+                  "bytecode_index": 2,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.ChannelCoordinator",
+                  "method": "signal",
+                  "descriptor": "(Ljava/util/UUID;Ljava/util/UUID;)Z",
+                  "line": 40,
+                  "bytecode_index": 19,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/ChannelCoordinator.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "signal",
+                  "descriptor": "(Ljava/util/UUID;Ljava/util/UUID;)Z",
+                  "line": 282,
+                  "bytecode_index": 6,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "wakeChannel",
+                  "descriptor": "(Ljava/util/UUID;Z)V",
+                  "line": 297,
+                  "bytecode_index": 128,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 320,
+                  "bytecode_index": 786,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f1934e92aa8.247483142",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            },
+            {
+              "samples": 9,
+              "fraction_of_role_samples": 0.03488372093023256,
+              "first_sample_utc": "2026-10-06T14:02:29.388517627Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.concurrent.ConcurrentHashMap",
+                  "method": "get",
+                  "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                  "line": 946,
+                  "bytecode_index": 127,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "wakeChannel",
+                  "descriptor": "(Ljava/util/UUID;Z)V",
+                  "line": 297,
+                  "bytecode_index": 53,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 321,
+                  "bytecode_index": 827,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f1934e92aa8.247483142",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            },
+            {
+              "samples": 7,
+              "fraction_of_role_samples": 0.027131782945736434,
+              "first_sample_utc": "2026-10-06T14:03:07.587868558Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.HashSet",
+                  "method": "<init>",
+                  "descriptor": "(Ljava/util/Collection;)V",
+                  "line": 121,
+                  "bytecode_index": 24,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.compat.CompatLoader",
+                  "method": "resources",
+                  "descriptor": "()Ljava/util/Set;",
+                  "line": 23,
+                  "bytecode_index": 7,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/compat/CompatLoader.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "wakeChannel",
+                  "descriptor": "(Ljava/util/UUID;Z)V",
+                  "line": 297,
+                  "bytecode_index": 101,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 321,
+                  "bytecode_index": 827,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f1934e92aa8.247483142",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            },
+            {
+              "samples": 7,
+              "fraction_of_role_samples": 0.027131782945736434,
+              "first_sample_utc": "2026-10-06T14:02:56.538420709Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.concurrent.ConcurrentHashMap",
+                  "method": "get",
+                  "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+                  "line": 946,
+                  "bytecode_index": 127,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "wakeChannel",
+                  "descriptor": "(Ljava/util/UUID;Z)V",
+                  "line": 297,
+                  "bytecode_index": 53,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 320,
+                  "bytecode_index": 786,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f1934e92aa8.247483142",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            },
+            {
+              "samples": 7,
+              "fraction_of_role_samples": 0.027131782945736434,
+              "first_sample_utc": "2026-10-06T14:02:41.837498808Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "exactOutputSizeIfKnown",
+                  "descriptor": "(Ljava/util/Spliterator;)J",
+                  "line": 470,
+                  "bytecode_index": 16,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "evaluate",
+                  "descriptor": "(Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;",
+                  "line": 574,
+                  "bytecode_index": 19,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "evaluateToArrayNode",
+                  "descriptor": "(Ljava/util/function/IntFunction;)Ljava/util/stream/Node;",
+                  "line": 260,
+                  "bytecode_index": 74,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "toArray",
+                  "descriptor": "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;",
+                  "line": 616,
+                  "bytecode_index": 4,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "toArray",
+                  "descriptor": "()[Ljava/lang/Object;",
+                  "line": 622,
+                  "bytecode_index": 6,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "toList",
+                  "descriptor": "()Ljava/util/List;",
+                  "line": 627,
+                  "bytecode_index": 4,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.core.LocalBuffer",
+                  "method": "received",
+                  "descriptor": "(Ljava/lang/String;)Ljava/util/List;",
+                  "line": 29,
+                  "bytecode_index": 23,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/core/LocalBuffer.java"
+                },
+                {
+                  "class": "dev.crosstesseract.core.LocalBuffer",
+                  "method": "receiveRoom",
+                  "descriptor": "(Ljava/lang/String;)J",
+                  "line": 32,
+                  "bytecode_index": 2,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/core/LocalBuffer.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "lambda$wakeChannel$32",
+                  "descriptor": "(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/lang/String;)Z",
+                  "line": 297,
+                  "bytecode_index": 25,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f1935058460.1767257919",
+                  "method": "test",
+                  "descriptor": "(Ljava/lang/Object;)Z",
+                  "line": -1,
+                  "bytecode_index": 8,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "java.util.stream.MatchOps$1MatchSink",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": 90,
+                  "bytecode_index": 12,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "java.util.Spliterators$IteratorSpliterator",
+                  "method": "tryAdvance",
+                  "descriptor": "(Ljava/util/function/Consumer;)Z",
+                  "line": 1950,
+                  "bytecode_index": 68,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "forEachWithCancel",
+                  "descriptor": "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z",
+                  "line": 129,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "copyIntoWithCancel",
+                  "descriptor": "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Z",
+                  "line": 527,
+                  "bytecode_index": 32,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "copyInto",
+                  "descriptor": "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)V",
+                  "line": 513,
+                  "bytecode_index": 49,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "wrapAndCopyInto",
+                  "descriptor": "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Ljava/util/stream/Sink;",
+                  "line": 499,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.MatchOps$MatchOp",
+                  "method": "evaluateSequential",
+                  "descriptor": "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;",
+                  "line": 230,
+                  "bytecode_index": 14,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.MatchOps$MatchOp",
+                  "method": "evaluateSequential",
+                  "descriptor": "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;",
+                  "line": 196,
+                  "bytecode_index": 3,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "evaluate",
+                  "descriptor": "(Ljava/util/stream/TerminalOp;)Ljava/lang/Object;",
+                  "line": 234,
+                  "bytecode_index": 88,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "anyMatch",
+                  "descriptor": "(Ljava/util/function/Predicate;)Z",
+                  "line": 632,
+                  "bytecode_index": 8,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "wakeChannel",
+                  "descriptor": "(Ljava/util/UUID;Z)V",
+                  "line": 297,
+                  "bytecode_index": 116,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 320,
+                  "bytecode_index": 786,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f1934e92aa8.247483142",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            },
+            {
+              "samples": 6,
+              "fraction_of_role_samples": 0.023255813953488372,
+              "first_sample_utc": "2026-10-06T14:02:36.888422975Z",
+              "frames_leaf_to_root": [
+                {
+                  "class": "java.util.HashMap",
+                  "method": "getNode",
+                  "descriptor": "(Ljava/lang/Object;)Ljava/util/HashMap$Node;",
+                  "line": 578,
+                  "bytecode_index": 63,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "java.util.HashMap",
+                  "method": "getOrDefault",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+                  "line": 1147,
+                  "bytecode_index": 2,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                  "method": "mode",
+                  "descriptor": "(Ljava/lang/String;)Ldev/crosstesseract/core/Protocol$Mode;",
+                  "line": 156,
+                  "bytecode_index": 8,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+                },
+                {
+                  "class": "dev.crosstesseract.block.TesseractBlockEntity",
+                  "method": "allowed",
+                  "descriptor": "(Ljava/lang/String;Lnet/minecraft/core/Direction;Z)Z",
+                  "line": 142,
+                  "bytecode_index": 137,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "lambda$wakeChannel$32",
+                  "descriptor": "(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/lang/String;)Z",
+                  "line": 297,
+                  "bytecode_index": 14,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService$$Lambda+0x00007f1935058460.1767257919",
+                  "method": "test",
+                  "descriptor": "(Ljava/lang/Object;)Z",
+                  "line": -1,
+                  "bytecode_index": 8,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "java.util.stream.MatchOps$1MatchSink",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": 90,
+                  "bytecode_index": 12,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "java.util.Spliterators$IteratorSpliterator",
+                  "method": "tryAdvance",
+                  "descriptor": "(Ljava/util/function/Consumer;)Z",
+                  "line": 1950,
+                  "bytecode_index": 68,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "forEachWithCancel",
+                  "descriptor": "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z",
+                  "line": 129,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "copyIntoWithCancel",
+                  "descriptor": "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Z",
+                  "line": 527,
+                  "bytecode_index": 32,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "copyInto",
+                  "descriptor": "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)V",
+                  "line": 513,
+                  "bytecode_index": 49,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "wrapAndCopyInto",
+                  "descriptor": "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Ljava/util/stream/Sink;",
+                  "line": 499,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.MatchOps$MatchOp",
+                  "method": "evaluateSequential",
+                  "descriptor": "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;",
+                  "line": 230,
+                  "bytecode_index": 14,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.MatchOps$MatchOp",
+                  "method": "evaluateSequential",
+                  "descriptor": "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;",
+                  "line": 196,
+                  "bytecode_index": 3,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.AbstractPipeline",
+                  "method": "evaluate",
+                  "descriptor": "(Ljava/util/stream/TerminalOp;)Ljava/lang/Object;",
+                  "line": 234,
+                  "bytecode_index": 88,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "java.util.stream.ReferencePipeline",
+                  "method": "anyMatch",
+                  "descriptor": "(Ljava/util/function/Predicate;)Z",
+                  "line": 632,
+                  "bytecode_index": 8,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "wakeChannel",
+                  "descriptor": "(Ljava/util/UUID;Z)V",
+                  "line": 297,
+                  "bytecode_index": 116,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeService",
+                  "method": "tick",
+                  "descriptor": "()V",
+                  "line": 320,
+                  "bytecode_index": 786,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java"
+                },
+                {
+                  "class": "dev.crosstesseract.runtime.RuntimeEvents",
+                  "method": "tick",
+                  "descriptor": "(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Pre;)V",
+                  "line": 8,
+                  "bytecode_index": 13,
+                  "frame_type": "Inlined",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java"
+                },
+                {
+                  "class": "dev.crosstesseract.CrossTesseract$$Lambda+0x00007f1934c3f770.1771929018",
+                  "method": "accept",
+                  "descriptor": "(Ljava/lang/Object;)V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "JIT compiled",
+                  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+                  "source_path": "src/main/java/dev/crosstesseract/CrossTesseract.java"
+                },
+                {
+                  "class": "net.neoforged.bus.ConsumerEventHandler",
+                  "method": "invoke",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)V",
+                  "line": 27,
+                  "bytecode_index": 5,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;[Lnet/neoforged/bus/api/EventListener;)Lnet/neoforged/bus/api/Event;",
+                  "line": 360,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.bus.EventBus",
+                  "method": "post",
+                  "descriptor": "(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;",
+                  "line": 328,
+                  "bytecode_index": 27,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.neoforged.neoforge.event.EventHooks",
+                  "method": "fireServerTickPre",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;Lnet/minecraft/server/MinecraftServer;)V",
+                  "line": 1010,
+                  "bytecode_index": 12,
+                  "frame_type": "Inlined"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "tickServer",
+                  "descriptor": "(Ljava/util/function/BooleanSupplier;)V",
+                  "line": 915,
+                  "bytecode_index": 16,
+                  "frame_type": "JIT compiled"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "runServer",
+                  "descriptor": "()V",
+                  "line": 707,
+                  "bytecode_index": 304,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer",
+                  "method": "lambda$spin$2",
+                  "descriptor": "(Ljava/util/concurrent/atomic/AtomicReference;)V",
+                  "line": 267,
+                  "bytecode_index": 7,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "net.minecraft.server.MinecraftServer$$Lambda+0x00007f1934e92aa8.247483142",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": -1,
+                  "bytecode_index": 4,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "runWith",
+                  "descriptor": "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+                  "line": 1596,
+                  "bytecode_index": 5,
+                  "frame_type": "Interpreted"
+                },
+                {
+                  "class": "java.lang.Thread",
+                  "method": "run",
+                  "descriptor": "()V",
+                  "line": 1583,
+                  "bytecode_index": 19,
+                  "frame_type": "Interpreted"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "monitor_input": {
+        "path": "reports/optimization-scale-fast-scale-fixed-75392af-20261006T135146Z-3eebad.json",
+        "bytes": 2944151,
+        "sha256": "a93e902799c9d427dc0db090d43358e969e31ed2678eb8c368656290658047f3"
+      }
+    }
+  },
+  "source_checks": [
+    {
+      "recording": "baseline",
+      "declared_source_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+      "path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java",
+      "git_source_sha256": "1e27dbe2d4be084066679846f31bd69ab8e017096ef718598b5b343eb4feebc3",
+      "recorded_lines_checked": [
+        {
+          "line": 175,
+          "source_text": "        for(int i=0;i<limits.completions() && System.nanoTime()-start<limits.tickNanos();i++){Runnable completion=completions.poll();if(completion==null)break;try{completion.run();}catch(RuntimeException e){fail(e);}}"
+        },
+        {
+          "line": 183,
+          "source_text": "            be.pumpNeighbors();"
+        },
+        {
+          "line": 187,
+          "source_text": "            transfer(be);"
+        }
+      ],
+      "scope": "Selected actual recorded positive line-table locations. Hidden lambda class names and negative lines are not verified source declarations."
+    },
+    {
+      "recording": "current",
+      "declared_source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+      "path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java",
+      "git_source_sha256": "9e03e96c4d354b0cc014e728ffd86e86a4c8407003881fb48568419c51787d74",
+      "recorded_lines_checked": [
+        {
+          "line": 282,
+          "source_text": "    private boolean signal(UUID channel,UUID id){if(coordinator.signal(channel,id))return true;schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));metrics.retries.increment();return false;}"
+        },
+        {
+          "line": 297,
+          "source_text": "        for(UUID id:ids){var be=loaded.get(id);if(be!=null && be.registered() && be.pauseReason().isEmpty() && be.channel()!=null && !be.binding() && CompatLoader.resources().stream().anyMatch(kind->!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,false)&&be.buffer().receiveRoom(kind)>0))signal(channel,id);}"
+        },
+        {
+          "line": 305,
+          "source_text": "        for(int i=0;i<limits.completions() && System.nanoTime()-start<limits.tickNanos();i++){Runnable completion=completions.poll();if(completion==null)break;try{completion.run();}catch(RuntimeException e){fail(e);}}"
+        },
+        {
+          "line": 320,
+          "source_text": "            var wake=new LinkedHashSet<UUID>();for(int i=0;i<16;i++){var hint=hints.poll();if(hint==null)break;wake.add(hint.channel());if(hint.endpoint()!=null){var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))signal(hint.channel(),hint.endpoint());}}for(UUID channel:wake)wakeChannel(channel,true);"
+        },
+        {
+          "line": 321,
+          "source_text": "            if(limits.transfer().localFast() && !dirtyChannels.isEmpty())wakeChannel(dirtyChannels.removeFirst(),false);"
+        }
+      ],
+      "scope": "Selected actual recorded positive line-table locations. Hidden lambda class names and negative lines are not verified source declarations."
+    },
+    {
+      "recording": "current",
+      "declared_source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+      "path": "src/main/java/dev/crosstesseract/runtime/ChannelCoordinator.java",
+      "git_source_sha256": "ffcde565f9084f113e1e20199aecbfc68c41ceac8fc2b086d08c579639c8d095",
+      "recorded_lines_checked": [
+        {
+          "line": 40,
+          "source_text": "        EndpointState existing = endpoints.get(endpoint);"
+        }
+      ],
+      "scope": "Selected actual recorded positive line-table locations. Hidden lambda class names and negative lines are not verified source declarations."
+    },
+    {
+      "recording": "current",
+      "declared_source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+      "path": "src/main/java/dev/crosstesseract/compat/CompatLoader.java",
+      "git_source_sha256": "faab3df301b66800bff0518a17ca79c33d6ee800dbec29fe374d5d96eb8c404d",
+      "recorded_lines_checked": [
+        {
+          "line": 23,
+          "source_text": "    public static Set<String> resources() { var set=new HashSet<>(Protocol.BASE);for(var m:MODULES)set.addAll(m.resources());return Set.copyOf(set); }"
+        }
+      ],
+      "scope": "Selected actual recorded positive line-table locations. Hidden lambda class names and negative lines are not verified source declarations."
+    },
+    {
+      "recording": "current",
+      "declared_source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+      "path": "src/main/java/dev/crosstesseract/core/LocalBuffer.java",
+      "git_source_sha256": "45c47e30a41380c48ed330f74199a2ab7d5cc0679a3d9419b59b88cb22e8dca0",
+      "recorded_lines_checked": [
+        {
+          "line": 29,
+          "source_text": "    public List<Credit> received(String kind) { return credits.values().stream().filter(c->c.resource().kind().equals(kind) && c.remaining()>0).toList(); }"
+        },
+        {
+          "line": 32,
+          "source_text": "        int used=received(kind).size(); return credits.size()>=64 || used>=creditLimit(kind)?0:slots(kind)*slotCapacity(kind)-Math.min(slots(kind)*slotCapacity(kind),receiveAmount(kind));"
+        }
+      ],
+      "scope": "Selected actual recorded positive line-table locations. Hidden lambda class names and negative lines are not verified source declarations."
+    },
+    {
+      "recording": "current",
+      "declared_source_revision": "75392af252744f240253d134d1da565a49b2cc9f",
+      "path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java",
+      "git_source_sha256": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "recorded_lines_checked": [
+        {
+          "line": 142,
+          "source_text": "        Protocol.Mode mode=mode(kind);"
+        },
+        {
+          "line": 156,
+          "source_text": "    public Protocol.Mode mode(String kind) { return modes.getOrDefault(kind,Protocol.Mode.OFF); }"
+        }
+      ],
+      "scope": "Selected actual recorded positive line-table locations. Hidden lambda class names and negative lines are not verified source declarations."
+    }
+  ],
+  "descriptive_active_comparison": {
+    "wake_channel_inclusive_samples": 112,
+    "wake_fraction_of_current_runtime_samples": 0.7225806451612903,
+    "wake_fraction_of_current_main_execution_samples": 0.43410852713178294,
+    "main_runtime_allocation_weight_ratio": 19.67840454360986,
+    "global_allocation_weight_change_percent": -14.719598283720103,
+    "scope": "Single recordings; sample ratios and ObjectAllocationSample statistical weights, not CPU time, exact allocation or causal p95 decomposition."
+  }
+}

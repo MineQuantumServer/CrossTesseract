@@ -1,0 +1,7 @@
+-> Aggregate: count(0)  (cost=0.426 rows=1) (actual time=0.0304..0.0305 rows=1 loops=1)
+    -> Nested loop inner join  (cost=0.425 rows=0.005) (actual time=0.0266..0.0282 rows=1 loops=1)
+        -> Filter: (r.kind = 'cross_tesseract:fe')  (cost=0.26 rows=0.1) (actual time=0.00767..0.00823 rows=1 loops=1)
+            -> Index lookup on r using PRIMARY (cluster_id='dev_perf_v1')  (cost=0.26 rows=1) (actual time=0.007..0.00751 rows=1 loops=1)
+        -> Filter: ((t.resource_id = r.resource_id) and (t.kind = 'ALLOCATE') and (t.remaining > 0))  (cost=1.5 rows=0.05) (actual time=0.0174..0.0181 rows=1 loops=1)
+            -> Index lookup on t using endpoint_transfers (cluster_id='dev_perf_v1', endpoint_id='21b97d57-f33a-457d-ba76-9927a2037788')  (cost=1.5 rows=2) (actual time=0.0154..0.0165 rows=2 loops=1)
+

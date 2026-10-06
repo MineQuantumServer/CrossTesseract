@@ -1,0 +1,37 @@
+{
+  "mode": "fast",
+  "label": "fast",
+  "head": "4cfff0ab26d2cc11c4d26dbeebcca911dc0d34f7",
+  "jar_sha256": "4cd0d4b7be1a30946ebfbb72cc554962ce7655d8bb8218797d8a0d07e95a2859",
+  "launch_pids": {
+    "A": [
+      249950
+    ],
+    "B": [
+      249952
+    ],
+    "C": [
+      249943
+    ]
+  },
+  "utc_start": "2026-10-06T12:23:44Z",
+  "config": {
+    "A": {
+      "transfer.channelBatches": "true",
+      "transfer.localFastPath": "true"
+    },
+    "B": {
+      "transfer.channelBatches": "true",
+      "transfer.localFastPath": "true"
+    },
+    "C": {
+      "transfer.channelBatches": "true",
+      "transfer.localFastPath": "true"
+    }
+  },
+  "benchmark": "reports/optimization-fast-4cfff0a-20261006T122344Z-6bdc40.json",
+  "exit_code": 0,
+  "functional_failures": [],
+  "regressions": [],
+  "utc_end": "2026-10-06T13:01:26Z"
+}

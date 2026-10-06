@@ -1,0 +1,19 @@
+{
+  "source_commit": "75392af252744f240253d134d1da565a49b2cc9f",
+  "jar_sha256": "fc7a072581630ed39125d6bf00d362df5e51200f6dabc40c85a47d98b16975e8",
+  "label": "fast-scale-fixed",
+  "config": {
+    "transfer.channelBatches": "true",
+    "transfer.localFastPath": "true"
+  },
+  "comparison": "same original x30357 z0 y64 six loaded chunk footprint; 120-second OFF/ACTIVE windows, five-second warmup, one repeat",
+  "utc_start": "2026-10-06T13:52:00Z",
+  "startup_log": "logs/optimization-fast-scale-fixed-startup.log",
+  "benchmark_log": "logs/optimization-fast-fixed-endpoint-scale.log",
+  "utc_start_accuracy": "Operator timestamp rounded before launch; actual JVM/log/phase observations provide authoritative intervals.",
+  "operator_checkout_source": "75392af252744f240253d134d1da565a49b2cc9f",
+  "java_source_tree_sha256": "e0dcbfc87f4ba8cea5738819946cf4fdfe94273148c272499f37b25d917ffdde",
+  "performance_report": "reports/performance-opt-fast-75392af.json",
+  "completed": true,
+  "passed": true
+}

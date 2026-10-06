@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.AuthorityIntegrationTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-10-06T10:39:53.545Z" hostname="13edb0cae2c6" time="2.425">
+  <properties/>
+  <testcase name="staleSessionIsFencedAndQuotaDoesNotExpireWithLease()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.113"/>
+  <testcase name="sealedReservedReceiptIsNeverPromotedByCheckpointOrReclaimedWithUnprovenConsumption()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.158"/>
+  <testcase name="duplicateServerIdIsRejectedAndCloneCannotClaimAnotherLocation()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.064"/>
+  <testcase name="historyAdmissionIsAtomicRollsBackAndOldPrunedKeysCannotReplay()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.101"/>
+  <testcase name="sameChunkCountsTwiceAndInstallFailureCompensates()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.074"/>
+  <testcase name="outboxSurvivesUnpublishedCommitAndRedisIsNeverAssetAuthority()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.296"/>
+  <testcase name="profileAndPacketQuantumAvoidWrongVoltageAndFractionalAmps()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.098"/>
+  <testcase name="redisPendingConsumersDuplicateAndReorderedHintsAreRoutedAndIdempotent()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.041"/>
+  <testcase name="sealedRecoveryUsesOriginalOwnershipAndCannotRepeatReclaimedAssets()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.09"/>
+  <testcase name="stockPagingPendingCapExpirationAndBindingCancelAreBounded()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.246"/>
+  <testcase name="threeServersRaceForTwoPersistentSlots()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.323"/>
+  <testcase name="quarantinedAllocationsCannotBeReactivatedByCheckpointOrWalRestore()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.093"/>
+  <testcase name="directedStockIntentIsPrivateIdempotentAndUsesExclusiveFairAllocations()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.18"/>
+  <testcase name="passiveHeatUsesExclusivePreparedOwnershipAndNeverRefundsTimeouts()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.088"/>
+  <testcase name="integerBalancesPartialDeliveryAndDuplicatesConserveAcrossThreeServers()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.278"/>
+  <testcase name="quotaReductionIsDeterministicAndRetainsSlotsUntilRevocationAck()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.074"/>
+  <testcase name="mysqlDeadlocksAreRetriedWithoutRepeatingCommittedMutations()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.036"/>
+  <testcase name="invitationsArePrivateConcurrentIdempotentAndTransfersHaveOneOwner()" classname="dev.crosstesseract.AuthorityIntegrationTest" time="0.062"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>

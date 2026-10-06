@@ -1,0 +1,66 @@
+{
+  "stage": "current",
+  "loaded_source_revision_declared": "75392af252744f240253d134d1da565a49b2cc9f",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-container-benchmark.py",
+        "--label",
+        "container-current-75392af",
+        "--operator-revision",
+        "75392af252744f240253d134d1da565a49b2cc9f",
+        "--scenarios",
+        "same,cross,mixed",
+        "--probes",
+        "2",
+        "--timeout",
+        "420",
+        "--idle",
+        "2.2",
+        "--poll",
+        ".1",
+        "--execute"
+      ],
+      "loaded_source_revision_declared": "75392af252744f240253d134d1da565a49b2cc9f",
+      "utc_start": "2026-10-06T15:49:28Z",
+      "log": "logs/optimization-container-current-75392af.log",
+      "report": "reports/optimization-container-container-current-75392af-20261006T154928Z-38ab4f.json",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T15:51:17Z",
+      "failures": [],
+      "regressions": [],
+      "report_sha256": "d465e1ac20a4c623bc40f1fc6b8fd47bfe8102b1c3441605608d6bcb2e084eb4"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-benchmark.py",
+        "--label",
+        "current-pressure-75392af",
+        "--scenarios",
+        "backpressure,hotspot",
+        "--warmup",
+        "30",
+        "--seconds",
+        "120",
+        "--repeats",
+        "3",
+        "--probes",
+        "0",
+        "--baseline",
+        "reports/optimization-original-pressure-87bf217-20261006T144116Z-38d872.json"
+      ],
+      "loaded_source_revision_declared": "75392af252744f240253d134d1da565a49b2cc9f",
+      "utc_start": "2026-10-06T15:51:17Z",
+      "log": "logs/optimization-current-pressure-75392af.log"
+    }
+  ],
+  "observers": "Single RCON workload observer only; no concurrent RCON/tick/SQL/JFR sidecars. Current per-run scripts retain their own fixed monitoring reads.",
+  "passed_definition": "All requested procedures and functional gates completed; performance regressions remain separately recorded in every run and are not erased.",
+  "procedure_completed": false,
+  "performance_regressions": [],
+  "passed": false,
+  "failure": "KeyboardInterrupt: ",
+  "utc_end": "2026-10-06T16:08:06Z"
+}

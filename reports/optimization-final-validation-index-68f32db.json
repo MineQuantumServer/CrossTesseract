@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-06T20:06:12.286719+00:00",
+  "source_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "java_source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+  "binary_artifacts": [
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev-sources.jar",
+      "bytes": 156764,
+      "sha256": "919f0e7cee1a965f0fe5b9771edc832b5d7c19bb50c65c92b8bbe48090ac2b93"
+    },
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev.jar",
+      "bytes": 4116640,
+      "sha256": "7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a"
+    }
+  ],
+  "evidence": {
+    "tested_build": {
+      "path": "reports/optimization-artifact-ready-final.json",
+      "sha256": "58b96a180e5e480b55eceb0b779f5fadb2d882eb523c3afe217960840d95e7ae",
+      "bytes": 1009
+    },
+    "optional_matrix": {
+      "path": "reports/compat-matrix-68f32db.json",
+      "sha256": "e7a6d423da5a233a0496de3a4454cd64bc49e29b56978633cc3167b154768cdc",
+      "bytes": 2038
+    },
+    "packaged_binary": {
+      "path": "reports/packaged-smoke-68f32db.json",
+      "sha256": "d3313644b02a83e000f9ee68c79e130acc64ea17b270e751692831524242b61c",
+      "bytes": 2829
+    },
+    "main_baseline_sequence": {
+      "path": "reports/optimization-final-sequence-original.json",
+      "sha256": "0c5be4798dccbdadc99becbf92d598a9fd19f6be0b2a87ba4385b6af90a66252",
+      "bytes": 2967
+    },
+    "main_current_sequence": {
+      "path": "reports/optimization-final-sequence-current-68f32db.json",
+      "sha256": "6cef499ebc0b9c2f40d65c39cc12b39e689f7d3ad387b51fa513438fa9a7b691",
+      "bytes": 4519
+    },
+    "performance_comparison": {
+      "path": "reports/optimization-comparison-68f32db.json",
+      "sha256": "64d9041979a4bb54e66082852f4ef90dfadaea5b979e9524798d5444e1e1a58e",
+      "bytes": 1246999
+    },
+    "supplementary_parent_retained_failure": {
+      "path": "reports/optimization-extra-sequence-68f32db.json",
+      "sha256": "2aa1f21a8bad10fa61ce6c40dd51bcc64a0a1c70bcddcbf3c6a0798cefc274c5",
+      "bytes": 4692
+    },
+    "resource_mix_original": {
+      "path": "reports/optimization-resource-mix-original87-20261006T185321Z-8c23fc.json",
+      "sha256": "f741dcd70598ca6eec63a78bf4ea15a6cd7d0a0bb0d11acd33bd9d10d3c0297a",
+      "bytes": 18922056
+    },
+    "resource_mix_batch": {
+      "path": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1",
+      "bytes": 26044130
+    },
+    "resource_mix_fast": {
+      "path": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e",
+      "bytes": 15836976
+    },
+    "supplementary_comparison_retains_parent_failure": {
+      "path": "reports/optimization-resource-mix-comparison-68f32db.json",
+      "sha256": "e51506e4480c8ffb5e10d8224d2ea0fa79d176b170f43297376f10f5e6a19232",
+      "bytes": 2145136
+    },
+    "fast_regression_parent_retained_failure": {
+      "path": "reports/optimization-final-regressions-fast-68f32db.json",
+      "sha256": "d33bde2436994a387b5c422e1e176cd490f8de5e63396751f7c97365e0c580c6",
+      "bytes": 3251
+    },
+    "three_fast": {
+      "path": "reports/three-68f32db-fast.json",
+      "sha256": "f53a07b7b7002b3dd782b6bf448c5fa9fa70f36b2b02a8d1129e54dcc6d1b171",
+      "bytes": 8041
+    },
+    "topology_fast": {
+      "path": "reports/optimization-topology-final-fast-68f32db-20261006T192008Z-6be3bb.json",
+      "sha256": "211e0357147fb11756a81261411bd0412c19d926bcacc4368c3c75376a935bf1",
+      "bytes": 891149
+    },
+    "halts_fast": {
+      "path": "reports/faults-68f32db-fast.json",
+      "sha256": "fdabc8ce3ad59c5eed2b3b0ededf1c607df984d859c6bd77273db2919f85201d",
+      "bytes": 1746
+    },
+    "redis_restart_kill_fast": {
+      "path": "reports/recovery-68f32db-fast.json",
+      "sha256": "16207c71f181b0c2e7c321a5a6ec159d10efab45d476b475068f180053796a52",
+      "bytes": 2734
+    },
+    "mysql_fast": {
+      "path": "reports/mysql-68f32db-fast.json",
+      "sha256": "bbfbdb88a222e3b31f3fb2d5c2cc748d5279d05fe9dfc071a901e1c170ebde25",
+      "bytes": 4345
+    },
+    "fallback_first_retained_failure": {
+      "path": "reports/optimization-restart-fallback-68f32db-20261006T192436Z-9e30ef6d.json",
+      "sha256": "1e4b7550dafad1382009a3cceb4658cf5d71eccd37c4aaf269ef1a82d30d15f7",
+      "bytes": 336117
+    },
+    "fallback_second_retained_failure": {
+      "path": "reports/optimization-restart-fallback-68f32db-20261006T194856Z-b6a7c332.json",
+      "sha256": "e491df01e07b4ed106eebb0a9e545ce8c8f27f719bcee3cd8e84fe55ea00a801",
+      "bytes": 1483583
+    },
+    "historical_resume_retained_failure": {
+      "path": "reports/optimization-resume-extra-68f32db-20261006T194822Z-c221422a.json",
+      "sha256": "3e65a8c56894c4a813c84fe8ad9faae81720a8fbdcab0e5793550247a3f02449",
+      "bytes": 177708
+    },
+    "fallback_final": {
+      "path": "reports/optimization-restart-fallback-68f32db-20261006T195817Z-df658dc1.json",
+      "sha256": "e3108df183e4cc1793311ed4c22d38480738188eb4bb4d148191795ff0d0f292",
+      "bytes": 2243018
+    },
+    "fallback_final_controller": {
+      "path": "reports/optimization-final-fallback-controller-68f32db-58fcc66e.json",
+      "sha256": "f40f6cff2427e9a16462c2df65fbdc51a040f979118ec0287d682b4c64a0b227",
+      "bytes": 30495
+    },
+    "legacy_regression": {
+      "path": "reports/optimization-final-regressions-legacy-68f32db.json",
+      "sha256": "2849faee1291dce9e8d2a217b905c6bc4330803fa38e20e7dcad6a1fb346f997",
+      "bytes": 1470
+    },
+    "legacy_child_0": {
+      "path": "reports/three-68f32db-legacy.json",
+      "sha256": "450420d46e04c8db6f31901145f0d166fba0ee564fec506f96c436b7b96659c3",
+      "bytes": 8039
+    },
+    "legacy_child_1": {
+      "path": "reports/optimization-topology-final-legacy-68f32db-20261006T200139Z-541bf9.json",
+      "sha256": "a8015cc4353d93b5efb76741707e0639a51adcaf335c15e052a75e7f0e41df82",
+      "bytes": 1611700
+    },
+    "retained_original128_final_audit": {
+      "path": "reports/optimization-restart-fallback-final-retained128-audit.json",
+      "sha256": "d01dbb4c8374dc47db56bcbc8455c085aac7085ff92461e9f8dcf86eb9433e4e",
+      "bytes": 4919
+    },
+    "containers": {
+      "path": "reports/optimization-container-container-current-68f32db-68f32db-20261006T170440Z-f3e5f6.json",
+      "sha256": "c4d88f785dc49c0dace4b309b556015270a9a2438a1045c9a49c3e162777d585",
+      "bytes": 2273978
+    },
+    "pressure": {
+      "path": "reports/optimization-current-pressure-68f32db-20261006T170630Z-ae7dcd.json",
+      "sha256": "f7b8c245e530d247744dc76c20a336fa364960d2130c30de33b3b88868fd1ef2",
+      "bytes": 3648850
+    },
+    "scale": {
+      "path": "reports/optimization-scale-fast-scale-verified-68f32db-20261006T164948Z-78f406.json",
+      "sha256": "b9b59e32d4fe69a3a7dbcea415252a44676899c4bc51d13bf12d10ab6f418206",
+      "bytes": 2804742
+    },
+    "jfr": {
+      "path": "reports/optimization-jfr-68f32db.json",
+      "sha256": "84e3ce149d7f4b60cc763f6c8ad781cd458b0bdb17d6b0bfb907a104c5cc74b0",
+      "bytes": 6114554
+    }
+  },
+  "counts": {
+    "junit": 68,
+    "junit_unit_property": 35,
+    "junit_real_backend": 33,
+    "base_native_required": 13,
+    "optional_combinations": 8,
+    "optional_native_executions": 132,
+    "main_timed_three_jvm_windows": 27,
+    "supplementary_resource_mix_windows": 9,
+    "native_container_probes": 6,
+    "pressure_windows": 6,
+    "scale_windows": 6,
+    "actual_halt97_windows": 5
+  },
+  "performance_acceptance": {
+    "all_frozen_goals_passed": false,
+    "strict_comparison_actual_exit_code": 1,
+    "scope": "Functional success is not performance goal success; retain SQL/WAL/main-thread and batch-only item latency regressions."
+  },
+  "recovery_acceptance": {
+    "final_clean_same_jar_same_world_flags_round_trip_passed": true,
+    "fresh_legacy_three_jvm_regression_passed": true,
+    "original_failures_relabelled": false,
+    "original128_FE_still_owned_LOCAL": 128,
+    "WAL_is_mirror_not_second_asset": true,
+    "external_world_save_atomicity_proved": false
+  },
+  "limits": [
+    "No authenticated proxy/player GUI rerun in this round",
+    "No native positive-asset full worker/completion overflow injection",
+    "No filesystem ENOSPC/EIO/power loss or uncertain third-party capability side-effect injection",
+    "No real network delay/loss injection or long-term capacity claim",
+    "Heat retains independent state machine; delay stability not proved",
+    "AE2 native cross-JVM network merge unfinished",
+    "Runtime rolling metrics and JFR sampling are not whole-window MSPT/TPS/allocation-rate evidence"
+  ]
+}

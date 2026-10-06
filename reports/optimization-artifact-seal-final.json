@@ -1,0 +1,16 @@
+{
+  "source_commit": "e4057a5d97d4d8989a727da13851954f33f7702e",
+  "jar": "build/libs/cross_tesseract-0.1.0-dev.jar",
+  "sha256": "77bc944a6c2bbe11dcc7d4a811163821d2502e8bb81926feccda0bed96d0769a",
+  "bytes": 4115365,
+  "junit": {
+    "tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "base_native_tests": 13,
+  "base_log": "logs/optimization-build-seal-final.log",
+  "performance_core": "4cfff0ab26d2cc11c4d26dbeebcca911dc0d34f7",
+  "performance_delta": "Closing/clone/empty-registration follow-up; no new asset schema/protocol/ordinary transfer implementation. Nine-repeat performance report is not a rerun on this artifact."
+}

@@ -1,0 +1,688 @@
+{
+  "utc_start": "2026-10-06T19:57:44.101133+00:00",
+  "passed": true,
+  "state": "COMPLETED_FUNCTIONAL_PASS_AND_NORMAL_STOP",
+  "root_asset_gates": {
+    "optimization-restart-fallback-after-second-failure-audit.json": {
+      "sha256": "a0bc97898b16f01436dcf462f8b553d53ecf52bdac0844fed5cdcef12d99c097",
+      "body": {
+        "utc": "2026-10-06T19:51:58.133332+00:00",
+        "failed_report": "reports/optimization-restart-fallback-68f32db-20261006T192436Z-9e30ef6d.json",
+        "failed_report_sha256": "1e4b7550dafad1382009a3cceb4658cf5d71eccd37c4aaf269ef1a82d30d15f7",
+        "read_only": true,
+        "native_test_status": "FAILED_VALIDATOR_BEFORE_CONFIG_SWITCH",
+        "confirmed_actual_input_FE": 128,
+        "confirmed_actual_output_FE": 0,
+        "ownership": {
+          "SQL_available": 0,
+          "SQL_exclusive_LOCAL": 128,
+          "WAL_mirror_of_SQL_LOCAL": 128,
+          "total_effective_asset_FE": 128,
+          "mirrors_not_added": true
+        },
+        "transfers": [
+          {
+            "record_type": "transfer",
+            "id": "01a112ac-e214-7c27-9a8d-f039e63a3ace",
+            "endpoint_id": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "DEPOSIT",
+            "state": "COMMITTED",
+            "amount": 128,
+            "remaining": 0,
+            "epoch": 5
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112ac-e216-7b10-bbdb-799c766f37bb",
+            "endpoint_id": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "ALLOCATE",
+            "state": "LOCAL",
+            "amount": 128,
+            "remaining": 128,
+            "epoch": 5
+          }
+        ],
+        "endpoint_rows": [
+          [
+            "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+            "opt-regression-68f32db-fast-A",
+            "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "57536927-3421-43cd-8fc5-9df4df58e920",
+            "ACTIVE",
+            "4",
+            "7",
+            "1"
+          ],
+          [
+            "ba584569-6a07-4abf-9dca-f6a331c4c558",
+            "opt-regression-68f32db-fast-A",
+            "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "57536927-3421-43cd-8fc5-9df4df58e920",
+            "ACTIVE",
+            "6",
+            "7",
+            "1"
+          ]
+        ],
+        "stopped_servers": [
+          [
+            "opt-regression-68f32db-fast-A",
+            "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "01a112c3-fa21-72dc-8660-834e5f0f5813",
+            "7",
+            "STOPPED",
+            "1",
+            "0"
+          ],
+          [
+            "opt-regression-68f32db-fast-B",
+            "01a112a8-1da7-7da6-92bd-78ec872c272d",
+            "01a112c3-f9e8-7c3d-98c8-1b0f6a1dd1ca",
+            "6",
+            "STOPPED",
+            "1",
+            "0"
+          ],
+          [
+            "opt-regression-68f32db-fast-C",
+            "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+            "01a112c3-fac8-7995-921c-2d6ffd907129",
+            "3",
+            "STOPPED",
+            "1",
+            "0"
+          ]
+        ],
+        "WAL": [
+          {
+            "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/ba584569-6a07-4abf-9dca-f6a331c4c558.ctj",
+            "sha256": "af0468d72cebba320c0ca563b3fd8e5779c7eb9a574a876d388639da8cda0fa3",
+            "decoded": {
+              "format": 2,
+              "endpoint": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+              "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+              "generation": 1,
+              "revision": 6,
+              "deposits": [],
+              "credits": [],
+              "thermal": {
+                "microjoules": 0,
+                "residual": 0.0,
+                "pending": false
+              },
+              "sha256": "af0468d72cebba320c0ca563b3fd8e5779c7eb9a574a876d388639da8cda0fa3",
+              "size_bytes": 113,
+              "checksum_verified": true,
+              "raw_base64": "Q1RUMQAAAAK6WEVpagdKv53K9qMxxMVYAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzx/KcIMnKOArazooVO0D7JJNrjtUoa+Sn+TIR/qN+ts="
+            }
+          },
+          {
+            "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/9a82dabc-03a9-4c75-a176-6e96b6f34551.ctj",
+            "sha256": "6620d20e0c7c6efaba24b62f04718f149ee0e60cfe5a80dec1208f8e2c4afc60",
+            "decoded": {
+              "format": 2,
+              "endpoint": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+              "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+              "generation": 1,
+              "revision": 4,
+              "deposits": [],
+              "credits": [
+                {
+                  "transaction": "01a112ac-e216-7b10-bbdb-799c766f37bb",
+                  "channel": "57536927-3421-43cd-8fc5-9df4df58e920",
+                  "resource": {
+                    "kind": "cross_tesseract:fe",
+                    "payload_hex": "",
+                    "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  "original": 128,
+                  "remaining": 128
+                }
+              ],
+              "thermal": {
+                "microjoules": 0,
+                "residual": 0.0,
+                "pending": false
+              },
+              "sha256": "6620d20e0c7c6efaba24b62f04718f149ee0e60cfe5a80dec1208f8e2c4afc60",
+              "size_bytes": 185,
+              "checksum_verified": true,
+              "raw_base64": "Q1RUMQAAAAKagtq8A6lMdaF2bpa280VRAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAQGhEqziFnsQu9t5nHZvN7tXU2knNCFDzY/FnfTfWOkgABJjcm9zc190ZXNzZXJhY3Q6ZmUAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA3lTzI3vWaf2Dz5vLP6AponDkC/+jQM7szeI8gG2LSBU="
+            }
+          }
+        ],
+        "decision": "Keep this fixture untouched. Corrected test must use fresh IDs, no original input/pull replay. Recheck original ownership after recovery."
+      }
+    },
+    "optimization-restart-fallback-second-failure-assets-audit.json": {
+      "sha256": "9a43ecf5c1b6d76c6a591b63f335430827f287db5a85f50895a46808a527b556",
+      "body": {
+        "utc": "2026-10-06T19:52:57.172828+00:00",
+        "read_only": true,
+        "failed_report": "reports/optimization-restart-fallback-68f32db-20261006T194856Z-b6a7c332.json",
+        "failed_report_sha256": "e491df01e07b4ed106eebb0a9e545ce8c8f27f719bcee3cd8e84fe55ea00a801",
+        "fixtures": [
+          {
+            "channel": "52a99c14-bf5c-4fd5-b72c-2d5deb3ce00e",
+            "input_FE": 189,
+            "actual_output_FE": 189,
+            "effective_remaining_FE": 0,
+            "SQL": {
+              "pool": 0,
+              "owned": 0,
+              "deposited": 189,
+              "allocated": 189,
+              "deposit_count": 2,
+              "allocation_count": 2,
+              "quarantined": [],
+              "transfers": [
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c3-26e2-71b4-9f43-da7f5d51df26",
+                  "endpoint_id": "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "DEPOSIT",
+                  "state": "COMMITTED",
+                  "amount": 128,
+                  "remaining": 0,
+                  "epoch": 6
+                },
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c3-26e2-734f-b43e-2a706fd00ced",
+                  "endpoint_id": "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "ALLOCATE",
+                  "state": "CONSUMED",
+                  "amount": 128,
+                  "remaining": 0,
+                  "epoch": 6
+                },
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c3-4398-7346-8918-37790a95c7d8",
+                  "endpoint_id": "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "DEPOSIT",
+                  "state": "COMMITTED",
+                  "amount": 61,
+                  "remaining": 0,
+                  "epoch": 6
+                },
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c4-2350-7bd8-9e2c-f59852375fdf",
+                  "endpoint_id": "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "ALLOCATE",
+                  "state": "CONSUMED",
+                  "amount": 61,
+                  "remaining": 0,
+                  "epoch": 7
+                }
+              ]
+            },
+            "endpoint_rows": [
+              [
+                "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+                "opt-regression-68f32db-fast-A",
+                "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+                "52a99c14-bf5c-4fd5-b72c-2d5deb3ce00e",
+                "ACTIVE",
+                "10",
+                "7",
+                "1"
+              ],
+              [
+                "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+                "opt-regression-68f32db-fast-A",
+                "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+                "52a99c14-bf5c-4fd5-b72c-2d5deb3ce00e",
+                "ACTIVE",
+                "9",
+                "7",
+                "1"
+              ]
+            ],
+            "WAL": [
+              {
+                "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/899812a8-68bb-497f-b4f3-efbc61cd07b6.ctj",
+                "decoded": {
+                  "format": 2,
+                  "endpoint": "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+                  "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+                  "generation": 1,
+                  "revision": 9,
+                  "deposits": [],
+                  "credits": [],
+                  "thermal": {
+                    "microjoules": 0,
+                    "residual": 0.0,
+                    "pending": false
+                  },
+                  "sha256": "26b6bd7e570b39c30a4a5504f77fd12128f65d179dc801ce2a6c79cb8c4937b4",
+                  "size_bytes": 113,
+                  "checksum_verified": true,
+                  "raw_base64": "Q1RUMQAAAAKJmBKoaLtJf7Tz77xhzQe2AaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8RJHnz0kZCtqqqSaYEonfvuDG1bljnqbp+dxRw7i2yU="
+                }
+              },
+              {
+                "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/794d572a-443d-4e0a-8c8f-a61189d6ee93.ctj",
+                "decoded": {
+                  "format": 2,
+                  "endpoint": "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+                  "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+                  "generation": 1,
+                  "revision": 10,
+                  "deposits": [],
+                  "credits": [],
+                  "thermal": {
+                    "microjoules": 0,
+                    "residual": 0.0,
+                    "pending": false
+                  },
+                  "sha256": "30285e34a04c8bd7eaf9f2d035d2afe9e460369de55e1e231c31f0488c3e7e1b",
+                  "size_bytes": 113,
+                  "checksum_verified": true,
+                  "raw_base64": "Q1RUMQAAAAJ5TVcqRD1OCoyPphGJ1u6TAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ/7FAkCCAzm/Yrl5tZVu8rX3iIJsZftM38fDx5Gyi7Y="
+                }
+              }
+            ]
+          },
+          {
+            "channel": "d6e02154-bbe1-4e01-bd00-6a651f693f69",
+            "input_FE": 189,
+            "actual_output_FE": 189,
+            "effective_remaining_FE": 0,
+            "SQL": {
+              "pool": 0,
+              "owned": 0,
+              "deposited": 189,
+              "allocated": 189,
+              "deposit_count": 2,
+              "allocation_count": 2,
+              "quarantined": [],
+              "transfers": [
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c3-5270-7185-b4bd-7f0ee0b16144",
+                  "endpoint_id": "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "DEPOSIT",
+                  "state": "COMMITTED",
+                  "amount": 128,
+                  "remaining": 0,
+                  "epoch": 6
+                },
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c3-5292-7ce9-b954-a1427e48ca10",
+                  "endpoint_id": "8a90c9fc-da69-44ea-a488-7b3382aba231",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "ALLOCATE",
+                  "state": "CONSUMED",
+                  "amount": 128,
+                  "remaining": 0,
+                  "epoch": 5
+                },
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c3-6f58-7f01-b6d8-8081ed7e3692",
+                  "endpoint_id": "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "DEPOSIT",
+                  "state": "COMMITTED",
+                  "amount": 61,
+                  "remaining": 0,
+                  "epoch": 6
+                },
+                {
+                  "record_type": "transfer",
+                  "id": "01a112c4-2c67-7f3d-9548-8fb777a31d3b",
+                  "endpoint_id": "8a90c9fc-da69-44ea-a488-7b3382aba231",
+                  "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+                  "kind": "ALLOCATE",
+                  "state": "CONSUMED",
+                  "amount": 61,
+                  "remaining": 0,
+                  "epoch": 6
+                }
+              ]
+            },
+            "endpoint_rows": [
+              [
+                "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+                "opt-regression-68f32db-fast-A",
+                "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+                "d6e02154-bbe1-4e01-bd00-6a651f693f69",
+                "ACTIVE",
+                "9",
+                "7",
+                "1"
+              ],
+              [
+                "8a90c9fc-da69-44ea-a488-7b3382aba231",
+                "opt-regression-68f32db-fast-B",
+                "01a112a8-1da7-7da6-92bd-78ec872c272d",
+                "d6e02154-bbe1-4e01-bd00-6a651f693f69",
+                "ACTIVE",
+                "10",
+                "6",
+                "1"
+              ]
+            ],
+            "WAL": [
+              {
+                "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/7d5d6d01-5ea3-4590-9fa4-fca7f26710ac.ctj",
+                "decoded": {
+                  "format": 2,
+                  "endpoint": "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+                  "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+                  "generation": 1,
+                  "revision": 9,
+                  "deposits": [],
+                  "credits": [],
+                  "thermal": {
+                    "microjoules": 0,
+                    "residual": 0.0,
+                    "pending": false
+                  },
+                  "sha256": "759ae31e477bf29c5f5418b86ae9df9adc4b97c82465079342a32dc5ab782d61",
+                  "size_bytes": 113,
+                  "checksum_verified": true,
+                  "raw_base64": "Q1RUMQAAAAJ9XW0BXqNFkJ+k/KfyZxCsAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIXKcYjQyxhqamsofAF+Sv6HQyu/hOJbEklMeJvsdEpg="
+                }
+              },
+              {
+                "path": "run-B/world-opt-regression-68f32db-fast-B/cross_tesseract/journal/8a90c9fc-da69-44ea-a488-7b3382aba231.ctj",
+                "decoded": {
+                  "format": 2,
+                  "endpoint": "8a90c9fc-da69-44ea-a488-7b3382aba231",
+                  "world": "01a112a8-1da7-7da6-92bd-78ec872c272d",
+                  "generation": 1,
+                  "revision": 10,
+                  "deposits": [],
+                  "credits": [],
+                  "thermal": {
+                    "microjoules": 0,
+                    "residual": 0.0,
+                    "pending": false
+                  },
+                  "sha256": "8c71c1649124f07ec71d39ce5b4a4f58b34501677e6efbd82de0127737261c09",
+                  "size_bytes": 113,
+                  "checksum_verified": true,
+                  "raw_base64": "Q1RUMQAAAAKKkMn82mlE6qSIezOCq6IxAaESqB2nfaaSvXjshywnLQAAAAAAAAABAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfbvxSUcFfD0fLy1xaaxogy0/bkNKJXMO1rnVg9pSg/w="
+                }
+              }
+            ]
+          }
+        ],
+        "decision": "All378FE of the new two fixtures actually extracted, zero SQL/WAL/local asset; original first128 untouched. Only after this read-only gate may ROOT restore exactly the two flags under stopped launch locks; no business request replay.",
+        "stopped_servers": [
+          [
+            "opt-regression-68f32db-fast-A",
+            "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "01a112c3-fa21-72dc-8660-834e5f0f5813",
+            "7",
+            "STOPPED",
+            "1",
+            "0"
+          ],
+          [
+            "opt-regression-68f32db-fast-B",
+            "01a112a8-1da7-7da6-92bd-78ec872c272d",
+            "01a112c3-f9e8-7c3d-98c8-1b0f6a1dd1ca",
+            "6",
+            "STOPPED",
+            "1",
+            "0"
+          ],
+          [
+            "opt-regression-68f32db-fast-C",
+            "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+            "01a112c3-fac8-7995-921c-2d6ffd907129",
+            "3",
+            "STOPPED",
+            "1",
+            "0"
+          ]
+        ]
+      }
+    },
+    "optimization-restart-fallback-root-flags-restoration.json": {
+      "sha256": "833c149b634a178d3c320b1a09fcc792a9cecade117ea23a5576baed90135011",
+      "body": {
+        "utc": "2026-10-06T19:53:37.109602+00:00",
+        "scope": "ROOT-controlled restoration after confirmed zero new assets and preserved original128; no business replay",
+        "passed": true,
+        "new_zero_assets_audit": "reports/optimization-restart-fallback-second-failure-assets-audit.json",
+        "original128_audit": "reports/optimization-restart-fallback-after-second-failure-audit.json",
+        "processes_all_stopped": true,
+        "flags_changes": [
+          {
+            "name": "root_restore_after_verified_empty_new_assets",
+            "from": {
+              "transfer.channelBatches": "false",
+              "transfer.localFastPath": "false"
+            },
+            "to": {
+              "transfer.channelBatches": "true",
+              "transfer.localFastPath": "true"
+            },
+            "backup_directory": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets",
+            "files": [
+              {
+                "server": "A",
+                "path": "/workspace/run-A/cross-tesseract.properties",
+                "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/A-cross-tesseract.properties",
+                "before_sha256": "8b0d59ad602d432c7cbc239bab113ac89e0ccdc8e9e59ca2c8cc04dafd32d4d9",
+                "after_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+                "only_two_flag_values_changed": true
+              },
+              {
+                "server": "B",
+                "path": "/workspace/run-B/cross-tesseract.properties",
+                "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/B-cross-tesseract.properties",
+                "before_sha256": "13fd0dfd5f966b5d4ac7e933d2edab84ec87869992dfe3bee3b2288729fdccd5",
+                "after_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+                "only_two_flag_values_changed": true
+              },
+              {
+                "server": "C",
+                "path": "/workspace/run-C/cross-tesseract.properties",
+                "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/C-cross-tesseract.properties",
+                "before_sha256": "e346ab9cf2ebc7565313641a2612086fd9076df86f7398dd43a862ebdf365011",
+                "after_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+                "only_two_flag_values_changed": true
+              }
+            ],
+            "complete": true
+          }
+        ],
+        "result_files": {
+          "A": {
+            "server_id": "opt-regression-68f32db-fast-A",
+            "world_id": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "level_name": "world-opt-regression-68f32db-fast-A",
+            "config_path": "/workspace/run-A/cross-tesseract.properties",
+            "config_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+            "server_properties_sha256": "f6be8d40743e6bd392db24c4dccc7b130f08cf08fb924dc9772cf1cebb9d5d56",
+            "server_properties_semantic_sha256": "8dd96496db5d511ef60da10837be49568d96a22e3b434536fdab0643beed2e92",
+            "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+            "world_id_file_sha256": "0187b98f3eb81b4d754a37a5c4824d2aae3876d4fc3fe250db05c6004b321a54",
+            "transfer_flags": {
+              "transfer.channelBatches": "true",
+              "transfer.localFastPath": "true"
+            }
+          },
+          "B": {
+            "server_id": "opt-regression-68f32db-fast-B",
+            "world_id": "01a112a8-1da7-7da6-92bd-78ec872c272d",
+            "level_name": "world-opt-regression-68f32db-fast-B",
+            "config_path": "/workspace/run-B/cross-tesseract.properties",
+            "config_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+            "server_properties_sha256": "3370ea7bbce80f1367173ab0b2ec9901bc30d09cb16e660be93590f2ca405edc",
+            "server_properties_semantic_sha256": "150d4023a2d3bc7681c87283dac182a2f08952e55ef30638d0bed3f8130007ba",
+            "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+            "world_id_file_sha256": "ae7c7f9feac92b92060ae6688d0e3f73e555654128e1168316f24339b10219fe",
+            "transfer_flags": {
+              "transfer.channelBatches": "true",
+              "transfer.localFastPath": "true"
+            }
+          },
+          "C": {
+            "server_id": "opt-regression-68f32db-fast-C",
+            "world_id": "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+            "level_name": "world-opt-regression-68f32db-fast-C",
+            "config_path": "/workspace/run-C/cross-tesseract.properties",
+            "config_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+            "server_properties_sha256": "149d0b52d6a3965441618656809d6ff75adb0c895364243fbf4e950d8441e018",
+            "server_properties_semantic_sha256": "5ff88f50756aae8e9f403d92684037c728a438e3e699554609de23eab0b29991",
+            "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+            "world_id_file_sha256": "1f145282e8727f7095d8c8064ef60506e1d38097340b7528f15f246fde3d82cd",
+            "transfer_flags": {
+              "transfer.channelBatches": "true",
+              "transfer.localFastPath": "true"
+            }
+          }
+        }
+      }
+    }
+  },
+  "source_and_JAR_gate": {
+    "artifact_ready_file": "/workspace/reports/optimization-artifact-ready-final.json",
+    "artifact_ready_sha256": "58b96a180e5e480b55eceb0b779f5fadb2d882eb523c3afe217960840d95e7ae",
+    "declared_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+    "source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+    "current_JAR": "/workspace/build/libs/cross_tesseract-0.1.0-dev.jar",
+    "current_JAR_sha256": "7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a",
+    "own_script_sha256": "61c0e399c3f8b2c0c0f6dba09def173374f13943cad343a8e54f2873aee4259c",
+    "helpers_and_protocol_sources": [
+      {
+        "path": "/workspace/scripts/optimization-benchmark.py",
+        "sha256": "d76f62434e2f55afcfa06f5de5c6c0f4db2d1a999e5d388248e993fc0142758f"
+      },
+      {
+        "path": "/workspace/scripts/three-server-test.py",
+        "sha256": "745bacfd88fde6aed857bf02d8be6719e731a6907131d99ede993b205bc44740"
+      },
+      {
+        "path": "/workspace/scripts/optimization-topology-test.py",
+        "sha256": "ba17eff27428dac0d6cb81958e492b3edeb4ccd9dce81932b9597bf01a201f3c"
+      },
+      {
+        "path": "/workspace/scripts/optimization-container-benchmark.py",
+        "sha256": "611f3663635c5a37a8955c8b3295067c37fde9c8b518341337007780aff4b72c"
+      },
+      {
+        "path": "/workspace/scripts/start-frozen-dev.sh",
+        "sha256": "fab855fcadb60c6cfeed51c7910d740754f904797118ad9fb0c57c044a820cfa"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/backend/LocalJournal.java",
+        "sha256": "e6819b66c789a2f49c81bb945e980c0d0307a62d173fa0c75e05952ceec09208"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/core/LocalSnapshot.java",
+        "sha256": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/runtime/RuntimeService.java",
+        "sha256": "8abd0d9d3834b51707014e2fa9ae1a043fdf135b337f0e6d9fb98909b228f1a8"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java",
+        "sha256": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743"
+      }
+    ]
+  },
+  "initial_files": {
+    "A": {
+      "server_id": "opt-regression-68f32db-fast-A",
+      "world_id": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "level_name": "world-opt-regression-68f32db-fast-A",
+      "config_path": "/workspace/run-A/cross-tesseract.properties",
+      "config_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+      "server_properties_sha256": "f6be8d40743e6bd392db24c4dccc7b130f08cf08fb924dc9772cf1cebb9d5d56",
+      "server_properties_semantic_sha256": "8dd96496db5d511ef60da10837be49568d96a22e3b434536fdab0643beed2e92",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "0187b98f3eb81b4d754a37a5c4824d2aae3876d4fc3fe250db05c6004b321a54",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    },
+    "B": {
+      "server_id": "opt-regression-68f32db-fast-B",
+      "world_id": "01a112a8-1da7-7da6-92bd-78ec872c272d",
+      "level_name": "world-opt-regression-68f32db-fast-B",
+      "config_path": "/workspace/run-B/cross-tesseract.properties",
+      "config_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+      "server_properties_sha256": "3370ea7bbce80f1367173ab0b2ec9901bc30d09cb16e660be93590f2ca405edc",
+      "server_properties_semantic_sha256": "150d4023a2d3bc7681c87283dac182a2f08952e55ef30638d0bed3f8130007ba",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "ae7c7f9feac92b92060ae6688d0e3f73e555654128e1168316f24339b10219fe",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    },
+    "C": {
+      "server_id": "opt-regression-68f32db-fast-C",
+      "world_id": "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+      "level_name": "world-opt-regression-68f32db-fast-C",
+      "config_path": "/workspace/run-C/cross-tesseract.properties",
+      "config_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+      "server_properties_sha256": "149d0b52d6a3965441618656809d6ff75adb0c895364243fbf4e950d8441e018",
+      "server_properties_semantic_sha256": "5ff88f50756aae8e9f403d92684037c728a438e3e699554609de23eab0b29991",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "1f145282e8727f7095d8c8064ef60506e1d38097340b7528f15f246fde3d82cd",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    }
+  },
+  "lifecycle": [
+    {
+      "action": "start_once",
+      "server": "A",
+      "launcher_PID": 624798,
+      "launcher": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/runServerA.sh",
+      "log": "logs/optimization-final-fallback-58fcc66e-A.log",
+      "utc": "2026-10-06T19:57:44.103447+00:00"
+    },
+    {
+      "action": "start_once",
+      "server": "B",
+      "launcher_PID": 624799,
+      "launcher": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/runServerB.sh",
+      "log": "logs/optimization-final-fallback-58fcc66e-B.log",
+      "utc": "2026-10-06T19:57:44.103822+00:00"
+    },
+    {
+      "action": "start_once",
+      "server": "C",
+      "launcher_PID": 624800,
+      "launcher": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/runServerC.sh",
+      "log": "logs/optimization-final-fallback-58fcc66e-C.log",
+      "utc": "2026-10-06T19:57:44.104186+00:00"
+    },
+    {
+      "action": "normal_stop_all_ABC_locks_acquired",
+      "utc": "2026-10-06T20:00:17.610734+00:00"
+    }
+  ],
+  "script_sha256": "a81f142915a3f2f7278aaeb9f721775331571b20d99786ee90813a61b1ba2e16",
+  "failures": [],
+  "scope": "New IDs only; same frozen68 JVMs/worlds; normal stops; original128 untouched. No performance or world-save atomicity claim.",
+  "child": {
+    "path": "reports/optimization-restart-fallback-68f32db-20261006T195817Z-df658dc1.json",
+    "sha256": "e3108df183e4cc1793311ed4c22d38480738188eb4bb4d148191795ff0d0f292",
+    "exit_code": 0,
+    "log": "logs/optimization-final-fallback-58fcc66e-test.log"
+  },
+  "utc_end": "2026-10-06T20:00:17.610772+00:00"
+}

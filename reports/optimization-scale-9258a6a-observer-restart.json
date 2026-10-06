@@ -1,0 +1,30 @@
+{
+  "reason": "First scale monitor called bulk-status before the console BULKS map was initialized. Objects.requireNonNull(BULKS.get(server)) produced backend_error. Original failure retained; no mod/background/asset error inferred.",
+  "first_failed_report": "reports/optimization-scale-fast-scale-cache-9258a6a-20261006T161935Z-d52650.json",
+  "parent_orchestrator_pid": 445825,
+  "benchmark_child_pid": 445917,
+  "only_parent_paused": true,
+  "minecraft_and_driver_never_paused": true,
+  "passed": true,
+  "utc_start": "2026-10-06T16:22:35Z",
+  "command": [
+    "python3",
+    "scripts/optimization-scale-monitor.py",
+    "--label",
+    "fast-scale-cache-ready-9258a6a",
+    "--seconds",
+    "1800",
+    "--interval",
+    "2",
+    "--jstat-every",
+    "10",
+    "--coverage-note",
+    "Restart after initial missing BULKS startup observation; only saved stable windows covered. Initial100 OFF/ACTIVE portions may be UNMEASURED. Parent orchestrator paused only to guarantee stopping observer before server stop; driver and Minecraft uninterrupted."
+  ],
+  "replacement_monitor_exit_code": 0,
+  "replacement_report": "reports/optimization-scale-fast-scale-cache-ready-9258a6a-20261006T162235Z-a50f0c.json",
+  "replacement_report_sha256": "a9cd1ae300b4459dc74dd4318aab6b8eaa9e92c58700589f5a8703dccd0ce00f",
+  "replacement_failures": [],
+  "parent_resumed": true,
+  "utc_end": "2026-10-06T16:32:29Z"
+}

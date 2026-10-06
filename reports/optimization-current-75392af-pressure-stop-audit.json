@@ -1,0 +1,52 @@
+{
+  "reason": "Measured main-thread JFR hotspot will be repaired before new core B/C runs; only the parent orchestrator was paused. The pressure child and Minecraft JVMs were never paused.",
+  "pressure_report": "reports/optimization-current-pressure-75392af-20261006T155117Z-09616b.json",
+  "passed": true,
+  "servers": {
+    "A": {
+      "pids_before": [
+        417849
+      ],
+      "stop_requests": 1,
+      "stop_reply": "Stopping the server\n",
+      "pids_after": [],
+      "launch_lock_free": true
+    },
+    "B": {
+      "pids_before": [
+        417847
+      ],
+      "stop_requests": 1,
+      "stop_reply": "Stopping the server\n",
+      "pids_after": [],
+      "launch_lock_free": true
+    },
+    "C": {
+      "pids_before": [
+        417851
+      ],
+      "stop_requests": 1,
+      "stop_reply": "Stopping the server\n",
+      "pids_after": [],
+      "launch_lock_free": true
+    }
+  },
+  "remaining_75392af_stages": "batch-final and fast-final NOT_RUN; planned supersession by a new source revision",
+  "pressure_sha256": "03249f1501e7cbebccaab3f3e92864ea6911bf563fb35bcc2317d0c77cc9b566",
+  "pressure_functional_passed": true,
+  "pressure_performance_regressions": [],
+  "pressure_child_state": "State:\tZ (zombie)",
+  "pressure_completed_utc": "2026-10-06T16:08:04Z",
+  "child_observed_linux_wait_status": 0,
+  "child_observed_exit_code": 0,
+  "parent_signals": [
+    "SIGINT",
+    "SIGCONT"
+  ],
+  "parent_interruption_is_planned": true,
+  "archived_orchestrator_files": [
+    "reports/optimization-final-sequence-current-75392af-interrupted.json",
+    "logs/optimization-final-sequence-current-75392af-interrupted.log"
+  ],
+  "utc_end": "2026-10-06T16:08:06Z"
+}

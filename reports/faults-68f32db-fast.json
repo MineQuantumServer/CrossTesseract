@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-06T19:23:42Z",
+  "cluster": "dev_three_v1",
+  "checks": [
+    {
+      "phase": "after_send_wal",
+      "sender": "9b15b5f7-95c4-42d8-9ddd-570137ee4ae5",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_deposit",
+      "sender": "b5eaa6cd-e80a-495b-8ece-98b043cb7309",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_allocation",
+      "sender": "955f7dd8-1f45-4a01-a377-8c4f147c8090",
+      "destination": "45bd4cc9-0487-4700-b7f0-8e7f56b7551b",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_receive_wal",
+      "sender": "5e0093b9-de10-4484-8071-f1f5b7766498",
+      "destination": "6cd51d0c-dd53-46b8-ad58-268bfcafecd9",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_local_sql",
+      "sender": "39638b2b-a445-473e-80e2-de2069ec17b5",
+      "destination": "ede64035-85e9-43d1-8f21-0914430e99eb",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    }
+  ],
+  "scope": "Own WAL/SQL boundaries. External vanilla/third-party inventories remain outside the atomic transaction.",
+  "operator_runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "transfer_flags": {
+    "transfer.channelBatches": "true",
+    "transfer.localFastPath": "true"
+  },
+  "loaded_revision_note": "Declared Java core; per-start immutable class selection is retained in launcher logs and source manifest."
+}

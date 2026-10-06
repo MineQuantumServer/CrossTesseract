@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-06T13:44:09Z",
+  "scope": "Real NeoForge GameTest JVMs with real MySQL/Redis; GT is exact FortyTwoCn source plus disclosed local ModularUI 3.3.1 alternative.",
+  "combinations": [
+    {
+      "combination": "base",
+      "passed": true,
+      "required_native_tests": 13,
+      "minimum_expected_tests": 13,
+      "optional_mods_present": true,
+      "log": "logs/matrix-base.log"
+    },
+    {
+      "combination": "mekanism",
+      "passed": true,
+      "required_native_tests": 15,
+      "minimum_expected_tests": 15,
+      "optional_mods_present": true,
+      "log": "logs/matrix-mekanism.log"
+    },
+    {
+      "combination": "ae2",
+      "passed": true,
+      "required_native_tests": 16,
+      "minimum_expected_tests": 16,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2.log"
+    },
+    {
+      "combination": "ae2-mekanism",
+      "passed": true,
+      "required_native_tests": 18,
+      "minimum_expected_tests": 18,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2-mekanism.log"
+    },
+    {
+      "combination": "gregtech",
+      "passed": true,
+      "required_native_tests": 15,
+      "minimum_expected_tests": 15,
+      "optional_mods_present": true,
+      "log": "logs/matrix-gregtech.log"
+    },
+    {
+      "combination": "gregtech-mekanism",
+      "passed": true,
+      "required_native_tests": 17,
+      "minimum_expected_tests": 17,
+      "optional_mods_present": true,
+      "log": "logs/matrix-gregtech-mekanism.log"
+    },
+    {
+      "combination": "ae2-gregtech",
+      "passed": true,
+      "required_native_tests": 18,
+      "minimum_expected_tests": 18,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2-gregtech.log"
+    },
+    {
+      "combination": "ae2-gregtech-mekanism",
+      "passed": true,
+      "required_native_tests": 20,
+      "minimum_expected_tests": 20,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2-gregtech-mekanism.log"
+    }
+  ],
+  "source_commit": "75392af252744f240253d134d1da565a49b2cc9f"
+}

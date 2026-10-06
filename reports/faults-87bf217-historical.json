@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-02T15:23:06Z",
+  "cluster": "dev_three_v1",
+  "checks": [
+    {
+      "phase": "after_send_wal",
+      "sender": "79799be8-b8e0-4669-9697-c2467e01eb7f",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_deposit",
+      "sender": "12c66258-e036-40ea-9eea-cf578906c80a",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_allocation",
+      "sender": "c89e6ae8-2024-4127-ae48-bd2fadfc2946",
+      "destination": "2f62e49b-2132-4f11-ac81-cc471de0d94d",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_receive_wal",
+      "sender": "bdf6a60e-20d6-43a3-9b79-e80e0680fb8e",
+      "destination": "226eb44f-2ac3-4dcc-887f-ac183f50c9a2",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    }
+  ],
+  "scope": "Own WAL/SQL boundaries. External vanilla/third-party inventories remain outside the atomic transaction."
+}

@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-02T15:19:43Z",
+  "cluster": "dev_three_v1",
+  "endpoint": "ae8fabd4-7c83-4f88-b3bb-b6abdd28e011",
+  "checks": [
+    "clean restart restores authorized ticking ticket without prior block ticking/player login; quota stays one",
+    "Redis unavailable removes actual mod ticket and preserves persistent quota",
+    "Redis restart and complete hint/cache deletion do not remove authoritative quota",
+    "hard-killed Minecraft JVM rejoins with fenced epoch, quarantines external-save uncertainty and retains quota without restoring ticket"
+  ],
+  "final_status": "STATUS online tickets=0 {registered_loaded_endpoints=20, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=22, errors=0, queue_rejected=0, quarantined=0, tick_ms_p50=0.047852, tick_ms_p95=6.845757, tick_ms_p99=23.601541, tick_ms_samples=20, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=20.658623, sql_ms_p95=51.533553, sql_ms_p99=59.05517, sql_ms_samples=22, db_transaction_ms_p50=9.408594, db_transaction_ms_p95=36.130939, db_transaction_ms_p99=47.292115, db_transaction_ms_samples=57, db_transactions=57, db_deadlock_retries=0, db_active_connections=0}\n",
+  "scope": "actual Minecraft JVM, real Redis/MySQL; arbitrary external chest rollback is not made atomic"
+}

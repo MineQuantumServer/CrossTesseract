@@ -1,0 +1,90 @@
+{
+  "operator_runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "mode": "fast",
+  "source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+  "transfer_flags": {
+    "transfer.channelBatches": "true",
+    "transfer.localFastPath": "true"
+  },
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/three-server-test.py"
+      ],
+      "utc_start": "2026-10-06T19:19:39Z",
+      "log": "logs/optimization-regression-fast-three.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T19:20:08Z",
+      "report": "reports/three-68f32db-fast.json",
+      "report_sha256": "f53a07b7b7002b3dd782b6bf448c5fa9fa70f36b2b02a8d1129e54dcc6d1b171"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-topology-test.py",
+        "--label",
+        "final-fast-68f32db"
+      ],
+      "utc_start": "2026-10-06T19:20:08Z",
+      "log": "logs/optimization-regression-fast-topology.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T19:21:15Z",
+      "report": "reports/optimization-topology-final-fast-68f32db-20261006T192008Z-6be3bb.json",
+      "report_sha256": "211e0357147fb11756a81261411bd0412c19d926bcacc4368c3c75376a935bf1"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/fault-test.py"
+      ],
+      "utc_start": "2026-10-06T19:21:15Z",
+      "log": "logs/optimization-regression-fast-faults.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T19:23:42Z",
+      "report": "reports/faults-68f32db-fast.json",
+      "report_sha256": "fdabc8ce3ad59c5eed2b3b0ededf1c607df984d859c6bd77273db2919f85201d"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/recovery-test.py"
+      ],
+      "utc_start": "2026-10-06T19:23:42Z",
+      "log": "logs/optimization-regression-fast-recovery.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T19:24:27Z",
+      "report": "reports/recovery-68f32db-fast.json",
+      "report_sha256": "16207c71f181b0c2e7c321a5a6ec159d10efab45d476b475068f180053796a52"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/mysql-outage-test.py"
+      ],
+      "utc_start": "2026-10-06T19:24:27Z",
+      "log": "logs/optimization-regression-fast-mysql.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T19:24:36Z",
+      "report": "reports/mysql-68f32db-fast.json",
+      "report_sha256": "bbfbdb88a222e3b31f3fb2d5c2cc748d5279d05fe9dfc071a901e1c170ebde25"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-restart-fallback-test.py",
+        "--execute"
+      ],
+      "utc_start": "2026-10-06T19:24:36Z",
+      "log": "logs/optimization-regression-fast-fallback.log",
+      "exit_code": 1,
+      "utc_end": "2026-10-06T19:24:42Z",
+      "report": "reports/optimization-restart-fallback-68f32db-20261006T192436Z-9e30ef6d.json",
+      "report_sha256": "1e4b7550dafad1382009a3cceb4658cf5d71eccd37c4aaf269ef1a82d30d15f7"
+    }
+  ],
+  "passed": false,
+  "scope": "Actual three Minecraft JVMs and isolated MySQL/Redis. Not a timed performance run. Online authentication, GUI and third-party save atomicity are not proved.",
+  "failure": "RuntimeError: Failed fallback; fresh report and original logs retained",
+  "utc_end": "2026-10-06T19:24:46Z"
+}

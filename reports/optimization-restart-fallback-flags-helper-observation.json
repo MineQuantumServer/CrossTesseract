@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "utc_start": "2026-10-06T19:53:37.084487+00:00",
+  "passed": false,
+  "execution_status": "NOT_RUN",
+  "operator_runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "cluster": "dev_three_v1",
+  "method": "Same worlds/server/world UUIDs and immutable class selection through clean fast->legacy->fast restarts, two new native FE channels only.",
+  "conditions": {
+    "fixture_label": "regression-68f32db-fast",
+    "timeout_each_state_seconds": 120,
+    "minimum_quiet_seconds": 2.2,
+    "poll_seconds": 0.2,
+    "initial_input_FE": 128,
+    "initial_actual_output_FE": 53,
+    "held_LOCAL_FE": 75,
+    "second_input_shared_pool_FE": 61,
+    "final_actual_output_FE": 136,
+    "demand_TTL_seconds": 6,
+    "layouts": [
+      "A->A different chunks",
+      "A->B"
+    ]
+  },
+  "scope_notes": {
+    "clock": "One Python monotonic observer, request/reply/read spans; no cross-JVM nanoTime subtraction or exact world-save timestamp.",
+    "asset_accounting": "Actual inputs189 and outputs53 + SQL LOCAL remaining75 + shared pool61 per channel before restart. SQL/WAL/local mirrors never added.",
+    "WAL": "Own endpoint .ctj bytes only, bounded SHA256/CTT1 protocol decode linked to exact SQL business IDs. File evidence and clean-stop SQL acknowledgement, not an independent fsync instrument.",
+    "RCON": "Single observer, raw command bodies retained; native shared console bodies have no request-specific business nonce.",
+    "not_tested": [
+      "Physical chest",
+      "ITEM/fluid/EU/thermal",
+      "Crash/rollback atomicity",
+      "Performance/TPS/capacity",
+      "Online-player identity/GUI"
+    ],
+    "failure": "No replay of unknown input/extraction, no automatic flags restore/stop/cleanup/force kill. Keep last actual configuration and assets for operator diagnosis.",
+    "cleanup": "Keep the four validated empty devices and own vanilla load tickets on success for parent normal stop; no world deletion."
+  },
+  "raw_events": [],
+  "business_events": [],
+  "identity_boots": [],
+  "states": {},
+  "config_switches": [
+    {
+      "name": "root_restore_after_verified_empty_new_assets",
+      "from": {
+        "transfer.channelBatches": "false",
+        "transfer.localFastPath": "false"
+      },
+      "to": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      },
+      "backup_directory": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets",
+      "files": [
+        {
+          "server": "A",
+          "path": "/workspace/run-A/cross-tesseract.properties",
+          "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/A-cross-tesseract.properties",
+          "before_sha256": "8b0d59ad602d432c7cbc239bab113ac89e0ccdc8e9e59ca2c8cc04dafd32d4d9",
+          "after_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+          "only_two_flag_values_changed": true
+        },
+        {
+          "server": "B",
+          "path": "/workspace/run-B/cross-tesseract.properties",
+          "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/B-cross-tesseract.properties",
+          "before_sha256": "13fd0dfd5f966b5d4ac7e933d2edab84ec87869992dfe3bee3b2288729fdccd5",
+          "after_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+          "only_two_flag_values_changed": true
+        },
+        {
+          "server": "C",
+          "path": "/workspace/run-C/cross-tesseract.properties",
+          "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/C-cross-tesseract.properties",
+          "before_sha256": "e346ab9cf2ebc7565313641a2612086fd9076df86f7398dd43a862ebdf365011",
+          "after_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+          "only_two_flag_values_changed": true
+        }
+      ],
+      "complete": true
+    }
+  ],
+  "process_lifecycle": [],
+  "warnings": [],
+  "cleanup": [],
+  "failures": [],
+  "script_file": {
+    "path": "/workspace/scripts/optimization-restart-fallback-test.py",
+    "sha256": "f8372ca31e3048437d7ea63f353d1546775a7b35670bb150cebc2f9436adfcd4"
+  },
+  "phase": "NOT_RUN",
+  "elapsed_seconds": 0.023977852004463784
+}

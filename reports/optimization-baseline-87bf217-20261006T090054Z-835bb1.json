@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-06T09:00:54Z",
+  "label": "baseline-87bf217",
+  "cluster": "dev_three_v1",
+  "owner": "43626422-e263-44df-ab59-0e5fd5d66fcf",
+  "passed": false,
+  "conditions": {
+    "warmup_seconds": 30.0,
+    "steady_seconds": 120.0,
+    "repeats": 3,
+    "low_flow_probes_per_path_per_repeat": 40,
+    "probe_idle_seconds": 2.2,
+    "probe_amount_FE": 1024,
+    "poll_seconds": 0.1,
+    "feed_period_seconds": 0.5,
+    "input_attempt_FE": 32000,
+    "sink_pull_request_FE": 2147483647,
+    "workload": "Fixed ceil(seconds/feed_period) rounds; delayed rounds are retained and actual duration reported",
+    "backpressure_hold_seconds": 120.0,
+    "scenarios": [
+      "same",
+      "cross",
+      "mixed"
+    ],
+    "hotspot_sources": 4,
+    "hotspot_sinks": 4,
+    "hotspot_channels": 4,
+    "resource": "cross_tesseract:fe"
+  },
+  "measurement": {
+    "clock": "One Python observer time.monotonic(); all event times are seconds since run start",
+    "e2e": "Actual source capability acceptance -> actual target capability extraction; each event lies within its RCON request/reply interval. Bounds are not world-save times.",
+    "polling": "Low-flow completion includes target polling cadence; output is not observed until an actual pull succeeds.",
+    "db_transactions": "Sum of cumulative ct_test status db_transactions differences on A/B/C; includes controls, heartbeat/permission refresh and ambient loaded devices, excludes observer root SQL.",
+    "sql_statement_events": "performance_schema account summary WHERE USER='ct_dev', statement/sql/* events only; counts attempts including retries, not JDBC round trips. Account-wide, including any running perf JVM.",
+    "wal": "Not measured on unmodified baseline: no WAL timing/count instrumentation exists.",
+    "conservation": "Accepted FE = actual extracted FE after drain; local buffers and SQL residue checked empty independently. SQL transfer remaining and local/WAL copies are never added together.",
+    "steady_e2e": "Aggregate throughput/fairness only: overlapped FE inputs have no packet identity; no invented per-input steady latency.",
+    "fixture": "Fresh console-owned blocks, vanilla chunk load tickets; no online-player, GUI, machine-container or injected network-latency claim."
+  },
+  "samples": [],
+  "failures": [
+    "ValueError: RCON process does not use the isolated dev fixture config for A"
+  ],
+  "regressions": [],
+  "warnings": [],
+  "cleanup": [],
+  "fixture_retained_for_diagnosis": true,
+  "elapsed_seconds": 0.006067417999929603
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.MigrationConcurrencyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-06T10:09:38.324Z" hostname="13edb0cae2c6" time="0.688">
+  <properties/>
+  <testcase name="threeConcurrentFreshMigrationsAndInterruptedDdlFailClosed()" classname="dev.crosstesseract.MigrationConcurrencyTest" time="0.688"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

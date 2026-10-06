@@ -1,0 +1,14 @@
+{
+  "raw_report": "reports/performance-opt-fast-e4057a5-as-run.json",
+  "raw_sha256": "71b25faecb652eb7e6b0cafb2467f7459f9e4dfe86c46fd57117382956af8fda",
+  "source_commit": "e4057a5d97d4d8989a727da13851954f33f7702e",
+  "as_run_script_exit": 0,
+  "as_run_passed_flag": true,
+  "meaning_of_as_run_flag": "completed procedure only; did not gate nonzero worker_errors",
+  "validation_failures": [
+    "500/ACTIVE: worker errors or queue rejection",
+    "1000/ACTIVE: worker errors or queue rejection",
+    "1000/ACTIVE: active endpoint count differs at final observation"
+  ],
+  "passed": false
+}

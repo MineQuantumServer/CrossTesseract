@@ -1,20 +1,20 @@
 {
-  "utc": "2026-10-03T02:12:58Z",
+  "utc": "2026-10-06T20:01:39Z",
   "cluster": "dev_three_v1",
-  "owner": "9c5c265a-d454-40e3-8daf-659eb6af2a05",
-  "member": "ef7acb47-bada-4866-9244-ec27b6d5794a",
-  "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70",
+  "owner": "4e877049-4db9-439f-8865-4aed3e4439f1",
+  "member": "65e905a6-5d42-4110-afe2-6a1c2832ab62",
+  "channel": "09ec6449-226c-43e6-9101-3cc8e92dbbab",
   "locations": [
     [
-      6560,
+      5871,
       0
     ],
     [
-      6561,
+      5872,
       0
     ],
     [
-      6562,
+      5873,
       0
     ]
   ],
@@ -31,37 +31,37 @@
       "rxItem": 0,
       "txFluid": 0,
       "rxFluid": 0,
-      "checkpoint": 51,
-      "id": "93caedab-dd23-4e01-9ab2-d1a9495e0c60",
+      "checkpoint": 50,
+      "id": "66f7b75d-0f92-4469-a4dc-2ea4db9b5f62",
       "registered": true,
       "pause": "",
-      "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70"
+      "channel": "09ec6449-226c-43e6-9101-3cc8e92dbbab"
     },
     {
       "txFE": 0,
-      "rxFE": 27000,
-      "txItem": 0,
-      "rxItem": 48,
-      "txFluid": 0,
-      "rxFluid": 2000,
-      "checkpoint": 7,
-      "id": "fb8cf0bd-e875-434f-a5f9-f1a44fe5655d",
-      "registered": true,
-      "pause": "",
-      "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70"
-    },
-    {
-      "txFE": 0,
-      "rxFE": 49000,
+      "rxFE": 40000,
       "txItem": 0,
       "rxItem": 96,
       "txFluid": 0,
       "rxFluid": 4000,
-      "checkpoint": 7,
-      "id": "4e9c69f0-1d45-4cba-b590-275dff0bfd4e",
+      "checkpoint": 12,
+      "id": "3ae6abb3-da7b-44b7-abb9-b6416d54d900",
       "registered": true,
       "pause": "",
-      "channel": "81665108-cd59-4a04-bb67-a6b5ac496e70"
+      "channel": "09ec6449-226c-43e6-9101-3cc8e92dbbab"
+    },
+    {
+      "txFE": 0,
+      "rxFE": 36000,
+      "txItem": 0,
+      "rxItem": 48,
+      "txFluid": 0,
+      "rxFluid": 2000,
+      "checkpoint": 12,
+      "id": "4acfc02c-feed-430b-a1aa-b92446ac18da",
+      "registered": true,
+      "pause": "",
+      "channel": "09ec6449-226c-43e6-9101-3cc8e92dbbab"
     }
   ],
   "checks": [
@@ -74,9 +74,9 @@
     "member device uses member quota; removal disables resource capability within bounded refresh"
   ],
   "servers": [
-    "STATUS online tickets=0 {registered_loaded_endpoints=31, active_endpoints=4, worker_queue=0, actual_tickets=0, transactions=86, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.031978, tick_ms_p95=0.363916, tick_ms_p99=2.781184, tick_ms_samples=869, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=12.810607, sql_ms_p95=39.811599, sql_ms_p99=68.06003, sql_ms_samples=87, db_transaction_ms_p50=5.414637, db_transaction_ms_p95=21.964416, db_transaction_ms_p99=31.890376, db_transaction_ms_samples=271, db_transactions=270, db_deadlock_retries=0, db_active_connections=0}\n",
-    "STATUS online tickets=0 {registered_loaded_endpoints=12, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=34, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.025098, tick_ms_p95=0.15377, tick_ms_p99=0.884718, tick_ms_samples=916, delivery_ms_p50=64.626765, delivery_ms_p95=64.626765, delivery_ms_p99=64.626765, delivery_ms_samples=4, sql_ms_p50=28.064519, sql_ms_p95=112.243301, sql_ms_p99=283.725668, sql_ms_samples=35, db_transaction_ms_p50=3.762498, db_transaction_ms_p95=25.213258, db_transaction_ms_p99=58.582503, db_transaction_ms_samples=258, db_transactions=257, db_deadlock_retries=1, db_active_connections=0}\n",
-    "STATUS online tickets=0 {registered_loaded_endpoints=9, active_endpoints=6, worker_queue=0, actual_tickets=0, transactions=155, errors=1, queue_rejected=0, quarantined=0, tick_ms_p50=0.033891, tick_ms_p95=0.691328, tick_ms_p99=2.862747, tick_ms_samples=671, delivery_ms_p50=58.794509, delivery_ms_p95=60.995528, delivery_ms_p99=60.995528, delivery_ms_samples=7, sql_ms_p50=22.544374, sql_ms_p95=50.838109, sql_ms_p99=85.07449, sql_ms_samples=156, db_transaction_ms_p50=4.01692, db_transaction_ms_p95=9.82546, db_transaction_ms_p99=24.041552, db_transaction_ms_samples=760, db_transactions=759, db_deadlock_retries=1, db_active_connections=0}\n"
+    "STATUS online tickets=0 {registered_loaded_endpoints=3, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=32, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=19, local_input_units=75144, local_output_units=0, batch_devices=5, batch_records=13, batch_payload_bytes=540, local_wakes=0, remote_hint_wakes=9, poll_fallback=16, empty_batches=12, allocation_misses=0, local_credit_publications=0, local_ms_p50=0.123606, local_ms_p95=4.133353, local_ms_p99=4.133353, local_ms_samples=17, queue_ms_p50=0.070436, queue_ms_p95=2.979309, queue_ms_p99=12.901792, queue_ms_samples=32, execution_ms_p50=12.08773, execution_ms_p95=69.932494, execution_ms_p99=341.750347, execution_ms_samples=32, apply_ms_p50=33.482971, apply_ms_p95=43.105706, apply_ms_p99=44.137076, apply_ms_samples=32, tick_ms_p50=0.062835, tick_ms_p95=0.438369, tick_ms_p99=1.896661, tick_ms_samples=596, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=12.087009, sql_ms_p95=69.928538, sql_ms_p99=341.746361, sql_ms_samples=32, db_transaction_ms_p50=6.986105, db_transaction_ms_p95=44.406915, db_transaction_ms_p99=341.713592, db_transaction_ms_samples=124, db_connection_wait_ms_p50=0.042184, db_connection_wait_ms_p95=0.843738, db_connection_wait_ms_p99=10.722717, db_connection_wait_ms_samples=126, db_transactions=124, db_transaction_attempts=125, db_statements=783, db_deadlock_retries=1, db_active_connections=0, wal_writes=9, wal_bytes=2409, wal_identical_skipped=1, wal_barrier_ms_p50=1.761863, wal_barrier_ms_p95=5.37926, wal_barrier_ms_p99=5.37926, wal_barrier_ms_samples=9, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=0.885596, mc_target_ticks_per_second=20.0}\n",
+    "STATUS online tickets=0 {registered_loaded_endpoints=1, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=34, errors=1, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=1, local_input_units=7000, local_output_units=0, batch_devices=22, batch_records=150, batch_payload_bytes=4320, local_wakes=0, remote_hint_wakes=10, poll_fallback=14, empty_batches=1, allocation_misses=45, local_credit_publications=6, local_ms_p50=0.186451, local_ms_p95=3.071297, local_ms_p99=3.071297, local_ms_samples=15, queue_ms_p50=0.085819, queue_ms_p95=1.185702, queue_ms_p99=7.058765, queue_ms_samples=35, execution_ms_p50=25.542023, execution_ms_p95=139.620759, execution_ms_p99=340.245406, execution_ms_samples=35, apply_ms_p50=23.41017, apply_ms_p95=47.382556, apply_ms_p99=49.324265, apply_ms_samples=34, tick_ms_p50=0.063295, tick_ms_p95=0.519692, tick_ms_p99=1.484932, tick_ms_samples=593, delivery_ms_p50=150.160093, delivery_ms_p95=196.081059, delivery_ms_p99=196.081059, delivery_ms_samples=6, sql_ms_p50=25.538447, sql_ms_p95=139.617764, sql_ms_p99=340.241751, sql_ms_samples=35, db_transaction_ms_p50=5.642471, db_transaction_ms_p95=29.320841, db_transaction_ms_p99=214.435338, db_transaction_ms_samples=217, db_connection_wait_ms_p50=0.039349, db_connection_wait_ms_p95=1.110088, db_connection_wait_ms_p99=4.935838, db_connection_wait_ms_samples=219, db_transactions=216, db_transaction_attempts=218, db_statements=1490, db_deadlock_retries=1, db_active_connections=0, wal_writes=6, wal_bytes=4302, wal_identical_skipped=0, wal_barrier_ms_p50=1.753699, wal_barrier_ms_p95=5.035538, wal_barrier_ms_p99=5.035538, wal_barrier_ms_samples=6, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=0.758698, mc_target_ticks_per_second=20.0}\n",
+    "STATUS online tickets=0 {registered_loaded_endpoints=2, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=43, errors=2, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=27, batch_records=228, batch_payload_bytes=5805, local_wakes=0, remote_hint_wakes=13, poll_fallback=14, empty_batches=1, allocation_misses=64, local_credit_publications=8, local_ms_p50=0.171878, local_ms_p95=4.583679, local_ms_p99=4.583679, local_ms_samples=15, queue_ms_p50=0.08954, queue_ms_p95=0.92427, queue_ms_p99=1.584962, queue_ms_samples=45, execution_ms_p50=30.292697, execution_ms_p95=111.727436, execution_ms_p99=116.683779, execution_ms_samples=45, apply_ms_p50=20.741369, apply_ms_p95=44.052978, apply_ms_p99=50.012278, apply_ms_samples=42, tick_ms_p50=0.058908, tick_ms_p95=0.483106, tick_ms_p99=1.758483, tick_ms_samples=573, delivery_ms_p50=196.935551, delivery_ms_p95=201.240337, delivery_ms_p99=201.240337, delivery_ms_samples=8, sql_ms_p50=30.289642, sql_ms_p95=111.724211, sql_ms_p99=116.681595, sql_ms_samples=45, db_transaction_ms_p50=5.299156, db_transaction_ms_p95=18.590603, db_transaction_ms_p99=40.33226, db_transaction_ms_samples=272, db_connection_wait_ms_p50=0.029003, db_connection_wait_ms_p95=0.525881, db_connection_wait_ms_p99=5.449922, db_connection_wait_ms_samples=273, db_transactions=270, db_transaction_attempts=272, db_statements=1932, db_deadlock_retries=0, db_active_connections=0, wal_writes=8, wal_bytes=6320, wal_identical_skipped=0, wal_barrier_ms_p50=1.765223, wal_barrier_ms_p95=5.26224, wal_barrier_ms_p99=5.26224, wal_barrier_ms_samples=8, completion_admitted=1, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=0.928136, mc_target_ticks_per_second=20.0}\n"
   ],
   "scope": "three independent Minecraft processes, real backend, console fixtures; online-player GUI not exercised"
 }

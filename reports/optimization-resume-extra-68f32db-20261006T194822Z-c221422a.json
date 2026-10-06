@@ -1,0 +1,4277 @@
+{
+  "schema_version": 1,
+  "utc_start": "2026-10-06T19:48:22.575045+00:00",
+  "passed": false,
+  "state": "FAILED_RETAINED_NEW_ASSETS_CONFIG",
+  "runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "original_parent_status": "FAILED_UNCHANGED",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-restart-fallback-test.py",
+        "--execute"
+      ],
+      "utc_start": "2026-10-06T19:48:56.158534+00:00",
+      "log": "logs/optimization-resume-extra-c221422a-fallback.log",
+      "exit_code": 1,
+      "utc_end": "2026-10-06T19:50:12.094896+00:00",
+      "report": "reports/optimization-restart-fallback-68f32db-20261006T194856Z-b6a7c332.json",
+      "report_sha256": "e491df01e07b4ed106eebb0a9e545ce8c8f27f719bcee3cd8e84fe55ea00a801"
+    }
+  ],
+  "lifecycle": [
+    {
+      "action": "same-world immutable start once",
+      "server": "A",
+      "launcher_PID": 615763,
+      "launcher": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/runServerA.sh",
+      "log": "logs/optimization-resume-extra-c221422a-same-A.log",
+      "utc": "2026-10-06T19:48:23.398977+00:00"
+    },
+    {
+      "action": "same-world immutable start once",
+      "server": "B",
+      "launcher_PID": 615766,
+      "launcher": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/runServerB.sh",
+      "log": "logs/optimization-resume-extra-c221422a-same-B.log",
+      "utc": "2026-10-06T19:48:23.402389+00:00"
+    },
+    {
+      "action": "same-world immutable start once",
+      "server": "C",
+      "launcher_PID": 615771,
+      "launcher": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/runServerC.sh",
+      "log": "logs/optimization-resume-extra-c221422a-same-C.log",
+      "utc": "2026-10-06T19:48:23.406015+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 0.8664060139999492,
+      "end": 0.8685349400038831,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 0.868569522004691,
+      "end": 0.868737194003188,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 0.8687468580028508,
+      "end": 0.8689996879984392,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 1.3846811410039663,
+      "end": 1.3848671200030367,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 1.3848825640016003,
+      "end": 1.3849094040051568,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 1.3849149220041,
+      "end": 1.3849350020027487,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 1.8850694120046683,
+      "end": 1.8853350600038539,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 1.885355080004956,
+      "end": 1.8854057170028682,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 1.8854135580040747,
+      "end": 1.8854495720006526,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 2.385587561999273,
+      "end": 2.3858203220006544,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 2.385839661001228,
+      "end": 2.3861340830044355,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 2.386144759002491,
+      "end": 2.386228575000132,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 2.8863666290053516,
+      "end": 2.8866799300012644,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 2.886701642004482,
+      "end": 2.886749064004107,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 2.886756004001654,
+      "end": 2.88678581899876,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 3.3869963770048344,
+      "end": 3.3873072040005354,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 3.387323348004429,
+      "end": 3.387355867002043,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 3.387361305001832,
+      "end": 3.387381575004838,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 3.887546976999147,
+      "end": 3.888032866001595,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 3.88805912600219,
+      "end": 3.8881236930028535,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 3.888129040999047,
+      "end": 3.888181499001803,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 4.392057943005057,
+      "end": 4.392295179000939,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 4.392311013005383,
+      "end": 4.39234101799957,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 4.392345915002807,
+      "end": 4.392364712999552,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 4.8925720780025586,
+      "end": 4.892823325004429,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 4.892843585002993,
+      "end": 4.892877746002341,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 4.89288390600268,
+      "end": 4.892909204005264,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 5.39379120200465,
+      "end": 5.393986585004313,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 5.394002089000423,
+      "end": 5.394028849004826,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 5.39403402699827,
+      "end": 5.39405364599952,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 5.896695184004784,
+      "end": 5.896891128002608,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 5.8969066819990985,
+      "end": 5.896932370000286,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 5.896936857003311,
+      "end": 5.896955725002044,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 6.397058633003326,
+      "end": 6.3973081479998655,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 6.39733008100302,
+      "end": 6.397371352999471,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 6.3973781329987105,
+      "end": 6.397402800001146,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 6.898396178999974,
+      "end": 6.898593556004926,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 6.898608919000253,
+      "end": 6.898635549005121,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 6.89864003600087,
+      "end": 6.898660065999138,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 7.39879611699871,
+      "end": 7.399031351000303,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 7.3990508200004115,
+      "end": 7.399104260002787,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 7.399111251004797,
+      "end": 7.399136719002854,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 7.899263988001621,
+      "end": 7.899493101998814,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 7.899512891002814,
+      "end": 7.899543798004743,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 7.8995499270022265,
+      "end": 7.899571909998485,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 8.3996923779996,
+      "end": 8.399885178005206,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 8.399900750999223,
+      "end": 8.399926750003942,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 8.399931817999459,
+      "end": 8.399952068000857,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 8.900108672001807,
+      "end": 8.900355352001498,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 8.900375561999681,
+      "end": 8.900673680000182,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 8.900685398002679,
+      "end": 8.900727000000188,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 9.40085460300179,
+      "end": 9.401080763003847,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 9.401100282004336,
+      "end": 9.401135765001527,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 9.401172730998951,
+      "end": 9.4012099160027,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 9.90133979300299,
+      "end": 9.901565471998765,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 9.90158461000101,
+      "end": 9.901620534001268,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 9.90162689400313,
+      "end": 9.901653524000722,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 10.404685077002796,
+      "end": 10.404892197999288,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 10.404907501004345,
+      "end": 10.405080311000347,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 10.405087942002865,
+      "end": 10.40511429199978,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 10.905359039999894,
+      "end": 10.905553823002265,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 10.905568845999369,
+      "end": 10.905595516000176,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 10.90560069300409,
+      "end": 10.905619311000919,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 11.405751616002817,
+      "end": 11.405983144002676,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 11.406002121999336,
+      "end": 11.406037464999827,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 11.406043544004206,
+      "end": 11.406067721,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 11.90622331600025,
+      "end": 11.906415684999956,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 11.90643118799926,
+      "end": 11.906456144999538,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 11.9064609929992,
+      "end": 11.906479379998927,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12.406613803002983,
+      "end": 12.40684224600409,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12.406861374998698,
+      "end": 12.406896157001029,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12.406902457005344,
+      "end": 12.406925982002576,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12.90704831200128,
+      "end": 12.907310114998836,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12.90732526800275,
+      "end": 12.907360470999265,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12.90736673000356,
+      "end": 12.90751752700453,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 13.407662451005308,
+      "end": 13.407911786001932,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 13.407933258000412,
+      "end": 13.407988551000017,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 13.40799786500429,
+      "end": 13.4080373540055,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 13.908184161002282,
+      "end": 13.908384772003046,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 13.90840074600419,
+      "end": 13.908425984001951,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 13.908430932002375,
+      "end": 13.908449048998591,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 14.412754764998681,
+      "end": 14.412964850998833,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 14.412981214998581,
+      "end": 14.413007014001778,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 14.413012142002117,
+      "end": 14.413031951000448,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 14.913199494003493,
+      "end": 14.913538974004041,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 14.913561747998756,
+      "end": 14.913607116999628,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 14.913614798002527,
+      "end": 14.913646865999908,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 15.41378865000297,
+      "end": 15.414028461003909,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 15.414048020000337,
+      "end": 15.414083793999453,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 15.414090393998777,
+      "end": 15.414119047003624,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 15.91424089600332,
+      "end": 15.914442068002245,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 15.91446124700451,
+      "end": 15.914490350005508,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 15.914495769000496,
+      "end": 15.914514246003819,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 16.41465136899933,
+      "end": 16.414886341000965,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 16.414906190999318,
+      "end": 16.414940743001353,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 16.414947092998773,
+      "end": 16.414971169004275,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 16.915101942999172,
+      "end": 16.91535680599918,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 16.915376044998993,
+      "end": 16.91541295999923,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 16.915419450000627,
+      "end": 16.91544271499879,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 17.415577897998446,
+      "end": 17.415789926002617,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 17.415806431003148,
+      "end": 17.415834954001184,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 17.41584017200512,
+      "end": 17.415858760003175,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 17.920456224004738,
+      "end": 17.920692498999415,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 17.920708823003224,
+      "end": 17.92073812700255,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 17.92074335500365,
+      "end": 17.920963877004397,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 18.424710567000147,
+      "end": 18.424949496002228,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 18.424970036998275,
+      "end": 18.425005009004963,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 18.425011619001452,
+      "end": 18.425037968998367,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 18.9252053550008,
+      "end": 18.925440728002286,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 18.925464113999624,
+      "end": 18.925514048998593,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 18.925522320998425,
+      "end": 18.925556271999085,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 19.42871714699868,
+      "end": 19.42897149900091,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 19.42899141900125,
+      "end": 19.42902871499973,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 19.42903503499838,
+      "end": 19.429059911999502,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 19.929196344004595,
+      "end": 19.92941498300206,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 19.92943018599908,
+      "end": 19.929456265002955,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 19.929461132000142,
+      "end": 19.92948008100211,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 20.429618868001853,
+      "end": 20.42987389100017,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 20.42989737699827,
+      "end": 20.429948964003415,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 20.429957066000497,
+      "end": 20.42999069700454,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 20.932693486000062,
+      "end": 20.93293140300375,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 20.932952505005233,
+      "end": 20.93299376700452,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 20.93300042700139,
+      "end": 20.933026216000144,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 21.433179101004498,
+      "end": 21.433423478003533,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 21.43344277700089,
+      "end": 21.43347726900538,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 21.433483849003096,
+      "end": 21.433510218004812,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 21.933631355001125,
+      "end": 21.934015621998697,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 21.934036153004854,
+      "end": 21.93408708000061,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 21.934093029005453,
+      "end": 21.934117385004356,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 22.436684200001764,
+      "end": 22.43740299899946,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 22.43742433100124,
+      "end": 22.437473054000293,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 22.437478582003678,
+      "end": 22.43750563300273,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 22.93762867800251,
+      "end": 22.93799806300376,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 22.938014947998454,
+      "end": 22.93810071700136,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 22.938107927999226,
+      "end": 22.938217973001883,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 23.440680621002684,
+      "end": 23.440877676999662,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 23.440893470004085,
+      "end": 23.440920641005505,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 23.44092589900538,
+      "end": 23.441189404999022,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 23.941310416004853,
+      "end": 23.941520852000394,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 23.94153666600323,
+      "end": 23.94156336600281,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 23.941568483998708,
+      "end": 23.941587442001037,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24.44172720200004,
+      "end": 24.44197052700474,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24.441992480002227,
+      "end": 24.44203851900238,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24.442046421005216,
+      "end": 24.442076095998345,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24.96836538900243,
+      "end": 24.96881485400081,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24.968834554005298,
+      "end": 24.968872320001537,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24.968877767998492,
+      "end": 24.968897588005348,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 25.469025029000477,
+      "end": 25.46928822400514,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 25.46930757300288,
+      "end": 25.46942315599881,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 25.469431950004946,
+      "end": 25.469464959001925,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 25.969583602003695,
+      "end": 25.969793176001986,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 25.969809441005054,
+      "end": 25.969836952004698,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 25.969842951002647,
+      "end": 25.969862180005293,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 26.469989655000973,
+      "end": 26.470222535004723,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 26.47023824899952,
+      "end": 26.470268404002127,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 26.47027383200475,
+      "end": 26.47029389200179,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 26.972127469998668,
+      "end": 26.972340710002754,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 26.97235641300358,
+      "end": 26.972381731000496,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 26.972386699002527,
+      "end": 26.972405347005406,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 27.477068068001245,
+      "end": 27.477336130999902,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 27.47735762299999,
+      "end": 27.47740563499974,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 27.47741392700118,
+      "end": 27.47744590500224,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 27.97758960500505,
+      "end": 27.97783964100381,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 27.977861653998843,
+      "end": 27.977909736000584,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 27.97791772799974,
+      "end": 27.977949906002323,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 28.4806838709992,
+      "end": 28.480900836999353,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 28.480925283001852,
+      "end": 28.48097630999837,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 28.48098320000281,
+      "end": 28.48104845800117,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 28.981189725003787,
+      "end": 29.423079111002153,
+      "reply": "STATUS online tickets=1 {registered_loaded_endpoints=9, active_endpoints=0, worker_queue=6, actual_tickets=1, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, queue_ms_p50=2.566183, queue_ms_p95=7.143999, queue_ms_p99=7.143999, queue_ms_samples=3, tick_ms_p50=583.791892, tick_ms_p95=583.791892, tick_ms_p99=583.791892, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=19.722147, db_transaction_ms_p95=318.887949, db_transaction_ms_p99=318.887949, db_transaction_ms_samples=10, db_connection_wait_ms_p50=0.043315, db_connection_wait_ms_p95=911.459089, db_connection_wait_ms_p99=911.459089, db_connection_wait_ms_samples=13, db_transactions=11, db_transaction_attempts=12, db_statements=63, db_deadlock_retries=0, db_active_connections=2, wal_writes=1, wal_bytes=113, wal_identical_skipped=0, wal_barrier_ms_p50=2.042668, wal_barrier_ms_p95=2.042668, wal_barrier_ms_p99=2.042668, wal_barrier_ms_samples=1, completion_admitted=9, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=673.472642, mc_target_ticks_per_second=20.0}\n"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 29.42310557100427,
+      "end": 29.423257109003316,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 29.423269628001435,
+      "end": 29.423297419001756,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 29.923422325999127,
+      "end": 29.923607643999276,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 29.92362164500082,
+      "end": 29.923647654002707,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 30.423794504000398,
+      "end": 30.424024149004254,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 30.424045140003727,
+      "end": 30.424095706002845,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 30.924250312004006,
+      "end": 30.924452085004305,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 30.924466887001472,
+      "end": 30.924493007005367,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 31.424642069003312,
+      "end": 31.424847467998916,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 31.424874267999257,
+      "end": 31.424907698004972,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 31.925036516004184,
+      "end": 32.09448910300125,
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.394322, tick_ms_p95=0.394322, tick_ms_p99=0.394322, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=19.041374, db_transaction_ms_p95=322.326808, db_transaction_ms_p99=322.326808, db_transaction_ms_samples=4, db_connection_wait_ms_p50=0.053771, db_connection_wait_ms_p95=488.415783, db_connection_wait_ms_p99=488.415783, db_connection_wait_ms_samples=5, db_transactions=4, db_transaction_attempts=4, db_statements=32, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=40.157494, mc_target_ticks_per_second=20.0}\n"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 32.0945205800017,
+      "end": 32.09469822700339,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 32.59483729099884,
+      "end": 32.59520327100472,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 33.09669685400149,
+      "end": 33.09692740099854,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "outcome": "READ_FAILED"
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 33.59701668200432,
+      "end": 33.611758108003414,
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.04608, tick_ms_p95=0.490598, tick_ms_p99=0.490598, tick_ms_samples=7, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=36.898745, db_transaction_ms_p95=376.37151, db_transaction_ms_p99=376.37151, db_transaction_ms_samples=4, db_connection_wait_ms_p50=0.048954, db_connection_wait_ms_p95=526.024805, db_connection_wait_ms_p99=526.024805, db_connection_wait_ms_samples=5, db_transactions=4, db_transaction_attempts=4, db_statements=32, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=15.722863, mc_target_ticks_per_second=20.0}\n"
+    },
+    {
+      "server": "A",
+      "command": "stop",
+      "start": 109.56159960100194,
+      "end": 109.56352093600435,
+      "reply": "Stopping the server\n"
+    },
+    {
+      "server": "B",
+      "command": "stop",
+      "start": 109.5637873759988,
+      "end": 109.56574917200487,
+      "reply": "Stopping the server\n"
+    },
+    {
+      "server": "C",
+      "command": "stop",
+      "start": 109.56600972400338,
+      "end": 109.56887250300497,
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "all ownedABC normally stopped; launch locks acquired",
+      "utc": "2026-10-06T19:50:13.121005+00:00"
+    }
+  ],
+  "failures": [
+    "ValueError: New corrected fallback is not a complete real functional pass"
+  ],
+  "root_gates": {
+    "original128_before": "ROOT_COMPLETED_READ_ONLY_AUDIT_VERIFIED",
+    "original128_after_fallback_before_legacy": "PENDING"
+  },
+  "scope": "Serial correction of a test-validator failure; no original128 input/pull replay. Separate new native FE fallback and fresh legacy correctness, no performance/TPS/crash claim.",
+  "policy": "No build/forcekill/backend restart/world deletion/config restore. Failure retains assets/configuration and normally stops only this invocation's selected test JVMs.",
+  "script_sha256": "e299cf864a937b8fbb93bf66cfb82383ed3372053be1f48139038a19d628b174",
+  "original_evidence": {
+    "parent": {
+      "path": "reports/optimization-extra-sequence-68f32db.json",
+      "sha256": "2aa1f21a8bad10fa61ce6c40dd51bcc64a0a1c70bcddcbf3c6a0798cefc274c5",
+      "size_bytes": 4692
+    },
+    "mixed": [
+      {
+        "run": {
+          "command": [
+            "python3",
+            "scripts/optimization-resource-mix.py",
+            "--execute",
+            "--label",
+            "smoke68",
+            "--operator-revision",
+            "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+            "--scenarios",
+            "mixed",
+            "--warmup",
+            "0",
+            "--seconds",
+            "1",
+            "--repeats",
+            "1",
+            "--timeout",
+            "120"
+          ],
+          "runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+          "mode": "fast",
+          "smoke_not_performance": true,
+          "utc_start": "2026-10-06T18:52:21Z",
+          "log": "logs/optimization-resource-mix-smoke68.log",
+          "exit_code": 0,
+          "utc_end": "2026-10-06T18:52:45Z",
+          "report": "reports/optimization-resource-mix-smoke68-20261006T185222Z-877b8b.json",
+          "report_sha256": "c41ae5639945c9ef1daa81913e082193f2a523d2187bad82129aa0fbae5c8a19",
+          "passed": true
+        },
+        "source": {
+          "path": "reports/optimization-resource-mix-smoke68-20261006T185222Z-877b8b.json",
+          "sha256": "c41ae5639945c9ef1daa81913e082193f2a523d2187bad82129aa0fbae5c8a19",
+          "size_bytes": 1015614
+        }
+      },
+      {
+        "run": {
+          "command": [
+            "python3",
+            "scripts/optimization-resource-mix.py",
+            "--execute",
+            "--label",
+            "original87",
+            "--operator-revision",
+            "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+            "--scenarios",
+            "mixed",
+            "--warmup",
+            "30",
+            "--seconds",
+            "120",
+            "--repeats",
+            "3",
+            "--timeout",
+            "1200"
+          ],
+          "runtime_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+          "mode": "legacy",
+          "smoke_not_performance": false,
+          "utc_start": "2026-10-06T18:53:21Z",
+          "log": "logs/optimization-resource-mix-original87.log",
+          "exit_code": 0,
+          "utc_end": "2026-10-06T19:01:31Z",
+          "report": "reports/optimization-resource-mix-original87-20261006T185321Z-8c23fc.json",
+          "report_sha256": "f741dcd70598ca6eec63a78bf4ea15a6cd7d0a0bb0d11acd33bd9d10d3c0297a",
+          "passed": true
+        },
+        "source": {
+          "path": "reports/optimization-resource-mix-original87-20261006T185321Z-8c23fc.json",
+          "sha256": "f741dcd70598ca6eec63a78bf4ea15a6cd7d0a0bb0d11acd33bd9d10d3c0297a",
+          "size_bytes": 18922056
+        }
+      },
+      {
+        "run": {
+          "command": [
+            "python3",
+            "scripts/optimization-resource-mix.py",
+            "--execute",
+            "--label",
+            "batch68",
+            "--operator-revision",
+            "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+            "--scenarios",
+            "mixed",
+            "--warmup",
+            "30",
+            "--seconds",
+            "120",
+            "--repeats",
+            "3",
+            "--timeout",
+            "1200"
+          ],
+          "runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+          "mode": "batch",
+          "smoke_not_performance": false,
+          "utc_start": "2026-10-06T19:02:06Z",
+          "log": "logs/optimization-resource-mix-batch68.log",
+          "exit_code": 0,
+          "utc_end": "2026-10-06T19:10:19Z",
+          "report": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+          "report_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1",
+          "passed": true
+        },
+        "source": {
+          "path": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+          "sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1",
+          "size_bytes": 26044130
+        }
+      },
+      {
+        "run": {
+          "command": [
+            "python3",
+            "scripts/optimization-resource-mix.py",
+            "--execute",
+            "--label",
+            "fast68",
+            "--operator-revision",
+            "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+            "--scenarios",
+            "mixed",
+            "--warmup",
+            "30",
+            "--seconds",
+            "120",
+            "--repeats",
+            "3",
+            "--timeout",
+            "1200"
+          ],
+          "runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+          "mode": "fast",
+          "smoke_not_performance": false,
+          "utc_start": "2026-10-06T19:10:56Z",
+          "log": "logs/optimization-resource-mix-fast68.log",
+          "exit_code": 0,
+          "utc_end": "2026-10-06T19:19:04Z",
+          "report": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+          "report_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e",
+          "passed": true
+        },
+        "source": {
+          "path": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+          "sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e",
+          "size_bytes": 15836976
+        }
+      }
+    ],
+    "fast": {
+      "source": {
+        "path": "reports/optimization-final-regressions-fast-68f32db.json",
+        "sha256": "d33bde2436994a387b5c422e1e176cd490f8de5e63396751f7c97365e0c580c6",
+        "size_bytes": 3251
+      },
+      "parent_edge_SHA_status": "ABSENT_ORIGINAL_EDGE; exact ended fast bytes pinned by this recovery recipe"
+    },
+    "failed_fallback": {
+      "path": "reports/optimization-restart-fallback-68f32db-20261006T192436Z-9e30ef6d.json",
+      "sha256": "1e4b7550dafad1382009a3cceb4658cf5d71eccd37c4aaf269ef1a82d30d15f7",
+      "size_bytes": 336117
+    }
+  },
+  "original_fallback_initial_input_fixture": {
+    "name": "restart_same",
+    "owner": "80a56ba7-4e1a-49fa-9081-f617897ed6e2",
+    "channel": "57536927-3421-43cd-8fc5-9df4df58e920",
+    "sources": [
+      {
+        "name": "restart_same_source",
+        "server": "A",
+        "dimension": "minecraft:overworld",
+        "x": 1514276,
+        "z": 768,
+        "owner": "80a56ba7-4e1a-49fa-9081-f617897ed6e2",
+        "id": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+        "channel": "57536927-3421-43cd-8fc5-9df4df58e920",
+        "present": true,
+        "retired": false
+      }
+    ],
+    "sinks": [
+      {
+        "name": "restart_same_sink",
+        "server": "A",
+        "dimension": "minecraft:overworld",
+        "x": 1514340,
+        "z": 768,
+        "owner": "80a56ba7-4e1a-49fa-9081-f617897ed6e2",
+        "id": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+        "channel": "57536927-3421-43cd-8fc5-9df4df58e920",
+        "present": true,
+        "retired": false
+      }
+    ],
+    "actual_accepted_FE": 128,
+    "actual_extracted_FE": 0,
+    "input_calls": 1,
+    "actual_sink_totals_FE": {}
+  },
+  "root_before_audit": {
+    "source": {
+      "path": "reports/optimization-restart-fallback-first-failure-audit.json",
+      "sha256": "ab208b1eb19efb1c0454491373633713304b9033072f34baffaa2cafe0282ca8",
+      "size_bytes": 4916
+    },
+    "verbatim": {
+      "utc": "2026-10-06T19:29:33.517459+00:00",
+      "failed_report": "reports/optimization-restart-fallback-68f32db-20261006T192436Z-9e30ef6d.json",
+      "failed_report_sha256": "1e4b7550dafad1382009a3cceb4658cf5d71eccd37c4aaf269ef1a82d30d15f7",
+      "read_only": true,
+      "native_test_status": "FAILED_VALIDATOR_BEFORE_CONFIG_SWITCH",
+      "confirmed_actual_input_FE": 128,
+      "confirmed_actual_output_FE": 0,
+      "ownership": {
+        "SQL_available": 0,
+        "SQL_exclusive_LOCAL": 128,
+        "WAL_mirror_of_SQL_LOCAL": 128,
+        "total_effective_asset_FE": 128,
+        "mirrors_not_added": true
+      },
+      "transfers": [
+        {
+          "record_type": "transfer",
+          "id": "01a112ac-e214-7c27-9a8d-f039e63a3ace",
+          "endpoint_id": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+          "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+          "kind": "DEPOSIT",
+          "state": "COMMITTED",
+          "amount": 128,
+          "remaining": 0,
+          "epoch": 5
+        },
+        {
+          "record_type": "transfer",
+          "id": "01a112ac-e216-7b10-bbdb-799c766f37bb",
+          "endpoint_id": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+          "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+          "kind": "ALLOCATE",
+          "state": "LOCAL",
+          "amount": 128,
+          "remaining": 128,
+          "epoch": 5
+        }
+      ],
+      "endpoint_rows": [
+        [
+          "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+          "opt-regression-68f32db-fast-A",
+          "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+          "57536927-3421-43cd-8fc5-9df4df58e920",
+          "ACTIVE",
+          "2",
+          "5",
+          "1"
+        ],
+        [
+          "ba584569-6a07-4abf-9dca-f6a331c4c558",
+          "opt-regression-68f32db-fast-A",
+          "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+          "57536927-3421-43cd-8fc5-9df4df58e920",
+          "ACTIVE",
+          "4",
+          "5",
+          "1"
+        ]
+      ],
+      "stopped_servers": [
+        [
+          "opt-regression-68f32db-fast-A",
+          "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+          "01a112ac-9a4f-725e-a662-4cba4975ead8",
+          "5",
+          "STOPPED",
+          "1",
+          "0"
+        ],
+        [
+          "opt-regression-68f32db-fast-B",
+          "01a112a8-1da7-7da6-92bd-78ec872c272d",
+          "01a112ab-e877-7355-b0bb-12155e4bfd97",
+          "4",
+          "STOPPED",
+          "1",
+          "0"
+        ],
+        [
+          "opt-regression-68f32db-fast-C",
+          "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+          "01a112a8-327f-75c0-917e-2f619ebac9cf",
+          "1",
+          "STOPPED",
+          "1",
+          "0"
+        ]
+      ],
+      "WAL": [
+        {
+          "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/ba584569-6a07-4abf-9dca-f6a331c4c558.ctj",
+          "sha256": "c98fa1e059d967e2727c9c89fde6b89375afe2e49d67d154d1dd2e62c51f7525",
+          "decoded": {
+            "format": 2,
+            "endpoint": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+            "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "generation": 1,
+            "revision": 4,
+            "deposits": [],
+            "credits": [],
+            "thermal": {
+              "microjoules": 0,
+              "residual": 0.0,
+              "pending": false
+            },
+            "sha256": "c98fa1e059d967e2727c9c89fde6b89375afe2e49d67d154d1dd2e62c51f7525",
+            "size_bytes": 113,
+            "checksum_verified": true,
+            "raw_base64": "Q1RUMQAAAAK6WEVpagdKv53K9qMxxMVYAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwv9Ji0b3qYj8K+hnAxHRJbA5QnvKXzLDd29pFjNf+s="
+          }
+        },
+        {
+          "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/9a82dabc-03a9-4c75-a176-6e96b6f34551.ctj",
+          "sha256": "6c772b7af6bc45da075152b7fb9d2fce01400b63d657ce75e8fa9cd207ccbbec",
+          "decoded": {
+            "format": 2,
+            "endpoint": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+            "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "generation": 1,
+            "revision": 2,
+            "deposits": [],
+            "credits": [
+              {
+                "transaction": "01a112ac-e216-7b10-bbdb-799c766f37bb",
+                "channel": "57536927-3421-43cd-8fc5-9df4df58e920",
+                "resource": {
+                  "kind": "cross_tesseract:fe",
+                  "payload_hex": "",
+                  "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                },
+                "original": 128,
+                "remaining": 128
+              }
+            ],
+            "thermal": {
+              "microjoules": 0,
+              "residual": 0.0,
+              "pending": false
+            },
+            "sha256": "6c772b7af6bc45da075152b7fb9d2fce01400b63d657ce75e8fa9cd207ccbbec",
+            "size_bytes": 185,
+            "checksum_verified": true,
+            "raw_base64": "Q1RUMQAAAAKagtq8A6lMdaF2bpa280VRAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAQGhEqziFnsQu9t5nHZvN7tXU2knNCFDzY/FnfTfWOkgABJjcm9zc190ZXNzZXJhY3Q6ZmUAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAxkPyGmg5ALr7MgaInVbhFeMN/rYQa7cTKNqsXxCU6Cc="
+          }
+        }
+      ],
+      "decision": "Keep this fixture untouched. Corrected test must use fresh IDs, no original input/pull replay. Recheck original ownership after recovery."
+    }
+  },
+  "validator_repair": {
+    "old_failed_source_sha256": "320604e33472971172c4587647c176d3fcd8b1fe24be5667acd781f056506991",
+    "corrected_source_sha256": "f8372ca31e3048437d7ea63f353d1546775a7b35670bb150cebc2f9436adfcd4",
+    "change": "CONCAT('hex:',HEX(payload)) preserves the final empty FE column; server.properties semantic SHA removes only comments and normalizes line terminators, preserving every non-comment byte including value spaces. Raw SHA retained; Java/old raw unchanged."
+  },
+  "source_and_JAR_gate": {
+    "artifact_ready_file": "/workspace/reports/optimization-artifact-ready-final.json",
+    "artifact_ready_sha256": "58b96a180e5e480b55eceb0b779f5fadb2d882eb523c3afe217960840d95e7ae",
+    "declared_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+    "source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+    "current_JAR": "/workspace/build/libs/cross_tesseract-0.1.0-dev.jar",
+    "current_JAR_sha256": "7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a",
+    "own_script_sha256": "f8372ca31e3048437d7ea63f353d1546775a7b35670bb150cebc2f9436adfcd4",
+    "helpers_and_protocol_sources": [
+      {
+        "path": "/workspace/scripts/optimization-benchmark.py",
+        "sha256": "d76f62434e2f55afcfa06f5de5c6c0f4db2d1a999e5d388248e993fc0142758f"
+      },
+      {
+        "path": "/workspace/scripts/three-server-test.py",
+        "sha256": "745bacfd88fde6aed857bf02d8be6719e731a6907131d99ede993b205bc44740"
+      },
+      {
+        "path": "/workspace/scripts/optimization-topology-test.py",
+        "sha256": "ba17eff27428dac0d6cb81958e492b3edeb4ccd9dce81932b9597bf01a201f3c"
+      },
+      {
+        "path": "/workspace/scripts/optimization-container-benchmark.py",
+        "sha256": "611f3663635c5a37a8955c8b3295067c37fde9c8b518341337007780aff4b72c"
+      },
+      {
+        "path": "/workspace/scripts/start-frozen-dev.sh",
+        "sha256": "fab855fcadb60c6cfeed51c7910d740754f904797118ad9fb0c57c044a820cfa"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/backend/LocalJournal.java",
+        "sha256": "e6819b66c789a2f49c81bb945e980c0d0307a62d173fa0c75e05952ceec09208"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/core/LocalSnapshot.java",
+        "sha256": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/runtime/RuntimeService.java",
+        "sha256": "8abd0d9d3834b51707014e2fa9ae1a043fdf135b337f0e6d9fb98909b228f1a8"
+      },
+      {
+        "path": "/workspace/src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java",
+        "sha256": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743"
+      }
+    ]
+  },
+  "original_fast_files": {
+    "A": {
+      "server_id": "opt-regression-68f32db-fast-A",
+      "world_id": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "level_name": "world-opt-regression-68f32db-fast-A",
+      "config_path": "/workspace/run-A/cross-tesseract.properties",
+      "config_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+      "server_properties_sha256": "89aa6c6d458eff8ca6f52c3b937dcd8bf8652416497dfea5ca2d891f8122a935",
+      "server_properties_semantic_sha256": "8dd96496db5d511ef60da10837be49568d96a22e3b434536fdab0643beed2e92",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "0187b98f3eb81b4d754a37a5c4824d2aae3876d4fc3fe250db05c6004b321a54",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    },
+    "B": {
+      "server_id": "opt-regression-68f32db-fast-B",
+      "world_id": "01a112a8-1da7-7da6-92bd-78ec872c272d",
+      "level_name": "world-opt-regression-68f32db-fast-B",
+      "config_path": "/workspace/run-B/cross-tesseract.properties",
+      "config_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+      "server_properties_sha256": "41c22bc68e4f6aa2082dc28ccc06e56919f2c1fce21cd5bf4846b1017e98772f",
+      "server_properties_semantic_sha256": "150d4023a2d3bc7681c87283dac182a2f08952e55ef30638d0bed3f8130007ba",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "ae7c7f9feac92b92060ae6688d0e3f73e555654128e1168316f24339b10219fe",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    },
+    "C": {
+      "server_id": "opt-regression-68f32db-fast-C",
+      "world_id": "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+      "level_name": "world-opt-regression-68f32db-fast-C",
+      "config_path": "/workspace/run-C/cross-tesseract.properties",
+      "config_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+      "server_properties_sha256": "285b2c6c8a3f136fe8b6f4e0ec2dead540eb774680c8c7ba8c7ce6de75a8b2d2",
+      "server_properties_semantic_sha256": "5ff88f50756aae8e9f403d92684037c728a438e3e699554609de23eab0b29991",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "1f145282e8727f7095d8c8064ef60506e1d38097340b7528f15f246fde3d82cd",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    }
+  },
+  "same_immutable_launches": {
+    "A": {
+      "launcher": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/runServerA.sh",
+      "launcher_sha256": "ff82ba3185297f373e8bb5b748373863d281ec96f95e01f1fddc38d9cf1ef3dd",
+      "argument_files": [
+        {
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/serverARunVmArgs.txt",
+          "sha256": "340ae5bd33024e647b5ff1ea6109d070e2300347a5875fd9e2ba2dc5110b3e11"
+        },
+        {
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/serverARunProgramArgs.txt",
+          "sha256": "208547e64ba6e387f50f32b6ab2d41dd039aad8960620195323867bcdbc14dfc"
+        },
+        {
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/serverARunClasspath.txt",
+          "sha256": "8983ccadb3175362f17358430dec4848b773febb3bdb0c34efd0577114ebcea5"
+        }
+      ],
+      "selected_fml_argument": "-Dfml.modFolders=cross_tesseract%%/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/classes:cross_tesseract%%/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/resources",
+      "selected_launch_manifests": [
+        {
+          "source_type": "launch_fml_mod_folder",
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/classes",
+          "manifest_sha256": "1068838aaf3f8f180752c2a078b7dc05600e398a0cbafe77477caacb9aba64ba",
+          "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+          "files": [
+            {
+              "relative_path": "dev/crosstesseract/CrossTesseract.class",
+              "sha256": "4728f997d3a4eeb5618ea39208e56515c1389bdfd1ea3693488c807768925d25",
+              "size_bytes": 15301
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority$BatchContext.class",
+              "sha256": "ebc9d98db3a93c7016f0d770cddb46727e0ec88110b1a7e102484a1dc1b6ccda",
+              "size_bytes": 1405
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority$MaintenanceState.class",
+              "sha256": "04c51d708abc71f956c809e7fd4117743d8c8e74425ef07de85e08430e27ca67",
+              "size_bytes": 2198
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority.class",
+              "sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+              "size_bytes": 129043
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/BackendConfig.class",
+              "sha256": "1db1aff1229bbda6f580916bfdd956286d5a57c1a106eaef881e7170d9d58e4c",
+              "size_bytes": 6397
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/LocalJournal.class",
+              "sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+              "size_bytes": 13213
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Migrations.class",
+              "sha256": "caf91374b6911b90c0468f50a2d84030055433196969f1000f0a6958e9242a0a",
+              "size_bytes": 5535
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport$DrainResult.class",
+              "sha256": "2ca5fa2dbe11fe703ad5fc0b0ad0ea09c4ba9283ab1f5bae416c0709210ba3b5",
+              "size_bytes": 2210
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport$Hint.class",
+              "sha256": "b2117397d2e5f5084a837137556a7050da7c4f931daba5270fe50ac7e4788e82",
+              "size_bytes": 1890
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport.class",
+              "sha256": "77be4e07a1f5afc753330b507bb1f4a44b67dee4a89519a65d1a3d001293516d",
+              "size_bytes": 14765
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql$SavepointScope.class",
+              "sha256": "dd7aa45e2d3b0f26d59e89268fba8042d97b60870d4d1ae311f72ae663cb469f",
+              "size_bytes": 937
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql$Work.class",
+              "sha256": "22dc584ef688601d68ac5319454f3c068e681c2a8f645fa89118969198292d8d",
+              "size_bytes": 494
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql.class",
+              "sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+              "size_bytes": 12574
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Demand.class",
+              "sha256": "cb303d1388b67324174cb6a270c3c5784c0bd8bade9dd34be06acc51ba4faf8e",
+              "size_bytes": 2160
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Publication.class",
+              "sha256": "3fb014bd79426f569fff4e069c77c2f7106bb8ed8b4c4d19f7aa1b0d68b31f34",
+              "size_bytes": 3212
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Request.class",
+              "sha256": "3f5594e1114271a5f3ef441888171ff8e806429e3abafa6ea17532af8efa52da",
+              "size_bytes": 3522
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Result.class",
+              "sha256": "36752146a8305ee4f47fd418b7f773c42625c6fd1229e6b2c3acb3d710bf950f",
+              "size_bytes": 3295
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork.class",
+              "sha256": "b7f1ece3c04537ca8fc5184797e8a10aa8296c4508e69e699c20c3fe8c746cdd",
+              "size_bytes": 656
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/NeighborPump.class",
+              "sha256": "fb259d455dacd8167dee548d00952a816e104a2653b7afaba93446ffc3e794b1",
+              "size_bytes": 14226
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$EnergyPort.class",
+              "sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+              "size_bytes": 3922
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$FluidPort.class",
+              "sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+              "size_bytes": 6949
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$ItemPort.class",
+              "sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+              "size_bytes": 6496
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports.class",
+              "sha256": "4542c4d34712bda17a60bf7ba1c0432c547a6eb31286ca4b528d664ae9cd2620",
+              "size_bytes": 539
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/StackCodec$LimitedStream.class",
+              "sha256": "32df36c93124e9af0a6383f94ec841a00f4c0ed2584168cddb530db896ed34e2",
+              "size_bytes": 1080
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/StackCodec.class",
+              "sha256": "c63122a5c02d0f9b9ab561705a42fc213a1a6ed1ba8ecb3ede13061636f1a319",
+              "size_bytes": 8449
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractBlock.class",
+              "sha256": "9237c504a144c052d6803bb97206066884c3fc88df70a0e83f8c1b7ec5021e50",
+              "size_bytes": 7017
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractBlockEntity.class",
+              "sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+              "size_bytes": 25990
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractMenu.class",
+              "sha256": "784244fbb5bd97c1fcc18a9b330c43e8aa4d648dff157a7980f21429ccfb2b7c",
+              "size_bytes": 3435
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/ClientEntrypoint.class",
+              "sha256": "a3626024fdc2dfaed14f156c577386c484555ada4e4d5960fda71f3643479240",
+              "size_bytes": 4050
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/TesseractScreen.class",
+              "sha256": "b7656b84f0245372cb0fb75e7358b8766b9169b6bc72e86abdcb840b4db5bde3",
+              "size_bytes": 34729
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/UiSmoke.class",
+              "sha256": "2069d6f543d920ed871cbd66f54360c2a992b4130800046b5f5b014a41326c4d",
+              "size_bytes": 14539
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/CompatLoader.class",
+              "sha256": "8cd8a8b83b98c4fabf27dd74af8a8858f92b7288702f7e343b0f72ad7a4a200b",
+              "size_bytes": 5093
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/CompatModule.class",
+              "sha256": "d174db2dfa9e45acb76a8dcc179e5a67be57f185e735251ddd1c06c731d6b2f4",
+              "size_bytes": 1761
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeGameTests$1.class",
+              "sha256": "7c8ef4d2a6163f517a843270a1f87d8065e0bf5d89493e739b539abeb363dea4",
+              "size_bytes": 946
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeGameTests.class",
+              "sha256": "6d1d6de5ccdcf54206490c5157ede7a0f39d45ac0fb892670822ee93cb874407",
+              "size_bytes": 24733
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$1.class",
+              "sha256": "ac3defc1cb457727429710f6333d7711a3220273ed2c4e932a1697d2f666ead1",
+              "size_bytes": 1323
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$Gateway$1.class",
+              "sha256": "6267dd0041b6fe91691f60ff6a1d9c7250bcff312590af0243419af216aa29fb",
+              "size_bytes": 2497
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$Gateway.class",
+              "sha256": "5095c49bfa726a089e161215ff41c4017d027f3eac59f88e173040fee8c81035",
+              "size_bytes": 13667
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule.class",
+              "sha256": "e26cf5016fd8ef28c3c8fef5b595930302788a130ffe10695c7ae2fccc804ff7",
+              "size_bytes": 18750
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtGameTests.class",
+              "sha256": "616c4e7593080e3e625618d8146197fa96f4419c3fa6c15edf8b675278565122",
+              "size_bytes": 9636
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtModule$Port.class",
+              "sha256": "c2a4493c2ffe0dfd0e5bf1d87f31d49d26e004010dbe153b23841642937f0af2",
+              "size_bytes": 4462
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtModule.class",
+              "sha256": "c2fa534e2c6e9544b13d0b43dd05a8c1b1a6a5a3be3a5f4fdabbdbc8eb60e54b",
+              "size_bytes": 9915
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekGameTests.class",
+              "sha256": "d3c7c5f754f7ac9aeca8a8c7beb9357e73c083892c8ce506bae7344bc9c5d5b5",
+              "size_bytes": 9310
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule$ChemicalPort.class",
+              "sha256": "40101916639525ff469f63d1674ddd1fea213ea1ccbcc56d8a7d8514dbf90089",
+              "size_bytes": 6589
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule$HeatPort.class",
+              "sha256": "935d2f3da0408b4855231202bb8dbdfe257a632d9d0e02fc6fc45acb4b7f75a5",
+              "size_bytes": 3549
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule.class",
+              "sha256": "fa5628093edd18f5cb55c49691a03b8a5a968b859bdd44e1e31334dcaf3d442d",
+              "size_bytes": 7220
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/AeProxyPlanner$Plan.class",
+              "sha256": "eb880ed23617b358631ea3edd9015f3a6a99386bba1b710e105ead04290256c7",
+              "size_bytes": 1807
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/AeProxyPlanner.class",
+              "sha256": "92ed6584b78990d4e5398f805edaaa960d5e01fab778283579a57a2555853e75",
+              "size_bytes": 4152
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/BusinessIds.class",
+              "sha256": "c671484ca168392975147894c08170e2d18b7a1026ce55ec0099c209ccfba60f",
+              "size_bytes": 1390
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/DomainException.class",
+              "sha256": "f2c49608ef96786c08ae21cfb3b465022685489ea0baa6c3aeea7d1b5faf4345",
+              "size_bytes": 653
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/HeatModel$Exchange.class",
+              "sha256": "987f684e17d2730be0b468421ce27b5d1468be1bb2af0bf45c14a6fe8d799c08",
+              "size_bytes": 1658
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/HeatModel.class",
+              "sha256": "05343ccd1c12a825543e69b90166da68918cc14439229159f5ffadbf2e5f7aa4",
+              "size_bytes": 1544
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalBuffer$Stack.class",
+              "sha256": "1948f2d39dc565e0b89a3d017bc912b9e16358f8acc0a3e81e8eb3f9852318bf",
+              "size_bytes": 1743
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalBuffer.class",
+              "sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+              "size_bytes": 15171
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot$Credit.class",
+              "sha256": "b9f02e2ba97026953659a1f15e88c8d30b0b6f5d3f13eab42a521a46138490e9",
+              "size_bytes": 2485
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot$Deposit.class",
+              "sha256": "99cc3039b3cd4a5587a593200b36e54c8d6e44f514acef0dc25c2da195c84e7c",
+              "size_bytes": 2337
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot.class",
+              "sha256": "4d74393d1da88d02e6eec8b4fad7e9996d0e5ccad755e5d2f29c00f512b2f975",
+              "size_bytes": 4360
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ManagementLimiter.class",
+              "sha256": "d66c5d3ec97a2e6f86b20084890548bbef03e3321049ce039d5c42e2fd41a251",
+              "size_bytes": 1935
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Metrics$Timer.class",
+              "sha256": "d5b6519d1fea86c9eecf66ca3ec42b02d67e05f64ad6ed1990a6183530115d40",
+              "size_bytes": 1328
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Metrics.class",
+              "sha256": "cf2758bd56b948f8342cb4e743c49a25fe8708f30e7dbe6030dc383090d95bd1",
+              "size_bytes": 7321
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$AeNetwork.class",
+              "sha256": "fd1cf9fc95a5f4e7924da328db0dd223ceda1e8e02fc34a71e5d61d3724f8739",
+              "size_bytes": 2138
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Allocation.class",
+              "sha256": "5b37c7aae8b4aa0ef654053d5cbbd02849973abb932aacef8b7fb7ee17d81369",
+              "size_bytes": 2647
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Channel.class",
+              "sha256": "17756ae0c1d7caa2473774d088ffb380e2314c87b1dba8389260e73536c123a9",
+              "size_bytes": 2243
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Endpoint.class",
+              "sha256": "ca563f93e644edd3903a80591851c8d0620cb430ceab803ca21b5101158fb4b0",
+              "size_bytes": 3187
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Event.class",
+              "sha256": "91d36c8aecf239ef86a16f63d07f647398c6afb5812cf2b43b2b7553f2ba813c",
+              "size_bytes": 2092
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Grant.class",
+              "sha256": "e8d19300522855a9143d6ce9f705e93a88bfd1cf0d11545494ca1b4baf84716a",
+              "size_bytes": 2713
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Invitation.class",
+              "sha256": "a4292b58392f9e3d3b9027ca1ded5559a998d396b8df54a64f737b47c8a2bb20",
+              "size_bytes": 2320
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$PermissionSnapshot.class",
+              "sha256": "fbc93b181fa79992d9d213136538c78d5bc28335365590e0f63027482c64d893",
+              "size_bytes": 2660
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Session.class",
+              "sha256": "b1f8813857bff998e806e7151ddb9f8e20efc649dddd1e89efc4a5118642f94d",
+              "size_bytes": 2403
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockPage.class",
+              "sha256": "5e9ca2555dae78f6023aa466a0afaa20e984a3331b70dac25d712daccd6c572b",
+              "size_bytes": 2518
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockRequest.class",
+              "sha256": "108c6579002a09169b5f865245cb268ee74d008f82668fff8a7da7d879e01b85",
+              "size_bytes": 2322
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockRow.class",
+              "sha256": "83a63e49b336f232392ad5ba6903036045e5ff9b533d87503df9f66fdf1716d1",
+              "size_bytes": 2336
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models.class",
+              "sha256": "13d4e0baad29e01157617185a3719a67bba11602f042616298fd250d1c83f018",
+              "size_bytes": 1152
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Protocol$Mode.class",
+              "sha256": "fd70404265f4c99f5d1cf98d2e062728e540668c8f979b4d179475de613dbf4e",
+              "size_bytes": 1850
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Protocol.class",
+              "sha256": "c4338b7894450a857b3d7711b2804dfdb133bb372ed7b189d89f258a6dc3c34c",
+              "size_bytes": 1425
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Resource.class",
+              "sha256": "355b860fe9e2944f5b32c8382bca568c2a4f77d426e9a4ae9b0a63399602e0bd",
+              "size_bytes": 2176
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer$Pending.class",
+              "sha256": "b9bc3510552f524d2717bcb18b49d34bc0722fd407fed965e3f42f82c67b0c6c",
+              "size_bytes": 2733
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer$Snapshot.class",
+              "sha256": "e11dabb5ab250ecb5b964ce90116f73d0791604bd3cd0b85f7d9fb743ed937d1",
+              "size_bytes": 2366
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer.class",
+              "sha256": "9f0b832fc39d62fc3999ab859cdec7deefd1db8e912eb1709b48c2fa17d39cae",
+              "size_bytes": 3010
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$Request$1.class",
+              "sha256": "8cf20af7de5c6db5f0ead921152d4d1567adde25ab110bd7fd24ac250bd787cc",
+              "size_bytes": 2452
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$Request.class",
+              "sha256": "f049d6fb8aed93698ffc33c2f57966126e54cc9800c82326fc14cadae5dfdb99",
+              "size_bytes": 3562
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$View$1.class",
+              "sha256": "0b6fab84c2952076cd539c7a81f9d8ece1d99744dcc898b51c6befb9eb89eba1",
+              "size_bytes": 2082
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$View.class",
+              "sha256": "67eb5b78a280572343638435e89490355f435609fbd8f7e13680b770affe4712",
+              "size_bytes": 3173
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets.class",
+              "sha256": "9f04ec462e2698dda41d9d82fc28633a7291b64911f67ede8b144354a012cdef",
+              "size_bytes": 32786
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$ChannelState.class",
+              "sha256": "27becd43a9a25e96bd57d6a85ff1ced2ab0905a3a9c39ba2b271aef233b07768",
+              "size_bytes": 1167
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$EndpointState.class",
+              "sha256": "789429d4777afeec149e417d1b48e465aa37c9a3e48dafabd39a18c34f2bcab7",
+              "size_bytes": 863
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$Lease.class",
+              "sha256": "8ecabcc282343926235c31ccf0ac27da525c00d2cf27afe209dce1f9efcd9b41",
+              "size_bytes": 1090
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator.class",
+              "sha256": "305164b85d894d529063fd69259575ca56f110bb72b4a58ce5c4be6b314f74ab",
+              "size_bytes": 5432
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChunkTickets$Ticket.class",
+              "sha256": "2a166e36b539c64c79b1d78ad2630a9360d08b0d6c96c96d60d3491ab2d22efa",
+              "size_bytes": 1864
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChunkTickets.class",
+              "sha256": "5709cd814da0cc100edbebedd995317a1c5533b444a68f2644ba69cfd9769c72",
+              "size_bytes": 6321
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/Commands.class",
+              "sha256": "36869d1c74f9e80b999783f20c6fe3e5120c1bbc29d4aa6fd6297633a5d8519f",
+              "size_bytes": 25933
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/CompletionMailbox$Reservation.class",
+              "sha256": "6f2b942091bc730e9571d581d09173707acce5b0a73b731ca8cf909543f85786",
+              "size_bytes": 1384
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/CompletionMailbox.class",
+              "sha256": "addd72eeea544e761e98690dafcbe995e49dbb9deee0e09a310c0ccfb4c310ba",
+              "size_bytes": 1789
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeEvents.class",
+              "sha256": "1bd5aead6601ed4e63eb9614b8af74509e837dcf77a30a4906644096c564dc34",
+              "size_bytes": 1946
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeLimits$TransferTuning.class",
+              "sha256": "de61b8cd9b28312fa4e891be3108b4c90123c1b652055b16972013f9c0891ec2",
+              "size_bytes": 2833
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeLimits.class",
+              "sha256": "2f55937255522963f5d8ea1a7f1c4ada3d01689599275f04a02c6f65c3464d93",
+              "size_bytes": 8174
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Closing.class",
+              "sha256": "a0192dccf396a6b2130ec73eaa4b642849e9dd434315916a79d67126cdafe19c",
+              "size_bytes": 748
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Prepared.class",
+              "sha256": "e04894cfb5a1ce817097d75150062c860a7cbd4a335bc3a26ea6e42071af90cb",
+              "size_bytes": 943
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Scheduled.class",
+              "sha256": "9dec71264133f1c7654b4f467d7b1187b82e0cf981db89495db47090eeed4993",
+              "size_bytes": 1746
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Work.class",
+              "sha256": "623c3688119ed09f5d8c93e471f2127a21d35c1c1d290ca28fa40dbbb2b05131",
+              "size_bytes": 559
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService.class",
+              "sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+              "size_bytes": 93644
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/CoreBackendGameTests.class",
+              "sha256": "6b86842f23dbbeebb0e2fba191d1d8f5530ceed827778bb64409b5201ab768f2",
+              "size_bytes": 26465
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults$Hold.class",
+              "sha256": "acdd8f4313f0dc03480c7fb603f537773efb7e0a4ee430d802cd2fb9a16ea7a0",
+              "size_bytes": 3230
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults$Point.class",
+              "sha256": "402e046473abb8aab6174da7aa314b135596d36fac49dc4c5fe770bfd02748c1",
+              "size_bytes": 1680
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults.class",
+              "sha256": "f322b60a4aad1490b2004e6b6daafc99ed4282ce8a5268602b7fd9c90b1c4516",
+              "size_bytes": 7800
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Fixtures.class",
+              "sha256": "39d97781fcfa0e406e06f1eaaae6ae4cc999eb3a06707549b86ffb8e72b35ff1",
+              "size_bytes": 8265
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/GameTests.class",
+              "sha256": "566a01ba9c4df1a5628b973c13849a4b75fccd100508114fc0475da682742c8e",
+              "size_bytes": 12633
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$CloneRemovalEvidence.class",
+              "sha256": "6c2489ed81328bff5d4324b4a7654848e94cf54bf2f72c44e0b0b18e0aea9dc8",
+              "size_bytes": 2660
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$ConfirmationEvidence.class",
+              "sha256": "e5f4afd5dc6d306c5242988943db4f11ad96f3231b65d917c1b93cf6b15154d6",
+              "size_bytes": 3156
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$EmptyRemovalEvidence.class",
+              "sha256": "ea4ee802813ed7ef6f6939ff5ccb024634850f275dae3b6f181c67001e0f8892",
+              "size_bytes": 2496
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$Evidence.class",
+              "sha256": "4e15c9842804ed9b149cc955dc761966689d5ea6cfbcffac0e155e94c52ff9ce",
+              "size_bytes": 2271
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$SealEvidence.class",
+              "sha256": "b690036bfc79077228c48a4063a7b6b7cde1a2097a146530a1e102182d3eebf5",
+              "size_bytes": 2321
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests.class",
+              "sha256": "6fc3168e8bd745e453d5e9eab4c8e116ee97592b3aa8d4c7fe30a19f11aeca31",
+              "size_bytes": 86231
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RuntimeDeltaGameTests$Evidence.class",
+              "sha256": "ddd2a9ba5fcca79464abb449450b15a1d34500018722230d44b70caf886843b0",
+              "size_bytes": 2838
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RuntimeDeltaGameTests.class",
+              "sha256": "59c3d343ba1608c0dc1f6f9c6a20eee55efc92bfb43880ec258e48fc394a0b0f",
+              "size_bytes": 21675
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/ThreeServerHarness$Bulk.class",
+              "sha256": "9046d741ff48a3661af34bd944a929e52edfe3ee2111071ae38fc4aa30ac75bb",
+              "size_bytes": 1061
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/ThreeServerHarness.class",
+              "sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+              "size_bytes": 26184
+            }
+          ],
+          "total_bytes": 973311
+        },
+        {
+          "source_type": "launch_fml_mod_folder",
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/resources",
+          "manifest_sha256": "2fbf78db6ad3e0c368cbab3760a29a0b90b9acb711f4ff6899d54a4ac2aee668",
+          "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+          "files": [
+            {
+              "relative_path": "META-INF/LICENSE-cross_tesseract.txt",
+              "sha256": "015d4a924b170718e2b7cdf9cd7ac2ef330b8ef47315e2b14afc752f6292de93",
+              "size_bytes": 1091
+            },
+            {
+              "relative_path": "META-INF/THIRD-PARTY-NOTICES.txt",
+              "sha256": "b9e20492b9c771249eda32e617b6809c1fe7301f8d8dcf0f58130c48b70bef2b",
+              "size_bytes": 1136
+            },
+            {
+              "relative_path": "META-INF/neoforge.mods.toml",
+              "sha256": "533f6e37a74154c9d169344481895dd9079ce9f993e00d8c6431363dda9e1b33",
+              "size_bytes": 852
+            },
+            {
+              "relative_path": "assets/cross_tesseract/blockstates/tesseract.json",
+              "sha256": "888d61451668b84f2e48893960d01406fe4e7cc653821cfd98188abada7e9f8e",
+              "size_bytes": 89
+            },
+            {
+              "relative_path": "assets/cross_tesseract/lang/en_us.json",
+              "sha256": "9054f1e277af1ffaa4adabae6ffde31d46a018435deb715b5b381b08418a006d",
+              "size_bytes": 13219
+            },
+            {
+              "relative_path": "assets/cross_tesseract/lang/zh_cn.json",
+              "sha256": "b890a23f296628cca4f502bfd3ed08330535588b4b04e8fb9053c8549cc69513",
+              "size_bytes": 14524
+            },
+            {
+              "relative_path": "assets/cross_tesseract/models/block/tesseract.json",
+              "sha256": "65021ca4301297a2ba1ef15422a99af56ebbdcd13f7434c63730cbb20f407e8b",
+              "size_bytes": 425
+            },
+            {
+              "relative_path": "assets/cross_tesseract/models/item/tesseract.json",
+              "sha256": "ce6a9232bf8b492aa049fc2d6431b63e07f67a34ef9ddff730248d28b6f0b61a",
+              "size_bytes": 50
+            },
+            {
+              "relative_path": "assets/cross_tesseract/textures/block/tesseract_side.png",
+              "sha256": "4ed3edc32d143814c0c5b265dfc40a48d096a58e3748cddb7b724d3207dc712e",
+              "size_bytes": 660
+            },
+            {
+              "relative_path": "assets/cross_tesseract/textures/block/tesseract_top.png",
+              "sha256": "75ead055b62b19d04599be9fd9ccf1406f9bb3dd9a368450eb1aaea4bb67f3be",
+              "size_bytes": 691
+            },
+            {
+              "relative_path": "data/cross_tesseract/loot_table/blocks/tesseract.json",
+              "sha256": "f839c42a6c60ad59cca31a1c72f4f12b626a616bcf7ee81169afc8a5da9a961a",
+              "size_bytes": 314
+            },
+            {
+              "relative_path": "data/cross_tesseract/recipe/tesseract.json",
+              "sha256": "f4fb1352f7227a00db9070fc49186d8097ffb46b1c7fae37276b365a24ca2ddc",
+              "size_bytes": 372
+            },
+            {
+              "relative_path": "data/cross_tesseract/structure/empty.nbt",
+              "sha256": "d2783835dd0ffc6ab2e8e95c6bef6ba7a8da2dd3b2103ff9058718e766c1befb",
+              "size_bytes": 111
+            },
+            {
+              "relative_path": "data/minecraft/tags/block/mineable/pickaxe.json",
+              "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24",
+              "size_bytes": 74
+            },
+            {
+              "relative_path": "data/minecraft/tags/block/needs_iron_tool.json",
+              "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24",
+              "size_bytes": 74
+            },
+            {
+              "relative_path": "db/migration/V001__authority.sql",
+              "sha256": "30644147e04fea2d95ebe60c37e5028dbffdb080dcccf40598a7cbae70a4828a",
+              "size_bytes": 9548
+            },
+            {
+              "relative_path": "db/migration/V002__thermal_and_ae.sql",
+              "sha256": "0bf4f630937a979f65335890ab17936a710326976dd69873983e4a5348dbf13e",
+              "size_bytes": 2277
+            },
+            {
+              "relative_path": "db/migration/V003__bounded_history.sql",
+              "sha256": "299e68f5ee68a55ddd5d10f6ea4fba5e157e36d3849d4f15d3340d759829e607",
+              "size_bytes": 1239
+            },
+            {
+              "relative_path": "db/migration/V004__stock_requests.sql",
+              "sha256": "2247b93c82fb356af7299ad8d2ae27ccd7f54ecdc7e5333c9636e190d9c26226",
+              "size_bytes": 973
+            },
+            {
+              "relative_path": "pack.mcmeta",
+              "sha256": "110f461bf1bf49b0a5db6f91c30697489c5aab3244bc42f8bb0f7f3fbff77b4b",
+              "size_bytes": 102
+            }
+          ],
+          "total_bytes": 47821
+        }
+      ],
+      "wrapper_file_only_check": {
+        "mode": "A",
+        "validation": "OFFLINE files only; process/lock availability UNCHECKED",
+        "launch": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/runServerA.sh",
+        "launch_sha256": "ff82ba3185297f373e8bb5b748373863d281ec96f95e01f1fddc38d9cf1ef3dd",
+        "java": "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "cluster": "dev_three_v1",
+        "server_id": "opt-regression-68f32db-fast-A",
+        "level_name": "world-opt-regression-68f32db-fast-A",
+        "rcon_port": 25575,
+        "classes": {
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/classes",
+          "files": 117,
+          "bytes": 973311,
+          "manifest_sha256": "ee2477d66a5184f08acdc9be16a9e0f891ba165eb168b259724ce7a3dbfff5de",
+          "manifest_format": "sorted relative path + NUL + content SHA256 + LF"
+        },
+        "resources": {
+          "path": "/workspace/scratch/dev-launch/8db4ca01a341453f8eb2cdeda2ce975c/resources",
+          "files": 20,
+          "bytes": 47821,
+          "manifest_sha256": "cb0e155e3dcb9b045d921734e3e512a2ce6fc4ff81c8626d2ec66dae766d06af",
+          "manifest_format": "sorted relative path + NUL + content SHA256 + LF"
+        },
+        "vm_args_sha256": "340ae5bd33024e647b5ff1ea6109d070e2300347a5875fd9e2ba2dc5110b3e11"
+      },
+      "resolution_limit": "Selected folders and byte equality with ready JAR; no independent class-loader CodeSource attestation."
+    },
+    "B": {
+      "launcher": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/runServerB.sh",
+      "launcher_sha256": "b127c086a756032f9d0e7324142f4fe4d933bf9e9c7bcf839a24a98919045690",
+      "argument_files": [
+        {
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/serverBRunVmArgs.txt",
+          "sha256": "d015fd5239308887442b32668e54c890a0762f47550fbcc2c19d128f2ab21c4b"
+        },
+        {
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/serverBRunProgramArgs.txt",
+          "sha256": "208547e64ba6e387f50f32b6ab2d41dd039aad8960620195323867bcdbc14dfc"
+        },
+        {
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/serverBRunClasspath.txt",
+          "sha256": "8983ccadb3175362f17358430dec4848b773febb3bdb0c34efd0577114ebcea5"
+        }
+      ],
+      "selected_fml_argument": "-Dfml.modFolders=cross_tesseract%%/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/classes:cross_tesseract%%/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/resources",
+      "selected_launch_manifests": [
+        {
+          "source_type": "launch_fml_mod_folder",
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/classes",
+          "manifest_sha256": "1068838aaf3f8f180752c2a078b7dc05600e398a0cbafe77477caacb9aba64ba",
+          "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+          "files": [
+            {
+              "relative_path": "dev/crosstesseract/CrossTesseract.class",
+              "sha256": "4728f997d3a4eeb5618ea39208e56515c1389bdfd1ea3693488c807768925d25",
+              "size_bytes": 15301
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority$BatchContext.class",
+              "sha256": "ebc9d98db3a93c7016f0d770cddb46727e0ec88110b1a7e102484a1dc1b6ccda",
+              "size_bytes": 1405
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority$MaintenanceState.class",
+              "sha256": "04c51d708abc71f956c809e7fd4117743d8c8e74425ef07de85e08430e27ca67",
+              "size_bytes": 2198
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority.class",
+              "sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+              "size_bytes": 129043
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/BackendConfig.class",
+              "sha256": "1db1aff1229bbda6f580916bfdd956286d5a57c1a106eaef881e7170d9d58e4c",
+              "size_bytes": 6397
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/LocalJournal.class",
+              "sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+              "size_bytes": 13213
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Migrations.class",
+              "sha256": "caf91374b6911b90c0468f50a2d84030055433196969f1000f0a6958e9242a0a",
+              "size_bytes": 5535
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport$DrainResult.class",
+              "sha256": "2ca5fa2dbe11fe703ad5fc0b0ad0ea09c4ba9283ab1f5bae416c0709210ba3b5",
+              "size_bytes": 2210
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport$Hint.class",
+              "sha256": "b2117397d2e5f5084a837137556a7050da7c4f931daba5270fe50ac7e4788e82",
+              "size_bytes": 1890
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport.class",
+              "sha256": "77be4e07a1f5afc753330b507bb1f4a44b67dee4a89519a65d1a3d001293516d",
+              "size_bytes": 14765
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql$SavepointScope.class",
+              "sha256": "dd7aa45e2d3b0f26d59e89268fba8042d97b60870d4d1ae311f72ae663cb469f",
+              "size_bytes": 937
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql$Work.class",
+              "sha256": "22dc584ef688601d68ac5319454f3c068e681c2a8f645fa89118969198292d8d",
+              "size_bytes": 494
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql.class",
+              "sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+              "size_bytes": 12574
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Demand.class",
+              "sha256": "cb303d1388b67324174cb6a270c3c5784c0bd8bade9dd34be06acc51ba4faf8e",
+              "size_bytes": 2160
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Publication.class",
+              "sha256": "3fb014bd79426f569fff4e069c77c2f7106bb8ed8b4c4d19f7aa1b0d68b31f34",
+              "size_bytes": 3212
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Request.class",
+              "sha256": "3f5594e1114271a5f3ef441888171ff8e806429e3abafa6ea17532af8efa52da",
+              "size_bytes": 3522
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Result.class",
+              "sha256": "36752146a8305ee4f47fd418b7f773c42625c6fd1229e6b2c3acb3d710bf950f",
+              "size_bytes": 3295
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork.class",
+              "sha256": "b7f1ece3c04537ca8fc5184797e8a10aa8296c4508e69e699c20c3fe8c746cdd",
+              "size_bytes": 656
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/NeighborPump.class",
+              "sha256": "fb259d455dacd8167dee548d00952a816e104a2653b7afaba93446ffc3e794b1",
+              "size_bytes": 14226
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$EnergyPort.class",
+              "sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+              "size_bytes": 3922
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$FluidPort.class",
+              "sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+              "size_bytes": 6949
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$ItemPort.class",
+              "sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+              "size_bytes": 6496
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports.class",
+              "sha256": "4542c4d34712bda17a60bf7ba1c0432c547a6eb31286ca4b528d664ae9cd2620",
+              "size_bytes": 539
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/StackCodec$LimitedStream.class",
+              "sha256": "32df36c93124e9af0a6383f94ec841a00f4c0ed2584168cddb530db896ed34e2",
+              "size_bytes": 1080
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/StackCodec.class",
+              "sha256": "c63122a5c02d0f9b9ab561705a42fc213a1a6ed1ba8ecb3ede13061636f1a319",
+              "size_bytes": 8449
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractBlock.class",
+              "sha256": "9237c504a144c052d6803bb97206066884c3fc88df70a0e83f8c1b7ec5021e50",
+              "size_bytes": 7017
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractBlockEntity.class",
+              "sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+              "size_bytes": 25990
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractMenu.class",
+              "sha256": "784244fbb5bd97c1fcc18a9b330c43e8aa4d648dff157a7980f21429ccfb2b7c",
+              "size_bytes": 3435
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/ClientEntrypoint.class",
+              "sha256": "a3626024fdc2dfaed14f156c577386c484555ada4e4d5960fda71f3643479240",
+              "size_bytes": 4050
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/TesseractScreen.class",
+              "sha256": "b7656b84f0245372cb0fb75e7358b8766b9169b6bc72e86abdcb840b4db5bde3",
+              "size_bytes": 34729
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/UiSmoke.class",
+              "sha256": "2069d6f543d920ed871cbd66f54360c2a992b4130800046b5f5b014a41326c4d",
+              "size_bytes": 14539
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/CompatLoader.class",
+              "sha256": "8cd8a8b83b98c4fabf27dd74af8a8858f92b7288702f7e343b0f72ad7a4a200b",
+              "size_bytes": 5093
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/CompatModule.class",
+              "sha256": "d174db2dfa9e45acb76a8dcc179e5a67be57f185e735251ddd1c06c731d6b2f4",
+              "size_bytes": 1761
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeGameTests$1.class",
+              "sha256": "7c8ef4d2a6163f517a843270a1f87d8065e0bf5d89493e739b539abeb363dea4",
+              "size_bytes": 946
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeGameTests.class",
+              "sha256": "6d1d6de5ccdcf54206490c5157ede7a0f39d45ac0fb892670822ee93cb874407",
+              "size_bytes": 24733
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$1.class",
+              "sha256": "ac3defc1cb457727429710f6333d7711a3220273ed2c4e932a1697d2f666ead1",
+              "size_bytes": 1323
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$Gateway$1.class",
+              "sha256": "6267dd0041b6fe91691f60ff6a1d9c7250bcff312590af0243419af216aa29fb",
+              "size_bytes": 2497
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$Gateway.class",
+              "sha256": "5095c49bfa726a089e161215ff41c4017d027f3eac59f88e173040fee8c81035",
+              "size_bytes": 13667
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule.class",
+              "sha256": "e26cf5016fd8ef28c3c8fef5b595930302788a130ffe10695c7ae2fccc804ff7",
+              "size_bytes": 18750
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtGameTests.class",
+              "sha256": "616c4e7593080e3e625618d8146197fa96f4419c3fa6c15edf8b675278565122",
+              "size_bytes": 9636
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtModule$Port.class",
+              "sha256": "c2a4493c2ffe0dfd0e5bf1d87f31d49d26e004010dbe153b23841642937f0af2",
+              "size_bytes": 4462
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtModule.class",
+              "sha256": "c2fa534e2c6e9544b13d0b43dd05a8c1b1a6a5a3be3a5f4fdabbdbc8eb60e54b",
+              "size_bytes": 9915
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekGameTests.class",
+              "sha256": "d3c7c5f754f7ac9aeca8a8c7beb9357e73c083892c8ce506bae7344bc9c5d5b5",
+              "size_bytes": 9310
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule$ChemicalPort.class",
+              "sha256": "40101916639525ff469f63d1674ddd1fea213ea1ccbcc56d8a7d8514dbf90089",
+              "size_bytes": 6589
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule$HeatPort.class",
+              "sha256": "935d2f3da0408b4855231202bb8dbdfe257a632d9d0e02fc6fc45acb4b7f75a5",
+              "size_bytes": 3549
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule.class",
+              "sha256": "fa5628093edd18f5cb55c49691a03b8a5a968b859bdd44e1e31334dcaf3d442d",
+              "size_bytes": 7220
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/AeProxyPlanner$Plan.class",
+              "sha256": "eb880ed23617b358631ea3edd9015f3a6a99386bba1b710e105ead04290256c7",
+              "size_bytes": 1807
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/AeProxyPlanner.class",
+              "sha256": "92ed6584b78990d4e5398f805edaaa960d5e01fab778283579a57a2555853e75",
+              "size_bytes": 4152
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/BusinessIds.class",
+              "sha256": "c671484ca168392975147894c08170e2d18b7a1026ce55ec0099c209ccfba60f",
+              "size_bytes": 1390
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/DomainException.class",
+              "sha256": "f2c49608ef96786c08ae21cfb3b465022685489ea0baa6c3aeea7d1b5faf4345",
+              "size_bytes": 653
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/HeatModel$Exchange.class",
+              "sha256": "987f684e17d2730be0b468421ce27b5d1468be1bb2af0bf45c14a6fe8d799c08",
+              "size_bytes": 1658
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/HeatModel.class",
+              "sha256": "05343ccd1c12a825543e69b90166da68918cc14439229159f5ffadbf2e5f7aa4",
+              "size_bytes": 1544
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalBuffer$Stack.class",
+              "sha256": "1948f2d39dc565e0b89a3d017bc912b9e16358f8acc0a3e81e8eb3f9852318bf",
+              "size_bytes": 1743
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalBuffer.class",
+              "sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+              "size_bytes": 15171
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot$Credit.class",
+              "sha256": "b9f02e2ba97026953659a1f15e88c8d30b0b6f5d3f13eab42a521a46138490e9",
+              "size_bytes": 2485
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot$Deposit.class",
+              "sha256": "99cc3039b3cd4a5587a593200b36e54c8d6e44f514acef0dc25c2da195c84e7c",
+              "size_bytes": 2337
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot.class",
+              "sha256": "4d74393d1da88d02e6eec8b4fad7e9996d0e5ccad755e5d2f29c00f512b2f975",
+              "size_bytes": 4360
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ManagementLimiter.class",
+              "sha256": "d66c5d3ec97a2e6f86b20084890548bbef03e3321049ce039d5c42e2fd41a251",
+              "size_bytes": 1935
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Metrics$Timer.class",
+              "sha256": "d5b6519d1fea86c9eecf66ca3ec42b02d67e05f64ad6ed1990a6183530115d40",
+              "size_bytes": 1328
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Metrics.class",
+              "sha256": "cf2758bd56b948f8342cb4e743c49a25fe8708f30e7dbe6030dc383090d95bd1",
+              "size_bytes": 7321
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$AeNetwork.class",
+              "sha256": "fd1cf9fc95a5f4e7924da328db0dd223ceda1e8e02fc34a71e5d61d3724f8739",
+              "size_bytes": 2138
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Allocation.class",
+              "sha256": "5b37c7aae8b4aa0ef654053d5cbbd02849973abb932aacef8b7fb7ee17d81369",
+              "size_bytes": 2647
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Channel.class",
+              "sha256": "17756ae0c1d7caa2473774d088ffb380e2314c87b1dba8389260e73536c123a9",
+              "size_bytes": 2243
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Endpoint.class",
+              "sha256": "ca563f93e644edd3903a80591851c8d0620cb430ceab803ca21b5101158fb4b0",
+              "size_bytes": 3187
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Event.class",
+              "sha256": "91d36c8aecf239ef86a16f63d07f647398c6afb5812cf2b43b2b7553f2ba813c",
+              "size_bytes": 2092
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Grant.class",
+              "sha256": "e8d19300522855a9143d6ce9f705e93a88bfd1cf0d11545494ca1b4baf84716a",
+              "size_bytes": 2713
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Invitation.class",
+              "sha256": "a4292b58392f9e3d3b9027ca1ded5559a998d396b8df54a64f737b47c8a2bb20",
+              "size_bytes": 2320
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$PermissionSnapshot.class",
+              "sha256": "fbc93b181fa79992d9d213136538c78d5bc28335365590e0f63027482c64d893",
+              "size_bytes": 2660
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Session.class",
+              "sha256": "b1f8813857bff998e806e7151ddb9f8e20efc649dddd1e89efc4a5118642f94d",
+              "size_bytes": 2403
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockPage.class",
+              "sha256": "5e9ca2555dae78f6023aa466a0afaa20e984a3331b70dac25d712daccd6c572b",
+              "size_bytes": 2518
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockRequest.class",
+              "sha256": "108c6579002a09169b5f865245cb268ee74d008f82668fff8a7da7d879e01b85",
+              "size_bytes": 2322
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockRow.class",
+              "sha256": "83a63e49b336f232392ad5ba6903036045e5ff9b533d87503df9f66fdf1716d1",
+              "size_bytes": 2336
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models.class",
+              "sha256": "13d4e0baad29e01157617185a3719a67bba11602f042616298fd250d1c83f018",
+              "size_bytes": 1152
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Protocol$Mode.class",
+              "sha256": "fd70404265f4c99f5d1cf98d2e062728e540668c8f979b4d179475de613dbf4e",
+              "size_bytes": 1850
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Protocol.class",
+              "sha256": "c4338b7894450a857b3d7711b2804dfdb133bb372ed7b189d89f258a6dc3c34c",
+              "size_bytes": 1425
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Resource.class",
+              "sha256": "355b860fe9e2944f5b32c8382bca568c2a4f77d426e9a4ae9b0a63399602e0bd",
+              "size_bytes": 2176
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer$Pending.class",
+              "sha256": "b9bc3510552f524d2717bcb18b49d34bc0722fd407fed965e3f42f82c67b0c6c",
+              "size_bytes": 2733
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer$Snapshot.class",
+              "sha256": "e11dabb5ab250ecb5b964ce90116f73d0791604bd3cd0b85f7d9fb743ed937d1",
+              "size_bytes": 2366
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer.class",
+              "sha256": "9f0b832fc39d62fc3999ab859cdec7deefd1db8e912eb1709b48c2fa17d39cae",
+              "size_bytes": 3010
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$Request$1.class",
+              "sha256": "8cf20af7de5c6db5f0ead921152d4d1567adde25ab110bd7fd24ac250bd787cc",
+              "size_bytes": 2452
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$Request.class",
+              "sha256": "f049d6fb8aed93698ffc33c2f57966126e54cc9800c82326fc14cadae5dfdb99",
+              "size_bytes": 3562
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$View$1.class",
+              "sha256": "0b6fab84c2952076cd539c7a81f9d8ece1d99744dcc898b51c6befb9eb89eba1",
+              "size_bytes": 2082
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$View.class",
+              "sha256": "67eb5b78a280572343638435e89490355f435609fbd8f7e13680b770affe4712",
+              "size_bytes": 3173
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets.class",
+              "sha256": "9f04ec462e2698dda41d9d82fc28633a7291b64911f67ede8b144354a012cdef",
+              "size_bytes": 32786
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$ChannelState.class",
+              "sha256": "27becd43a9a25e96bd57d6a85ff1ced2ab0905a3a9c39ba2b271aef233b07768",
+              "size_bytes": 1167
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$EndpointState.class",
+              "sha256": "789429d4777afeec149e417d1b48e465aa37c9a3e48dafabd39a18c34f2bcab7",
+              "size_bytes": 863
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$Lease.class",
+              "sha256": "8ecabcc282343926235c31ccf0ac27da525c00d2cf27afe209dce1f9efcd9b41",
+              "size_bytes": 1090
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator.class",
+              "sha256": "305164b85d894d529063fd69259575ca56f110bb72b4a58ce5c4be6b314f74ab",
+              "size_bytes": 5432
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChunkTickets$Ticket.class",
+              "sha256": "2a166e36b539c64c79b1d78ad2630a9360d08b0d6c96c96d60d3491ab2d22efa",
+              "size_bytes": 1864
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChunkTickets.class",
+              "sha256": "5709cd814da0cc100edbebedd995317a1c5533b444a68f2644ba69cfd9769c72",
+              "size_bytes": 6321
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/Commands.class",
+              "sha256": "36869d1c74f9e80b999783f20c6fe3e5120c1bbc29d4aa6fd6297633a5d8519f",
+              "size_bytes": 25933
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/CompletionMailbox$Reservation.class",
+              "sha256": "6f2b942091bc730e9571d581d09173707acce5b0a73b731ca8cf909543f85786",
+              "size_bytes": 1384
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/CompletionMailbox.class",
+              "sha256": "addd72eeea544e761e98690dafcbe995e49dbb9deee0e09a310c0ccfb4c310ba",
+              "size_bytes": 1789
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeEvents.class",
+              "sha256": "1bd5aead6601ed4e63eb9614b8af74509e837dcf77a30a4906644096c564dc34",
+              "size_bytes": 1946
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeLimits$TransferTuning.class",
+              "sha256": "de61b8cd9b28312fa4e891be3108b4c90123c1b652055b16972013f9c0891ec2",
+              "size_bytes": 2833
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeLimits.class",
+              "sha256": "2f55937255522963f5d8ea1a7f1c4ada3d01689599275f04a02c6f65c3464d93",
+              "size_bytes": 8174
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Closing.class",
+              "sha256": "a0192dccf396a6b2130ec73eaa4b642849e9dd434315916a79d67126cdafe19c",
+              "size_bytes": 748
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Prepared.class",
+              "sha256": "e04894cfb5a1ce817097d75150062c860a7cbd4a335bc3a26ea6e42071af90cb",
+              "size_bytes": 943
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Scheduled.class",
+              "sha256": "9dec71264133f1c7654b4f467d7b1187b82e0cf981db89495db47090eeed4993",
+              "size_bytes": 1746
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Work.class",
+              "sha256": "623c3688119ed09f5d8c93e471f2127a21d35c1c1d290ca28fa40dbbb2b05131",
+              "size_bytes": 559
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService.class",
+              "sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+              "size_bytes": 93644
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/CoreBackendGameTests.class",
+              "sha256": "6b86842f23dbbeebb0e2fba191d1d8f5530ceed827778bb64409b5201ab768f2",
+              "size_bytes": 26465
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults$Hold.class",
+              "sha256": "acdd8f4313f0dc03480c7fb603f537773efb7e0a4ee430d802cd2fb9a16ea7a0",
+              "size_bytes": 3230
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults$Point.class",
+              "sha256": "402e046473abb8aab6174da7aa314b135596d36fac49dc4c5fe770bfd02748c1",
+              "size_bytes": 1680
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults.class",
+              "sha256": "f322b60a4aad1490b2004e6b6daafc99ed4282ce8a5268602b7fd9c90b1c4516",
+              "size_bytes": 7800
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Fixtures.class",
+              "sha256": "39d97781fcfa0e406e06f1eaaae6ae4cc999eb3a06707549b86ffb8e72b35ff1",
+              "size_bytes": 8265
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/GameTests.class",
+              "sha256": "566a01ba9c4df1a5628b973c13849a4b75fccd100508114fc0475da682742c8e",
+              "size_bytes": 12633
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$CloneRemovalEvidence.class",
+              "sha256": "6c2489ed81328bff5d4324b4a7654848e94cf54bf2f72c44e0b0b18e0aea9dc8",
+              "size_bytes": 2660
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$ConfirmationEvidence.class",
+              "sha256": "e5f4afd5dc6d306c5242988943db4f11ad96f3231b65d917c1b93cf6b15154d6",
+              "size_bytes": 3156
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$EmptyRemovalEvidence.class",
+              "sha256": "ea4ee802813ed7ef6f6939ff5ccb024634850f275dae3b6f181c67001e0f8892",
+              "size_bytes": 2496
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$Evidence.class",
+              "sha256": "4e15c9842804ed9b149cc955dc761966689d5ea6cfbcffac0e155e94c52ff9ce",
+              "size_bytes": 2271
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$SealEvidence.class",
+              "sha256": "b690036bfc79077228c48a4063a7b6b7cde1a2097a146530a1e102182d3eebf5",
+              "size_bytes": 2321
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests.class",
+              "sha256": "6fc3168e8bd745e453d5e9eab4c8e116ee97592b3aa8d4c7fe30a19f11aeca31",
+              "size_bytes": 86231
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RuntimeDeltaGameTests$Evidence.class",
+              "sha256": "ddd2a9ba5fcca79464abb449450b15a1d34500018722230d44b70caf886843b0",
+              "size_bytes": 2838
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RuntimeDeltaGameTests.class",
+              "sha256": "59c3d343ba1608c0dc1f6f9c6a20eee55efc92bfb43880ec258e48fc394a0b0f",
+              "size_bytes": 21675
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/ThreeServerHarness$Bulk.class",
+              "sha256": "9046d741ff48a3661af34bd944a929e52edfe3ee2111071ae38fc4aa30ac75bb",
+              "size_bytes": 1061
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/ThreeServerHarness.class",
+              "sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+              "size_bytes": 26184
+            }
+          ],
+          "total_bytes": 973311
+        },
+        {
+          "source_type": "launch_fml_mod_folder",
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/resources",
+          "manifest_sha256": "2fbf78db6ad3e0c368cbab3760a29a0b90b9acb711f4ff6899d54a4ac2aee668",
+          "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+          "files": [
+            {
+              "relative_path": "META-INF/LICENSE-cross_tesseract.txt",
+              "sha256": "015d4a924b170718e2b7cdf9cd7ac2ef330b8ef47315e2b14afc752f6292de93",
+              "size_bytes": 1091
+            },
+            {
+              "relative_path": "META-INF/THIRD-PARTY-NOTICES.txt",
+              "sha256": "b9e20492b9c771249eda32e617b6809c1fe7301f8d8dcf0f58130c48b70bef2b",
+              "size_bytes": 1136
+            },
+            {
+              "relative_path": "META-INF/neoforge.mods.toml",
+              "sha256": "533f6e37a74154c9d169344481895dd9079ce9f993e00d8c6431363dda9e1b33",
+              "size_bytes": 852
+            },
+            {
+              "relative_path": "assets/cross_tesseract/blockstates/tesseract.json",
+              "sha256": "888d61451668b84f2e48893960d01406fe4e7cc653821cfd98188abada7e9f8e",
+              "size_bytes": 89
+            },
+            {
+              "relative_path": "assets/cross_tesseract/lang/en_us.json",
+              "sha256": "9054f1e277af1ffaa4adabae6ffde31d46a018435deb715b5b381b08418a006d",
+              "size_bytes": 13219
+            },
+            {
+              "relative_path": "assets/cross_tesseract/lang/zh_cn.json",
+              "sha256": "b890a23f296628cca4f502bfd3ed08330535588b4b04e8fb9053c8549cc69513",
+              "size_bytes": 14524
+            },
+            {
+              "relative_path": "assets/cross_tesseract/models/block/tesseract.json",
+              "sha256": "65021ca4301297a2ba1ef15422a99af56ebbdcd13f7434c63730cbb20f407e8b",
+              "size_bytes": 425
+            },
+            {
+              "relative_path": "assets/cross_tesseract/models/item/tesseract.json",
+              "sha256": "ce6a9232bf8b492aa049fc2d6431b63e07f67a34ef9ddff730248d28b6f0b61a",
+              "size_bytes": 50
+            },
+            {
+              "relative_path": "assets/cross_tesseract/textures/block/tesseract_side.png",
+              "sha256": "4ed3edc32d143814c0c5b265dfc40a48d096a58e3748cddb7b724d3207dc712e",
+              "size_bytes": 660
+            },
+            {
+              "relative_path": "assets/cross_tesseract/textures/block/tesseract_top.png",
+              "sha256": "75ead055b62b19d04599be9fd9ccf1406f9bb3dd9a368450eb1aaea4bb67f3be",
+              "size_bytes": 691
+            },
+            {
+              "relative_path": "data/cross_tesseract/loot_table/blocks/tesseract.json",
+              "sha256": "f839c42a6c60ad59cca31a1c72f4f12b626a616bcf7ee81169afc8a5da9a961a",
+              "size_bytes": 314
+            },
+            {
+              "relative_path": "data/cross_tesseract/recipe/tesseract.json",
+              "sha256": "f4fb1352f7227a00db9070fc49186d8097ffb46b1c7fae37276b365a24ca2ddc",
+              "size_bytes": 372
+            },
+            {
+              "relative_path": "data/cross_tesseract/structure/empty.nbt",
+              "sha256": "d2783835dd0ffc6ab2e8e95c6bef6ba7a8da2dd3b2103ff9058718e766c1befb",
+              "size_bytes": 111
+            },
+            {
+              "relative_path": "data/minecraft/tags/block/mineable/pickaxe.json",
+              "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24",
+              "size_bytes": 74
+            },
+            {
+              "relative_path": "data/minecraft/tags/block/needs_iron_tool.json",
+              "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24",
+              "size_bytes": 74
+            },
+            {
+              "relative_path": "db/migration/V001__authority.sql",
+              "sha256": "30644147e04fea2d95ebe60c37e5028dbffdb080dcccf40598a7cbae70a4828a",
+              "size_bytes": 9548
+            },
+            {
+              "relative_path": "db/migration/V002__thermal_and_ae.sql",
+              "sha256": "0bf4f630937a979f65335890ab17936a710326976dd69873983e4a5348dbf13e",
+              "size_bytes": 2277
+            },
+            {
+              "relative_path": "db/migration/V003__bounded_history.sql",
+              "sha256": "299e68f5ee68a55ddd5d10f6ea4fba5e157e36d3849d4f15d3340d759829e607",
+              "size_bytes": 1239
+            },
+            {
+              "relative_path": "db/migration/V004__stock_requests.sql",
+              "sha256": "2247b93c82fb356af7299ad8d2ae27ccd7f54ecdc7e5333c9636e190d9c26226",
+              "size_bytes": 973
+            },
+            {
+              "relative_path": "pack.mcmeta",
+              "sha256": "110f461bf1bf49b0a5db6f91c30697489c5aab3244bc42f8bb0f7f3fbff77b4b",
+              "size_bytes": 102
+            }
+          ],
+          "total_bytes": 47821
+        }
+      ],
+      "wrapper_file_only_check": {
+        "mode": "B",
+        "validation": "OFFLINE files only; process/lock availability UNCHECKED",
+        "launch": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/runServerB.sh",
+        "launch_sha256": "b127c086a756032f9d0e7324142f4fe4d933bf9e9c7bcf839a24a98919045690",
+        "java": "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "cluster": "dev_three_v1",
+        "server_id": "opt-regression-68f32db-fast-B",
+        "level_name": "world-opt-regression-68f32db-fast-B",
+        "rcon_port": 25576,
+        "classes": {
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/classes",
+          "files": 117,
+          "bytes": 973311,
+          "manifest_sha256": "ee2477d66a5184f08acdc9be16a9e0f891ba165eb168b259724ce7a3dbfff5de",
+          "manifest_format": "sorted relative path + NUL + content SHA256 + LF"
+        },
+        "resources": {
+          "path": "/workspace/scratch/dev-launch/e9d49f6048df4b3598450d8df82ba20d/resources",
+          "files": 20,
+          "bytes": 47821,
+          "manifest_sha256": "cb0e155e3dcb9b045d921734e3e512a2ce6fc4ff81c8626d2ec66dae766d06af",
+          "manifest_format": "sorted relative path + NUL + content SHA256 + LF"
+        },
+        "vm_args_sha256": "d015fd5239308887442b32668e54c890a0762f47550fbcc2c19d128f2ab21c4b"
+      },
+      "resolution_limit": "Selected folders and byte equality with ready JAR; no independent class-loader CodeSource attestation."
+    },
+    "C": {
+      "launcher": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/runServerC.sh",
+      "launcher_sha256": "29d97039df674f5a6763a6d346a9318bfc4155411133f0082f8d23aafa89b2ed",
+      "argument_files": [
+        {
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/serverCRunVmArgs.txt",
+          "sha256": "b7983c668ea97ede5b53d6fc056c4d41f4f62e3a3061ad2c3a605984217e984d"
+        },
+        {
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/serverCRunProgramArgs.txt",
+          "sha256": "208547e64ba6e387f50f32b6ab2d41dd039aad8960620195323867bcdbc14dfc"
+        },
+        {
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/serverCRunClasspath.txt",
+          "sha256": "8983ccadb3175362f17358430dec4848b773febb3bdb0c34efd0577114ebcea5"
+        }
+      ],
+      "selected_fml_argument": "-Dfml.modFolders=cross_tesseract%%/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/classes:cross_tesseract%%/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/resources",
+      "selected_launch_manifests": [
+        {
+          "source_type": "launch_fml_mod_folder",
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/classes",
+          "manifest_sha256": "1068838aaf3f8f180752c2a078b7dc05600e398a0cbafe77477caacb9aba64ba",
+          "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+          "files": [
+            {
+              "relative_path": "dev/crosstesseract/CrossTesseract.class",
+              "sha256": "4728f997d3a4eeb5618ea39208e56515c1389bdfd1ea3693488c807768925d25",
+              "size_bytes": 15301
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority$BatchContext.class",
+              "sha256": "ebc9d98db3a93c7016f0d770cddb46727e0ec88110b1a7e102484a1dc1b6ccda",
+              "size_bytes": 1405
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority$MaintenanceState.class",
+              "sha256": "04c51d708abc71f956c809e7fd4117743d8c8e74425ef07de85e08430e27ca67",
+              "size_bytes": 2198
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Authority.class",
+              "sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+              "size_bytes": 129043
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/BackendConfig.class",
+              "sha256": "1db1aff1229bbda6f580916bfdd956286d5a57c1a106eaef881e7170d9d58e4c",
+              "size_bytes": 6397
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/LocalJournal.class",
+              "sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+              "size_bytes": 13213
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Migrations.class",
+              "sha256": "caf91374b6911b90c0468f50a2d84030055433196969f1000f0a6958e9242a0a",
+              "size_bytes": 5535
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport$DrainResult.class",
+              "sha256": "2ca5fa2dbe11fe703ad5fc0b0ad0ea09c4ba9283ab1f5bae416c0709210ba3b5",
+              "size_bytes": 2210
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport$Hint.class",
+              "sha256": "b2117397d2e5f5084a837137556a7050da7c4f931daba5270fe50ac7e4788e82",
+              "size_bytes": 1890
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/RedisTransport.class",
+              "sha256": "77be4e07a1f5afc753330b507bb1f4a44b67dee4a89519a65d1a3d001293516d",
+              "size_bytes": 14765
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql$SavepointScope.class",
+              "sha256": "dd7aa45e2d3b0f26d59e89268fba8042d97b60870d4d1ae311f72ae663cb469f",
+              "size_bytes": 937
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql$Work.class",
+              "sha256": "22dc584ef688601d68ac5319454f3c068e681c2a8f645fa89118969198292d8d",
+              "size_bytes": 494
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/Sql.class",
+              "sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+              "size_bytes": 12574
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Demand.class",
+              "sha256": "cb303d1388b67324174cb6a270c3c5784c0bd8bade9dd34be06acc51ba4faf8e",
+              "size_bytes": 2160
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Publication.class",
+              "sha256": "3fb014bd79426f569fff4e069c77c2f7106bb8ed8b4c4d19f7aa1b0d68b31f34",
+              "size_bytes": 3212
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Request.class",
+              "sha256": "3f5594e1114271a5f3ef441888171ff8e806429e3abafa6ea17532af8efa52da",
+              "size_bytes": 3522
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork$Result.class",
+              "sha256": "36752146a8305ee4f47fd418b7f773c42625c6fd1229e6b2c3acb3d710bf950f",
+              "size_bytes": 3295
+            },
+            {
+              "relative_path": "dev/crosstesseract/backend/TransferWork.class",
+              "sha256": "b7f1ece3c04537ca8fc5184797e8a10aa8296c4508e69e699c20c3fe8c746cdd",
+              "size_bytes": 656
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/NeighborPump.class",
+              "sha256": "fb259d455dacd8167dee548d00952a816e104a2653b7afaba93446ffc3e794b1",
+              "size_bytes": 14226
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$EnergyPort.class",
+              "sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+              "size_bytes": 3922
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$FluidPort.class",
+              "sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+              "size_bytes": 6949
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports$ItemPort.class",
+              "sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+              "size_bytes": 6496
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/Ports.class",
+              "sha256": "4542c4d34712bda17a60bf7ba1c0432c547a6eb31286ca4b528d664ae9cd2620",
+              "size_bytes": 539
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/StackCodec$LimitedStream.class",
+              "sha256": "32df36c93124e9af0a6383f94ec841a00f4c0ed2584168cddb530db896ed34e2",
+              "size_bytes": 1080
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/StackCodec.class",
+              "sha256": "c63122a5c02d0f9b9ab561705a42fc213a1a6ed1ba8ecb3ede13061636f1a319",
+              "size_bytes": 8449
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractBlock.class",
+              "sha256": "9237c504a144c052d6803bb97206066884c3fc88df70a0e83f8c1b7ec5021e50",
+              "size_bytes": 7017
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractBlockEntity.class",
+              "sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+              "size_bytes": 25990
+            },
+            {
+              "relative_path": "dev/crosstesseract/block/TesseractMenu.class",
+              "sha256": "784244fbb5bd97c1fcc18a9b330c43e8aa4d648dff157a7980f21429ccfb2b7c",
+              "size_bytes": 3435
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/ClientEntrypoint.class",
+              "sha256": "a3626024fdc2dfaed14f156c577386c484555ada4e4d5960fda71f3643479240",
+              "size_bytes": 4050
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/TesseractScreen.class",
+              "sha256": "b7656b84f0245372cb0fb75e7358b8766b9169b6bc72e86abdcb840b4db5bde3",
+              "size_bytes": 34729
+            },
+            {
+              "relative_path": "dev/crosstesseract/client/UiSmoke.class",
+              "sha256": "2069d6f543d920ed871cbd66f54360c2a992b4130800046b5f5b014a41326c4d",
+              "size_bytes": 14539
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/CompatLoader.class",
+              "sha256": "8cd8a8b83b98c4fabf27dd74af8a8858f92b7288702f7e343b0f72ad7a4a200b",
+              "size_bytes": 5093
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/CompatModule.class",
+              "sha256": "d174db2dfa9e45acb76a8dcc179e5a67be57f185e735251ddd1c06c731d6b2f4",
+              "size_bytes": 1761
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeGameTests$1.class",
+              "sha256": "7c8ef4d2a6163f517a843270a1f87d8065e0bf5d89493e739b539abeb363dea4",
+              "size_bytes": 946
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeGameTests.class",
+              "sha256": "6d1d6de5ccdcf54206490c5157ede7a0f39d45ac0fb892670822ee93cb874407",
+              "size_bytes": 24733
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$1.class",
+              "sha256": "ac3defc1cb457727429710f6333d7711a3220273ed2c4e932a1697d2f666ead1",
+              "size_bytes": 1323
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$Gateway$1.class",
+              "sha256": "6267dd0041b6fe91691f60ff6a1d9c7250bcff312590af0243419af216aa29fb",
+              "size_bytes": 2497
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule$Gateway.class",
+              "sha256": "5095c49bfa726a089e161215ff41c4017d027f3eac59f88e173040fee8c81035",
+              "size_bytes": 13667
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/ae2/AeModule.class",
+              "sha256": "e26cf5016fd8ef28c3c8fef5b595930302788a130ffe10695c7ae2fccc804ff7",
+              "size_bytes": 18750
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtGameTests.class",
+              "sha256": "616c4e7593080e3e625618d8146197fa96f4419c3fa6c15edf8b675278565122",
+              "size_bytes": 9636
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtModule$Port.class",
+              "sha256": "c2a4493c2ffe0dfd0e5bf1d87f31d49d26e004010dbe153b23841642937f0af2",
+              "size_bytes": 4462
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/gregtech/GtModule.class",
+              "sha256": "c2fa534e2c6e9544b13d0b43dd05a8c1b1a6a5a3be3a5f4fdabbdbc8eb60e54b",
+              "size_bytes": 9915
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekGameTests.class",
+              "sha256": "d3c7c5f754f7ac9aeca8a8c7beb9357e73c083892c8ce506bae7344bc9c5d5b5",
+              "size_bytes": 9310
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule$ChemicalPort.class",
+              "sha256": "40101916639525ff469f63d1674ddd1fea213ea1ccbcc56d8a7d8514dbf90089",
+              "size_bytes": 6589
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule$HeatPort.class",
+              "sha256": "935d2f3da0408b4855231202bb8dbdfe257a632d9d0e02fc6fc45acb4b7f75a5",
+              "size_bytes": 3549
+            },
+            {
+              "relative_path": "dev/crosstesseract/compat/mekanism/MekModule.class",
+              "sha256": "fa5628093edd18f5cb55c49691a03b8a5a968b859bdd44e1e31334dcaf3d442d",
+              "size_bytes": 7220
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/AeProxyPlanner$Plan.class",
+              "sha256": "eb880ed23617b358631ea3edd9015f3a6a99386bba1b710e105ead04290256c7",
+              "size_bytes": 1807
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/AeProxyPlanner.class",
+              "sha256": "92ed6584b78990d4e5398f805edaaa960d5e01fab778283579a57a2555853e75",
+              "size_bytes": 4152
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/BusinessIds.class",
+              "sha256": "c671484ca168392975147894c08170e2d18b7a1026ce55ec0099c209ccfba60f",
+              "size_bytes": 1390
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/DomainException.class",
+              "sha256": "f2c49608ef96786c08ae21cfb3b465022685489ea0baa6c3aeea7d1b5faf4345",
+              "size_bytes": 653
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/HeatModel$Exchange.class",
+              "sha256": "987f684e17d2730be0b468421ce27b5d1468be1bb2af0bf45c14a6fe8d799c08",
+              "size_bytes": 1658
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/HeatModel.class",
+              "sha256": "05343ccd1c12a825543e69b90166da68918cc14439229159f5ffadbf2e5f7aa4",
+              "size_bytes": 1544
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalBuffer$Stack.class",
+              "sha256": "1948f2d39dc565e0b89a3d017bc912b9e16358f8acc0a3e81e8eb3f9852318bf",
+              "size_bytes": 1743
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalBuffer.class",
+              "sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+              "size_bytes": 15171
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot$Credit.class",
+              "sha256": "b9f02e2ba97026953659a1f15e88c8d30b0b6f5d3f13eab42a521a46138490e9",
+              "size_bytes": 2485
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot$Deposit.class",
+              "sha256": "99cc3039b3cd4a5587a593200b36e54c8d6e44f514acef0dc25c2da195c84e7c",
+              "size_bytes": 2337
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/LocalSnapshot.class",
+              "sha256": "4d74393d1da88d02e6eec8b4fad7e9996d0e5ccad755e5d2f29c00f512b2f975",
+              "size_bytes": 4360
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ManagementLimiter.class",
+              "sha256": "d66c5d3ec97a2e6f86b20084890548bbef03e3321049ce039d5c42e2fd41a251",
+              "size_bytes": 1935
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Metrics$Timer.class",
+              "sha256": "d5b6519d1fea86c9eecf66ca3ec42b02d67e05f64ad6ed1990a6183530115d40",
+              "size_bytes": 1328
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Metrics.class",
+              "sha256": "cf2758bd56b948f8342cb4e743c49a25fe8708f30e7dbe6030dc383090d95bd1",
+              "size_bytes": 7321
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$AeNetwork.class",
+              "sha256": "fd1cf9fc95a5f4e7924da328db0dd223ceda1e8e02fc34a71e5d61d3724f8739",
+              "size_bytes": 2138
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Allocation.class",
+              "sha256": "5b37c7aae8b4aa0ef654053d5cbbd02849973abb932aacef8b7fb7ee17d81369",
+              "size_bytes": 2647
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Channel.class",
+              "sha256": "17756ae0c1d7caa2473774d088ffb380e2314c87b1dba8389260e73536c123a9",
+              "size_bytes": 2243
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Endpoint.class",
+              "sha256": "ca563f93e644edd3903a80591851c8d0620cb430ceab803ca21b5101158fb4b0",
+              "size_bytes": 3187
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Event.class",
+              "sha256": "91d36c8aecf239ef86a16f63d07f647398c6afb5812cf2b43b2b7553f2ba813c",
+              "size_bytes": 2092
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Grant.class",
+              "sha256": "e8d19300522855a9143d6ce9f705e93a88bfd1cf0d11545494ca1b4baf84716a",
+              "size_bytes": 2713
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Invitation.class",
+              "sha256": "a4292b58392f9e3d3b9027ca1ded5559a998d396b8df54a64f737b47c8a2bb20",
+              "size_bytes": 2320
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$PermissionSnapshot.class",
+              "sha256": "fbc93b181fa79992d9d213136538c78d5bc28335365590e0f63027482c64d893",
+              "size_bytes": 2660
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$Session.class",
+              "sha256": "b1f8813857bff998e806e7151ddb9f8e20efc649dddd1e89efc4a5118642f94d",
+              "size_bytes": 2403
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockPage.class",
+              "sha256": "5e9ca2555dae78f6023aa466a0afaa20e984a3331b70dac25d712daccd6c572b",
+              "size_bytes": 2518
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockRequest.class",
+              "sha256": "108c6579002a09169b5f865245cb268ee74d008f82668fff8a7da7d879e01b85",
+              "size_bytes": 2322
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models$StockRow.class",
+              "sha256": "83a63e49b336f232392ad5ba6903036045e5ff9b533d87503df9f66fdf1716d1",
+              "size_bytes": 2336
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Models.class",
+              "sha256": "13d4e0baad29e01157617185a3719a67bba11602f042616298fd250d1c83f018",
+              "size_bytes": 1152
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Protocol$Mode.class",
+              "sha256": "fd70404265f4c99f5d1cf98d2e062728e540668c8f979b4d179475de613dbf4e",
+              "size_bytes": 1850
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Protocol.class",
+              "sha256": "c4338b7894450a857b3d7711b2804dfdb133bb372ed7b189d89f258a6dc3c34c",
+              "size_bytes": 1425
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/Resource.class",
+              "sha256": "355b860fe9e2944f5b32c8382bca568c2a4f77d426e9a4ae9b0a63399602e0bd",
+              "size_bytes": 2176
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer$Pending.class",
+              "sha256": "b9bc3510552f524d2717bcb18b49d34bc0722fd407fed965e3f42f82c67b0c6c",
+              "size_bytes": 2733
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer$Snapshot.class",
+              "sha256": "e11dabb5ab250ecb5b964ce90116f73d0791604bd3cd0b85f7d9fb743ed937d1",
+              "size_bytes": 2366
+            },
+            {
+              "relative_path": "dev/crosstesseract/core/ThermalBuffer.class",
+              "sha256": "9f0b832fc39d62fc3999ab859cdec7deefd1db8e912eb1709b48c2fa17d39cae",
+              "size_bytes": 3010
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$Request$1.class",
+              "sha256": "8cf20af7de5c6db5f0ead921152d4d1567adde25ab110bd7fd24ac250bd787cc",
+              "size_bytes": 2452
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$Request.class",
+              "sha256": "f049d6fb8aed93698ffc33c2f57966126e54cc9800c82326fc14cadae5dfdb99",
+              "size_bytes": 3562
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$View$1.class",
+              "sha256": "0b6fab84c2952076cd539c7a81f9d8ece1d99744dcc898b51c6befb9eb89eba1",
+              "size_bytes": 2082
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets$View.class",
+              "sha256": "67eb5b78a280572343638435e89490355f435609fbd8f7e13680b770affe4712",
+              "size_bytes": 3173
+            },
+            {
+              "relative_path": "dev/crosstesseract/network/Packets.class",
+              "sha256": "9f04ec462e2698dda41d9d82fc28633a7291b64911f67ede8b144354a012cdef",
+              "size_bytes": 32786
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$ChannelState.class",
+              "sha256": "27becd43a9a25e96bd57d6a85ff1ced2ab0905a3a9c39ba2b271aef233b07768",
+              "size_bytes": 1167
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$EndpointState.class",
+              "sha256": "789429d4777afeec149e417d1b48e465aa37c9a3e48dafabd39a18c34f2bcab7",
+              "size_bytes": 863
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator$Lease.class",
+              "sha256": "8ecabcc282343926235c31ccf0ac27da525c00d2cf27afe209dce1f9efcd9b41",
+              "size_bytes": 1090
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChannelCoordinator.class",
+              "sha256": "305164b85d894d529063fd69259575ca56f110bb72b4a58ce5c4be6b314f74ab",
+              "size_bytes": 5432
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChunkTickets$Ticket.class",
+              "sha256": "2a166e36b539c64c79b1d78ad2630a9360d08b0d6c96c96d60d3491ab2d22efa",
+              "size_bytes": 1864
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/ChunkTickets.class",
+              "sha256": "5709cd814da0cc100edbebedd995317a1c5533b444a68f2644ba69cfd9769c72",
+              "size_bytes": 6321
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/Commands.class",
+              "sha256": "36869d1c74f9e80b999783f20c6fe3e5120c1bbc29d4aa6fd6297633a5d8519f",
+              "size_bytes": 25933
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/CompletionMailbox$Reservation.class",
+              "sha256": "6f2b942091bc730e9571d581d09173707acce5b0a73b731ca8cf909543f85786",
+              "size_bytes": 1384
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/CompletionMailbox.class",
+              "sha256": "addd72eeea544e761e98690dafcbe995e49dbb9deee0e09a310c0ccfb4c310ba",
+              "size_bytes": 1789
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeEvents.class",
+              "sha256": "1bd5aead6601ed4e63eb9614b8af74509e837dcf77a30a4906644096c564dc34",
+              "size_bytes": 1946
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeLimits$TransferTuning.class",
+              "sha256": "de61b8cd9b28312fa4e891be3108b4c90123c1b652055b16972013f9c0891ec2",
+              "size_bytes": 2833
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeLimits.class",
+              "sha256": "2f55937255522963f5d8ea1a7f1c4ada3d01689599275f04a02c6f65c3464d93",
+              "size_bytes": 8174
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Closing.class",
+              "sha256": "a0192dccf396a6b2130ec73eaa4b642849e9dd434315916a79d67126cdafe19c",
+              "size_bytes": 748
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Prepared.class",
+              "sha256": "e04894cfb5a1ce817097d75150062c860a7cbd4a335bc3a26ea6e42071af90cb",
+              "size_bytes": 943
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Scheduled.class",
+              "sha256": "9dec71264133f1c7654b4f467d7b1187b82e0cf981db89495db47090eeed4993",
+              "size_bytes": 1746
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService$Work.class",
+              "sha256": "623c3688119ed09f5d8c93e471f2127a21d35c1c1d290ca28fa40dbbb2b05131",
+              "size_bytes": 559
+            },
+            {
+              "relative_path": "dev/crosstesseract/runtime/RuntimeService.class",
+              "sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+              "size_bytes": 93644
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/CoreBackendGameTests.class",
+              "sha256": "6b86842f23dbbeebb0e2fba191d1d8f5530ceed827778bb64409b5201ab768f2",
+              "size_bytes": 26465
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults$Hold.class",
+              "sha256": "acdd8f4313f0dc03480c7fb603f537773efb7e0a4ee430d802cd2fb9a16ea7a0",
+              "size_bytes": 3230
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults$Point.class",
+              "sha256": "402e046473abb8aab6174da7aa314b135596d36fac49dc4c5fe770bfd02748c1",
+              "size_bytes": 1680
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Faults.class",
+              "sha256": "f322b60a4aad1490b2004e6b6daafc99ed4282ce8a5268602b7fd9c90b1c4516",
+              "size_bytes": 7800
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/Fixtures.class",
+              "sha256": "39d97781fcfa0e406e06f1eaaae6ae4cc999eb3a06707549b86ffb8e72b35ff1",
+              "size_bytes": 8265
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/GameTests.class",
+              "sha256": "566a01ba9c4df1a5628b973c13849a4b75fccd100508114fc0475da682742c8e",
+              "size_bytes": 12633
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$CloneRemovalEvidence.class",
+              "sha256": "6c2489ed81328bff5d4324b4a7654848e94cf54bf2f72c44e0b0b18e0aea9dc8",
+              "size_bytes": 2660
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$ConfirmationEvidence.class",
+              "sha256": "e5f4afd5dc6d306c5242988943db4f11ad96f3231b65d917c1b93cf6b15154d6",
+              "size_bytes": 3156
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$EmptyRemovalEvidence.class",
+              "sha256": "ea4ee802813ed7ef6f6939ff5ccb024634850f275dae3b6f181c67001e0f8892",
+              "size_bytes": 2496
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$Evidence.class",
+              "sha256": "4e15c9842804ed9b149cc955dc761966689d5ea6cfbcffac0e155e94c52ff9ce",
+              "size_bytes": 2271
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests$SealEvidence.class",
+              "sha256": "b690036bfc79077228c48a4063a7b6b7cde1a2097a146530a1e102182d3eebf5",
+              "size_bytes": 2321
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RegistrationRecoveryGameTests.class",
+              "sha256": "6fc3168e8bd745e453d5e9eab4c8e116ee97592b3aa8d4c7fe30a19f11aeca31",
+              "size_bytes": 86231
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RuntimeDeltaGameTests$Evidence.class",
+              "sha256": "ddd2a9ba5fcca79464abb449450b15a1d34500018722230d44b70caf886843b0",
+              "size_bytes": 2838
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/RuntimeDeltaGameTests.class",
+              "sha256": "59c3d343ba1608c0dc1f6f9c6a20eee55efc92bfb43880ec258e48fc394a0b0f",
+              "size_bytes": 21675
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/ThreeServerHarness$Bulk.class",
+              "sha256": "9046d741ff48a3661af34bd944a929e52edfe3ee2111071ae38fc4aa30ac75bb",
+              "size_bytes": 1061
+            },
+            {
+              "relative_path": "dev/crosstesseract/test/ThreeServerHarness.class",
+              "sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+              "size_bytes": 26184
+            }
+          ],
+          "total_bytes": 973311
+        },
+        {
+          "source_type": "launch_fml_mod_folder",
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/resources",
+          "manifest_sha256": "2fbf78db6ad3e0c368cbab3760a29a0b90b9acb711f4ff6899d54a4ac2aee668",
+          "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+          "files": [
+            {
+              "relative_path": "META-INF/LICENSE-cross_tesseract.txt",
+              "sha256": "015d4a924b170718e2b7cdf9cd7ac2ef330b8ef47315e2b14afc752f6292de93",
+              "size_bytes": 1091
+            },
+            {
+              "relative_path": "META-INF/THIRD-PARTY-NOTICES.txt",
+              "sha256": "b9e20492b9c771249eda32e617b6809c1fe7301f8d8dcf0f58130c48b70bef2b",
+              "size_bytes": 1136
+            },
+            {
+              "relative_path": "META-INF/neoforge.mods.toml",
+              "sha256": "533f6e37a74154c9d169344481895dd9079ce9f993e00d8c6431363dda9e1b33",
+              "size_bytes": 852
+            },
+            {
+              "relative_path": "assets/cross_tesseract/blockstates/tesseract.json",
+              "sha256": "888d61451668b84f2e48893960d01406fe4e7cc653821cfd98188abada7e9f8e",
+              "size_bytes": 89
+            },
+            {
+              "relative_path": "assets/cross_tesseract/lang/en_us.json",
+              "sha256": "9054f1e277af1ffaa4adabae6ffde31d46a018435deb715b5b381b08418a006d",
+              "size_bytes": 13219
+            },
+            {
+              "relative_path": "assets/cross_tesseract/lang/zh_cn.json",
+              "sha256": "b890a23f296628cca4f502bfd3ed08330535588b4b04e8fb9053c8549cc69513",
+              "size_bytes": 14524
+            },
+            {
+              "relative_path": "assets/cross_tesseract/models/block/tesseract.json",
+              "sha256": "65021ca4301297a2ba1ef15422a99af56ebbdcd13f7434c63730cbb20f407e8b",
+              "size_bytes": 425
+            },
+            {
+              "relative_path": "assets/cross_tesseract/models/item/tesseract.json",
+              "sha256": "ce6a9232bf8b492aa049fc2d6431b63e07f67a34ef9ddff730248d28b6f0b61a",
+              "size_bytes": 50
+            },
+            {
+              "relative_path": "assets/cross_tesseract/textures/block/tesseract_side.png",
+              "sha256": "4ed3edc32d143814c0c5b265dfc40a48d096a58e3748cddb7b724d3207dc712e",
+              "size_bytes": 660
+            },
+            {
+              "relative_path": "assets/cross_tesseract/textures/block/tesseract_top.png",
+              "sha256": "75ead055b62b19d04599be9fd9ccf1406f9bb3dd9a368450eb1aaea4bb67f3be",
+              "size_bytes": 691
+            },
+            {
+              "relative_path": "data/cross_tesseract/loot_table/blocks/tesseract.json",
+              "sha256": "f839c42a6c60ad59cca31a1c72f4f12b626a616bcf7ee81169afc8a5da9a961a",
+              "size_bytes": 314
+            },
+            {
+              "relative_path": "data/cross_tesseract/recipe/tesseract.json",
+              "sha256": "f4fb1352f7227a00db9070fc49186d8097ffb46b1c7fae37276b365a24ca2ddc",
+              "size_bytes": 372
+            },
+            {
+              "relative_path": "data/cross_tesseract/structure/empty.nbt",
+              "sha256": "d2783835dd0ffc6ab2e8e95c6bef6ba7a8da2dd3b2103ff9058718e766c1befb",
+              "size_bytes": 111
+            },
+            {
+              "relative_path": "data/minecraft/tags/block/mineable/pickaxe.json",
+              "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24",
+              "size_bytes": 74
+            },
+            {
+              "relative_path": "data/minecraft/tags/block/needs_iron_tool.json",
+              "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24",
+              "size_bytes": 74
+            },
+            {
+              "relative_path": "db/migration/V001__authority.sql",
+              "sha256": "30644147e04fea2d95ebe60c37e5028dbffdb080dcccf40598a7cbae70a4828a",
+              "size_bytes": 9548
+            },
+            {
+              "relative_path": "db/migration/V002__thermal_and_ae.sql",
+              "sha256": "0bf4f630937a979f65335890ab17936a710326976dd69873983e4a5348dbf13e",
+              "size_bytes": 2277
+            },
+            {
+              "relative_path": "db/migration/V003__bounded_history.sql",
+              "sha256": "299e68f5ee68a55ddd5d10f6ea4fba5e157e36d3849d4f15d3340d759829e607",
+              "size_bytes": 1239
+            },
+            {
+              "relative_path": "db/migration/V004__stock_requests.sql",
+              "sha256": "2247b93c82fb356af7299ad8d2ae27ccd7f54ecdc7e5333c9636e190d9c26226",
+              "size_bytes": 973
+            },
+            {
+              "relative_path": "pack.mcmeta",
+              "sha256": "110f461bf1bf49b0a5db6f91c30697489c5aab3244bc42f8bb0f7f3fbff77b4b",
+              "size_bytes": 102
+            }
+          ],
+          "total_bytes": 47821
+        }
+      ],
+      "wrapper_file_only_check": {
+        "mode": "C",
+        "validation": "OFFLINE files only; process/lock availability UNCHECKED",
+        "launch": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/runServerC.sh",
+        "launch_sha256": "29d97039df674f5a6763a6d346a9318bfc4155411133f0082f8d23aafa89b2ed",
+        "java": "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "cluster": "dev_three_v1",
+        "server_id": "opt-regression-68f32db-fast-C",
+        "level_name": "world-opt-regression-68f32db-fast-C",
+        "rcon_port": 25577,
+        "classes": {
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/classes",
+          "files": 117,
+          "bytes": 973311,
+          "manifest_sha256": "ee2477d66a5184f08acdc9be16a9e0f891ba165eb168b259724ce7a3dbfff5de",
+          "manifest_format": "sorted relative path + NUL + content SHA256 + LF"
+        },
+        "resources": {
+          "path": "/workspace/scratch/dev-launch/9e3c0ff75c734f08ad2f74ba62449115/resources",
+          "files": 20,
+          "bytes": 47821,
+          "manifest_sha256": "cb0e155e3dcb9b045d921734e3e512a2ce6fc4ff81c8626d2ec66dae766d06af",
+          "manifest_format": "sorted relative path + NUL + content SHA256 + LF"
+        },
+        "vm_args_sha256": "b7983c668ea97ede5b53d6fc056c4d41f4f62e3a3061ad2c3a605984217e984d"
+      },
+      "resolution_limit": "Selected folders and byte equality with ready JAR; no independent class-loader CodeSource attestation."
+    }
+  },
+  "elapsed_seconds": 110.57814352800051,
+  "utc_end": "2026-10-06T19:50:12.104700+00:00"
+}

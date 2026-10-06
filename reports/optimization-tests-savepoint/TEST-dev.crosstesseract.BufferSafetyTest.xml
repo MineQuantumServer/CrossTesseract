@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.BufferSafetyTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-06T13:36:11.001Z" hostname="13edb0cae2c6" time="2.736">
+  <properties/>
+  <testcase name="allAcceptedRawSlotsEnterTheCheckpointEvenNearThePendingLimit()" classname="dev.crosstesseract.BufferSafetyTest" time="0.002"/>
+  <testcase name="definiteLocalPartialRemaindersReturnToOriginalCreditsAndNeverSending()" classname="dev.crosstesseract.BufferSafetyTest" time="0.002"/>
+  <testcase name="oldTimeBearingBusinessIdsCannotBecomeFreshOperationsAfterHistoryPruning()" classname="dev.crosstesseract.BufferSafetyTest" time="0.001"/>
+  <testcase name="partialExtractionSimulationAndRepeatedCreditsConserve" classname="dev.crosstesseract.BufferSafetyTest" time="0.139"/>
+  <system-out><![CDATA[timestamp = 2026-10-06T13:36:13.736366901, BufferSafetyTest:partialExtractionSimulationAndRepeatedCreditsConserve = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 20         | # of all combined edge cases
+edge-cases#tried = 20         | # of edge cases tried in current run
+seed = -1209744357266784856   | random seed to reproduce generated values
+
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

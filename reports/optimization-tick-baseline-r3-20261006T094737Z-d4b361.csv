@@ -1,0 +1,421 @@
+round,server,pid,utc_request_start,utc_reply_end,observer_start,observer_end,offset_seconds,rcon_ms,state,target_tickrate,target_tick_ms,mc_recorded_tick_mean_ms,tick_window_p50_ms,tick_window_p95_ms,tick_window_p99_ms,tick_window_samples,reply,error
+0,A,2066,2026-10-06T09:47:37.250504+00:00,2026-10-06T09:47:37.253643+00:00,4452.703876374,4452.707017393,0.04269637600009446,3.141018999485823,running,20.0,50.0,0.3,0.3,0.4,1.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.1ms, sample: 100
+",
+0,B,2069,2026-10-06T09:47:37.250958+00:00,2026-10-06T09:47:37.257438+00:00,4452.70432953,4452.710809344,0.04314953199991578,6.4798140001585125,running,20.0,50.0,0.3,0.3,0.4,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.5ms, sample: 100
+",
+0,C,2067,2026-10-06T09:47:37.251232+00:00,2026-10-06T09:47:37.264049+00:00,4452.704606185,4452.71742368,0.04342618699956802,12.817495000490453,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+1,A,2066,2026-10-06T09:47:47.250408+00:00,2026-10-06T09:47:47.254704+00:00,4462.703780533,4462.708078403,10.04260053500002,4.297870000300463,running,20.0,50.0,0.3,0.3,0.4,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.9ms, sample: 100
+",
+1,B,2069,2026-10-06T09:47:47.250499+00:00,2026-10-06T09:47:47.251996+00:00,4462.703873382,4462.70537099,10.042693383999904,1.497608000136097,running,20.0,50.0,0.3,0.3,0.4,0.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.8ms, sample: 100
+",
+1,C,2067,2026-10-06T09:47:47.250613+00:00,2026-10-06T09:47:47.255633+00:00,4462.703987819,4462.709008144,10.04280782099977,5.020325000259618,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+2,A,2066,2026-10-06T09:47:57.250749+00:00,2026-10-06T09:47:57.254780+00:00,4472.704121077,4472.708155191,20.04294107900023,4.034113999296096,running,20.0,50.0,0.3,0.3,0.4,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.9ms, sample: 100
+",
+2,B,2069,2026-10-06T09:47:57.251153+00:00,2026-10-06T09:47:57.256272+00:00,4472.704527907,4472.709646274,20.04334790899975,5.118367000250146,running,20.0,50.0,0.4,0.3,0.5,6.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 6.9ms, sample: 100
+",
+2,C,2067,2026-10-06T09:47:57.251245+00:00,2026-10-06T09:47:57.253679+00:00,4472.70461943,4472.707054104,20.043439432000014,2.4346740001419676,running,20.0,50.0,0.2,0.2,0.2,1.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 1.8ms, sample: 100
+",
+3,A,2066,2026-10-06T09:48:07.250569+00:00,2026-10-06T09:48:07.256042+00:00,4482.70394132,4482.70941723,30.042761321999933,5.475910000313888,running,20.0,50.0,0.3,0.3,0.4,1.2,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.2ms, sample: 100
+",
+3,B,2069,2026-10-06T09:48:07.250697+00:00,2026-10-06T09:48:07.254695+00:00,4482.704071611,4482.708069552,30.042891612999483,3.997941000307037,running,20.0,50.0,0.3,0.3,0.6,1.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.6ms P99: 1.5ms, sample: 100
+",
+3,C,2067,2026-10-06T09:48:07.250821+00:00,2026-10-06T09:48:07.253837+00:00,4482.704195987,4482.707211954,30.043015989000196,3.0159669995555305,running,20.0,50.0,0.2,0.2,0.4,1.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.4ms P99: 1.5ms, sample: 100
+",
+4,A,2066,2026-10-06T09:48:17.250447+00:00,2026-10-06T09:48:17.254438+00:00,4492.703817508,4492.707812193,40.04263750999962,3.994685000179743,running,20.0,50.0,0.3,0.3,0.4,2.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 2.5ms, sample: 100
+",
+4,B,2069,2026-10-06T09:48:17.250575+00:00,2026-10-06T09:48:17.253691+00:00,4492.703947032,4492.707064561,40.04276703399955,3.1175290005194256,running,20.0,50.0,0.3,0.3,0.4,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.5ms, sample: 100
+",
+4,C,2067,2026-10-06T09:48:17.250856+00:00,2026-10-06T09:48:17.254152+00:00,4492.704230217,4492.707526905,40.04305021900018,3.2966879998639342,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+5,A,2066,2026-10-06T09:48:27.250511+00:00,2026-10-06T09:48:27.252608+00:00,4502.703883544,4502.705982264,50.04270354599976,2.0987200005038176,running,20.0,50.0,0.3,0.3,0.4,0.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.8ms, sample: 100
+",
+5,B,2069,2026-10-06T09:48:27.250682+00:00,2026-10-06T09:48:27.253052+00:00,4502.70405439,4502.70642604,50.04287439200016,2.3716499999864027,running,20.0,50.0,0.3,0.3,0.4,1.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.4ms, sample: 100
+",
+5,C,2067,2026-10-06T09:48:27.250862+00:00,2026-10-06T09:48:27.253771+00:00,4502.704235927,4502.707144533,50.04305592899982,2.908606000346481,running,20.0,50.0,0.2,0.1,0.2,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.1ms P95: 0.2ms P99: 0.4ms, sample: 100
+",
+6,A,2066,2026-10-06T09:48:37.250473+00:00,2026-10-06T09:48:37.252418+00:00,4512.703844626,4512.705792239,60.04266462800024,1.9476130000839476,running,20.0,50.0,0.3,0.3,0.4,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.9ms, sample: 100
+",
+6,B,2069,2026-10-06T09:48:37.250569+00:00,2026-10-06T09:48:37.253226+00:00,4512.703943744,4512.706600693,60.042763745999764,2.6569490000838414,running,20.0,50.0,0.3,0.3,0.5,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 0.9ms, sample: 100
+",
+6,C,2067,2026-10-06T09:48:37.250686+00:00,2026-10-06T09:48:37.253882+00:00,4512.704060675,4512.707256692,60.04288067699963,3.196016999936546,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+7,A,2066,2026-10-06T09:48:47.250426+00:00,2026-10-06T09:48:47.254882+00:00,4522.703799406,4522.708256341,70.04261940800006,4.456935000234807,running,20.0,50.0,0.3,0.3,0.4,1.0,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.0ms, sample: 100
+",
+7,B,2069,2026-10-06T09:48:47.250520+00:00,2026-10-06T09:48:47.259846+00:00,4522.703894744,4522.713220461,70.04271474599955,9.325717000137956,running,20.0,50.0,0.3,0.3,0.4,0.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.8ms, sample: 100
+",
+7,C,2067,2026-10-06T09:48:47.250786+00:00,2026-10-06T09:48:47.252318+00:00,4522.70416106,4522.705692448,70.04298106199985,1.5313880003304803,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+8,A,2066,2026-10-06T09:48:57.250462+00:00,2026-10-06T09:48:57.253674+00:00,4532.70383342,4532.707049036,80.0426534219996,3.215616000488808,running,20.0,50.0,0.3,0.3,0.4,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.9ms, sample: 100
+",
+8,B,2069,2026-10-06T09:48:57.250609+00:00,2026-10-06T09:48:57.252517+00:00,4532.70398304,4532.705891714,80.04280304199983,1.9086740003331215,running,20.0,50.0,0.3,0.3,0.4,2.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 2.1ms, sample: 100
+",
+8,C,2067,2026-10-06T09:48:57.250838+00:00,2026-10-06T09:48:57.256475+00:00,4532.70421273,4532.70984954,80.04303273200003,5.636809999487014,running,20.0,50.0,0.2,0.2,0.2,1.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 1.5ms, sample: 100
+",
+9,A,2066,2026-10-06T09:49:07.250462+00:00,2026-10-06T09:49:07.253295+00:00,4542.703833831,4542.706668796,90.04265383300026,2.8349649992378545,running,20.0,50.0,0.3,0.3,0.4,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.9ms, sample: 100
+",
+9,B,2069,2026-10-06T09:49:07.250597+00:00,2026-10-06T09:49:07.254162+00:00,4542.703971793,4542.707536112,90.04279179500008,3.5643189994516433,running,20.0,50.0,0.3,0.3,0.4,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.5ms, sample: 100
+",
+9,C,2067,2026-10-06T09:49:07.250879+00:00,2026-10-06T09:49:07.254024+00:00,4542.704230551,4542.707397835,90.04305055300028,3.1672839995735558,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+10,A,2066,2026-10-06T09:49:17.250422+00:00,2026-10-06T09:49:17.253398+00:00,4552.703794923,4552.706772252,100.04261492499973,2.9773289998047403,running,20.0,50.0,0.3,0.3,0.4,1.0,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.0ms, sample: 100
+",
+10,B,2069,2026-10-06T09:49:17.250607+00:00,2026-10-06T09:49:17.253648+00:00,4552.703981699,4552.707022943,100.04280170099992,3.0412440000873175,running,20.0,50.0,0.3,0.3,0.4,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.9ms, sample: 100
+",
+10,C,2067,2026-10-06T09:49:17.250790+00:00,2026-10-06T09:49:17.256623+00:00,4552.704161194,4552.709996271,100.04298119600026,5.835076999574085,running,20.0,50.0,0.2,0.2,0.3,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.5ms, sample: 100
+",
+11,A,2066,2026-10-06T09:49:27.250409+00:00,2026-10-06T09:49:27.253114+00:00,4562.703780854,4562.706488579,110.04260085599981,2.7077249997091712,running,20.0,50.0,0.4,0.3,0.4,7.2,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 7.2ms, sample: 100
+",
+11,B,2069,2026-10-06T09:49:27.250537+00:00,2026-10-06T09:49:27.254909+00:00,4562.703909382,4562.708284209,110.04272938400027,4.374826999992365,running,20.0,50.0,0.3,0.3,0.4,1.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.4ms, sample: 100
+",
+11,C,2067,2026-10-06T09:49:27.250713+00:00,2026-10-06T09:49:27.254361+00:00,4562.70408762,4562.707735586,110.0429076219998,3.647966000244196,running,20.0,50.0,0.3,0.2,0.2,13.7,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 13.7ms, sample: 100
+",
+12,A,2066,2026-10-06T09:49:37.250436+00:00,2026-10-06T09:49:37.252299+00:00,4572.70380856,4572.705673208,120.04262856199966,1.864648000264424,running,20.0,50.0,0.3,0.3,0.4,1.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.1ms, sample: 100
+",
+12,B,2069,2026-10-06T09:49:37.250596+00:00,2026-10-06T09:49:37.254879+00:00,4572.703970453,4572.708253591,120.0427904549997,4.283138000573672,running,20.0,50.0,0.3,0.3,0.4,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.5ms, sample: 100
+",
+12,C,2067,2026-10-06T09:49:37.250785+00:00,2026-10-06T09:49:37.252597+00:00,4572.704159116,4572.705971066,120.0429791179995,1.811950000046636,running,20.0,50.0,0.2,0.2,0.2,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.4ms, sample: 100
+",
+13,A,2066,2026-10-06T09:49:47.250597+00:00,2026-10-06T09:49:47.252386+00:00,4582.703968155,4582.705760465,130.04278815700036,1.7923099994732183,running,20.0,50.0,0.3,0.3,0.4,1.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.1ms, sample: 100
+",
+13,B,2069,2026-10-06T09:49:47.250761+00:00,2026-10-06T09:49:47.252664+00:00,4582.704135716,4582.706038793,130.04295571799958,1.903076999951736,running,20.0,50.0,0.4,0.3,0.7,1.0,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.7ms P99: 1.0ms, sample: 100
+",
+13,C,2067,2026-10-06T09:49:47.250808+00:00,2026-10-06T09:49:47.254215+00:00,4582.70418174,4582.707589585,130.04300174200034,3.4078449998560245,running,20.0,50.0,0.2,0.2,0.2,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.4ms, sample: 100
+",
+14,A,2066,2026-10-06T09:49:57.250428+00:00,2026-10-06T09:49:57.252748+00:00,4592.70379966,4592.70612299,140.0426196620001,2.3233299998537404,running,20.0,50.0,0.3,0.3,0.4,0.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 0.8ms, sample: 100
+",
+14,B,2069,2026-10-06T09:49:57.250536+00:00,2026-10-06T09:49:57.252019+00:00,4592.703910887,4592.705393675,140.04273088900027,1.4827879995209514,running,20.0,50.0,0.3,0.3,0.4,3.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 3.3ms, sample: 100
+",
+14,C,2067,2026-10-06T09:49:57.250580+00:00,2026-10-06T09:49:57.254401+00:00,4592.703954673,4592.707775622,140.04277467500015,3.8209489994187606,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+15,A,2066,2026-10-06T09:50:07.250439+00:00,2026-10-06T09:50:07.252881+00:00,4602.703810884,4602.706256176,150.04263088599964,2.4452920006297063,running,20.0,50.0,0.3,0.3,0.4,1.2,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.4ms P99: 1.2ms, sample: 100
+",
+15,B,2069,2026-10-06T09:50:07.250616+00:00,2026-10-06T09:50:07.252006+00:00,4602.703990609,4602.705380226,150.04281061100028,1.3896169994040974,running,20.0,50.0,0.3,0.3,0.5,0.7,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 0.7ms, sample: 100
+",
+15,C,2067,2026-10-06T09:50:07.250791+00:00,2026-10-06T09:50:07.254956+00:00,4602.704152708,4602.708330782,150.04297270999996,4.178074000265042,running,20.0,50.0,0.2,0.2,0.3,1.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 1.1ms, sample: 100
+",
+16,A,2066,2026-10-06T09:50:17.252345+00:00,2026-10-06T09:50:17.257537+00:00,4612.705716928,4612.710911079,160.0445369299996,5.194151000068814,running,20.0,50.0,0.4,0.3,0.7,2.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.7ms P99: 2.8ms, sample: 100
+",
+16,B,2069,2026-10-06T09:50:17.252510+00:00,2026-10-06T09:50:17.254850+00:00,4612.705880828,4612.708223525,160.04470082999978,2.342697000131011,running,20.0,50.0,0.4,0.3,0.5,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 0.9ms, sample: 100
+",
+16,C,2067,2026-10-06T09:50:17.252788+00:00,2026-10-06T09:50:17.258658+00:00,4612.706162732,4612.712032702,160.04498273399986,5.869970000276226,running,20.0,50.0,0.2,0.2,0.3,2.8,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 2.8ms, sample: 100
+",
+17,A,2066,2026-10-06T09:50:27.250886+00:00,2026-10-06T09:50:27.255994+00:00,4622.704243618,4622.709369216,170.04306361999988,5.125597999722231,running,20.0,50.0,0.4,0.3,0.5,2.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 2.3ms, sample: 100
+",
+17,B,2069,2026-10-06T09:50:27.251236+00:00,2026-10-06T09:50:27.253559+00:00,4622.704609968,4622.706934106,170.04342997000003,2.324137999494269,running,20.0,50.0,0.4,0.3,0.6,1.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.6ms P99: 1.5ms, sample: 100
+",
+17,C,2067,2026-10-06T09:50:27.251467+00:00,2026-10-06T09:50:27.256599+00:00,4622.704841485,4622.709973518,170.04366148699955,5.132033000336378,running,20.0,50.0,0.2,0.2,0.3,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.9ms, sample: 100
+",
+18,A,2066,2026-10-06T09:50:37.251146+00:00,2026-10-06T09:50:37.255058+00:00,4632.704469553,4632.70843264,180.04328955500023,3.963086999647203,running,20.0,50.0,0.4,0.4,0.6,3.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.6ms P99: 3.4ms, sample: 100
+",
+18,B,2069,2026-10-06T09:50:37.251489+00:00,2026-10-06T09:50:37.257566+00:00,4632.704862808,4632.710940629,180.04368281000006,6.077820999962569,running,20.0,50.0,0.4,0.4,0.7,1.0,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.7ms P99: 1.0ms, sample: 100
+",
+18,C,2067,2026-10-06T09:50:37.252139+00:00,2026-10-06T09:50:37.257261+00:00,4632.705506003,4632.710635601,180.04432600499968,5.1295980001668795,running,20.0,50.0,0.2,0.2,0.3,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.4ms, sample: 100
+",
+19,A,2066,2026-10-06T09:50:47.250464+00:00,2026-10-06T09:50:47.253249+00:00,4642.70383599,4642.706623398,190.0426559919997,2.787408000585856,running,20.0,50.0,0.4,0.4,0.5,2.0,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.5ms P99: 2.0ms, sample: 100
+",
+19,B,2069,2026-10-06T09:50:47.250561+00:00,2026-10-06T09:50:47.253375+00:00,4642.703935534,4642.706750018,190.0427555360002,2.814483999827644,running,20.0,50.0,0.4,0.4,0.5,0.6,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.5ms P99: 0.6ms, sample: 100
+",
+19,C,2067,2026-10-06T09:50:47.250608+00:00,2026-10-06T09:50:47.253602+00:00,4642.703982525,4642.706976538,190.04280252700028,2.9940129998067277,running,20.0,50.0,0.2,0.2,0.3,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.4ms, sample: 100
+",
+20,A,2066,2026-10-06T09:50:57.250452+00:00,2026-10-06T09:50:57.252729+00:00,4652.703823458,4652.70610376,200.04264346000036,2.2803019992352347,running,20.0,50.0,0.4,0.4,0.6,2.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.6ms P99: 2.3ms, sample: 100
+",
+20,B,2069,2026-10-06T09:50:57.250563+00:00,2026-10-06T09:50:57.252996+00:00,4652.703937553,4652.70637074,200.0427575550002,2.433186999951431,running,20.0,50.0,0.4,0.4,0.6,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.6ms P99: 0.9ms, sample: 100
+",
+20,C,2067,2026-10-06T09:50:57.250739+00:00,2026-10-06T09:50:57.254774+00:00,4652.704113748,4652.708148744,200.04293374999997,4.0349959999730345,running,20.0,50.0,0.2,0.2,0.3,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.3ms, sample: 100
+",
+21,A,2066,2026-10-06T09:51:07.250495+00:00,2026-10-06T09:51:07.254021+00:00,4662.703865796,4662.707394342,210.0426857980001,3.5285459998704027,running,20.0,50.0,0.4,0.4,0.7,2.6,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.7ms P99: 2.6ms, sample: 100
+",
+21,B,2069,2026-10-06T09:51:07.250650+00:00,2026-10-06T09:51:07.253741+00:00,4662.704022952,4662.707116024,210.04284295399975,3.093072000410757,running,20.0,50.0,0.4,0.4,0.5,1.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.5ms P99: 1.3ms, sample: 100
+",
+21,C,2067,2026-10-06T09:51:07.250839+00:00,2026-10-06T09:51:07.253079+00:00,4662.704213859,4662.706453911,210.04303386100037,2.240051999251591,running,20.0,50.0,0.2,0.2,0.3,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.3ms, sample: 100
+",
+22,A,2066,2026-10-06T09:51:17.250451+00:00,2026-10-06T09:51:17.254103+00:00,4672.703823532,4672.707478237,220.04264353399958,3.654705000371905,running,20.0,50.0,0.4,0.4,0.6,4.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.6ms P99: 4.5ms, sample: 100
+",
+22,B,2069,2026-10-06T09:51:17.250570+00:00,2026-10-06T09:51:17.252638+00:00,4672.703944649,4672.706012472,220.04276465099974,2.0678230002886266,running,20.0,50.0,0.4,0.3,0.5,1.6,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 1.6ms, sample: 100
+",
+22,C,2067,2026-10-06T09:51:17.250842+00:00,2026-10-06T09:51:17.252485+00:00,4672.70421578,4672.705859742,220.0430357819996,1.6439620003438904,running,20.0,50.0,0.2,0.2,0.3,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.4ms, sample: 100
+",
+23,A,2066,2026-10-06T09:51:27.250459+00:00,2026-10-06T09:51:27.257085+00:00,4682.703829514,4682.710458803,230.04264951599998,6.629288999647542,running,20.0,50.0,0.4,0.4,0.6,1.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.6ms P99: 1.9ms, sample: 100
+",
+23,B,2069,2026-10-06T09:51:27.250609+00:00,2026-10-06T09:51:27.252990+00:00,4682.703979299,4682.706362676,230.04279930099983,2.383377000114706,running,20.0,50.0,0.3,0.3,0.6,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.6ms P99: 0.9ms, sample: 100
+",
+23,C,2067,2026-10-06T09:51:27.250855+00:00,2026-10-06T09:51:27.253181+00:00,4682.704228463,4682.706537168,230.04304846499963,2.3087050003596232,running,20.0,50.0,0.2,0.2,0.3,0.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.4ms, sample: 100
+",
+24,A,2066,2026-10-06T09:51:37.250468+00:00,2026-10-06T09:51:37.253269+00:00,4692.703840262,4692.706643429,240.042660264,2.8031669999109,running,20.0,50.0,0.4,0.3,0.6,1.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.6ms P99: 1.1ms, sample: 100
+",
+24,B,2069,2026-10-06T09:51:37.250566+00:00,2026-10-06T09:51:37.252021+00:00,4692.703940913,4692.705396137,240.04276091500014,1.4552239999829908,running,20.0,50.0,0.4,0.4,0.5,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.5ms P99: 0.9ms, sample: 100
+",
+24,C,2067,2026-10-06T09:51:37.250656+00:00,2026-10-06T09:51:37.252436+00:00,4692.704030127,4692.705810389,240.04285012899982,1.780262000465882,running,20.0,50.0,0.2,0.2,0.2,0.3,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.3ms, sample: 100
+",
+25,A,2066,2026-10-06T09:51:47.250452+00:00,2026-10-06T09:51:47.255729+00:00,4702.703824292,4702.709103525,250.04264429399973,5.279232999782835,running,20.0,50.0,0.4,0.4,0.8,5.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.8ms P99: 5.1ms, sample: 100
+",
+25,B,2069,2026-10-06T09:51:47.250554+00:00,2026-10-06T09:51:47.255313+00:00,4702.703928257,4702.708686399,250.0427482590003,4.758141999445797,running,20.0,50.0,0.3,0.3,0.5,0.9,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 0.9ms, sample: 100
+",
+25,C,2067,2026-10-06T09:51:47.252651+00:00,2026-10-06T09:51:47.257186+00:00,4702.706024779,4702.710560877,250.04484478099948,4.5360980002442375,running,20.0,50.0,0.2,0.2,0.2,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.5ms, sample: 100
+",
+26,A,2066,2026-10-06T09:51:57.250468+00:00,2026-10-06T09:51:57.252088+00:00,4712.703840312,4712.705462678,260.0426603139995,1.622366000447073,running,20.0,50.0,0.4,0.4,0.7,2.1,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.4ms P95: 0.7ms P99: 2.1ms, sample: 100
+",
+26,B,2069,2026-10-06T09:51:57.250574+00:00,2026-10-06T09:51:57.252980+00:00,4712.703948725,4712.706354887,260.0427687270003,2.4061619997155503,running,20.0,50.0,0.4,0.3,0.5,2.2,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.5ms P99: 2.2ms, sample: 100
+",
+26,C,2067,2026-10-06T09:51:57.250723+00:00,2026-10-06T09:51:57.252563+00:00,4712.704096792,4712.705923414,260.0429167940001,1.8266219994984567,running,20.0,50.0,0.2,0.2,0.2,1.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 1.4ms, sample: 100
+",
+27,A,2066,2026-10-06T09:52:07.250472+00:00,2026-10-06T09:52:07.252921+00:00,4722.703843112,4722.706295593,270.0426631139999,2.452480999636464,running,20.0,50.0,0.3,0.3,0.7,0.7,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.3ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.7ms P99: 0.7ms, sample: 100
+",
+27,B,2069,2026-10-06T09:52:07.250684+00:00,2026-10-06T09:52:07.252440+00:00,4722.704058756,4722.705814391,270.04287875800037,1.7556349994265474,running,20.0,50.0,0.4,0.3,0.7,3.4,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.4ms (Target: 50.0ms)
+Percentiles: P50: 0.3ms P95: 0.7ms P99: 3.4ms, sample: 100
+",
+27,C,2067,2026-10-06T09:52:07.250755+00:00,2026-10-06T09:52:07.253425+00:00,4722.704125766,4722.706799049,270.0429457680002,2.6732830001492403,running,20.0,50.0,0.2,0.2,0.3,0.5,100,"The game is running normally
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.3ms P99: 0.5ms, sample: 100
+",

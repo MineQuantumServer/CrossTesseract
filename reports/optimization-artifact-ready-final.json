@@ -1,0 +1,30 @@
+{
+  "source_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+  "unit_integration": {
+    "tests": 68,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native_required_tests": 13,
+  "artifacts": [
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev-sources.jar",
+      "bytes": 156764,
+      "sha256": "919f0e7cee1a965f0fe5b9771edc832b5d7c19bb50c65c92b8bbe48090ac2b93"
+    },
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev.jar",
+      "bytes": 4116640,
+      "sha256": "7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a"
+    }
+  ],
+  "commands": [
+    "scripts/gradle-dev.sh build -Dct.integration=true runGameTestServer -PgameTestBackend createServerALaunchScript createServerBLaunchScript createServerCLaunchScript createServerPerfLaunchScript"
+  ],
+  "logs": [
+    "logs/optimization-ready-signal-tests.log",
+    "logs/optimization-build-ready-final.log"
+  ]
+}

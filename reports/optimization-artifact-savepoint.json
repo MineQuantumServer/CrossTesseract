@@ -1,0 +1,22 @@
+{
+  "source_commit": "75392af252744f240253d134d1da565a49b2cc9f",
+  "jar": "build/libs/cross_tesseract-0.1.0-dev.jar",
+  "sha256": "fc7a072581630ed39125d6bf00d362df5e51200f6dabc40c85a47d98b16975e8",
+  "bytes": 4116584,
+  "junit": {
+    "tests": 65,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "base_native_tests": 13,
+  "log": "logs/optimization-build-savepoint.log",
+  "fixes": [
+    "savepoint cleanup preserves original SQLState40001/1213 for retry",
+    "transaction rollback cleanup preserves primary failure",
+    "history admission locks row exclusively before increment",
+    "clean disabled SEND pending remains durable but does not request empty SQL"
+  ],
+  "earlier_ABC_timing_core": "4cfff0ab26d2cc11c4d26dbeebcca911dc0d34f7",
+  "timing_scope": "Earlier27 ABC samples not rerun on this artifact; post-fix scale and supplements reported separately."
+}

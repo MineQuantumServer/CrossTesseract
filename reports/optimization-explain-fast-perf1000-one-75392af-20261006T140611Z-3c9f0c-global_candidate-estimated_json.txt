@@ -1,0 +1,543 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "1.79"
+    },
+    "ordering_operation": {
+      "using_temporary_table": true,
+      "using_filesort": true,
+      "cost_info": {
+        "sort_cost": "0.00"
+      },
+      "nested_loop": [
+        {
+          "table": {
+            "table_name": "ch",
+            "access_type": "const",
+            "possible_keys": [
+              "PRIMARY",
+              "owner_channels"
+            ],
+            "key": "PRIMARY",
+            "used_key_parts": [
+              "cluster_id",
+              "channel_id"
+            ],
+            "key_length": "102",
+            "ref": [
+              "const",
+              "const"
+            ],
+            "rows_examined_per_scan": 1,
+            "rows_produced_per_join": 1,
+            "filtered": "100.00",
+            "cost_info": {
+              "read_cost": "0.00",
+              "eval_cost": "0.10",
+              "prefix_cost": "0.00",
+              "data_read_per_join": "520"
+            },
+            "used_columns": [
+              "cluster_id",
+              "channel_id",
+              "owner_uuid"
+            ]
+          }
+        },
+        {
+          "duplicates_removal": {
+            "using_temporary_table": true,
+            "nested_loop": [
+              {
+                "table": {
+                  "table_name": "b",
+                  "access_type": "ref",
+                  "possible_keys": [
+                    "PRIMARY",
+                    "cluster_id"
+                  ],
+                  "key": "PRIMARY",
+                  "used_key_parts": [
+                    "cluster_id",
+                    "channel_id"
+                  ],
+                  "key_length": "102",
+                  "ref": [
+                    "const",
+                    "const"
+                  ],
+                  "rows_examined_per_scan": 1,
+                  "rows_produced_per_join": 1,
+                  "filtered": "100.00",
+                  "cost_info": {
+                    "read_cost": "0.25",
+                    "eval_cost": "0.10",
+                    "prefix_cost": "0.35",
+                    "data_read_per_join": "152"
+                  },
+                  "used_columns": [
+                    "cluster_id",
+                    "channel_id",
+                    "resource_id",
+                    "amount"
+                  ]
+                }
+              },
+              {
+                "table": {
+                  "table_name": "r",
+                  "access_type": "eq_ref",
+                  "possible_keys": [
+                    "PRIMARY",
+                    "resource_hash"
+                  ],
+                  "key": "PRIMARY",
+                  "used_key_parts": [
+                    "cluster_id",
+                    "resource_id"
+                  ],
+                  "key_length": "102",
+                  "ref": [
+                    "const",
+                    "cross_tesseract.b.resource_id"
+                  ],
+                  "rows_examined_per_scan": 1,
+                  "rows_produced_per_join": 0,
+                  "filtered": "5.00",
+                  "cost_info": {
+                    "read_cost": "0.25",
+                    "eval_cost": "0.01",
+                    "prefix_cost": "0.70",
+                    "data_read_per_join": "12"
+                  },
+                  "used_columns": [
+                    "cluster_id",
+                    "resource_id",
+                    "kind",
+                    "format_version",
+                    "payload_hash"
+                  ],
+                  "attached_condition": "((`cross_tesseract`.`r`.`format_version` = 1) and (`cross_tesseract`.`r`.`kind` = 'cross_tesseract:fe'))"
+                }
+              },
+              {
+                "table": {
+                  "table_name": "s",
+                  "access_type": "ref",
+                  "possible_keys": [
+                    "PRIMARY"
+                  ],
+                  "key": "PRIMARY",
+                  "used_key_parts": [
+                    "cluster_id"
+                  ],
+                  "key_length": "66",
+                  "ref": [
+                    "const"
+                  ],
+                  "rows_examined_per_scan": 8,
+                  "rows_produced_per_join": 0,
+                  "filtered": "0.62",
+                  "cost_info": {
+                    "read_cost": "0.01",
+                    "eval_cost": "0.00",
+                    "prefix_cost": "0.75",
+                    "data_read_per_join": "21"
+                  },
+                  "used_columns": [
+                    "cluster_id",
+                    "server_id",
+                    "world_id",
+                    "fencing_epoch",
+                    "lease_until",
+                    "protocol_version",
+                    "format_version",
+                    "capabilities"
+                  ],
+                  "attached_condition": "((`cross_tesseract`.`s`.`format_version` = 1) and (`cross_tesseract`.`s`.`protocol_version` = 1) and (`cross_tesseract`.`s`.`lease_until` > <cache>(now(6))))"
+                }
+              },
+              {
+                "table": {
+                  "table_name": "d",
+                  "access_type": "ref",
+                  "possible_keys": [
+                    "PRIMARY",
+                    "demand_fair",
+                    "cluster_id"
+                  ],
+                  "key": "PRIMARY",
+                  "used_key_parts": [
+                    "cluster_id",
+                    "channel_id"
+                  ],
+                  "key_length": "102",
+                  "ref": [
+                    "const",
+                    "const"
+                  ],
+                  "rows_examined_per_scan": 128,
+                  "rows_produced_per_join": 0,
+                  "filtered": "0.07",
+                  "cost_info": {
+                    "read_cost": "0.00",
+                    "eval_cost": "0.00",
+                    "prefix_cost": "1.79",
+                    "data_read_per_join": "1"
+                  },
+                  "used_columns": [
+                    "cluster_id",
+                    "channel_id",
+                    "endpoint_id",
+                    "kind",
+                    "room",
+                    "expires_at",
+                    "last_grant",
+                    "profile_hash",
+                    "quantum"
+                  ],
+                  "attached_condition": "((`cross_tesseract`.`d`.`kind` = 'cross_tesseract:fe') and (`cross_tesseract`.`d`.`room` >= `cross_tesseract`.`d`.`quantum`) and (`cross_tesseract`.`d`.`expires_at` > <cache>(now(6))) and (find_in_set(`cross_tesseract`.`d`.`kind`,`cross_tesseract`.`s`.`capabilities`) > 0) and ((/* select#3 */ select count(0) from `cross_tesseract`.`ct_transfers` `t` where ((`cross_tesseract`.`t`.`kind` = 'ALLOCATE') and (`cross_tesseract`.`t`.`cluster_id` = `cross_tesseract`.`d`.`cluster_id`) and (`cross_tesseract`.`t`.`endpoint_id` = `cross_tesseract`.`d`.`endpoint_id`) and (`cross_tesseract`.`t`.`remaining` > 0))) < 64) and ((/* select#4 */ select count(0) from `cross_tesseract`.`ct_transfers` `t` join `cross_tesseract`.`ct_resources` `tr` where ((`cross_tesseract`.`t`.`resource_id` = `cross_tesseract`.`tr`.`resource_id`) and (`cross_tesseract`.`t`.`cluster_id` = `cross_tesseract`.`tr`.`cluster_id`) and (`cross_tesseract`.`t`.`kind` = 'ALLOCATE') and (`cross_tesseract`.`tr`.`cluster_id` = `cross_tesseract`.`d`.`cluster_id`) and (`cross_tesseract`.`t`.`endpoint_id` = `cross_tesseract`.`d`.`endpoint_id`) and (`cross_tesseract`.`t`.`remaining` > 0) and (`cross_tesseract`.`tr`.`kind` = `cross_tesseract`.`d`.`kind`))) < (case when (`cross_tesseract`.`d`.`kind` in ('cross_tesseract:fe','cross_tesseract:gt_eu')) then 32 when (`cross_tesseract`.`d`.`kind` = 'cross_tesseract:item') then 9 else 4 end)) and (`cross_tesseract`.`b`.`amount` >= `cross_tesseract`.`d`.`quantum`) and ((`cross_tesseract`.`d`.`profile_hash` is null) or (`cross_tesseract`.`d`.`profile_hash` = `cross_tesseract`.`r`.`payload_hash`)))",
+                  "attached_subqueries": [
+                    {
+                      "dependent": true,
+                      "cacheable": false,
+                      "query_block": {
+                        "select_id": 4,
+                        "cost_info": {
+                          "query_cost": "9.80"
+                        },
+                        "nested_loop": [
+                          {
+                            "table": {
+                              "table_name": "tr",
+                              "access_type": "ref",
+                              "possible_keys": [
+                                "PRIMARY",
+                                "resource_hash"
+                              ],
+                              "key": "PRIMARY",
+                              "used_key_parts": [
+                                "cluster_id"
+                              ],
+                              "key_length": "66",
+                              "ref": [
+                                "cross_tesseract.d.cluster_id"
+                              ],
+                              "rows_examined_per_scan": 5,
+                              "rows_produced_per_join": 0,
+                              "filtered": "10.00",
+                              "cost_info": {
+                                "read_cost": "0.26",
+                                "eval_cost": "0.06",
+                                "prefix_cost": "0.85",
+                                "data_read_per_join": "148"
+                              },
+                              "used_columns": [
+                                "cluster_id",
+                                "resource_id",
+                                "kind"
+                              ],
+                              "attached_condition": "(`cross_tesseract`.`tr`.`kind` = `cross_tesseract`.`d`.`kind`)"
+                            }
+                          },
+                          {
+                            "table": {
+                              "table_name": "t",
+                              "access_type": "ref",
+                              "possible_keys": [
+                                "PRIMARY",
+                                "endpoint_transfers",
+                                "cluster_id",
+                                "cluster_id_2",
+                                "ct_transfer_retention"
+                              ],
+                              "key": "endpoint_transfers",
+                              "used_key_parts": [
+                                "cluster_id",
+                                "endpoint_id"
+                              ],
+                              "key_length": "102",
+                              "ref": [
+                                "cross_tesseract.d.cluster_id",
+                                "cross_tesseract.d.endpoint_id"
+                              ],
+                              "rows_examined_per_scan": 18,
+                              "rows_produced_per_join": 0,
+                              "filtered": "0.33",
+                              "index_condition": "(`cross_tesseract`.`t`.`cluster_id` = `cross_tesseract`.`tr`.`cluster_id`)",
+                              "cost_info": {
+                                "read_cost": "7.86",
+                                "eval_cost": "0.00",
+                                "prefix_cost": "9.80",
+                                "data_read_per_join": "14"
+                              },
+                              "used_columns": [
+                                "cluster_id",
+                                "endpoint_id",
+                                "resource_id",
+                                "kind",
+                                "remaining"
+                              ],
+                              "attached_condition": "((`cross_tesseract`.`t`.`resource_id` = `cross_tesseract`.`tr`.`resource_id`) and (`cross_tesseract`.`t`.`kind` = 'ALLOCATE') and (`cross_tesseract`.`t`.`remaining` > 0))"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dependent": true,
+                      "cacheable": false,
+                      "query_block": {
+                        "select_id": 3,
+                        "cost_info": {
+                          "query_cost": "14.97"
+                        },
+                        "table": {
+                          "table_name": "t",
+                          "access_type": "ref",
+                          "possible_keys": [
+                            "PRIMARY",
+                            "endpoint_transfers",
+                            "cluster_id",
+                            "cluster_id_2",
+                            "ct_transfer_retention"
+                          ],
+                          "key": "endpoint_transfers",
+                          "used_key_parts": [
+                            "cluster_id",
+                            "endpoint_id"
+                          ],
+                          "key_length": "102",
+                          "ref": [
+                            "cross_tesseract.d.cluster_id",
+                            "cross_tesseract.d.endpoint_id"
+                          ],
+                          "rows_examined_per_scan": 18,
+                          "rows_produced_per_join": 0,
+                          "filtered": "3.33",
+                          "cost_info": {
+                            "read_cost": "13.16",
+                            "eval_cost": "0.06",
+                            "prefix_cost": "14.98",
+                            "data_read_per_join": "246"
+                          },
+                          "used_columns": [
+                            "cluster_id",
+                            "endpoint_id",
+                            "kind",
+                            "remaining"
+                          ],
+                          "attached_condition": "((`cross_tesseract`.`t`.`kind` = 'ALLOCATE') and (`cross_tesseract`.`t`.`remaining` > 0))"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "table": {
+                  "table_name": "e",
+                  "access_type": "eq_ref",
+                  "possible_keys": [
+                    "PRIMARY",
+                    "endpoints_channel",
+                    "endpoints_player",
+                    "endpoints_location"
+                  ],
+                  "key": "PRIMARY",
+                  "used_key_parts": [
+                    "cluster_id",
+                    "endpoint_id"
+                  ],
+                  "key_length": "102",
+                  "ref": [
+                    "const",
+                    "cross_tesseract.d.endpoint_id"
+                  ],
+                  "rows_examined_per_scan": 1,
+                  "rows_produced_per_join": 0,
+                  "filtered": "5.00",
+                  "cost_info": {
+                    "read_cost": "0.00",
+                    "eval_cost": "0.00",
+                    "prefix_cost": "1.79",
+                    "data_read_per_join": "0"
+                  },
+                  "used_columns": [
+                    "cluster_id",
+                    "endpoint_id",
+                    "server_id",
+                    "world_id",
+                    "device_owner",
+                    "channel_id",
+                    "state",
+                    "recovery_generation",
+                    "last_epoch"
+                  ],
+                  "attached_condition": "((`cross_tesseract`.`e`.`server_id` = `cross_tesseract`.`s`.`server_id`) and (`cross_tesseract`.`e`.`state` = 'ACTIVE') and (`cross_tesseract`.`e`.`last_epoch` = `cross_tesseract`.`s`.`fencing_epoch`) and (`cross_tesseract`.`e`.`world_id` = `cross_tesseract`.`s`.`world_id`) and (`cross_tesseract`.`e`.`channel_id` = 'a8cfad64-780d-431b-be90-1ad282d5e6c8') and (`cross_tesseract`.`e`.`recovery_generation` = (/* select#2 */ select `cross_tesseract`.`ct_clusters`.`recovery_generation` from `cross_tesseract`.`ct_clusters` where (`cross_tesseract`.`ct_clusters`.`cluster_id` = `cross_tesseract`.`d`.`cluster_id`))) and (coalesce((/* select#5 */ select `cross_tesseract`.`hb`.`used` from `cross_tesseract`.`ct_history_buckets` `hb` where ((`cross_tesseract`.`hb`.`cluster_id` = `cross_tesseract`.`e`.`cluster_id`) and (`cross_tesseract`.`hb`.`server_id` = `cross_tesseract`.`e`.`server_id`))),0) < (/* select#6 */ select `cross_tesseract`.`ct_clusters`.`history_limit` from `cross_tesseract`.`ct_clusters` where (`cross_tesseract`.`ct_clusters`.`cluster_id` = `cross_tesseract`.`d`.`cluster_id`))))",
+                  "attached_subqueries": [
+                    {
+                      "dependent": true,
+                      "cacheable": false,
+                      "query_block": {
+                        "select_id": 6,
+                        "cost_info": {
+                          "query_cost": "0.35"
+                        },
+                        "table": {
+                          "table_name": "ct_clusters",
+                          "access_type": "eq_ref",
+                          "possible_keys": [
+                            "PRIMARY"
+                          ],
+                          "key": "PRIMARY",
+                          "used_key_parts": [
+                            "cluster_id"
+                          ],
+                          "key_length": "66",
+                          "ref": [
+                            "cross_tesseract.d.cluster_id"
+                          ],
+                          "rows_examined_per_scan": 1,
+                          "rows_produced_per_join": 1,
+                          "filtered": "100.00",
+                          "cost_info": {
+                            "read_cost": "0.25",
+                            "eval_cost": "0.10",
+                            "prefix_cost": "0.35",
+                            "data_read_per_join": "112"
+                          },
+                          "used_columns": [
+                            "cluster_id",
+                            "history_limit"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "dependent": true,
+                      "cacheable": false,
+                      "query_block": {
+                        "select_id": 5,
+                        "cost_info": {
+                          "query_cost": "0.35"
+                        },
+                        "table": {
+                          "table_name": "hb",
+                          "access_type": "eq_ref",
+                          "possible_keys": [
+                            "PRIMARY"
+                          ],
+                          "key": "PRIMARY",
+                          "used_key_parts": [
+                            "cluster_id",
+                            "server_id"
+                          ],
+                          "key_length": "132",
+                          "ref": [
+                            "cross_tesseract.e.cluster_id",
+                            "cross_tesseract.e.server_id"
+                          ],
+                          "rows_examined_per_scan": 1,
+                          "rows_produced_per_join": 1,
+                          "filtered": "100.00",
+                          "cost_info": {
+                            "read_cost": "0.25",
+                            "eval_cost": "0.10",
+                            "prefix_cost": "0.35",
+                            "data_read_per_join": "144"
+                          },
+                          "used_columns": [
+                            "cluster_id",
+                            "server_id",
+                            "used"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "dependent": true,
+                      "cacheable": false,
+                      "query_block": {
+                        "select_id": 2,
+                        "cost_info": {
+                          "query_cost": "0.35"
+                        },
+                        "table": {
+                          "table_name": "ct_clusters",
+                          "access_type": "eq_ref",
+                          "possible_keys": [
+                            "PRIMARY"
+                          ],
+                          "key": "PRIMARY",
+                          "used_key_parts": [
+                            "cluster_id"
+                          ],
+                          "key_length": "66",
+                          "ref": [
+                            "cross_tesseract.d.cluster_id"
+                          ],
+                          "rows_examined_per_scan": 1,
+                          "rows_produced_per_join": 1,
+                          "filtered": "100.00",
+                          "cost_info": {
+                            "read_cost": "0.25",
+                            "eval_cost": "0.10",
+                            "prefix_cost": "0.35",
+                            "data_read_per_join": "112"
+                          },
+                          "used_columns": [
+                            "cluster_id",
+                            "recovery_generation"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "table": {
+                  "table_name": "m",
+                  "access_type": "eq_ref",
+                  "possible_keys": [
+                    "PRIMARY"
+                  ],
+                  "key": "PRIMARY",
+                  "used_key_parts": [
+                    "cluster_id",
+                    "channel_id",
+                    "player_uuid"
+                  ],
+                  "key_length": "138",
+                  "ref": [
+                    "const",
+                    "const",
+                    "cross_tesseract.e.device_owner"
+                  ],
+                  "rows_examined_per_scan": 1,
+                  "rows_produced_per_join": 0,
+                  "filtered": "100.00",
+                  "cost_info": {
+                    "read_cost": "0.00",
+                    "eval_cost": "0.00",
+                    "prefix_cost": "1.79",
+                    "data_read_per_join": "0"
+                  },
+                  "used_columns": [
+                    "cluster_id",
+                    "channel_id",
+                    "player_uuid",
+                    "permissions"
+                  ],
+                  "attached_condition": "<if>(found_match(m), ((`cross_tesseract`.`e`.`device_owner` = 'fdd41c0a-5841-46ee-be2e-3e5c70e6e5a9') or ((`cross_tesseract`.`m`.`permissions` & 4) = 4)), true)"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

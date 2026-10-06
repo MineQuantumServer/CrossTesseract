@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "report_kind": "offline_rcon_reply_attribution_review",
+  "utc_created": "2026-10-06T12:39:33.090449+00:00",
+  "source": {
+    "artifact_path": "/workspace/build/moddev/artifacts/neoforge-21.1.252-sources.jar",
+    "artifact_sha256": "005619490960aa2e099911bbc562af5cb67505770436a8ed1e63fe14d668e8fc",
+    "artifact_bytes": 9400962,
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.252",
+    "entries": {
+      "net/minecraft/server/dedicated/DedicatedServer.java": {
+        "sha256": "70f376d8990eb747eb59c48ef93574194b3905a30a4e7ebf56b2ec82c6a4b01d",
+        "extracts": [
+          {
+            "first_line": 64,
+            "last_line": 100,
+            "text": "64:     static final Logger LOGGER = LogUtils.getLogger();\n65:     private static final int CONVERSION_RETRY_DELAY_MS = 5000;\n66:     private static final int CONVERSION_RETRIES = 2;\n67:     private final List<ConsoleInput> consoleInput = Collections.synchronizedList(Lists.newArrayList());\n68:     @Nullable\n69:     private QueryThreadGs4 queryThreadGs4;\n70:     private final RconConsoleSource rconConsoleSource;\n71:     @Nullable\n72:     private RconThread rconThread;\n73:     private final DedicatedServerSettings settings;\n74:     @Nullable\n75:     private MinecraftServerGui gui;\n76:     @Nullable\n77:     private final TextFilterClient textFilterClient;\n78:     @Nullable\n79:     private RemoteSampleLogger tickTimeLogger;\n80:     @Nullable\n81:     private DebugSampleSubscriptionTracker debugSampleSubscriptionTracker;\n82:     private final ServerLinks serverLinks;\n83:     @Nullable\n84:     private net.minecraft.client.server.LanServerPinger dediLanPinger;\n85: \n86:     public DedicatedServer(\n87:         Thread p_214789_,\n88:         LevelStorageSource.LevelStorageAccess p_214790_,\n89:         PackRepository p_214791_,\n90:         WorldStem p_214792_,\n91:         DedicatedServerSettings p_214793_,\n92:         DataFixer p_214794_,\n93:         Services p_214795_,\n94:         ChunkProgressListenerFactory p_214796_\n95:     ) {\n96:         super(p_214789_, p_214790_, p_214791_, p_214792_, Proxy.NO_PROXY, p_214794_, p_214795_, p_214796_);\n97:         this.settings = p_214793_;\n98:         this.rconConsoleSource = new RconConsoleSource(this);\n99:         this.textFilterClient = TextFilterClient.createFromConfig(p_214793_.getProperties().textFilteringConfig);\n100:         this.serverLinks = createServerLinks(p_214793_);"
+          },
+          {
+            "first_line": 548,
+            "last_line": 558,
+            "text": "548:     @Override\n549:     public String getPluginNames() {\n550:         return \"\";\n551:     }\n552: \n553:     @Override\n554:     public String runCommand(String p_139644_) {\n555:         this.rconConsoleSource.prepareForCommand();\n556:         this.executeBlocking(() -> this.getCommands().performPrefixedCommand(this.rconConsoleSource.createCommandSourceStack(), p_139644_));\n557:         return this.rconConsoleSource.getCommandResponse();\n558:     }"
+          }
+        ]
+      },
+      "net/minecraft/server/rcon/RconConsoleSource.java": {
+        "sha256": "ba8ccff49b7737062b10e4e37de5b0109cf229971ec09740102a11b97a665cb6",
+        "extracts": [
+          {
+            "first_line": 11,
+            "last_line": 39,
+            "text": "11: public class RconConsoleSource implements CommandSource {\n12:     private static final String RCON = \"Rcon\";\n13:     private static final Component RCON_COMPONENT = Component.literal(\"Rcon\");\n14:     private final StringBuffer buffer = new StringBuffer();\n15:     private final MinecraftServer server;\n16: \n17:     public RconConsoleSource(MinecraftServer p_11505_) {\n18:         this.server = p_11505_;\n19:     }\n20: \n21:     public void prepareForCommand() {\n22:         this.buffer.setLength(0);\n23:     }\n24: \n25:     public String getCommandResponse() {\n26:         return this.buffer.toString();\n27:     }\n28: \n29:     public CommandSourceStack createCommandSourceStack() {\n30:         ServerLevel serverlevel = this.server.overworld();\n31:         return new CommandSourceStack(\n32:             this, Vec3.atLowerCornerOf(serverlevel.getSharedSpawnPos()), Vec2.ZERO, serverlevel, 4, \"Rcon\", RCON_COMPONENT, this.server, null\n33:         );\n34:     }\n35: \n36:     @Override\n37:     public void sendSystemMessage(Component p_215653_) {\n38:         this.buffer.append(p_215653_.getString()).append(\"\\n\"); // FIX MC-7569 - RCON has no newlines in multiline output\n39:     }"
+          }
+        ]
+      },
+      "net/minecraft/server/rcon/thread/RconClient.java": {
+        "sha256": "cd59b76e98b76553be1e9f3aef01c678899dc643d06b5bfa73a3d577c408aeb6",
+        "extracts": [
+          {
+            "first_line": 50,
+            "last_line": 73,
+            "text": "50:                         return;\n51:                     }\n52: \n53:                     int j = 0;\n54:                     int k = PktUtils.intFromByteArray(this.buf, 0, i);\n55:                     if (k != i - 4) {\n56:                         return;\n57:                     }\n58: \n59:                     j += 4;\n60:                     int l = PktUtils.intFromByteArray(this.buf, j, i);\n61:                     j += 4;\n62:                     int i1 = PktUtils.intFromByteArray(this.buf, j);\n63:                     j += 4;\n64:                     switch (i1) {\n65:                         case 2:\n66:                             if (this.authed) {\n67:                                 String s1 = PktUtils.stringFromByteArray(this.buf, j, i);\n68: \n69:                                 try {\n70:                                     this.sendCmdResponse(l, this.serverInterface.runCommand(s1));\n71:                                 } catch (Exception exception) {\n72:                                     this.sendCmdResponse(l, \"Error executing: \" + s1 + \" (\" + exception.getMessage() + \")\");\n73:                                 }"
+          },
+          {
+            "first_line": 108,
+            "last_line": 134,
+            "text": "108:     private void send(int p_11591_, int p_11592_, String p_11593_) throws IOException {\n109:         ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream(1248);\n110:         DataOutputStream dataoutputstream = new DataOutputStream(bytearrayoutputstream);\n111:         byte[] abyte = p_11593_.getBytes(StandardCharsets.UTF_8);\n112:         dataoutputstream.writeInt(Integer.reverseBytes(abyte.length + 10));\n113:         dataoutputstream.writeInt(Integer.reverseBytes(p_11591_));\n114:         dataoutputstream.writeInt(Integer.reverseBytes(p_11592_));\n115:         dataoutputstream.write(abyte);\n116:         dataoutputstream.write(0);\n117:         dataoutputstream.write(0);\n118:         this.client.getOutputStream().write(bytearrayoutputstream.toByteArray());\n119:     }\n120: \n121:     private void sendAuthFailure() throws IOException {\n122:         this.send(-1, 2, \"\");\n123:     }\n124: \n125:     private void sendCmdResponse(int p_11595_, String p_11596_) throws IOException {\n126:         byte[] whole = p_11596_.getBytes(StandardCharsets.UTF_8);\n127:         int i = whole.length;\n128:         int start = 0;\n129:         do {\n130:             int j = 4096 <= i ? 4096 : i;\n131:             this.send(p_11595_, 0, new String(java.util.Arrays.copyOfRange(whole, start, j+start), StandardCharsets.UTF_8));\n132:             i -= j;\n133:             start += j;\n134:         } while (0 != i);"
+          }
+        ]
+      },
+      "net/minecraft/commands/CommandSourceStack.java": {
+        "sha256": "480e7bdb975c20ee170c4162ced33a98d2d480a181bd37ccc7fa1f18e75a454c",
+        "extracts": [
+          {
+            "first_line": 480,
+            "last_line": 491,
+            "text": "480:     public void sendSuccess(Supplier<Component> p_288979_, boolean p_289007_) {\n481:         boolean flag = this.source.acceptsSuccess() && !this.silent;\n482:         boolean flag1 = p_289007_ && this.source.shouldInformAdmins() && !this.silent;\n483:         if (flag || flag1) {\n484:             Component component = p_288979_.get();\n485:             if (flag) {\n486:                 this.source.sendSystemMessage(component);\n487:             }\n488: \n489:             if (flag1) {\n490:                 this.broadcastToAdmins(component);\n491:             }"
+          }
+        ]
+      },
+      "scripts/rcon.py": {
+        "path": "/workspace/scripts/rcon.py",
+        "sha256": "f09bd591c3042cf6b48fc11eddbc59cb2410e70a7a4b50fcd35a694da0f3b142",
+        "extracts": [
+          {
+            "first_line": 19,
+            "last_line": 43,
+            "text": "19: def packet(sock, ident, kind, value):\n20:     data = struct.pack(\"<ii\", ident, kind) + value.encode(\"utf-8\") + b\"\\0\\0\"\n21:     sock.sendall(struct.pack(\"<i\", len(data)) + data)\n22:     size = struct.unpack(\"<i\", read_exact(sock, 4))[0]\n23:     if not 10 <= size <= 1_048_576:\n24:         raise ValueError(\"invalid RCON packet size\")\n25:     reply = read_exact(sock, size)\n26:     rid, rkind = struct.unpack(\"<ii\", reply[:8])\n27:     return rid, rkind, reply[8:-2].decode(\"utf-8\")\n28: \n29: \n30: def command(port, text, password=None, timeout=10):\n31:     password = password or os.environ.get(\"CT_TEST_RCON_PASSWORD\", \"ct_dev_rcon_only\")\n32:     with socket.create_connection((\"127.0.0.1\", port), timeout) as sock:\n33:         sock.settimeout(timeout)\n34:         rid, _, _ = packet(sock, 1, 3, password)\n35:         if rid == -1:\n36:             raise PermissionError(\"RCON authentication rejected\")\n37:         rid, _, reply = packet(sock, 2, 2, text)\n38:         if rid != 2:\n39:             raise ValueError(\"invalid RCON response\")\n40:         return reply\n41: \n42: \n43: if __name__ == \"__main__\":"
+          }
+        ]
+      },
+      "src/main/java/dev/crosstesseract/test/ThreeServerHarness.java": {
+        "path": "/workspace/src/main/java/dev/crosstesseract/test/ThreeServerHarness.java",
+        "sha256": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b",
+        "extracts": [
+          {
+            "first_line": 69,
+            "last_line": 73,
+            "text": "69:                 case \"mode\" -> {be.mode(args[3],Protocol.Mode.valueOf(args[4]));out(source,\"MODE \"+be.mode(args[3]));}\n70:                 case \"sides\" -> {be.sideMask(args[3],Integer.parseInt(args[4]));out(source,\"SIDES \"+be.sideMask(args[3]));}\n71:                 case \"push-fe\" -> {var port=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,Direction.UP);out(source,\"ACCEPTED \"+Objects.requireNonNull(port).receiveEnergy(Integer.parseInt(args[3]),false));}\n72:                 case \"pull-fe\" -> {var port=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,Direction.DOWN);out(source,\"EXTRACTED \"+Objects.requireNonNull(port).extractEnergy(Integer.parseInt(args[3]),false));}\n73:                 case \"push-item\" -> {ItemStack stack=new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse(args[3])),Integer.parseInt(args[4]));stack.set(net.minecraft.core.component.DataComponents.CUSTOM_NAME,Component.literal(\"CT real-process test\"));var port=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,Direction.UP);var rest=Objects.requireNonNull(port).insertItem(0,stack,false);out(source,\"ACCEPTED \"+(stack.getCount()-rest.getCount()));}"
+          },
+          {
+            "first_line": 111,
+            "last_line": 112,
+            "text": "111:     private static void out(CommandSourceStack source,String message){source.sendSuccess(()->Component.literal(message),false);}\n112:     private ThreeServerHarness(){}"
+          }
+        ]
+      },
+      "scripts/optimization-benchmark.py": {
+        "path": "/workspace/scripts/optimization-benchmark.py",
+        "sha256": "ca5ae28d525eac7bc2cd4605ce6770a702d4aa712279b6b074ef773eafbce7ab",
+        "extracts": [
+          {
+            "first_line": 399,
+            "last_line": 426,
+            "text": "399:         match = re.search(r\"ACCEPTED (\\d+)\", result.pop(\"reply\"))\n400:         if not match:\n401:             raise AssertionError(\"Missing source acceptance\")\n402:         accepted = int(match[1])\n403:         if not 0 <= accepted <= amount:\n404:             raise AssertionError(\"Invalid accepted amount\")\n405:         lane.accepted += accepted\n406:         lane.source_totals[endpoint.name] = lane.source_totals.get(endpoint.name, 0) + accepted\n407:         event = dict(result, kind=\"input\", lane=lane.name, endpoint=endpoint.name, requested=amount, amount=accepted)\n408:         events.append(event)\n409:         return event\n410: \n411:     def pull(self, lane, endpoint, events):\n412:         result = self.issue(endpoint.server, f\"pull-fe {endpoint.x} {endpoint.z} 2147483647\")\n413:         match = re.search(r\"EXTRACTED (\\d+)\", result.pop(\"reply\"))\n414:         if not match:\n415:             raise AssertionError(\"Missing target extraction\")\n416:         amount = int(match[1])\n417:         lane.extracted += amount\n418:         lane.sink_totals[endpoint.name] = lane.sink_totals.get(endpoint.name, 0) + amount\n419:         if lane.extracted > lane.accepted:\n420:             raise AssertionError(\"Duplicate output/conservation failure in \" + lane.name)\n421:         event = dict(result, kind=\"output\", lane=lane.name, endpoint=endpoint.name, amount=amount)\n422:         events.append(event)\n423:         return event\n424: \n425:     def drive(self, lanes, seconds, events, feed=True, extract=True):\n426:         started = time.monotonic()"
+          },
+          {
+            "first_line": 467,
+            "last_line": 483,
+            "text": "467:     def drain(self, lanes, events, seconds=None):\n468:         started = time.monotonic()\n469:         timeout = seconds or max(60.0, self.args.seconds * 2)\n470:         last = None\n471:         while time.monotonic() - started < timeout:\n472:             for lane in lanes:\n473:                 for endpoint in lane.sinks:\n474:                     self.pull(lane, endpoint, events)\n475:             if all(lane.accepted == lane.extracted for lane in lanes):\n476:                 last = self.residue(lanes)\n477:                 if last[\"sql_pool_FE\"] == last[\"sql_allocation_remaining_FE\"] == 0 and all(\n478:                         d[\"txFE\"] == d[\"rxFE\"] == 0 for d in last[\"local_buffers\"].values()):\n479:                     return {\"seconds\": time.monotonic() - started, \"residue\": last,\n480:                             \"accepted_FE\": sum(lane.accepted for lane in lanes),\n481:                             \"extracted_FE\": sum(lane.extracted for lane in lanes)}\n482:             time.sleep(self.args.poll)\n483:         raise AssertionError(\"Drain/conservation timeout: \" + repr({\"lanes\": [(l.name, l.accepted, l.extracted) for l in lanes], \"residue\": last})[:1400])"
+          },
+          {
+            "first_line": 485,
+            "last_line": 527,
+            "text": "485:     def low_flow(self, lanes, sample):\n486:         if not self.args.probes:\n487:             return\n488:         # Low-flow cases have one source and at most two receivers. Hotspots use aggregate outputs.\n489:         if len(lanes) != 1 or len(lanes[0].sources) != 1:\n490:             return\n491:         lane = lanes[0]\n492:         probe_report = sample.setdefault(\"low_flow\", {\"probes\": [], \"events\": []})\n493:         events = probe_report[\"events\"]\n494:         first = self.snapshot()\n495:         for index in range(self.args.probes):\n496:             time.sleep(self.args.probe_idle)\n497:             accepted_before = lane.accepted\n498:             source = self.push(lane, lane.sources[0], 1024, events)\n499:             if source[\"amount\"] != 1024:\n500:                 raise AssertionError(\"Isolated low-flow probe not fully accepted\")\n501:             targets = []\n502:             limit = time.monotonic() + 30\n503:             while lane.extracted < lane.accepted and time.monotonic() < limit:\n504:                 sinks = lane.sinks[index % len(lane.sinks):] + lane.sinks[:index % len(lane.sinks)]\n505:                 for endpoint in sinks:\n506:                     target = self.pull(lane, endpoint, events)\n507:                     if target[\"amount\"]:\n508:                         targets.append(target)\n509:                 if lane.extracted < lane.accepted:\n510:                     time.sleep(self.args.poll)\n511:             if lane.extracted != lane.accepted or not targets:\n512:                 raise AssertionError(\"Low-flow actual output timeout\")\n513:             probe_report[\"probes\"].append({\"index\": index, \"accepted_FE\": lane.accepted - accepted_before,\n514:                 \"first_output\": e2e_interval(source, targets[0]), \"full_output\": e2e_interval(source, targets[-1]),\n515:                 \"outputs\": {e.name: sum(t[\"amount\"] for t in targets if t[\"endpoint\"] == e.name) for e in lane.sinks}})\n516:             if (index + 1) % 10 == 0:\n517:                 self.save()\n518:                 print(f\"{self.args.label}: {sample['scenario']} repeat {sample['repeat']} low-flow {index+1}/{self.args.probes}\", flush=True)\n519:         last = self.snapshot()\n520:         probe_report[\"counter_delta\"] = self.deltas(first, last)\n521:         for endpoint in (\"first_output\", \"full_output\"):\n522:             probe_report[endpoint + \"_lower_ms\"] = quantiles([p[endpoint][\"lower_ms\"] for p in probe_report[\"probes\"]])\n523:             probe_report[endpoint + \"_upper_ms\"] = quantiles([p[endpoint][\"upper_ms\"] for p in probe_report[\"probes\"]])\n524:         probe_report[\"input_rcon_ms\"] = quantiles([p[\"full_output\"][\"source_rcon_ms\"] for p in probe_report[\"probes\"]])\n525:         probe_report[\"output_rcon_ms\"] = quantiles([p[\"full_output\"][\"target_rcon_ms\"] for p in probe_report[\"probes\"]])\n526:         probe_report[\"drain\"] = self.drain(lanes, events)\n527: "
+          }
+        ]
+      }
+    }
+  },
+  "observation": {
+    "path": "/workspace/reports/optimization-tick-batch-4cfff0a-20261006T113341Z-73c54a.json",
+    "sha256": "8407059499a21e9c6b35ecc98161ca6f0bd097719142dd7b4fc59a4ef789907c",
+    "passed": false,
+    "failures": [
+      "B: ValueError: Unrecognized tick query response; raw reply retained"
+    ],
+    "invalid_samples_verbatim": [
+      {
+        "server": "B",
+        "pid": 152066,
+        "utc_request_start": "2026-10-06T12:01:01.331510+00:00",
+        "observer_start": 12456.7848845,
+        "offset_seconds": 1640.1310929680003,
+        "reply": "EXTRACTED 0\n",
+        "observer_end": 12456.796233845,
+        "utc_reply_end": "2026-10-06T12:01:01.342861+00:00",
+        "error": "ValueError: Unrecognized tick query response; raw reply retained",
+        "rcon_ms": 11.349344998961897,
+        "round": 164
+      }
+    ],
+    "protocol_headers_saved": false,
+    "request_ID_2_validation_inferred_from_unchanged_client_guard": true
+  },
+  "mechanism": "DedicatedServer owns one RconConsoleSource shared by client threads. prepareForCommand clears its buffer before executeBlocking, followed by getCommandResponse outside an atomic per-command block. Each RconClient echoes its own request ID around the shared-buffer contents. Individually synchronized StringBuffer operations do not isolate command output.",
+  "exact_failure_interleaving_proven": false,
+  "business_evidence": {
+    "single_FE_mutating_driver": true,
+    "FE_push_pull_handler_synchronous": true,
+    "passive_tick_status_emit_no_ACCEPTED_or_EXTRACTED": true,
+    "business_full_raw_replies_and_request_specific_body_tags_saved": false,
+    "cases": {
+      "same": {
+        "complete_repeats": 3,
+        "false_checks": [],
+        "cumulative_event_ledger_matches": true
+      },
+      "cross": {
+        "complete_repeats": 3,
+        "false_checks": [],
+        "cumulative_event_ledger_matches": true
+      },
+      "mixed": {
+        "complete_repeats": 3,
+        "false_checks": [],
+        "cumulative_event_ledger_matches": true
+      }
+    }
+  },
+  "interpretation": "Cross talk can steal/append replies and invalidated one tick sample, then stopped that sidecar. No observed evidence of a wrong FE amount or timing. Completed FE calls wait for their own synchronous main-thread handler; marker checks, 1024-FE probes, fixed fully accepted steady inputs, total event ledger and independently zero SQL/BE residue all passed. Those checks support the recorded business result, but absent raw business replies/body tags prevent reconstructing every command-output attribution.",
+  "measurement_boundary": "Retain reported E2E intervals and protocol limitation; do not declare all latency false. Do not repair/rerun during C. Future physical-container supplement will use no concurrent RCON sidecars. No whole-phase MSPT, whole-loop tick time or actual TPS inferred from target rate or uncovered query percentiles."
+}

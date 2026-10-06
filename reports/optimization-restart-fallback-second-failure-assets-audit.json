@@ -1,0 +1,292 @@
+{
+  "utc": "2026-10-06T19:52:57.172828+00:00",
+  "read_only": true,
+  "failed_report": "reports/optimization-restart-fallback-68f32db-20261006T194856Z-b6a7c332.json",
+  "failed_report_sha256": "e491df01e07b4ed106eebb0a9e545ce8c8f27f719bcee3cd8e84fe55ea00a801",
+  "fixtures": [
+    {
+      "channel": "52a99c14-bf5c-4fd5-b72c-2d5deb3ce00e",
+      "input_FE": 189,
+      "actual_output_FE": 189,
+      "effective_remaining_FE": 0,
+      "SQL": {
+        "pool": 0,
+        "owned": 0,
+        "deposited": 189,
+        "allocated": 189,
+        "deposit_count": 2,
+        "allocation_count": 2,
+        "quarantined": [],
+        "transfers": [
+          {
+            "record_type": "transfer",
+            "id": "01a112c3-26e2-71b4-9f43-da7f5d51df26",
+            "endpoint_id": "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "DEPOSIT",
+            "state": "COMMITTED",
+            "amount": 128,
+            "remaining": 0,
+            "epoch": 6
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112c3-26e2-734f-b43e-2a706fd00ced",
+            "endpoint_id": "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "ALLOCATE",
+            "state": "CONSUMED",
+            "amount": 128,
+            "remaining": 0,
+            "epoch": 6
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112c3-4398-7346-8918-37790a95c7d8",
+            "endpoint_id": "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "DEPOSIT",
+            "state": "COMMITTED",
+            "amount": 61,
+            "remaining": 0,
+            "epoch": 6
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112c4-2350-7bd8-9e2c-f59852375fdf",
+            "endpoint_id": "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "ALLOCATE",
+            "state": "CONSUMED",
+            "amount": 61,
+            "remaining": 0,
+            "epoch": 7
+          }
+        ]
+      },
+      "endpoint_rows": [
+        [
+          "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+          "opt-regression-68f32db-fast-A",
+          "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+          "52a99c14-bf5c-4fd5-b72c-2d5deb3ce00e",
+          "ACTIVE",
+          "10",
+          "7",
+          "1"
+        ],
+        [
+          "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+          "opt-regression-68f32db-fast-A",
+          "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+          "52a99c14-bf5c-4fd5-b72c-2d5deb3ce00e",
+          "ACTIVE",
+          "9",
+          "7",
+          "1"
+        ]
+      ],
+      "WAL": [
+        {
+          "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/899812a8-68bb-497f-b4f3-efbc61cd07b6.ctj",
+          "decoded": {
+            "format": 2,
+            "endpoint": "899812a8-68bb-497f-b4f3-efbc61cd07b6",
+            "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "generation": 1,
+            "revision": 9,
+            "deposits": [],
+            "credits": [],
+            "thermal": {
+              "microjoules": 0,
+              "residual": 0.0,
+              "pending": false
+            },
+            "sha256": "26b6bd7e570b39c30a4a5504f77fd12128f65d179dc801ce2a6c79cb8c4937b4",
+            "size_bytes": 113,
+            "checksum_verified": true,
+            "raw_base64": "Q1RUMQAAAAKJmBKoaLtJf7Tz77xhzQe2AaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8RJHnz0kZCtqqqSaYEonfvuDG1bljnqbp+dxRw7i2yU="
+          }
+        },
+        {
+          "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/794d572a-443d-4e0a-8c8f-a61189d6ee93.ctj",
+          "decoded": {
+            "format": 2,
+            "endpoint": "794d572a-443d-4e0a-8c8f-a61189d6ee93",
+            "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "generation": 1,
+            "revision": 10,
+            "deposits": [],
+            "credits": [],
+            "thermal": {
+              "microjoules": 0,
+              "residual": 0.0,
+              "pending": false
+            },
+            "sha256": "30285e34a04c8bd7eaf9f2d035d2afe9e460369de55e1e231c31f0488c3e7e1b",
+            "size_bytes": 113,
+            "checksum_verified": true,
+            "raw_base64": "Q1RUMQAAAAJ5TVcqRD1OCoyPphGJ1u6TAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ/7FAkCCAzm/Yrl5tZVu8rX3iIJsZftM38fDx5Gyi7Y="
+          }
+        }
+      ]
+    },
+    {
+      "channel": "d6e02154-bbe1-4e01-bd00-6a651f693f69",
+      "input_FE": 189,
+      "actual_output_FE": 189,
+      "effective_remaining_FE": 0,
+      "SQL": {
+        "pool": 0,
+        "owned": 0,
+        "deposited": 189,
+        "allocated": 189,
+        "deposit_count": 2,
+        "allocation_count": 2,
+        "quarantined": [],
+        "transfers": [
+          {
+            "record_type": "transfer",
+            "id": "01a112c3-5270-7185-b4bd-7f0ee0b16144",
+            "endpoint_id": "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "DEPOSIT",
+            "state": "COMMITTED",
+            "amount": 128,
+            "remaining": 0,
+            "epoch": 6
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112c3-5292-7ce9-b954-a1427e48ca10",
+            "endpoint_id": "8a90c9fc-da69-44ea-a488-7b3382aba231",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "ALLOCATE",
+            "state": "CONSUMED",
+            "amount": 128,
+            "remaining": 0,
+            "epoch": 5
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112c3-6f58-7f01-b6d8-8081ed7e3692",
+            "endpoint_id": "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "DEPOSIT",
+            "state": "COMMITTED",
+            "amount": 61,
+            "remaining": 0,
+            "epoch": 6
+          },
+          {
+            "record_type": "transfer",
+            "id": "01a112c4-2c67-7f3d-9548-8fb777a31d3b",
+            "endpoint_id": "8a90c9fc-da69-44ea-a488-7b3382aba231",
+            "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+            "kind": "ALLOCATE",
+            "state": "CONSUMED",
+            "amount": 61,
+            "remaining": 0,
+            "epoch": 6
+          }
+        ]
+      },
+      "endpoint_rows": [
+        [
+          "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+          "opt-regression-68f32db-fast-A",
+          "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+          "d6e02154-bbe1-4e01-bd00-6a651f693f69",
+          "ACTIVE",
+          "9",
+          "7",
+          "1"
+        ],
+        [
+          "8a90c9fc-da69-44ea-a488-7b3382aba231",
+          "opt-regression-68f32db-fast-B",
+          "01a112a8-1da7-7da6-92bd-78ec872c272d",
+          "d6e02154-bbe1-4e01-bd00-6a651f693f69",
+          "ACTIVE",
+          "10",
+          "6",
+          "1"
+        ]
+      ],
+      "WAL": [
+        {
+          "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/7d5d6d01-5ea3-4590-9fa4-fca7f26710ac.ctj",
+          "decoded": {
+            "format": 2,
+            "endpoint": "7d5d6d01-5ea3-4590-9fa4-fca7f26710ac",
+            "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+            "generation": 1,
+            "revision": 9,
+            "deposits": [],
+            "credits": [],
+            "thermal": {
+              "microjoules": 0,
+              "residual": 0.0,
+              "pending": false
+            },
+            "sha256": "759ae31e477bf29c5f5418b86ae9df9adc4b97c82465079342a32dc5ab782d61",
+            "size_bytes": 113,
+            "checksum_verified": true,
+            "raw_base64": "Q1RUMQAAAAJ9XW0BXqNFkJ+k/KfyZxCsAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIXKcYjQyxhqamsofAF+Sv6HQyu/hOJbEklMeJvsdEpg="
+          }
+        },
+        {
+          "path": "run-B/world-opt-regression-68f32db-fast-B/cross_tesseract/journal/8a90c9fc-da69-44ea-a488-7b3382aba231.ctj",
+          "decoded": {
+            "format": 2,
+            "endpoint": "8a90c9fc-da69-44ea-a488-7b3382aba231",
+            "world": "01a112a8-1da7-7da6-92bd-78ec872c272d",
+            "generation": 1,
+            "revision": 10,
+            "deposits": [],
+            "credits": [],
+            "thermal": {
+              "microjoules": 0,
+              "residual": 0.0,
+              "pending": false
+            },
+            "sha256": "8c71c1649124f07ec71d39ce5b4a4f58b34501677e6efbd82de0127737261c09",
+            "size_bytes": 113,
+            "checksum_verified": true,
+            "raw_base64": "Q1RUMQAAAAKKkMn82mlE6qSIezOCq6IxAaESqB2nfaaSvXjshywnLQAAAAAAAAABAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfbvxSUcFfD0fLy1xaaxogy0/bkNKJXMO1rnVg9pSg/w="
+          }
+        }
+      ]
+    }
+  ],
+  "decision": "All378FE of the new two fixtures actually extracted, zero SQL/WAL/local asset; original first128 untouched. Only after this read-only gate may ROOT restore exactly the two flags under stopped launch locks; no business request replay.",
+  "stopped_servers": [
+    [
+      "opt-regression-68f32db-fast-A",
+      "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "01a112c3-fa21-72dc-8660-834e5f0f5813",
+      "7",
+      "STOPPED",
+      "1",
+      "0"
+    ],
+    [
+      "opt-regression-68f32db-fast-B",
+      "01a112a8-1da7-7da6-92bd-78ec872c272d",
+      "01a112c3-f9e8-7c3d-98c8-1b0f6a1dd1ca",
+      "6",
+      "STOPPED",
+      "1",
+      "0"
+    ],
+    [
+      "opt-regression-68f32db-fast-C",
+      "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+      "01a112c3-fac8-7995-921c-2d6ffd907129",
+      "3",
+      "STOPPED",
+      "1",
+      "0"
+    ]
+  ]
+}

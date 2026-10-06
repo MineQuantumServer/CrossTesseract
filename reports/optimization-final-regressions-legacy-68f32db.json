@@ -1,0 +1,40 @@
+{
+  "operator_runtime_revision": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "mode": "legacy",
+  "source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+  "transfer_flags": {
+    "transfer.channelBatches": "false",
+    "transfer.localFastPath": "false"
+  },
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/three-server-test.py"
+      ],
+      "utc_start": "2026-10-06T20:01:10Z",
+      "log": "logs/optimization-regression-legacy-three.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T20:01:39Z",
+      "report": "reports/three-68f32db-legacy.json",
+      "report_sha256": "450420d46e04c8db6f31901145f0d166fba0ee564fec506f96c436b7b96659c3"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-topology-test.py",
+        "--label",
+        "final-legacy-68f32db"
+      ],
+      "utc_start": "2026-10-06T20:01:39Z",
+      "log": "logs/optimization-regression-legacy-topology.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T20:03:15Z",
+      "report": "reports/optimization-topology-final-legacy-68f32db-20261006T200139Z-541bf9.json",
+      "report_sha256": "a8015cc4353d93b5efb76741707e0639a51adcaf335c15e052a75e7f0e41df82"
+    }
+  ],
+  "passed": true,
+  "scope": "Actual three Minecraft JVMs and isolated MySQL/Redis. Not a timed performance run. Online authentication, GUI and third-party save atomicity are not proved.",
+  "utc_end": "2026-10-06T20:03:18Z"
+}

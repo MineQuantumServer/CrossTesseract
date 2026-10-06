@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-06T10:22:49Z",
+  "cluster": "dev_three_v1",
+  "checks": [
+    {
+      "phase": "after_send_wal",
+      "sender": "51f6d325-95ba-48dc-ad90-0017aeedf07a",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_deposit",
+      "sender": "c2994b86-9e91-4099-8a8a-80246c35a38d",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_allocation",
+      "sender": "a2434c38-f90a-44ef-9440-b9208622949c",
+      "destination": "ddb8cee1-56ca-4da1-a5be-85a656ed2a04",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_receive_wal",
+      "sender": "22807128-41ff-4193-90b9-1d585850a26b",
+      "destination": "acb88b17-7781-417a-9fd3-e3cc19f51ae2",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_local_sql",
+      "sender": "4080063c-50f2-46fc-ac1b-77250b134e9d",
+      "destination": "3aacfe8d-1cbc-4411-a584-65b34984363a",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    }
+  ],
+  "scope": "Own WAL/SQL boundaries. External vanilla/third-party inventories remain outside the atomic transaction."
+}

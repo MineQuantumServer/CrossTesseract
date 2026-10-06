@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-06T13:45:17Z",
+  "passed": true,
+  "scope": "official NeoForge installer, actual packaged mod Jar-in-Jar only; no optional mods; real MySQL/Redis, two native FE capabilities and SQL/WAL delivery, clean stop",
+  "jar": "scratch/packaged/server/mods/cross_tesseract-0.1.0-dev.jar",
+  "sha256": "fc7a072581630ed39125d6bf00d362df5e51200f6dabc40c85a47d98b16975e8",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.252",
+  "capabilities": "cross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:item",
+  "status": "STATUS online tickets=0 {registered_loaded_endpoints=18, active_endpoints=18, worker_queue=0, actual_tickets=0, transactions=49, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=2, local_input_units=1234, local_output_units=1234, batch_devices=36, batch_records=22, batch_payload_bytes=0, local_wakes=3, remote_hint_wakes=3, poll_fallback=57, empty_batches=10, allocation_misses=18, local_credit_publications=1, local_ms_p50=0.004817, local_ms_p95=0.050977, local_ms_p99=0.121462, local_ms_samples=1230, queue_ms_p50=2.388886, queue_ms_p95=162.663978, queue_ms_p99=176.325168, queue_ms_samples=49, execution_ms_p50=22.80687, execution_ms_p95=58.369384, execution_ms_p99=66.019136, execution_ms_samples=49, apply_ms_p50=31.236457, apply_ms_p95=57.465822, apply_ms_p99=62.218456, apply_ms_samples=49, tick_ms_p50=0.256665, tick_ms_p95=1.502545, tick_ms_p99=3.538942, tick_ms_samples=120, delivery_ms_p50=99.704019, delivery_ms_p95=99.704019, delivery_ms_p99=99.704019, delivery_ms_samples=1, sql_ms_p50=22.803385, sql_ms_p95=58.368523, sql_ms_p99=66.018495, sql_ms_samples=49, db_transaction_ms_p50=11.400583, db_transaction_ms_p95=36.199186, db_transaction_ms_p99=55.117462, db_transaction_ms_samples=99, db_connection_wait_ms_p50=0.023606, db_connection_wait_ms_p95=6.184414, db_connection_wait_ms_p99=33.564011, db_connection_wait_ms_samples=100, db_transactions=99, db_transaction_attempts=99, db_statements=612, db_deadlock_retries=0, db_active_connections=0, wal_writes=21, wal_bytes=2653, wal_identical_skipped=16, wal_barrier_ms_p50=1.448824, wal_barrier_ms_p95=2.361134, wal_barrier_ms_p99=4.928628, wal_barrier_ms_samples=21, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=7.892494, mc_target_ticks_per_second=20.0}\n",
+  "log": "logs/packaged-smoke-75392af.log",
+  "source_revision": "75392af252744f240253d134d1da565a49b2cc9f"
+}

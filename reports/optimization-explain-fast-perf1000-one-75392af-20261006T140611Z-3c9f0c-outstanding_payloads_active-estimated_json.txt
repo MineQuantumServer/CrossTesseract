@@ -1,0 +1,155 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "4.07"
+    },
+    "ordering_operation": {
+      "using_filesort": true,
+      "cost_info": {
+        "sort_cost": "1.00"
+      },
+      "nested_loop": [
+        {
+          "table": {
+            "table_name": "t",
+            "access_type": "ALL",
+            "rows_examined_per_scan": 2,
+            "rows_produced_per_join": 1,
+            "filtered": "50.00",
+            "cost_info": {
+              "read_cost": "2.62",
+              "eval_cost": "0.10",
+              "prefix_cost": "2.73",
+              "data_read_per_join": "416"
+            },
+            "used_columns": [
+              "cluster_id",
+              "transfer_id",
+              "endpoint_id",
+              "channel_id",
+              "resource_id",
+              "amount",
+              "kind",
+              "state",
+              "epoch",
+              "remaining",
+              "created_at",
+              "rn"
+            ],
+            "attached_condition": "(`t`.`rn` <= 8)",
+            "materialized_from_subquery": {
+              "using_temporary_table": true,
+              "dependent": false,
+              "cacheable": true,
+              "query_block": {
+                "select_id": 2,
+                "cost_info": {
+                  "query_cost": "4.33"
+                },
+                "windowing": {
+                  "windows": [
+                    {
+                      "name": "<unnamed window>",
+                      "using_filesort": true,
+                      "filesort_key": [
+                        "`endpoint_id`",
+                        "`created_at`",
+                        "`transfer_id`"
+                      ],
+                      "functions": [
+                        "row_number"
+                      ]
+                    }
+                  ],
+                  "cost_info": {
+                    "sort_cost": "0.10"
+                  },
+                  "table": {
+                    "table_name": "owned",
+                    "access_type": "range",
+                    "possible_keys": [
+                      "PRIMARY",
+                      "endpoint_transfers",
+                      "cluster_id",
+                      "cluster_id_2",
+                      "ct_transfer_retention"
+                    ],
+                    "key": "endpoint_transfers",
+                    "used_key_parts": [
+                      "cluster_id",
+                      "endpoint_id",
+                      "state"
+                    ],
+                    "key_length": "200",
+                    "rows_examined_per_scan": 3,
+                    "rows_produced_per_join": 0,
+                    "filtered": "3.33",
+                    "index_condition": "((`cross_tesseract`.`owned`.`endpoint_id` = '21b97d57-f33a-457d-ba76-9927a2037788') and (`cross_tesseract`.`owned`.`cluster_id` = 'dev_perf_v1') and (`cross_tesseract`.`owned`.`state` <> 'QUARANTINED'))",
+                    "cost_info": {
+                      "read_cost": "4.22",
+                      "eval_cost": "0.01",
+                      "prefix_cost": "4.23",
+                      "data_read_per_join": "40"
+                    },
+                    "used_columns": [
+                      "cluster_id",
+                      "transfer_id",
+                      "endpoint_id",
+                      "channel_id",
+                      "resource_id",
+                      "amount",
+                      "kind",
+                      "state",
+                      "epoch",
+                      "remaining",
+                      "created_at"
+                    ],
+                    "attached_condition": "((`cross_tesseract`.`owned`.`kind` = 'ALLOCATE') and (`cross_tesseract`.`owned`.`remaining` > 0))"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "table": {
+            "table_name": "r",
+            "access_type": "eq_ref",
+            "possible_keys": [
+              "PRIMARY",
+              "resource_hash"
+            ],
+            "key": "PRIMARY",
+            "used_key_parts": [
+              "cluster_id",
+              "resource_id"
+            ],
+            "key_length": "102",
+            "ref": [
+              "t.cluster_id",
+              "t.resource_id"
+            ],
+            "rows_examined_per_scan": 1,
+            "rows_produced_per_join": 1,
+            "filtered": "100.00",
+            "cost_info": {
+              "read_cost": "0.25",
+              "eval_cost": "0.10",
+              "prefix_cost": "3.08",
+              "data_read_per_join": "248"
+            },
+            "used_columns": [
+              "cluster_id",
+              "resource_id",
+              "kind",
+              "format_version",
+              "payload_hash",
+              "payload"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

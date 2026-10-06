@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-06T11:14:54Z",
+  "cluster": "dev_three_v1",
+  "checks": [
+    {
+      "phase": "after_send_wal",
+      "sender": "0eff6297-9198-4d9f-9def-235649cc7b95",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_deposit",
+      "sender": "cdad5a7e-5197-4024-b516-830d893d4028",
+      "destination": null,
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_allocation",
+      "sender": "23a9af51-931f-4e7d-9630-483220dbaa5d",
+      "destination": "d9737daf-68e1-4c96-bdc0-4dcb7d313266",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_receive_wal",
+      "sender": "70b32d31-e247-4d8f-8908-6a191efde505",
+      "destination": "52cda0e5-715f-44e4-af88-a5ad674f9a27",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    },
+    {
+      "phase": "after_local_sql",
+      "sender": "843f952d-04d5-4275-a473-e16e21db506e",
+      "destination": "9bcdd61d-c76d-420c-ad46-418120cdba20",
+      "result": "actual halt=97; new epoch quarantined; ownership preserved; no timeout refund"
+    }
+  ],
+  "scope": "Own WAL/SQL boundaries. External vanilla/third-party inventories remain outside the atomic transaction."
+}

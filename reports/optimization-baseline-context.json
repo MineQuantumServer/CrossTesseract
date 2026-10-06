@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-06T08:58:53.515379+00:00",
+  "branch": "perf/channel-coordinator",
+  "head": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+  "initial_worktree_clean": true,
+  "versions": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.252",
+    "java": "Temurin 21.0.8+9",
+    "gradle": "9.2.1",
+    "mysql": "8.4.7",
+    "redis": "7.4.6",
+    "protocol": 1,
+    "resource_format": 1,
+    "wal_format": 2,
+    "schema": "V001-V004"
+  },
+  "fixtures": {
+    "cluster": "dev_three_v1",
+    "server_ids": [
+      "opt-baseline-A",
+      "opt-baseline-B",
+      "opt-baseline-C"
+    ],
+    "worlds": [
+      "world-opt-baseline-A",
+      "world-opt-baseline-B",
+      "world-opt-baseline-C"
+    ],
+    "optional_mods": [],
+    "existing_eula_records": [
+      "/workspace/run-A/eula.txt",
+      "/workspace/run-B/eula.txt",
+      "/workspace/run-C/eula.txt"
+    ]
+  },
+  "current_limits": {
+    "batch_ms": 200,
+    "workers": 3,
+    "worker_queue": 128,
+    "completion_queue": 256,
+    "checks_per_tick": 16,
+    "main_budget_ms": 2,
+    "deposits_per_endpoint": 8,
+    "channel_endpoints": 256,
+    "FE_buffer": 2000000,
+    "quota_per_owner": 2
+  },
+  "frozen_targets": {
+    "same_server_low_flow_p95_reduction_percent": 40,
+    "transactions_per_fixed_external_workload_reduction_percent": 30,
+    "idle_transactions_reduction_percent": 30,
+    "cross_server_p95_max_regression_percent": 20,
+    "fairness": "all eligible mixed receivers served; no added local priority",
+    "integrity": "ownership, lifecycle, and queue safety regression tests must pass"
+  },
+  "target_freeze_evidence": "10 persisted same-server low-flow probes at baseline HEAD 87bf217, observed upper intervals 2738-2841 ms; full baseline continues on immutable launch classes."
+}

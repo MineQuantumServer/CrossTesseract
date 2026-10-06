@@ -1,0 +1,93 @@
+{
+  "stage": "original",
+  "loaded_source_revision_declared": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-container-benchmark.py",
+        "--label",
+        "container-original2-87bf217",
+        "--operator-revision",
+        "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+        "--scenarios",
+        "same,cross,mixed",
+        "--probes",
+        "2",
+        "--timeout",
+        "420",
+        "--idle",
+        "2.2",
+        "--poll",
+        ".1",
+        "--execute"
+      ],
+      "loaded_source_revision_declared": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+      "utc_start": "2026-10-06T14:18:18Z",
+      "log": "logs/optimization-container-original2-87bf217.log",
+      "report": "reports/optimization-container-container-original2-87bf217-20261006T141818Z-8488a9.json",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T14:41:16Z",
+      "failures": [],
+      "regressions": [],
+      "report_sha256": "212c6dc79e00989e48ae43e8d7b475d8fcbba780fc099ef91ea1f25dc2ce600a"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-benchmark.py",
+        "--label",
+        "original-pressure-87bf217",
+        "--scenarios",
+        "backpressure,hotspot",
+        "--warmup",
+        "30",
+        "--seconds",
+        "120",
+        "--repeats",
+        "3",
+        "--probes",
+        "0"
+      ],
+      "loaded_source_revision_declared": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+      "utc_start": "2026-10-06T14:41:16Z",
+      "log": "logs/optimization-original-pressure-87bf217.log",
+      "report": "reports/optimization-original-pressure-87bf217-20261006T144116Z-38d872.json",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T14:58:07Z",
+      "failures": [],
+      "regressions": [],
+      "report_sha256": "2eef02f7cf00467abb7db371e137e8edc814ea900734362692af422a6cfd9f8e"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-benchmark.py",
+        "--label",
+        "original-final-87bf217",
+        "--scenarios",
+        "same,cross,mixed",
+        "--warmup",
+        "30",
+        "--seconds",
+        "120",
+        "--repeats",
+        "3",
+        "--probes",
+        "40"
+      ],
+      "loaded_source_revision_declared": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+      "utc_start": "2026-10-06T14:58:40Z",
+      "log": "logs/optimization-original-final-87bf217.log",
+      "report": "reports/optimization-original-final-87bf217-20261006T145840Z-0d4630.json",
+      "exit_code": 0,
+      "utc_end": "2026-10-06T15:48:13Z",
+      "failures": [],
+      "regressions": [],
+      "report_sha256": "35700d3cfff60022c381f38fab52a3d3daf745b842b1e29309a9cf68a1c5a676"
+    }
+  ],
+  "observers": "Single RCON workload observer only; no concurrent RCON/tick/SQL/JFR sidecars. Current per-run scripts retain their own fixed monitoring reads.",
+  "passed": true,
+  "utc_end": "2026-10-06T15:48:17Z"
+}

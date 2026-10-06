@@ -1,0 +1,83 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "0.51"
+    },
+    "nested_loop": [
+      {
+        "table": {
+          "table_name": "r",
+          "access_type": "ref",
+          "possible_keys": [
+            "PRIMARY",
+            "resource_hash"
+          ],
+          "key": "PRIMARY",
+          "used_key_parts": [
+            "cluster_id"
+          ],
+          "key_length": "66",
+          "ref": [
+            "const"
+          ],
+          "rows_examined_per_scan": 1,
+          "rows_produced_per_join": 0,
+          "filtered": "10.00",
+          "cost_info": {
+            "read_cost": "0.25",
+            "eval_cost": "0.01",
+            "prefix_cost": "0.35",
+            "data_read_per_join": "24"
+          },
+          "used_columns": [
+            "cluster_id",
+            "resource_id",
+            "kind"
+          ],
+          "attached_condition": "(`cross_tesseract`.`r`.`kind` = 'cross_tesseract:fe')"
+        }
+      },
+      {
+        "table": {
+          "table_name": "t",
+          "access_type": "ref",
+          "possible_keys": [
+            "PRIMARY",
+            "endpoint_transfers",
+            "cluster_id",
+            "cluster_id_2",
+            "ct_transfer_retention"
+          ],
+          "key": "endpoint_transfers",
+          "used_key_parts": [
+            "cluster_id",
+            "endpoint_id"
+          ],
+          "key_length": "102",
+          "ref": [
+            "const",
+            "const"
+          ],
+          "rows_examined_per_scan": 2,
+          "rows_produced_per_join": 0,
+          "filtered": "2.50",
+          "cost_info": {
+            "read_cost": "0.15",
+            "eval_cost": "0.00",
+            "prefix_cost": "0.52",
+            "data_read_per_join": "2"
+          },
+          "used_columns": [
+            "cluster_id",
+            "endpoint_id",
+            "resource_id",
+            "kind",
+            "remaining"
+          ],
+          "attached_condition": "((`cross_tesseract`.`t`.`resource_id` = `cross_tesseract`.`r`.`resource_id`) and (`cross_tesseract`.`t`.`kind` = 'ALLOCATE') and (`cross_tesseract`.`t`.`remaining` > 0))"
+        }
+      }
+    ]
+  }
+}

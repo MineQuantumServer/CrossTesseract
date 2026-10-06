@@ -1,0 +1,11 @@
+-> Nested loop inner join  (cost=4.46 rows=3) (actual time=0.0852..0.0854 rows=1 loops=1)
+    -> Sort: t.endpoint_id, t.rn  (cost=3.91..3.91 rows=3) (actual time=0.0782..0.0782 rows=1 loops=1)
+        -> Filter: (t.rn <= 8)  (cost=1.25..3.14 rows=3) (actual time=0.0729..0.0732 rows=1 loops=1)
+            -> Table scan on t  (cost=1.15..2.84 rows=3) (actual time=0.0721..0.0722 rows=1 loops=1)
+                -> Materialize  (cost=0.3..0.3 rows=3) (actual time=0.0701..0.0701 rows=1 loops=1)
+                    -> Window aggregate: row_number() OVER (PARTITION BY owned.endpoint_id ORDER BY owned.created_at,owned.transfer_id )   (cost=0 rows=3) (actual time=0.0421..0.0422 rows=1 loops=1)
+                        -> Sort: owned.endpoint_id, owned.created_at, owned.transfer_id  (cost=4.23 rows=3) (actual time=0.0369..0.037 rows=1 loops=1)
+                            -> Filter: ((owned.kind = 'ALLOCATE') and (owned.remaining > 0))  (cost=4.23 rows=3) (actual time=0.0275..0.0304 rows=1 loops=1)
+                                -> Index range scan on owned using endpoint_transfers over (cluster_id = 'dev_perf_v1' AND endpoint_id = '21b97d57-f33a-457d-ba76-9927a2037788' AND state < 'QUARANTINED') OR (cluster_id = 'dev_perf_v1' AND endpoint_id = '21b97d57-f33a-457d-ba76-9927a2037788' AND 'QUARANTINED' < state), with index condition: ((owned.endpoint_id = '21b97d57-f33a-457d-ba76-9927a2037788') and (owned.cluster_id = 'dev_perf_v1') and (owned.state <> 'QUARANTINED'))  (cost=4.23 rows=3) (actual time=0.0254..0.0289 rows=2 loops=1)
+    -> Single-row index lookup on r using PRIMARY (cluster_id=t.cluster_id, resource_id=t.resource_id)  (cost=0.35 rows=1) (actual time=0.00601..0.00604 rows=1 loops=1)
+

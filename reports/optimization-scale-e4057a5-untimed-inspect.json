@@ -1,0 +1,486 @@
+{
+  "scope": "untimed diagnosis after initial e4057a5 scale measurement; real inspect responses",
+  "source_commit": "e4057a5d97d4d8989a727da13851954f33f7702e",
+  "rows": [
+    {
+      "i": 0,
+      "reply": "DEVICE b37082a1-4f7b-4a45-bb4f-1370a7c6c5cc registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1022\n",
+      "observed_monotonic": 17762.849453752
+    },
+    {
+      "i": 1,
+      "reply": "DEVICE 9307faa4-d0e9-4c43-ae26-7881730f1cef registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=33\n",
+      "observed_monotonic": 17762.852297641
+    },
+    {
+      "i": 2,
+      "reply": "DEVICE 49f0603b-a1db-47d8-a104-5d6f258b4cc1 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1020\n",
+      "observed_monotonic": 17762.853150832
+    },
+    {
+      "i": 3,
+      "reply": "DEVICE 6eeccb77-8821-4d14-af3f-9e9db6c2937e registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=28\n",
+      "observed_monotonic": 17762.853770102
+    },
+    {
+      "i": 4,
+      "reply": "DEVICE 96a8a8b5-909e-4e51-9cf3-a7ed51a81ff6 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1023\n",
+      "observed_monotonic": 17762.85451497
+    },
+    {
+      "i": 5,
+      "reply": "DEVICE f34d4d82-2cac-40e7-9371-a1f5cba3e944 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=27\n",
+      "observed_monotonic": 17762.855237444
+    },
+    {
+      "i": 6,
+      "reply": "DEVICE 7e918100-455c-4eb2-9d6e-8309aa51ef60 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1024\n",
+      "observed_monotonic": 17762.856632138
+    },
+    {
+      "i": 7,
+      "reply": "DEVICE e4723976-a23c-4c52-8a1a-5696c3fb40e1 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=31\n",
+      "observed_monotonic": 17762.857085538
+    },
+    {
+      "i": 8,
+      "reply": "DEVICE c8f6bf85-2c16-4344-9fc3-e5918b7ebb64 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1021\n",
+      "observed_monotonic": 17762.857866501
+    },
+    {
+      "i": 9,
+      "reply": "DEVICE e0e24a83-1e4f-4620-9b5e-96e079a4783e registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=25\n",
+      "observed_monotonic": 17762.858955846
+    },
+    {
+      "i": 10,
+      "reply": "DEVICE 254ca90d-5694-4451-878d-1c626882e38a registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1023\n",
+      "observed_monotonic": 17762.85995115
+    },
+    {
+      "i": 11,
+      "reply": "DEVICE 42d20020-3c6c-46db-aa01-484c54792667 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=32\n",
+      "observed_monotonic": 17762.865197394
+    },
+    {
+      "i": 12,
+      "reply": "DEVICE d15e31c9-c568-4878-b3fd-0db055434c33 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1029\n",
+      "observed_monotonic": 17762.865990565
+    },
+    {
+      "i": 13,
+      "reply": "DEVICE 18c8aac1-d410-49d8-b1ff-5f08981629a3 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=30\n",
+      "observed_monotonic": 17762.866810085
+    },
+    {
+      "i": 14,
+      "reply": "DEVICE 58cb62b3-83d9-47b9-a6fb-5b0add3328e7 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1036\n",
+      "observed_monotonic": 17762.868396857
+    },
+    {
+      "i": 15,
+      "reply": "DEVICE 4646ef9e-2ccf-4176-926a-04f8b700d61b registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=41\n",
+      "observed_monotonic": 17762.869129376
+    },
+    {
+      "i": 16,
+      "reply": "DEVICE 487eee53-8854-4853-b351-5a1d8423301c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=3000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1015\n",
+      "observed_monotonic": 17762.872565114
+    },
+    {
+      "i": 17,
+      "reply": "DEVICE e135771d-883e-45d2-8351-65ecd66fd138 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=29\n",
+      "observed_monotonic": 17762.87394173
+    },
+    {
+      "i": 18,
+      "reply": "DEVICE 08d5d73f-1e56-40b6-8a03-293b6ffdf2f9 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=3000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1015\n",
+      "observed_monotonic": 17762.874737394
+    },
+    {
+      "i": 19,
+      "reply": "DEVICE 6f6fc38e-1b5c-4382-a8ef-f616f662e335 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=25\n",
+      "observed_monotonic": 17762.876136404
+    },
+    {
+      "i": 20,
+      "reply": "DEVICE 37018025-ab90-4346-8c26-8056435ff76c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1023\n",
+      "observed_monotonic": 17762.87704612
+    },
+    {
+      "i": 21,
+      "reply": "DEVICE 6ad827d8-28e7-43b7-9f22-d4e1e4453018 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=32\n",
+      "observed_monotonic": 17762.878106351
+    },
+    {
+      "i": 22,
+      "reply": "DEVICE aac3f50a-06e3-45b7-8d9d-9c90a0ad7929 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1025\n",
+      "observed_monotonic": 17762.879035546
+    },
+    {
+      "i": 23,
+      "reply": "DEVICE 8eb9f365-86e9-414b-b526-36b1b86c6f03 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=36\n",
+      "observed_monotonic": 17762.879708346
+    },
+    {
+      "i": 24,
+      "reply": "DEVICE 410c7a0d-2c62-4211-8c13-e879a61ee161 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1027\n",
+      "observed_monotonic": 17762.880434986
+    },
+    {
+      "i": 25,
+      "reply": "DEVICE 08af6075-0357-4ac4-8fef-87690047d579 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=29\n",
+      "observed_monotonic": 17762.881369048
+    },
+    {
+      "i": 26,
+      "reply": "DEVICE 5bb517f2-5075-4077-9c32-6c1bcc66cfda registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1029\n",
+      "observed_monotonic": 17762.884046007
+    },
+    {
+      "i": 27,
+      "reply": "DEVICE 1ecc1c99-e0d9-41cc-a6e3-7053c59ba93f registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=32\n",
+      "observed_monotonic": 17762.884911566
+    },
+    {
+      "i": 28,
+      "reply": "DEVICE 6097dfb4-a167-4d48-b01a-420e2151adf7 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1039\n",
+      "observed_monotonic": 17762.885713209
+    },
+    {
+      "i": 29,
+      "reply": "DEVICE 311cbe18-be73-4a6a-8732-1666f16047b3 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=26\n",
+      "observed_monotonic": 17762.88750554
+    },
+    {
+      "i": 30,
+      "reply": "DEVICE d7537387-d88e-4525-bcd5-5e796fb505c7 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1040\n",
+      "observed_monotonic": 17762.893529051
+    },
+    {
+      "i": 31,
+      "reply": "DEVICE b622f0e6-9e50-4ff9-b9b3-57156773a234 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=36\n",
+      "observed_monotonic": 17762.894384515
+    },
+    {
+      "i": 32,
+      "reply": "DEVICE a6ca7cb0-6420-4832-8f75-7400ea842146 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1025\n",
+      "observed_monotonic": 17762.895695753
+    },
+    {
+      "i": 33,
+      "reply": "DEVICE 1a85a02e-812f-4bb2-bc98-abbc0a2bedf9 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=55000 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=33\n",
+      "observed_monotonic": 17762.896440661
+    },
+    {
+      "i": 34,
+      "reply": "DEVICE 64b35cf0-0a1f-4e5f-870a-76a3590f7ff6 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1028\n",
+      "observed_monotonic": 17762.901065904
+    },
+    {
+      "i": 35,
+      "reply": "DEVICE b48bd52d-d670-4dc0-a357-fff19bd0a6c4 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=28\n",
+      "observed_monotonic": 17762.901906726
+    },
+    {
+      "i": 36,
+      "reply": "DEVICE 811da8ec-9d0e-48d5-9661-c61e6f31302b registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1025\n",
+      "observed_monotonic": 17762.904766889
+    },
+    {
+      "i": 37,
+      "reply": "DEVICE 4e8c0478-c14c-407c-803c-a9f8f980787f registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=28\n",
+      "observed_monotonic": 17762.905422684
+    },
+    {
+      "i": 38,
+      "reply": "DEVICE 9fbce3e0-bd3c-4698-a05e-5fee0558e580 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1022\n",
+      "observed_monotonic": 17762.906216405
+    },
+    {
+      "i": 39,
+      "reply": "DEVICE 52c1d56d-b5e9-4f5c-b8a7-94d590658793 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=42\n",
+      "observed_monotonic": 17762.908900164
+    },
+    {
+      "i": 40,
+      "reply": "DEVICE f1decbb6-ad27-4f9f-b7f1-e0679876504f registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1023\n",
+      "observed_monotonic": 17762.909485692
+    },
+    {
+      "i": 41,
+      "reply": "DEVICE 4f713d2d-c874-40cc-86c9-b8f94ca7fff2 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=32\n",
+      "observed_monotonic": 17762.910064141
+    },
+    {
+      "i": 42,
+      "reply": "DEVICE 61514349-dc02-4c0c-8715-43f51b32178a registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1028\n",
+      "observed_monotonic": 17762.911192825
+    },
+    {
+      "i": 43,
+      "reply": "DEVICE 1232fa08-9e59-4e42-82f2-e53a1c0fa29a registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=37\n",
+      "observed_monotonic": 17762.91180947
+    },
+    {
+      "i": 44,
+      "reply": "DEVICE b343e360-1613-4fbc-8961-3d2a0899e380 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1014\n",
+      "observed_monotonic": 17762.91239567
+    },
+    {
+      "i": 45,
+      "reply": "DEVICE 62c5eef8-9098-4320-8ca8-cc489f11eb03 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=34\n",
+      "observed_monotonic": 17762.913200178
+    },
+    {
+      "i": 46,
+      "reply": "DEVICE d66fef50-6fea-4c73-8eaf-6a4eedda9c2a registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1016\n",
+      "observed_monotonic": 17762.913746688
+    },
+    {
+      "i": 47,
+      "reply": "DEVICE b96287a3-a65a-4ebc-bf97-2d9b0ec79862 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=22\n",
+      "observed_monotonic": 17762.914308782
+    },
+    {
+      "i": 48,
+      "reply": "DEVICE b968c549-4352-467e-b8d9-dbcfc5e177a0 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1014\n",
+      "observed_monotonic": 17762.91534695
+    },
+    {
+      "i": 49,
+      "reply": "DEVICE 1b43513e-e185-412d-9ad4-98ed8cf26399 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=148000 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=33\n",
+      "observed_monotonic": 17762.915893871
+    },
+    {
+      "i": 50,
+      "reply": "DEVICE 4830f486-d804-41df-8803-067448813176 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1016\n",
+      "observed_monotonic": 17762.916569095
+    },
+    {
+      "i": 51,
+      "reply": "DEVICE 9d84474c-1905-46a2-9c05-ce12eb4e860e registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=35\n",
+      "observed_monotonic": 17762.918447134
+    },
+    {
+      "i": 52,
+      "reply": "DEVICE 61356fe3-27a2-484b-a825-10e13828420c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1029\n",
+      "observed_monotonic": 17762.925035874
+    },
+    {
+      "i": 53,
+      "reply": "DEVICE 1805cf5b-0f94-47b1-87e5-2a908ab58849 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=68000 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=38\n",
+      "observed_monotonic": 17762.927826242
+    },
+    {
+      "i": 54,
+      "reply": "DEVICE cf42d216-b19c-4377-b1f0-9586d56ed0e6 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1026\n",
+      "observed_monotonic": 17762.928635426
+    },
+    {
+      "i": 55,
+      "reply": "DEVICE c3cf8f97-948c-4a9a-8eeb-93eda6ac0d24 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=31\n",
+      "observed_monotonic": 17762.929320355
+    },
+    {
+      "i": 56,
+      "reply": "DEVICE efaa364a-7d58-415b-af28-829885f49274 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1039\n",
+      "observed_monotonic": 17762.929874266
+    },
+    {
+      "i": 57,
+      "reply": "DEVICE c733cb23-b651-49ce-8852-b4e3fdeee09e registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=29\n",
+      "observed_monotonic": 17762.930397291
+    },
+    {
+      "i": 58,
+      "reply": "DEVICE 112ee8dc-e5d5-4ac6-94ae-b4ee8d90d75c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1037\n",
+      "observed_monotonic": 17762.931000737
+    },
+    {
+      "i": 59,
+      "reply": "DEVICE 3c104f2b-6699-422a-b50c-3bacf36942c8 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=43\n",
+      "observed_monotonic": 17762.931529571
+    },
+    {
+      "i": 60,
+      "reply": "DEVICE 19a63009-d2d8-4edd-ad29-3d33fa750811 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1034\n",
+      "observed_monotonic": 17762.936109365
+    },
+    {
+      "i": 61,
+      "reply": "DEVICE d50a018b-a712-4609-980e-bc879abc6ab1 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=37\n",
+      "observed_monotonic": 17762.936817288
+    },
+    {
+      "i": 62,
+      "reply": "DEVICE 0e7cf2e4-a9e4-4de6-920c-fef4ef3499b2 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1029\n",
+      "observed_monotonic": 17762.93748478
+    },
+    {
+      "i": 63,
+      "reply": "DEVICE fbbc1d58-383c-4e86-bfac-b58ccda98ef3 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=29\n",
+      "observed_monotonic": 17762.93812426
+    },
+    {
+      "i": 64,
+      "reply": "DEVICE 01c15af6-afb4-44e2-b245-1a82c3cc1785 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1023\n",
+      "observed_monotonic": 17762.938723129
+    },
+    {
+      "i": 65,
+      "reply": "DEVICE e5abf495-a07f-4aae-aee6-9f46d8eef5f7 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=14000 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=33\n",
+      "observed_monotonic": 17762.939358493
+    },
+    {
+      "i": 66,
+      "reply": "DEVICE e10af217-6f52-4f48-9259-8aa12f343f2c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1026\n",
+      "observed_monotonic": 17762.939905223
+    },
+    {
+      "i": 67,
+      "reply": "DEVICE 83d065f3-fba4-4e34-8481-8184d90dbfd6 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=32\n",
+      "observed_monotonic": 17762.940570211
+    },
+    {
+      "i": 68,
+      "reply": "DEVICE 62ad5da0-109d-43c8-a0fb-ab8fae1d5716 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1032\n",
+      "observed_monotonic": 17762.941236311
+    },
+    {
+      "i": 69,
+      "reply": "DEVICE 240ff24d-9144-40be-83b4-05fa432413b1 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=34\n",
+      "observed_monotonic": 17762.941665826
+    },
+    {
+      "i": 70,
+      "reply": "DEVICE c6a0d25a-3c53-4a9b-aafa-1ffa827da5c3 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1037\n",
+      "observed_monotonic": 17762.94228802
+    },
+    {
+      "i": 71,
+      "reply": "DEVICE 9fe95228-96f1-4c33-b15b-de626ae4a3bd registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=36\n",
+      "observed_monotonic": 17762.942765156
+    },
+    {
+      "i": 72,
+      "reply": "DEVICE cc4ceaa9-019a-4489-8f7b-e2353f75b03c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1014\n",
+      "observed_monotonic": 17762.943222452
+    },
+    {
+      "i": 73,
+      "reply": "DEVICE c00e15e7-4d10-4cf3-8d8b-d623c7936b34 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=33\n",
+      "observed_monotonic": 17762.94424036
+    },
+    {
+      "i": 74,
+      "reply": "DEVICE ff397cd4-75de-4079-a175-8be5741112d7 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1021\n",
+      "observed_monotonic": 17762.944913621
+    },
+    {
+      "i": 75,
+      "reply": "DEVICE 35bc2ffe-5611-402c-add6-b668772c7f30 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=37\n",
+      "observed_monotonic": 17762.94607236
+    },
+    {
+      "i": 76,
+      "reply": "DEVICE 212199c0-7f92-4c8a-8675-ba044dd9abc2 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1022\n",
+      "observed_monotonic": 17762.946823928
+    },
+    {
+      "i": 77,
+      "reply": "DEVICE 769407ba-f87e-4026-a2ad-2ba63f5aee92 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=37\n",
+      "observed_monotonic": 17762.94745137
+    },
+    {
+      "i": 78,
+      "reply": "DEVICE 1120e7f7-b165-488e-a25c-4a8553082979 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1023\n",
+      "observed_monotonic": 17762.950574778
+    },
+    {
+      "i": 79,
+      "reply": "DEVICE c7eec4f3-844c-44da-9c94-d62a7a527994 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=24\n",
+      "observed_monotonic": 17762.953346539
+    },
+    {
+      "i": 80,
+      "reply": "DEVICE 64d415c3-099d-42ca-8301-81fc24629147 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1016\n",
+      "observed_monotonic": 17762.960130702
+    },
+    {
+      "i": 81,
+      "reply": "DEVICE 64baf467-f122-4994-8175-585131cc90b2 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=31\n",
+      "observed_monotonic": 17762.960763512
+    },
+    {
+      "i": 82,
+      "reply": "DEVICE b0da69c0-d9ae-4242-912e-d47119f9da6c registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1017\n",
+      "observed_monotonic": 17762.961245575
+    },
+    {
+      "i": 83,
+      "reply": "DEVICE 4be45e96-b47e-4a97-874d-571e128b5d85 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=24\n",
+      "observed_monotonic": 17762.962702873
+    },
+    {
+      "i": 84,
+      "reply": "DEVICE ea3ac04a-6dda-46a5-aec3-b45cd1c818f9 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1026\n",
+      "observed_monotonic": 17762.963197645
+    },
+    {
+      "i": 85,
+      "reply": "DEVICE 75e1dcb8-8952-4097-a363-2f4e2266f073 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=27\n",
+      "observed_monotonic": 17762.96376002
+    },
+    {
+      "i": 86,
+      "reply": "DEVICE e2f0e16f-dced-455b-9391-29a2c4e412e3 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1025\n",
+      "observed_monotonic": 17762.964296645
+    },
+    {
+      "i": 87,
+      "reply": "DEVICE ce7ffec5-a167-41ae-a788-bed71961c768 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=33\n",
+      "observed_monotonic": 17762.968261236
+    },
+    {
+      "i": 88,
+      "reply": "DEVICE 8c361f63-7724-4c98-b1c9-3b6d547b4a06 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1029\n",
+      "observed_monotonic": 17762.972558196
+    },
+    {
+      "i": 89,
+      "reply": "DEVICE 86d8711d-5c60-4a49-99b9-58fb685296b3 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=28\n",
+      "observed_monotonic": 17762.976108996
+    },
+    {
+      "i": 90,
+      "reply": "DEVICE 846041af-3132-4bd6-a180-378f4a2b607b registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=1000 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1013\n",
+      "observed_monotonic": 17762.976682657
+    },
+    {
+      "i": 91,
+      "reply": "DEVICE 2403e2ae-5e38-447a-a93c-0450aed14c4e registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=26\n",
+      "observed_monotonic": 17762.977260033
+    },
+    {
+      "i": 92,
+      "reply": "DEVICE 3012e7e9-9557-4ec4-bf5e-f354de65cdc0 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1014\n",
+      "observed_monotonic": 17762.977764861
+    },
+    {
+      "i": 93,
+      "reply": "DEVICE f4a8a222-e830-48fc-a573-09c164d83a09 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=25\n",
+      "observed_monotonic": 17762.978223249
+    },
+    {
+      "i": 94,
+      "reply": "DEVICE ba496f8b-3ac7-490a-86cd-983808709aa8 registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=1019\n",
+      "observed_monotonic": 17762.978691913
+    },
+    {
+      "i": 95,
+      "reply": "DEVICE cab32550-b88a-493b-91ec-a9f61c087e6f registered=true pause= channel=fef764e7-f798-4c49-817a-1cc7e08f17c8 txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=28\n",
+      "observed_monotonic": 17762.979177482
+    }
+  ]
+}

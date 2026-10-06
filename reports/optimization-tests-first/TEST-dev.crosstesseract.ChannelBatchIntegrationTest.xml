@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.ChannelBatchIntegrationTest" tests="13" skipped="0" failures="1" errors="0" timestamp="2026-10-06T10:09:37.076Z" hostname="13edb0cae2c6" time="1.128">
+  <properties/>
+  <testcase name="oneCorruptOutstandingPayloadIsQuarantinedWithoutRollingBackHealthyDeviceWork()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.105"/>
+  <testcase name="replayingCapturedBusinessIdsDoesNotDuplicateDepositsCreditsOrPublication(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.086"/>
+  <testcase name="authorizedReservedWalRecoveryConfirmsFencedSqlPublicationBeforeReturningCredit(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.054"/>
+  <testcase name="staleVersionAndRevokedEndpointRollBackTheirSavepointsWhileAnotherDeviceCommits()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.079"/>
+  <testcase name="fullOwnedItemAndFeCandidatesIncludingQuarantineCannotBlockOtherServers()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.043">
+    <failure message="dev.crosstesseract.core.DomainException: payload_hash_collision" type="dev.crosstesseract.core.DomainException">dev.crosstesseract.core.DomainException: payload_hash_collision
+	at app//dev.crosstesseract.core.DomainException.require(DomainException.java:8)
+	at app//dev.crosstesseract.backend.Authority.resource(Authority.java:300)
+	at app//dev.crosstesseract.backend.Authority.batchResource(Authority.java:332)
+	at app//dev.crosstesseract.backend.Authority.deposit(Authority.java:431)
+	at app//dev.crosstesseract.backend.Authority.lambda$deposit$40(Authority.java:416)
+	at app//dev.crosstesseract.backend.Sql.transaction(Sql.java:34)
+	at app//dev.crosstesseract.backend.Authority.deposit(Authority.java:416)
+	at app//dev.crosstesseract.ChannelBatchIntegrationTest.fullOwnedItemAndFeCandidatesIncludingQuarantineCannotBlockOtherServers(ChannelBatchIntegrationTest.java:237)
+	at java.base@21.0.8/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.8/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.8/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="registeredRemoteDemandKeepsPriorityOverLocalBatchesAndAllThreeAuthoritiesConserve()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.13"/>
+  <testcase name="freshPublicationAuthorizationRejectsRevokedCreditWithoutRefundAndKeepsOthersWorking(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.091"/>
+  <testcase name="differentCompletePayloadBytesRemainSeparateInDepositsAndAllocations()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.087"/>
+  <testcase name="longOverflowRollsBackOneDeviceIncludingItsNewResourceWhileOtherDevicesCommit()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.079"/>
+  <testcase name="aNewBootFencesBothOldSqlAndOldPublicationPhases(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.092"/>
+  <testcase name="walReservedCreditCannotOpenAfterReceivePermissionWasRevoked(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.093"/>
+  <testcase name="exhaustedWalCreditSurvivesRestoreUntilSqlCheckpointAndCannotBeRediscovered(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.081"/>
+  <testcase name="multipleDeviceSqlAndWalPublicationPhasesEachCommitOneTransaction(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.101"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

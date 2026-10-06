@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-06T10:17:51Z",
+  "scope": "Real NeoForge GameTest JVMs with real MySQL/Redis; GT is exact FortyTwoCn source plus disclosed local ModularUI 3.3.1 alternative.",
+  "combinations": [
+    {
+      "combination": "base",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 7,
+      "optional_mods_present": true,
+      "log": "logs/matrix-base.log"
+    },
+    {
+      "combination": "mekanism",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 9,
+      "optional_mods_present": true,
+      "log": "logs/matrix-mekanism.log"
+    },
+    {
+      "combination": "ae2",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 10,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2.log"
+    },
+    {
+      "combination": "ae2-mekanism",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 12,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2-mekanism.log"
+    },
+    {
+      "combination": "gregtech",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 9,
+      "optional_mods_present": true,
+      "log": "logs/matrix-gregtech.log"
+    },
+    {
+      "combination": "gregtech-mekanism",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 11,
+      "optional_mods_present": true,
+      "log": "logs/matrix-gregtech-mekanism.log"
+    },
+    {
+      "combination": "ae2-gregtech",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 12,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2-gregtech.log"
+    },
+    {
+      "combination": "ae2-gregtech-mekanism",
+      "passed": false,
+      "required_native_tests": null,
+      "minimum_expected_tests": 14,
+      "optional_mods_present": true,
+      "log": "logs/matrix-ae2-gregtech-mekanism.log"
+    }
+  ],
+  "source_commit": "f6c6217",
+  "result": "first run: required new fixture timeout failed; retained, not a pass"
+}

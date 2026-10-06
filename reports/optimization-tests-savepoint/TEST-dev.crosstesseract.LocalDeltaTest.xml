@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.LocalDeltaTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-06T13:36:12.879Z" hostname="13edb0cae2c6" time="0.083">
+  <properties/>
+  <testcase name="disabledCleanPendingDepositsDoNotRequestEmptySqlButRemainDurable(Path)" classname="dev.crosstesseract.LocalDeltaTest" time="0.002"/>
+  <testcase name="prospectiveAdmissionHonorsPerKindCountsAndGlobalUnconfirmedTombstones()" classname="dev.crosstesseract.LocalDeltaTest" time="0.003"/>
+  <testcase name="identicalWalVersionsMayRepeatButDifferentContentsAndOldVersionsAreRejected(Path)" classname="dev.crosstesseract.LocalDeltaTest" time="0.003"/>
+  <testcase name="randomizedCapturedDeltasAndWalRestorationConserveWithFixedSeed(Path)" classname="dev.crosstesseract.LocalDeltaTest" time="0.066"/>
+  <testcase name="prospectiveAdmissionIsNonMutatingAndAccountsForAllIncomingCreditsTogether()" classname="dev.crosstesseract.LocalDeltaTest" time="0.002"/>
+  <testcase name="capturedCompletionPreservesNewInputConsumptionAndUnconfirmedZeroCredits(Path)" classname="dev.crosstesseract.LocalDeltaTest" time="0.003"/>
+  <system-out><![CDATA[LocalDeltaTest seed=2026100601 scenarios=64
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "report_kind": "read_only_authority_explain",
+  "label": "fast-perf1000-75392af",
+  "utc_start": "2026-10-06T14:05:16.107568+00:00",
+  "observer_monotonic_start": 19911.560876439,
+  "cluster": "dev_perf_v1",
+  "resource_kind": "cross_tesseract:fe",
+  "port": 25578,
+  "passed": false,
+  "conditions": {
+    "endpoints_per_channel_plan": 16,
+    "analyze": true,
+    "include_recovery": true,
+    "timeout_seconds": 30,
+    "known_transfer_count": 0
+  },
+  "scope": {
+    "timing": "Post-measurement diagnostic. EXPLAIN ANALYZE executes these read-only SELECTs, warms caches and adds load; not timed-run throughput/E2E.",
+    "session": "Root account in established isolated local dev MySQL; no ct_dev observer pollution.",
+    "locking": "SELECT-only autocommit snapshot; Authority normally holds its channel lock. This helper does not emulate mutation/lock context.",
+    "statement_units": "Observer SELECT count and plan count separately recorded; not mod JDBC call frequency.",
+    "identity": "Actual live RCON perf fixture and matching SQL world/session/fencing generation required.",
+    "source": "Templates extracted from current Authority worktree, source line/hash/git evidence recorded; not assumed equal to loaded JVM without operator build evidence."
+  },
+  "source_provenance": {
+    "path": "/workspace/src/main/java/dev/crosstesseract/backend/Authority.java",
+    "sha256": "5ccb1918ed1cdc364528f3055c0219e49e4a29fba15778a9ec0d26e6d0450475",
+    "git_head": "75392af252744f240253d134d1da565a49b2cc9f",
+    "Authority_worktree_status": ""
+  },
+  "query_specs": {
+    "global_candidate": {
+      "template": "SELECT d.endpoint_id,d.room,d.profile_hash,d.quantum FROM ct_demands d JOIN ct_endpoints e ON e.cluster_id=d.cluster_id AND e.endpoint_id=d.endpoint_id JOIN ct_servers s ON s.cluster_id=e.cluster_id AND s.server_id=e.server_id JOIN ct_channels ch ON ch.cluster_id=d.cluster_id AND ch.channel_id=d.channel_id LEFT JOIN ct_members m ON m.cluster_id=e.cluster_id AND m.channel_id=e.channel_id AND m.player_uuid=e.device_owner WHERE d.cluster_id=? AND d.channel_id=? AND d.kind=? AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND e.channel_id=d.channel_id AND e.world_id=s.world_id AND e.last_epoch=s.fencing_epoch AND e.recovery_generation=(SELECT recovery_generation FROM ct_clusters WHERE cluster_id=d.cluster_id) AND e.state='ACTIVE' AND s.lease_until>CURRENT_TIMESTAMP(6) AND s.protocol_version=1 AND s.format_version=1 AND FIND_IN_SET(d.kind,s.capabilities)>0 AND (ch.owner_uuid=e.device_owner OR (m.permissions & 4)=4) AND (SELECT COUNT(*) FROM ct_transfers t WHERE t.cluster_id=d.cluster_id AND t.endpoint_id=d.endpoint_id AND t.kind='ALLOCATE' AND t.remaining>0)<64 AND (SELECT COUNT(*) FROM ct_transfers t JOIN ct_resources tr ON tr.cluster_id=t.cluster_id AND tr.resource_id=t.resource_id WHERE t.cluster_id=d.cluster_id AND t.endpoint_id=d.endpoint_id AND t.kind='ALLOCATE' AND t.remaining>0 AND tr.kind=d.kind)<CASE WHEN d.kind IN ('cross_tesseract:fe','cross_tesseract:gt_eu') THEN 32 WHEN d.kind='cross_tesseract:item' THEN 9 ELSE 4 END AND COALESCE((SELECT used FROM ct_history_buckets hb WHERE hb.cluster_id=e.cluster_id AND hb.server_id=e.server_id),0)<(SELECT history_limit FROM ct_clusters WHERE cluster_id=d.cluster_id) AND EXISTS(SELECT 1 FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id=d.cluster_id AND b.channel_id=d.channel_id AND r.kind=d.kind AND r.format_version=1 AND b.amount>=d.quantum AND (d.profile_hash IS NULL OR d.profile_hash=r.payload_hash)) ORDER BY d.last_grant,d.endpoint_id LIMIT 1",
+      "bind_order": [
+        "cluster",
+        "channel",
+        "kind"
+      ],
+      "source_line": 477,
+      "java_source_line": "var candidate=one(c,\"SELECT d.endpoint_id,d.room,d.profile_hash,d.quantum FROM ct_demands d JOIN ct_endpoints e ON e.cluster_id=d.cluster_id AND e.endpoint_id=d.endpoint_id JOIN ct_servers s ON s.cluster_id=e.cluster_id AND s.server_id=e.server_id JOIN ct_channels ch ON ch.cluster_id=d.cluster_id AND ch.channel_id=d.channel_id LEFT JOIN ct_members m ON m.cluster_id=e.cluster_id AND m.channel_id=e.channel_id AND m.player_uuid=e.device_owner WHERE d.cluster_id=? AND d.channel_id=? AND d.kind=? AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND e.channel_id=d.channel_id AND e.world_id=s.world_id AND e.last_epoch=s.fencing_epoch AND e.recovery_generation=(SELECT recovery_generation FROM ct_clusters WHERE cluster_id=d.cluster_id) AND e.state='ACTIVE' AND s.lease_until>CURRENT_TIMESTAMP(6) AND s.protocol_version=1 AND s.format_version=1 AND FIND_IN_SET(d.kind,s.capabilities)>0 AND (ch.owner_uuid=e.device_owner OR (m.permissions & 4)=4) AND (SELECT COUNT(*) FROM ct_transfers t WHERE t.cluster_id=d.cluster_id AND t.endpoint_id=d.endpoint_id AND t.kind='ALLOCATE' AND t.remaining>0)<64 AND (SELECT COUNT(*) FROM ct_transfers t JOIN ct_resources tr ON tr.cluster_id=t.cluster_id AND tr.resource_id=t.resource_id WHERE t.cluster_id=d.cluster_id AND t.endpoint_id=d.endpoint_id AND t.kind='ALLOCATE' AND t.remaining>0 AND tr.kind=d.kind)<CASE WHEN d.kind IN ('cross_tesseract:fe','cross_tesseract:gt_eu') THEN 32 WHEN d.kind='cross_tesseract:item' THEN 9 ELSE 4 END AND COALESCE((SELECT used FROM ct_history_buckets hb WHERE hb.cluster_id=e.cluster_id AND hb.server_id=e.server_id),0)<(SELECT history_limit FROM ct_clusters WHERE cluster_id=d.cluster_id) AND EXISTS(SELECT 1 FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id=d.cluster_id AND b.channel_id=d.channel_id AND r.kind=d.kind AND r.format_version=1 AND b.amount>=d.quantum AND (d.profile_hash IS NULL OR d.profile_hash=r.payload_hash)) ORDER BY d.last_grant,d.endpoint_id LIMIT 1\",cluster(),capturedChannel,kind);",
+      "template_sha256": "f8147767e2d20bef152e5f6ff435f4301dff5cd5fc6e151efba96f78c34d44e8"
+    },
+    "outstanding_kind_count": {
+      "template": "SELECT COUNT(*) AS n FROM ct_transfers t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.cluster_id=? AND t.endpoint_id=? AND t.kind='ALLOCATE' AND r.kind=? AND t.remaining>0",
+      "bind_order": [
+        "cluster",
+        "endpoint",
+        "kind"
+      ],
+      "source_line": 479,
+      "java_source_line": "long outstanding=num(one(c,\"SELECT COUNT(*) AS n FROM ct_transfers t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.cluster_id=? AND t.endpoint_id=? AND t.kind='ALLOCATE' AND r.kind=? AND t.remaining>0\",cluster(),endpoint,kind),\"n\");",
+      "template_sha256": "58193ff247c4ebd3af6a9534fd2bcc7b62046abc27be667bf06a6fb37a007cee"
+    },
+    "outstanding_payloads_active": {
+      "template": "SELECT t.*,r.kind AS payload_kind,r.format_version,r.payload_hash,r.payload FROM (SELECT owned.*,ROW_NUMBER() OVER(PARTITION BY endpoint_id ORDER BY created_at,transfer_id) AS rn FROM ct_transfers owned WHERE cluster_id=? AND endpoint_id IN (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) AND kind='ALLOCATE' AND remaining>0 AND state<>'QUARANTINED') t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.rn<=8 ORDER BY t.endpoint_id,t.rn",
+      "source_line": 512,
+      "java_source_line": "var rows=query(c,\"SELECT t.*,r.kind AS payload_kind,r.format_version,r.payload_hash,r.payload FROM (SELECT owned.*,ROW_NUMBER() OVER(PARTITION BY endpoint_id ORDER BY created_at,transfer_id) AS rn FROM ct_transfers owned WHERE cluster_id=? AND endpoint_id IN (\"+String.join(\",\",Collections.nCopies(endpoints.size(),\"?\"))+\") AND kind='ALLOCATE' AND remaining>0\"+(activeOnly?\" AND state<>'QUARANTINED'\":\"\")+unseen+\") t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.rn<=\"+(activeOnly?8:64)+\" ORDER BY t.endpoint_id,t.rn\",args.toArray());",
+      "bind_order": [
+        "cluster",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint"
+      ],
+      "active_only": true,
+      "row_bound_per_endpoint": 8,
+      "endpoint_count": 16,
+      "known_transfer_count": 0,
+      "template_sha256": "b3b827169089f1e2bfa650701b9c5d7ec72448a1a45ac203688655e10a99aafd",
+      "branch_note": "Source-exact SQL branch. Empty known set is a valid source branch, not proof of the running Java request's actual local credits."
+    },
+    "outstanding_payloads_recovery": {
+      "template": "SELECT t.*,r.kind AS payload_kind,r.format_version,r.payload_hash,r.payload FROM (SELECT owned.*,ROW_NUMBER() OVER(PARTITION BY endpoint_id ORDER BY created_at,transfer_id) AS rn FROM ct_transfers owned WHERE cluster_id=? AND endpoint_id IN (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) AND kind='ALLOCATE' AND remaining>0) t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.rn<=64 ORDER BY t.endpoint_id,t.rn",
+      "source_line": 512,
+      "java_source_line": "var rows=query(c,\"SELECT t.*,r.kind AS payload_kind,r.format_version,r.payload_hash,r.payload FROM (SELECT owned.*,ROW_NUMBER() OVER(PARTITION BY endpoint_id ORDER BY created_at,transfer_id) AS rn FROM ct_transfers owned WHERE cluster_id=? AND endpoint_id IN (\"+String.join(\",\",Collections.nCopies(endpoints.size(),\"?\"))+\") AND kind='ALLOCATE' AND remaining>0\"+(activeOnly?\" AND state<>'QUARANTINED'\":\"\")+unseen+\") t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.rn<=\"+(activeOnly?8:64)+\" ORDER BY t.endpoint_id,t.rn\",args.toArray());",
+      "bind_order": [
+        "cluster",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint",
+        "endpoint"
+      ],
+      "active_only": false,
+      "row_bound_per_endpoint": 64,
+      "endpoint_count": 16,
+      "known_transfer_count": 0,
+      "template_sha256": "d2761fc76e0e438847159856978a049250fddc5a1fe29c23120eb8546c96626b",
+      "branch_note": "Source-exact SQL branch. Empty known set is a valid source branch, not proof of the running Java request's actual local credits."
+    }
+  },
+  "SQL_observer_trace": [
+    {
+      "name": "mysql_identity",
+      "statement": "SELECT VERSION(),@@port,@@hostname,CURRENT_TIMESTAMP(6),CURRENT_USER(),DATABASE()",
+      "utc_request_start": "2026-10-06T14:05:16.181854+00:00",
+      "observer_start": 19911.635254097,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "8.4.7\t3306\t196d77298fbd\t2026-10-06 14:05:16.278740\troot@localhost\tcross_tesseract\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.286925+00:00",
+      "observer_end": 19911.740327875
+    },
+    {
+      "name": "live_SQL_session",
+      "statement": "SELECT s.world_id,s.session_id,s.fencing_epoch,s.protocol_version,s.format_version,s.lease_until,CURRENT_TIMESTAMP(6),s.capabilities,p.recovery_generation,s.status FROM ct_servers s JOIN ct_clusters p ON p.cluster_id=s.cluster_id WHERE s.cluster_id='dev_perf_v1' AND s.server_id='opt-fast-scale-fixed-perf' AND s.lease_until>CURRENT_TIMESTAMP(6)",
+      "utc_request_start": "2026-10-06T14:05:16.287962+00:00",
+      "observer_start": 19911.741348607,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "01a1117b-82c9-70e0-b695-90a03b5e1509\t01a1117b-82c5-7d56-88d7-2c350fd96441\t1\t1\t1\t2026-10-06 14:05:27.605070\t2026-10-06 14:05:16.392029\tcross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:item\t1\tONLINE\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.402554+00:00",
+      "observer_end": 19911.855954406
+    },
+    {
+      "name": "actual_endpoint_counts",
+      "statement": "SELECT COUNT(*),COUNT(DISTINCT e.device_owner),COUNT(DISTINCT e.channel_id) FROM ct_endpoints e WHERE e.cluster_id='dev_perf_v1' AND e.server_id='opt-fast-scale-fixed-perf' AND e.world_id='01a1117b-82c9-70e0-b695-90a03b5e1509' AND e.last_epoch=1 AND e.recovery_generation=1 AND e.state='ACTIVE' AND e.channel_id IS NOT NULL",
+      "utc_request_start": "2026-10-06T14:05:16.414678+00:00",
+      "observer_start": 19911.868075227,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "1000\t1\t4\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.511539+00:00",
+      "observer_end": 19911.964938257
+    },
+    {
+      "name": "actual_live_demands",
+      "statement": "SELECT d.channel_id,COUNT(DISTINCT d.endpoint_id),MIN(d.expires_at),MAX(d.expires_at) FROM ct_demands d JOIN ct_endpoints e ON e.cluster_id=d.cluster_id AND e.endpoint_id=d.endpoint_id WHERE e.cluster_id='dev_perf_v1' AND e.server_id='opt-fast-scale-fixed-perf' AND e.world_id='01a1117b-82c9-70e0-b695-90a03b5e1509' AND e.last_epoch=1 AND e.recovery_generation=1 AND e.state='ACTIVE' AND e.channel_id IS NOT NULL AND e.channel_id=d.channel_id AND d.kind='cross_tesseract:fe' AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) GROUP BY d.channel_id ORDER BY COUNT(DISTINCT d.endpoint_id) DESC,d.channel_id",
+      "utc_request_start": "2026-10-06T14:05:16.512359+00:00",
+      "observer_start": 19911.965745509,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "11314d71-5fd7-4b46-91bb-d097999f5d8b\t62\t2026-10-06 14:05:21.702528\t2026-10-06 14:05:22.549372\nc7e51b13-506b-46d2-be3a-6611756e8615\t60\t2026-10-06 14:05:21.893237\t2026-10-06 14:05:22.549187\nf55f8499-5d1f-49d9-a54d-878a9a4c31aa\t48\t2026-10-06 14:05:21.952260\t2026-10-06 14:05:22.466361\na8cfad64-780d-431b-be90-1ad282d5e6c8\t40\t2026-10-06 14:05:22.089749\t2026-10-06 14:05:22.516335\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.614512+00:00",
+      "observer_end": 19912.067943436
+    },
+    {
+      "name": "actual_populated_outstanding_11314d71-5fd7-4b46-91bb-d097999f5d8b",
+      "statement": "SELECT e.endpoint_id,COUNT(t.transfer_id) FROM ct_endpoints e JOIN ct_demands d ON d.cluster_id=e.cluster_id AND d.endpoint_id=e.endpoint_id AND d.channel_id=e.channel_id JOIN ct_transfers t ON t.cluster_id=e.cluster_id AND t.endpoint_id=e.endpoint_id JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE e.cluster_id='dev_perf_v1' AND e.server_id='opt-fast-scale-fixed-perf' AND e.world_id='01a1117b-82c9-70e0-b695-90a03b5e1509' AND e.last_epoch=1 AND e.recovery_generation=1 AND e.state='ACTIVE' AND e.channel_id IS NOT NULL AND e.channel_id='11314d71-5fd7-4b46-91bb-d097999f5d8b' AND d.kind='cross_tesseract:fe' AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND t.kind='ALLOCATE' AND t.remaining>0 AND t.state<>'QUARANTINED' AND r.kind='cross_tesseract:fe' GROUP BY e.endpoint_id ORDER BY COUNT(t.transfer_id) DESC,e.endpoint_id LIMIT 16",
+      "utc_request_start": "2026-10-06T14:05:16.616425+00:00",
+      "observer_start": 19912.069809777,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "6e43e1e1-bc84-4f8f-adbf-8aa2832a545b\t1\n729b8e19-8f9e-4490-9444-4f87f03edff7\t1\n74de19ba-91c7-4a64-9146-b904a65af18d\t1\nc9a24841-286e-4a42-846b-dbdb45064b95\t1\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.746937+00:00",
+      "observer_end": 19912.200334592
+    },
+    {
+      "name": "actual_populated_outstanding_c7e51b13-506b-46d2-be3a-6611756e8615",
+      "statement": "SELECT e.endpoint_id,COUNT(t.transfer_id) FROM ct_endpoints e JOIN ct_demands d ON d.cluster_id=e.cluster_id AND d.endpoint_id=e.endpoint_id AND d.channel_id=e.channel_id JOIN ct_transfers t ON t.cluster_id=e.cluster_id AND t.endpoint_id=e.endpoint_id JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE e.cluster_id='dev_perf_v1' AND e.server_id='opt-fast-scale-fixed-perf' AND e.world_id='01a1117b-82c9-70e0-b695-90a03b5e1509' AND e.last_epoch=1 AND e.recovery_generation=1 AND e.state='ACTIVE' AND e.channel_id IS NOT NULL AND e.channel_id='c7e51b13-506b-46d2-be3a-6611756e8615' AND d.kind='cross_tesseract:fe' AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND t.kind='ALLOCATE' AND t.remaining>0 AND t.state<>'QUARANTINED' AND r.kind='cross_tesseract:fe' GROUP BY e.endpoint_id ORDER BY COUNT(t.transfer_id) DESC,e.endpoint_id LIMIT 16",
+      "utc_request_start": "2026-10-06T14:05:16.747796+00:00",
+      "observer_start": 19912.201180332,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "594a5baf-2212-4f93-bdfd-157e02ad7b8f\t1\n60bd85af-d297-411d-8925-40f4b9676633\t1\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.849222+00:00",
+      "observer_end": 19912.30261965
+    },
+    {
+      "name": "actual_populated_outstanding_f55f8499-5d1f-49d9-a54d-878a9a4c31aa",
+      "statement": "SELECT e.endpoint_id,COUNT(t.transfer_id) FROM ct_endpoints e JOIN ct_demands d ON d.cluster_id=e.cluster_id AND d.endpoint_id=e.endpoint_id AND d.channel_id=e.channel_id JOIN ct_transfers t ON t.cluster_id=e.cluster_id AND t.endpoint_id=e.endpoint_id JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE e.cluster_id='dev_perf_v1' AND e.server_id='opt-fast-scale-fixed-perf' AND e.world_id='01a1117b-82c9-70e0-b695-90a03b5e1509' AND e.last_epoch=1 AND e.recovery_generation=1 AND e.state='ACTIVE' AND e.channel_id IS NOT NULL AND e.channel_id='f55f8499-5d1f-49d9-a54d-878a9a4c31aa' AND d.kind='cross_tesseract:fe' AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND t.kind='ALLOCATE' AND t.remaining>0 AND t.state<>'QUARANTINED' AND r.kind='cross_tesseract:fe' GROUP BY e.endpoint_id ORDER BY COUNT(t.transfer_id) DESC,e.endpoint_id LIMIT 16",
+      "utc_request_start": "2026-10-06T14:05:16.850074+00:00",
+      "observer_start": 19912.303459991,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "0e8742a9-2598-4750-b783-b5d9d5234319\t1\n18902e5a-2af3-4d81-83ac-f073d55f801c\t1\n1d8521d5-ec32-443a-8d4b-12263934966e\t1\n1de27cbe-962b-4c86-8059-8d2757c1a8ce\t1\n2e25bb76-aa42-4cb4-96a8-73e164f67d70\t1\ndfd125b9-1311-4c23-baee-f1d474ab378a\t1\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:16.965980+00:00",
+      "observer_end": 19912.419380894
+    },
+    {
+      "name": "actual_populated_outstanding_a8cfad64-780d-431b-be90-1ad282d5e6c8",
+      "statement": "SELECT e.endpoint_id,COUNT(t.transfer_id) FROM ct_endpoints e JOIN ct_demands d ON d.cluster_id=e.cluster_id AND d.endpoint_id=e.endpoint_id AND d.channel_id=e.channel_id JOIN ct_transfers t ON t.cluster_id=e.cluster_id AND t.endpoint_id=e.endpoint_id JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE e.cluster_id='dev_perf_v1' AND e.server_id='opt-fast-scale-fixed-perf' AND e.world_id='01a1117b-82c9-70e0-b695-90a03b5e1509' AND e.last_epoch=1 AND e.recovery_generation=1 AND e.state='ACTIVE' AND e.channel_id IS NOT NULL AND e.channel_id='a8cfad64-780d-431b-be90-1ad282d5e6c8' AND d.kind='cross_tesseract:fe' AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND t.kind='ALLOCATE' AND t.remaining>0 AND t.state<>'QUARANTINED' AND r.kind='cross_tesseract:fe' GROUP BY e.endpoint_id ORDER BY COUNT(t.transfer_id) DESC,e.endpoint_id LIMIT 16",
+      "utc_request_start": "2026-10-06T14:05:16.966873+00:00",
+      "observer_start": 19912.420255917,
+      "observer_account": "isolated dev root",
+      "exit_code": 0,
+      "raw_stdout": "28a38acd-4659-4fa7-9f1e-7e386f14fbbe\t1\nea715902-5597-4773-ab7a-e2072051b57e\t1\nea720d6c-128b-439b-b10e-18ef951c6c9b\t1\nec533a19-d380-4d74-82ac-f931dc8ce274\t1\nec6ac700-b6b7-4d0a-8625-9383c109d91e\t1\nf8888b8d-17e8-43b5-b8c5-66126176b69d\t1\n",
+      "raw_stderr": "",
+      "utc_reply_end": "2026-10-06T14:05:17.074150+00:00",
+      "observer_end": 19912.527569943
+    }
+  ],
+  "RCON_observer_trace": [
+    {
+      "command": "ct_test status",
+      "port": 25578,
+      "utc_request_start": "2026-10-06T14:05:16.145944+00:00",
+      "observer_start": 19911.599338264,
+      "raw_reply": "STATUS online tickets=0 {registered_loaded_endpoints=1000, active_endpoints=1000, worker_queue=0, actual_tickets=0, transactions=14872, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=62138, local_input_units=60080000, local_output_units=58302000, batch_devices=56468, batch_records=59566, batch_payload_bytes=0, local_wakes=69647, remote_hint_wakes=5661, poll_fallback=193939, empty_batches=16862, allocation_misses=29388, local_credit_publications=519, local_ms_p50=0.001382, local_ms_p95=0.009525, local_ms_p99=0.015814, local_ms_samples=2048, queue_ms_p50=0.101407, queue_ms_p95=16.065526, queue_ms_p99=24.960419, queue_ms_samples=2048, execution_ms_p50=38.127119, execution_ms_p95=95.737559, execution_ms_p99=124.026778, execution_ms_samples=2048, apply_ms_p50=32.89289, apply_ms_p95=46.133522, apply_ms_p99=49.040088, apply_ms_samples=2048, tick_ms_p50=0.571228, tick_ms_p95=2.197158, tick_ms_p99=3.482236, tick_ms_samples=2048, delivery_ms_p50=148.936396, delivery_ms_p95=199.337021, delivery_ms_p99=248.762647, delivery_ms_samples=207, sql_ms_p50=38.126168, sql_ms_p95=95.737109, sql_ms_p99=124.025907, sql_ms_samples=2048, db_transaction_ms_p50=7.423861, db_transaction_ms_p95=79.933094, db_transaction_ms_p99=107.409348, db_transaction_ms_samples=2048, db_connection_wait_ms_p50=0.003355, db_connection_wait_ms_p95=3.390578, db_connection_wait_ms_p99=19.747146, db_connection_wait_ms_samples=2048, db_transactions=26847, db_transaction_attempts=26850, db_statements=595210, db_deadlock_retries=0, db_active_connections=3, wal_writes=54634, wal_bytes=8223242, wal_identical_skipped=13, wal_barrier_ms_p50=1.009085, wal_barrier_ms_p95=2.919862, wal_barrier_ms_p99=5.080354, wal_barrier_ms_samples=2048, completion_admitted=4, ready_channels=4, ready_devices=607, closing_devices=0, mc_recorded_tick_ms_avg100=0.886575, mc_target_ticks_per_second=20.0}\n",
+      "utc_reply_end": "2026-10-06T14:05:16.151003+00:00",
+      "observer_end": 19911.604412759
+    },
+    {
+      "command": "ct_test bulk-status",
+      "port": 25578,
+      "utc_request_start": "2026-10-06T14:05:16.151664+00:00",
+      "observer_start": 19911.605049836,
+      "raw_reply": "BULK count=1000 spawned=1000 registered=1000 bound=1000 accepted=60080000 extracted=58302000 fixture_ms_total=853.201702 fixture_ticks=16470\n",
+      "utc_reply_end": "2026-10-06T14:05:16.153047+00:00",
+      "observer_end": 19911.606433292
+    },
+    {
+      "command": "ct_test pid",
+      "port": 25578,
+      "utc_request_start": "2026-10-06T14:05:16.154389+00:00",
+      "observer_start": 19911.607774255,
+      "raw_reply": "PID 332249\n",
+      "utc_reply_end": "2026-10-06T14:05:16.156813+00:00",
+      "observer_end": 19911.610200155
+    }
+  ],
+  "plans": [],
+  "failures": [
+    "ValueError: Requires requested number of actual demanding endpoints with positive outstanding allocations; no empty fixture plan accepted"
+  ],
+  "warnings": [],
+  "identity": {
+    "pid": 332249,
+    "server_id": "opt-fast-scale-fixed-perf",
+    "world_id": "01a1117b-82c9-70e0-b695-90a03b5e1509",
+    "world_name": "world-opt-fast-scale-fixed-perf",
+    "session_id": "01a1117b-82c5-7d56-88d7-2c350fd96441",
+    "fencing_epoch": 1,
+    "recovery_generation": 1,
+    "SQL_session_row": [
+      "01a1117b-82c9-70e0-b695-90a03b5e1509",
+      "01a1117b-82c5-7d56-88d7-2c350fd96441",
+      "1",
+      "1",
+      "1",
+      "2026-10-06 14:05:27.605070",
+      "2026-10-06 14:05:16.392029",
+      "cross_tesseract:fe,cross_tesseract:fluid,cross_tesseract:item",
+      "1",
+      "ONLINE"
+    ],
+    "mysql_identity": [
+      "8.4.7",
+      "3306",
+      "196d77298fbd",
+      "2026-10-06 14:05:16.278740",
+      "root@localhost",
+      "cross_tesseract"
+    ],
+    "argv_sha256": "b4d33031c8ddb405c9ca02204e2bd4a85365d3668369b70509aa9a57842f99cf",
+    "vm_argfiles": [
+      {
+        "path": "/workspace/scratch/dev-launch/67a2c0b2873947d08f5ed995c2ee0916/serverPerfRunVmArgs.txt",
+        "sha256": "6205bc41e282a49326a5904f35e0d6887f8b2c2e405f58da6cfd88f97ccddbeb",
+        "size_bytes": 1810
+      }
+    ],
+    "rcon_status": "STATUS online tickets=0 {registered_loaded_endpoints=1000, active_endpoints=1000, worker_queue=0, actual_tickets=0, transactions=14872, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=62138, local_input_units=60080000, local_output_units=58302000, batch_devices=56468, batch_records=59566, batch_payload_bytes=0, local_wakes=69647, remote_hint_wakes=5661, poll_fallback=193939, empty_batches=16862, allocation_misses=29388, local_credit_publications=519, local_ms_p50=0.001382, local_ms_p95=0.009525, local_ms_p99=0.015814, local_ms_samples=2048, queue_ms_p50=0.101407, queue_ms_p95=16.065526, queue_ms_p99=24.960419, queue_ms_samples=2048, execution_ms_p50=38.127119, execution_ms_p95=95.737559, execution_ms_p99=124.026778, execution_ms_samples=2048, apply_ms_p50=32.89289, apply_ms_p95=46.133522, apply_ms_p99=49.040088, apply_ms_samples=2048, tick_ms_p50=0.571228, tick_ms_p95=2.197158, tick_ms_p99=3.482236, tick_ms_samples=2048, delivery_ms_p50=148.936396, delivery_ms_p95=199.337021, delivery_ms_p99=248.762647, delivery_ms_samples=207, sql_ms_p50=38.126168, sql_ms_p95=95.737109, sql_ms_p99=124.025907, sql_ms_samples=2048, db_transaction_ms_p50=7.423861, db_transaction_ms_p95=79.933094, db_transaction_ms_p99=107.409348, db_transaction_ms_samples=2048, db_connection_wait_ms_p50=0.003355, db_connection_wait_ms_p95=3.390578, db_connection_wait_ms_p99=19.747146, db_connection_wait_ms_samples=2048, db_transactions=26847, db_transaction_attempts=26850, db_statements=595210, db_deadlock_retries=0, db_active_connections=3, wal_writes=54634, wal_bytes=8223242, wal_identical_skipped=13, wal_barrier_ms_p50=1.009085, wal_barrier_ms_p95=2.919862, wal_barrier_ms_p99=5.080354, wal_barrier_ms_samples=2048, completion_admitted=4, ready_channels=4, ready_devices=607, closing_devices=0, mc_recorded_tick_ms_avg100=0.886575, mc_target_ticks_per_second=20.0}\n",
+    "rcon_bulk_status": "BULK count=1000 spawned=1000 registered=1000 bound=1000 accepted=60080000 extracted=58302000 fixture_ms_total=853.201702 fixture_ticks=16470\n"
+  },
+  "observer_statement_counts": {
+    "total_attempted": 8,
+    "SELECT_attempted": 8,
+    "EXPLAIN_estimated_attempted": 0,
+    "EXPLAIN_ANALYZE_attempted": 0
+  },
+  "utc_end": "2026-10-06T14:05:17.075268+00:00",
+  "elapsed_seconds": 0.9677824779973889
+}

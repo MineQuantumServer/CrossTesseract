@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.JournalAndHeatTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-06T10:56:14.163Z" hostname="13edb0cae2c6" time="1.166">
+  <properties/>
+  <testcase name="localCheckpointsRoundTripAndCorruptionFailsClosed(Path)" classname="dev.crosstesseract.JournalAndHeatTest" time="0.005"/>
+  <testcase name="heatRejectsNaNInfinityIllegalCapacityAndColdToHot()" classname="dev.crosstesseract.JournalAndHeatTest" time="0.009"/>
+  <testcase name="passiveHeatNeverOvershootsOrCreatesEnergy" classname="dev.crosstesseract.JournalAndHeatTest" time="0.021"/>
+  <system-out><![CDATA[timestamp = 2026-10-06T10:56:15.328854980, JournalAndHeatTest:passiveHeatNeverOvershootsOrCreatesEnergy = 
+                              |-----------------------jqwik-----------------------
+tries = 300                   | # of calls to property
+checks = 300                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 64         | # of all combined edge cases
+edge-cases#tried = 59         | # of edge cases tried in current run
+seed = -8826603171624268651   | random seed to reproduce generated values
+
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

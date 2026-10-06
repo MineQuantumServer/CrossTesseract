@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.ChannelBatchIntegrationTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-10-06T10:56:12.191Z" hostname="13edb0cae2c6" time="1.916">
+  <properties/>
+  <testcase name="oneCorruptOutstandingPayloadIsQuarantinedWithoutRollingBackHealthyDeviceWork()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.092"/>
+  <testcase name="replayingCapturedBusinessIdsDoesNotDuplicateDepositsCreditsOrPublication(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.088"/>
+  <testcase name="authorizedReservedWalRecoveryConfirmsFencedSqlPublicationBeforeReturningCredit(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.066"/>
+  <testcase name="staleVersionAndRevokedEndpointRollBackTheirSavepointsWhileAnotherDeviceCommits()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.084"/>
+  <testcase name="fullOwnedItemAndFeCandidatesIncludingQuarantineCannotBlockOtherServers()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.81"/>
+  <testcase name="registeredRemoteDemandKeepsPriorityOverLocalBatchesAndAllThreeAuthoritiesConserve()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.106"/>
+  <testcase name="freshPublicationAuthorizationRejectsRevokedCreditWithoutRefundAndKeepsOthersWorking(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.089"/>
+  <testcase name="differentCompletePayloadBytesRemainSeparateInDepositsAndAllocations()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.089"/>
+  <testcase name="longOverflowRollsBackOneDeviceIncludingItsNewResourceWhileOtherDevicesCommit()" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.077"/>
+  <testcase name="aNewBootFencesBothOldSqlAndOldPublicationPhases(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.11"/>
+  <testcase name="walReservedCreditCannotOpenAfterReceivePermissionWasRevoked(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.088"/>
+  <testcase name="exhaustedWalCreditSurvivesRestoreUntilSqlCheckpointAndCannotBeRediscovered(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.097"/>
+  <testcase name="multipleDeviceSqlAndWalPublicationPhasesEachCommitOneTransaction(Path)" classname="dev.crosstesseract.ChannelBatchIntegrationTest" time="0.106"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

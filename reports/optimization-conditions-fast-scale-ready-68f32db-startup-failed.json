@@ -1,0 +1,67 @@
+{
+  "source_commit": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "label": "fast-scale-ready",
+  "passed": false,
+  "completed": false,
+  "comparison": "Original x30357/z0/y64 six-chunk footprint; 100/500/1000, four channels capped256; 5s warmup,120s OFF/ACTIVE,one repeat. Same2s scale monitor/jstat10s/JFR profile; startup readiness probes end before periodic sampling and are preserved; no ABC JVMs or heavy offline tools running. This is distinct from single-observer three-JVM primary runs.",
+  "java_source_tree_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+  "jar_sha256": "7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a",
+  "selected_launch": {
+    "pid": 453035,
+    "argv_sha256": "81c16b153a9ac68b119402c2a60c4eea1f56a342c936226d43e2561b5f89b8d2",
+    "vm_args": "/workspace/scratch/dev-launch/8238d239b3ad4401846e6478a0714cf3/serverPerfRunVmArgs.txt",
+    "vm_args_sha256": "6205bc41e282a49326a5904f35e0d6887f8b2c2e405f58da6cfd88f97ccddbeb",
+    "folder": "/workspace/scratch/dev-launch/8238d239b3ad4401846e6478a0714cf3",
+    "classes_sha256": "a543972da202617c08d3a9f2fa288e69ce0b1696e0b3b6c851db58be974cff96"
+  },
+  "config": {
+    "transfer.channelBatches": "true",
+    "transfer.localFastPath": "true"
+  },
+  "utc_start": "2026-10-06T16:48:36Z",
+  "command": [
+    "python3",
+    "scripts/performance-test.py",
+    "--label",
+    "opt-fast-68f32db",
+    "--seconds",
+    "120",
+    "--origin-x",
+    "30357"
+  ],
+  "monitor_startup_probes": [
+    {
+      "utc_start": "2026-10-06T16:48:36Z",
+      "monotonic_start": 29711.743443874,
+      "reply": "ERROR backend_error\n",
+      "monotonic_end": 29711.749253815
+    },
+    {
+      "utc_start": "2026-10-06T16:48:36Z",
+      "monotonic_start": 29711.94962432,
+      "reply": "CHANNEL bb4841e6-70f6-4ce0-86ae-cdc7ab30b0e5\nERROR backend_error\n",
+      "monotonic_end": 29711.953064924
+    },
+    {
+      "utc_start": "2026-10-06T16:48:36Z",
+      "monotonic_start": 29712.154078879,
+      "reply": "ERROR backend_error\n",
+      "monotonic_end": 29712.156568606
+    },
+    {
+      "utc_start": "2026-10-06T16:48:36Z",
+      "monotonic_start": 29712.356941524,
+      "reply": "ERROR backend_error\nPID 453035\n",
+      "monotonic_end": 29712.377264399
+    },
+    {
+      "utc_start": "2026-10-06T16:48:37Z",
+      "monotonic_start": 29712.577731558,
+      "reply": "ERROR backend_error\n",
+      "monotonic_end": 29712.579077799
+    }
+  ],
+  "stop_reply": "Stopping the server\n",
+  "remaining_jvm_pids": [],
+  "utc_end": "2026-10-06T16:48:39Z"
+}

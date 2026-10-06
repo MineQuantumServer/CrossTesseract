@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-06T19:53:37.109602+00:00",
+  "scope": "ROOT-controlled restoration after confirmed zero new assets and preserved original128; no business replay",
+  "passed": true,
+  "new_zero_assets_audit": "reports/optimization-restart-fallback-second-failure-assets-audit.json",
+  "original128_audit": "reports/optimization-restart-fallback-after-second-failure-audit.json",
+  "processes_all_stopped": true,
+  "flags_changes": [
+    {
+      "name": "root_restore_after_verified_empty_new_assets",
+      "from": {
+        "transfer.channelBatches": "false",
+        "transfer.localFastPath": "false"
+      },
+      "to": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      },
+      "backup_directory": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets",
+      "files": [
+        {
+          "server": "A",
+          "path": "/workspace/run-A/cross-tesseract.properties",
+          "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/A-cross-tesseract.properties",
+          "before_sha256": "8b0d59ad602d432c7cbc239bab113ac89e0ccdc8e9e59ca2c8cc04dafd32d4d9",
+          "after_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+          "only_two_flag_values_changed": true
+        },
+        {
+          "server": "B",
+          "path": "/workspace/run-B/cross-tesseract.properties",
+          "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/B-cross-tesseract.properties",
+          "before_sha256": "13fd0dfd5f966b5d4ac7e933d2edab84ec87869992dfe3bee3b2288729fdccd5",
+          "after_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+          "only_two_flag_values_changed": true
+        },
+        {
+          "server": "C",
+          "path": "/workspace/run-C/cross-tesseract.properties",
+          "backup_path": "/workspace/scratch/optimization/restart-fallback/cb5cc461272f4287b67b94fea5c05eb0/root_restore_after_verified_empty_new_assets/C-cross-tesseract.properties",
+          "before_sha256": "e346ab9cf2ebc7565313641a2612086fd9076df86f7398dd43a862ebdf365011",
+          "after_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+          "only_two_flag_values_changed": true
+        }
+      ],
+      "complete": true
+    }
+  ],
+  "result_files": {
+    "A": {
+      "server_id": "opt-regression-68f32db-fast-A",
+      "world_id": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "level_name": "world-opt-regression-68f32db-fast-A",
+      "config_path": "/workspace/run-A/cross-tesseract.properties",
+      "config_sha256": "a118b57d4bf44a864220abbc99301979eee3bf3adf5d64f3438c7a24dd64e59d",
+      "server_properties_sha256": "f6be8d40743e6bd392db24c4dccc7b130f08cf08fb924dc9772cf1cebb9d5d56",
+      "server_properties_semantic_sha256": "8dd96496db5d511ef60da10837be49568d96a22e3b434536fdab0643beed2e92",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "0187b98f3eb81b4d754a37a5c4824d2aae3876d4fc3fe250db05c6004b321a54",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    },
+    "B": {
+      "server_id": "opt-regression-68f32db-fast-B",
+      "world_id": "01a112a8-1da7-7da6-92bd-78ec872c272d",
+      "level_name": "world-opt-regression-68f32db-fast-B",
+      "config_path": "/workspace/run-B/cross-tesseract.properties",
+      "config_sha256": "9a958de58d6f1721dc61cf0950e7bf27037465805c720c88a4b0233e098b4878",
+      "server_properties_sha256": "3370ea7bbce80f1367173ab0b2ec9901bc30d09cb16e660be93590f2ca405edc",
+      "server_properties_semantic_sha256": "150d4023a2d3bc7681c87283dac182a2f08952e55ef30638d0bed3f8130007ba",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "ae7c7f9feac92b92060ae6688d0e3f73e555654128e1168316f24339b10219fe",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    },
+    "C": {
+      "server_id": "opt-regression-68f32db-fast-C",
+      "world_id": "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+      "level_name": "world-opt-regression-68f32db-fast-C",
+      "config_path": "/workspace/run-C/cross-tesseract.properties",
+      "config_sha256": "90a75bd8c89572cc27c6cc297d86e6b5cf0e084005204bdc47f138d89ffb6adb",
+      "server_properties_sha256": "149d0b52d6a3965441618656809d6ff75adb0c895364243fbf4e950d8441e018",
+      "server_properties_semantic_sha256": "5ff88f50756aae8e9f403d92684037c728a438e3e699554609de23eab0b29991",
+      "eula_sha256": "ee27072e4a23e088522f740ddaab0c7c4145c186969e90a86254faa3a5ec5ce6",
+      "world_id_file_sha256": "1f145282e8727f7095d8c8064ef60506e1d38097340b7528f15f246fde3d82cd",
+      "transfer_flags": {
+        "transfer.channelBatches": "true",
+        "transfer.localFastPath": "true"
+      }
+    }
+  }
+}

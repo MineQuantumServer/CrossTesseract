@@ -1,0 +1,15 @@
+{
+  "source_commit": "4cfff0ab26d2cc11c4d26dbeebcca911dc0d34f7",
+  "jar": "build/libs/cross_tesseract-0.1.0-dev.jar",
+  "sha256": "4cd0d4b7be1a30946ebfbb72cc554962ce7655d8bb8218797d8a0d07e95a2859",
+  "bytes": 4099693,
+  "junit": {
+    "tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "base_native_tests": 10,
+  "base_log": "logs/optimization-build-unhydrated.log",
+  "version_proof": "Build ran on these source contents immediately before this commit; subsequent commits may contain only evidence/docs/scripts."
+}

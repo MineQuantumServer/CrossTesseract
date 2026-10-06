@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-06T11:11:22Z",
+  "cluster": "dev_three_v1",
+  "owner": "440c19a5-495b-4b4a-9004-d6cfc2036a99",
+  "member": "fb88aaf7-672e-4854-ad3d-abad50572a4b",
+  "channel": "b18e9d84-8013-4f06-9705-8a135487dee8",
+  "locations": [
+    [
+      6063,
+      0
+    ],
+    [
+      6064,
+      0
+    ],
+    [
+      6065,
+      0
+    ]
+  ],
+  "totals": {
+    "rxFE": 76000,
+    "rxItem": 144,
+    "rxFluid": 6000
+  },
+  "final_buffers": [
+    {
+      "txFE": 0,
+      "rxFE": 0,
+      "txItem": 0,
+      "rxItem": 0,
+      "txFluid": 0,
+      "rxFluid": 0,
+      "checkpoint": 65,
+      "id": "e844a15f-6d8e-4680-b483-201bb1c86ba0",
+      "registered": true,
+      "pause": "",
+      "channel": "b18e9d84-8013-4f06-9705-8a135487dee8"
+    },
+    {
+      "txFE": 0,
+      "rxFE": 30000,
+      "txItem": 0,
+      "rxItem": 72,
+      "txFluid": 0,
+      "rxFluid": 3000,
+      "checkpoint": 16,
+      "id": "bbec499b-26d6-40f6-b046-9514ac06b261",
+      "registered": true,
+      "pause": "",
+      "channel": "b18e9d84-8013-4f06-9705-8a135487dee8"
+    },
+    {
+      "txFE": 0,
+      "rxFE": 46000,
+      "txItem": 0,
+      "rxItem": 72,
+      "txFluid": 0,
+      "rxFluid": 3000,
+      "checkpoint": 14,
+      "id": "a8ad4f10-07ce-47ab-b72f-619bd4eb1bc9",
+      "registered": true,
+      "pause": "",
+      "channel": "b18e9d84-8013-4f06-9705-8a135487dee8"
+    }
+  ],
+  "checks": [
+    "channel created on A, owner invites through B, offline member accepts through C",
+    "A -> B/C: exact FE/item/fluid conservation and both receivers served; no broadcast copies",
+    "A/B -> C: concurrent sources add, and existing receive credits are not recycled in BOTH mode",
+    "actual NeoForge tickets on A/B occupy two persistent global slots; C third request refused",
+    "three Minecraft JVMs concurrently request same player quota: exactly two ACTIVE grants",
+    "same chunk two devices use two slots; closing one leaves the other mod ticket installed",
+    "member device uses member quota; removal disables resource capability within bounded refresh"
+  ],
+  "servers": [
+    "STATUS online tickets=1 {registered_loaded_endpoints=5, active_endpoints=1, worker_queue=0, actual_tickets=1, transactions=47, errors=2, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=19, local_input_units=75144, local_output_units=0, batch_devices=8, batch_records=19, batch_payload_bytes=810, local_wakes=27, remote_hint_wakes=10, poll_fallback=11, empty_batches=12, allocation_misses=0, local_credit_publications=0, local_ms_p50=0.09343, local_ms_p95=0.173109, local_ms_p99=0.308023, local_ms_samples=312, queue_ms_p50=0.074742, queue_ms_p95=0.75304, queue_ms_p99=3.450925, queue_ms_samples=47, execution_ms_p50=8.500086, execution_ms_p95=27.46235, execution_ms_p99=289.858866, execution_ms_samples=47, apply_ms_p50=34.532453, apply_ms_p95=44.537056, apply_ms_p99=45.469792, apply_ms_samples=47, tick_ms_p50=0.01368, tick_ms_p95=0.200981, tick_ms_p99=0.431558, tick_ms_samples=2048, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=8.497302, sql_ms_p95=27.45561, sql_ms_p99=289.85494, sql_ms_samples=47, db_transaction_ms_p50=5.009376, db_transaction_ms_p95=15.345233, db_transaction_ms_p99=35.054666, db_transaction_ms_samples=352, db_connection_wait_ms_p50=0.363575, db_connection_wait_ms_p95=0.757767, db_connection_wait_ms_p99=5.03624, db_connection_wait_ms_samples=354, db_transactions=350, db_transaction_attempts=353, db_statements=1925, db_deadlock_retries=1, db_active_connections=0, wal_writes=16, wal_bytes=3864, wal_identical_skipped=2, wal_barrier_ms_p50=1.214432, wal_barrier_ms_p95=3.257989, wal_barrier_ms_p99=3.257989, wal_barrier_ms_samples=16, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=0.7688, mc_target_ticks_per_second=20.0}\n",
+    "STATUS online tickets=0 {registered_loaded_endpoints=1, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=34, errors=6, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=1, local_input_units=7000, local_output_units=0, batch_devices=21, batch_records=174, batch_payload_bytes=5265, local_wakes=2, remote_hint_wakes=11, poll_fallback=11, empty_batches=1, allocation_misses=45, local_credit_publications=9, local_ms_p50=0.088012, local_ms_p95=0.176365, local_ms_p99=0.680712, local_ms_samples=286, queue_ms_p50=0.074452, queue_ms_p95=1.233271, queue_ms_p99=1.46279, queue_ms_samples=35, execution_ms_p50=17.368488, execution_ms_p95=34.547081, execution_ms_p99=299.99563, execution_ms_samples=35, apply_ms_p50=31.612327, apply_ms_p95=43.130515, apply_ms_p99=43.865257, apply_ms_samples=34, tick_ms_p50=0.009454, tick_ms_p95=0.196325, tick_ms_p99=0.548033, tick_ms_samples=2048, delivery_ms_p50=99.747479, delivery_ms_p95=99.855542, delivery_ms_p99=99.855542, delivery_ms_samples=9, sql_ms_p50=17.364672, sql_ms_p95=34.543776, sql_ms_p99=299.991214, sql_ms_samples=35, db_transaction_ms_p50=4.792511, db_transaction_ms_p95=21.175349, db_transaction_ms_p99=45.896925, db_transaction_ms_samples=797, db_connection_wait_ms_p50=0.299299, db_connection_wait_ms_p95=1.757518, db_connection_wait_ms_p99=6.680675, db_connection_wait_ms_samples=799, db_transactions=794, db_transaction_attempts=798, db_statements=4199, db_deadlock_retries=1, db_active_connections=0, wal_writes=8, wal_bytes=7376, wal_identical_skipped=0, wal_barrier_ms_p50=1.197436, wal_barrier_ms_p95=2.128043, wal_barrier_ms_p99=2.128043, wal_barrier_ms_samples=8, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=0.761624, mc_target_ticks_per_second=20.0}\n",
+    "STATUS online tickets=0 {registered_loaded_endpoints=2, active_endpoints=1, worker_queue=0, actual_tickets=0, transactions=37, errors=5, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=20, batch_records=190, batch_payload_bytes=5670, local_wakes=0, remote_hint_wakes=12, poll_fallback=9, empty_batches=1, allocation_misses=46, local_credit_publications=10, local_ms_p50=0.10714, local_ms_p95=0.190516, local_ms_p99=0.728839, local_ms_samples=273, queue_ms_p50=0.069639, queue_ms_p95=1.415869, queue_ms_p99=1.86554, queue_ms_samples=38, execution_ms_p50=14.272196, execution_ms_p95=40.759188, execution_ms_p99=45.213137, execution_ms_samples=38, apply_ms_p50=31.179789, apply_ms_p95=45.712922, apply_ms_p99=45.942816, apply_ms_samples=36, tick_ms_p50=0.009514, tick_ms_p95=0.230075, tick_ms_p99=0.627692, tick_ms_samples=2048, delivery_ms_p50=98.450448, delivery_ms_p95=99.45815, delivery_ms_p99=99.45815, delivery_ms_samples=10, sql_ms_p50=14.265436, sql_ms_p95=40.755292, sql_ms_p99=45.209862, sql_ms_samples=38, db_transaction_ms_p50=4.879262, db_transaction_ms_p95=21.353713, db_transaction_ms_p99=41.002071, db_transaction_ms_samples=796, db_connection_wait_ms_p50=0.329735, db_connection_wait_ms_p95=1.727492, db_connection_wait_ms_p99=5.418102, db_connection_wait_ms_samples=797, db_transactions=794, db_transaction_attempts=796, db_statements=4232, db_deadlock_retries=0, db_active_connections=0, wal_writes=8, wal_bytes=7456, wal_identical_skipped=0, wal_barrier_ms_p50=1.265178, wal_barrier_ms_p95=1.635104, wal_barrier_ms_p99=1.635104, wal_barrier_ms_samples=8, completion_admitted=1, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=0.838307, mc_target_ticks_per_second=20.0}\n"
+  ],
+  "scope": "three independent Minecraft processes, real backend, console fixtures; online-player GUI not exercised"
+}

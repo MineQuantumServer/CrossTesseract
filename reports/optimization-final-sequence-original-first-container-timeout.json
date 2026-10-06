@@ -1,0 +1,40 @@
+{
+  "stage": "original",
+  "loaded_source_revision_declared": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/optimization-container-benchmark.py",
+        "--label",
+        "container-original-87bf217",
+        "--operator-revision",
+        "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+        "--scenarios",
+        "same,cross,mixed",
+        "--probes",
+        "10",
+        "--idle",
+        "2.2",
+        "--poll",
+        ".1",
+        "--execute"
+      ],
+      "loaded_source_revision_declared": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+      "utc_start": "2026-10-06T14:07:34Z",
+      "log": "logs/optimization-container-original-87bf217.log",
+      "report": "reports/optimization-container-container-original-87bf217-20261006T140734Z-bfcb60.json",
+      "exit_code": 1,
+      "utc_end": "2026-10-06T14:10:14Z",
+      "failures": [
+        "AssertionError: Physical chest E2E timeout; fixtures/assets retained"
+      ],
+      "regressions": [],
+      "report_sha256": "63fda22a693f8a7cd3468c33fc0d8ec51a4ad42dab71414518a908de28facaae"
+    }
+  ],
+  "observers": "Single RCON workload observer only; no concurrent RCON/tick/SQL/JFR sidecars. Current per-run scripts retain their own fixed monitoring reads.",
+  "passed": false,
+  "failure": "RuntimeError: Functional failure, retained report /workspace/reports/optimization-container-container-original-87bf217-20261006T140734Z-bfcb60.json",
+  "utc_end": "2026-10-06T14:10:18Z"
+}

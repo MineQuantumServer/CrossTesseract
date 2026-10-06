@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-06T11:07:06Z",
+  "cluster": "dev_three_v1",
+  "endpoint": "c7e6708a-5473-43b5-8923-5600f73161d8",
+  "checks": [
+    "clean restart restores authorized ticking ticket without prior block ticking/player login; quota stays one",
+    "Redis unavailable removes actual mod ticket and preserves persistent quota",
+    "Redis restart and complete hint/cache deletion do not remove authoritative quota",
+    "hard-killed Minecraft JVM rejoins with fenced epoch, quarantines external-save uncertainty and retains quota without restoring ticket"
+  ],
+  "final_status": "STATUS online tickets=0 {registered_loaded_endpoints=1, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=3, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, queue_ms_p50=0.403306, queue_ms_p95=3.450925, queue_ms_p99=3.450925, queue_ms_samples=3, execution_ms_p50=14.578421, execution_ms_p95=27.46235, execution_ms_p99=27.46235, execution_ms_samples=3, apply_ms_p50=34.532453, apply_ms_p95=44.225892, apply_ms_p99=44.225892, apply_ms_samples=3, tick_ms_p50=0.080651, tick_ms_p95=9.099347, tick_ms_p99=9.099347, tick_ms_samples=14, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=14.575337, sql_ms_p95=27.45561, sql_ms_p99=27.45561, sql_ms_samples=3, db_transaction_ms_p50=9.085368, db_transaction_ms_p95=35.054666, db_transaction_ms_p99=35.054666, db_transaction_ms_samples=11, db_connection_wait_ms_p50=0.052098, db_connection_wait_ms_p95=237.439232, db_connection_wait_ms_p99=237.439232, db_connection_wait_ms_samples=12, db_transactions=11, db_transaction_attempts=11, db_statements=72, db_deadlock_retries=0, db_active_connections=0, wal_writes=1, wal_bytes=113, wal_identical_skipped=0, wal_barrier_ms_p50=3.180234, wal_barrier_ms_p95=3.180234, wal_barrier_ms_p99=3.180234, wal_barrier_ms_samples=1, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=13.128792, mc_target_ticks_per_second=20.0}\n",
+  "scope": "actual Minecraft JVM, real Redis/MySQL; arbitrary external chest rollback is not made atomic"
+}

@@ -1,0 +1,11 @@
+{
+  "source_revision": "9258a6ade8c94e863a450a3f5eec95dff9c9ee2b",
+  "passed": false,
+  "exception": "AssertionError: ERROR location_sealed at spawn, before input acceptance",
+  "cause": "Existing time-modulo smoke coordinates collided with a previously sealed endpoint location; no record or assets deleted. New UUID-derived in-border coordinates chosen for subsequent independent test.",
+  "jar_sha256": "f0c7a9b344af7ca7a4d635ca61e5c7565046de441400635b67123754854b01f1",
+  "log": "logs/optimization-packaged-9258a6a.log",
+  "log_sha256": "7bec6c4664f98a457a3825722b8d7dc13f70cc70146374e4121c0625ef31581b",
+  "server_log": "logs/packaged-smoke-9258a6a-first-failed.log",
+  "standalone_smoke_exit_code": "Not separately captured; exception log retained. Combined shell sequence subsequently ran an unrelated successful launch-script build."
+}

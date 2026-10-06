@@ -1,0 +1,150 @@
+{
+  "utc": "2026-10-06T19:29:33.517459+00:00",
+  "failed_report": "reports/optimization-restart-fallback-68f32db-20261006T192436Z-9e30ef6d.json",
+  "failed_report_sha256": "1e4b7550dafad1382009a3cceb4658cf5d71eccd37c4aaf269ef1a82d30d15f7",
+  "read_only": true,
+  "native_test_status": "FAILED_VALIDATOR_BEFORE_CONFIG_SWITCH",
+  "confirmed_actual_input_FE": 128,
+  "confirmed_actual_output_FE": 0,
+  "ownership": {
+    "SQL_available": 0,
+    "SQL_exclusive_LOCAL": 128,
+    "WAL_mirror_of_SQL_LOCAL": 128,
+    "total_effective_asset_FE": 128,
+    "mirrors_not_added": true
+  },
+  "transfers": [
+    {
+      "record_type": "transfer",
+      "id": "01a112ac-e214-7c27-9a8d-f039e63a3ace",
+      "endpoint_id": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+      "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+      "kind": "DEPOSIT",
+      "state": "COMMITTED",
+      "amount": 128,
+      "remaining": 0,
+      "epoch": 5
+    },
+    {
+      "record_type": "transfer",
+      "id": "01a112ac-e216-7b10-bbdb-799c766f37bb",
+      "endpoint_id": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+      "resource_id": "5b3da453-1488-4891-86be-096f49117985",
+      "kind": "ALLOCATE",
+      "state": "LOCAL",
+      "amount": 128,
+      "remaining": 128,
+      "epoch": 5
+    }
+  ],
+  "endpoint_rows": [
+    [
+      "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+      "opt-regression-68f32db-fast-A",
+      "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "57536927-3421-43cd-8fc5-9df4df58e920",
+      "ACTIVE",
+      "2",
+      "5",
+      "1"
+    ],
+    [
+      "ba584569-6a07-4abf-9dca-f6a331c4c558",
+      "opt-regression-68f32db-fast-A",
+      "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "57536927-3421-43cd-8fc5-9df4df58e920",
+      "ACTIVE",
+      "4",
+      "5",
+      "1"
+    ]
+  ],
+  "stopped_servers": [
+    [
+      "opt-regression-68f32db-fast-A",
+      "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+      "01a112ac-9a4f-725e-a662-4cba4975ead8",
+      "5",
+      "STOPPED",
+      "1",
+      "0"
+    ],
+    [
+      "opt-regression-68f32db-fast-B",
+      "01a112a8-1da7-7da6-92bd-78ec872c272d",
+      "01a112ab-e877-7355-b0bb-12155e4bfd97",
+      "4",
+      "STOPPED",
+      "1",
+      "0"
+    ],
+    [
+      "opt-regression-68f32db-fast-C",
+      "01a112a8-32a2-7b50-afa3-e7c81348ee55",
+      "01a112a8-327f-75c0-917e-2f619ebac9cf",
+      "1",
+      "STOPPED",
+      "1",
+      "0"
+    ]
+  ],
+  "WAL": [
+    {
+      "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/ba584569-6a07-4abf-9dca-f6a331c4c558.ctj",
+      "sha256": "c98fa1e059d967e2727c9c89fde6b89375afe2e49d67d154d1dd2e62c51f7525",
+      "decoded": {
+        "format": 2,
+        "endpoint": "ba584569-6a07-4abf-9dca-f6a331c4c558",
+        "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+        "generation": 1,
+        "revision": 4,
+        "deposits": [],
+        "credits": [],
+        "thermal": {
+          "microjoules": 0,
+          "residual": 0.0,
+          "pending": false
+        },
+        "sha256": "c98fa1e059d967e2727c9c89fde6b89375afe2e49d67d154d1dd2e62c51f7525",
+        "size_bytes": 113,
+        "checksum_verified": true,
+        "raw_base64": "Q1RUMQAAAAK6WEVpagdKv53K9qMxxMVYAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwv9Ji0b3qYj8K+hnAxHRJbA5QnvKXzLDd29pFjNf+s="
+      }
+    },
+    {
+      "path": "run-A/world-opt-regression-68f32db-fast-A/cross_tesseract/journal/9a82dabc-03a9-4c75-a176-6e96b6f34551.ctj",
+      "sha256": "6c772b7af6bc45da075152b7fb9d2fce01400b63d657ce75e8fa9cd207ccbbec",
+      "decoded": {
+        "format": 2,
+        "endpoint": "9a82dabc-03a9-4c75-a176-6e96b6f34551",
+        "world": "01a112a8-26f6-7fb8-a864-a7e4cb3f250a",
+        "generation": 1,
+        "revision": 2,
+        "deposits": [],
+        "credits": [
+          {
+            "transaction": "01a112ac-e216-7b10-bbdb-799c766f37bb",
+            "channel": "57536927-3421-43cd-8fc5-9df4df58e920",
+            "resource": {
+              "kind": "cross_tesseract:fe",
+              "payload_hex": "",
+              "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "original": 128,
+            "remaining": 128
+          }
+        ],
+        "thermal": {
+          "microjoules": 0,
+          "residual": 0.0,
+          "pending": false
+        },
+        "sha256": "6c772b7af6bc45da075152b7fb9d2fce01400b63d657ce75e8fa9cd207ccbbec",
+        "size_bytes": 185,
+        "checksum_verified": true,
+        "raw_base64": "Q1RUMQAAAAKagtq8A6lMdaF2bpa280VRAaESqCb2f7ioZKfkyz8lCgAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAQGhEqziFnsQu9t5nHZvN7tXU2knNCFDzY/FnfTfWOkgABJjcm9zc190ZXNzZXJhY3Q6ZmUAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAxkPyGmg5ALr7MgaInVbhFeMN/rYQa7cTKNqsXxCU6Cc="
+      }
+    }
+  ],
+  "decision": "Keep this fixture untouched. Corrected test must use fresh IDs, no original input/pull replay. Recheck original ownership after recovery."
+}

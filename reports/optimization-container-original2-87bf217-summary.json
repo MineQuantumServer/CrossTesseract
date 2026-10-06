@@ -1,0 +1,2918 @@
+{
+  "schema_version": 1,
+  "report_kind": "offline_original_physical_container_supplement_summary",
+  "generated_utc": "2026-10-06T14:51:42.586928+00:00",
+  "offline_file_derivation_only": true,
+  "generator": {
+    "path": "/workspace/scratch/offline-container-original2-summary.py",
+    "sha256": "d8457dc64dcc2ff9cd3b5a72e51213fcac76bdcef1b0fade206fa129a3050fe8"
+  },
+  "sources": {
+    "matched_original": {
+      "path": "/workspace/reports/optimization-container-container-original2-87bf217-20261006T141818Z-8488a9.json",
+      "sha256": "212c6dc79e00989e48ae43e8d7b475d8fcbba780fc099ef91ea1f25dc2ce600a",
+      "size_bytes": 24397033
+    },
+    "initial_failed_original": {
+      "path": "/workspace/reports/optimization-container-container-original-87bf217-20261006T140734Z-bfcb60.json",
+      "sha256": "63fda22a693f8a7cd3468c33fc0d8ec51a4ad42dab71414518a908de28facaae",
+      "size_bytes": 2725077
+    }
+  },
+  "complete_original_run": {
+    "raw_passed": true,
+    "derived_audit_passed": true,
+    "audit_checks": {
+      "raw_report_passed": true,
+      "three_layouts_two_completed_probes_each": true,
+      "six_physical_outputs32_with_source_empty": true,
+      "derived_E2E_matches_raw": true,
+      "all21_quiet_proofs_passed": true,
+      "every_sink_cumulatively_served": true,
+      "runtime_errors_rejections_quarantines_retries_zero": true,
+      "no_failed_RCON_trace_records": true,
+      "192_confirmed_items_cleared_and7_empty_fixtures_cleaned": true,
+      "initial_failed_attempt_kept_separate": true
+    },
+    "utc_start": "2026-10-06T14:18:19.004963+00:00",
+    "utc_end": "2026-10-06T14:41:15.020356+00:00",
+    "elapsed_seconds": 1376.015479359001,
+    "conditions": {
+      "scenarios": [
+        "same",
+        "cross",
+        "mixed"
+      ],
+      "repeats": 1,
+      "probes_per_layout_per_repeat": 2,
+      "stone_per_probe": 32,
+      "probe_idle_seconds": 2.2,
+      "poll_seconds": 0.1,
+      "timeout_seconds": 420.0,
+      "quiet_seconds": 2.2,
+      "endpoint_minimum_spacing_blocks": 64,
+      "be_y": 64,
+      "chest_side": "EAST",
+      "item_side_mask": 32,
+      "expected_new_world_prefix": "world-opt-container-",
+      "resource": "cross_tesseract:item",
+      "item_id": "minecraft:stone",
+      "warmup_seconds": 0,
+      "steady_seconds": 0
+    },
+    "operator_runtime_revision": "87bf217fcaffcceb2629c36bb54d5158b9f461e8",
+    "git_head": "75392af252744f240253d134d1da565a49b2cc9f",
+    "runtime_revision_note": "git_head describes this checkout; loaded JVM revision is supplied by the operator and not proven by the old harness. PIDs/SQL sessions are checked unchanged.",
+    "source_evidence": {
+      "path": "/workspace/src/main/java/dev/crosstesseract/test/ThreeServerHarness.java",
+      "sha256": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b",
+      "ordinary_endpoint_y": 64,
+      "source_expression": "BlockPos pos=new BlockPos(x,64,z)"
+    },
+    "helper_sha256": "d76f62434e2f55afcfa06f5de5c6c0f4db2d1a999e5d388248e993fc0142758f",
+    "fixtures": {
+      "same": [
+        {
+          "name": "same",
+          "channel": "467bb109-a596-4464-9dfb-5eb68dd4842a",
+          "sources": [
+            {
+              "name": "same_source_0",
+              "server": "A",
+              "x": 9685732,
+              "z": 164,
+              "id": "27b8642e-d049-4077-a3ea-87da9577bd90",
+              "y": 64
+            }
+          ],
+          "sinks": [
+            {
+              "name": "same_sink_0",
+              "server": "A",
+              "x": 9685796,
+              "z": 164,
+              "id": "bc347b7e-671e-4ba1-bedf-d9b6a3223a22",
+              "y": 64
+            }
+          ]
+        }
+      ],
+      "cross": [
+        {
+          "name": "cross",
+          "channel": "cd2e5b22-d31d-40af-95db-58149b0ba5d0",
+          "sources": [
+            {
+              "name": "cross_source_0",
+              "server": "A",
+              "x": 9685860,
+              "z": 164,
+              "id": "f09108d8-3137-4f14-bbdd-7b0262fca010",
+              "y": 64
+            }
+          ],
+          "sinks": [
+            {
+              "name": "cross_sink_0",
+              "server": "B",
+              "x": 9685924,
+              "z": 164,
+              "id": "bb299b3b-aa9b-4fe0-8456-af646e785c26",
+              "y": 64
+            }
+          ]
+        }
+      ],
+      "mixed": [
+        {
+          "name": "mixed",
+          "channel": "11c08f2d-b339-401e-8921-f9d79045308a",
+          "sources": [
+            {
+              "name": "mixed_source_0",
+              "server": "A",
+              "x": 9685988,
+              "z": 164,
+              "id": "73ed7f30-aae0-4b0f-add0-195dd0d0c341",
+              "y": 64
+            }
+          ],
+          "sinks": [
+            {
+              "name": "mixed_sink_0",
+              "server": "A",
+              "x": 9686052,
+              "z": 164,
+              "id": "eb640b84-cadc-4862-b17e-3ca4d807d8d4",
+              "y": 64
+            },
+            {
+              "name": "mixed_sink_1",
+              "server": "B",
+              "x": 9686116,
+              "z": 164,
+              "id": "76de7bd8-8da1-4057-ad94-cdd17b20aa48",
+              "y": 64
+            }
+          ]
+        }
+      ]
+    },
+    "chests": {
+      "same_source_0": {
+        "server": "A",
+        "position": [
+          9685733,
+          64,
+          164
+        ],
+        "endpoint_id": "27b8642e-d049-4077-a3ea-87da9577bd90",
+        "creation_trace_index": 36,
+        "layout": {
+          "be": [
+            9685732,
+            64,
+            164
+          ],
+          "chest": [
+            9685733,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605358,
+            10
+          ]
+        }
+      },
+      "same_sink_0": {
+        "server": "A",
+        "position": [
+          9685797,
+          64,
+          164
+        ],
+        "endpoint_id": "bc347b7e-671e-4ba1-bedf-d9b6a3223a22",
+        "creation_trace_index": 73,
+        "layout": {
+          "be": [
+            9685796,
+            64,
+            164
+          ],
+          "chest": [
+            9685797,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605362,
+            10
+          ]
+        }
+      },
+      "cross_source_0": {
+        "server": "A",
+        "position": [
+          9685861,
+          64,
+          164
+        ],
+        "endpoint_id": "f09108d8-3137-4f14-bbdd-7b0262fca010",
+        "creation_trace_index": 108,
+        "layout": {
+          "be": [
+            9685860,
+            64,
+            164
+          ],
+          "chest": [
+            9685861,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605366,
+            10
+          ]
+        }
+      },
+      "cross_sink_0": {
+        "server": "B",
+        "position": [
+          9685925,
+          64,
+          164
+        ],
+        "endpoint_id": "bb299b3b-aa9b-4fe0-8456-af646e785c26",
+        "creation_trace_index": 136,
+        "layout": {
+          "be": [
+            9685924,
+            64,
+            164
+          ],
+          "chest": [
+            9685925,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605370,
+            10
+          ]
+        }
+      },
+      "mixed_source_0": {
+        "server": "A",
+        "position": [
+          9685989,
+          64,
+          164
+        ],
+        "endpoint_id": "73ed7f30-aae0-4b0f-add0-195dd0d0c341",
+        "creation_trace_index": 160,
+        "layout": {
+          "be": [
+            9685988,
+            64,
+            164
+          ],
+          "chest": [
+            9685989,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605374,
+            10
+          ]
+        }
+      },
+      "mixed_sink_0": {
+        "server": "A",
+        "position": [
+          9686053,
+          64,
+          164
+        ],
+        "endpoint_id": "eb640b84-cadc-4862-b17e-3ca4d807d8d4",
+        "creation_trace_index": 197,
+        "layout": {
+          "be": [
+            9686052,
+            64,
+            164
+          ],
+          "chest": [
+            9686053,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605378,
+            10
+          ]
+        }
+      },
+      "mixed_sink_1": {
+        "server": "B",
+        "position": [
+          9686117,
+          64,
+          164
+        ],
+        "endpoint_id": "76de7bd8-8da1-4057-ad94-cdd17b20aa48",
+        "creation_trace_index": 226,
+        "layout": {
+          "be": [
+            9686116,
+            64,
+            164
+          ],
+          "chest": [
+            9686117,
+            64,
+            164
+          ],
+          "side": "EAST",
+          "item_side_mask": 32,
+          "chunk": [
+            605382,
+            10
+          ]
+        }
+      }
+    },
+    "cleanup": [
+      {
+        "endpoint": "same_source_0",
+        "empty_chest_removed": true,
+        "device_removed": true
+      },
+      {
+        "endpoint": "same_sink_0",
+        "empty_chest_removed": true,
+        "device_removed": true
+      },
+      {
+        "endpoint": "cross_source_0",
+        "empty_chest_removed": true,
+        "device_removed": true
+      },
+      {
+        "endpoint": "cross_sink_0",
+        "empty_chest_removed": true,
+        "device_removed": true
+      },
+      {
+        "endpoint": "mixed_source_0",
+        "empty_chest_removed": true,
+        "device_removed": true
+      },
+      {
+        "endpoint": "mixed_sink_0",
+        "empty_chest_removed": true,
+        "device_removed": true
+      },
+      {
+        "endpoint": "mixed_sink_1",
+        "empty_chest_removed": true,
+        "device_removed": true
+      }
+    ],
+    "identity": {
+      "A": {
+        "port": 25575,
+        "pid": 342557,
+        "server_id": "opt-container-original2-A",
+        "world_id": "01a11194-48cc-7bfc-b675-ea641ca8d703",
+        "level_name": "world-opt-container-original2-A",
+        "java_executable": "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "jvm_heap": [
+          "-Xmx2G"
+        ],
+        "argv_sha256": "96692fcce6edafba9607988bc965a64d67663a67ae1a7c80ecbeb37b61f0be44",
+        "argv_launch": [
+          "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+          "@/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunClasspath.txt",
+          "@/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunVmArgs.txt",
+          "<argument omitted>",
+          "<argument omitted>",
+          "@/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunProgramArgs.txt"
+        ],
+        "vm_argfiles": [
+          {
+            "path": "/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunVmArgs.txt",
+            "sha256": "340ae5bd33024e647b5ff1ea6109d070e2300347a5875fd9e2ba2dc5110b3e11",
+            "size_bytes": 1801
+          }
+        ],
+        "verified_system_properties": [
+          "-Dcross_tesseract.config=/workspace/run-A/cross-tesseract.properties",
+          "-Dcross_tesseract.testHarness=true"
+        ],
+        "buffer_capacity_FE": 2000000,
+        "session_id": "01a11194-48c9-779b-97da-38dad5d6a2d6",
+        "fencing_epoch": 1,
+        "launch_selected_fml_modFolders": "cross_tesseract%%/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/classes:cross_tesseract%%/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/resources",
+        "launch_crosstesseract_bytecode_sha256": "747021b11bfd2bd3d5c683aa30e633c1fdd3be134e899d0e0b0cff717ecc5540",
+        "all_launch_argfiles": [
+          {
+            "path": "/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunClasspath.txt",
+            "sha256": "8983ccadb3175362f17358430dec4848b773febb3bdb0c34efd0577114ebcea5",
+            "size_bytes": 14903
+          },
+          {
+            "path": "/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunVmArgs.txt",
+            "sha256": "340ae5bd33024e647b5ff1ea6109d070e2300347a5875fd9e2ba2dc5110b3e11",
+            "size_bytes": 1801
+          },
+          {
+            "path": "/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/serverARunProgramArgs.txt",
+            "sha256": "208547e64ba6e387f50f32b6ab2d41dd039aad8960620195323867bcdbc14dfc",
+            "size_bytes": 296
+          }
+        ],
+        "launch_mod_artifact_manifests": [
+          {
+            "source_type": "launch_fml_mod_folder",
+            "path": "/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/classes",
+            "manifest_sha256": "747021b11bfd2bd3d5c683aa30e633c1fdd3be134e899d0e0b0cff717ecc5540",
+            "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+            "total_bytes": 738236
+          },
+          {
+            "source_type": "launch_fml_mod_folder",
+            "path": "/workspace/scratch/dev-launch/461a2a5e6d514b3d8dee60815d06907f/resources",
+            "manifest_sha256": "e668e6b54c3dfe8fea33fad3f29e1c44147b391dc17b3ca474952f50dae5fdea",
+            "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+            "total_bytes": 47028
+          }
+        ]
+      },
+      "B": {
+        "port": 25576,
+        "pid": 342543,
+        "server_id": "opt-container-original2-B",
+        "world_id": "01a11194-4e13-7611-b2dc-c113c28a8ded",
+        "level_name": "world-opt-container-original2-B",
+        "java_executable": "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "jvm_heap": [
+          "-Xmx2G"
+        ],
+        "argv_sha256": "3e9aa3d054e12e101a0566a698233417ec7f0b7c1b9d969c00754c576fa2e814",
+        "argv_launch": [
+          "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+          "@/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunClasspath.txt",
+          "@/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunVmArgs.txt",
+          "<argument omitted>",
+          "<argument omitted>",
+          "@/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunProgramArgs.txt"
+        ],
+        "vm_argfiles": [
+          {
+            "path": "/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunVmArgs.txt",
+            "sha256": "d015fd5239308887442b32668e54c890a0762f47550fbcc2c19d128f2ab21c4b",
+            "size_bytes": 1801
+          }
+        ],
+        "verified_system_properties": [
+          "-Dcross_tesseract.config=/workspace/run-B/cross-tesseract.properties",
+          "-Dcross_tesseract.testHarness=true"
+        ],
+        "buffer_capacity_FE": 2000000,
+        "session_id": "01a11194-4e11-744f-9f12-28cbf8177d00",
+        "fencing_epoch": 1,
+        "launch_selected_fml_modFolders": "cross_tesseract%%/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/classes:cross_tesseract%%/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/resources",
+        "launch_crosstesseract_bytecode_sha256": "747021b11bfd2bd3d5c683aa30e633c1fdd3be134e899d0e0b0cff717ecc5540",
+        "all_launch_argfiles": [
+          {
+            "path": "/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunClasspath.txt",
+            "sha256": "8983ccadb3175362f17358430dec4848b773febb3bdb0c34efd0577114ebcea5",
+            "size_bytes": 14903
+          },
+          {
+            "path": "/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunVmArgs.txt",
+            "sha256": "d015fd5239308887442b32668e54c890a0762f47550fbcc2c19d128f2ab21c4b",
+            "size_bytes": 1801
+          },
+          {
+            "path": "/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/serverBRunProgramArgs.txt",
+            "sha256": "208547e64ba6e387f50f32b6ab2d41dd039aad8960620195323867bcdbc14dfc",
+            "size_bytes": 296
+          }
+        ],
+        "launch_mod_artifact_manifests": [
+          {
+            "source_type": "launch_fml_mod_folder",
+            "path": "/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/classes",
+            "manifest_sha256": "747021b11bfd2bd3d5c683aa30e633c1fdd3be134e899d0e0b0cff717ecc5540",
+            "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+            "total_bytes": 738236
+          },
+          {
+            "source_type": "launch_fml_mod_folder",
+            "path": "/workspace/scratch/dev-launch/6abe4cc458594e518651384c893118dd/resources",
+            "manifest_sha256": "e668e6b54c3dfe8fea33fad3f29e1c44147b391dc17b3ca474952f50dae5fdea",
+            "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+            "total_bytes": 47028
+          }
+        ]
+      },
+      "C": {
+        "port": 25577,
+        "pid": 342544,
+        "server_id": "opt-container-original2-C",
+        "world_id": "01a11194-4e5b-7224-b053-440b32860578",
+        "level_name": "world-opt-container-original2-C",
+        "java_executable": "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "jvm_heap": [
+          "-Xmx2G"
+        ],
+        "argv_sha256": "82ef2d50a0ca0d517c9c243625fed2c19c60446e1422cbd8c6dd224a867048d2",
+        "argv_launch": [
+          "/workspace/scratch/jdk/jdk-21.0.8+9/bin/java",
+          "@/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunClasspath.txt",
+          "@/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunVmArgs.txt",
+          "<argument omitted>",
+          "<argument omitted>",
+          "@/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunProgramArgs.txt"
+        ],
+        "vm_argfiles": [
+          {
+            "path": "/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunVmArgs.txt",
+            "sha256": "b7983c668ea97ede5b53d6fc056c4d41f4f62e3a3061ad2c3a605984217e984d",
+            "size_bytes": 1801
+          }
+        ],
+        "verified_system_properties": [
+          "-Dcross_tesseract.config=/workspace/run-C/cross-tesseract.properties",
+          "-Dcross_tesseract.testHarness=true"
+        ],
+        "buffer_capacity_FE": 2000000,
+        "session_id": "01a11194-4e59-76f9-91b5-17a80dc6b9ca",
+        "fencing_epoch": 1,
+        "launch_selected_fml_modFolders": "cross_tesseract%%/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/classes:cross_tesseract%%/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/resources",
+        "launch_crosstesseract_bytecode_sha256": "747021b11bfd2bd3d5c683aa30e633c1fdd3be134e899d0e0b0cff717ecc5540",
+        "all_launch_argfiles": [
+          {
+            "path": "/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunClasspath.txt",
+            "sha256": "8983ccadb3175362f17358430dec4848b773febb3bdb0c34efd0577114ebcea5",
+            "size_bytes": 14903
+          },
+          {
+            "path": "/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunVmArgs.txt",
+            "sha256": "b7983c668ea97ede5b53d6fc056c4d41f4f62e3a3061ad2c3a605984217e984d",
+            "size_bytes": 1801
+          },
+          {
+            "path": "/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/serverCRunProgramArgs.txt",
+            "sha256": "208547e64ba6e387f50f32b6ab2d41dd039aad8960620195323867bcdbc14dfc",
+            "size_bytes": 296
+          }
+        ],
+        "launch_mod_artifact_manifests": [
+          {
+            "source_type": "launch_fml_mod_folder",
+            "path": "/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/classes",
+            "manifest_sha256": "747021b11bfd2bd3d5c683aa30e633c1fdd3be134e899d0e0b0cff717ecc5540",
+            "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+            "total_bytes": 738236
+          },
+          {
+            "source_type": "launch_fml_mod_folder",
+            "path": "/workspace/scratch/dev-launch/3ebbae306b2a47d1b42860767294a5de/resources",
+            "manifest_sha256": "e668e6b54c3dfe8fea33fad3f29e1c44147b391dc17b3ca474952f50dae5fdea",
+            "manifest_format": "sorted compact JSON array of relative_path/sha256/size_bytes objects",
+            "total_bytes": 47028
+          }
+        ]
+      }
+    },
+    "scenarios": [
+      {
+        "scenario": "same",
+        "repeat": 1,
+        "passed": true,
+        "actual_chest_items_by_sink": {
+          "same_sink_0": 64
+        },
+        "counter_delta": {
+          "db_transactions": 5912,
+          "db_deadlock_retries": 0,
+          "transactions": 405,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "per_server": {
+            "A": {
+              "db_transactions": 2900,
+              "db_deadlock_retries": 0,
+              "transactions": 405,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            },
+            "B": {
+              "db_transactions": 1673,
+              "db_deadlock_retries": 0,
+              "transactions": 0,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            },
+            "C": {
+              "db_transactions": 1339,
+              "db_deadlock_retries": 0,
+              "transactions": 0,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            }
+          },
+          "statements": {
+            "events": 41290,
+            "timer_picoseconds": 9803701756000,
+            "errors": 0
+          }
+        },
+        "counter_start": {
+          "start": 11.539310341999226,
+          "end": 11.554628494999633,
+          "servers": {
+            "A": {
+              "server": "A",
+              "command": "ct_test status",
+              "start": 11.53931334599838,
+              "utc_request_start": "2026-10-06T14:18:30.544193+00:00",
+              "end": 11.543041376000474,
+              "utc_reply_end": "2026-10-06T14:18:30.547925+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 5,
+                "active_endpoints": 2,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 13,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.03322,
+                "tick_ms_p95": 0.231808,
+                "tick_ms_p99": 1.283532,
+                "tick_ms_samples": 259,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 14.057791,
+                "sql_ms_p95": 50.827425,
+                "sql_ms_p99": 50.827425,
+                "sql_ms_samples": 13,
+                "db_transaction_ms_p50": 4.180875,
+                "db_transaction_ms_p95": 45.191798,
+                "db_transaction_ms_p99": 77.582996,
+                "db_transaction_ms_samples": 62,
+                "db_transactions": 62,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "B": {
+              "server": "B",
+              "command": "ct_test status",
+              "start": 11.54320436999842,
+              "utc_request_start": "2026-10-06T14:18:30.548084+00:00",
+              "end": 11.547733928000525,
+              "utc_reply_end": "2026-10-06T14:18:30.552617+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 2,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 4,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.015353,
+                "tick_ms_p95": 0.090626,
+                "tick_ms_p99": 0.507242,
+                "tick_ms_samples": 242,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 14.651417,
+                "sql_ms_p95": 21.397661,
+                "sql_ms_p99": 21.397661,
+                "sql_ms_samples": 4,
+                "db_transaction_ms_p50": 5.0376,
+                "db_transaction_ms_p95": 54.997844,
+                "db_transaction_ms_p99": 137.549326,
+                "db_transaction_ms_samples": 53,
+                "db_transactions": 53,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "C": {
+              "server": "C",
+              "command": "ct_test status",
+              "start": 11.547821780000959,
+              "utc_request_start": "2026-10-06T14:18:30.552702+00:00",
+              "end": 11.554510938000021,
+              "utc_reply_end": "2026-10-06T14:18:30.559395+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 0,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 0,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.012458,
+                "tick_ms_p95": 0.032819,
+                "tick_ms_p99": 0.067411,
+                "tick_ms_samples": 255,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 0.0,
+                "sql_ms_p95": 0.0,
+                "sql_ms_p99": 0.0,
+                "sql_ms_samples": 0,
+                "db_transaction_ms_p50": 4.894285,
+                "db_transaction_ms_p95": 32.038319,
+                "db_transaction_ms_p99": 103.568497,
+                "db_transaction_ms_samples": 38,
+                "db_transactions": 38,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            }
+          },
+          "statements": {
+            "events": 4241584,
+            "timer_picoseconds": 2079261921976000,
+            "errors": 4738,
+            "by_event": {
+              "statement/sql/alter_table": 9,
+              "statement/sql/commit": 187234,
+              "statement/sql/create_index": 9,
+              "statement/sql/create_table": 158,
+              "statement/sql/delete": 6038,
+              "statement/sql/delete_multi": 4,
+              "statement/sql/error": 265,
+              "statement/sql/insert": 573220,
+              "statement/sql/insert_select": 6,
+              "statement/sql/release_savepoint": 400734,
+              "statement/sql/rollback": 2696,
+              "statement/sql/rollback_to_savepoint": 16,
+              "statement/sql/savepoint": 408511,
+              "statement/sql/select": 1740047,
+              "statement/sql/set_option": 380517,
+              "statement/sql/update": 532032,
+              "statement/sql/update_multi": 10088
+            },
+            "observer_end": 11.647345967998262
+          }
+        },
+        "counter_end": {
+          "start": 677.2970331719989,
+          "end": 677.3129706639993,
+          "servers": {
+            "A": {
+              "server": "A",
+              "command": "ct_test status",
+              "start": 677.2970412239993,
+              "utc_request_start": "2026-10-06T14:29:36.301925+00:00",
+              "end": 677.3019008980009,
+              "utc_reply_end": "2026-10-06T14:29:36.306783+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 5,
+                "active_endpoints": 2,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 418,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.01326,
+                "tick_ms_p95": 0.109764,
+                "tick_ms_p99": 0.215774,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 17.187863,
+                "delivery_ms_p95": 24.91638,
+                "delivery_ms_p99": 24.91638,
+                "delivery_ms_samples": 2,
+                "sql_ms_p50": 10.684709,
+                "sql_ms_p95": 19.269364,
+                "sql_ms_p99": 28.536665,
+                "sql_ms_samples": 418,
+                "db_transaction_ms_p50": 2.347894,
+                "db_transaction_ms_p95": 5.821538,
+                "db_transaction_ms_p99": 13.768386,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 2962,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "B": {
+              "server": "B",
+              "command": "ct_test status",
+              "start": 677.3019972229995,
+              "utc_request_start": "2026-10-06T14:29:36.306877+00:00",
+              "end": 677.3085490169979,
+              "utc_reply_end": "2026-10-06T14:29:36.313432+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 2,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 4,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.007301,
+                "tick_ms_p95": 0.048903,
+                "tick_ms_p99": 0.116856,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 14.651417,
+                "sql_ms_p95": 21.397661,
+                "sql_ms_p99": 21.397661,
+                "sql_ms_samples": 4,
+                "db_transaction_ms_p50": 1.545781,
+                "db_transaction_ms_p95": 6.166475,
+                "db_transaction_ms_p99": 19.630825,
+                "db_transaction_ms_samples": 1726,
+                "db_transactions": 1726,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "C": {
+              "server": "C",
+              "command": "ct_test status",
+              "start": 677.3086487359978,
+              "utc_request_start": "2026-10-06T14:29:36.313529+00:00",
+              "end": 677.3128753109995,
+              "utc_reply_end": "2026-10-06T14:29:36.317759+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 0,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 0,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.000871,
+                "tick_ms_p95": 0.001342,
+                "tick_ms_p99": 0.058077,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 0.0,
+                "sql_ms_p95": 0.0,
+                "sql_ms_p99": 0.0,
+                "sql_ms_samples": 0,
+                "db_transaction_ms_p50": 1.594243,
+                "db_transaction_ms_p95": 6.234165,
+                "db_transaction_ms_p99": 32.279946,
+                "db_transaction_ms_samples": 1377,
+                "db_transactions": 1377,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            }
+          },
+          "statements": {
+            "events": 4282874,
+            "timer_picoseconds": 2089065623732000,
+            "errors": 4738,
+            "by_event": {
+              "statement/sql/alter_table": 9,
+              "statement/sql/commit": 193146,
+              "statement/sql/create_index": 9,
+              "statement/sql/create_table": 158,
+              "statement/sql/delete": 6335,
+              "statement/sql/delete_multi": 4,
+              "statement/sql/error": 265,
+              "statement/sql/insert": 573672,
+              "statement/sql/insert_select": 6,
+              "statement/sql/release_savepoint": 400734,
+              "statement/sql/rollback": 2696,
+              "statement/sql/rollback_to_savepoint": 16,
+              "statement/sql/savepoint": 408511,
+              "statement/sql/select": 1760426,
+              "statement/sql/set_option": 392344,
+              "statement/sql/update": 533458,
+              "statement/sql/update_multi": 11085
+            },
+            "observer_end": 677.3818839019987
+          }
+        },
+        "counter_scope": "Whole two-probe layout including scanner waits and guards, not a fixed steady window."
+      },
+      {
+        "scenario": "cross",
+        "repeat": 1,
+        "passed": true,
+        "actual_chest_items_by_sink": {
+          "cross_sink_0": 64
+        },
+        "counter_delta": {
+          "db_transactions": 3091,
+          "db_deadlock_retries": 0,
+          "transactions": 214,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "per_server": {
+            "A": {
+              "db_transactions": 881,
+              "db_deadlock_retries": 0,
+              "transactions": 4,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            },
+            "B": {
+              "db_transactions": 1512,
+              "db_deadlock_retries": 0,
+              "transactions": 210,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            },
+            "C": {
+              "db_transactions": 698,
+              "db_deadlock_retries": 0,
+              "transactions": 0,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            }
+          },
+          "statements": {
+            "events": 21627,
+            "timer_picoseconds": 5276551573000,
+            "errors": 0
+          }
+        },
+        "counter_start": {
+          "start": 677.3876513389987,
+          "end": 677.398800873998,
+          "servers": {
+            "A": {
+              "server": "A",
+              "command": "ct_test status",
+              "start": 677.3876541530008,
+              "utc_request_start": "2026-10-06T14:29:36.392534+00:00",
+              "end": 677.390508747998,
+              "utc_reply_end": "2026-10-06T14:29:36.395390+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 5,
+                "active_endpoints": 1,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 418,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.01329,
+                "tick_ms_p95": 0.109764,
+                "tick_ms_p99": 0.215774,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 17.187863,
+                "delivery_ms_p95": 24.91638,
+                "delivery_ms_p99": 24.91638,
+                "delivery_ms_samples": 2,
+                "sql_ms_p50": 10.684709,
+                "sql_ms_p95": 19.269364,
+                "sql_ms_p99": 28.536665,
+                "sql_ms_samples": 418,
+                "db_transaction_ms_p50": 2.347894,
+                "db_transaction_ms_p95": 5.821538,
+                "db_transaction_ms_p99": 13.768386,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 2962,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "B": {
+              "server": "B",
+              "command": "ct_test status",
+              "start": 677.390592623,
+              "utc_request_start": "2026-10-06T14:29:36.395472+00:00",
+              "end": 677.3951875499988,
+              "utc_reply_end": "2026-10-06T14:29:36.400069+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 2,
+                "active_endpoints": 1,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 4,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.007301,
+                "tick_ms_p95": 0.048903,
+                "tick_ms_p99": 0.116856,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 14.651417,
+                "sql_ms_p95": 21.397661,
+                "sql_ms_p99": 21.397661,
+                "sql_ms_samples": 4,
+                "db_transaction_ms_p50": 1.545781,
+                "db_transaction_ms_p95": 6.166475,
+                "db_transaction_ms_p99": 19.630825,
+                "db_transaction_ms_samples": 1726,
+                "db_transactions": 1726,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "C": {
+              "server": "C",
+              "command": "ct_test status",
+              "start": 677.3952800689985,
+              "utc_request_start": "2026-10-06T14:29:36.400160+00:00",
+              "end": 677.3987182199999,
+              "utc_reply_end": "2026-10-06T14:29:36.403599+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 0,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 0,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.000871,
+                "tick_ms_p95": 0.001342,
+                "tick_ms_p99": 0.058077,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 0.0,
+                "sql_ms_p95": 0.0,
+                "sql_ms_p99": 0.0,
+                "sql_ms_samples": 0,
+                "db_transaction_ms_p50": 1.594243,
+                "db_transaction_ms_p95": 6.234165,
+                "db_transaction_ms_p99": 32.279946,
+                "db_transaction_ms_samples": 1377,
+                "db_transactions": 1377,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            }
+          },
+          "statements": {
+            "events": 4282874,
+            "timer_picoseconds": 2089065623732000,
+            "errors": 4738,
+            "by_event": {
+              "statement/sql/alter_table": 9,
+              "statement/sql/commit": 193146,
+              "statement/sql/create_index": 9,
+              "statement/sql/create_table": 158,
+              "statement/sql/delete": 6335,
+              "statement/sql/delete_multi": 4,
+              "statement/sql/error": 265,
+              "statement/sql/insert": 573672,
+              "statement/sql/insert_select": 6,
+              "statement/sql/release_savepoint": 400734,
+              "statement/sql/rollback": 2696,
+              "statement/sql/rollback_to_savepoint": 16,
+              "statement/sql/savepoint": 408511,
+              "statement/sql/select": 1760426,
+              "statement/sql/set_option": 392344,
+              "statement/sql/update": 533458,
+              "statement/sql/update_multi": 11085
+            },
+            "observer_end": 677.4746373439993
+          }
+        },
+        "counter_end": {
+          "start": 1022.2718457529991,
+          "end": 1022.2844724829993,
+          "servers": {
+            "A": {
+              "server": "A",
+              "command": "ct_test status",
+              "start": 1022.2718545569987,
+              "utc_request_start": "2026-10-06T14:35:21.276738+00:00",
+              "end": 1022.2767023419983,
+              "utc_reply_end": "2026-10-06T14:35:21.281585+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 5,
+                "active_endpoints": 1,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 422,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.011206,
+                "tick_ms_p95": 0.07941,
+                "tick_ms_p99": 0.10656,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 17.187863,
+                "delivery_ms_p95": 24.91638,
+                "delivery_ms_p99": 24.91638,
+                "delivery_ms_samples": 2,
+                "sql_ms_p50": 10.701273,
+                "sql_ms_p95": 19.108308,
+                "sql_ms_p99": 28.536665,
+                "sql_ms_samples": 422,
+                "db_transaction_ms_p50": 1.542835,
+                "db_transaction_ms_p95": 5.495222,
+                "db_transaction_ms_p99": 18.162917,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 3843,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "B": {
+              "server": "B",
+              "command": "ct_test status",
+              "start": 1022.2767916960001,
+              "utc_request_start": "2026-10-06T14:35:21.281672+00:00",
+              "end": 1022.2783474409989,
+              "utc_reply_end": "2026-10-06T14:35:21.283228+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 2,
+                "active_endpoints": 1,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 214,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.007451,
+                "tick_ms_p95": 0.102174,
+                "tick_ms_p99": 0.224898,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 22.918967,
+                "delivery_ms_p95": 31.361339,
+                "delivery_ms_p99": 31.361339,
+                "delivery_ms_samples": 2,
+                "sql_ms_p50": 10.836113,
+                "sql_ms_p95": 21.185101,
+                "sql_ms_p99": 27.494524,
+                "sql_ms_samples": 214,
+                "db_transaction_ms_p50": 1.886618,
+                "db_transaction_ms_p95": 5.954628,
+                "db_transaction_ms_p99": 11.811389,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 3238,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "C": {
+              "server": "C",
+              "command": "ct_test status",
+              "start": 1022.2784070800008,
+              "utc_request_start": "2026-10-06T14:35:21.283287+00:00",
+              "end": 1022.2843936649988,
+              "utc_reply_end": "2026-10-06T14:35:21.289276+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 0,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 0,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.000872,
+                "tick_ms_p95": 0.001332,
+                "tick_ms_p99": 0.020541,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 0.0,
+                "sql_ms_p95": 0.0,
+                "sql_ms_p99": 0.0,
+                "sql_ms_samples": 0,
+                "db_transaction_ms_p50": 1.521854,
+                "db_transaction_ms_p95": 5.823736,
+                "db_transaction_ms_p99": 17.309411,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 2075,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            }
+          },
+          "statements": {
+            "events": 4304501,
+            "timer_picoseconds": 2094342175305000,
+            "errors": 4738,
+            "by_event": {
+              "statement/sql/alter_table": 9,
+              "statement/sql/commit": 196237,
+              "statement/sql/create_index": 9,
+              "statement/sql/create_table": 158,
+              "statement/sql/delete": 6488,
+              "statement/sql/delete_multi": 4,
+              "statement/sql/error": 265,
+              "statement/sql/insert": 573917,
+              "statement/sql/insert_select": 6,
+              "statement/sql/release_savepoint": 400734,
+              "statement/sql/rollback": 2696,
+              "statement/sql/rollback_to_savepoint": 16,
+              "statement/sql/savepoint": 408511,
+              "statement/sql/select": 1771104,
+              "statement/sql/set_option": 398529,
+              "statement/sql/update": 534214,
+              "statement/sql/update_multi": 11604
+            },
+            "observer_end": 1022.3766978300009
+          }
+        },
+        "counter_scope": "Whole two-probe layout including scanner waits and guards, not a fixed steady window."
+      },
+      {
+        "scenario": "mixed",
+        "repeat": 1,
+        "passed": true,
+        "actual_chest_items_by_sink": {
+          "mixed_sink_0": 32,
+          "mixed_sink_1": 32
+        },
+        "counter_delta": {
+          "db_transactions": 3710,
+          "db_deadlock_retries": 0,
+          "transactions": 421,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "per_server": {
+            "A": {
+              "db_transactions": 1508,
+              "db_deadlock_retries": 0,
+              "transactions": 212,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            },
+            "B": {
+              "db_transactions": 1505,
+              "db_deadlock_retries": 0,
+              "transactions": 209,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            },
+            "C": {
+              "db_transactions": 697,
+              "db_deadlock_retries": 0,
+              "transactions": 0,
+              "errors": 0,
+              "queue_rejected": 0,
+              "quarantined": 0
+            }
+          },
+          "statements": {
+            "events": 27595,
+            "timer_picoseconds": 6377292548000,
+            "errors": 0
+          }
+        },
+        "counter_start": {
+          "start": 1022.3801477779998,
+          "end": 1022.3911494589993,
+          "servers": {
+            "A": {
+              "server": "A",
+              "command": "ct_test status",
+              "start": 1022.3801495810003,
+              "utc_request_start": "2026-10-06T14:35:21.385029+00:00",
+              "end": 1022.3813646540002,
+              "utc_reply_end": "2026-10-06T14:35:21.386246+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 5,
+                "active_endpoints": 2,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 422,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.011206,
+                "tick_ms_p95": 0.079409,
+                "tick_ms_p99": 0.10656,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 17.187863,
+                "delivery_ms_p95": 24.91638,
+                "delivery_ms_p99": 24.91638,
+                "delivery_ms_samples": 2,
+                "sql_ms_p50": 10.701273,
+                "sql_ms_p95": 19.108308,
+                "sql_ms_p99": 28.536665,
+                "sql_ms_samples": 422,
+                "db_transaction_ms_p50": 1.542835,
+                "db_transaction_ms_p95": 5.495222,
+                "db_transaction_ms_p99": 18.162917,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 3843,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "B": {
+              "server": "B",
+              "command": "ct_test status",
+              "start": 1022.3814338880002,
+              "utc_request_start": "2026-10-06T14:35:21.386314+00:00",
+              "end": 1022.386571357998,
+              "utc_reply_end": "2026-10-06T14:35:21.391452+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 2,
+                "active_endpoints": 1,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 214,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.007451,
+                "tick_ms_p95": 0.102174,
+                "tick_ms_p99": 0.224898,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 22.918967,
+                "delivery_ms_p95": 31.361339,
+                "delivery_ms_p99": 31.361339,
+                "delivery_ms_samples": 2,
+                "sql_ms_p50": 10.836113,
+                "sql_ms_p95": 21.185101,
+                "sql_ms_p99": 27.494524,
+                "sql_ms_samples": 214,
+                "db_transaction_ms_p50": 1.886618,
+                "db_transaction_ms_p95": 5.954628,
+                "db_transaction_ms_p99": 11.811389,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 3238,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "C": {
+              "server": "C",
+              "command": "ct_test status",
+              "start": 1022.3866262109987,
+              "utc_request_start": "2026-10-06T14:35:21.391506+00:00",
+              "end": 1022.3910758479979,
+              "utc_reply_end": "2026-10-06T14:35:21.395957+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 0,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 0,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.000872,
+                "tick_ms_p95": 0.001332,
+                "tick_ms_p99": 0.020541,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 0.0,
+                "sql_ms_p95": 0.0,
+                "sql_ms_p99": 0.0,
+                "sql_ms_samples": 0,
+                "db_transaction_ms_p50": 1.521854,
+                "db_transaction_ms_p95": 5.823736,
+                "db_transaction_ms_p99": 17.309411,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 2075,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            }
+          },
+          "statements": {
+            "events": 4304530,
+            "timer_picoseconds": 2094347914754000,
+            "errors": 4738,
+            "by_event": {
+              "statement/sql/alter_table": 9,
+              "statement/sql/commit": 196240,
+              "statement/sql/create_index": 9,
+              "statement/sql/create_table": 158,
+              "statement/sql/delete": 6488,
+              "statement/sql/delete_multi": 4,
+              "statement/sql/error": 265,
+              "statement/sql/insert": 573918,
+              "statement/sql/insert_select": 6,
+              "statement/sql/release_savepoint": 400734,
+              "statement/sql/rollback": 2696,
+              "statement/sql/rollback_to_savepoint": 16,
+              "statement/sql/savepoint": 408511,
+              "statement/sql/select": 1771122,
+              "statement/sql/set_option": 398535,
+              "statement/sql/update": 534215,
+              "statement/sql/update_multi": 11604
+            },
+            "observer_end": 1022.4771221480005
+          }
+        },
+        "counter_end": {
+          "start": 1367.727009154998,
+          "end": 1367.7372079079978,
+          "servers": {
+            "A": {
+              "server": "A",
+              "command": "ct_test status",
+              "start": 1367.7270174369987,
+              "utc_request_start": "2026-10-06T14:41:06.731901+00:00",
+              "end": 1367.729906138,
+              "utc_reply_end": "2026-10-06T14:41:06.734789+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 5,
+                "active_endpoints": 2,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 634,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.011818,
+                "tick_ms_p95": 0.091648,
+                "tick_ms_p99": 0.174612,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 17.666694,
+                "delivery_ms_p95": 24.91638,
+                "delivery_ms_p99": 24.91638,
+                "delivery_ms_samples": 3,
+                "sql_ms_p50": 10.499959,
+                "sql_ms_p95": 17.855136,
+                "sql_ms_p99": 27.881836,
+                "sql_ms_samples": 634,
+                "db_transaction_ms_p50": 1.848164,
+                "db_transaction_ms_p95": 5.711774,
+                "db_transaction_ms_p99": 10.274006,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 5351,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 1
+              }
+            },
+            "B": {
+              "server": "B",
+              "command": "ct_test status",
+              "start": 1367.7299959529992,
+              "utc_request_start": "2026-10-06T14:41:06.734876+00:00",
+              "end": 1367.7325605080005,
+              "utc_reply_end": "2026-10-06T14:41:06.737443+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 2,
+                "active_endpoints": 1,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 423,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.007571,
+                "tick_ms_p95": 0.078187,
+                "tick_ms_p99": 0.189575,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 25.247632,
+                "delivery_ms_p95": 31.361339,
+                "delivery_ms_p99": 31.361339,
+                "delivery_ms_samples": 3,
+                "sql_ms_p50": 10.836113,
+                "sql_ms_p95": 18.667289,
+                "sql_ms_p99": 27.430719,
+                "sql_ms_samples": 423,
+                "db_transaction_ms_p50": 2.320993,
+                "db_transaction_ms_p95": 6.170261,
+                "db_transaction_ms_p99": 10.958077,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 4743,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            },
+            "C": {
+              "server": "C",
+              "command": "ct_test status",
+              "start": 1367.7326390050002,
+              "utc_request_start": "2026-10-06T14:41:06.737519+00:00",
+              "end": 1367.7371078180004,
+              "utc_reply_end": "2026-10-06T14:41:06.741991+00:00",
+              "metrics": {
+                "tickets": 0,
+                "registered_loaded_endpoints": 0,
+                "active_endpoints": 0,
+                "worker_queue": 0,
+                "actual_tickets": 0,
+                "transactions": 0,
+                "errors": 0,
+                "queue_rejected": 0,
+                "quarantined": 0,
+                "tick_ms_p50": 0.000901,
+                "tick_ms_p95": 0.001332,
+                "tick_ms_p99": 0.028012,
+                "tick_ms_samples": 2048,
+                "delivery_ms_p50": 0.0,
+                "delivery_ms_p95": 0.0,
+                "delivery_ms_p99": 0.0,
+                "delivery_ms_samples": 0,
+                "sql_ms_p50": 0.0,
+                "sql_ms_p95": 0.0,
+                "sql_ms_p99": 0.0,
+                "sql_ms_samples": 0,
+                "db_transaction_ms_p50": 1.340492,
+                "db_transaction_ms_p95": 5.520045,
+                "db_transaction_ms_p99": 15.210133,
+                "db_transaction_ms_samples": 2048,
+                "db_transactions": 2772,
+                "db_deadlock_retries": 0,
+                "db_active_connections": 0
+              }
+            }
+          },
+          "statements": {
+            "events": 4332125,
+            "timer_picoseconds": 2100725207302000,
+            "errors": 4738,
+            "by_event": {
+              "statement/sql/alter_table": 9,
+              "statement/sql/commit": 199948,
+              "statement/sql/create_index": 9,
+              "statement/sql/create_table": 158,
+              "statement/sql/delete": 6632,
+              "statement/sql/delete_multi": 4,
+              "statement/sql/error": 265,
+              "statement/sql/insert": 574369,
+              "statement/sql/insert_select": 6,
+              "statement/sql/release_savepoint": 400734,
+              "statement/sql/rollback": 2696,
+              "statement/sql/rollback_to_savepoint": 16,
+              "statement/sql/savepoint": 408511,
+              "statement/sql/select": 1785515,
+              "statement/sql/set_option": 405951,
+              "statement/sql/update": 535180,
+              "statement/sql/update_multi": 12122
+            },
+            "observer_end": 1367.8179514549993
+          }
+        },
+        "counter_scope": "Whole two-probe layout including scanner waits and guards, not a fixed steady window."
+      }
+    ],
+    "probes": [
+      {
+        "cohort": "matched_original",
+        "scenario": "same",
+        "repeat": 1,
+        "probe_number": 1,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 3154,
+        "input_trace_index": 267,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 9685733 64 164 container.0 with minecraft:stone 32",
+          "start": 16.257059006999043,
+          "utc_request_start": "2026-10-06T14:18:35.261939+00:00",
+          "reply": "Replaced a slot at 9685733, 64, 164 with [Stone]\n",
+          "end": 16.262315666001086,
+          "utc_reply_end": "2026-10-06T14:18:35.267197+00:00"
+        },
+        "input_placement_interval": {
+          "start": 16.257059006999043,
+          "end": 16.262315666001086
+        },
+        "physical_source_decrease_interval": {
+          "start": 342.8915584189999,
+          "end": 342.99749925599826,
+          "observation_span_ms": 105.940836998343,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 343.8407721090007,
+          "end": 343.94877317400096,
+          "observation_span_ms": 108.0010650002805
+        },
+        "physical_destination_full_32_interval": {
+          "start": 343.8407721090007,
+          "end": 343.94877317400096,
+          "observation_span_ms": 108.0010650002805
+        },
+        "input_to_source": {
+          "lower_ms": 326629.24275299883,
+          "upper_ms": 326740.4402489992,
+          "earlier_interval_span_ms": 5.256659002043307,
+          "later_interval_span_ms": 105.940836998343
+        },
+        "source_to_first": {
+          "lower_ms": 843.2728530024178,
+          "upper_ms": 1057.2147550010413,
+          "earlier_interval_span_ms": 105.940836998343,
+          "later_interval_span_ms": 108.0010650002805
+        },
+        "source_to_full": {
+          "lower_ms": 843.2728530024178,
+          "upper_ms": 1057.2147550010413,
+          "earlier_interval_span_ms": 105.940836998343,
+          "later_interval_span_ms": 108.0010650002805
+        },
+        "input_to_first": {
+          "lower_ms": 327578.4564429996,
+          "upper_ms": 327691.7141670019,
+          "earlier_interval_span_ms": 5.256659002043307,
+          "later_interval_span_ms": 108.0010650002805
+        },
+        "input_to_full": {
+          "lower_ms": 327578.4564429996,
+          "upper_ms": 327691.7141670019,
+          "earlier_interval_span_ms": 5.256659002043307,
+          "later_interval_span_ms": 108.0010650002805
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "same_sink_0": 32
+        },
+        "actual_destination_items_by_server": {
+          "A": 32
+        },
+        "drain_proof_indices": [
+          0,
+          1,
+          2
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.2028649460007728,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 3144,
+          "first_destination_increase": 3153,
+          "full_destination_32": 3153
+        },
+        "stored_E2E_bounds_match_derivation": true
+      },
+      {
+        "cohort": "matched_original",
+        "scenario": "same",
+        "repeat": 1,
+        "probe_number": 2,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 2967,
+        "input_trace_index": 6676,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 9685733 64 164 container.0 with minecraft:stone 32",
+          "start": 353.75621574899924,
+          "utc_request_start": "2026-10-06T14:24:12.761096+00:00",
+          "reply": "Replaced a slot at 9685733, 64, 164 with [Stone]\n",
+          "end": 353.7574925959998,
+          "utc_reply_end": "2026-10-06T14:24:12.762373+00:00"
+        },
+        "input_placement_interval": {
+          "start": 353.75621574899924,
+          "end": 353.7574925959998
+        },
+        "physical_source_decrease_interval": {
+          "start": 669.5684219979994,
+          "end": 669.6785605149998,
+          "observation_span_ms": 110.13851700045052,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 671.8751512509989,
+          "end": 671.9844321950004,
+          "observation_span_ms": 109.28094400151167
+        },
+        "physical_destination_full_32_interval": {
+          "start": 671.8751512509989,
+          "end": 671.9844321950004,
+          "observation_span_ms": 109.28094400151167
+        },
+        "input_to_source": {
+          "lower_ms": 315810.9294019996,
+          "upper_ms": 315922.34476600063,
+          "earlier_interval_span_ms": 1.2768470005539712,
+          "later_interval_span_ms": 110.13851700045052
+        },
+        "source_to_first": {
+          "lower_ms": 2196.5907359990524,
+          "upper_ms": 2416.0101970010146,
+          "earlier_interval_span_ms": 110.13851700045052,
+          "later_interval_span_ms": 109.28094400151167
+        },
+        "source_to_full": {
+          "lower_ms": 2196.5907359990524,
+          "upper_ms": 2416.0101970010146,
+          "earlier_interval_span_ms": 110.13851700045052,
+          "later_interval_span_ms": 109.28094400151167
+        },
+        "input_to_first": {
+          "lower_ms": 318117.6586549991,
+          "upper_ms": 318228.2164460012,
+          "earlier_interval_span_ms": 1.2768470005539712,
+          "later_interval_span_ms": 109.28094400151167
+        },
+        "input_to_full": {
+          "lower_ms": 318117.6586549991,
+          "upper_ms": 318228.2164460012,
+          "earlier_interval_span_ms": 1.2768470005539712,
+          "later_interval_span_ms": 109.28094400151167
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "same_sink_0": 32
+        },
+        "actual_destination_items_by_server": {
+          "A": 32
+        },
+        "drain_proof_indices": [
+          3,
+          4,
+          5
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.204905096998118,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 2945,
+          "first_destination_increase": 2966,
+          "full_destination_32": 2966
+        },
+        "stored_E2E_bounds_match_derivation": true
+      },
+      {
+        "cohort": "matched_original",
+        "scenario": "cross",
+        "repeat": 1,
+        "probe_number": 1,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 112,
+        "input_trace_index": 12721,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 9685861 64 164 container.0 with minecraft:stone 32",
+          "start": 682.1351958390005,
+          "utc_request_start": "2026-10-06T14:29:41.140076+00:00",
+          "reply": "Replaced a slot at 9685861, 64, 164 with [Stone]\n",
+          "end": 682.1365201970002,
+          "utc_reply_end": "2026-10-06T14:29:41.141401+00:00"
+        },
+        "input_placement_interval": {
+          "start": 682.1351958390005,
+          "end": 682.1365201970002
+        },
+        "physical_source_decrease_interval": {
+          "start": 688.9094124420008,
+          "end": 689.019862303001,
+          "observation_span_ms": 110.4498610002338,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 694.1873785059979,
+          "end": 694.2988415859982,
+          "observation_span_ms": 111.46308000024874
+        },
+        "physical_destination_full_32_interval": {
+          "start": 694.1873785059979,
+          "end": 694.2988415859982,
+          "observation_span_ms": 111.46308000024874
+        },
+        "input_to_source": {
+          "lower_ms": 6772.892245000548,
+          "upper_ms": 6884.666464000475,
+          "earlier_interval_span_ms": 1.3243579996924382,
+          "later_interval_span_ms": 110.4498610002338
+        },
+        "source_to_first": {
+          "lower_ms": 5167.5162029969215,
+          "upper_ms": 5389.429143997404,
+          "earlier_interval_span_ms": 110.4498610002338,
+          "later_interval_span_ms": 111.46308000024874
+        },
+        "source_to_full": {
+          "lower_ms": 5167.5162029969215,
+          "upper_ms": 5389.429143997404,
+          "earlier_interval_span_ms": 110.4498610002338,
+          "later_interval_span_ms": 111.46308000024874
+        },
+        "input_to_first": {
+          "lower_ms": 12050.858308997704,
+          "upper_ms": 12163.645746997645,
+          "earlier_interval_span_ms": 1.3243579996924382,
+          "later_interval_span_ms": 111.46308000024874
+        },
+        "input_to_full": {
+          "lower_ms": 12050.858308997704,
+          "upper_ms": 12163.645746997645,
+          "earlier_interval_span_ms": 1.3243579996924382,
+          "later_interval_span_ms": 111.46308000024874
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "cross_sink_0": 32
+        },
+        "actual_destination_items_by_server": {
+          "B": 32
+        },
+        "drain_proof_indices": [
+          6,
+          7,
+          8
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.208741179001663,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 63,
+          "first_destination_increase": 111,
+          "full_destination_32": 111
+        },
+        "stored_E2E_bounds_match_derivation": true
+      },
+      {
+        "cohort": "matched_original",
+        "scenario": "cross",
+        "repeat": 1,
+        "probe_number": 2,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 2835,
+        "input_trace_index": 13046,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 9685861 64 164 container.0 with minecraft:stone 32",
+          "start": 704.3226830809981,
+          "utc_request_start": "2026-10-06T14:30:03.327563+00:00",
+          "reply": "Replaced a slot at 9685861, 64, 164 with [Stone]\n",
+          "end": 704.3236632519984,
+          "utc_reply_end": "2026-10-06T14:30:03.328543+00:00"
+        },
+        "input_placement_interval": {
+          "start": 704.3226830809981,
+          "end": 704.3236632519984
+        },
+        "physical_source_decrease_interval": {
+          "start": 1015.3855659990004,
+          "end": 1015.4969822259991,
+          "observation_span_ms": 111.41622699869913,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 1016.8297317190008,
+          "end": 1016.9410226479995,
+          "observation_span_ms": 111.2909289986419
+        },
+        "physical_destination_full_32_interval": {
+          "start": 1016.8297317190008,
+          "end": 1016.9410226479995,
+          "observation_span_ms": 111.2909289986419
+        },
+        "input_to_source": {
+          "lower_ms": 311061.902747002,
+          "upper_ms": 311174.299145001,
+          "earlier_interval_span_ms": 0.9801710002648178,
+          "later_interval_span_ms": 111.41622699869913
+        },
+        "source_to_first": {
+          "lower_ms": 1332.7494930017565,
+          "upper_ms": 1555.4566489990975,
+          "earlier_interval_span_ms": 111.41622699869913,
+          "later_interval_span_ms": 111.2909289986419
+        },
+        "source_to_full": {
+          "lower_ms": 1332.7494930017565,
+          "upper_ms": 1555.4566489990975,
+          "earlier_interval_span_ms": 111.41622699869913,
+          "later_interval_span_ms": 111.2909289986419
+        },
+        "input_to_first": {
+          "lower_ms": 312506.0684670025,
+          "upper_ms": 312618.3395670014,
+          "earlier_interval_span_ms": 0.9801710002648178,
+          "later_interval_span_ms": 111.2909289986419
+        },
+        "input_to_full": {
+          "lower_ms": 312506.0684670025,
+          "upper_ms": 312618.3395670014,
+          "earlier_interval_span_ms": 0.9801710002648178,
+          "later_interval_span_ms": 111.2909289986419
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "cross_sink_0": 32
+        },
+        "actual_destination_items_by_server": {
+          "B": 32
+        },
+        "drain_proof_indices": [
+          9,
+          10,
+          11
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.2075106219999725,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 2821,
+          "first_destination_increase": 2834,
+          "full_destination_32": 2834
+        },
+        "stored_E2E_bounds_match_derivation": true
+      },
+      {
+        "cohort": "matched_original",
+        "scenario": "mixed",
+        "repeat": 1,
+        "probe_number": 1,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 117,
+        "input_trace_index": 18845,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 9685989 64 164 container.0 with minecraft:stone 32",
+          "start": 1027.2266826359992,
+          "utc_request_start": "2026-10-06T14:35:26.231563+00:00",
+          "reply": "Replaced a slot at 9685989, 64, 164 with [Stone]\n",
+          "end": 1027.2279086460003,
+          "utc_reply_end": "2026-10-06T14:35:26.232789+00:00"
+        },
+        "input_placement_interval": {
+          "start": 1027.2266826359992,
+          "end": 1027.2279086460003
+        },
+        "physical_source_decrease_interval": {
+          "start": 1033.4073642900003,
+          "end": 1033.5218911029988,
+          "observation_span_ms": 114.52681299851974,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 1040.3851333499988,
+          "end": 1040.5036344709988,
+          "observation_span_ms": 118.50112100000842
+        },
+        "physical_destination_full_32_interval": {
+          "start": 1040.3851333499988,
+          "end": 1040.5036344709988,
+          "observation_span_ms": 118.50112100000842
+        },
+        "input_to_source": {
+          "lower_ms": 6179.455643999972,
+          "upper_ms": 6295.208466999611,
+          "earlier_interval_span_ms": 1.2260100011189934,
+          "later_interval_span_ms": 114.52681299851974
+        },
+        "source_to_first": {
+          "lower_ms": 6863.2422470000165,
+          "upper_ms": 7096.270180998545,
+          "earlier_interval_span_ms": 114.52681299851974,
+          "later_interval_span_ms": 118.50112100000842
+        },
+        "source_to_full": {
+          "lower_ms": 6863.2422470000165,
+          "upper_ms": 7096.270180998545,
+          "earlier_interval_span_ms": 114.52681299851974,
+          "later_interval_span_ms": 118.50112100000842
+        },
+        "input_to_first": {
+          "lower_ms": 13157.224703998509,
+          "upper_ms": 13276.951834999636,
+          "earlier_interval_span_ms": 1.2260100011189934,
+          "later_interval_span_ms": 118.50112100000842
+        },
+        "input_to_full": {
+          "lower_ms": 13157.224703998509,
+          "upper_ms": 13276.951834999636,
+          "earlier_interval_span_ms": 1.2260100011189934,
+          "later_interval_span_ms": 118.50112100000842
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "mixed_sink_0": 0,
+          "mixed_sink_1": 32
+        },
+        "actual_destination_items_by_server": {
+          "A": 0,
+          "B": 32
+        },
+        "drain_proof_indices": [
+          12,
+          13,
+          14
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.213485825999669,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 55,
+          "first_destination_increase": 116,
+          "full_destination_32": 116
+        },
+        "stored_E2E_bounds_match_derivation": true
+      },
+      {
+        "cohort": "matched_original",
+        "scenario": "mixed",
+        "repeat": 1,
+        "probe_number": 2,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 2589,
+        "input_trace_index": 19346,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 9685989 64 164 container.0 with minecraft:stone 32",
+          "start": 1050.6156596309993,
+          "utc_request_start": "2026-10-06T14:35:49.620541+00:00",
+          "reply": "Replaced a slot at 9685989, 64, 164 with [Stone]\n",
+          "end": 1050.6169009839978,
+          "utc_reply_end": "2026-10-06T14:35:49.621782+00:00"
+        },
+        "input_placement_interval": {
+          "start": 1050.6156596309993,
+          "end": 1050.6169009839978
+        },
+        "physical_source_decrease_interval": {
+          "start": 1359.8883953619988,
+          "end": 1360.0087549259988,
+          "observation_span_ms": 120.35956399995484,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 1361.704183949998,
+          "end": 1361.8304001649994,
+          "observation_span_ms": 126.2162150014774
+        },
+        "physical_destination_full_32_interval": {
+          "start": 1361.704183949998,
+          "end": 1361.8304001649994,
+          "observation_span_ms": 126.2162150014774
+        },
+        "input_to_source": {
+          "lower_ms": 309271.4943780011,
+          "upper_ms": 309393.09529499954,
+          "earlier_interval_span_ms": 1.2413529984769411,
+          "later_interval_span_ms": 120.35956399995484
+        },
+        "source_to_first": {
+          "lower_ms": 1695.4290239991678,
+          "upper_ms": 1942.0048030006,
+          "earlier_interval_span_ms": 120.35956399995484,
+          "later_interval_span_ms": 126.2162150014774
+        },
+        "source_to_full": {
+          "lower_ms": 1695.4290239991678,
+          "upper_ms": 1942.0048030006,
+          "earlier_interval_span_ms": 120.35956399995484,
+          "later_interval_span_ms": 126.2162150014774
+        },
+        "input_to_first": {
+          "lower_ms": 311087.2829660002,
+          "upper_ms": 311214.74053400016,
+          "earlier_interval_span_ms": 1.2413529984769411,
+          "later_interval_span_ms": 126.2162150014774
+        },
+        "input_to_full": {
+          "lower_ms": 311087.2829660002,
+          "upper_ms": 311214.74053400016,
+          "earlier_interval_span_ms": 1.2413529984769411,
+          "later_interval_span_ms": 126.2162150014774
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "mixed_sink_1": 0,
+          "mixed_sink_0": 32
+        },
+        "actual_destination_items_by_server": {
+          "A": 32,
+          "B": 0
+        },
+        "drain_proof_indices": [
+          15,
+          16,
+          17
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.2175901730006444,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 2573,
+          "first_destination_increase": 2588,
+          "full_destination_32": 2588
+        },
+        "stored_E2E_bounds_match_derivation": true
+      }
+    ],
+    "quiet_barrier_proofs": [
+      {
+        "raw_proof_index": 0,
+        "lane": "same",
+        "purpose": "before_input",
+        "passed": true,
+        "observer_start_seconds": 11.647369233000063,
+        "observer_end_seconds": 14.05419406099827,
+        "quiet_seconds": 2.323996179999085,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 1,
+        "lane": "same",
+        "purpose": "after_full_output",
+        "passed": true,
+        "observer_start_seconds": 343.95170155899905,
+        "observer_end_seconds": 346.47712785099793,
+        "quiet_seconds": 2.4272390080004698,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 32,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          32
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 2,
+        "lane": "same",
+        "purpose": "after_confirmed_clear",
+        "passed": true,
+        "observer_start_seconds": 346.4828461190009,
+        "observer_end_seconds": 348.9205097289996,
+        "quiet_seconds": 2.3544813389999035,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 3,
+        "lane": "same",
+        "purpose": "before_input",
+        "passed": true,
+        "observer_start_seconds": 349.10938140600047,
+        "observer_end_seconds": 351.5513106520011,
+        "quiet_seconds": 2.349357685998257,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 4,
+        "lane": "same",
+        "purpose": "after_full_output",
+        "passed": true,
+        "observer_start_seconds": 671.9873836250008,
+        "observer_end_seconds": 674.4364499189978,
+        "quiet_seconds": 2.3607862959979684,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 32,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          32
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 5,
+        "lane": "same",
+        "purpose": "after_confirmed_clear",
+        "passed": true,
+        "observer_start_seconds": 674.4477350870002,
+        "observer_end_seconds": 676.9589881290012,
+        "quiet_seconds": 2.414079700000002,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 6,
+        "lane": "cross",
+        "purpose": "before_input",
+        "passed": true,
+        "observer_start_seconds": 677.4746609190006,
+        "observer_end_seconds": 679.9264546599989,
+        "quiet_seconds": 2.3688882809983625,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 7,
+        "lane": "cross",
+        "purpose": "after_full_output",
+        "passed": true,
+        "observer_start_seconds": 694.3012394049983,
+        "observer_end_seconds": 696.8341141159981,
+        "quiet_seconds": 2.4278451489990402,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 32,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          32
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 8,
+        "lane": "cross",
+        "purpose": "after_confirmed_clear",
+        "passed": true,
+        "observer_start_seconds": 696.8410550330009,
+        "observer_end_seconds": 699.3268434550009,
+        "quiet_seconds": 2.4028959380011656,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 9,
+        "lane": "cross",
+        "purpose": "before_input",
+        "passed": true,
+        "observer_start_seconds": 699.6161724129997,
+        "observer_end_seconds": 702.1151724589981,
+        "quiet_seconds": 2.406154242999037,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 10,
+        "lane": "cross",
+        "purpose": "after_full_output",
+        "passed": true,
+        "observer_start_seconds": 1016.9436297110005,
+        "observer_end_seconds": 1019.374062507999,
+        "quiet_seconds": 2.3477823990033357,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 32,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          32
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 11,
+        "lane": "cross",
+        "purpose": "after_confirmed_clear",
+        "passed": true,
+        "observer_start_seconds": 1019.381909243999,
+        "observer_end_seconds": 1021.8312495319988,
+        "quiet_seconds": 2.3657567689988355,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 12,
+        "lane": "mixed",
+        "purpose": "before_input",
+        "passed": true,
+        "observer_start_seconds": 1022.4771374310003,
+        "observer_end_seconds": 1025.0131968099995,
+        "quiet_seconds": 2.444998103997932,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 13,
+        "lane": "mixed",
+        "purpose": "after_full_output",
+        "passed": true,
+        "observer_start_seconds": 1040.5053352329996,
+        "observer_end_seconds": 1042.9902273029984,
+        "quiet_seconds": 2.399233309999545,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 32,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          32
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 14,
+        "lane": "mixed",
+        "purpose": "after_confirmed_clear",
+        "passed": true,
+        "observer_start_seconds": 1042.9972355399987,
+        "observer_end_seconds": 1045.4771525690012,
+        "quiet_seconds": 2.3539720170010696,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 15,
+        "lane": "mixed",
+        "purpose": "before_input",
+        "passed": true,
+        "observer_start_seconds": 1045.8820640699996,
+        "observer_end_seconds": 1048.3980694579986,
+        "quiet_seconds": 2.4291238880032324,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 16,
+        "lane": "mixed",
+        "purpose": "after_full_output",
+        "passed": true,
+        "observer_start_seconds": 1361.8352360239987,
+        "observer_end_seconds": 1364.4248435539994,
+        "quiet_seconds": 2.4930764330019883,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 32,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          32
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 17,
+        "lane": "mixed",
+        "purpose": "after_confirmed_clear",
+        "passed": true,
+        "observer_start_seconds": 1364.4422001409985,
+        "observer_end_seconds": 1367.0273937149977,
+        "quiet_seconds": 2.4645077040004253,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 18,
+        "lane": "same",
+        "purpose": "final_cleanup_empty_proof",
+        "passed": true,
+        "observer_start_seconds": 1368.0823878839983,
+        "observer_end_seconds": 1370.6335528659984,
+        "quiet_seconds": 2.45235095499811,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 19,
+        "lane": "cross",
+        "purpose": "final_cleanup_empty_proof",
+        "passed": true,
+        "observer_start_seconds": 1370.6345341390006,
+        "observer_end_seconds": 1373.1487780139978,
+        "quiet_seconds": 2.4163186619989574,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      },
+      {
+        "raw_proof_index": 20,
+        "lane": "mixed",
+        "purpose": "final_cleanup_empty_proof",
+        "passed": true,
+        "observer_start_seconds": 1373.1497778049998,
+        "observer_end_seconds": 1375.692642299,
+        "quiet_seconds": 2.4535092449987133,
+        "snapshot_count": 8,
+        "independent_zero_snapshot_count": 8,
+        "all_snapshots_independently_zero": true,
+        "physical_destination_expected_items": 0,
+        "source_chest_counts": [
+          0
+        ],
+        "destination_chest_total_counts": [
+          0
+        ],
+        "max_sql_pool_items": 0,
+        "max_sql_allocation_remaining_items": 0,
+        "all_physical_counts_match_proof": true
+      }
+    ],
+    "total_quiet_proof_snapshots": 168,
+    "total_input_stone_items": 192,
+    "total_actual_physical_destination_items": 192,
+    "cleared_confirmed_stone_items": 192
+  },
+  "initial_failed_attempt": {
+    "raw_passed": false,
+    "utc_start": "2026-10-06T14:07:34.377100+00:00",
+    "utc_end": "2026-10-06T14:10:13.996098+00:00",
+    "conditions": {
+      "scenarios": [
+        "same",
+        "cross",
+        "mixed"
+      ],
+      "repeats": 1,
+      "probes_per_layout_per_repeat": 10,
+      "stone_per_probe": 32,
+      "probe_idle_seconds": 2.2,
+      "poll_seconds": 0.1,
+      "timeout_seconds": 120,
+      "quiet_seconds": 2.2,
+      "endpoint_minimum_spacing_blocks": 64,
+      "be_y": 64,
+      "chest_side": "EAST",
+      "item_side_mask": 32,
+      "expected_new_world_prefix": "world-opt-container-",
+      "resource": "cross_tesseract:item",
+      "item_id": "minecraft:stone",
+      "warmup_seconds": 0,
+      "steady_seconds": 0
+    },
+    "fixture_retained_for_diagnosis": true,
+    "failures_verbatim": [
+      "AssertionError: Physical chest E2E timeout; fixtures/assets retained"
+    ],
+    "probes": [
+      {
+        "cohort": "initial_failed_original",
+        "scenario": "same",
+        "repeat": 1,
+        "probe_number": 1,
+        "passed": true,
+        "failure": null,
+        "stone_requested": 32,
+        "observation_frame_count": 102,
+        "input_trace_index": 290,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 13569445 64 164 container.0 with minecraft:stone 32",
+          "start": 19.50220737899872,
+          "utc_request_start": "2026-10-06T14:07:53.879202+00:00",
+          "reply": "Replaced a slot at 13569445, 64, 164 with [Stone]\n",
+          "end": 19.5108061059982,
+          "utc_reply_end": "2026-10-06T14:07:53.887803+00:00"
+        },
+        "input_placement_interval": {
+          "start": 19.50220737899872,
+          "end": 19.5108061059982
+        },
+        "physical_source_decrease_interval": {
+          "start": 24.90382839999802,
+          "end": 25.00890535399958,
+          "observation_span_ms": 105.07695400156081,
+          "origin": "last_full_source_chest_read_to_first_decrease_read"
+        },
+        "physical_destination_first_increase_interval": {
+          "start": 29.882381961000647,
+          "end": 29.987592970999685,
+          "observation_span_ms": 105.21100999903865
+        },
+        "physical_destination_full_32_interval": {
+          "start": 29.882381961000647,
+          "end": 29.987592970999685,
+          "observation_span_ms": 105.21100999903865
+        },
+        "input_to_source": {
+          "lower_ms": 5393.02229399982,
+          "upper_ms": 5506.697975000861,
+          "earlier_interval_span_ms": 8.598726999480277,
+          "later_interval_span_ms": 105.07695400156081
+        },
+        "source_to_first": {
+          "lower_ms": 4873.476607001066,
+          "upper_ms": 5083.764571001666,
+          "earlier_interval_span_ms": 105.07695400156081,
+          "later_interval_span_ms": 105.21100999903865
+        },
+        "source_to_full": {
+          "lower_ms": 4873.476607001066,
+          "upper_ms": 5083.764571001666,
+          "earlier_interval_span_ms": 105.07695400156081,
+          "later_interval_span_ms": 105.21100999903865
+        },
+        "input_to_first": {
+          "lower_ms": 10371.575855002447,
+          "upper_ms": 10485.385592000966,
+          "earlier_interval_span_ms": 8.598726999480277,
+          "later_interval_span_ms": 105.21100999903865
+        },
+        "input_to_full": {
+          "lower_ms": 10371.575855002447,
+          "upper_ms": 10485.385592000966,
+          "earlier_interval_span_ms": 8.598726999480277,
+          "later_interval_span_ms": 105.21100999903865
+        },
+        "first_and_full_have_same_observation_interval": true,
+        "source_first_read_count": 32,
+        "source_last_read_count": 0,
+        "source_observed_counts": [
+          0,
+          32
+        ],
+        "destination_last_total_items": 32,
+        "actual_destination_items_by_endpoint": {
+          "same_sink_0": 32
+        },
+        "actual_destination_items_by_server": {
+          "A": 32
+        },
+        "drain_proof_indices": [
+          0,
+          1,
+          2
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.2024941249983385,
+        "E2E_status": "OBSERVED",
+        "event_frame_indices": {
+          "first_source_decrease": 53,
+          "first_destination_increase": 101,
+          "full_destination_32": 101
+        },
+        "stored_E2E_bounds_match_derivation": true
+      },
+      {
+        "cohort": "initial_failed_original",
+        "scenario": "same",
+        "repeat": 1,
+        "probe_number": 2,
+        "passed": false,
+        "failure": "AssertionError: Physical chest E2E timeout; fixtures/assets retained",
+        "stone_requested": 32,
+        "observation_frame_count": 1164,
+        "input_trace_index": 595,
+        "input_command_observation": {
+          "server": "A",
+          "command": "execute in minecraft:overworld run item replace block 13569445 64 164 container.0 with minecraft:stone 32",
+          "start": 39.53033747999871,
+          "utc_request_start": "2026-10-06T14:08:13.907332+00:00",
+          "reply": "Replaced a slot at 13569445, 64, 164 with [Stone]\n",
+          "end": 39.53146771699903,
+          "utc_reply_end": "2026-10-06T14:08:13.908462+00:00"
+        },
+        "input_placement_interval": {
+          "start": 39.53033747999871,
+          "end": 39.53146771699903
+        },
+        "physical_source_decrease_interval": null,
+        "physical_destination_first_increase_interval": null,
+        "physical_destination_full_32_interval": null,
+        "input_to_source": null,
+        "source_to_first": null,
+        "source_to_full": null,
+        "input_to_first": null,
+        "input_to_full": null,
+        "first_and_full_have_same_observation_interval": null,
+        "source_first_read_count": 32,
+        "source_last_read_count": 32,
+        "source_observed_counts": [
+          32
+        ],
+        "destination_last_total_items": 0,
+        "actual_destination_items_by_endpoint": {
+          "same_sink_0": 0
+        },
+        "actual_destination_items_by_server": {
+          "A": 0
+        },
+        "drain_proof_indices": [
+          3
+        ],
+        "configured_idle_seconds": 2.2,
+        "post_empty_proof_to_injection_request_seconds": 2.202918442999362,
+        "E2E_status": "UNMEASURED_NO_SOURCE_DECREMENT",
+        "event_frame_indices": {
+          "first_source_decrease": null,
+          "first_destination_increase": null,
+          "full_destination_32": null
+        },
+        "stored_E2E_bounds_match_derivation": null,
+        "failed_probe_last_source_read": {
+          "endpoint": "same_source_0",
+          "start": 159.5142622329986,
+          "end": 159.51537514399752,
+          "count": 32,
+          "stacks": [
+            {
+              "slot": 0,
+              "id": "minecraft:stone",
+              "count": 32
+            }
+          ],
+          "RCON_trace_index": 2922
+        },
+        "failed_probe_last_destination_frame_interval": {
+          "start": 159.5163422250007,
+          "end": 159.516857057999
+        },
+        "input_to_last_full_source_read_conservative_elapsed_lower_seconds": 119.98279451599956,
+        "timeout_not_imputed_as_E2E": true
+      }
+    ],
+    "layouts_not_run": [
+      "cross",
+      "mixed"
+    ],
+    "cleared_confirmed_stone_items": 32,
+    "failed_probe_all_observed_source32_target0": true,
+    "interpretation": "No source decrement observed on second same probe; E2E unmeasured. The timeout remains failed, not a completed latency or demonstrated channel asset loss."
+  },
+  "latest_code_container_comparison": {
+    "status": "PENDING_NOT_RUN",
+    "metrics": null
+  },
+  "method": {
+    "clock": "One Python monotonic observer; saved interval endpoints are relative seconds. No cross-JVM clock subtraction.",
+    "input": "Placement occurred inside confirmed vanilla item-replace request/reply interval. This is not an exact world mutation time.",
+    "interval_formula_ms": "For earlier[a0,a1], later[b0,b1]: lower=max(0,(b0-a1)*1000); upper=max(0,(b1-a0)*1000). Input-to-source and input-to-full are retained separately.",
+    "source": "Last still-full chest request start to first decreased chest reply end. First-read-already-decreased would fall back to input request start; all six completed probes first observed32.",
+    "destination": "Previous zero/not-full aggregate chest read start to first positive/full32 reply end. Mixed sequential reads use earliest start/latest end; matching first/full intervals do not prove atomic arrival.",
+    "uncertainty": "Bounds include polling, RCON and read order. Derive input-to-full directly; do not add correlated component uncertainty bounds.",
+    "guards": "Physical totals, SQL pool, allocation remaining and local buffers checked independently. Never add SQL/WAL/local copies to physical chest totals.",
+    "small_sample": "Two probes per layout and one repeat. Nearest-rank p95/p99 would be the maximum, not a robust population tail or capacity estimate. No30/120-second steady experiment.",
+    "RCON": "Intended one observer without concurrent sidecars. Raw coordinate-checked bodies retained. Native shared buffer has no request-specific body nonce; request IDs alone do not attest body attribution. No wrong amount or time proven.",
+    "provenance": "Saved PID/world/session/epoch and actual frozen FML assets. Checkout753 differs from operator runtime87. Old harness has no class-loader CodeSource attestation; digest recipes differ.",
+    "separation": "Initial10/120 failure is distinct from matched2/420 success in new worlds; neither rewrites the primary nine40-probe30/120 FE samples per mode."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "Offline metadata/input provenance checks only; not Minecraft or performance results. Running primary module keeps the pre-fix code loaded.",
+  "pre_fix_script": {
+    "path": "scratch/optimization/final-sequence-before-explicit-baseline-68f32db.py",
+    "sha256": "363403c928aae58e04dc67c81bfaf8a0a1eed680a299f235d38cb4a6736b48f8",
+    "evidence_archive_path": "reports/raw/final-sequence-before-explicit-baseline-68f32db.py"
+  },
+  "new_required_argument": "--original-sequence-report",
+  "existing_actual_baseline_validated": {
+    "sequence": "reports/optimization-final-sequence-original.json",
+    "sha256": "0c5be4798dccbdadc99becbf92d598a9fd19f6be0b2a87ba4385b6af90a66252",
+    "stages": {
+      "pressure": {
+        "report": "reports/optimization-original-pressure-87bf217-20261006T144116Z-38d872.json",
+        "sha256": "2eef02f7cf00467abb7db371e137e8edc814ea900734362692af422a6cfd9f8e",
+        "label": "original-pressure-87bf217"
+      },
+      "primary": {
+        "report": "reports/optimization-original-final-87bf217-20261006T145840Z-0d4630.json",
+        "sha256": "35700d3cfff60022c381f38fab52a3d3daf745b842b1e29309a9cf68a1c5a676",
+        "label": "original-final-87bf217"
+      }
+    }
+  },
+  "source_files": {
+    "scripts/optimization-final-sequence.py": "482bead51021f21c6b1c5dc826a660ae84ba1c6201a755d179b8d9845cfd6670",
+    "scripts/optimization_sequence_input.py": "9a986395f29bf85fbc294b95a5751b7c61f691a278bbe92115f9b0e05845dea1"
+  },
+  "passed": true
+}
