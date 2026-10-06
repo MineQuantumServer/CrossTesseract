@@ -1,19 +1,29 @@
 {
-  "utc": "2026-10-03T02:39:14.428928+00:00",
+  "utc": "2026-10-06T20:13:05.699665+00:00",
   "version": "0.1.0-dev",
   "command": "python3 scripts/package-delivery.py",
+  "source_identity": {
+    "git_head": "40d4c2c4452e367b528324902419ff9f70e3105d",
+    "git_branch": "perf/channel-coordinator",
+    "java_source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+    "tested_core_manifest": {
+      "path": "reports/optimization-artifact-ready-final.json",
+      "sha256": "58b96a180e5e480b55eceb0b779f5fadb2d882eb523c3afe217960840d95e7ae",
+      "scope": "Previously built and tested core; inspect manifest for JAR hashes. The packaging checkout is recorded separately."
+    }
+  },
   "artifacts": [
     {
       "path": "build/distributions/cross_tesseract-0.1.0-dev-project.zip",
-      "bytes": 5155127,
-      "sha256": "dded58d406044608fa7b25037c774733564f5beb4f0a7a9e5e72c66a1cde2b53",
-      "entries": 156
+      "bytes": 22909575,
+      "sha256": "be0cfc01b1847469d72a7746fcfcb4418e6fcb0b15e52682946a2e3958b83ed9",
+      "entries": 534
     },
     {
       "path": "build/distributions/cross_tesseract-0.1.0-dev-test-evidence.zip",
-      "bytes": 10528390,
-      "sha256": "ab1e15beb2fb23f0a837a23fa0b61ab1572e1dfc20a9d82b47f4cf04f49bbbd2",
-      "entries": 173
+      "bytes": 43713580,
+      "sha256": "84778af7ca7b9ba8c85f1e30e3600962ae2f442cf300efda043b6f4bdffabbd0",
+      "entries": 812
     }
   ],
   "exclusions": [
