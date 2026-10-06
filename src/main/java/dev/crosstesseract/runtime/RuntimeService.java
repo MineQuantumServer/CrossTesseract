@@ -343,7 +343,7 @@ public final class RuntimeService {
             long room=Math.min(be.buffer().receiveRoom(kind),LocalBuffer.slotCapacity(kind));String profile=kind.equals(Protocol.EU)?new Resource(kind,java.nio.ByteBuffer.allocate(8).putLong(be.euVoltage).array()).hash():null;
             wanted.add(new TransferWork.Demand(BusinessIds.next(),kind,room,profile,kind.equals(Protocol.EU)?be.euVoltage:1));
         }
-        if(!be.buffer().hasWork() && wanted.isEmpty())return null;
+        if(!be.buffer().hasWork(sending) && wanted.isEmpty())return null;
         boolean checkpoint=be.buffer().dirty();var snapshot=be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot());
         return new TransferWork.Request(snapshot,be.channel(),be.endpointVersion(),checkpoint,sending,wanted,limits.deposits());
     }

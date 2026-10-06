@@ -21,6 +21,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /** Exercises the real buffer and WAL at the boundaries between two asynchronous SQL phases. */
 class LocalDeltaTest {
+    @Test void disabledCleanPendingDepositsDoNotRequestEmptySqlButRemainDurable(@TempDir Path directory) throws Exception {
+        var buffer=new LocalBuffer();var energy=new Resource(Protocol.FE,new byte[0]);
+        UUID endpoint=BusinessIds.next(),world=BusinessIds.next(),channel=BusinessIds.next();
+        assertEquals(128,buffer.insert(energy,128,false));
+        assertTrue(buffer.hasWork(Set.of()),"new input must be checkpointed even when SEND is disabled");
+        var snapshot=buffer.snapshot(endpoint,world,1,channel,true);var journal=new LocalJournal(directory);journal.write(snapshot);
+        assertFalse(buffer.hasWork(Set.of()));assertFalse(buffer.hasWork(Set.of(Protocol.ITEM)));
+        assertTrue(buffer.hasWork(Set.of(Protocol.FE)));assertEquals(128,buffer.sendAmount(Protocol.FE));
+        assertEquals(snapshot,journal.read(endpoint).orElseThrow());
+        var restored=new LocalBuffer();restored.restore(snapshot);
+        assertTrue(restored.hasWork(Set.of()),"restored state needs its recovery checkpoint");
+        var recovered=restored.snapshot(endpoint,world,1,channel,true);journal.write(recovered);
+        assertFalse(restored.hasWork(Set.of()));assertTrue(restored.hasWork(Set.of(Protocol.FE)));
+        assertEquals(snapshot.deposits(),recovered.deposits(),"direction changes neither discard nor invent business IDs");
+    }
     @Test void capturedCompletionPreservesNewInputConsumptionAndUnconfirmedZeroCredits(
             @TempDir Path directory) throws Exception {
         var buffer = new LocalBuffer();

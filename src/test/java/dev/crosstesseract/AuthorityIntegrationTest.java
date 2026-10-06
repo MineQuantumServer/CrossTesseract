@@ -272,6 +272,38 @@ class AuthorityIntegrationTest {
             assertEquals(1,f.get(15,TimeUnit.SECONDS));assertEquals(1,g.get(15,TimeUnit.SECONDS));assertTrue(firstAttempts.get()+secondAttempts.get()>=3,"at least one actual InnoDB deadlock was retried");
         }finally{pool.shutdownNow();}
     }
+    @Test void savepointCleanupPreservesRealMysqlDeadlockAndRetriesOnlyUncommittedWork() throws Exception {
+        var a=servers.get(0);var b=servers.get(1);UUID one=BusinessIds.next(),two=BusinessIds.next();
+        var first=device(0,owner,1900,0);var second=device(1,owner,1901,0);
+        a.database().transaction(c->{Sql.update(c,"INSERT INTO ct_player_guards(cluster_id,player_uuid) VALUES(?,?),(?,?)",cluster,one,cluster,two);return null;});
+        var barrier=new CyclicBarrier(2);var firstAttempts=new java.util.concurrent.atomic.AtomicInteger();var secondAttempts=new java.util.concurrent.atomic.AtomicInteger();
+        var failures=new ConcurrentLinkedQueue<java.sql.SQLException>();var pool=Executors.newFixedThreadPool(2);
+        long retries=a.database().stats().get("db_deadlock_retries").longValue()+b.database().stats().get("db_deadlock_retries").longValue();
+        try{
+            var f=pool.submit(()->a.database().transaction(c->{
+                try(var scope=Sql.savepoint(c)){
+                    Sql.one(c,"SELECT player_uuid FROM ct_player_guards WHERE cluster_id=? AND player_uuid=? FOR UPDATE",cluster,one);
+                    if(firstAttempts.getAndIncrement()==0)await(barrier);
+                    Sql.one(c,"SELECT player_uuid FROM ct_player_guards WHERE cluster_id=? AND player_uuid=? FOR UPDATE",cluster,two);
+                    Sql.update(c,"UPDATE ct_endpoints SET checkpoint=checkpoint+1 WHERE cluster_id=? AND endpoint_id=?",cluster,first.id());return 1;
+                }catch(java.sql.SQLException failure){failures.add(failure);throw failure;}
+            }));
+            var g=pool.submit(()->b.database().transaction(c->{
+                try(var scope=Sql.savepoint(c)){
+                    Sql.one(c,"SELECT player_uuid FROM ct_player_guards WHERE cluster_id=? AND player_uuid=? FOR UPDATE",cluster,two);
+                    if(secondAttempts.getAndIncrement()==0)await(barrier);
+                    Sql.one(c,"SELECT player_uuid FROM ct_player_guards WHERE cluster_id=? AND player_uuid=? FOR UPDATE",cluster,one);
+                    Sql.update(c,"UPDATE ct_endpoints SET checkpoint=checkpoint+1 WHERE cluster_id=? AND endpoint_id=?",cluster,second.id());return 1;
+                }catch(java.sql.SQLException failure){failures.add(failure);throw failure;}
+            }));
+            assertEquals(1,f.get(15,TimeUnit.SECONDS));assertEquals(1,g.get(15,TimeUnit.SECONDS));
+            assertTrue(firstAttempts.get()+secondAttempts.get()>=3);
+            assertTrue(failures.stream().anyMatch(e->e.getErrorCode()==1213 && "40001".equals(e.getSQLState())),"original InnoDB deadlock remains the primary exception");
+            assertTrue(failures.stream().flatMap(e->Arrays.stream(e.getSuppressed())).anyMatch(e->e instanceof java.sql.SQLException sql && sql.getErrorCode()==1305),"invalidated savepoint cleanup is suppressed, not substituted");
+            assertTrue(a.database().stats().get("db_deadlock_retries").longValue()+b.database().stats().get("db_deadlock_retries").longValue()>retries);
+            assertEquals(1,a.endpoint(first.id()).checkpoint());assertEquals(1,b.endpoint(second.id()).checkpoint());
+        }finally{pool.shutdownNow();}
+    }
     private static void await(CyclicBarrier barrier) throws java.sql.SQLException {try{barrier.await(5,TimeUnit.SECONDS);}catch(Exception e){throw new java.sql.SQLException(e);}}
     @Test void staleSessionIsFencedAndQuotaDoesNotExpireWithLease() throws Exception {
         var cfg=new BackendConfig(true,cluster,"stale-fixture","jdbc:mysql://127.0.0.1:13306/cross_tesseract?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=1000&socketTimeout=3000","ct_dev","ct_dev_only","redis://127.0.0.1:16379",2,4,200,128,32,256);

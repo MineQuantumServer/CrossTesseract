@@ -8,6 +8,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public final class Sql implements AutoCloseable {
     @FunctionalInterface public interface Work<T> { T run(Connection connection) throws SQLException; }
+    /** try-with-resources retains the original deadlock if MySQL already invalidated
+     * this savepoint by rolling back the whole transaction. */
+    public static final class SavepointScope implements AutoCloseable {
+        private final Connection connection;private final Savepoint point;
+        private SavepointScope(Connection connection) throws SQLException {this.connection=connection;point=connection.setSavepoint();}
+        public Savepoint point(){return point;}
+        @Override public void close() throws SQLException {connection.releaseSavepoint(point);}
+    }
+    public static SavepointScope savepoint(Connection connection) throws SQLException {return new SavepointScope(connection);}
     private final HikariDataSource pool;
     private final java.util.concurrent.Semaphore background;
     private final Map<Connection,Boolean> gated=Collections.synchronizedMap(new IdentityHashMap<>());
@@ -32,7 +41,7 @@ public final class Sql implements AutoCloseable {
             attempts.increment();
             try (Connection c=acquire()) {
                 try { c.setAutoCommit(false);T result=work.run(c); c.commit(); transactions.increment();return result; }
-                catch (SQLException | RuntimeException e) { c.rollback(); throw e; }
+                catch (SQLException | RuntimeException e) { try{c.rollback();}catch(SQLException cleanup){e.addSuppressed(cleanup);}throw e; }
                 finally { release(c); }
             } catch (SQLException e) {
                 if (attempt>=3 || !(e.getErrorCode()==1213 || e.getErrorCode()==1205 || "40001".equals(e.getSQLState()))) throw e;

@@ -113,6 +113,10 @@ public final class LocalBuffer {
         return List.copyOf(result);
     }
     public boolean hasWork() { return dirty || !deposits.isEmpty(); }
+    /** A clean deposit whose SEND direction is disabled remains owned locally,
+     * but must not cause repeated empty authority transactions. Dirty state still
+     * requires a checkpoint, regardless of resource direction. */
+    public boolean hasWork(Set<String> sendingKinds) { return dirty || deposits.values().stream().anyMatch(d->sendingKinds.contains(d.resource().kind())); }
     public boolean empty() { return deposits.isEmpty() && receiveAmountAll()==0 && sending.values().stream().allMatch(a->Arrays.stream(a).allMatch(Objects::isNull)); }
     private long receiveAmountAll() { long result=0;for(Credit c:credits.values()) if(c.remaining()>0)result++;return result; }
     private void changed() { revision=Math.addExact(revision,1);dirty=true; }

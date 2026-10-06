@@ -353,7 +353,8 @@ public final class Authority implements AutoCloseable {
             var valid=new ArrayList<TransferWork.Request>();
             for(var request:requests.stream().sorted(Comparator.comparing(TransferWork.Request::endpoint)).toList()){
                 require(channel.equals(request.channel()) && request.snapshot().world().equals(session().world()) && request.snapshot().generation()==session().generation(),"journal_generation_conflict");
-                var savepoint=c.setSavepoint();boolean changedBefore=context.balanceChanged;
+                try(var scope=Sql.savepoint(c)){
+                var savepoint=scope.point();boolean changedBefore=context.balanceChanged;
                 try{
                     captureEndpoint(c,context,request.endpoint(),channel,request.endpointVersion());
                     var committed=new HashSet<UUID>();var consumed=new HashSet<UUID>();var remaining=new HashMap<UUID,Long>();
@@ -365,7 +366,7 @@ public final class Authority implements AutoCloseable {
                     for(var demand:request.demands())demand(request.endpoint(),channel,demand.kind(),demand.room(),demand.profile(),demand.quantum(),c,context);
                     valid.add(request);results.put(request.endpoint(),new TransferWork.Result(request.endpoint(),committed,consumed,List.of(),null));
                 }catch(DomainException error){c.rollback(savepoint);context.resources.clear();context.balanceChanged=changedBefore;context.endpoints.remove(request.endpoint());results.put(request.endpoint(),TransferWork.Result.failed(request.endpoint(),error.code()));}
-                finally{c.releaseSavepoint(savepoint);}
+                }
             }
             var knownCredits=new HashSet<UUID>();for(var request:valid)for(var credit:request.snapshot().credits())knownCredits.add(credit.transaction());
             var outstanding=allocationRows(c,valid.stream().map(TransferWork.Request::endpoint).toList(),knownCredits,true);
@@ -377,11 +378,12 @@ public final class Authority implements AutoCloseable {
                 for(var allocation:outstanding.getOrDefault(request.endpoint(),List.of()))if(!known.contains(allocation.id()) && !"QUARANTINED".equals(allocation.state()))received.add(new LocalSnapshot.Credit(allocation.id(),allocation.channel(),allocation.payload(),allocation.amount(),allocation.remaining()));
                 String failure=null;
                 for(var demand:request.demands())if(received.stream().noneMatch(credit->credit.resource().kind().equals(demand.kind()))){
-                    var savepoint=c.setSavepoint();
+                    try(var scope=Sql.savepoint(c)){
+                    var savepoint=scope.point();
                     try{var allocated=allocate(demand.transaction(),request.endpoint(),channel,demand.kind(),demand.room(),c,context);
                         if(allocated.isPresent()){var allocation=allocated.orElseThrow();received.add(new LocalSnapshot.Credit(allocation.id(),allocation.channel(),allocation.payload(),allocation.amount(),allocation.remaining()));}
                     }catch(DomainException error){c.rollback(savepoint);failure=error.code();update(c,"UPDATE ct_demands SET room=0,expires_at=CURRENT_TIMESTAMP(6) WHERE cluster_id=? AND endpoint_id=? AND kind=?",cluster(),request.endpoint(),demand.kind());}
-                    finally{c.releaseSavepoint(savepoint);}
+                    }
                 }
                 results.put(request.endpoint(),new TransferWork.Result(request.endpoint(),prior.committed(),prior.consumed(),received,failure));
             }
@@ -394,7 +396,7 @@ public final class Authority implements AutoCloseable {
         require(!publications.isEmpty() && publications.size()<=16,"invalid_limit");
         return db.transaction(c->{var context=batchContext(c,channel);var errors=new HashMap<UUID,String>();
             for(var publication:publications.stream().sorted(Comparator.comparing(p->p.snapshot().endpoint())).toList()){
-                var snapshot=publication.snapshot();var savepoint=c.setSavepoint();
+                var snapshot=publication.snapshot();try(var scope=Sql.savepoint(c)){var savepoint=scope.point();
                 try{
                     captureEndpoint(c,context,snapshot.endpoint(),channel,publication.endpointVersion());
                     if(!publication.received().isEmpty()){
@@ -405,7 +407,7 @@ public final class Authority implements AutoCloseable {
                     var remaining=new HashMap<UUID,Long>();for(var credit:snapshot.credits())remaining.put(credit.transaction(),credit.remaining());
                     checkpoint(snapshot.endpoint(),snapshot.revision(),remaining,c,context);
                 }catch(DomainException error){c.rollback(savepoint);errors.put(snapshot.endpoint(),error.code());}
-                finally{c.releaseSavepoint(savepoint);}
+                }
             }
             return Map.copyOf(errors);
         });
@@ -819,7 +821,9 @@ public final class Authority implements AutoCloseable {
     /** Bounded periodic cleanup. Live ownership and unresolved quarantine are NEVER expired. UUIDv4
      * legacy transactions remain until an explicit coordinated archive; new keys reject old replay. */
     private void reserveHistory(Connection c) throws SQLException {
-        update(c,"INSERT IGNORE INTO ct_history_buckets(cluster_id,server_id,used) VALUES(?,?,0)",cluster(),session().server());
+        // An ignored duplicate acquires an S lock; concurrent channel batches then
+        // deadlock upgrading that same row to X. Acquire X on first access instead.
+        update(c,"INSERT INTO ct_history_buckets(cluster_id,server_id,used) VALUES(?,?,0) ON DUPLICATE KEY UPDATE used=used",cluster(),session().server());
         long maximum=num(one(c,"SELECT history_limit FROM ct_clusters WHERE cluster_id=?",cluster()),"history_limit");
         require(update(c,"UPDATE ct_history_buckets SET used=used+1 WHERE cluster_id=? AND server_id=? AND used<?",cluster(),session().server(),maximum)==1,"history_limit");
     }
