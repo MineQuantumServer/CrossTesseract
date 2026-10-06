@@ -158,7 +158,17 @@ public final class RuntimeService {
         long trustedCheckpoint=Math.max(requested.checkpoint(),locallyClosed.getOrDefault(id,0L));
         submit(a->{var result=a.registerEndpoint(requested,trustedCheckpoint);
             try{var local=journal.read(id);DomainException.require(local.isPresent() || result.checkpoint()==0,"journal_missing");
-                if(local.isPresent()){var s=local.orElseThrow();DomainException.require(s.world().equals(world) && s.generation()==a.session().generation() && s.revision()>=Math.max(trustedCheckpoint,result.checkpoint()),"journal_generation_conflict");local=Optional.of(a.restoreSnapshot(s));}return Map.entry(result,local);
+                if(local.isPresent()){
+                    var s=local.orElseThrow();DomainException.require(s.world().equals(world) && s.generation()==a.session().generation() && s.revision()>=Math.max(trustedCheckpoint,result.checkpoint()),"journal_generation_conflict");
+                    var restored=a.restoreSnapshot(s);
+                    // LocalBuffer.restore advances the revision (including filtered receipts).
+                    // Persist that exact future revision before main-thread publication, even
+                    // for an unbound endpoint that will never enter an ordinary transfer batch.
+                    long revision;try{revision=Math.addExact(restored.revision(),1);}catch(ArithmeticException overflow){throw new DomainException("invalid_checkpoint");}
+                    var durable=new LocalSnapshot(restored.endpoint(),restored.world(),restored.generation(),revision,restored.deposits(),restored.credits(),restored.thermal());
+                    journal.write(durable);var remaining=new HashMap<UUID,Long>();for(var credit:durable.credits())remaining.put(credit.transaction(),credit.remaining());a.checkpoint(id,revision,remaining);
+                    local=Optional.of(restored);
+                }return Map.entry(result,local);
             }catch(java.io.IOException | DomainException e){a.quarantineEndpoint(id,errorCode(e));throw e;}
         },result->{
             if(!be.id().equals(id) || !tracked(be))return;
