@@ -135,7 +135,7 @@ public final class TesseractBlockEntity extends BlockEntity implements MenuProvi
         pause=!recoveryError.isEmpty()?recoveryError:!"ACTIVE".equals(data.endpointState())?data.reason():data.channel()==null?"unbound":data.permissions()==0?"forbidden":"";
     }
     public boolean allowed(String kind,@Nullable Direction side,boolean sending) {
-        if(!(level instanceof ServerLevel sl) || !sl.getServer().isSameThread() || !registered || binding || sealed || externalIo || !recoveryError.isEmpty() || channel==null || System.nanoTime()>=permissionUntil || runtime()==null || !runtime().online())return false;
+        if(isRemoved() || !(level instanceof ServerLevel sl) || !sl.getServer().isSameThread() || !registered || binding || sealed || externalIo || !recoveryError.isEmpty() || channel==null || System.nanoTime()>=permissionUntil || runtime()==null || !runtime().online())return false;
         if(side!=null && (sideMask(kind)&(1<<side.get3DDataValue()))==0)return false;
         Protocol.Mode mode=mode(kind);
         return (sending?mode.send:mode.receive) && Protocol.permits(permissions,sending?Protocol.SEND:Protocol.RECEIVE);
@@ -160,7 +160,7 @@ public final class TesseractBlockEntity extends BlockEntity implements MenuProvi
     public long budget(String kind,boolean sending,long requested,boolean simulate) {
         long tick=level==null?0:level.getGameTime();if(tick!=budgetTick) {budgets.clear();budgetTick=tick;}
         long[] used=budgets.computeIfAbsent(kind,k->new long[2]);int index=sending?0:1;
-        long grant=Math.min(Math.max(0,requested),Math.max(0,rate(kind)-used[index]));if(!simulate)used[index]+=grant;return grant;
+        long grant=Math.min(Math.max(0,requested),Math.max(0,rate(kind)-used[index]));if(!simulate){used[index]+=grant;if(grant>0 && runtime()!=null)runtime().localChanged(this,kind,sending,grant);}return grant;
     }
     public Resource itemResource(ItemStack stack) {
         for(var e:itemCache)if(ItemStack.isSameItemSameComponents(e.getKey(),stack))return e.getValue();

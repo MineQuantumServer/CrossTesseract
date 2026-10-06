@@ -27,7 +27,7 @@ public final class LocalBuffer {
     public Stack sent(String kind,int slot) { DomainException.require(slot>=0 && slot<slots(kind),"invalid_slot"); return tx(kind)[slot]; }
     private Stack[] tx(String kind) { return sending.computeIfAbsent(kind,k->new Stack[slots(k)]); }
     public List<Credit> received(String kind) { return credits.values().stream().filter(c->c.resource().kind().equals(kind) && c.remaining()>0).toList(); }
-    private static int creditLimit(String kind){return kind.equals(Protocol.FE)||kind.equals(Protocol.EU)?32:slots(kind);}
+    public static int creditLimit(String kind){return kind.equals(Protocol.FE)||kind.equals(Protocol.EU)?32:slots(kind);}
     public long receiveRoom(String kind) {
         int used=received(kind).size(); return credits.size()>=64 || used>=creditLimit(kind)?0:slots(kind)*slotCapacity(kind)-Math.min(slots(kind)*slotCapacity(kind),receiveAmount(kind));
     }
@@ -89,7 +89,7 @@ public final class LocalBuffer {
         sending.clear();
         for(Deposit d:snapshot.deposits()) DomainException.require(deposits.put(d.transaction(),d)==null,"duplicate_checkpoint");
         for(Credit c:snapshot.credits()) DomainException.require(credits.put(c.transaction(),c)==null,"duplicate_checkpoint");
-        revision=snapshot.revision();dirty=true;
+        revision=snapshot.revision();changed();
     }
     public void committed(Collection<UUID> transactions) { for(UUID id:transactions) if(deposits.remove(id)!=null)changed(); }
     public void checkpointed(Collection<UUID> zeroTransactions) { for(UUID id:zeroTransactions) { Credit c=credits.get(id); if(c!=null && c.remaining()==0) { credits.remove(id);changed(); } } }
@@ -98,6 +98,19 @@ public final class LocalBuffer {
         if(previous!=null) { DomainException.require(previous.channel().equals(credit.channel()) && previous.resource().equals(credit.resource()) && previous.original()==credit.original(),"idempotency_conflict"); return; }
         DomainException.require(credits.size()<64 && received(credit.resource().kind()).size()<creditLimit(credit.resource().kind()) && credit.remaining()<=receiveRoom(credit.resource().kind()),"receive_buffer_full");
         credits.put(credit.transaction(),credit);changed();
+    }
+    /** Admission preview for unpublished SQL-owned credits. Rejected credits remain RESERVED
+     * in SQL; temporary local fullness is never a refund or a corrupt-payload quarantine. */
+    public List<Credit> admissible(Collection<Credit> incoming){
+        var projected=new LinkedHashMap<>(credits);var result=new ArrayList<Credit>();
+        for(var credit:incoming){var prior=projected.get(credit.transaction());
+            if(prior!=null){DomainException.require(prior.channel().equals(credit.channel())&&prior.resource().equals(credit.resource())&&prior.original()==credit.original(),"idempotency_conflict");continue;}
+            String kind=credit.resource().kind();long amount=0;int count=0;
+            for(var existing:projected.values())if(existing.resource().kind().equals(kind)){amount=Math.addExact(amount,existing.remaining());if(existing.remaining()>0)count++;}
+            if(projected.size()>=64 || count>=creditLimit(kind) || credit.remaining()>slots(kind)*slotCapacity(kind)-Math.min(amount,slots(kind)*slotCapacity(kind)))continue;
+            projected.put(credit.transaction(),credit);result.add(credit);
+        }
+        return List.copyOf(result);
     }
     public boolean hasWork() { return dirty || !deposits.isEmpty(); }
     public boolean empty() { return deposits.isEmpty() && receiveAmountAll()==0 && sending.values().stream().allMatch(a->Arrays.stream(a).allMatch(Objects::isNull)); }

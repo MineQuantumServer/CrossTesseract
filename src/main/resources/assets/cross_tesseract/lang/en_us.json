@@ -232,5 +232,9 @@
   "ct.mode.off": "Off",
   "ct.mode.send": "Send",
   "ct.mode.receive": "Receive",
-  "ct.mode.both": "Both"
+  "ct.mode.both": "Both",
+  "ct.error.endpoint_closing": "Device checkpoint is still closing; retry after it finishes.",
+  "ct.error.checkpoint_version_conflict": "Checkpoint content conflicts with an existing version; operator review required.",
+  "ct.error.allocation_not_local": "Allocation has not completed its durable LOCAL publication.",
+  "ct.error.shutdown_inflight": "Shutdown left unfinished work; recovery review required."
 }

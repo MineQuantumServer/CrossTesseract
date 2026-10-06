@@ -30,3 +30,15 @@ buffers.chemicalPerSlot=64000
 filters.blacklist=
 filters.whitelist=
 # Item/fluid/chemical registry IDs, comma separated. Device filters add restrictions.
+# Channel coordinator and local wake path; ALL require restart, no live protocol switch.
+transfer.channelBatches=true
+transfer.localFastPath=true
+transfer.maxBatchDevices=8
+transfer.maxBatchRecords=256
+# At least 8 MiB: one legal endpoint checkpoint must fit; maximum 16 MiB.
+transfer.maxBatchPayloadBytes=8388608
+transfer.activeWakeMillis=50
+transfer.idlePollMillis=2000
+transfer.notificationMillis=100
+limits.readyChannels=1024
+diagnostics.transferSampling=true

@@ -12,6 +12,8 @@ import java.util.*;
 public final class LocalJournal {
     private static final int MAGIC=0x43545431, MAX_FILE=8_388_608;
     private final Path root;
+    private final java.util.concurrent.atomic.LongAdder writes=new java.util.concurrent.atomic.LongAdder(),bytes=new java.util.concurrent.atomic.LongAdder(),skipped=new java.util.concurrent.atomic.LongAdder();
+    private final long[] barriers=new long[2048];private long barrierCount;
     private final Object[] locks=java.util.stream.IntStream.range(0,64).mapToObj(i->new Object()).toArray();
     private Object lock(UUID id){return locks[(id.hashCode()&Integer.MAX_VALUE)%locks.length];}
     public LocalJournal(Path root) throws IOException { this.root=root; Files.createDirectories(root); }
@@ -20,14 +22,24 @@ public final class LocalJournal {
         DomainException.require(data.length<=MAX_FILE,"snapshot_too_large");
         Path dest=root.resolve(snapshot.endpoint()+".ctj"), temp=root.resolve(snapshot.endpoint()+".pending");
         // Reject stale worker completions instead of overwriting a later checkpoint.
-        if(Files.exists(dest)) { var previous=read(snapshot.endpoint()); DomainException.require(snapshot.revision()>=previous.orElseThrow().revision(),"stale_checkpoint"); }
+        if(Files.exists(dest)) {
+            var previous=read(snapshot.endpoint()).orElseThrow();
+            DomainException.require(snapshot.revision()>=previous.revision(),"stale_checkpoint");
+            if(snapshot.revision()==previous.revision()){
+                DomainException.require(snapshot.equals(previous),"checkpoint_version_conflict");
+                skipped.increment();return;
+            }
+        }
+        long started=System.nanoTime();
         try(FileChannel c=FileChannel.open(temp,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE)) {
             var buffer=ByteBuffer.wrap(data); while(buffer.hasRemaining()) c.write(buffer); c.force(true);
         }
         Files.move(temp,dest,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
         try(FileChannel directory=FileChannel.open(root,StandardOpenOption.READ)) { directory.force(true); }
-    }
-    }
+        writes.increment();bytes.add(data.length);recordBarrier(System.nanoTime()-started);
+    }}
+    private synchronized void recordBarrier(long nanos){barriers[(int)(barrierCount++%barriers.length)]=nanos;}
+    public synchronized Map<String,Number> stats(){var result=new LinkedHashMap<String,Number>();result.put("wal_writes",writes.sum());result.put("wal_bytes",bytes.sum());result.put("wal_identical_skipped",skipped.sum());dev.crosstesseract.core.Metrics.quantiles(result,"wal_barrier_ms",barriers,barrierCount);return result;}
     public Optional<LocalSnapshot> read(UUID endpoint) throws IOException { synchronized(lock(endpoint)) {
         Path path=root.resolve(endpoint+".ctj"); if(!Files.exists(path)) return Optional.empty();
         long size=Files.size(path); if(size>MAX_FILE || size<36) throw new IOException("invalid checkpoint size");

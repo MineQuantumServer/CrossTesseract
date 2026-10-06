@@ -9,8 +9,13 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class Sql implements AutoCloseable {
     @FunctionalInterface public interface Work<T> { T run(Connection connection) throws SQLException; }
     private final HikariDataSource pool;
+    private final java.util.concurrent.Semaphore background;
+    private final Map<Connection,Boolean> gated=Collections.synchronizedMap(new IdentityHashMap<>());
     private final long[] samples=new long[2048];
     private long sampleCount;
+    private final long[] waits=new long[2048];private long waitCount;
+    private static final Map<Connection,Sql> OWNERS=Collections.synchronizedMap(new IdentityHashMap<>());
+    private final java.util.concurrent.atomic.LongAdder statements=new java.util.concurrent.atomic.LongAdder(),attempts=new java.util.concurrent.atomic.LongAdder();
     private final java.util.concurrent.atomic.LongAdder retries=new java.util.concurrent.atomic.LongAdder(),transactions=new java.util.concurrent.atomic.LongAdder();
     public Sql(BackendConfig config) {
         HikariConfig c = new HikariConfig();
@@ -19,14 +24,16 @@ public final class Sql implements AutoCloseable {
         c.setValidationTimeout(1000); c.setInitializationFailTimeout(-1); c.setPoolName("cross-tesseract");
         c.setTransactionIsolation("TRANSACTION_READ_COMMITTED");
         pool=new HikariDataSource(c);
+        background=new java.util.concurrent.Semaphore(Math.max(1,config.poolSize()-1),true);
     }
     public <T> T transaction(Work<T> work) throws SQLException {
         long started=System.nanoTime();try{
         for (int attempt=0;;attempt++) {
-            try (Connection c=pool.getConnection()) {
-                c.setAutoCommit(false);
-                try { T result=work.run(c); c.commit(); transactions.increment();return result; }
+            attempts.increment();
+            try (Connection c=acquire()) {
+                try { c.setAutoCommit(false);T result=work.run(c); c.commit(); transactions.increment();return result; }
                 catch (SQLException | RuntimeException e) { c.rollback(); throw e; }
+                finally { release(c); }
             } catch (SQLException e) {
                 if (attempt>=3 || !(e.getErrorCode()==1213 || e.getErrorCode()==1205 || "40001".equals(e.getSQLState()))) throw e;
                 retries.increment();
@@ -38,12 +45,28 @@ public final class Sql implements AutoCloseable {
         }finally{record(System.nanoTime()-started);}
     }
     private synchronized void record(long nanos){samples[(int)(sampleCount++%samples.length)]=Math.max(0,nanos);}
-    public synchronized Map<String,Number> stats(){var result=new LinkedHashMap<String,Number>();dev.crosstesseract.core.Metrics.quantiles(result,"db_transaction_ms",samples,sampleCount);result.put("db_transactions",transactions.sum());result.put("db_deadlock_retries",retries.sum());result.put("db_active_connections",pool.getHikariPoolMXBean().getActiveConnections());return result;}
-    public <T> T connection(Work<T> work) throws SQLException { try (Connection c=pool.getConnection()) { return work.run(c); } }
+    private Connection acquire() throws SQLException {
+        long start=System.nanoTime();boolean permit=false,registered=false;
+        try{
+            // The one control lane retains a pool slot for fencing/heartbeat. Waiting is
+            // bounded and happens exclusively on IO/test workers, never on Minecraft's thread.
+            if(!Thread.currentThread().getName().startsWith("ct-control-")){
+                try{permit=background.tryAcquire(1000,java.util.concurrent.TimeUnit.MILLISECONDS);}catch(InterruptedException error){Thread.currentThread().interrupt();throw new SQLException("interrupted connection admission",error);}
+                if(!permit)throw new SQLException("background connection admission exhausted","HYT00");
+            }
+            Connection c=pool.getConnection();OWNERS.put(c,this);gated.put(c,permit);registered=true;return c;
+        }finally{if(permit&&!registered)background.release();synchronized(this){waits[(int)(waitCount++%waits.length)]=System.nanoTime()-start;}}
+    }
+    private void release(Connection c){OWNERS.remove(c);if(Boolean.TRUE.equals(gated.remove(c)))background.release();}
+    public synchronized Map<String,Number> stats(){var result=new LinkedHashMap<String,Number>();dev.crosstesseract.core.Metrics.quantiles(result,"db_transaction_ms",samples,sampleCount);dev.crosstesseract.core.Metrics.quantiles(result,"db_connection_wait_ms",waits,waitCount);result.put("db_transactions",transactions.sum());result.put("db_transaction_attempts",attempts.sum());result.put("db_statements",statements.sum());result.put("db_deadlock_retries",retries.sum());result.put("db_active_connections",pool.getHikariPoolMXBean().getActiveConnections());return result;}
+    public <T> T connection(Work<T> work) throws SQLException { try (Connection c=acquire()) {try{return work.run(c);}finally{release(c);} } }
+    private static void statement(Connection c){Sql owner=OWNERS.get(c);if(owner!=null)owner.statements.increment();}
     public static int update(Connection c,String sql,Object... args) throws SQLException {
+        statement(c);
         try (PreparedStatement p=c.prepareStatement(sql)) { bind(p,args); return p.executeUpdate(); }
     }
     public static List<Map<String,Object>> query(Connection c,String sql,Object... args) throws SQLException {
+        statement(c);
         try (PreparedStatement p=c.prepareStatement(sql)) {
             bind(p,args);
             try (ResultSet r=p.executeQuery()) {

@@ -55,12 +55,21 @@ public final class Authority implements AutoCloseable {
         require(num(policy,"recovery_generation")==s.generation(),"backup_generation_conflict");
     }
     public void heartbeat() throws SQLException {
-        db.transaction(c->{
+        db.transaction(c->{heartbeat(c);return null;});
+    }
+    private void heartbeat(Connection c) throws SQLException {
             // An expired session cannot renew itself; it must rejoin with a new fenced epoch.
             fenced(c);
             update(c,"UPDATE ct_servers SET lease_until=TIMESTAMPADD(SECOND,12,CURRENT_TIMESTAMP(6)) WHERE cluster_id=? AND server_id=? AND fencing_epoch=? AND session_id=?",cluster(),session().server(),session().epoch(),session().boot());
             update(c,"UPDATE ct_chunk_grants g JOIN ct_endpoints e ON e.cluster_id=g.cluster_id AND e.endpoint_id=g.endpoint_id SET g.runtime_until=TIMESTAMPADD(SECOND,10,CURRENT_TIMESTAMP(6)) WHERE g.cluster_id=? AND e.server_id=? AND g.runtime_session=? AND g.runtime_epoch=? AND g.desired=TRUE AND g.state='ACTIVE' AND e.state='ACTIVE'",cluster(),session().server(),session().boot(),session().epoch());
-            return null;
+    }
+    public record MaintenanceState(List<Grant> grants,int quota){public MaintenanceState{grants=List.copyOf(grants);}}
+    /** One bounded control transaction; permission scans and history are separate lanes. */
+    public MaintenanceState maintainState() throws SQLException {
+        return db.transaction(c->{heartbeat(c);
+            var grants=query(c,"SELECT g.*,e.server_id,e.world_id,e.device_owner,e.channel_id,e.dimension_id,e.pos_x,e.pos_y,e.pos_z,e.version,e.checkpoint,e.pause_reason,e.state AS endpoint_state FROM ct_chunk_grants g JOIN ct_endpoints e ON e.cluster_id=g.cluster_id AND e.endpoint_id=g.endpoint_id WHERE g.cluster_id=? AND e.server_id=? AND e.world_id=? ORDER BY g.created_at LIMIT 4096",cluster(),session().server(),session().world()).stream().map(r->grant(r,endpointMap(r))).toList();
+            int quota=(int)num(one(c,"SELECT quota_limit FROM ct_clusters WHERE cluster_id=?",cluster()),"quota_limit");
+            return new MaintenanceState(grants,quota);
         });
     }
     public void stopClean() throws SQLException {
@@ -226,6 +235,7 @@ public final class Authority implements AutoCloseable {
         var e=one(c,"SELECT * FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=? FOR UPDATE",cluster(),id);
         require(e!=null,"endpoint_not_found");
         require(session().server().equals(str(e,"server_id")) && session().world().equals(uuid(e,"world_id")) && session().epoch()==num(e,"last_epoch"),"endpoint_fenced");
+        require(session().generation()==num(e,"recovery_generation"),"backup_generation_conflict");
         if(active) require("ACTIVE".equals(str(e,"state")),"endpoint_paused"); return e;
     }
     public Endpoint bind(UUID actor,UUID id,long expected,UUID channel) throws SQLException {
@@ -290,22 +300,135 @@ public final class Authority implements AutoCloseable {
         require(num(row,"format_version")==Protocol.FORMAT && Arrays.equals((byte[])row.get("payload"),payload.bytes()),"payload_hash_collision");
         return uuid(row,"resource_id");
     }
+    /** Cache scope is exactly this fenced, channel-locked SQL transaction. */
+    private static final class BatchContext {
+        final UUID channel;final Map<String,Object> row;
+        final Map<UUID,Map<String,Object>> endpoints=new HashMap<>();
+        final Map<UUID,Integer> permissions=new HashMap<>();
+        final Map<Resource,UUID> resources=new HashMap<>();
+        final Set<String> capabilities;boolean balanceChanged;
+        BatchContext(UUID channel,Map<String,Object> row,Set<String> capabilities){this.channel=channel;this.row=row;this.capabilities=capabilities;}
+    }
+    private Map<String,Object> batchOwner(Connection c,UUID endpoint,BatchContext context) throws SQLException {
+        return context==null?one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint):batchEndpoint(c,endpoint,false,context);
+    }
+    private Map<String,Object> batchEndpoint(Connection c,UUID endpoint,boolean active,BatchContext context) throws SQLException {
+        if(context==null)return localEndpoint(c,endpoint,active);
+        var row=context.endpoints.get(endpoint);require(row!=null,"endpoint_not_found");
+        if(active)require("ACTIVE".equals(str(row,"state")),"endpoint_paused");return row;
+    }
+    private void authorizeBatch(Connection c,UUID channel,UUID owner,int permission,BatchContext context) throws SQLException {
+        if(context==null){channelRow(c,channel,owner,permission,false);return;}
+        require(channel.equals(context.channel),"binding_changed");
+        require("ACTIVE".equals(str(context.row,"status")),"channel_frozen");
+        Integer mask=context.permissions.get(owner);
+        if(mask==null){if(owner.equals(uuid(context.row,"owner_uuid")))mask=Protocol.OWNER;
+            else{var member=one(c,"SELECT permissions FROM ct_members WHERE cluster_id=? AND channel_id=? AND player_uuid=?",cluster(),channel,owner);mask=member==null?0:(int)num(member,"permissions");}
+            context.permissions.put(owner,mask);
+        }
+        require(Protocol.permits(mask,permission),"forbidden");
+    }
+    private UUID batchResource(Connection c,Resource payload,BatchContext context) throws SQLException {
+        if(context==null)return resource(c,payload);UUID id=context.resources.get(payload);
+        if(id==null){id=resource(c,payload);context.resources.put(payload,id);}return id;
+    }
+    private BatchContext batchContext(Connection c,UUID channel) throws SQLException {
+        fenced(c);var row=one(c,"SELECT * FROM ct_channels WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),channel);
+        require(row!=null && !"DELETED".equals(str(row,"status")),"channel_not_found");
+        var capabilities=one(c,"SELECT capabilities FROM ct_servers WHERE cluster_id=? AND server_id=?",cluster(),session().server());
+        return new BatchContext(channel,row,Set.of(str(capabilities,"capabilities").split(",")));
+    }
+    private void captureEndpoint(Connection c,BatchContext context,UUID id,UUID channel,long expected) throws SQLException {
+        var endpoint=localEndpoint(c,id,false);
+        require(num(endpoint,"recovery_generation")==session().generation(),"backup_generation_conflict");
+        require(channel.equals(uuid(endpoint,"channel_id")),"binding_changed");version(endpoint,expected);context.endpoints.put(id,endpoint);
+    }
+    /** One bounded channel transaction: checkpoint, deposits, demand, outstanding reads, fair allocation.
+     * WAL and Redis are deliberately outside this transaction. Domain failure rolls back one endpoint;
+     * connection/deadlock failure retries the whole phase with the SAME captured business IDs. */
+    public List<TransferWork.Result> channelBatch(UUID channel,List<TransferWork.Request> requests) throws SQLException {
+        require(!requests.isEmpty() && requests.size()<=16 && requests.stream().map(TransferWork.Request::endpoint).distinct().count()==requests.size(),"invalid_limit");
+        return db.transaction(c->{
+            var context=batchContext(c,channel);var results=new LinkedHashMap<UUID,TransferWork.Result>();
+            var valid=new ArrayList<TransferWork.Request>();
+            for(var request:requests.stream().sorted(Comparator.comparing(TransferWork.Request::endpoint)).toList()){
+                require(channel.equals(request.channel()) && request.snapshot().world().equals(session().world()) && request.snapshot().generation()==session().generation(),"journal_generation_conflict");
+                var savepoint=c.setSavepoint();boolean changedBefore=context.balanceChanged;
+                try{
+                    captureEndpoint(c,context,request.endpoint(),channel,request.endpointVersion());
+                    var committed=new HashSet<UUID>();var consumed=new HashSet<UUID>();var remaining=new HashMap<UUID,Long>();
+                    for(var credit:request.snapshot().credits()){remaining.put(credit.transaction(),credit.remaining());if(credit.remaining()==0)consumed.add(credit.transaction());}
+                    if(request.checkpoint())checkpoint(request.endpoint(),request.snapshot().revision(),remaining,c,context);
+                    for(var deposit:request.snapshot().deposits().stream().filter(d->request.sending().contains(d.resource().kind())).limit(request.depositLimit()).toList()){
+                        deposit(deposit.transaction(),request.endpoint(),deposit.channel(),deposit.resource(),deposit.amount(),c,context);committed.add(deposit.transaction());
+                    }
+                    for(var demand:request.demands())demand(request.endpoint(),channel,demand.kind(),demand.room(),demand.profile(),demand.quantum(),c,context);
+                    valid.add(request);results.put(request.endpoint(),new TransferWork.Result(request.endpoint(),committed,consumed,List.of(),null));
+                }catch(DomainException error){c.rollback(savepoint);context.resources.clear();context.balanceChanged=changedBefore;context.endpoints.remove(request.endpoint());results.put(request.endpoint(),TransferWork.Result.failed(request.endpoint(),error.code()));}
+                finally{c.releaseSavepoint(savepoint);}
+            }
+            var knownCredits=new HashSet<UUID>();for(var request:valid)for(var credit:request.snapshot().credits())knownCredits.add(credit.transaction());
+            var outstanding=allocationRows(c,valid.stream().map(TransferWork.Request::endpoint).toList(),knownCredits,true);
+            // Order here does not define priority: allocate() ranks ALL eligible local and remote
+            // demands by the same SQL last_grant sequence while this channel is locked.
+            for(var request:valid){
+                var prior=results.get(request.endpoint());var received=new ArrayList<LocalSnapshot.Credit>();
+                var known=new HashSet<UUID>();for(var credit:request.snapshot().credits())known.add(credit.transaction());
+                for(var allocation:outstanding.getOrDefault(request.endpoint(),List.of()))if(!known.contains(allocation.id()) && !"QUARANTINED".equals(allocation.state()))received.add(new LocalSnapshot.Credit(allocation.id(),allocation.channel(),allocation.payload(),allocation.amount(),allocation.remaining()));
+                String failure=null;
+                for(var demand:request.demands())if(received.stream().noneMatch(credit->credit.resource().kind().equals(demand.kind()))){
+                    var savepoint=c.setSavepoint();
+                    try{var allocated=allocate(demand.transaction(),request.endpoint(),channel,demand.kind(),demand.room(),c,context);
+                        if(allocated.isPresent()){var allocation=allocated.orElseThrow();received.add(new LocalSnapshot.Credit(allocation.id(),allocation.channel(),allocation.payload(),allocation.amount(),allocation.remaining()));}
+                    }catch(DomainException error){c.rollback(savepoint);failure=error.code();update(c,"UPDATE ct_demands SET room=0,expires_at=CURRENT_TIMESTAMP(6) WHERE cluster_id=? AND endpoint_id=? AND kind=?",cluster(),request.endpoint(),demand.kind());}
+                    finally{c.releaseSavepoint(savepoint);}
+                }
+                results.put(request.endpoint(),new TransferWork.Result(request.endpoint(),prior.committed(),prior.consumed(),received,failure));
+            }
+            if(context.balanceChanged)event(c,"BALANCE_CHANGED",channel,null);
+            return List.copyOf(results.values());
+        });
+    }
+    /** Destination checkpoint was fsynced before this phase. Never publish an unfenced LOCAL credit. */
+    public Map<UUID,String> publishBatch(UUID channel,List<TransferWork.Publication> publications) throws SQLException {
+        require(!publications.isEmpty() && publications.size()<=16,"invalid_limit");
+        return db.transaction(c->{var context=batchContext(c,channel);var errors=new HashMap<UUID,String>();
+            for(var publication:publications.stream().sorted(Comparator.comparing(p->p.snapshot().endpoint())).toList()){
+                var snapshot=publication.snapshot();var savepoint=c.setSavepoint();
+                try{
+                    captureEndpoint(c,context,snapshot.endpoint(),channel,publication.endpointVersion());
+                    if(!publication.received().isEmpty()){
+                        var endpoint=batchEndpoint(c,snapshot.endpoint(),true,context);authorizeBatch(c,channel,uuid(endpoint,"device_owner"),Protocol.RECEIVE,context);
+                        for(var credit:publication.received())require(update(c,"UPDATE ct_transfers SET state='LOCAL' WHERE cluster_id=? AND transfer_id=? AND endpoint_id=? AND kind='ALLOCATE' AND state IN ('RESERVED','LOCAL')",cluster(),credit.transaction(),snapshot.endpoint())==1,"allocation_not_found");
+                    }
+                    for(var quarantine:publication.quarantined().entrySet()){update(c,"UPDATE ct_transfers SET state='QUARANTINED' WHERE cluster_id=? AND endpoint_id=? AND transfer_id=? AND kind='ALLOCATE'",cluster(),snapshot.endpoint(),quarantine.getKey());quarantine(c,snapshot.endpoint(),quarantine.getKey(),quarantine.getValue(),"exclusive allocation; no automatic refund");}
+                    var remaining=new HashMap<UUID,Long>();for(var credit:snapshot.credits())remaining.put(credit.transaction(),credit.remaining());
+                    checkpoint(snapshot.endpoint(),snapshot.revision(),remaining,c,context);
+                }catch(DomainException error){c.rollback(savepoint);errors.put(snapshot.endpoint(),error.code());}
+                finally{c.releaseSavepoint(savepoint);}
+            }
+            return Map.copyOf(errors);
+        });
+    }
     /** Deposit belongs to exactly one captured channel, never the endpoint's binding at callback time. */
     public void deposit(UUID transaction,UUID endpoint,UUID capturedChannel,Resource payload,long amount) throws SQLException {
         require(amount>0,"invalid_amount");
-        db.transaction(c->{
-            fenced(c);
+        db.transaction(c->deposit(transaction,endpoint,capturedChannel,payload,amount,c,null));
+    }
+    private Void deposit(UUID transaction,UUID endpoint,UUID capturedChannel,Resource payload,long amount,Connection c,BatchContext context) throws SQLException {
+
+            if(context==null)fenced(c);
             var old=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND transfer_id=?",cluster(),transaction);
             if(old!=null) {
                 require("DEPOSIT".equals(str(old,"kind")) && endpoint.equals(uuid(old,"endpoint_id")) && capturedChannel.equals(uuid(old,"channel_id")) && amount==num(old,"amount"),"idempotency_conflict");
                 var original=one(c,"SELECT kind,payload FROM ct_resources WHERE cluster_id=? AND resource_id=?",cluster(),uuid(old,"resource_id"));
                 require(payload.equals(new Resource(str(original,"kind"),(byte[])original.get("payload"))),"idempotency_conflict"); return null;
             }
-            var location=one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint); require(location!=null,"endpoint_not_found");
+            var location=batchOwner(c,endpoint,context); require(location!=null,"endpoint_not_found");
             BusinessIds.fresh(transaction);
-            channelRow(c,capturedChannel,uuid(location,"device_owner"),Protocol.SEND,false);
-            var e=localEndpoint(c,endpoint,true); require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
-            UUID res=resource(c,payload);
+            authorizeBatch(c,capturedChannel,uuid(location,"device_owner"),Protocol.SEND,context);
+            var e=batchEndpoint(c,endpoint,true,context); require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
+            UUID res=batchResource(c,payload,context);
             update(c,"INSERT IGNORE INTO ct_balances(cluster_id,channel_id,resource_id,amount) VALUES(?,?,?,0)",cluster(),capturedChannel,res);
             long before=num(one(c,"SELECT amount FROM ct_balances WHERE cluster_id=? AND channel_id=? AND resource_id=? FOR UPDATE",cluster(),capturedChannel,res),"amount");
             long after;
@@ -313,8 +436,7 @@ public final class Authority implements AutoCloseable {
             update(c,"UPDATE ct_balances SET amount=? WHERE cluster_id=? AND channel_id=? AND resource_id=?",after,cluster(),capturedChannel,res);
             reserveHistory(c);
             update(c,"INSERT INTO ct_transfers(cluster_id,transfer_id,endpoint_id,channel_id,resource_id,amount,kind,state,epoch,remaining) VALUES(?,?,?,?,?,?,'DEPOSIT','COMMITTED',?,0)",cluster(),transaction,endpoint,capturedChannel,res,amount,session().epoch());
-            event(c,"BALANCE_CHANGED",capturedChannel,null); return null;
-        });
+            if(context==null)event(c,"BALANCE_CHANGED",capturedChannel,null);else context.balanceChanged=true; return null;
     }
     public void demand(UUID endpoint,UUID capturedChannel,String kind,long room) throws SQLException {
         demand(endpoint,capturedChannel,kind,room,null,1);
@@ -322,35 +444,40 @@ public final class Authority implements AutoCloseable {
     public void demand(UUID endpoint,UUID capturedChannel,String kind,long room,String profile,long quantum) throws SQLException {
         require(room>=0 && room<=1_000_000_000_000L,"invalid_amount");
         require(quantum>=1 && quantum<=1_000_000_000_000L && (profile==null || profile.matches("[a-f0-9]{64}")),"invalid_resource");
-        db.transaction(c->{
-            fenced(c); var owner=one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint); require(owner!=null,"endpoint_not_found");
-            channelRow(c,capturedChannel,uuid(owner,"device_owner"),Protocol.RECEIVE,false);
-            var e=localEndpoint(c,endpoint,true); require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
-            var server=one(c,"SELECT capabilities FROM ct_servers WHERE cluster_id=? AND server_id=?",cluster(),session().server());
-            require(Set.of(str(server,"capabilities").split(",")).contains(kind),"resource_unsupported");
+        db.transaction(c->demand(endpoint,capturedChannel,kind,room,profile,quantum,c,null));
+    }
+    private Void demand(UUID endpoint,UUID capturedChannel,String kind,long room,String profile,long quantum,Connection c,BatchContext context) throws SQLException {
+            require(room>=0 && room<=1_000_000_000_000L,"invalid_amount");
+            require(quantum>=1 && quantum<=1_000_000_000_000L && (profile==null || profile.matches("[a-f0-9]{64}")),"invalid_resource");
+            if(context==null)fenced(c); var owner=batchOwner(c,endpoint,context); require(owner!=null,"endpoint_not_found");
+            authorizeBatch(c,capturedChannel,uuid(owner,"device_owner"),Protocol.RECEIVE,context);
+            var e=batchEndpoint(c,endpoint,true,context); require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
+            require(context==null?Set.of(str(one(c,"SELECT capabilities FROM ct_servers WHERE cluster_id=? AND server_id=?",cluster(),session().server()),"capabilities").split(",")).contains(kind):context.capabilities.contains(kind),"resource_unsupported");
             Map<String,Object> directed=null;if(kind.equals(Protocol.ITEM)||kind.equals(Protocol.FLUID)){expireStock(c,endpoint);
                 directed=one(c,"SELECT q.remaining,r.payload_hash FROM ct_stock_requests q JOIN ct_resources r ON r.cluster_id=q.cluster_id AND r.resource_id=q.resource_id WHERE q.cluster_id=? AND q.endpoint_id=? AND q.channel_id=? AND q.state IN ('PENDING','PARTIAL') AND r.kind=? ORDER BY q.created_at,q.request_id LIMIT 1",cluster(),endpoint,capturedChannel,kind);}
             long actualRoom=directed==null?room:Math.min(room,num(directed,"remaining"));String actualProfile=directed==null?profile:str(directed,"payload_hash");
             update(c,"INSERT INTO ct_demands(cluster_id,channel_id,endpoint_id,kind,room,expires_at,profile_hash,quantum) VALUES(?,?,?,?,?,TIMESTAMPADD(SECOND,6,CURRENT_TIMESTAMP(6)),?,?) ON DUPLICATE KEY UPDATE room=VALUES(room),expires_at=VALUES(expires_at),profile_hash=VALUES(profile_hash),quantum=VALUES(quantum)",cluster(),capturedChannel,endpoint,kind,actualRoom,actualProfile,quantum); return null;
-        });
     }
     /** Global oldest eligible demand is served once. N receivers contend on a channel, not N squared links. */
     public Optional<Allocation> allocate(UUID transaction,UUID endpoint,UUID capturedChannel,String kind,long maxAmount) throws SQLException {
         require(maxAmount>0,"invalid_amount");
-        return db.transaction(c->{
-            fenced(c);
+        return db.transaction(c->allocate(transaction,endpoint,capturedChannel,kind,maxAmount,c,null));
+    }
+    private Optional<Allocation> allocate(UUID transaction,UUID endpoint,UUID capturedChannel,String kind,long maxAmount,Connection c,BatchContext context) throws SQLException {
+
+            if(context==null)fenced(c);
             var old=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND transfer_id=?",cluster(),transaction);
             if(old!=null) { require("ALLOCATE".equals(str(old,"kind")) && endpoint.equals(uuid(old,"endpoint_id")) && capturedChannel.equals(uuid(old,"channel_id")),"idempotency_conflict"); return Optional.of(allocation(c,old)); }
             BusinessIds.fresh(transaction);
-            var owner=one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint); require(owner!=null,"endpoint_not_found");
-            channelRow(c,capturedChannel,uuid(owner,"device_owner"),Protocol.RECEIVE,false);
-            var e=localEndpoint(c,endpoint,true); require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
-            var candidate=one(c,"SELECT d.endpoint_id,d.room,d.profile_hash,d.quantum FROM ct_demands d JOIN ct_endpoints e ON e.cluster_id=d.cluster_id AND e.endpoint_id=d.endpoint_id JOIN ct_servers s ON s.cluster_id=e.cluster_id AND s.server_id=e.server_id JOIN ct_channels ch ON ch.cluster_id=d.cluster_id AND ch.channel_id=d.channel_id LEFT JOIN ct_members m ON m.cluster_id=e.cluster_id AND m.channel_id=e.channel_id AND m.player_uuid=e.device_owner WHERE d.cluster_id=? AND d.channel_id=? AND d.kind=? AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND e.state='ACTIVE' AND s.lease_until>CURRENT_TIMESTAMP(6) AND s.protocol_version=1 AND s.format_version=1 AND FIND_IN_SET(d.kind,s.capabilities)>0 AND (ch.owner_uuid=e.device_owner OR (m.permissions & 4)=4) AND EXISTS(SELECT 1 FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id=d.cluster_id AND b.channel_id=d.channel_id AND r.kind=d.kind AND b.amount>=d.quantum AND (d.profile_hash IS NULL OR d.profile_hash=r.payload_hash)) ORDER BY d.last_grant,d.endpoint_id LIMIT 1",cluster(),capturedChannel,kind);
+            var owner=batchOwner(c,endpoint,context); require(owner!=null,"endpoint_not_found");
+            authorizeBatch(c,capturedChannel,uuid(owner,"device_owner"),Protocol.RECEIVE,context);
+            var e=batchEndpoint(c,endpoint,true,context); require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
+            var candidate=one(c,"SELECT d.endpoint_id,d.room,d.profile_hash,d.quantum FROM ct_demands d JOIN ct_endpoints e ON e.cluster_id=d.cluster_id AND e.endpoint_id=d.endpoint_id JOIN ct_servers s ON s.cluster_id=e.cluster_id AND s.server_id=e.server_id JOIN ct_channels ch ON ch.cluster_id=d.cluster_id AND ch.channel_id=d.channel_id LEFT JOIN ct_members m ON m.cluster_id=e.cluster_id AND m.channel_id=e.channel_id AND m.player_uuid=e.device_owner WHERE d.cluster_id=? AND d.channel_id=? AND d.kind=? AND d.room>=d.quantum AND d.expires_at>CURRENT_TIMESTAMP(6) AND e.channel_id=d.channel_id AND e.world_id=s.world_id AND e.last_epoch=s.fencing_epoch AND e.recovery_generation=(SELECT recovery_generation FROM ct_clusters WHERE cluster_id=d.cluster_id) AND e.state='ACTIVE' AND s.lease_until>CURRENT_TIMESTAMP(6) AND s.protocol_version=1 AND s.format_version=1 AND FIND_IN_SET(d.kind,s.capabilities)>0 AND (ch.owner_uuid=e.device_owner OR (m.permissions & 4)=4) AND (SELECT COUNT(*) FROM ct_transfers t WHERE t.cluster_id=d.cluster_id AND t.endpoint_id=d.endpoint_id AND t.kind='ALLOCATE' AND t.remaining>0)<64 AND (SELECT COUNT(*) FROM ct_transfers t JOIN ct_resources tr ON tr.cluster_id=t.cluster_id AND tr.resource_id=t.resource_id WHERE t.cluster_id=d.cluster_id AND t.endpoint_id=d.endpoint_id AND t.kind='ALLOCATE' AND t.remaining>0 AND tr.kind=d.kind)<CASE WHEN d.kind IN ('cross_tesseract:fe','cross_tesseract:gt_eu') THEN 32 WHEN d.kind='cross_tesseract:item' THEN 9 ELSE 4 END AND COALESCE((SELECT used FROM ct_history_buckets hb WHERE hb.cluster_id=e.cluster_id AND hb.server_id=e.server_id),0)<(SELECT history_limit FROM ct_clusters WHERE cluster_id=d.cluster_id) AND EXISTS(SELECT 1 FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id=d.cluster_id AND b.channel_id=d.channel_id AND r.kind=d.kind AND r.format_version=1 AND b.amount>=d.quantum AND (d.profile_hash IS NULL OR d.profile_hash=r.payload_hash)) ORDER BY d.last_grant,d.endpoint_id LIMIT 1",cluster(),capturedChannel,kind);
             if(candidate==null || !endpoint.equals(uuid(candidate,"endpoint_id"))) return Optional.empty();
             long outstanding=num(one(c,"SELECT COUNT(*) AS n FROM ct_transfers t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.cluster_id=? AND t.endpoint_id=? AND t.kind='ALLOCATE' AND r.kind=? AND t.remaining>0",cluster(),endpoint,kind),"n");
-            if(outstanding>=32) return Optional.empty();
+            if(outstanding>=LocalBuffer.creditLimit(kind)) return Optional.empty();
             String profile=str(candidate,"profile_hash");long quantum=num(candidate,"quantum");
-            var balance=one(c,"SELECT b.resource_id,b.amount FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id=? AND b.channel_id=? AND r.kind=? AND b.amount>=? AND (? IS NULL OR r.payload_hash=?) ORDER BY b.resource_id LIMIT 1",cluster(),capturedChannel,kind,quantum,profile,profile);
+            var balance=one(c,"SELECT b.resource_id,b.amount,r.kind,r.format_version,r.payload_hash,r.payload FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id=? AND b.channel_id=? AND r.kind=? AND r.format_version=1 AND b.amount>=? AND (? IS NULL OR r.payload_hash=?) ORDER BY b.resource_id LIMIT 1",cluster(),capturedChannel,kind,quantum,profile,profile);
             if(balance==null) return Optional.empty();
             long qty=Math.min(Math.min(maxAmount,num(candidate,"room")),num(balance,"amount"));
             qty=(qty/quantum)*quantum;if(qty==0)return Optional.empty();
@@ -362,8 +489,7 @@ public final class Authority implements AutoCloseable {
             var directed=kind.equals(Protocol.ITEM)||kind.equals(Protocol.FLUID)?one(c,"SELECT request_id,remaining FROM ct_stock_requests WHERE cluster_id=? AND endpoint_id=? AND channel_id=? AND resource_id=? AND state IN ('PENDING','PARTIAL') AND expires_at>CURRENT_TIMESTAMP(6) ORDER BY created_at,request_id LIMIT 1 FOR UPDATE",cluster(),endpoint,capturedChannel,uuid(balance,"resource_id")):null;
             if(directed!=null){long left=Math.max(0,num(directed,"remaining")-qty);update(c,"UPDATE ct_stock_requests SET remaining=?,state=? WHERE cluster_id=? AND request_id=?",left,left==0?"FULFILLED":"PARTIAL",cluster(),uuid(directed,"request_id"));}
             event(c,"ALLOCATION_READY",transaction,session().server());
-            return Optional.of(allocation(c,one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND transfer_id=?",cluster(),transaction)));
-        });
+            return Optional.of(new Allocation(transaction,endpoint,capturedChannel,uuid(balance,"resource_id"),decodeResource(balance),qty,qty,"RESERVED"));
     }
     private Allocation allocation(Connection c,Map<String,Object> r) throws SQLException {
         var payload=one(c,"SELECT * FROM ct_resources WHERE cluster_id=? AND resource_id=?",cluster(),uuid(r,"resource_id"));
@@ -372,10 +498,27 @@ public final class Authority implements AutoCloseable {
         return new Allocation(uuid(r,"transfer_id"),uuid(r,"endpoint_id"),uuid(r,"channel_id"),uuid(r,"resource_id"),resource,num(r,"amount"),num(r,"remaining"),str(r,"state"));
     }
     public List<Allocation> allocations(UUID endpoint) throws SQLException {
-        return db.transaction(c->{fenced(c); localEndpoint(c,endpoint,false); var result=new ArrayList<Allocation>(); for(var r:query(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND kind='ALLOCATE' AND remaining>0 ORDER BY created_at LIMIT 64",cluster(),endpoint)) result.add(allocation(c,r)); return List.copyOf(result);});
+        return db.transaction(c->{fenced(c);localEndpoint(c,endpoint,false);return allocationRows(c,List.of(endpoint)).getOrDefault(endpoint,List.of());});
+    }
+    private Map<UUID,List<Allocation>> allocationRows(Connection c,List<UUID> endpoints) throws SQLException {return allocationRows(c,endpoints,Set.of(),false);}
+    private Map<UUID,List<Allocation>> allocationRows(Connection c,List<UUID> endpoints,Set<UUID> known,boolean activeOnly) throws SQLException {
+        if(endpoints.isEmpty())return Map.of();
+        var args=new ArrayList<Object>();args.add(cluster());args.addAll(endpoints);args.addAll(known);
+        String unseen=known.isEmpty()?"":" AND transfer_id NOT IN ("+String.join(",",Collections.nCopies(known.size(),"?"))+")";
+        // MySQL 8 window bound applies PER endpoint. Recovery cannot let one legacy endpoint
+        // monopolize the entire result, and ordinary discovery returns at most eight unseen rows.
+        var rows=query(c,"SELECT t.*,r.kind AS payload_kind,r.format_version,r.payload_hash,r.payload FROM (SELECT owned.*,ROW_NUMBER() OVER(PARTITION BY endpoint_id ORDER BY created_at,transfer_id) AS rn FROM ct_transfers owned WHERE cluster_id=? AND endpoint_id IN ("+String.join(",",Collections.nCopies(endpoints.size(),"?"))+") AND kind='ALLOCATE' AND remaining>0"+(activeOnly?" AND state<>'QUARANTINED'":"")+unseen+") t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.rn<="+(activeOnly?8:64)+" ORDER BY t.endpoint_id,t.rn",args.toArray());
+        var result=new HashMap<UUID,List<Allocation>>();var payloads=new HashMap<UUID,Resource>();
+        for(var row:rows){UUID resourceId=uuid(row,"resource_id");Resource resource=payloads.get(resourceId);
+            try{if(resource==null){var payload=new HashMap<>(row);payload.put("kind",str(row,"payload_kind"));resource=decodeResource(payload);payloads.put(resourceId,resource);}}
+            catch(DomainException invalid){update(c,"UPDATE ct_transfers SET state='QUARANTINED' WHERE cluster_id=? AND transfer_id=? AND kind='ALLOCATE'",cluster(),uuid(row,"transfer_id"));quarantine(c,uuid(row,"endpoint_id"),uuid(row,"transfer_id"),invalid.code(),"unreadable payload; exclusive SQL ownership retained");continue;}
+            var allocation=new Allocation(uuid(row,"transfer_id"),uuid(row,"endpoint_id"),uuid(row,"channel_id"),resourceId,resource,num(row,"amount"),num(row,"remaining"),str(row,"state"));
+            result.computeIfAbsent(allocation.endpoint(),x->new ArrayList<>()).add(allocation);
+        }
+        return result;
     }
     public void markLocal(UUID endpoint,UUID transfer) throws SQLException {
-        db.transaction(c->{fenced(c); localEndpoint(c,endpoint,true); require(update(c,"UPDATE ct_transfers SET state='LOCAL' WHERE cluster_id=? AND transfer_id=? AND endpoint_id=? AND kind='ALLOCATE' AND state IN ('RESERVED','LOCAL')",cluster(),transfer,endpoint)==1,"allocation_not_found"); return null;});
+        db.transaction(c->{fenced(c);var owner=one(c,"SELECT device_owner,channel_id FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint);require(owner!=null,"endpoint_not_found");channelRow(c,uuid(owner,"channel_id"),uuid(owner,"device_owner"),Protocol.RECEIVE,false);var e=localEndpoint(c,endpoint,true);require(uuid(owner,"channel_id").equals(uuid(e,"channel_id")),"binding_changed");require(update(c,"UPDATE ct_transfers SET state='LOCAL' WHERE cluster_id=? AND transfer_id=? AND endpoint_id=? AND channel_id=? AND kind='ALLOCATE' AND state IN ('RESERVED','LOCAL')",cluster(),transfer,endpoint,uuid(e,"channel_id"))==1,"allocation_not_found");return null;});
     }
     /** Bounded paged advisory view. Payloads stay server-side; only native local credits are spendable. */
     public StockPage stock(UUID actor,UUID endpoint,UUID channel,UUID after) throws SQLException {
@@ -419,11 +562,24 @@ public final class Authority implements AutoCloseable {
     /** WAL presence alone cannot reactivate a SQL-quarantined allocation. */
     public LocalSnapshot restoreSnapshot(LocalSnapshot snapshot) throws SQLException {
         require(snapshot.credits().size()<=64,"invalid_checkpoint");
-        return db.transaction(c->{fenced(c);localEndpoint(c,snapshot.endpoint(),false);var credits=new ArrayList<LocalSnapshot.Credit>();
+        require(snapshot.world().equals(session().world()) && snapshot.generation()==session().generation(),"journal_generation_conflict");
+        return db.transaction(c->{fenced(c);
+            // Match the asset lock order: channel(s), endpoint, transfers. WAL may contain
+            // RESERVED receipts from an interrupted publication, which are not yet local assets.
+            var channels=new TreeSet<UUID>();for(var credit:snapshot.credits())channels.add(credit.channel());
+            for(UUID channel:channels)one(c,"SELECT channel_id FROM ct_channels WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),channel);
+            var endpoint=localEndpoint(c,snapshot.endpoint(),false);var credits=new ArrayList<LocalSnapshot.Credit>();
             for(var credit:snapshot.credits()){
-                if(credit.remaining()==0)continue;
-                var row=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND transfer_id=? AND kind='ALLOCATE'",cluster(),snapshot.endpoint(),credit.transaction());require(row!=null,"allocation_not_found");
+                var row=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND transfer_id=? AND kind='ALLOCATE' FOR UPDATE",cluster(),snapshot.endpoint(),credit.transaction());require(row!=null,"allocation_not_found");
                 var allocation=allocation(c,row);require(allocation.channel().equals(credit.channel()) && allocation.payload().equals(credit.resource()) && allocation.amount()==credit.original() && credit.remaining()<=allocation.remaining(),"invalid_checkpoint");
+                if(allocation.state().equals("RESERVED")){
+                    // An unclean boot leaves the endpoint quarantined. Keep these assets
+                    // exclusively in SQL, not in the usable buffer; recovery may later fetch them.
+                    if(!"ACTIVE".equals(str(endpoint,"state")))continue;
+                    require("ACTIVE".equals(str(endpoint,"state")) && credit.channel().equals(uuid(endpoint,"channel_id")),"endpoint_paused");
+                    channelRow(c,credit.channel(),uuid(endpoint,"device_owner"),Protocol.RECEIVE,false);
+                    update(c,"UPDATE ct_transfers SET state='LOCAL' WHERE cluster_id=? AND transfer_id=?",cluster(),credit.transaction());
+                }
                 if(!allocation.state().equals("QUARANTINED"))credits.add(credit);
             }
             return new LocalSnapshot(snapshot.endpoint(),snapshot.world(),snapshot.generation(),snapshot.revision(),snapshot.deposits(),credits,snapshot.thermal());
@@ -432,17 +588,20 @@ public final class Authority implements AutoCloseable {
     /** Absolute monotone remaining values from an fsynced local checkpoint. No timeout refunds. */
     public void checkpoint(UUID endpoint,long sequence,Map<UUID,Long> remaining) throws SQLException {
         require(sequence>=0 && remaining.size()<=64,"invalid_checkpoint");
-        db.transaction(c->{
-            fenced(c); var e=localEndpoint(c,endpoint,false);
+        db.transaction(c->checkpoint(endpoint,sequence,remaining,c,null));
+    }
+    private Void checkpoint(UUID endpoint,long sequence,Map<UUID,Long> remaining,Connection c,BatchContext context) throws SQLException {
+
+            if(context==null)fenced(c); var e=batchEndpoint(c,endpoint,false,context);
             require(sequence>=num(e,"checkpoint"),"stale_checkpoint");
             for(var entry:new TreeMap<>(remaining).entrySet()) {
                 var transfer=one(c,"SELECT remaining,kind,state FROM ct_transfers WHERE cluster_id=? AND transfer_id=? AND endpoint_id=? FOR UPDATE",cluster(),entry.getKey(),endpoint);
                 require(transfer!=null && "ALLOCATE".equals(str(transfer,"kind")) && entry.getValue()>=0 && entry.getValue()<=num(transfer,"remaining"),"invalid_checkpoint");
                 if("QUARANTINED".equals(str(transfer,"state"))){require(entry.getValue()==num(transfer,"remaining"),"quarantined_allocation");continue;}
+                require(!"RESERVED".equals(str(transfer,"state")),"allocation_not_local");
                 update(c,"UPDATE ct_transfers SET remaining=?,state=? WHERE cluster_id=? AND transfer_id=?",entry.getValue(),entry.getValue()==0?"CONSUMED":"LOCAL",cluster(),entry.getKey());
             }
             update(c,"UPDATE ct_endpoints SET checkpoint=? WHERE cluster_id=? AND endpoint_id=?",sequence,cluster(),endpoint); return null;
-        });
     }
     public void quarantineAllocation(UUID endpoint,UUID transfer,String reason) throws SQLException {
         db.transaction(c->{fenced(c); localEndpoint(c,endpoint,false); update(c,"UPDATE ct_transfers SET state='QUARANTINED' WHERE cluster_id=? AND endpoint_id=? AND transfer_id=? AND kind='ALLOCATE'",cluster(),endpoint,transfer); quarantine(c,endpoint,transfer,reason,"Allocation remains exclusively owned; no automatic refund or replay"); return null;});
@@ -458,6 +617,27 @@ public final class Authority implements AutoCloseable {
             update(c,"UPDATE ct_outbox SET published_at=CURRENT_TIMESTAMP(6) WHERE cluster_id=? AND id IN ("+String.join(",",Collections.nCopies(ids.size(),"?"))+")",args.toArray());return null;});
     }
     public boolean receiveEvent(UUID event) throws SQLException { return db.transaction(c->{fenced(c); return update(c,"INSERT IGNORE INTO ct_inbox(cluster_id,server_id,event_id) VALUES(?,?,?)",cluster(),session().server(),event)==1;}); }
+    /** Inbox is one transaction per bounded delivery batch. Redis-provided type/subject are
+     * never trusted: wake targets are reconstructed from the current SQL outbox and binding. */
+    public List<RedisTransport.Hint> receiveEvents(List<UUID> events) throws SQLException {
+        require(events.size()<=256,"invalid_limit");if(events.isEmpty())return List.of();
+        var unique=events.stream().distinct().toList();
+        return db.transaction(c->{fenced(c);var values=new ArrayList<Object>();for(UUID event:unique){values.add(cluster());values.add(session().server());values.add(event);}
+            update(c,"INSERT IGNORE INTO ct_inbox(cluster_id,server_id,event_id) VALUES "+String.join(",",Collections.nCopies(unique.size(),"(?,?,?)")),values.toArray());
+            var args=new ArrayList<Object>();args.add(session().server());args.add(session().world());args.add(session().epoch());args.add(session().generation());args.add(cluster());args.add(session().server());args.addAll(unique);
+            var rows=query(c,"SELECT o.event_type,o.subject_id,t.endpoint_id AS transfer_endpoint,t.channel_id AS transfer_channel,q.endpoint_id AS stock_endpoint,q.channel_id AS stock_channel,e.endpoint_id AS current_endpoint,e.channel_id AS current_channel FROM ct_outbox o LEFT JOIN ct_transfers t ON t.cluster_id=o.cluster_id AND t.transfer_id=o.subject_id AND o.event_type='ALLOCATION_READY' LEFT JOIN ct_stock_requests q ON q.cluster_id=o.cluster_id AND q.request_id=o.subject_id AND o.event_type='STOCK_REQUESTED' LEFT JOIN ct_endpoints e ON e.cluster_id=o.cluster_id AND e.endpoint_id=COALESCE(t.endpoint_id,q.endpoint_id,CASE WHEN o.event_type='ENDPOINT_CHANGED' THEN o.subject_id END) AND e.server_id=? AND e.world_id=? AND e.last_epoch=? AND e.recovery_generation=? WHERE o.cluster_id=? AND (o.target_server IS NULL OR o.target_server=?) AND o.event_id IN ("+String.join(",",Collections.nCopies(unique.size(),"?"))+")",args.toArray());
+            var result=new ArrayList<RedisTransport.Hint>();
+            for(var row:rows){String type=str(row,"event_type");UUID channel=null,endpoint=null;
+                if(Set.of("BALANCE_CHANGED","CHANNEL_CHANGED","HEAT_CHANGED").contains(type))channel=uuid(row,"subject_id");
+                else if(type.equals("ALLOCATION_READY")){channel=uuid(row,"transfer_channel");endpoint=uuid(row,"transfer_endpoint");}
+                else if(type.equals("STOCK_REQUESTED")){channel=uuid(row,"stock_channel");endpoint=uuid(row,"stock_endpoint");}
+                else if(type.equals("ENDPOINT_CHANGED"))endpoint=uuid(row,"subject_id");
+                if(endpoint!=null){if(!endpoint.equals(uuid(row,"current_endpoint")) || channel!=null && !channel.equals(uuid(row,"current_channel")))continue;channel=uuid(row,"current_channel");}
+                if(channel!=null)result.add(new RedisTransport.Hint(type,channel,endpoint));
+            }
+            return List.copyOf(result);
+        });
+    }
     public Map<String,Long> health() throws SQLException {
         return db.transaction(c->{
             fenced(c); Map<String,Long> result=new LinkedHashMap<>();
@@ -481,7 +661,7 @@ public final class Authority implements AutoCloseable {
     public Optional<ThermalBuffer.Pending> prepareHeat(UUID exchange,UUID endpoint,UUID capturedChannel,long localEnergy,double localCapacity,double inverseConduction,boolean sending,boolean receiving) throws SQLException {
         require(localEnergy>=0 && Double.isFinite(localCapacity)&&localCapacity>=1&&localCapacity<=1e12 && Double.isFinite(inverseConduction)&&inverseConduction>=1,"invalid_heat");
         return db.transaction(c->{
-            fenced(c);var e=localEndpoint(c,endpoint,true);require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");var ch=channelRow(c,capturedChannel,uuid(e,"device_owner"),Protocol.VIEW,false);
+            fenced(c);var owner=one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint);require(owner!=null,"endpoint_not_found");var ch=channelRow(c,capturedChannel,uuid(owner,"device_owner"),Protocol.VIEW,false);var e=localEndpoint(c,endpoint,true);require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
             var old=one(c,"SELECT * FROM ct_heat_exchanges WHERE cluster_id=? AND exchange_id=?",cluster(),exchange);
             if(old!=null){require(endpoint.equals(uuid(old,"endpoint_id"))&&capturedChannel.equals(uuid(old,"channel_id")),"idempotency_conflict");return Optional.of(heat(old));}
             BusinessIds.fresh(exchange);
@@ -510,11 +690,10 @@ public final class Authority implements AutoCloseable {
     private static ThermalBuffer.Pending heat(Map<String,Object> row){return new ThermalBuffer.Pending(uuid(row,"exchange_id"),uuid(row,"channel_id"),num(row,"signed_microjoules"),num(row,"local_before"),((Number)row.get("local_capacity")).doubleValue(),num(row,"pool_before"),num(row,"pool_after"));}
     public void completeHeat(UUID endpoint,ThermalBuffer.Pending pending) throws SQLException {
         db.transaction(c->{
-            fenced(c);var e=localEndpoint(c,endpoint,false);UUID channel=pending.channel();
+            fenced(c);UUID channel=pending.channel();var owner=one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint);require(owner!=null,"endpoint_not_found");channelRow(c,channel,uuid(owner,"device_owner"),pending.signedMicrojoules()>0?Protocol.SEND:Protocol.RECEIVE,false);var e=localEndpoint(c,endpoint,false);
             var row=one(c,"SELECT * FROM ct_heat_exchanges WHERE cluster_id=? AND exchange_id=? AND endpoint_id=? FOR UPDATE",cluster(),pending.id(),endpoint);require(row!=null && heat(row).equals(pending),"idempotency_conflict");
             if("COMMITTED".equals(str(row,"state")))return null;require("PREPARED".equals(str(row,"state")),"heat_state_changed");
             require("ACTIVE".equals(str(e,"state")),"endpoint_paused");
-            channelRow(c,channel,uuid(e,"device_owner"),pending.signedMicrojoules()>0?Protocol.SEND:Protocol.RECEIVE,false);
             require(channel.equals(uuid(e,"channel_id")),"binding_changed");
             if(pending.signedMicrojoules()>0){var pool=one(c,"SELECT * FROM ct_thermal_pools WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),channel);long next;try{next=Math.addExact(num(pool,"microjoules"),pending.signedMicrojoules());}catch(ArithmeticException ex){throw new DomainException("quantity_overflow");}update(c,"UPDATE ct_thermal_pools SET microjoules=? WHERE cluster_id=? AND channel_id=?",next,cluster(),channel);}
             update(c,"UPDATE ct_heat_exchanges SET state='COMMITTED' WHERE cluster_id=? AND exchange_id=?",cluster(),pending.id());
@@ -523,7 +702,7 @@ public final class Authority implements AutoCloseable {
     }
     /** Only a definitive local rejection before application may cancel. Never run this on a timeout. */
     public void cancelHeatBeforeApplication(UUID endpoint,UUID exchange) throws SQLException {
-        db.transaction(c->{fenced(c);localEndpoint(c,endpoint,false);var row=one(c,"SELECT * FROM ct_heat_exchanges WHERE cluster_id=? AND exchange_id=? AND endpoint_id=? FOR UPDATE",cluster(),exchange,endpoint);require(row!=null,"transfer_not_found");if("CANCELLED".equals(str(row,"state")))return null;require("PREPARED".equals(str(row,"state")),"heat_state_changed");var p=heat(row);if(p.signedMicrojoules()<0){var pool=one(c,"SELECT microjoules FROM ct_thermal_pools WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),p.channel());long energy;try{energy=Math.subtractExact(num(pool,"microjoules"),p.signedMicrojoules());}catch(ArithmeticException ex){throw new DomainException("quantity_overflow");}update(c,"UPDATE ct_thermal_pools SET microjoules=? WHERE cluster_id=? AND channel_id=?",energy,cluster(),p.channel());}update(c,"UPDATE ct_heat_exchanges SET state='CANCELLED' WHERE cluster_id=? AND exchange_id=?",cluster(),exchange);audit(c,null,"HEAT_LOCAL_REJECTION",exchange,"definitively rejected before local energy changed; not a timeout refund");return null;});
+        db.transaction(c->{fenced(c);var hint=one(c,"SELECT channel_id FROM ct_heat_exchanges WHERE cluster_id=? AND exchange_id=? AND endpoint_id=?",cluster(),exchange,endpoint);require(hint!=null,"transfer_not_found");one(c,"SELECT channel_id FROM ct_channels WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),uuid(hint,"channel_id"));localEndpoint(c,endpoint,false);var row=one(c,"SELECT * FROM ct_heat_exchanges WHERE cluster_id=? AND exchange_id=? AND endpoint_id=? FOR UPDATE",cluster(),exchange,endpoint);require(row!=null,"transfer_not_found");if("CANCELLED".equals(str(row,"state")))return null;require("PREPARED".equals(str(row,"state")),"heat_state_changed");var p=heat(row);if(p.signedMicrojoules()<0){var pool=one(c,"SELECT microjoules FROM ct_thermal_pools WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),p.channel());long energy;try{energy=Math.subtractExact(num(pool,"microjoules"),p.signedMicrojoules());}catch(ArithmeticException ex){throw new DomainException("quantity_overflow");}update(c,"UPDATE ct_thermal_pools SET microjoules=? WHERE cluster_id=? AND channel_id=?",energy,cluster(),p.channel());}update(c,"UPDATE ct_heat_exchanges SET state='CANCELLED' WHERE cluster_id=? AND exchange_id=?",cluster(),exchange);audit(c,null,"HEAT_LOCAL_REJECTION",exchange,"definitively rejected before local energy changed; not a timeout refund");return null;});
     }
     public boolean retireEmptySealed(UUID id) throws SQLException {
         return db.transaction(c->{fenced(c);var e=localEndpoint(c,id,false);require("SEALED".equals(str(e,"state")),"endpoint_not_sealed");
@@ -539,13 +718,18 @@ public final class Authority implements AutoCloseable {
         require("ACKNOWLEDGE_EXTERNAL_SAVE_UNCERTAINTY".equals(confirmation),"recovery_confirmation_required");
         require(checkpoint.world().equals(session().world()) && checkpoint.generation()==session().generation(),"journal_generation_conflict");
         require(checkpoint.thermal().microjoules()==0 && checkpoint.thermal().pending()==null && checkpoint.thermal().residual()==0,"sealed_heat_requires_review");
-        return db.transaction(c->{fenced(c);var e=localEndpoint(c,checkpoint.endpoint(),false);version(e,expected);
+        return db.transaction(c->{fenced(c);
+            // Sealing disables deposits and allocation. Read the immutable set of owned
+            // channels, lock them in UUID order BEFORE endpoint/transfer rows, then revalidate.
+            var channels=new TreeSet<UUID>();for(var deposit:checkpoint.deposits())channels.add(deposit.channel());
+            for(var transfer:query(c,"SELECT channel_id FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND kind='ALLOCATE' AND remaining>0",cluster(),checkpoint.endpoint()))channels.add(uuid(transfer,"channel_id"));
+            for(UUID channel:channels){var row=one(c,"SELECT status FROM ct_channels WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),channel);require(row!=null && !"DELETED".equals(str(row,"status")),"channel_not_found");}
+            var e=localEndpoint(c,checkpoint.endpoint(),false);version(e,expected);
             require("SEALED".equals(str(e,"state")),"endpoint_not_sealed");require(checkpoint.revision()>=num(e,"checkpoint"),"stale_checkpoint");
             require(one(c,"SELECT endpoint_id FROM ct_chunk_grants WHERE cluster_id=? AND endpoint_id=?",cluster(),checkpoint.endpoint())==null,"revocation_pending");
             require(one(c,"SELECT exchange_id FROM ct_heat_exchanges WHERE cluster_id=? AND endpoint_id=? AND state='PREPARED' LIMIT 1",cluster(),checkpoint.endpoint())==null,"heat_exchange_pending");
             var allocated=query(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND endpoint_id=? AND kind='ALLOCATE' AND remaining>0 FOR UPDATE",cluster(),checkpoint.endpoint());
-            var channels=new TreeSet<UUID>();for(var d:checkpoint.deposits())channels.add(d.channel());for(var t:allocated)channels.add(uuid(t,"channel_id"));
-            for(UUID ch:channels){var row=one(c,"SELECT status FROM ct_channels WHERE cluster_id=? AND channel_id=? FOR UPDATE",cluster(),ch);require(row!=null && !"DELETED".equals(str(row,"status")),"channel_not_found");}
+            for(var transfer:allocated)require(channels.contains(uuid(transfer,"channel_id")),"binding_changed");
             long reclaimed=0;
             for(var d:checkpoint.deposits()){
                 var old=one(c,"SELECT * FROM ct_transfers WHERE cluster_id=? AND transfer_id=?",cluster(),d.transaction());
@@ -574,7 +758,7 @@ public final class Authority implements AutoCloseable {
     public List<AeNetwork> advertiseAe(UUID endpoint,UUID capturedChannel,UUID network,int used,boolean active,String controller) throws SQLException {
         require(used>=0 && used<=4096 && Set.of("NO_CONTROLLER","CONTROLLER_ONLINE","CONTROLLER_CONFLICT").contains(controller),"invalid_ae_network");
         return db.transaction(c->{
-            fenced(c);var e=localEndpoint(c,endpoint,true);require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");channelRow(c,capturedChannel,uuid(e,"device_owner"),Protocol.VIEW,false);
+            fenced(c);var owner=one(c,"SELECT device_owner FROM ct_endpoints WHERE cluster_id=? AND endpoint_id=?",cluster(),endpoint);require(owner!=null,"endpoint_not_found");channelRow(c,capturedChannel,uuid(owner,"device_owner"),Protocol.VIEW,false);var e=localEndpoint(c,endpoint,true);require(capturedChannel.equals(uuid(e,"channel_id")),"binding_changed");
             require(Arrays.asList(str(one(c,"SELECT capabilities FROM ct_servers WHERE cluster_id=? AND server_id=?",cluster(),session().server()),"capabilities").split(",")).contains("cross_tesseract:ae_proxy_v1"),"resource_unsupported");
             update(c,"INSERT INTO ct_ae_networks(cluster_id,endpoint_id,channel_id,server_id,network_id,epoch,used_channels,active,controller_state,lease_until) VALUES(?,?,?,?,?,?,?,?,?,TIMESTAMPADD(SECOND,6,CURRENT_TIMESTAMP(6))) ON DUPLICATE KEY UPDATE channel_id=VALUES(channel_id),network_id=VALUES(network_id),epoch=VALUES(epoch),used_channels=VALUES(used_channels),active=VALUES(active),controller_state=VALUES(controller_state),lease_until=VALUES(lease_until)",cluster(),endpoint,capturedChannel,session().server(),network,session().epoch(),used,active,controller);
             // Duplicate bridges on one native grid advertise the same identity. One row per grid is returned.
@@ -620,8 +804,6 @@ public final class Authority implements AutoCloseable {
     }
     public void sweepHistory() throws SQLException {
         db.transaction(c->{fenced(c);
-            update(c,"INSERT IGNORE INTO ct_history_buckets(cluster_id,server_id,used) VALUES(?,?,0)",cluster(),session().server());
-            one(c,"SELECT used FROM ct_history_buckets WHERE cluster_id=? AND server_id=? FOR UPDATE",cluster(),session().server());
             int removed=update(c,"DELETE FROM ct_transfers WHERE cluster_id=? AND endpoint_id IN (SELECT endpoint_id FROM ct_endpoints WHERE cluster_id=? AND server_id=?) AND remaining=0 AND state IN ('COMMITTED','CONSUMED') AND SUBSTRING(transfer_id,15,1)='7' AND created_at<TIMESTAMPADD(DAY,-30,CURRENT_TIMESTAMP(6)) ORDER BY created_at LIMIT 512",cluster(),cluster(),session().server());
             removed+=update(c,"DELETE FROM ct_heat_exchanges WHERE cluster_id=? AND endpoint_id IN (SELECT endpoint_id FROM ct_endpoints WHERE cluster_id=? AND server_id=?) AND state IN ('COMMITTED','CANCELLED') AND SUBSTRING(exchange_id,15,1)='7' AND created_at<TIMESTAMPADD(DAY,-30,CURRENT_TIMESTAMP(6)) ORDER BY created_at LIMIT 512",cluster(),cluster(),session().server());
             removed+=update(c,"DELETE FROM ct_stock_requests WHERE cluster_id=? AND endpoint_id IN (SELECT endpoint_id FROM ct_endpoints WHERE cluster_id=? AND server_id=?) AND expires_at<TIMESTAMPADD(DAY,-30,CURRENT_TIMESTAMP(6)) AND SUBSTRING(request_id,15,1)='7' ORDER BY created_at LIMIT 512",cluster(),cluster(),session().server());

@@ -56,7 +56,7 @@ public final class ThreeServerHarness {
             if(args[0].equals("invite")){UUID owner=UUID.fromString(args[1]),channel=UUID.fromString(args[2]),target=UUID.fromString(args[3]);rt.submit(a->a.invite(owner,channel,a.authorize(owner,channel,Protocol.MEMBERS).version(),target,false,BusinessIds.next()),id->out(source,"INVITE "+id),code->out(source,"ERROR "+code));return 1;}
             if(args[0].equals("accept")){UUID player=UUID.fromString(args[1]),invitation=UUID.fromString(args[2]);rt.submit(a->{a.answerInvitation(player,invitation,true);return true;},x->out(source,"ACCEPTED"),code->out(source,"ERROR "+code));return 1;}
             if(args[0].equals("remove-member")){UUID owner=UUID.fromString(args[1]),channel=UUID.fromString(args[2]),target=UUID.fromString(args[3]);rt.submit(a->{a.removeMember(owner,channel,a.authorize(owner,channel,Protocol.MEMBERS).version(),target);return true;},x->out(source,"REMOVED"),code->out(source,"ERROR "+code));return 1;}
-            int x=Integer.parseInt(args[1]),z=Integer.parseInt(args[2]);var level=source.getServer().overworld();BlockPos pos=new BlockPos(x,64,z);
+            int x=Integer.parseInt(args[1]),z=Integer.parseInt(args[2]);var level=source.getLevel();BlockPos pos=new BlockPos(x,64,z);
             if(args[0].equals("spawn")){
                 DomainException.require(level.getBlockEntity(pos)==null,"location_sealed");level.setBlockAndUpdate(pos,CrossTesseract.TESSERACT.get().defaultBlockState());
                 var be=(TesseractBlockEntity)level.getBlockEntity(pos);be.placed(UUID.fromString(args[3]));out(source,"SPAWN "+be.id());return 1;

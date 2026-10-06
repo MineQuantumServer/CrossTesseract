@@ -232,5 +232,9 @@
   "ct.mode.off": "关闭",
   "ct.mode.send": "发送",
   "ct.mode.receive": "接收",
-  "ct.mode.both": "双向"
+  "ct.mode.both": "双向",
+  "ct.error.endpoint_closing": "设备检查点尚在关闭中，请等待完成后重试。",
+  "ct.error.checkpoint_version_conflict": "检查点内容与已有版本冲突，需要管理员检查。",
+  "ct.error.allocation_not_local": "资源划拨尚未完成持久化 LOCAL 确认。",
+  "ct.error.shutdown_inflight": "关服时仍有未完成任务，需要恢复检查。"
 }

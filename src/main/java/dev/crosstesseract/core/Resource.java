@@ -19,6 +19,7 @@ public final class Resource {
     }
     public String kind() { return kind; }
     public byte[] bytes() { return bytes.clone(); }
+    public int size(){return bytes.length;}
     public String hash() { return hash; }
     public static String hash(byte[] bytes) {
         try { return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes)); }
