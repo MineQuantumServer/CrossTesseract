@@ -1,10 +1,41 @@
 # 0.1.0-dev 开发交付与验收记录
 
-本次交付是实际可构建、可安装并已运行的 Minecraft 1.21.1 NeoForge 项目。基础跨服链路、全群组加载配额和三个可选模组适配均有实测证据。**全部需求尚未完成**：AE2 原生跨 JVM 网络/服务合并没有实现，已有默认关闭的真实 managed-node 实验代理；其他未完成与未验证项目逐项列在 [TASKS.md](TASKS.md)。不将实验原型、控制台 fixture 或短性能窗口当作完整生产验收。
+> 当前性能核心为 `68f32db439f445b8f72faf92dc62fbc5b9dce738`，工作分支为 `perf/channel-coordinator`。本轮代码/性能交付见 [频道优化报告](CHANNEL_OPTIMIZATION.md)、[性能结果](PERFORMANCE.md) 和 [实际测试](TESTING.md)。文末保留原始 `87bf217` 历史交付，不用历史 SHA 验证新版产物。报告另存带版本的文件，通用文件名可能被后续验证更新。
 
-本轮继续补齐 AE 五类库存分页、持久定向调货/取消、原生短缺异步补货及 GUI 实测，更新为四版本迁移。源码差异和证据逐项见下文。
+## 2026-10-06 性能轮交付
+
+实现服务器会话内的有界频道协调器、独立本地交换预算、增量完成应用、提交前预留的完成邮箱、真正共享 Connection 的两阶段 SQL 合批、定向通知与进程内唤醒。MySQL 仍是余额/权限/独占划拨的权威，目的 WAL 持久化及 SQL LOCAL 后才允许外部输出；没有直接交货后补账、整服余额租赁、关闭 fsync 或更改全局端点公平规则。V001–V004、协议1、资源格式1与WAL2未变。物品、流体、FE、指定GT EU、Mek化学品及AE物资桥复用新路径；热力保留独立状态机，AE原生跨JVM网络合并仍未完成。
+
+- 二进制：`build/libs/cross_tesseract-0.1.0-dev.jar`，4,116,640字节，SHA-256 `7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a`。
+- 源码JAR：`build/libs/cross_tesseract-0.1.0-dev-sources.jar`，156,764字节，SHA-256 `919f0e7cee1a965f0fe5b9771edc832b5d7c19bb50c65c92b8bbe48090ac2b93`。
+- Java源码树摘要、构建和产物归属：`reports/optimization-artifact-ready-final.json`。后续文档/测试脚本提交不改变该核心JAR；原始启动类文件与当前工具checkout分别记录。
+- 68项JUnit（35项单元/性质、33项真实后端）、13项基础原生GameTest、八种真实依赖闭包的132项原生执行及官方NeoForge无可选模组冷安装通过。日志 `logs/optimization-build-ready-final.log`，XML/HTML `reports/optimization-tests-ready-final/`，组合 `reports/compat-matrix-68f32db.json`，冷包 `reports/packaged-smoke-68f32db.json`。
+- 最终三模式共27个完整三JVM计时窗口、真实箱子六次探测、背压/热点六窗及100/500/1000端点六窗完成。失败启动、历史死锁和所有重复保留，不选取最佳一次。完整比较 `reports/optimization-comparison-68f32db.{json,csv,md}`；箱子/压力/规模/JFR报告均以 `68f32db` 命名。
+
+实际构建命令：
+
+```bash
+scripts/gradle-dev.sh build -Dct.integration=true runGameTestServer -PgameTestBackend \
+  createServerALaunchScript createServerBLaunchScript createServerCLaunchScript createServerPerfLaunchScript
+```
+
+最终计时使用冻结原始87和新版68核心；每布局/模式三次、每次30秒预热、120秒稳态及40次低流量探测。同服p95上界中位数从2942.99降至405.90ms（−86.21%）；仅合批SQL事务下降43.23%/44.81%/44.76%。快速模式SQL事务未达到三路径均下降30%的冻结目标：同服−29.51%、纯跨服+6.43%、混合−9.48%；纯跨服/混合SQL语句增加26.94%/31.06%。严格比较实际退出1。规模ACTIVE主线程p95也仍比原版增加38.42%/36.56%/102.46%。这不是全部性能目标通过，详细口径与原始输入在PERFORMANCE.md。
+
+资源混合三模式各三窗、当前三服配额/权限、五个实际halt(97)、Redis和MySQL实际停启已完成，带版本报告见TESTING.md。最终同一JAR/世界正常true→false→true回退及关闭两开关的fresh三JVM回归通过，两个新回退频道各189FE实际输入/输出守恒、重复提取0。首轮空HEX末列失败及第二轮检查点跨读偏斜失败仍保留，原父FAILED不改标；原首轮128FE未提取，最终SQL/WAL只读核对仍是一份有效LOCAL资产。归属、全部闭合报告SHA与未验证范围见 `reports/optimization-final-validation-index-68f32db.json`。本轮不验证完整在线玩家/代理GUI、任意第三方存档原子性、磁盘掉电/ENOSPC、长时间容量或真实网络延迟；其余未验证项见TASKS.md。
+
+仅合批模式的混合组件物品输入到目的箱子接受延迟中位71/78秒（原版29/30秒）存在明显回归，完整快速模式为4.45/4.56秒；每种组件只有三个样本，不外推总体分位数。完整模式用更频繁的安全提交换取延迟，不能描述成完全无数据库开销。
+
+关闭优化需要停止输入并正常停服，以同一新版JAR将 `transfer.channelBatches=false`、`transfer.localFastPath=false` 重启；不热切、不降级到旧二进制、不回滚数据库、不重放未知外部动作。实际A/B/C启动方法和身份要求沿用下方说明与OPERATIONS.md。
+
+## 原始87bf217历史交付
+
+原始交付是实际可构建、可安装并已运行的 Minecraft 1.21.1 NeoForge 项目。基础跨服链路、全群组加载配额和三个可选模组适配有当时的实测证据。**全部需求尚未完成**：AE2 原生跨 JVM 网络/服务合并没有实现，已有默认关闭的真实 managed-node 实验代理；其他未完成与未验证项目逐项列在 [TASKS.md](TASKS.md)。不将实验原型、控制台 fixture 或短性能窗口当作完整生产验收。
+
+原始87版本补齐 AE 五类库存分页、持久定向调货/取消、原生短缺异步补货及 GUI 实测，更新为四版本迁移。其历史证据逐项见下文。
 
 ## 交付物与构建
+
+本节列出 `87bf217` 的历史路径和校验值，不能用它们验证当前已被重建的 `build/libs/` 或 `build/test-results/` 文件。当前 JAR、测试归属与校验值以文首的 `68f32db` 清单和 TESTING.md 为准；历史27项测试记录保存在 `reports/unit-tests.json`，当前68项测试 XML另存于 `reports/optimization-tests-ready-final/`。
 
 - 安装包：`build/libs/cross_tesseract-0.1.0-dev.jar`，4028891 字节；SHA-256 `ccab2954e92e9ba9b4020c6b5b9a22812e2a76503df6cc0aa8039c26189821d7`。
 - 源码 JAR：`build/libs/cross_tesseract-0.1.0-dev-sources.jar`；SHA-256 `fa1661299e73a0b26c6126b0d7fc86eb3d8d98831ebfb99591e5a968509ac740`。
@@ -55,13 +86,13 @@ NeoForge 文档读取版本化源码 SHA `89528c36e4eb34d46b1de346c045172ce8ca9f
 | 验证 | 实际结果 | 报告/主要日志 |
 |---|---|---|
 | 单元、性质、真实 MySQL/Redis 集成 | 27 个测试，失败 0、错误 0、跳过 0；性质运行 200/300 次 | `unit-tests.json`；`stock-final-build.log`；`build/test-results/test/` |
-| 八种原生兼容组合，10-03 01:36 | 全通过；基础/Mek/AE/AE+Mek/GT/GT+Mek/AE+GT/三兼容必需测试数 7/9/10/12/9/11/12/14 | `compat-matrix.json`；`matrix-*.log`、`stock-final-matrix.log` |
-| 三个独立 Minecraft JVM，10-03 02:12 | 物品/流体/FE 守恒、多发多收、跨服邀请、撤权及配额通过 | `three-server.json`；`stock-three-server-test.log` |
+| 八种原生兼容组合，10-03 01:36 | 全通过；基础/Mek/AE/AE+Mek/GT/GT+Mek/AE+GT/三兼容必需测试数 7/9/10/12/9/11/12/14 | `compat-matrix-87bf217-historical.json`；`matrix-*.log`、`stock-final-matrix.log` |
+| 三个独立 Minecraft JVM，10-03 02:12 | 物品/流体/FE 守恒、多发多收、跨服邀请、撤权及配额通过 | `three-server-87bf217-historical.json`；`stock-three-server-test.log` |
 | AE 三 JVM，10-03 02:13 | B/C 原生缺货立即返回 0 并持久记录独立需求；24 钻石经 MEStorage→SQL/WAL→远端提取守恒；网格、多桥、失电、撤权代理通过 | `ae-three.json`；`stock-ae-three-test.log` |
-| 票据恢复/Redis 故障，10-02 15:19 | 干净重启主动恢复；Redis 故障撤票但保留配额；SIGKILL 后新 epoch 隔离 | `recovery.json`；`final-recovery-test.log` |
-| 四个实际 halt(97) 窗口，10-02 15:23 | 发送 WAL/提交、独占划拨、接收 WAL 后崩溃均保留阶段所有权；无盲目退款或重发 | `faults.json`；`final-fault-test.log` |
-| MySQL 容器实际停启，10-02 14:14 | 实际票据归零、持久名额保留、新批准拒绝，游戏继续响应 | `mysql-outage.json`；`mysql-outage-test.log` |
-| 官方 NeoForge 冷安装，10-03 02:35 | 最终相同 SHA 的 JAR 独立加载；无兼容模组，真实 1234 FE 跨缓冲交付、干净停止 | `packaged-smoke.json`；`stock-packaged-smoke-test.log`、`packaged-smoke.log` |
+| 票据恢复/Redis 故障，10-02 15:19 | 干净重启主动恢复；Redis 故障撤票但保留配额；SIGKILL 后新 epoch 隔离 | `recovery-87bf217-historical.json`；`final-recovery-test.log` |
+| 四个实际 halt(97) 窗口，10-02 15:23 | 发送 WAL/提交、独占划拨、接收 WAL 后崩溃均保留阶段所有权；无盲目退款或重发 | `faults-87bf217-historical.json`；`final-fault-test.log` |
+| MySQL 容器实际停启，10-02 14:14 | 实际票据归零、持久名额保留、新批准拒绝，游戏继续响应 | `mysql-outage-87bf217-historical.json`；`mysql-outage-test.log` |
+| 官方 NeoForge 冷安装，10-03 02:35 | 最终相同 SHA 的 JAR 独立加载；无兼容模组，真实 1234 FE 跨缓冲交付、干净停止 | `packaged-smoke-87bf217-historical.json`；`stock-packaged-smoke-test.log`、`packaged-smoke.log` |
 | 实际客户端，10-03 02:35 | Minecraft C2S 创建/绑定/配置及 AE 库存、调货、取消通过；32 钻石保持完整；英文及小窗口中文截图 | `stock-ui.json`、`screenshots/ui-stock-zh-remote.png`、`ui-stock-zh-pending.png`；`stock-ui-smoke.log` |
 | 最终性能，10-03 02:26 开始 | 100/500/1000 真实端点完成，无设置/测量任务错误或队列拒绝 | `performance-final.json`、`raw/final.jfr`；`stock-final-performance-test.log` |
 

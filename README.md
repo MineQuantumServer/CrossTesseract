@@ -66,8 +66,12 @@ AE2 安装并开启物资桥后增加库存页，区分本地立即可取、远�
 - [崩溃边界、隔离恢复、备份与回档](docs/RECOVERY.md)
 - [具体兼容版本与来源](docs/COMPATIBILITY.md)、[第三方许可](docs/THIRD_PARTY.md)
 - [测试命令、覆盖范围和结果](docs/TESTING.md)、[性能实测与调参](docs/PERFORMANCE.md)
+- [频道合批与本地低延迟的实际路径、回退和边界](docs/CHANNEL_OPTIMIZATION.md)、[本轮基准口径与复现](docs/OPTIMIZATION_BENCHMARK.md)
+- [真实原版箱子物品传输的补充实测与复现](docs/CONTAINER_BENCHMARK.md)
 - [管理员诊断与恢复命令](docs/OPERATIONS.md)
 
 `reports/` 保存实际三服、崩溃恢复、兼容矩阵及性能报告；完整控制台日志位于 `logs/`，JUnit XML 位于 `build/test-results/test/`。报告区分真实实测、实验原型和未验证项目。资源守恒覆盖本模组 WAL 与 SQL 所有权阶段；**第三方机器、原版箱子和独立回档并未加入同一个原子事务**。不宣称任意崩溃和任意回档下绝对不复制或不丢失。
 
 本项目原创代码/材质为 MIT。原始 Tesseract 为受限许可参考，不包含其代码、PNG、模型或改色资源。
+
+本轮性能核心及证据归属见 [交付记录](docs/DELIVERY.md) 和 [闭合验证索引](reports/optimization-final-validation-index-68f32db.json)。同服路径仍经过MySQL独占划拨和WAL；延迟改善、SQL/WAL成本回归、未达目标及未验证范围分别保留，不宣称全部性能目标通过。
