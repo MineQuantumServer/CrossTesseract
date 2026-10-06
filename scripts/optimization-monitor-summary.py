@@ -342,6 +342,12 @@ def build_summary(run_paths, process_paths, tick_paths, args):
             "WAL": "Baseline WAL count/time UNMEASURED. Instrumented C-B differences may be measured separately; no baseline zero implied.",
             "baseline_scale1000_idle": "Previously observed independent 118.000200710s / 862 DBtx = 7.30507232033 tx/s; not the entire 120s phase and not derived from this sidecar summary."},
         "runs": {}, "individual_windows": [], "common_windows": [], "warnings": []}
+    for evidence in provenance:
+        if evidence.get("passed") is not True:
+            report["warnings"].append({"kind": "FAILED_OR_INCOMPLETE_SOURCE_RETAINED",
+                "run": evidence["run"], "role": evidence["role"], "path": evidence["path"],
+                "source_passed": evidence.get("passed"), "failures": evidence.get("failures", []),
+                "scope": "Successful real samples retained only inside actual observed coverage; source failure is not converted to a complete phase or successful whole-monitor run."})
     for label, run in runs.items():
         benchmark = run["benchmark"]
         expected = {(s, r, p) for s in benchmark.get("conditions", {}).get("scenarios", [])
@@ -432,6 +438,22 @@ def build_summary(run_paths, process_paths, tick_paths, args):
                     entry.update(status="INSTRUMENTED_FIXED_BUSINESS_COUNTER_COMPARISON", after_minus_before={
                         k: l["summed_cumulative_delta"][k] - f["summed_cumulative_delta"][k] for k in WAL_KEYS})
                 report["WAL_pairwise_comparisons"].append(entry)
+    # A missing sample in one run must not erase evidence that another pair
+    # genuinely shares, or turn that pair's observations into three-way coverage.
+    report["pairwise_common_windows"] = []
+    if len(runs) > 2:
+        for before_index, before in enumerate(labels):
+            for after in labels[before_index + 1:]:
+                pair = (before, after)
+                subset = build_summary({label: run_paths[label] for label in pair},
+                    {label: process_paths.get(label, []) for label in pair},
+                    {label: tick_paths.get(label, []) for label in pair}, args)
+                known_hashes = {e["path"]: e["sha256"] for e in provenance}
+                if any(known_hashes.get(e["path"]) != e["sha256"] for e in subset["provenance"]):
+                    raise ValueError("An input report changed while creating paired windows")
+                report["pairwise_common_windows"].append({"run_labels": list(pair),
+                    "scope": "Only this named pair shares these input-aligned observed slices. They cannot backfill missing third-run observations.",
+                    "windows": subset["common_windows"], "warnings": subset["warnings"]})
     return report
 
 
@@ -445,6 +467,9 @@ def save_csv(report, path):
         groups = [("individual", row, {row["run"]: {"observed": row["observed"]}}) for row in report["individual_windows"]]
         groups += [("common", row, row["runs"] or {"ALL_SUPPLIED": {"observed": {"status": "UNMEASURED"}}})
             for row in report["common_windows"]]
+        groups += [("pairwise:" + "+".join(pair["run_labels"]), row,
+            row["runs"] or {"PAIR_SUPPLIED": {"observed": {"status": "UNMEASURED"}}})
+            for pair in report.get("pairwise_common_windows", []) for row in pair["windows"]]
         for scope, group, runs in groups:
             for label, run in runs.items():
                 observed = run["observed"]
@@ -532,7 +557,10 @@ def main():
         print(json.dumps({"saved": str(output), "runs": list(runs),
             "individual_windows": len(report["individual_windows"]),
             "common_observed_slices": sum(g["status"] == "COMMON_OBSERVED_SLICE" for g in report["common_windows"]),
-            "common_unmeasured_slices": sum(g["status"] != "COMMON_OBSERVED_SLICE" for g in report["common_windows"])}))
+            "common_unmeasured_slices": sum(g["status"] != "COMMON_OBSERVED_SLICE" for g in report["common_windows"]),
+            "pairwise_common_observed_slices": {"+".join(pair["run_labels"]): sum(
+                g["status"] == "COMMON_OBSERVED_SLICE" for g in pair["windows"])
+                for pair in report.get("pairwise_common_windows", [])}}))
         return 0
     except (ValueError, KeyError, OSError, TypeError) as error:
         print(type(error).__name__ + ": " + str(error), file=sys.stderr)

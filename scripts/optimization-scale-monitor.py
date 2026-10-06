@@ -34,8 +34,8 @@ def utc_now():
 
 
 def numbers(reply):
-    return {key: float(value) if "." in value else int(value) for key, value in
-        re.findall(r"([A-Za-z_]\w*)=(-?\d+(?:\.\d+)?)(?=[, }]|$)", reply)}
+    return {key: float(value) if any(marker in value for marker in ".eE") else int(value) for key, value in
+        re.findall(r"([A-Za-z_]\w*)=(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)(?=[, }\r\n]|$)", reply)}
 
 
 def observed_mode(status, bulk):

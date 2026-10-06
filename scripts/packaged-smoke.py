@@ -30,7 +30,8 @@ def run():
             t.poll(ready,lambda s:'STATUS online' in s,seconds=90)
             owner=str(uuid.uuid4());name='packaged_'+uuid.uuid4().hex[:10];issue(f'create {owner} {name}')
             ch=t.poll(lambda:t.sql(f"SELECT channel_id FROM ct_channels WHERE cluster_id='{CLUSTER}' AND name='{name}'"),bool)[0][0]
-            x=2000+int(time.time())%1000;command(PORT,f'forceload add {x} 0 {x+1} 0')
+            # Fresh isolated coordinates; the former time modulo reused sealed locations.
+            x=1_000_000+int(uuid.uuid4().hex[:5],16)*16;command(PORT,f'forceload add {x} 0 {x+1} 0')
             for dx,mode in ((0,'SEND'),(1,'RECEIVE')):
                 issue(f'spawn {x+dx} 0 {owner}');t.poll(lambda:device(x+dx),lambda d:d['registered']=='true');issue(f'bind {x+dx} 0 {ch}');t.poll(lambda:device(x+dx),lambda d:d['channel']==ch and not d['pause']);issue(f'mode {x+dx} 0 cross_tesseract:fe {mode}')
             t.poll(lambda:issue(f'push-fe {x} 0 1234'),lambda s:'ACCEPTED 1234' in s)
@@ -45,6 +46,6 @@ def run():
                 try:p.wait(timeout=30)
                 except subprocess.TimeoutExpired:p.kill();p.wait();raise AssertionError('Cold server shutdown timed out; marked unclean')
     assert passed and p.returncode==0, f'Cold server shutdown exit {p.returncode}'
-    report={'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'passed':True,'scope':'official NeoForge installer, actual packaged mod Jar-in-Jar only; no optional mods; real MySQL/Redis, two native FE capabilities and SQL/WAL delivery, clean stop','jar':str(jar.relative_to(ROOT)),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'minecraft':'1.21.1','neoforge':'21.1.252','capabilities':capabilities,'status':status,'log':str(log.relative_to(ROOT))}
+    report={'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'passed':True,'scope':'official NeoForge installer, actual packaged mod Jar-in-Jar only; no optional mods; real MySQL/Redis, two native FE capabilities and SQL/WAL delivery, clean stop','jar':str(jar.relative_to(ROOT)),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'minecraft':'1.21.1','neoforge':'21.1.252','capabilities':capabilities,'status':status,'log':str(log.relative_to(ROOT)),'java_exit_code':p.returncode,'fixture':{'source_x':x,'sink_x':x+1,'z':0,'owner_uuid':owner,'channel_id':ch,'FE_accepted_and_extracted':1234}}
     (ROOT/'reports/packaged-smoke.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if __name__=='__main__':run()

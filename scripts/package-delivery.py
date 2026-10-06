@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -65,10 +66,33 @@ def main():
     evidence = [p for p in files('reports') if p.name != 'delivery-artifacts.json']
     for directory in ('logs', 'build/test-results/test', 'build/reports/tests/test', 'docs'):
         evidence.extend(files(directory))
+    # The tested Java core may precede the documentation/evidence checkout.
+    # Record both identities instead of relabelling a previously built JAR.
+    checkout = {}
+    for key, args in (('git_head', ['rev-parse', 'HEAD']),
+                      ('git_branch', ['branch', '--show-current'])):
+        process = subprocess.run(['git', *args], cwd=ROOT, text=True,
+                                 capture_output=True, timeout=10)
+        checkout[key] = process.stdout.strip() if process.returncode == 0 else None
+    sources = sorted((ROOT / 'src/main/java').rglob('*.java'))
+    checkout['java_source_manifest_sha256'] = hashlib.sha256(b''.join(
+        str(path.relative_to(ROOT)).encode() + b'\0' + hashlib.sha256(path.read_bytes()).digest()
+        for path in sources)).hexdigest()
+    tested_manifest = ROOT / 'reports/optimization-artifact-ready-final.json'
+    if tested_manifest.is_file():
+        if tested_manifest.is_symlink() or tested_manifest.stat().st_size > 1048576:
+            raise RuntimeError('Unsafe tested-core manifest')
+        checkout['tested_core_manifest'] = {
+            'path': str(tested_manifest.relative_to(ROOT)),
+            'sha256': hashlib.sha256(tested_manifest.read_bytes()).hexdigest(),
+            'scope': 'Previously built and tested core; inspect manifest for JAR hashes. '
+                     'The packaging checkout is recorded separately.',
+        }
     result = {
         'utc': datetime.now(timezone.utc).isoformat(),
         'version': VERSION,
         'command': 'python3 scripts/package-delivery.py',
+        'source_identity': checkout,
         'artifacts': [
             package('cross_tesseract-' + VERSION + '-project.zip', project),
             package('cross_tesseract-' + VERSION + '-test-evidence.zip', evidence),

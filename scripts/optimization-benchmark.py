@@ -38,8 +38,14 @@ def quantiles(values):
 
 
 def numeric_fields(text):
-    return {k: float(v) if "." in v else int(v)
-            for k, v in re.findall(r"([A-Za-z_]\w*)=(-?\d+(?:\.\d+)?)(?=[, }]|$)", text)}
+    # Java Double.toString emits exponent notation for small timing values.
+    # Keep plain integer counters exact, including values above 2**53, and
+    # reject partial numeric tokens rather than taking their mantissa.
+    values = {k: float(v) if "." in v or "e" in v.lower() else int(v)
+            for k, v in re.findall(r"(?<![A-Za-z0-9_])([A-Za-z_]\w*)=(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)(?=[, }]|$)", text)}
+    if any(isinstance(value, float) and not math.isfinite(value) for value in values.values()):
+        raise ValueError("Non-finite numeric status field")
+    return values
 
 
 def device_fields(text):
@@ -702,6 +708,16 @@ def self_test():
     status = "STATUS online tickets=0 {transactions=3, db_transactions=17, db_deadlock_retries=0, sql_ms_p95=2.4}"
     assert numeric_fields(status)["db_transactions"] == 17
     assert numeric_fields(status)["sql_ms_p95"] == 2.4
+    exponent = numeric_fields("{tiny_ms=9.72E-4, rate=1e+3, negative=-2.5E-3, big=9007199254740993}")
+    assert exponent == {"tiny_ms": .000972, "rate": 1000., "negative": -.0025, "big": 9007199254740993}
+    assert isinstance(exponent["big"], int)
+    assert numeric_fields("{bad=1.2E, truncated=9.72E-4suffix, 3fake=7, good=8}") == {"good": 8}
+    try:
+        numeric_fields("{overflow=1e999}")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Non-finite exponent overflow accepted")
     d = device_fields("DEVICE 00000000-0000-4000-8000-000000000001 registered=true pause= channel=null txFE=0 rxFE=12 checkpoint=8")
     assert d["pause"] == "" and d["rxFE"] == 12 and d["registered"]
     interval = e2e_interval({"start": 1.0, "end": 1.1}, {"start": 1.6, "end": 1.7})
