@@ -25,6 +25,8 @@ scripts/gradle-dev.sh build -Dct.integration=true runGameTestServer -PgameTestBa
 
 仅合批模式的混合组件物品输入到目的箱子接受延迟中位71/78秒（原版29/30秒）存在明显回归，完整快速模式为4.45/4.56秒；每种组件只有三个样本，不外推总体分位数。完整模式用更频繁的安全提交换取延迟，不能描述成完全无数据库开销。
 
+项目与证据归档使用 `python3 -B scripts/package-delivery.py`。当前 `build/distributions/cross_tesseract-0.1.0-dev-project.zip` 含完整源码、配置、工具、文档、非raw报告及上述两JAR；`cross_tesseract-0.1.0-dev-test-evidence.zip` 含完整日志、raw/JFR和测试报告。大小、CRC验证后的SHA和打包checkout由 `reports/delivery-artifacts.json` 记录，原87清单另存 `reports/delivery-artifacts-87bf217-historical.json`。打包checkout与已测试Java核心68分别记录；最终仅证据元数据提交不重建JAR。首轮打包因把合法run-脚本文件名当目录拒绝而失败，日志保留，目录过滤修复后实际通过。没有发布正式发行版。
+
 关闭优化需要停止输入并正常停服，以同一新版JAR将 `transfer.channelBatches=false`、`transfer.localFastPath=false` 重启；不热切、不降级到旧二进制、不回滚数据库、不重放未知外部动作。实际A/B/C启动方法和身份要求沿用下方说明与OPERATIONS.md。
 
 ## 原始87bf217历史交付
