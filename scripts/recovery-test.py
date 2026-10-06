@@ -18,6 +18,8 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=spec_from_file_location('three',ROOT/'scripts/three-server-test.py');three=module_from_spec(spec);spec.loader.exec_module(three)
 sql,poll=three.sql,three.poll
 CLUSTER=three.CLUSTER
+SERVER_A=dict(line.split('=',1) for line in (ROOT/'run-A/cross-tesseract.properties').read_text().splitlines() if line and not line.startswith('#') and '=' in line)['server.id']
+assert __import__('re').fullmatch(r'[A-Za-z0-9_.-]+',SERVER_A), 'unexpected dev server id'
 
 def status():
     try:return command(25575,'ct_test status')
@@ -65,7 +67,7 @@ def run():
     poll(lambda:sql(f"SELECT state FROM ct_chunk_grants WHERE cluster_id='{CLUSTER}' AND endpoint_id='{eid}'"),lambda r:r==[['ACTIVE']])
     # A restored server can become online before its bounded ticket work finishes.
     # Count authoritative eligible grants, rather than sampling a partial startup count.
-    expected_tickets=int(sql(f"SELECT COUNT(*) FROM ct_chunk_grants g JOIN ct_endpoints e ON e.cluster_id=g.cluster_id AND e.endpoint_id=g.endpoint_id WHERE g.cluster_id='{CLUSTER}' AND e.server_id='dev-A' AND e.state='ACTIVE' AND g.desired=TRUE")[0][0])
+    expected_tickets=int(sql(f"SELECT COUNT(*) FROM ct_chunk_grants g JOIN ct_endpoints e ON e.cluster_id=g.cluster_id AND e.endpoint_id=g.endpoint_id WHERE g.cluster_id='{CLUSTER}' AND e.server_id='{SERVER_A}' AND e.state='ACTIVE' AND g.desired=TRUE")[0][0])
     command(25575,f'forceload remove {x} {z}')
     command(25575,'save-all flush')
     command(25575,'stop');wait_stopped();launch()
@@ -86,7 +88,7 @@ def run():
     matching=jvms()
     assert len(matching)==1,matching
     os.kill(matching[0],signal.SIGKILL);wait_stopped()
-    poll(lambda:sql(f"SELECT lease_until<CURRENT_TIMESTAMP(6) FROM ct_servers WHERE cluster_id='{CLUSTER}' AND server_id='dev-A'"),lambda r:r==[['1']],seconds=20)
+    poll(lambda:sql(f"SELECT lease_until<CURRENT_TIMESTAMP(6) FROM ct_servers WHERE cluster_id='{CLUSTER}' AND server_id='{SERVER_A}'"),lambda r:r==[['1']],seconds=20)
     launch()
     assert sql(f"SELECT state FROM ct_endpoints WHERE cluster_id='{CLUSTER}' AND endpoint_id='{eid}'")==[['QUARANTINED']]
     assert sql(f"SELECT COUNT(*) FROM ct_chunk_grants WHERE cluster_id='{CLUSTER}' AND player_uuid='{owner}'")==[['1']]
