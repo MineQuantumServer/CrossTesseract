@@ -55,6 +55,7 @@ jobs:
           manifest=hashlib.sha256(b''.join(str(p).encode()+b'\0'+hashlib.sha256(p.read_bytes()).digest() for p in files)).hexdigest()
           Path('build/rc-evidence/build.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'main_java_manifest_sha256':manifest,'release':False,'Minecraft_JVM_EULA_performance_compatibility_soak_tests':'NOT_RUN in CI; consult separately attributed native reports'},indent=2)+'\n')
           PY
+          cat build/rc-evidence/SHA256SUMS build/rc-evidence/build.json
       - name: Candidate JARs and evidence; no release published
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

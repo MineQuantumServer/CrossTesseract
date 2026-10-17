@@ -23,14 +23,16 @@
 ```bash
 scripts/fetch-references.sh --with-gt-runtime
 scripts/build-reference.sh modularui-modern \
-  -I /workspace/scripts/reference-maven-mirror.init.gradle build publishToMavenLocal
+  -I "$PWD/scripts/reference-maven-mirror.init.gradle" build publishToMavenLocal
 scripts/build-reference.sh gregtech \
-  -I /workspace/scripts/reference-maven-mirror.init.gradle \
-  -I /workspace/scripts/gt-local-mui.init.gradle build
+  -I "$PWD/scripts/reference-maven-mirror.init.gradle" \
+  -I "$PWD/scripts/gt-local-mui.init.gradle" assemble
 scripts/gradle-dev.sh runGameTestServer -PgameTestBackend -PtestMods=gregtech
 ```
 
-工作区不在 `/workspace` 时把 init script 参数换成当前仓库绝对路径。MUI 源码 SHA `8ecb104d0c38b1eb9baab5c837624034db7ca873` 产出 3.3.1，日志 `mui-build.log` / `gt-local-build.log`。此变体已构建及实测；不可宣称原始缺失 preview1 artifact 已测试。发布或运营使用需明确选择该源构建及许可，保留 fork commit 与替代记录。
+以上命令从仓库根目录执行，`$PWD`提供init script绝对路径。MUI 源码 SHA `8ecb104d0c38b1eb9baab5c837624034db7ca873` 产出 3.3.1，历史日志 `mui-build.log` / `gt-local-build.log`。此变体已构建及实测；不可宣称原始缺失 preview1 artifact 已测试。发布或运营使用需明确选择该源构建及许可，保留 fork commit 与替代记录。
+
+2026-10-17候选环境重新构建：MUI源码构建及其10项测试通过；GT完整`build`的spotless因固定SHA浅克隆没有`origin/1.21`引用而失败，保留日志。未修改参考源码，随后`assemble`成功生成实际运行JAR；不把assemble当作上游全套check通过。新证据见`reports/rc-20261017/compat-source-build-20261017T1111Z/manifest.json`，本轮原生兼容矩阵另列结果，不沿用历史PASS。
 
 ## Mekanism
 

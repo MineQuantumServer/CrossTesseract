@@ -17,3 +17,5 @@
 本地 GT 可运行构建：指定 fork/commit 不变。其 `3.3.1-jei19.57-preview1` ModularUI 依赖公开 Maven 不可取得；使用 `brachy84/ModularUI-Modern` 的 `1.21.1` 分支 SHA `8ecb104d0c38b1eb9baab5c837624034db7ca873`，原版 3.3.1 本地构建/安装，并通过本仓库外置 init script 明示替代依赖（未伪装成 preview1，也未修改参考源码）。两仓库 `git status --porcelain` 保持空。GT JAR 内含其自己的 LGPL ModularUI、Registrate 和 Configuration 前置；它们不嵌入本项目的 JAR。
 
 官方 NeoForge 文档实际读取 `neoforged/Documentation` SHA `89528c36e4eb34d46b1de346c045172ce8ca9fde` 中的 `versioned_docs/version-1.21.1`；原 URL 返回 404 时使用版本化源码。
+
+2026-10-17全窗口测试探针是本项目原创测试代码，位于`scripts/rcprobe`，不进入发行JAR。其外置ASM 9.8测试依赖使用BSD-3-Clause，来源`https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.8/asm-9.8.jar`，SHA256 `876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051`；构建脚本核验原件，不将ASM或插桩class打包入模组。固定CI Actions来源与SHA见`.github/workflows/rc-candidate.yml`；CI仅打包开发候选artifact，不发布正式release。

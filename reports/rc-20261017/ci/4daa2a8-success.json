@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-10-17T11:12:18.963630+00:00",
+  "source": "4daa2a853d8cc149b413966eddec16ecd03689a5",
+  "run_id": 39027589802,
+  "conclusion": "success",
+  "scope": "clean checkout build +76 unit/property/real MySQL/Redis tests; no Minecraft JVM, native compat, performance or soak executed in CI",
+  "artifact_id": 12098249426,
+  "artifact_url": "https://github.com/MineQuantumServer/CrossTesseract/actions/runs/39027589802/artifacts/12098249426",
+  "artifact_bytes": 4428689,
+  "retention_days": 90,
+  "artifact_local_download_validation": "FAILED: gh run download transport returned HTTP403 on blob store redirect; artifact contents/checksums not locally read. No download bypass attempted. Will print CI checksums in next workflow."
+}
