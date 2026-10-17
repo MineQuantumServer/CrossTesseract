@@ -8,6 +8,30 @@ import org.junit.jupiter.api.io.TempDir;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DemandRefreshTest {
+    @Test void localCheckpointAndDemandRenewalCannotPostponeInventoryDiscovery(){
+        var refresh=new DemandRefresh();long interval=2_000_000_000L;
+        assertTrue(refresh.discoveryDue(0,interval));refresh.discovered(0);
+        for(int i=1;i<=40;i++){
+            long now=i*100_000_000L;
+            refresh.confirmed(Protocol.FE,100+i,null,1,now); // successful metadata renewal/checkpoint, not discovery
+            assertEquals(Math.max(0,interval-now),refresh.discoveryRemaining(now,interval));
+            assertEquals(now>=interval,refresh.discoveryDue(now,interval));
+        }
+    }
+    @Test void successfulDiscoveryAdvancesFromCaptureRatherThanCompletion(){
+        var refresh=new DemandRefresh();long interval=2_000_000_000L;
+        refresh.discovered(100); // callback arrives 1.5 seconds after this capture
+        assertEquals(500_000_000L,refresh.discoveryRemaining(1_500_000_100L,interval));
+        assertTrue(refresh.discoveryDue(2_000_000_100L,interval));
+        refresh.discovered(2_000_000_100L);
+        assertFalse(refresh.discoveryDue(2_000_000_101L,interval));
+    }
+    @Test void olderCompletionCannotMoveDiscoveryClockBackward(){
+        var refresh=new DemandRefresh();refresh.discovered(-10_000);refresh.discovered(-20_000);
+        assertEquals(1_000,refresh.discoveryRemaining(-9_000,2_000));
+        assertTrue(refresh.discoveryDue(-8_000,2_000));
+        assertThrows(IllegalArgumentException.class,()->refresh.discoveryRemaining(0,0));
+    }
     @Test void smallConsumptionDoesNotRenewEveryCreditButDepletionAndExpiryDo(){
         var refresh=new DemandRefresh();String kind=Protocol.FE;
         assertTrue(refresh.announce(kind,2_000_000,null,1,2_000_000,0));

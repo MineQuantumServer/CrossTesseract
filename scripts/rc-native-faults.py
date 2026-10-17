@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def sources():return hashlib.sha256(b''.join(str(p.relative_to(ROOT)).encode()+b'\0'+hashlib.sha256(p.read_bytes()).digest() for p in sorted((ROOT/'src/main/java').rglob('*.java')))).hexdigest()
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--execute',action='store_true');p.add_argument('--accept-eula',action='store_true');args=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--execute',action='store_true');p.add_argument('--accept-eula',action='store_true');p.add_argument('--discovery-negative',action='store_true',help='Expected old-Runtime discovery liveness counterexample; not a candidate PASS');args=p.parse_args()
  if not args.execute:print('NOT_RUN: requires --execute --accept-eula; only new isolated fixtures');return 0
  if not args.accept_eula:raise ValueError('operator must first accept https://www.minecraft.net/eula')
  for proc in Path('/proc').iterdir():
@@ -26,6 +26,8 @@ def main():
  (out/'backend.properties').write_text('\n'.join(lines)+'\n');(game/'eula.txt').write_text('eula=true\n');(game/'server.properties').write_text('server-ip=127.0.0.1\nonline-mode=false\nenable-rcon=false\n')
  report={'fixture':token,'cluster':'test_rcnative_'+token.replace('-','_'),'source_manifest_sha256':sources(),'utc_start':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'passed':False,'operator_asserted_EULA':True,'scope':'real Minecraft/Authority/WAL; capacity exhaustion and controlled worker interruption after first actual publication group; not power loss or COMMIT ACK loss'}
  build=['scripts/gradle-dev.sh','--no-daemon','--max-workers=2','classes','jar','createGameTestServerLaunchScript','-PrcFaultTests','-PrcFixture='+token];report['build_command']=build
+ if args.discovery_negative:build.append('-PrcDiscoveryNegative')
+ report['discovery_negative_control']=args.discovery_negative
  try:
   with (out/'build.log').open('x') as stream:built=subprocess.run(build,cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,timeout=180)
   report['build_exit']=built.returncode
@@ -48,7 +50,9 @@ def main():
     raise RuntimeError('native timeout; SIGTERM requested, no hard kill/refund/replay')
   text=(out/'native.log').read_text();report['capacity_positive_pass_marker']='CT_RC_CAPACITY_PASS' in text;report['actual_split_positive_pass_marker']='CT_RC_GROUP_PASS' in text;report['wake_first_batch_positive_pass_marker']=text.count('CT_RC_WAKE_PASS')==1
   counts=re.findall(r'All (\d+) required tests passed',text);report['required_native_tests']=int(counts[-1]) if counts else None
-  report['passed']=report['native_exit']==0 and all(report[k] for k in ('capacity_positive_pass_marker','actual_split_positive_pass_marker','wake_first_batch_positive_pass_marker')) and report['required_native_tests']==7 and ' failed at ' not in text
+  report['discovery_marker_count']=text.count('CT_RC_DISCOVERY_NEGATIVE' if args.discovery_negative else 'CT_RC_DISCOVERY_PASS')
+  report['passed']=report['native_exit']==0 and all(report[k] for k in ('capacity_positive_pass_marker','actual_split_positive_pass_marker','wake_first_batch_positive_pass_marker')) and report['discovery_marker_count']==1 and report['required_native_tests']==8 and ' failed at ' not in text
+  report['candidate_functional_passed']=report['passed'] and not args.discovery_negative
  except Exception as failure:report['failure']=type(failure).__name__+': '+str(failure)
  finally:
   report['utc_end']=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime());report['source_unchanged']=sources()==report['source_manifest_sha256'];report['passed']=report['passed'] and report['source_unchanged'];report['logs']={f.name:digest(f) for f in out.glob('*.log')}

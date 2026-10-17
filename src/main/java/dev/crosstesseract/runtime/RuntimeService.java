@@ -433,12 +433,27 @@ public final class RuntimeService {
         if(!same(be,be.id()) || !online() || be.channel()==null || !be.pauseReason().isEmpty() || be.binding() || be.thermal().frozen() || heatInFlight.contains(be.id()))return;
         long started=System.nanoTime();be.pumpNeighbors();if(limits.transfer().diagnostics())metrics.sample(Metrics.Timer.LOCAL,System.nanoTime()-started);
     }
+    private boolean canDiscover(TesseractBlockEntity be){
+        for(String kind:CompatLoader.resources())if(!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,false)&&be.buffer().receiveRoom(kind)>0)return true;
+        return false;
+    }
+    private long discoveryBoundedDue(TesseractBlockEntity be,long now,long desired){
+        var refresh=demandRefresh.get(be.id());
+        if(limits.transfer().localFast() && refresh!=null && canDiscover(be))return now+Math.min(desired-now,refresh.discoveryRemaining(now,TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis())));
+        return desired;
+    }
     private TransferWork.Request capture(TesseractBlockEntity be){
         long captured=System.nanoTime();boolean precise=limits.transfer().localFast();
         var pending=reasons.remove(be.id());if(pending==null)pending=EnumSet.of(Reason.POLL);
+        var refresh=demandRefresh.computeIfAbsent(be.id(),x->new DemandRefresh());
+        // Checkpoint work may replace the ordinary wake timer, but cannot postpone
+        // authoritative inventory discovery while any receiving resource is enabled.
+        if(precise && refresh.discoveryDue(captured,TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()))
+            && canDiscover(be)
+            && pending.add(Reason.POLL)){metrics.reason(Reason.POLL.name(),false);metrics.pollFallback.increment();}
         boolean discover=!precise || pending.stream().anyMatch(r->r==Reason.POLL || r==Reason.RECOVERY || r==Reason.LOCAL_HINT || r==Reason.REMOTE_HINT || r==Reason.DEMAND);
         var sending=CompatLoader.resources().stream().filter(kind->!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,true)).collect(java.util.stream.Collectors.toUnmodifiableSet());
-        var wanted=new ArrayList<TransferWork.Demand>();var refresh=demandRefresh.computeIfAbsent(be.id(),x->new DemandRefresh());
+        var wanted=new ArrayList<TransferWork.Demand>();
         for(String kind:CompatLoader.resources().stream().sorted().toList())if(!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,false)){
             long room=Math.min(be.buffer().receiveRoom(kind),LocalBuffer.slotCapacity(kind)),quantum=kind.equals(Protocol.EU)?be.euVoltage:1;
             String profile=kind.equals(Protocol.EU)?new Resource(kind,java.nio.ByteBuffer.allocate(8).putLong(be.euVoltage).array()).hash():null;
@@ -458,7 +473,7 @@ public final class RuntimeService {
         for(UUID id:lease.endpoints()){
             var be=loaded.get(id);if(be==null || !same(be,id) || !be.registered() || !lease.channel().equals(be.channel()) || !be.pauseReason().isEmpty())continue;
             if(be.inFlight() || heatInFlight.contains(id) || be.thermal().frozen()){schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));continue;}
-            long captured=System.nanoTime();var request=capture(be);metrics.sample(Metrics.Timer.CAPTURE,System.nanoTime()-captured);if(request==null){primedSources.remove(id);schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()));continue;}
+            long captured=System.nanoTime();var request=capture(be);metrics.sample(Metrics.Timer.CAPTURE,System.nanoTime()-captured);if(request==null){primedSources.remove(id);long now=System.nanoTime();schedule(id,discoveryBoundedDue(be,now,now+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis())));continue;}
             int count=request.snapshot().credits().size()+request.snapshot().deposits().size()+request.demands().size();long payloadBytes=request.snapshot().credits().stream().mapToLong(c->c.resource().size()).sum()+request.snapshot().deposits().stream().mapToLong(d->d.resource().size()).sum();
             if(records+count>limits.transfer().records() || bytes+payloadBytes>limits.transfer().bytes()){be.buffer().touch();signal(lease.channel(),id);continue;}
             // Direct admission (hint/priming) supersedes the old fallback deadline.
@@ -493,9 +508,14 @@ public final class RuntimeService {
             DomainException.require(be.id().equals(item.request.endpoint()) && Objects.equals(be.channel(),item.request.channel()),"binding_changed");
             if(result.error()==null){
                 if(item.request.checkpoint() || !result.committed().isEmpty() || !result.received().isEmpty())for(var reason:item.reasons)metrics.effective(reason.name());
-                var refresh=demandRefresh.computeIfAbsent(be.id(),x->new DemandRefresh());
-                for(var demand:item.request.demands())if(demand.announce())refresh.confirmed(demand.kind(),demand.room(),demand.profile(),demand.quantum(),item.started);
-                for(var credit:result.received())if(item.request.demands().stream().anyMatch(d->d.transaction().equals(credit.transaction())))refresh.allocated(credit.resource().kind(),credit.remaining());
+                // Unload already removed scheduling metadata. A late closing result must
+                // not recreate an orphan cache entry for that old BE lifecycle.
+                if(same(be,item.request.endpoint())){
+                    var refresh=demandRefresh.computeIfAbsent(be.id(),x->new DemandRefresh());
+                    if(item.request.discover())refresh.discovered(item.started);
+                    for(var demand:item.request.demands())if(demand.announce())refresh.confirmed(demand.kind(),demand.room(),demand.profile(),demand.quantum(),item.started);
+                    for(var credit:result.received())if(item.request.demands().stream().anyMatch(d->d.transaction().equals(credit.transaction())))refresh.allocated(credit.resource().kind(),credit.remaining());
+                }
             }else demandRefresh.remove(be.id());
             if(limits.transfer().localFast() && !item.primed && !result.committed().isEmpty())wakeChannel(item.request.channel(),false);
             // Delta merge only: neither captured TX nor captured remaining overwrites later local IO.
@@ -553,7 +573,8 @@ public final class RuntimeService {
         if(same(be,be.id())){
             long delay=error!=null?2000:limits.transfer().localFast()?limits.transfer().idleMillis():Math.min(limits.transfer().idleMillis(),config.batchMillis()*(1L<<Math.min(backoff,3)));
             if(error==null && reasons.containsKey(be.id()))delay=Math.min(delay,limits.transfer().activeMillis());
-            scheduleEarlier(be.id(),System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(delay));
+            long now=System.nanoTime(),due=now+TimeUnit.MILLISECONDS.toNanos(delay);
+            scheduleEarlier(be.id(),error==null?discoveryBoundedDue(be,now,due):due);
         }
         var close=closing.get(be.id());if(close!=null)flushClosing(close);
     }

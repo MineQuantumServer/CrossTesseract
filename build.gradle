@@ -42,6 +42,7 @@ neoForge {
                 if(!(fixture ==~ /[a-z0-9-]{1,48}/))throw new GradleException('Invalid isolated RC fixture')
                 gameDirectory=project.file('scratch/rc-native/'+fixture+'/game')
                 systemProperty 'cross_tesseract.rcFaultTests','true'
+                if(providers.gradleProperty('rcDiscoveryNegative').isPresent())systemProperty 'cross_tesseract.rcDiscoveryNegative','true'
                 systemProperty 'cross_tesseract.config',project.file('scratch/rc-native/'+fixture+'/backend.properties').absolutePath
             }
         }
