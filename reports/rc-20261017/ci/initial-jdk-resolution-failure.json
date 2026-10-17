@@ -1,0 +1,10 @@
+{
+  "run_id": 39026165450,
+  "commit": "2a0ba48253fa07fbf43f547aca3257717bf82968",
+  "url": "https://github.com/MineQuantumServer/CrossTesseract/actions/runs/39026165450",
+  "result": "FAILED_BEFORE_BUILD",
+  "reason": "setup-java remote distribution index represents pinned release as21.0.8+9.0.LTS and did not accept21.0.8+9; changed to existing exact archive/SHA helper, not a floating JDK",
+  "Minecraft_native_tests": "NOT_RUN",
+  "Gradle_build_and_backend_tests": "NOT_RUN",
+  "JAR_produced": false
+}
