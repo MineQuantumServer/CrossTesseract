@@ -30,6 +30,12 @@ public final class RuntimeService {
     private final AtomicBoolean maintenanceInFlight=new AtomicBoolean(),notificationsInFlight=new AtomicBoolean();
     private final ChannelCoordinator coordinator;
     private final LinkedHashSet<UUID> localReady=new LinkedHashSet<>(),dirtyChannels=new LinkedHashSet<>();
+    private final Map<UUID,Iterator<UUID>> wakeCursors=new HashMap<>();
+    private final Set<UUID> repeatWake=new HashSet<>(),remoteWake=new HashSet<>();
+    private enum Reason{INPUT,RX_CONSUMED,DEMAND,RENEWAL,RECOVERY,LOCAL_HINT,REMOTE_HINT,POLL}
+    private final Map<UUID,EnumSet<Reason>> reasons=new HashMap<>();
+    private final Map<UUID,DemandRefresh> demandRefresh=new HashMap<>();
+    private final Map<UUID,Set<Reason>> capturedReasons=new HashMap<>();
     private final Map<UUID,LinkedHashSet<UUID>> channelEndpoints=new HashMap<>();
     private final Map<UUID,UUID> indexedChannels=new HashMap<>();
     private record Scheduled(UUID endpoint,long due){}
@@ -46,7 +52,7 @@ public final class RuntimeService {
     private final Map<UUID,Long> nextHeat=new HashMap<>();
     private final Set<UUID> heatInFlight=new HashSet<>();
     private static final class Closing{final TesseractBlockEntity be;String sealReason,quarantineReason;boolean writing;long retry;Closing(TesseractBlockEntity be,String reason){this.be=be;this.sealReason=reason;}}
-    private static final class Prepared{final TesseractBlockEntity be;final TransferWork.Request request;final long started,ioVersion;Prepared(TesseractBlockEntity be,TransferWork.Request request,long started,long ioVersion){this.be=be;this.request=request;this.started=started;this.ioVersion=ioVersion;}}
+    private static final class Prepared{final TesseractBlockEntity be;final TransferWork.Request request;final long started,ioVersion;final Set<Reason> reasons;Prepared(TesseractBlockEntity be,TransferWork.Request request,long started,long ioVersion,Set<Reason> reasons){this.be=be;this.request=request;this.started=started;this.ioVersion=ioVersion;this.reasons=reasons;}}
     private final ConcurrentHashMap<UUID,TesseractBlockEntity> loaded=new ConcurrentHashMap<>();
     private final ArrayDeque<UUID> rotation=new ArrayDeque<>();
     private final Map<UUID,Long> nextPoll=new HashMap<>();
@@ -63,6 +69,7 @@ public final class RuntimeService {
     private final UUID boot=BusinessIds.next();
     private volatile boolean joined;
     private volatile boolean journalFailed;
+    private TestCapacity testCapacity;
     private boolean cleanPrepared;
     private ExecutorService shutdownIo;
     private int codecBudget=16,tickCounter;
@@ -82,6 +89,7 @@ public final class RuntimeService {
         workers=pool("ct-backend",Math.max(1,config.poolSize()-1),config.queueSize());control=pool("ct-control",1,16);
         maintenance=pool("ct-maintenance",1,4);notifications=pool("ct-notifications",1,4);
         scheduler=Executors.newSingleThreadScheduledExecutor(threadFactory("ct-scheduler"));completions=new CompletionMailbox(config.queueSize()*2);coordinator=new ChannelCoordinator(limits.transfer().channelLimit(),limits.loadedLimit());
+        CrossTesseract.LOG.info("CT_TRANSFER_MODE mode={} channelBatches={} localFastPath={} restart_required=true SQL_ownership=true",limits.transfer().localFast()?"experimental_fast":limits.transfer().channelBatches()?"batch_candidate":"conservative",limits.transfer().channelBatches(),limits.transfer().localFast());
         if(!config.enabled()){status="backend_disabled";return;}
         control.execute(()->{
             try{
@@ -134,6 +142,24 @@ public final class RuntimeService {
     public String serverId(){return config.server();}
     public UUID worldId(){return world;}
     public Metrics metrics(){return metrics;}
+    /** Explicit isolated native fault test only. Ordinary admission never uses this path. */
+    public TestCapacity testOccupyCompletionCapacity(){
+        DomainException.require(server.isSameThread() && Boolean.getBoolean("cross_tesseract.rcFaultTests") && (config.cluster().startsWith("test_") || config.cluster().startsWith("dev_")) && testCapacity==null,"forbidden");
+        var reserved=new ArrayList<CompletionMailbox.Reservation>();CompletionMailbox.Reservation next;
+        while((next=completions.tryReserve())!=null)reserved.add(next);
+        testCapacity=new TestCapacity(reserved);return testCapacity;
+    }
+    public void testReadyBatch(List<UUID> endpoints){
+        DomainException.require(server.isSameThread() && Boolean.getBoolean("cross_tesseract.rcFaultTests") && (config.cluster().startsWith("test_")||config.cluster().startsWith("dev_")) && endpoints.size()<=16,"forbidden");
+        for(UUID endpoint:endpoints){var be=loaded.get(endpoint);DomainException.require(be!=null && be.channel()!=null,"endpoint_not_found");reasons.computeIfAbsent(endpoint,x->EnumSet.noneOf(Reason.class)).add(Reason.DEMAND);signal(be.channel(),endpoint);}
+    }
+    public final class TestCapacity implements AutoCloseable{
+        private final List<CompletionMailbox.Reservation> reservations;private final long expires=System.nanoTime()+TimeUnit.SECONDS.toNanos(5);private boolean closed;
+        private TestCapacity(List<CompletionMailbox.Reservation> reservations){this.reservations=List.copyOf(reservations);}
+        public boolean full(){return completions.count()==completions.capacity();}
+        public int held(){return reservations.size();}
+        @Override public void close(){if(closed)return;closed=true;for(var reservation:reservations)reservation.complete(()->{});if(testCapacity==this)testCapacity=null;}
+    }
     public int quotaLimit(){return effectiveQuota;}
     public int ticketCount(){return tickets.count();}
     public Map<String,Number> metricSnapshot(){var result=new LinkedHashMap<>(metrics.snapshot(loaded.size(),(int)loaded.values().stream().filter(be->be.registered()&&be.channel()!=null&&be.pauseReason().isEmpty()&&CompatLoader.resources().stream().anyMatch(kind->be.mode(kind)!=Protocol.Mode.OFF)).count(),workers.getQueue().size(),tickets.count()));if(backend!=null)result.putAll(backend.database().stats());if(journal!=null)result.putAll(journal.stats());result.put("completion_admitted",completions.count());result.put("ready_channels",coordinator.channelCount());result.put("ready_devices",coordinator.endpointCount());result.put("closing_devices",closing.size());result.put("mc_recorded_tick_ms_avg100",server.getAverageTickTimeNanos()/1_000_000.0);result.put("mc_target_ticks_per_second",server.tickRateManager().tickrate());return Collections.unmodifiableMap(result);}
@@ -189,7 +215,7 @@ public final class RuntimeService {
         DomainException.require(be.allowed(payload.kind(),null,false),"forbidden");be.validate(payload);
         String registry=payload.kind().equals(Protocol.ITEM)?net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(be.decodeItem(payload,1).getItem()).toString():net.minecraft.core.registries.BuiltInRegistries.FLUID.getKey(be.decodeFluid(payload,1).getFluid()).toString();DomainException.require(be.acceptsId(registry),"resource_restricted");
         UUID id=be.id(),channel=be.channel();long expected=be.endpointVersion();
-        submit(a->a.requestStock(actor,request,id,channel,expected,payload,amount,coalesce),result->{if(same(be,id) && channel.equals(be.channel())){schedule(id,0L);success.accept(result);}else failure.accept("binding_changed");},failure);
+        submit(a->a.requestStock(actor,request,id,channel,expected,payload,amount,coalesce),result->{if(same(be,id) && channel.equals(be.channel())){demandChanged(be);success.accept(result);}else failure.accept("binding_changed");},failure);
     }
     public void bindEndpoint(TesseractBlockEntity be,UUID actor,long expected,UUID channel,Consumer<Endpoint> success,Consumer<String> failure){
         DomainException.require(server.isSameThread() && actor.equals(be.owner()) && !be.isRemoved(),"device_owner_required");
@@ -279,37 +305,60 @@ public final class RuntimeService {
         if(loaded.containsKey(id))nextPoll.put(id,due);else {nextPoll.remove(id);idle.remove(id);}var previous=dueByEndpoint.remove(id);if(previous!=null)dueWork.remove(previous);
         if(loaded.containsKey(id)){var next=new Scheduled(id,due);dueByEndpoint.put(id,next);dueWork.add(next);}
     }
+    private void scheduleEarlier(UUID id,long due){
+        // nextPoll can still describe an already-dequeued capture. Only a live
+        // timer may suppress a new fallback, especially after a partial SQL failure.
+        var scheduled=dueByEndpoint.get(id);if(scheduled==null || due<scheduled.due())schedule(id,due);
+    }
+    private void ready(TesseractBlockEntity be,Reason reason){
+        if(!same(be,be.id()) || be.channel()==null)return;
+        var pending=reasons.computeIfAbsent(be.id(),x->EnumSet.noneOf(Reason.class));
+        if(pending.add(reason))metrics.reason(reason.name(),false);
+        // Fixed earliest deadline: a continuous stream cannot slide this window forever.
+        scheduleEarlier(be.id(),System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().activeMillis()));
+    }
+    public void demandChanged(TesseractBlockEntity be){DomainException.require(server.isSameThread(),"forbidden");if(same(be,be.id())){demandRefresh.remove(be.id());ready(be,Reason.DEMAND);}}
     private boolean signal(UUID channel,UUID id){if(coordinator.signal(channel,id))return true;schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));metrics.retries.increment();return false;}
     private void index(TesseractBlockEntity be){
         UUID previous=indexedChannels.get(be.id());if(Objects.equals(previous,be.channel()))return;
+        demandRefresh.remove(be.id());reasons.remove(be.id());if(previous!=null)wakeCursors.remove(previous);if(be.channel()!=null)wakeCursors.remove(be.channel());
         if(previous!=null){var ids=channelEndpoints.get(previous);if(ids!=null){ids.remove(be.id());if(ids.isEmpty())channelEndpoints.remove(previous);}coordinator.remove(be.id());}
         if(be.channel()==null)indexedChannels.remove(be.id());else{indexedChannels.put(be.id(),be.channel());channelEndpoints.computeIfAbsent(be.channel(),x->new LinkedHashSet<>()).add(be.id());}
         schedule(be.id(),System.nanoTime());
     }
-    private void unindex(UUID id){UUID old=indexedChannels.remove(id);if(old!=null){var ids=channelEndpoints.get(old);if(ids!=null){ids.remove(id);if(ids.isEmpty())channelEndpoints.remove(old);}}coordinator.remove(id);localReady.remove(id);var due=dueByEndpoint.remove(id);if(due!=null)dueWork.remove(due);}
+    private void unindex(UUID id){UUID old=indexedChannels.remove(id);if(old!=null){wakeCursors.remove(old);var ids=channelEndpoints.get(old);if(ids!=null){ids.remove(id);if(ids.isEmpty())channelEndpoints.remove(old);}}coordinator.remove(id);localReady.remove(id);reasons.remove(id);demandRefresh.remove(id);capturedReasons.remove(id);var due=dueByEndpoint.remove(id);if(due!=null)dueWork.remove(due);}
     public void localChanged(TesseractBlockEntity be,String kind,boolean sending,long amount){
         metrics.localCalls.increment();if(sending)metrics.localInput.add(amount);else metrics.localOutput.add(amount);
-        if(limits.transfer().localFast() && same(be,be.id())){ioVersions.merge(be.id(),1L,Math::addExact);if(be.channel()!=null)signal(be.channel(),be.id());metrics.localWake.increment();schedule(be.id(),System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().activeMillis()));if(sending && be.channel()!=null && dirtyChannels.size()<limits.transfer().channelLimit())dirtyChannels.add(be.channel());}
+        if(limits.transfer().localFast() && same(be,be.id())){ioVersions.merge(be.id(),1L,Math::addExact);ready(be,sending?Reason.INPUT:Reason.RX_CONSUMED);metrics.localWake.increment();}
     }
     private void wakeChannel(UUID channel,boolean remote){
-        var ids=channelEndpoints.get(channel);if(ids==null)return;
-        // At most the configured per-channel endpoint limit; hints do not create assets.
-        var resources=CompatLoader.resources();
-        for(UUID id:ids){var be=loaded.get(id);
+        if(!channelEndpoints.containsKey(channel))return;
+        if(!dirtyChannels.contains(channel) && dirtyChannels.size()>=limits.transfer().channelLimit()){metrics.hintDrops.increment();return;}
+        if(wakeCursors.containsKey(channel))repeatWake.add(channel);
+        dirtyChannels.add(channel);if(remote)remoteWake.add(channel);
+        if(remote)metrics.remoteWake.increment();else metrics.localWake.increment();
+    }
+    private void drainWake(long started){
+        for(int i=0;i<limits.checks() && !dirtyChannels.isEmpty() && System.nanoTime()-started<limits.tickNanos();i++){
+            UUID channel=dirtyChannels.removeFirst();var ids=channelEndpoints.get(channel);
+            if(ids==null){wakeCursors.remove(channel);repeatWake.remove(channel);remoteWake.remove(channel);continue;}
+            var cursor=wakeCursors.computeIfAbsent(channel,x->ids.iterator());
+            if(!cursor.hasNext()){wakeCursors.remove(channel);if(repeatWake.remove(channel))dirtyChannels.add(channel);else remoteWake.remove(channel);continue;}
+            UUID id=cursor.next();dirtyChannels.add(channel);var be=loaded.get(id);
             if(be==null || !be.registered() || !be.pauseReason().isEmpty() || be.channel()==null || be.binding())continue;
             // A previously recorded hint already schedules a fresh capture and SQL checks.
             // Do not mistake an in-flight lease without a next-run signal for pending work.
             if(coordinator.hasPendingSignal(channel,id))continue;
-            for(String kind:resources)if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){signal(channel,id);break;}
+            for(String kind:CompatLoader.resources())if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){ready(be,remoteWake.contains(channel)?Reason.REMOTE_HINT:Reason.LOCAL_HINT);break;}
         }
-        if(remote)metrics.remoteWake.increment();else metrics.localWake.increment();
     }
     private boolean tracked(TesseractBlockEntity be){var entry=closing.get(be.id());return loaded.get(be.id())==be || entry!=null && entry.be==be;}
     public void tick(){
         long start=System.nanoTime();codecBudget=limits.encodes();tickCounter++;
+        if(testCapacity!=null && start>=testCapacity.expires)testCapacity.close();
         if(!online()){tickets.clear();ticketWork.clear();}
         Runnable refresh=maintenanceCompletion.getAndSet(null);if(refresh!=null)try{refresh.run();}catch(RuntimeException error){fail(error);}
-        for(int i=0;i<limits.completions() && System.nanoTime()-start<limits.tickNanos();i++){Runnable completion=completions.poll();if(completion==null)break;try{completion.run();}catch(RuntimeException e){fail(e);}}
+        long phase=System.nanoTime();for(int i=0;i<limits.completions() && System.nanoTime()-start<limits.tickNanos();i++){Runnable completion=completions.poll();if(completion==null)break;try{completion.run();}catch(RuntimeException e){fail(e);}}metrics.sample(Metrics.Timer.COMPLETION,System.nanoTime()-phase);
         if(online())processTicketWork(start);
         int priority=limits.transfer().localFast()?Math.min(localReady.size(),Math.max(1,limits.checks()/2)):0;
         for(int i=0;i<priority && System.nanoTime()-start<limits.tickNanos();i++){UUID id=localReady.removeFirst();var be=loaded.get(id);if(be!=null)exchangeLocal(be);}
@@ -319,16 +368,20 @@ public final class RuntimeService {
             if(!be.registered()){if(!be.registrationRecoveryRequired() && now>=nextPoll.getOrDefault(id,0L)){schedule(id,now+TimeUnit.SECONDS.toNanos(1));register(be);}continue;}
             index(be);
             if(!online() || be.channel()==null || !be.pauseReason().isEmpty()){for(var module:CompatLoader.modules())module.suspended(be);continue;}
-            if(limits.transfer().localFast() || !be.inFlight() && now>=nextPoll.getOrDefault(id,0L))exchangeLocal(be);
+            // Incremental RX/TX already protects concurrent capture. Neighbour probing must
+            // not inherit SQL idle backoff (six sides times 27 chest slots otherwise starve).
+            exchangeLocal(be);
             // Heat has its own timer. Its WAL phase cannot race an ordinary endpoint WAL.
             for(var module:CompatLoader.modules())module.tick(be);
         }
         if(online()){
-            var wake=new LinkedHashSet<UUID>();for(int i=0;i<16;i++){var hint=hints.poll();if(hint==null)break;wake.add(hint.channel());if(hint.endpoint()!=null){var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))signal(hint.channel(),hint.endpoint());}}for(UUID channel:wake)wakeChannel(channel,true);
-            if(limits.transfer().localFast() && !dirtyChannels.isEmpty())wakeChannel(dirtyChannels.removeFirst(),false);
-            for(int i=0;i<limits.checks() && !dueWork.isEmpty() && dueWork.first().due()<=now;i++){
+            phase=System.nanoTime();
+            var wake=new LinkedHashSet<UUID>();for(int i=0;i<16 && System.nanoTime()-start<limits.tickNanos();i++){var hint=hints.poll();if(hint==null)break;wake.add(hint.channel());if(hint.endpoint()!=null){var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))ready(be,Reason.REMOTE_HINT);}}for(UUID channel:wake)wakeChannel(channel,true);
+            drainWake(start);
+            metrics.sample(Metrics.Timer.NOTIFY,System.nanoTime()-phase);
+            for(int i=0;i<limits.checks() && !dueWork.isEmpty() && dueWork.first().due()<=now && System.nanoTime()-start<limits.tickNanos();i++){
                 var due=dueWork.pollFirst();dueByEndpoint.remove(due.endpoint(),due);var be=loaded.get(due.endpoint());
-                if(be!=null && be.registered() && be.channel()!=null && be.pauseReason().isEmpty()){signal(be.channel(),be.id());metrics.pollFallback.increment();}
+                if(be!=null && be.registered() && be.channel()!=null && be.pauseReason().isEmpty()){if(!reasons.containsKey(be.id())){reasons.put(be.id(),EnumSet.of(Reason.POLL));metrics.reason(Reason.POLL.name(),false);metrics.pollFallback.increment();}signal(be.channel(),be.id());}
                 else if(be!=null)schedule(be.id(),now+TimeUnit.SECONDS.toNanos(1));
             }
             for(int jobs=0;jobs<Math.max(1,config.poolSize()-1) && System.nanoTime()-start<limits.tickNanos();jobs++){
@@ -336,33 +389,42 @@ public final class RuntimeService {
                 var lease=coordinator.poll(limits.transfer().channelBatches()?limits.transfer().devices():1);if(lease==null)break;transfer(lease);
             }
         }
-        int closes=Math.min(2,closingRotation.size());for(int i=0;i<closes;i++){UUID id=closingRotation.pollFirst();var entry=closing.get(id);if(entry==null)continue;closingRotation.addLast(id);if(!entry.writing && now>=entry.retry)flushClosing(entry);}
+        phase=System.nanoTime();int closes=Math.min(2,closingRotation.size());for(int i=0;i<closes;i++){UUID id=closingRotation.pollFirst();var entry=closing.get(id);if(entry==null)continue;closingRotation.addLast(id);if(!entry.writing && now>=entry.retry)flushClosing(entry);}metrics.sample(Metrics.Timer.CLOSING,System.nanoTime()-phase);
         metrics.tick(System.nanoTime()-start);
     }
     private void exchangeLocal(TesseractBlockEntity be){
-        if(!same(be,be.id()) || !online() || be.channel()==null || !be.pauseReason().isEmpty() || be.binding())return;
+        if(!same(be,be.id()) || !online() || be.channel()==null || !be.pauseReason().isEmpty() || be.binding() || be.thermal().frozen() || heatInFlight.contains(be.id()))return;
         long started=System.nanoTime();be.pumpNeighbors();if(limits.transfer().diagnostics())metrics.sample(Metrics.Timer.LOCAL,System.nanoTime()-started);
     }
     private TransferWork.Request capture(TesseractBlockEntity be){
+        long captured=System.nanoTime();boolean precise=limits.transfer().localFast();
+        var pending=reasons.remove(be.id());if(pending==null)pending=EnumSet.of(Reason.POLL);
+        boolean discover=!precise || pending.stream().anyMatch(r->r==Reason.POLL || r==Reason.RECOVERY || r==Reason.LOCAL_HINT || r==Reason.REMOTE_HINT || r==Reason.DEMAND);
         var sending=CompatLoader.resources().stream().filter(kind->!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,true)).collect(java.util.stream.Collectors.toUnmodifiableSet());
-        var wanted=new ArrayList<TransferWork.Demand>();
-        for(String kind:CompatLoader.resources().stream().sorted().toList())if(!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,false)&&be.buffer().receiveRoom(kind)>0){
-            long room=Math.min(be.buffer().receiveRoom(kind),LocalBuffer.slotCapacity(kind));String profile=kind.equals(Protocol.EU)?new Resource(kind,java.nio.ByteBuffer.allocate(8).putLong(be.euVoltage).array()).hash():null;
-            wanted.add(new TransferWork.Demand(BusinessIds.next(),kind,room,profile,kind.equals(Protocol.EU)?be.euVoltage:1));
+        var wanted=new ArrayList<TransferWork.Demand>();var refresh=demandRefresh.computeIfAbsent(be.id(),x->new DemandRefresh());
+        for(String kind:CompatLoader.resources().stream().sorted().toList())if(!kind.equals(Protocol.HEAT)&&be.allowed(kind,null,false)){
+            long room=Math.min(be.buffer().receiveRoom(kind),LocalBuffer.slotCapacity(kind)),quantum=kind.equals(Protocol.EU)?be.euVoltage:1;
+            String profile=kind.equals(Protocol.EU)?new Resource(kind,java.nio.ByteBuffer.allocate(8).putLong(be.euVoltage).array()).hash():null;
+            // AE's directed request profile/remaining lives in SQL. Do not cache an
+            // unconstrained local room value as a substitute for that directed intent.
+            boolean announce=!precise || be.aeEffective() && (kind.equals(Protocol.ITEM)||kind.equals(Protocol.FLUID)) || refresh.announce(kind,room,profile,quantum,LocalBuffer.slotCapacity(kind),captured);
+            if(announce || discover && room>0)wanted.add(new TransferWork.Demand(BusinessIds.next(),kind,room,profile,quantum,announce));
         }
         if(!be.buffer().hasWork(sending) && wanted.isEmpty())return null;
+        capturedReasons.put(be.id(),Set.copyOf(pending));
+        for(var reason:pending)metrics.reason(reason.name(),true);
         boolean checkpoint=be.buffer().dirty();var snapshot=be.buffer().snapshot(be.id(),world,backend.session().generation(),be.channel(),true).withThermal(be.thermal().snapshot());
-        return new TransferWork.Request(snapshot,be.channel(),be.endpointVersion(),checkpoint,sending,wanted,limits.deposits());
+        return new TransferWork.Request(snapshot,be.channel(),be.endpointVersion(),checkpoint,sending,wanted,limits.deposits(),discover);
     }
     private void transfer(ChannelCoordinator.Lease lease){
         var prepared=new LinkedHashMap<UUID,Prepared>();var requests=new ArrayList<TransferWork.Request>();int records=0;long bytes=0;
         for(UUID id:lease.endpoints()){
             var be=loaded.get(id);if(be==null || !same(be,id) || !be.registered() || !lease.channel().equals(be.channel()) || !be.pauseReason().isEmpty())continue;
             if(be.inFlight() || heatInFlight.contains(id) || be.thermal().frozen()){schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));continue;}
-            var request=capture(be);if(request==null){schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()));continue;}
+            long captured=System.nanoTime();var request=capture(be);metrics.sample(Metrics.Timer.CAPTURE,System.nanoTime()-captured);if(request==null){schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()));continue;}
             int count=request.snapshot().credits().size()+request.snapshot().deposits().size()+request.demands().size();long payloadBytes=request.snapshot().credits().stream().mapToLong(c->c.resource().size()).sum()+request.snapshot().deposits().stream().mapToLong(d->d.resource().size()).sum();
             if(records+count>limits.transfer().records() || bytes+payloadBytes>limits.transfer().bytes()){be.buffer().touch();signal(lease.channel(),id);continue;}
-            records+=count;bytes+=payloadBytes;var item=new Prepared(be,request,System.nanoTime(),ioVersions.getOrDefault(id,0L));prepared.put(id,item);transfers.put(id,item);be.inFlight(true);requests.add(request);
+            nextPoll.remove(id);records+=count;bytes+=payloadBytes;var item=new Prepared(be,request,System.nanoTime(),ioVersions.getOrDefault(id,0L),capturedReasons.remove(id));prepared.put(id,item);transfers.put(id,item);be.inFlight(true);requests.add(request);
         }
         if(requests.isEmpty()){metrics.emptyBatches.increment();coordinator.complete(lease);return;}
         metrics.batchDevices.add(requests.size());metrics.batchRecords.add(records);metrics.batchBytes.add(bytes);
@@ -381,7 +443,7 @@ public final class RuntimeService {
         for(var credit:snapshot.credits()){known.add(credit.transaction());remaining.put(credit.transaction(),credit.remaining());if(credit.remaining()==0)consumed.add(credit.transaction());}
         if(request.checkpoint())a.checkpoint(request.endpoint(),snapshot.revision(),remaining);
         var received=new ArrayList<Credit>();for(var allocation:a.allocations(request.endpoint()))if(!known.contains(allocation.id())&&!"QUARANTINED".equals(allocation.state()))received.add(new Credit(allocation.id(),allocation.channel(),allocation.payload(),allocation.amount(),allocation.remaining()));
-        for(var demand:request.demands())if(received.stream().noneMatch(c->c.resource().kind().equals(demand.kind()))){a.demand(request.endpoint(),request.channel(),demand.kind(),demand.room(),demand.profile(),demand.quantum());var allocation=a.allocate(demand.transaction(),request.endpoint(),request.channel(),demand.kind(),demand.room());allocation.ifPresent(value->received.add(new Credit(value.id(),value.channel(),value.payload(),value.amount(),value.remaining())));}
+        for(var demand:request.demands())if(demand.room()>0 && received.stream().noneMatch(c->c.resource().kind().equals(demand.kind()))){a.demand(request.endpoint(),request.channel(),demand.kind(),demand.room(),demand.profile(),demand.quantum());var allocation=a.allocate(demand.transaction(),request.endpoint(),request.channel(),demand.kind(),demand.room());allocation.ifPresent(value->received.add(new Credit(value.id(),value.channel(),value.payload(),value.amount(),value.remaining())));}
         return List.of(new TransferWork.Result(request.endpoint(),committed,consumed,received,null));
     }
     private void preparePublication(ChannelCoordinator.Lease lease,Map<UUID,Prepared> prepared,List<TransferWork.Result> results){
@@ -389,6 +451,13 @@ public final class RuntimeService {
         for(var result:results){var item=prepared.get(result.endpoint());if(item==null || transfers.get(result.endpoint())!=item)continue;var be=item.be;
             try{
             DomainException.require(be.id().equals(item.request.endpoint()) && Objects.equals(be.channel(),item.request.channel()),"binding_changed");
+            if(result.error()==null){
+                if(item.request.checkpoint() || !result.committed().isEmpty() || !result.received().isEmpty())for(var reason:item.reasons)metrics.effective(reason.name());
+                var refresh=demandRefresh.computeIfAbsent(be.id(),x->new DemandRefresh());
+                for(var demand:item.request.demands())if(demand.announce())refresh.confirmed(demand.kind(),demand.room(),demand.profile(),demand.quantum(),item.started);
+                for(var credit:result.received())if(item.request.demands().stream().anyMatch(d->d.transaction().equals(credit.transaction())))refresh.allocated(credit.resource().kind(),credit.remaining());
+            }else demandRefresh.remove(be.id());
+            if(limits.transfer().localFast() && !result.committed().isEmpty())wakeChannel(item.request.channel(),false);
             // Delta merge only: neither captured TX nor captured remaining overwrites later local IO.
             be.buffer().committed(result.committed());be.buffer().checkpointed(result.consumed());
             if(result.committed().isEmpty() && result.received().isEmpty()){metrics.allocationMiss.add(item.request.demands().size());finish(item,result.error(),false);continue;}
@@ -416,7 +485,7 @@ public final class RuntimeService {
             // Split on its ACTUAL size, not the older request estimate. Never hold SQL locks for fsync.
             var group=new ArrayList<TransferWork.Publication>();int records=0;long bytes=0;
             for(var publication:durable){var snapshot=publication.snapshot();int count=snapshot.deposits().size()+snapshot.credits().size()+publication.quarantined().size();long size=snapshot.deposits().stream().mapToLong(d->d.resource().size()).sum()+snapshot.credits().stream().mapToLong(c->c.resource().size()).sum();
-                if(!group.isEmpty() && (!limits.transfer().channelBatches() || group.size()>=limits.transfer().devices() || records+count>limits.transfer().records() || bytes+size>limits.transfer().bytes())){errors.putAll(a.publishBatch(lease.channel(),List.copyOf(group)));group.clear();records=0;bytes=0;}
+                if(!group.isEmpty() && (!limits.transfer().channelBatches() || group.size()>=limits.transfer().devices() || records+count>limits.transfer().records() || bytes+size>limits.transfer().bytes())){errors.putAll(a.publishBatch(lease.channel(),List.copyOf(group)));dev.crosstesseract.test.Faults.publicationGroupHit(group.getFirst().snapshot().endpoint());group.clear();records=0;bytes=0;}
                 DomainException.require(count<=limits.transfer().records() && size<=limits.transfer().bytes(),"invalid_limit");group.add(publication);records+=count;bytes+=size;
             }
             if(!group.isEmpty())errors.putAll(a.publishBatch(lease.channel(),List.copyOf(group)));
@@ -441,7 +510,11 @@ public final class RuntimeService {
         be.inFlight(false);be.setChanged();
         if(error!=null){be.buffer().touch();be.pause(error);if(error.equals("journal_unavailable") || error.equals("checkpoint_version_conflict"))journalFailed=true;}
         int backoff=progress?0:Math.min(10,idle.getOrDefault(be.id(),0)+1);if(loaded.get(be.id())==be)idle.put(be.id(),backoff);
-        if(same(be,be.id()))schedule(be.id(),System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(error!=null?2000:limits.transfer().localFast() && ioVersions.getOrDefault(be.id(),0L)!=item.ioVersion?limits.transfer().activeMillis():Math.min(limits.transfer().idleMillis(),config.batchMillis()*(1L<<Math.min(backoff,3)))));
+        if(same(be,be.id())){
+            long delay=error!=null?2000:limits.transfer().localFast()?limits.transfer().idleMillis():Math.min(limits.transfer().idleMillis(),config.batchMillis()*(1L<<Math.min(backoff,3)));
+            if(error==null && reasons.containsKey(be.id()))delay=Math.min(delay,limits.transfer().activeMillis());
+            scheduleEarlier(be.id(),System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(delay));
+        }
         var close=closing.get(be.id());if(close!=null)flushClosing(close);
     }
     public void reclaimSealed(UUID actor,UUID id,long expected,String confirmation,Consumer<Long> success,Consumer<String> failure){

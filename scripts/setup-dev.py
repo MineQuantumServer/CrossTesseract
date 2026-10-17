@@ -41,5 +41,5 @@ max-players=4
 motd=CrossServer Tesseract isolated development
 ''')
     if args.accept_eula:create(directory/'eula.txt','eula=true\n')
-create(ROOT/'config/gametest.properties',backend('test_gametest_'+uuid.uuid4().hex[:10],'gametest'))
+create(ROOT/'config/gametest.properties',backend('test_gametest_'+uuid.uuid4().hex[:10],'gametest')+'\ntransfer.channelBatches=true\ntransfer.localFastPath=true\n')
 print('Existing files preserved. Minecraft startup requires an accepted EULA in each run directory.')

@@ -65,7 +65,7 @@ public final class Packets {
                 }catch(RuntimeException e){finish.accept(RuntimeService.errorCode(e));}},finish);
             }
             case "stock_cancel" -> {
-                DomainException.require(CompatLoader.aeAvailable() && be.aeEnabled,"resource_unsupported");UUID endpoint=be.id(),channel=be.channel();DomainException.require(channel!=null,"unbound");UUID request=UUID.fromString(req.argument());rt.submit(a->{a.cancelStock(actor,endpoint,channel,request);return true;},x->finish.accept("success"),finish);
+                DomainException.require(CompatLoader.aeAvailable() && be.aeEnabled,"resource_unsupported");UUID endpoint=be.id(),channel=be.channel();DomainException.require(channel!=null,"unbound");UUID request=UUID.fromString(req.argument());rt.submit(a->{a.cancelStock(actor,endpoint,channel,request);return true;},x->{rt.demandChanged(be);finish.accept("success");},finish);
             }
             case "ae" -> {DomainException.require(CompatLoader.aeAvailable(),"resource_unsupported");DomainException.require(be.buffer().empty() && !be.inFlight(),"endpoint_not_empty");be.aeEnabled=!be.aeEnabled;be.settingsChanged();for(var m:CompatLoader.modules())m.changed(be);finish.accept("success");}
             case "mode" -> {String kind=req.argument();be.mode(kind,be.mode(kind).next());finish.accept("success");}

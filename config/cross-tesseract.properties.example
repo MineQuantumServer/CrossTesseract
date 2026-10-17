@@ -30,9 +30,10 @@ buffers.chemicalPerSlot=64000
 filters.blacklist=
 filters.whitelist=
 # Item/fluid/chemical registry IDs, comma separated. Device filters add restrictions.
-# Channel coordinator and local wake path; ALL require restart, no live protocol switch.
-transfer.channelBatches=true
-transfer.localFastPath=true
+# Conservative default: false/false. Batch candidate: true/false. Experimental fast: true/true.
+# All require normal stop and restart with this same JAR; no live protocol switch.
+transfer.channelBatches=false
+transfer.localFastPath=false
 transfer.maxBatchDevices=8
 transfer.maxBatchRecords=256
 # At least 8 MiB: one legal endpoint checkpoint must fit; maximum 16 MiB.

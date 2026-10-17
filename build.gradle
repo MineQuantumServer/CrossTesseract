@@ -37,6 +37,13 @@ neoForge {
             systemProperty 'neoforge.enabledGameTestNamespaces', 'cross_tesseract'
             if(providers.gradleProperty('gameTestBackend').isPresent()) systemProperty 'cross_tesseract.config',project.file('config/gametest.properties').absolutePath
             if(providers.gradleProperty('gameTestBackend').isPresent()) systemProperty 'cross_tesseract.compatTests','true'
+            if(providers.gradleProperty('rcFaultTests').isPresent()){
+                def fixture=providers.gradleProperty('rcFixture').getOrElse('missing')
+                if(!(fixture ==~ /[a-z0-9-]{1,48}/))throw new GradleException('Invalid isolated RC fixture')
+                gameDirectory=project.file('scratch/rc-native/'+fixture+'/game')
+                systemProperty 'cross_tesseract.rcFaultTests','true'
+                systemProperty 'cross_tesseract.config',project.file('scratch/rc-native/'+fixture+'/backend.properties').absolutePath
+            }
         }
         ['A','B','C'].each { sid ->
             create("server${sid}") {

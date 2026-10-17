@@ -47,6 +47,7 @@ public final class CrossTesseract {
         bus.addListener((net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent e)->e.register(ChunkTickets.CONTROLLER));
         bus.addListener((net.neoforged.neoforge.event.RegisterGameTestsEvent e)->{
             e.register(dev.crosstesseract.test.GameTests.class);
+            if(Boolean.getBoolean("cross_tesseract.rcFaultTests")){e.register(dev.crosstesseract.test.RcFaultGameTests.class);e.register(dev.crosstesseract.test.RcGroupGameTests.class);}
             // Optional test classes are reached only through the already-loaded optional module.
             if(Boolean.getBoolean("cross_tesseract.compatTests"))e.register(dev.crosstesseract.test.CoreBackendGameTests.class);
             if(Boolean.getBoolean("cross_tesseract.compatTests"))e.register(dev.crosstesseract.test.RuntimeDeltaGameTests.class);

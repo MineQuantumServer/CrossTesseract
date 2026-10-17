@@ -590,6 +590,46 @@ class ChannelBatchIntegrationTest {
         }
     }
 
+    @Test void checkpointOnlySkipsDiscoveryWithoutLosingReservedPositiveAssets(@TempDir Path directory)throws Exception{
+        UUID channel=channel("checkpoint-discovery");var authority=servers.getFirst();
+        var sender=bound(0,owner,channel);var receiver=bound(0,owner,channel);var resource=new Resource(Protocol.FE,new byte[0]);
+        UUID business=BusinessIds.next();authority.deposit(business,sender.id(),channel,resource,128);
+        authority.demand(receiver.id(),channel,Protocol.FE,64);
+        UUID allocation=BusinessIds.next();var reserved=authority.allocate(allocation,receiver.id(),channel,Protocol.FE,64).orElseThrow();
+        var session=authority.session();var snapshot=new LocalSnapshot(receiver.id(),session.world(),session.generation(),1,List.of(),List.of());
+        long statements=authority.database().stats().get("db_statements").longValue(),tx=transactions(authority);
+        var checkpoint=singleResult(authority.channelBatch(channel,List.of(new TransferWork.Request(snapshot,channel,receiver.version(),true,Set.of(),List.of(),8,false))));
+        long checkpointStatements=authority.database().stats().get("db_statements").longValue()-statements;
+        assertEquals(1,transactions(authority)-tx);assertTrue(checkpoint.received().isEmpty());assertEquals("RESERVED",state(allocation));
+        assertConserved(channel,resource,128);
+        snapshot=new LocalSnapshot(receiver.id(),session.world(),session.generation(),2,List.of(),List.of());
+        var discovery=new TransferWork.Request(snapshot,channel,receiver.version(),true,Set.of(),List.of(),8,true);
+        statements=authority.database().stats().get("db_statements").longValue();
+        var discovered=singleResult(authority.channelBatch(channel,List.of(discovery)));
+        long discoveryStatements=authority.database().stats().get("db_statements").longValue()-statements;
+        assertTrue(discoveryStatements>checkpointStatements,"same checkpoint with discovery executes extra real SQL");
+        assertEquals(allocation,singleCredit(discovered).transaction());assertEquals(64,singleCredit(discovered).remaining());
+        var publication=durablePublication(new LocalJournal(directory),discovery,discovered);
+        assertTrue(authority.publishBatch(channel,List.of(publication)).isEmpty());
+        assertTrue(authority.publishBatch(channel,List.of(publication)).isEmpty());
+        assertEquals("LOCAL",state(allocation));assertEquals(1,transferCount(receiver.id(),"ALLOCATE"));
+        assertConserved(channel,resource,128);
+    }
+
+    @Test void allocationWithoutRenewalRetainsSqlDemandAndGlobalRemotePriority()throws Exception{
+        UUID channel=channel("no-renew-fairness");var authority=servers.getFirst();var resource=new Resource(Protocol.FE,new byte[0]);
+        var sender=bound(0,owner,channel);var remote=bound(1,owner,channel);var local=bound(0,owner,channel);
+        authority.deposit(BusinessIds.next(),sender.id(),channel,resource,128);
+        servers.get(1).demand(remote.id(),channel,Protocol.FE,64);authority.demand(local.id(),channel,Protocol.FE,64);
+        var session=authority.session();var demand=new TransferWork.Demand(BusinessIds.next(),Protocol.FE,64,null,1,false);
+        var snapshot=new LocalSnapshot(local.id(),session.world(),session.generation(),1,List.of(),List.of());
+        var request=new TransferWork.Request(snapshot,channel,local.version(),false,Set.of(),List.of(demand),8,true);
+        assertTrue(singleResult(authority.channelBatch(channel,List.of(request))).received().isEmpty(),"local wake cannot steal older remote demand");
+        assertEquals(64,servers.get(1).allocate(BusinessIds.next(),remote.id(),channel,Protocol.FE,64).orElseThrow().amount());
+        assertEquals(64,singleCredit(singleResult(authority.channelBatch(channel,List.of(request)))).remaining());
+        assertConserved(channel,resource,128);
+    }
+
     private UUID channel(String name) throws Exception {
         return servers.getFirst().createChannel(owner, name, BusinessIds.next());
     }

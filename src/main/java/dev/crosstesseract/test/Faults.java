@@ -17,7 +17,7 @@ public final class Faults {
     private static final String REGISTRATION_PHASE="after_restore_wal";
     private static final String UNHYDRATED_SEAL_PHASE="before_unhydrated_seal";
     private static final String BEFORE_REGISTER_SQL="before_register_sql",AFTER_REGISTER_SQL="after_register_sql";
-    private static final Set<String> phases=Set.of("after_send_wal","after_deposit","after_allocation","after_receive_wal","after_local_sql",REGISTRATION_PHASE,UNHYDRATED_SEAL_PHASE,BEFORE_REGISTER_SQL,AFTER_REGISTER_SQL);
+    private static final Set<String> phases=Set.of("after_send_wal","after_deposit","after_allocation","after_receive_wal","after_local_sql","after_publication_group",REGISTRATION_PHASE,UNHYDRATED_SEAL_PHASE,BEFORE_REGISTER_SQL,AFTER_REGISTER_SQL);
     private static final int MAX_HOLDS=16;
     private static final long HOLD_NANOS=TimeUnit.SECONDS.toNanos(5);
     private static final Object admission=new Object();
@@ -41,8 +41,16 @@ public final class Faults {
     public static Hold holdFailedBeforeSqlRegistration(String cluster,UUID endpoint){return hold(cluster,BEFORE_REGISTER_SQL,endpoint,true);}
     /** Fail to return registration after its real SQL commit; this is not a network COMMIT ACK fault. */
     public static Hold holdLostAfterSqlRegistration(String cluster,UUID endpoint){return hold(cluster,AFTER_REGISTER_SQL,endpoint,true);}
+    public static Hold holdFailedPublicationGroupOnce(String cluster,UUID endpoint){return hold(cluster,"after_publication_group",endpoint,true);}
+    public static void publicationGroupHit(UUID endpoint) throws SQLException {
+        String phase="after_publication_group";crash(phase,endpoint);var hold=holds.get(endpoint);
+        if(hold!=null && hold.phase.equals(phase) && hold.awaitRelease() && hold.claimSqlFailure()){
+            CrossTesseract.LOG.warn("CT_TEST_FAULT after_publication_group endpoint={} injected=worker_SQLException actual_database_outage=false first_group_committed=true",endpoint);
+            throw new SQLException("CT_TEST_INTERRUPTED_PUBLICATION_GROUP","08006");
+        }
+    }
     private static Hold hold(String cluster,String phase,UUID endpoint,boolean failSqlOnRelease){
-        DomainException.require((Boolean.getBoolean("cross_tesseract.testHarness")||Boolean.getBoolean("cross_tesseract.compatTests")) && isolated(cluster) && phases.contains(phase) && endpoint!=null,"forbidden");
+        DomainException.require((Boolean.getBoolean("cross_tesseract.testHarness")||Boolean.getBoolean("cross_tesseract.compatTests")||Boolean.getBoolean("cross_tesseract.rcFaultTests")) && isolated(cluster) && phases.contains(phase) && endpoint!=null,"forbidden");
         synchronized(admission){
             for(var hold:holds.values())hold.expireIfNeeded();
             DomainException.require(!holds.containsKey(endpoint),"test_hold_pending");

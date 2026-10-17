@@ -363,21 +363,22 @@ public final class Authority implements AutoCloseable {
                     for(var deposit:request.snapshot().deposits().stream().filter(d->request.sending().contains(d.resource().kind())).limit(request.depositLimit()).toList()){
                         deposit(deposit.transaction(),request.endpoint(),deposit.channel(),deposit.resource(),deposit.amount(),c,context);committed.add(deposit.transaction());
                     }
-                    for(var demand:request.demands())demand(request.endpoint(),channel,demand.kind(),demand.room(),demand.profile(),demand.quantum(),c,context);
+                    for(var demand:request.demands())if(demand.announce())demand(request.endpoint(),channel,demand.kind(),demand.room(),demand.profile(),demand.quantum(),c,context);
                     valid.add(request);results.put(request.endpoint(),new TransferWork.Result(request.endpoint(),committed,consumed,List.of(),null));
                 }catch(DomainException error){c.rollback(savepoint);context.resources.clear();context.balanceChanged=changedBefore;context.endpoints.remove(request.endpoint());results.put(request.endpoint(),TransferWork.Result.failed(request.endpoint(),error.code()));}
                 }
             }
             var knownCredits=new HashSet<UUID>();for(var request:valid)for(var credit:request.snapshot().credits())knownCredits.add(credit.transaction());
-            var outstanding=allocationRows(c,valid.stream().map(TransferWork.Request::endpoint).toList(),knownCredits,true);
+            var outstanding=allocationRows(c,valid.stream().filter(TransferWork.Request::discover).map(TransferWork.Request::endpoint).toList(),knownCredits,true);
             // Order here does not define priority: allocate() ranks ALL eligible local and remote
             // demands by the same SQL last_grant sequence while this channel is locked.
             for(var request:valid){
+                if(!request.discover())continue; // Checkpoint/renewal still fenced above; no inventory discovery needed.
                 var prior=results.get(request.endpoint());var received=new ArrayList<LocalSnapshot.Credit>();
                 var known=new HashSet<UUID>();for(var credit:request.snapshot().credits())known.add(credit.transaction());
                 for(var allocation:outstanding.getOrDefault(request.endpoint(),List.of()))if(!known.contains(allocation.id()) && !"QUARANTINED".equals(allocation.state()))received.add(new LocalSnapshot.Credit(allocation.id(),allocation.channel(),allocation.payload(),allocation.amount(),allocation.remaining()));
                 String failure=null;
-                for(var demand:request.demands())if(received.stream().noneMatch(credit->credit.resource().kind().equals(demand.kind()))){
+                for(var demand:request.demands())if(demand.room()>0 && received.stream().noneMatch(credit->credit.resource().kind().equals(demand.kind()))){
                     try(var scope=Sql.savepoint(c)){
                     var savepoint=scope.point();
                     try{var allocated=allocate(demand.transaction(),request.endpoint(),channel,demand.kind(),demand.room(),c,context);

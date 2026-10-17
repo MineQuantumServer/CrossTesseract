@@ -7,9 +7,12 @@ import java.util.*;
 /** Immutable ordinary-resource phases. Business IDs survive SQL deadlock retry. */
 public final class TransferWork {
     private TransferWork(){}
-    public record Demand(UUID transaction,String kind,long room,String profile,long quantum){}
+    public record Demand(UUID transaction,String kind,long room,String profile,long quantum,boolean announce){
+        public Demand(UUID transaction,String kind,long room,String profile,long quantum){this(transaction,kind,room,profile,quantum,true);}
+    }
     public record Request(LocalSnapshot snapshot,UUID channel,long endpointVersion,boolean checkpoint,
-                          Set<String> sending,List<Demand> demands,int depositLimit){
+                          Set<String> sending,List<Demand> demands,int depositLimit,boolean discover){
+        public Request(LocalSnapshot snapshot,UUID channel,long endpointVersion,boolean checkpoint,Set<String> sending,List<Demand> demands,int depositLimit){this(snapshot,channel,endpointVersion,checkpoint,sending,demands,depositLimit,true);}
         public Request{sending=Set.copyOf(sending);demands=List.copyOf(demands);}
         public UUID endpoint(){return snapshot.endpoint();}
     }
