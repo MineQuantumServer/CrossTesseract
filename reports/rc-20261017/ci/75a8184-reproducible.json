@@ -1,0 +1,17 @@
+{
+  "source_commit": "75a8184fa15ce559c07c18a78bd01e18d451a0f8",
+  "functional_main_source": "fab818087d4b8387031e2a30193b30525a466ac6",
+  "main_java_manifest_sha256": "da40c56c8557dcb7698966ee2f9b06d7ce4450df2b27a3b9136b47b8b63e4620",
+  "run": 39027803096,
+  "conclusion": "success",
+  "artifact_id": 12099545488,
+  "artifact_url": "https://github.com/MineQuantumServer/CrossTesseract/actions/runs/39027803096/artifacts/12099545488",
+  "retention_days": 90,
+  "CI_binary_sha256": "56c14cb01c82007055c4e4e9b995ee6f7dfea40367fa1c4a9f2188597a3d3a31",
+  "CI_sources_sha256": "bfa1491bff5981c6a37d57ab6f95d10331891c3c8374b224a4d36f2e59001326",
+  "local_and_CI_binary_and_source_archives_identical": true,
+  "proof": "CI sha256sum output and main manifest in success.log match reports/rc-20261017/fab-build-20261017T1107Z/manifest.json. Native tests use the corresponding frozen local classes/resources matched byte-for-byte with this JAR.",
+  "artifact_download": "GitHub artifact exists; requires authenticated repository access. Local blob redirect returned403; identity was independently checked from successful CI log instead.",
+  "scope": "76 real backend/unit/property tests; native/compat/performance/soak not executed in CI",
+  "log_sha256": "e8ff60a1344cd331e21cbd55ce649eaa38bf49be6c50850952067368b9a81f1c"
+}

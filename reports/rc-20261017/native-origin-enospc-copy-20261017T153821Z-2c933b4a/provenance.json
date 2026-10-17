@@ -1,0 +1,134 @@
+{
+  "utc": "2026-10-17T15:38:21.604743+00:00",
+  "archive_kind": "closed_native_origin_ENOSPC_filesystem_copy_evidence",
+  "passed_as_run": true,
+  "archived_files": [
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/result.json",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/result.json",
+      "sha256": "07339efa98e31fa1aeaa2dfa110972f6b434d811001726914d1c1b8138711515",
+      "bytes": 83893
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/stdout.log",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/stdout.log",
+      "sha256": "fac7e37745e011ea18ab3c99599309cfd6f8dde0c3dfa84664ccf381b7f24b34",
+      "bytes": 3022
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/stderr.log",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/stderr.log",
+      "sha256": "3b7699e21ca38d1a06cac2fc13d85b95776053929cf5fa1579281f97065711ab",
+      "bytes": 146
+    },
+    {
+      "original_path": "scripts/rc_native_enospc_test.py",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/recipe.py",
+      "sha256": "23872ec3b48a284a517cb17355b7cb6656cb97053d3e451a7fc53c824e98aed4",
+      "bytes": 27308
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/backend/LocalJournal.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/backend/LocalJournal.java",
+      "sha256": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "bytes": 9308
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/core/DomainException.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/core/DomainException.java",
+      "sha256": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "bytes": 460
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/core/LocalSnapshot.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/core/LocalSnapshot.java",
+      "sha256": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "bytes": 1319
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/core/Resource.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/core/Resource.java",
+      "sha256": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "bytes": 1437
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/core/ThermalBuffer.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/core/ThermalBuffer.java",
+      "sha256": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "bytes": 2610
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/core/Protocol.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/core/Protocol.java",
+      "sha256": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "bytes": 1168
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/src/main/java/dev/crosstesseract/core/Metrics.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/src/main/java/dev/crosstesseract/core/Metrics.java",
+      "sha256": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "bytes": 4522
+    },
+    {
+      "original_path": "scratch/rc-native-enospc-20261017T153019Z-2c90466555ec4699b877e5f3eb32c163/source/scripts/rc_native_enospc_probe.java",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/frozen-source/scripts/rc_native_enospc_probe.java",
+      "sha256": "03cbf3a8091941e81c93cb708998da55c8054c983613591d7800157ee6d09e66",
+      "bytes": 9660
+    },
+    {
+      "original_path": "scripts/rc_enospc_test.py",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/offline-helpers/rc_enospc_test.py",
+      "sha256": "b5d997d4612b6df7e28c7880da02ae14cd45e4e62f65f6ffd7812f949f4dcd90",
+      "bytes": 16037
+    },
+    {
+      "original_path": "scripts/optimization-restart-fallback-test.py",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/offline-helpers/optimization-restart-fallback-test.py",
+      "sha256": "61c0e399c3f8b2c0c0f6dba09def173374f13943cad343a8e54f2873aee4259c",
+      "bytes": 73141
+    },
+    {
+      "original_path": "scratch/rc-native/fault-4dc94971b6d8/result.json",
+      "archive_path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/native-origin-result.json",
+      "sha256": "7e74f15160d35b7561ce9f1a246b11447e795ca3fbdab73ec5e0edd46628fd25",
+      "bytes": 1416
+    }
+  ],
+  "native_group_marker_extract": {
+    "path": "reports/rc-20261017/native-origin-enospc-copy-20261017T153821Z-2c933b4a/native-group-pass-extract.txt",
+    "sha256": "52bed4c25147a0a3611cab6c924005c7e63ed44d5550eb0052c00690bf8293fc",
+    "original_log": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/native.log",
+      "sha256": "dd041212a81f7a1439117201369421dfd962be1478324daffe6ed2cbe2d66fa3",
+      "bytes": 649350
+    },
+    "scope": "One exact matching original log line, not a complete original native log archive"
+  },
+  "source_world_or_seed_archived": false,
+  "source_WAL_contents_read_during_archiving": false,
+  "source_SQL_accessed_during_archiving": false,
+  "source_WAL_before_and_after_as_run": {
+    "before": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/game/world/cross_tesseract/journal/5e600828-d988-45b8-b9e6-027bcbda4538.ctj",
+      "sha256": "f1de90732ded7dcf870abeeec42d7ab8e0fa3eef8fc842dd92acab7e1dda3db4",
+      "bytes": 2161
+    },
+    "after": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/game/world/cross_tesseract/journal/5e600828-d988-45b8-b9e6-027bcbda4538.ctj",
+      "sha256": "f1de90732ded7dcf870abeeec42d7ab8e0fa3eef8fc842dd92acab7e1dda3db4",
+      "bytes": 2161
+    },
+    "unchanged": true
+  },
+  "copy_is_SQL_authorized_or_spendable": false,
+  "scope": "Actual retained32FE native-origin WAL was copied only into a networkless private tmpfs. Real ENOSPC preserved32 IDs/32FE, then identical IDs/quantities retried at revision120. No Minecraft Runtime ENOSPC, live SQL recovery, hardware fault or power-loss test; copied fixture is never imported/replayed/refunded. World and private seed bytes excluded from this public archive.",
+  "artifact_identity_as_run": {
+    "main_sha256": "998b3fc31ae9fd813f5f916a345240451d476283a9b05672b1bcc6c80cf89504",
+    "JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+    "source_native_fixture": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/result.json",
+      "sha256": "7e74f15160d35b7561ce9f1a246b11447e795ca3fbdab73ec5e0edd46628fd25",
+      "bytes": 1416
+    }
+  }
+}

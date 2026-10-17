@@ -1,0 +1,819 @@
+{
+  "raw_report": "reports/optimization-rc-probe-rc-fe-baseline-fast2-20261017T103942Z-d8e7ca.json",
+  "raw_sha256": "9afa0a4af733f526a530e610ebefc73e918f91a372c39e8c9e6f5775e49b2d2e",
+  "check": "Agent original input bytes vs actual launch-selected classfile on disk; CodeSource is retained verbatim (NeoForge virtual union URI). No backend/native calls.",
+  "count": 81,
+  "all_match": true,
+  "checks": [
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$EnergyPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$EnergyPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "agent_original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$FluidPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$FluidPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "agent_original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$ItemPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$ItemPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "agent_original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "B",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "C",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$EnergyPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$EnergyPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "agent_original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$FluidPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$FluidPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "agent_original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$ItemPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$ItemPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "agent_original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "same",
+      "server": "A",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$EnergyPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$EnergyPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "agent_original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$FluidPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$FluidPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "agent_original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$ItemPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$ItemPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "agent_original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "A",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$EnergyPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$EnergyPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "agent_original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$FluidPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$FluidPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "agent_original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$ItemPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$ItemPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "agent_original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "B",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "cross",
+      "server": "C",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$EnergyPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$EnergyPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "agent_original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$FluidPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$FluidPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "agent_original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/block/Ports$ItemPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/Ports$ItemPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "agent_original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "A",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "C",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/Authority",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/Authority.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "agent_original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/LocalJournal",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/LocalJournal.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "agent_original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/backend/Sql",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/backend/Sql.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "agent_original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$EnergyPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$EnergyPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "agent_original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$FluidPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$FluidPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "agent_original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/block/Ports$ItemPort",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/Ports$ItemPort.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "agent_original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/block/TesseractBlockEntity",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/block/TesseractBlockEntity.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "agent_original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/core/LocalBuffer",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/core/LocalBuffer.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "agent_original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/runtime/RuntimeService",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/runtime/RuntimeService.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "agent_original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb",
+      "exact_match": true
+    },
+    {
+      "scenario": "mixed",
+      "server": "B",
+      "class": "dev/crosstesseract/test/ThreeServerHarness",
+      "actual_launch_selected_file": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/dev/crosstesseract/test/ThreeServerHarness.class",
+      "agent_CodeSource": "union:/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/classes/%23139!/",
+      "class_file_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "agent_original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+      "exact_match": true
+    }
+  ]
+}

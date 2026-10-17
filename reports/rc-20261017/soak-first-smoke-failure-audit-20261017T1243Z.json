@@ -1,0 +1,87 @@
+{
+  "generated_utc": "2026-10-17T12:47:20.762843+00:00",
+  "raw_report_unchanged": {
+    "path": "scratch/rc-soak-rc-soak-v2-3647-smoke-20261017T124301Z-f59bc616dd/report.json",
+    "sha256": "9be51dbe0a0c229e60c7e9d871e8b943a13e6603e73dd597504d2ad51764a88a"
+  },
+  "raw_JSON_parse": "INVALID: spilled StreamRing logical len>0 but resident iterator empty; do not repair original bytes",
+  "events": {
+    "path": "scratch/rc-soak-rc-soak-v2-3647-smoke-20261017T124301Z-f59bc616dd/events.jsonl",
+    "sha256": "ee0ae841726a5a005ae24265b88719746c1f8c9e703cd7edb3d5129ecfc72798"
+  },
+  "RCON_records": 31,
+  "recorded_asset_injection_or_extraction_or_component_mutation_commands": 0,
+  "recorded_spawn_commands": [
+    {
+      "stream": "RCON_trace",
+      "index": 14,
+      "record": {
+        "server": "A",
+        "command": "ct_test spawn 13022740 164 d26d9ddf-c3c6-49a1-b8f1-472b04af7441",
+        "start": 1.6273131180005294,
+        "utc_request_start": "2026-10-17T12:43:03.488973+00:00",
+        "reply": "SPAWN fc5529db-cf60-4c8b-a0d5-909a8bfd5ef9\n",
+        "end": 1.646897776001424,
+        "utc_reply_end": "2026-10-17T12:43:03.508561+00:00"
+      }
+    }
+  ],
+  "last_record": {
+    "stream": "RCON_trace",
+    "index": 30,
+    "record": {
+      "server": "A",
+      "command": "execute in minecraft:overworld run data get block 13022741 64 164 Items",
+      "start": 4.688227116001144,
+      "utc_request_start": "2026-10-17T12:43:06.549887+00:00",
+      "failure": "ConnectionError: soak RCON closed before barrier",
+      "end": 4.690733778001231,
+      "utc_reply_end": "2026-10-17T12:43:06.552395+00:00"
+    }
+  },
+  "scope": "Offline journal audit only. One endpoint plus empty chest setup recorded; no FE/fluid/item injection or pull reached. This is not an independent SQL/WAL asset audit. Original fixture and failure files retained.",
+  "native_frozen_rcon_class": {
+    "frozen_jar": {
+      "path": "/workspace/CrossTesseract/scratch/rc-v2-final-freeze-20261017T115320Z-19157594/dependencies/neoforge-21.1.252.jar",
+      "sha256": "f676b4a6341c61108661f6aac537681838d15ed878d1a5decb5530492de367d3"
+    },
+    "entry": "net/minecraft/server/rcon/thread/RconClient.class",
+    "sha256": "6526d9619e7afcb767bc67255357c47f6763d261fe97494d4c653aababf684f2"
+  },
+  "matching_source_artifact_proof": [
+    {
+      "source_jar": {
+        "path": "/home/agent/.gradle/caches/neoformruntime/intermediate_results/sourcesAndCompiledWithNeoForge_2e54124dbbf3adbc766259a1d332411ad3915791_output.jar",
+        "sha256": "569e6c53e5902442692ca08ac169eefef03e5905982ca1d71e3ae7f7bdad48b9"
+      },
+      "class_entry": "net/minecraft/server/rcon/thread/RconClient.class",
+      "class_sha256": "6526d9619e7afcb767bc67255357c47f6763d261fe97494d4c653aababf684f2",
+      "lines43to58": [
+        "    public void run() {",
+        "        try {",
+        "            try {",
+        "                while (this.running) {",
+        "                    BufferedInputStream bufferedinputstream = new BufferedInputStream(this.client.getInputStream());",
+        "                    int i = bufferedinputstream.read(this.buf, 0, 1460);",
+        "                    if (10 > i) {",
+        "                        return;",
+        "                    }",
+        "",
+        "                    int j = 0;",
+        "                    int k = PktUtils.intFromByteArray(this.buf, 0, i);",
+        "                    if (k != i - 4) {",
+        "                        return;",
+        "                    }",
+        ""
+      ]
+    }
+  ],
+  "old_driver": {
+    "path": "reports/raw/rc-soak-before-multipart-and-ring-fix-20261017T1243Z.py",
+    "sha256": "8ce7b5a588ee384fb10bed725241428d8d8d2b4b9555d7be259680edf7ccaeeb"
+  },
+  "old_controller": {
+    "path": "reports/raw/run-rc-v2-soak-before-invalid-raw-ref-fix-20261017T1243Z.py",
+    "sha256": "c93e5e7ca79eac8d548126f142e68796dbcf37dcfc60408a1de5db812641fb4c"
+  }
+}

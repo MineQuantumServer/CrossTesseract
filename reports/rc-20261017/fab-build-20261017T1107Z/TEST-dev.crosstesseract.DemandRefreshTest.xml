@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.DemandRefreshTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:06:31.090Z" hostname="0e33714fb4c9" time="0.003">
+  <properties/>
+  <testcase name="smallConsumptionDoesNotRenewEveryCreditButDepletionAndExpiryDo()" classname="dev.crosstesseract.DemandRefreshTest" time="0.001"/>
+  <testcase name="profilesQuantumAndTinyCapacitiesRemainDistinct()" classname="dev.crosstesseract.DemandRefreshTest" time="0.0"/>
+  <testcase name="missingConfigurationIsConservative(Path)" classname="dev.crosstesseract.DemandRefreshTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

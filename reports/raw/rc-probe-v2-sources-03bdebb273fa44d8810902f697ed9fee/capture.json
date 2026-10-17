@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-17T12:23:30.849245+00:00",
+  "chronology": "Files were copied after the f3-v2 FE controller completed and while final-v2 FE was running; this is source-byte archival time, not a claim the archive existed before measurement. Agent Java bytes match the earlier compiled/native-PASS manifest. Helpers match the preserved stage source metadata; the f3 controller predates only the separately archived exit-diagnostics addition.",
+  "archive_manifest_sha256": "fe3f6da29a4f51462b708be2765670a13c20ee8add2abcedd70edeee4ce523c6",
+  "f3_stop_proof_scope": "The closed f3 controller retained normal-stop requests, own launcher termination and free launch locks; individual child exit codes were not retained by that controller version. Later controllers explicitly record and require each child exit0."
+}

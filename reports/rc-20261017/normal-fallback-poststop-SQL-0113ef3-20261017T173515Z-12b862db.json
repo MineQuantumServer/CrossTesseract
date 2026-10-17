@@ -1,0 +1,605 @@
+{
+  "utc": "2026-10-17T17:35:15.739070+00:00",
+  "kind": "failed_fallback_scoped_poststop_SQL_and_offline_tuple_diagnosis",
+  "failed_report": {
+    "path": "reports/rc-20261017/normal-fallback-rc-0113-fb-7c4a9e2d-20261017T172628Z-8e133b5c.json",
+    "sha256": "28be3360fdb87e1de2b869312c489e64eea537a33da44262f6e32c9a1bde07e0"
+  },
+  "SQL_scope": {
+    "cluster": "dev_three_v1",
+    "server_IDs": [
+      "opt-rc-soak-v2-0113ef3-full-A",
+      "opt-rc-soak-v2-0113ef3-full-B",
+      "opt-rc-soak-v2-0113ef3-full-C"
+    ],
+    "endpoint_IDs": [
+      "0952b812-8b24-4c76-b186-82e7e09fa697",
+      "09b70253-fdfb-46a8-b3f8-f05af09da40c",
+      "14d72c78-06ad-4e06-a867-e0380df864a0",
+      "29fa1df1-d3ca-47f9-bc9f-2667ac248c43",
+      "3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9",
+      "76847e42-505b-4a41-8b5f-e30efd6f28f7",
+      "7ec3f36e-5a9e-475c-b067-bfda7ecb724f",
+      "7fe35087-7071-45d5-8bd0-bf9d60f21f4d",
+      "809c5b03-602f-4da1-b92e-878f01f37065",
+      "8370ac24-ca44-4f4f-b764-0b5dd216c0a1",
+      "990047da-78dd-4fe8-ad3c-50e5cfb259a0",
+      "9c7d12c2-3c80-4bcc-8e86-563bec347950",
+      "aeee29af-3cb2-444e-bf09-c1b102153287",
+      "b307de38-b828-4841-a45f-0426487810f5",
+      "b639030d-9fb3-4fe1-a548-2f5c8f1f771e",
+      "c23810b3-5139-4840-862c-cba3f6237c36",
+      "c358046c-b515-4585-be3b-f218cccbfe04",
+      "c53ae934-0b05-4a22-98bf-0bfe75b1258a",
+      "efdf5afb-6413-4a3f-84b6-b13f1500748f",
+      "fbe88d53-1f25-45b2-bf44-bf8e5a19f851"
+    ],
+    "channel_IDs": [
+      "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+      "3da8925b-d619-4a10-9e08-93c52d344a19",
+      "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+      "a20c5510-b51d-464d-8cc9-889014510284",
+      "b91fcd97-2faa-49af-a567-cf88265ea51b",
+      "ebb82b9e-4ca6-4862-82f5-196d321cbcaf"
+    ]
+  },
+  "statement": "SELECT JSON_OBJECT('db_utc',DATE_FORMAT(UTC_TIMESTAMP(6),'%Y-%m-%dT%H:%i:%s.%fZ'),'servers',(SELECT JSON_ARRAYAGG(JSON_OBJECT('server',server_id,'world',world_id,'session',session_id,'epoch',fencing_epoch,'status',status,'clean_stop',clean_stop,'lease_live',lease_until>CURRENT_TIMESTAMP(6))) FROM ct_servers WHERE cluster_id='dev_three_v1' AND server_id IN ('opt-rc-soak-v2-0113ef3-full-A','opt-rc-soak-v2-0113ef3-full-B','opt-rc-soak-v2-0113ef3-full-C')),'endpoints',(SELECT JSON_ARRAYAGG(JSON_OBJECT('id',endpoint_id,'channel',channel_id,'server',server_id,'world',world_id,'owner',device_owner,'state',state,'x',pos_x,'y',pos_y,'z',pos_z,'dimension',dimension_id,'epoch',last_epoch,'checkpoint',checkpoint,'generation',recovery_generation)) FROM ct_endpoints WHERE cluster_id='dev_three_v1' AND endpoint_id IN ('0952b812-8b24-4c76-b186-82e7e09fa697','09b70253-fdfb-46a8-b3f8-f05af09da40c','14d72c78-06ad-4e06-a867-e0380df864a0','29fa1df1-d3ca-47f9-bc9f-2667ac248c43','3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9','76847e42-505b-4a41-8b5f-e30efd6f28f7','7ec3f36e-5a9e-475c-b067-bfda7ecb724f','7fe35087-7071-45d5-8bd0-bf9d60f21f4d','809c5b03-602f-4da1-b92e-878f01f37065','8370ac24-ca44-4f4f-b764-0b5dd216c0a1','990047da-78dd-4fe8-ad3c-50e5cfb259a0','9c7d12c2-3c80-4bcc-8e86-563bec347950','aeee29af-3cb2-444e-bf09-c1b102153287','b307de38-b828-4841-a45f-0426487810f5','b639030d-9fb3-4fe1-a548-2f5c8f1f771e','c23810b3-5139-4840-862c-cba3f6237c36','c358046c-b515-4585-be3b-f218cccbfe04','c53ae934-0b05-4a22-98bf-0bfe75b1258a','efdf5afb-6413-4a3f-84b6-b13f1500748f','fbe88d53-1f25-45b2-bf44-bf8e5a19f851')),'pool_rows',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('channel',b.channel_id,'resource',b.resource_id,'kind',rs.kind,'amount',b.amount)) FROM ct_balances b JOIN ct_resources rs ON rs.cluster_id=b.cluster_id AND rs.resource_id=b.resource_id WHERE b.cluster_id='dev_three_v1' AND b.channel_id IN ('028b69d8-1b3d-4dbc-89b5-de797f06740d','3da8925b-d619-4a10-9e08-93c52d344a19','5f100844-5cf5-4c79-b4b5-5d93f48c6f39','a20c5510-b51d-464d-8cc9-889014510284','b91fcd97-2faa-49af-a567-cf88265ea51b','ebb82b9e-4ca6-4862-82f5-196d321cbcaf')),JSON_ARRAY()),'allocation_summary',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('channel',a.channel_id,'kind',a.resource_kind,'state',a.state,'rows',a.n,'remaining',a.remaining)) FROM (SELECT t.channel_id,rs.kind AS resource_kind,t.state,COUNT(*) AS n,SUM(t.remaining) AS remaining FROM ct_transfers t JOIN ct_resources rs ON rs.cluster_id=t.cluster_id AND rs.resource_id=t.resource_id WHERE t.cluster_id='dev_three_v1' AND t.channel_id IN ('028b69d8-1b3d-4dbc-89b5-de797f06740d','3da8925b-d619-4a10-9e08-93c52d344a19','5f100844-5cf5-4c79-b4b5-5d93f48c6f39','a20c5510-b51d-464d-8cc9-889014510284','b91fcd97-2faa-49af-a567-cf88265ea51b','ebb82b9e-4ca6-4862-82f5-196d321cbcaf') AND t.endpoint_id IN ('0952b812-8b24-4c76-b186-82e7e09fa697','09b70253-fdfb-46a8-b3f8-f05af09da40c','14d72c78-06ad-4e06-a867-e0380df864a0','29fa1df1-d3ca-47f9-bc9f-2667ac248c43','3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9','76847e42-505b-4a41-8b5f-e30efd6f28f7','7ec3f36e-5a9e-475c-b067-bfda7ecb724f','7fe35087-7071-45d5-8bd0-bf9d60f21f4d','809c5b03-602f-4da1-b92e-878f01f37065','8370ac24-ca44-4f4f-b764-0b5dd216c0a1','990047da-78dd-4fe8-ad3c-50e5cfb259a0','9c7d12c2-3c80-4bcc-8e86-563bec347950','aeee29af-3cb2-444e-bf09-c1b102153287','b307de38-b828-4841-a45f-0426487810f5','b639030d-9fb3-4fe1-a548-2f5c8f1f771e','c23810b3-5139-4840-862c-cba3f6237c36','c358046c-b515-4585-be3b-f218cccbfe04','c53ae934-0b05-4a22-98bf-0bfe75b1258a','efdf5afb-6413-4a3f-84b6-b13f1500748f','fbe88d53-1f25-45b2-bf44-bf8e5a19f851') AND t.kind='ALLOCATE' GROUP BY t.channel_id,rs.kind,t.state) a),JSON_ARRAY()),'persistent_grants',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('endpoint',endpoint_id,'desired',desired,'state',state)) FROM ct_chunk_grants WHERE cluster_id='dev_three_v1' AND endpoint_id IN ('0952b812-8b24-4c76-b186-82e7e09fa697','09b70253-fdfb-46a8-b3f8-f05af09da40c','14d72c78-06ad-4e06-a867-e0380df864a0','29fa1df1-d3ca-47f9-bc9f-2667ac248c43','3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9','76847e42-505b-4a41-8b5f-e30efd6f28f7','7ec3f36e-5a9e-475c-b067-bfda7ecb724f','7fe35087-7071-45d5-8bd0-bf9d60f21f4d','809c5b03-602f-4da1-b92e-878f01f37065','8370ac24-ca44-4f4f-b764-0b5dd216c0a1','990047da-78dd-4fe8-ad3c-50e5cfb259a0','9c7d12c2-3c80-4bcc-8e86-563bec347950','aeee29af-3cb2-444e-bf09-c1b102153287','b307de38-b828-4841-a45f-0426487810f5','b639030d-9fb3-4fe1-a548-2f5c8f1f771e','c23810b3-5139-4840-862c-cba3f6237c36','c358046c-b515-4585-be3b-f218cccbfe04','c53ae934-0b05-4a22-98bf-0bfe75b1258a','efdf5afb-6413-4a3f-84b6-b13f1500748f','fbe88d53-1f25-45b2-bf44-bf8e5a19f851')),JSON_ARRAY()))",
+  "statement_sha256": "ef4566a3ccfffc59530f2d82e9d39d97f839f43632f9c1a5bec4516a752271d4",
+  "mysql_exit": 0,
+  "query_seconds": 0.4219188480019511,
+  "raw_stdout": "{\"db_utc\": \"2026-10-17T17:35:15.391376Z\", \"servers\": [{\"epoch\": 2, \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"status\": \"STOPPED\", \"session\": \"01a14ae7-086c-7c31-b624-c048f4a42570\", \"clean_stop\": 1, \"lease_live\": false}, {\"epoch\": 2, \"world\": \"01a14aaa-8081-76b1-a750-9f831feb20b8\", \"server\": \"opt-rc-soak-v2-0113ef3-full-B\", \"status\": \"STOPPED\", \"session\": \"01a14ae6-fff9-7079-b208-20f5b3e03008\", \"clean_stop\": 1, \"lease_live\": false}, {\"epoch\": 2, \"world\": \"01a14aaa-89e3-70cd-8695-03cfa3654b93\", \"server\": \"opt-rc-soak-v2-0113ef3-full-C\", \"status\": \"STOPPED\", \"session\": \"01a14ae6-fefe-70c9-956e-66dc33fccc4f\", \"clean_stop\": 1, \"lease_live\": false}], \"endpoints\": [{\"x\": 14037604, \"y\": 64, \"z\": 164, \"id\": \"0952b812-8b24-4c76-b186-82e7e09fa697\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 5987, \"generation\": 1}, {\"x\": 14038116, \"y\": 64, \"z\": 164, \"id\": \"09b70253-fdfb-46a8-b3f8-f05af09da40c\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"b91fcd97-2faa-49af-a567-cf88265ea51b\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 485, \"generation\": 1}, {\"x\": 14038052, \"y\": 64, \"z\": 164, \"id\": \"14d72c78-06ad-4e06-a867-e0380df864a0\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-8081-76b1-a750-9f831feb20b8\", \"server\": \"opt-rc-soak-v2-0113ef3-full-B\", \"channel\": \"a20c5510-b51d-464d-8cc9-889014510284\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 485, \"generation\": 1}, {\"x\": 14037220, \"y\": 64, \"z\": 164, \"id\": \"29fa1df1-d3ca-47f9-bc9f-2667ac248c43\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 12297, \"generation\": 1}, {\"x\": 14038180, \"y\": 64, \"z\": 164, \"id\": \"3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-89e3-70cd-8695-03cfa3654b93\", \"server\": \"opt-rc-soak-v2-0113ef3-full-C\", \"channel\": \"b91fcd97-2faa-49af-a567-cf88265ea51b\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 485, \"generation\": 1}, {\"x\": 14037540, \"y\": 64, \"z\": 164, \"id\": \"76847e42-505b-4a41-8b5f-e30efd6f28f7\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 14167, \"generation\": 1}, {\"x\": 14037156, \"y\": 64, \"z\": 164, \"id\": \"7ec3f36e-5a9e-475c-b067-bfda7ecb724f\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 24999, \"generation\": 1}, {\"x\": 14037860, \"y\": 64, \"z\": 164, \"id\": \"7fe35087-7071-45d5-8bd0-bf9d60f21f4d\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"ebb82b9e-4ca6-4862-82f5-196d321cbcaf\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 485, \"generation\": 1}, {\"x\": 14037476, \"y\": 64, \"z\": 164, \"id\": \"809c5b03-602f-4da1-b92e-878f01f37065\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 14167, \"generation\": 1}, {\"x\": 14037668, \"y\": 64, \"z\": 164, \"id\": \"8370ac24-ca44-4f4f-b764-0b5dd216c0a1\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-8081-76b1-a750-9f831feb20b8\", \"server\": \"opt-rc-soak-v2-0113ef3-full-B\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 6202, \"generation\": 1}, {\"x\": 14037284, \"y\": 64, \"z\": 164, \"id\": \"990047da-78dd-4fe8-ad3c-50e5cfb259a0\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-8081-76b1-a750-9f831feb20b8\", \"server\": \"opt-rc-soak-v2-0113ef3-full-B\", \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 12369, \"generation\": 1}, {\"x\": 14037988, \"y\": 64, \"z\": 164, \"id\": \"9c7d12c2-3c80-4bcc-8e86-563bec347950\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"a20c5510-b51d-464d-8cc9-889014510284\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 485, \"generation\": 1}, {\"x\": 14038372, \"y\": 64, \"z\": 164, \"id\": \"aeee29af-3cb2-444e-bf09-c1b102153287\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-8081-76b1-a750-9f831feb20b8\", \"server\": \"opt-rc-soak-v2-0113ef3-full-B\", \"channel\": \"3da8925b-d619-4a10-9e08-93c52d344a19\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 6985, \"generation\": 1}, {\"x\": 14037796, \"y\": 64, \"z\": 164, \"id\": \"b307de38-b828-4841-a45f-0426487810f5\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-89e3-70cd-8695-03cfa3654b93\", \"server\": \"opt-rc-soak-v2-0113ef3-full-C\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 6326, \"generation\": 1}, {\"x\": 14037732, \"y\": 64, \"z\": 164, \"id\": \"b639030d-9fb3-4fe1-a548-2f5c8f1f771e\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-8081-76b1-a750-9f831feb20b8\", \"server\": \"opt-rc-soak-v2-0113ef3-full-B\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 6246, \"generation\": 1}, {\"x\": 14038244, \"y\": 64, \"z\": 164, \"id\": \"c23810b3-5139-4840-862c-cba3f6237c36\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"3da8925b-d619-4a10-9e08-93c52d344a19\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 14191, \"generation\": 1}, {\"x\": 14038308, \"y\": 64, \"z\": 164, \"id\": \"c358046c-b515-4585-be3b-f218cccbfe04\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"3da8925b-d619-4a10-9e08-93c52d344a19\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 6922, \"generation\": 1}, {\"x\": 14037348, \"y\": 64, \"z\": 164, \"id\": \"c53ae934-0b05-4a22-98bf-0bfe75b1258a\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 14170, \"generation\": 1}, {\"x\": 14037412, \"y\": 64, \"z\": 164, \"id\": \"efdf5afb-6413-4a3f-84b6-b13f1500748f\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 14167, \"generation\": 1}, {\"x\": 14037924, \"y\": 64, \"z\": 164, \"id\": \"fbe88d53-1f25-45b2-bf44-bf8e5a19f851\", \"epoch\": 2, \"owner\": \"c2920fff-3dc1-4ff3-a026-8571bf9778a4\", \"state\": \"ACTIVE\", \"world\": \"01a14aaa-7efb-79ee-b55d-2186554ba3ae\", \"server\": \"opt-rc-soak-v2-0113ef3-full-A\", \"channel\": \"ebb82b9e-4ca6-4862-82f5-196d321cbcaf\", \"dimension\": \"minecraft:overworld\", \"checkpoint\": 485, \"generation\": 1}], \"pool_rows\": [{\"kind\": \"cross_tesseract:fluid\", \"amount\": 0, \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"resource\": \"6ea81da9-2e3e-40af-8f47-6073ab565eed\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 0, \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"resource\": \"7222a36c-3c39-4c92-b3fe-28a0ac801695\"}, {\"kind\": \"cross_tesseract:item\", \"amount\": 0, \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"resource\": \"7bee0d72-1cd2-4702-9565-bb879ef6d7d7\"}, {\"kind\": \"cross_tesseract:item\", \"amount\": 0, \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"resource\": \"e0d83eab-f23e-4d1c-a85f-6da518799ffd\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 0, \"channel\": \"3da8925b-d619-4a10-9e08-93c52d344a19\", \"resource\": \"7222a36c-3c39-4c92-b3fe-28a0ac801695\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 0, \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"resource\": \"7222a36c-3c39-4c92-b3fe-28a0ac801695\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 0, \"channel\": \"a20c5510-b51d-464d-8cc9-889014510284\", \"resource\": \"7222a36c-3c39-4c92-b3fe-28a0ac801695\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 0, \"channel\": \"b91fcd97-2faa-49af-a567-cf88265ea51b\", \"resource\": \"7222a36c-3c39-4c92-b3fe-28a0ac801695\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 0, \"channel\": \"ebb82b9e-4ca6-4862-82f5-196d321cbcaf\", \"resource\": \"7222a36c-3c39-4c92-b3fe-28a0ac801695\"}], \"persistent_grants\": [], \"allocation_summary\": [{\"kind\": \"cross_tesseract:fluid\", \"rows\": 3444, \"state\": \"CONSUMED\", \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 3400, \"state\": \"CONSUMED\", \"channel\": \"5f100844-5cf5-4c79-b4b5-5d93f48c6f39\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 3297, \"state\": \"CONSUMED\", \"channel\": \"3da8925b-d619-4a10-9e08-93c52d344a19\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 3448, \"state\": \"CONSUMED\", \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 121, \"state\": \"CONSUMED\", \"channel\": \"ebb82b9e-4ca6-4862-82f5-196d321cbcaf\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 121, \"state\": \"CONSUMED\", \"channel\": \"a20c5510-b51d-464d-8cc9-889014510284\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 121, \"state\": \"CONSUMED\", \"channel\": \"b91fcd97-2faa-49af-a567-cf88265ea51b\", \"remaining\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 60, \"state\": \"CONSUMED\", \"channel\": \"028b69d8-1b3d-4dbc-89b5-de797f06740d\", \"remaining\": 0}]}\n",
+  "raw_stderr": "",
+  "new_input": 0,
+  "config_switches": 0,
+  "SQL_mutations": false,
+  "WAL_read_write": false,
+  "SQL": {
+    "db_utc": "2026-10-17T17:35:15.391376Z",
+    "servers": [
+      {
+        "epoch": 2,
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "status": "STOPPED",
+        "session": "01a14ae7-086c-7c31-b624-c048f4a42570",
+        "clean_stop": 1,
+        "lease_live": false
+      },
+      {
+        "epoch": 2,
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "status": "STOPPED",
+        "session": "01a14ae6-fff9-7079-b208-20f5b3e03008",
+        "clean_stop": 1,
+        "lease_live": false
+      },
+      {
+        "epoch": 2,
+        "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+        "server": "opt-rc-soak-v2-0113ef3-full-C",
+        "status": "STOPPED",
+        "session": "01a14ae6-fefe-70c9-956e-66dc33fccc4f",
+        "clean_stop": 1,
+        "lease_live": false
+      }
+    ],
+    "endpoints": [
+      {
+        "x": 14037604,
+        "y": 64,
+        "z": 164,
+        "id": "0952b812-8b24-4c76-b186-82e7e09fa697",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 5987,
+        "generation": 1
+      },
+      {
+        "x": 14038116,
+        "y": 64,
+        "z": 164,
+        "id": "09b70253-fdfb-46a8-b3f8-f05af09da40c",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 485,
+        "generation": 1
+      },
+      {
+        "x": 14038052,
+        "y": 64,
+        "z": 164,
+        "id": "14d72c78-06ad-4e06-a867-e0380df864a0",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "channel": "a20c5510-b51d-464d-8cc9-889014510284",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 485,
+        "generation": 1
+      },
+      {
+        "x": 14037220,
+        "y": 64,
+        "z": 164,
+        "id": "29fa1df1-d3ca-47f9-bc9f-2667ac248c43",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 12297,
+        "generation": 1
+      },
+      {
+        "x": 14038180,
+        "y": 64,
+        "z": 164,
+        "id": "3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+        "server": "opt-rc-soak-v2-0113ef3-full-C",
+        "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 485,
+        "generation": 1
+      },
+      {
+        "x": 14037540,
+        "y": 64,
+        "z": 164,
+        "id": "76847e42-505b-4a41-8b5f-e30efd6f28f7",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 14167,
+        "generation": 1
+      },
+      {
+        "x": 14037156,
+        "y": 64,
+        "z": 164,
+        "id": "7ec3f36e-5a9e-475c-b067-bfda7ecb724f",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 24999,
+        "generation": 1
+      },
+      {
+        "x": 14037860,
+        "y": 64,
+        "z": 164,
+        "id": "7fe35087-7071-45d5-8bd0-bf9d60f21f4d",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 485,
+        "generation": 1
+      },
+      {
+        "x": 14037476,
+        "y": 64,
+        "z": 164,
+        "id": "809c5b03-602f-4da1-b92e-878f01f37065",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 14167,
+        "generation": 1
+      },
+      {
+        "x": 14037668,
+        "y": 64,
+        "z": 164,
+        "id": "8370ac24-ca44-4f4f-b764-0b5dd216c0a1",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 6202,
+        "generation": 1
+      },
+      {
+        "x": 14037284,
+        "y": 64,
+        "z": 164,
+        "id": "990047da-78dd-4fe8-ad3c-50e5cfb259a0",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 12369,
+        "generation": 1
+      },
+      {
+        "x": 14037988,
+        "y": 64,
+        "z": 164,
+        "id": "9c7d12c2-3c80-4bcc-8e86-563bec347950",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "a20c5510-b51d-464d-8cc9-889014510284",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 485,
+        "generation": 1
+      },
+      {
+        "x": 14038372,
+        "y": 64,
+        "z": 164,
+        "id": "aeee29af-3cb2-444e-bf09-c1b102153287",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 6985,
+        "generation": 1
+      },
+      {
+        "x": 14037796,
+        "y": 64,
+        "z": 164,
+        "id": "b307de38-b828-4841-a45f-0426487810f5",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+        "server": "opt-rc-soak-v2-0113ef3-full-C",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 6326,
+        "generation": 1
+      },
+      {
+        "x": 14037732,
+        "y": 64,
+        "z": 164,
+        "id": "b639030d-9fb3-4fe1-a548-2f5c8f1f771e",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 6246,
+        "generation": 1
+      },
+      {
+        "x": 14038244,
+        "y": 64,
+        "z": 164,
+        "id": "c23810b3-5139-4840-862c-cba3f6237c36",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 14191,
+        "generation": 1
+      },
+      {
+        "x": 14038308,
+        "y": 64,
+        "z": 164,
+        "id": "c358046c-b515-4585-be3b-f218cccbfe04",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 6922,
+        "generation": 1
+      },
+      {
+        "x": 14037348,
+        "y": 64,
+        "z": 164,
+        "id": "c53ae934-0b05-4a22-98bf-0bfe75b1258a",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 14170,
+        "generation": 1
+      },
+      {
+        "x": 14037412,
+        "y": 64,
+        "z": 164,
+        "id": "efdf5afb-6413-4a3f-84b6-b13f1500748f",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 14167,
+        "generation": 1
+      },
+      {
+        "x": 14037924,
+        "y": 64,
+        "z": 164,
+        "id": "fbe88d53-1f25-45b2-bf44-bf8e5a19f851",
+        "epoch": 2,
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf",
+        "dimension": "minecraft:overworld",
+        "checkpoint": 485,
+        "generation": 1
+      }
+    ],
+    "pool_rows": [
+      {
+        "kind": "cross_tesseract:fluid",
+        "amount": 0,
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "resource": "6ea81da9-2e3e-40af-8f47-6073ab565eed"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 0,
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "amount": 0,
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "resource": "7bee0d72-1cd2-4702-9565-bb879ef6d7d7"
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "amount": 0,
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "resource": "e0d83eab-f23e-4d1c-a85f-6da518799ffd"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 0,
+        "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+        "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 0,
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 0,
+        "channel": "a20c5510-b51d-464d-8cc9-889014510284",
+        "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 0,
+        "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b",
+        "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 0,
+        "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf",
+        "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+      }
+    ],
+    "persistent_grants": [],
+    "allocation_summary": [
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 3444,
+        "state": "CONSUMED",
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 3400,
+        "state": "CONSUMED",
+        "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 3297,
+        "state": "CONSUMED",
+        "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 3448,
+        "state": "CONSUMED",
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 121,
+        "state": "CONSUMED",
+        "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 121,
+        "state": "CONSUMED",
+        "channel": "a20c5510-b51d-464d-8cc9-889014510284",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 121,
+        "state": "CONSUMED",
+        "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b",
+        "remaining": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 60,
+        "state": "CONSUMED",
+        "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+        "remaining": 0
+      }
+    ]
+  },
+  "actual_SQL_clean_stop": true,
+  "cohort_SQL_remaining_zero": true,
+  "all_20_endpoint_identity_unchanged": true,
+  "offline_exact_failed_tuples": [
+    {
+      "id": "aeee29af-3cb2-444e-bf09-c1b102153287",
+      "channel_verified_by_failed_query_WHERE": "3da8925b-d619-4a10-9e08-93c52d344a19",
+      "actual_at_failure": {
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "x": 14038372,
+        "y": 64,
+        "z": 164,
+        "dimension": "minecraft:overworld",
+        "epoch": 2
+      },
+      "expected_by_as_run_observer": {
+        "server": "opt-rc-soak-v2-0113ef3-full-B",
+        "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "x": 14038372,
+        "y": 64,
+        "z": 164,
+        "dimension": "minecraft:overworld",
+        "epoch": 1
+      },
+      "differing_fields": [
+        "epoch"
+      ],
+      "correct_authoritative_server_epoch_at_boot": 2,
+      "correct_authoritative_server_session_at_boot": "01a14ae6-fff9-7079-b208-20f5b3e03008"
+    },
+    {
+      "id": "c23810b3-5139-4840-862c-cba3f6237c36",
+      "channel_verified_by_failed_query_WHERE": "3da8925b-d619-4a10-9e08-93c52d344a19",
+      "actual_at_failure": {
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "x": 14038244,
+        "y": 64,
+        "z": 164,
+        "dimension": "minecraft:overworld",
+        "epoch": 2
+      },
+      "expected_by_as_run_observer": {
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "x": 14038244,
+        "y": 64,
+        "z": 164,
+        "dimension": "minecraft:overworld",
+        "epoch": 1
+      },
+      "differing_fields": [
+        "epoch"
+      ],
+      "correct_authoritative_server_epoch_at_boot": 2,
+      "correct_authoritative_server_session_at_boot": "01a14ae7-086c-7c31-b624-c048f4a42570"
+    },
+    {
+      "id": "c358046c-b515-4585-be3b-f218cccbfe04",
+      "channel_verified_by_failed_query_WHERE": "3da8925b-d619-4a10-9e08-93c52d344a19",
+      "actual_at_failure": {
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "x": 14038308,
+        "y": 64,
+        "z": 164,
+        "dimension": "minecraft:overworld",
+        "epoch": 2
+      },
+      "expected_by_as_run_observer": {
+        "server": "opt-rc-soak-v2-0113ef3-full-A",
+        "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+        "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+        "state": "ACTIVE",
+        "x": 14038308,
+        "y": 64,
+        "z": 164,
+        "dimension": "minecraft:overworld",
+        "epoch": 1
+      },
+      "differing_fields": [
+        "epoch"
+      ],
+      "correct_authoritative_server_epoch_at_boot": 2,
+      "correct_authoritative_server_session_at_boot": "01a14ae7-086c-7c31-b624-c048f4a42570"
+    }
+  ],
+  "failure_scope": "All failed tuple fields match except last_epoch2 versus stale observer expected1. The boot SQL already records each new session/epoch2, while boot identity keeps old session/epoch1. guard_observer replaced dict values inside restart before the for-loop updated its detached identity reference. Observer-cache bug, not core fencing failure.",
+  "passed_poststop_audit": true
+}

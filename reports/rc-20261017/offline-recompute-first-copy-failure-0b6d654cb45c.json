@@ -1,0 +1,22 @@
+{
+  "kind": "offline_copy_harness_first_failure",
+  "passed": false,
+  "fixture": "scratch/rc-offline-report-only-0b6d654cb45c",
+  "initial_failure": "Harness asserted a result existed; it omitted two required frozen documents. Initial subprocess streams were not preserved. This subsequent same-input read-only reproduction captures the actual missing-file error.",
+  "reproduction_command": [
+    "python3",
+    "scripts/analysis/compare-rc-fe.py",
+    "--baseline",
+    "reports/optimization-rc-probe-rc-fe-v2-f3-20261017T115502Z-3649ba.json",
+    "--candidate",
+    "reports/optimization-rc-probe-rc-fe-v2-final-20261017T121103Z-325b7f.json",
+    "--baseline-controller",
+    "reports/rc-20261017/rc-fe-v2-f3-controller-20261017T115431Z-b399eefe.json",
+    "--candidate-controller",
+    "reports/rc-20261017/rc-fe-v2-final-controller-20261017T121031Z-b0a6bf0a.json"
+  ],
+  "reproduction_exit": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/CrossTesseract/scratch/rc-offline-report-only-0b6d654cb45c/scripts/analysis/compare-rc-fe.py\", line 217, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/workspace/CrossTesseract/scratch/rc-offline-report-only-0b6d654cb45c/scripts/analysis/compare-rc-fe.py\", line 128, in main\n    'targets': identity(ROOT / 'docs/RC_20261017_TARGETS.md'),\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/CrossTesseract/scratch/rc-offline-report-only-0b6d654cb45c/scripts/analysis/compare-rc-fe.py\", line 29, in identity\n    return {'path': str(path.relative_to(ROOT)), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}\n                                                                          ^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1019, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/CrossTesseract/scratch/rc-offline-report-only-0b6d654cb45c/docs/RC_20261017_TARGETS.md'\n",
+  "game_SQL_or_original_reports_touched": false
+}

@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-17T17:34:03.443870+00:00",
+  "kind": "failed_fallback_actual_closed_exit_proof",
+  "actual_unified_exec_session": 6678,
+  "actual_CLI_exit_code": 1,
+  "failed_report": {
+    "path": "reports/rc-20261017/normal-fallback-rc-0113-fb-7c4a9e2d-20261017T172628Z-8e133b5c.json",
+    "sha256": "28be3360fdb87e1de2b869312c489e64eea537a33da44262f6e32c9a1bde07e0"
+  },
+  "manual_owned_stop": {
+    "path": "reports/rc-20261017/normal-fallback-manual-owned-stop-20261017T173252Z-87402793.json",
+    "sha256": "821bd0ea1e8b0a40c812afca236a572de9d35e7014b05f8eada43d0727baa12e"
+  },
+  "actual_original_Popen_launcher_exits": {
+    "A": 0,
+    "B": 0,
+    "C": 0
+  },
+  "actual_log_capture": {
+    "A": {
+      "path": "scratch/rc-normal-fallback-rc-0113-fb-7c4a9e2d-8e133b5c0386/fast_initial-A.log",
+      "seen_bytes": 45946,
+      "retained_bytes": 45946,
+      "dropped_bytes": 0,
+      "capture_complete": true,
+      "capture_failure": null,
+      "sha256": "51a8aa468e9147e4a4092bdfcbc18e34fc537f65776bf25d8a49136a25344b18"
+    },
+    "B": {
+      "path": "scratch/rc-normal-fallback-rc-0113-fb-7c4a9e2d-8e133b5c0386/fast_initial-B.log",
+      "seen_bytes": 28842,
+      "retained_bytes": 28842,
+      "dropped_bytes": 0,
+      "capture_complete": true,
+      "capture_failure": null,
+      "sha256": "3057e5653ad10bba8b75272ecb5f63f4b94581a88d35311c9639bf5ae67ac7c6"
+    },
+    "C": {
+      "path": "scratch/rc-normal-fallback-rc-0113-fb-7c4a9e2d-8e133b5c0386/fast_initial-C.log",
+      "seen_bytes": 22360,
+      "retained_bytes": 22360,
+      "dropped_bytes": 0,
+      "capture_complete": true,
+      "capture_failure": null,
+      "sha256": "f18f01d3fece286c28bc7111f79c88bde455fb5299382897c3ae95132f0a02f7"
+    }
+  },
+  "remaining_native": [],
+  "remaining_observers": [],
+  "remaining_java_javac_jstat": [],
+  "all_four_launch_and_own_observer_locks_free": true,
+  "stages": [],
+  "config_switches": [],
+  "new_native_input": 0,
+  "scope": "Original controller retained Popen/log drainers during missing-proc-children failure, then observed actual0 exits after independent exact-owned normal stop. First failure is not promoted to a pass."
+}

@@ -1,0 +1,118 @@
+--- a/scripts/rc-normal-fallback.py
++++ b/scripts/rc-normal-fallback.py
+@@ -205,12 +205,32 @@
+     return None
+ 
+ 
+-def owned_tree(anchor):
++def proc_parent_index(proc_root):
++    """Bounded PPID metadata fallback for kernels without task/children support."""
++    result, seen = {}, 0
++    for proc in proc_root.iterdir():
++        if not proc.name.isdigit():
++            continue
++        seen += 1
++        if seen > 16384:
++            raise ValueError('PPID fallback scan exceeds process bound')
++        try:
++            raw = (proc / 'stat').read_text()
++            if len(raw) > 4096:
++                raise ValueError('PPID fallback stat exceeds bound')
++            fields = raw[raw.rfind(')') + 2:].split()
++            result.setdefault(int(fields[1]), []).append(int(proc.name))
++        except (FileNotFoundError, ProcessLookupError, PermissionError):
++            continue
++    return result
++
++
++def owned_tree(anchor, proc_root=Path('/proc')):
+     """Inspect only this launcher's bounded descendant tree, independently of globals."""
+     root = process_snapshot(anchor['pid'])
+     if root is None or root['start_ticks'] != anchor['start_ticks']:
+         return []
+-    queue, seen, result = [root], set(), []
++    queue, seen, result, parents = [root], set(), [], None
+     while queue:
+         candidate = queue.pop()
+         if candidate['pid'] in seen:
+@@ -219,14 +239,17 @@
+         if len(seen) > 64:
+             raise ValueError('Owned process tree exceeds bounds')
+         result.append(candidate)
+-        children = Path('/proc') / str(candidate['pid']) / 'task' / str(candidate['pid']) / 'children'
++        children = proc_root / str(candidate['pid']) / 'task' / str(candidate['pid']) / 'children'
+         try:
+             raw = children.read_text()
+-        except (FileNotFoundError, ProcessLookupError):
+-            continue
+-        if len(raw) > 4096 or len(raw.split()) > 64:
+-            raise ValueError('Owned process children exceed bounds')
+-        for pid in raw.split():
++            if len(raw) > 4096 or len(raw.split()) > 64:
++                raise ValueError('Owned process children exceed bounds')
++            selected = [int(pid) for pid in raw.split()]
++        except (FileNotFoundError, ProcessLookupError, PermissionError):
++            if parents is None:
++                parents = proc_parent_index(proc_root)
++            selected = parents.get(candidate['pid'], [])
++        for pid in selected:
+             child = process_snapshot(int(pid))
+             if child is not None:
+                 queue.append(child)
+@@ -419,7 +442,10 @@
+             self.guard_evidence(type(error).__name__ + ': ' + str(error), native, observers, locals().get('owned'))
+             raise
+         for server, proof in owned.items():
+-            self.identities[server] = dict(self.identities[server], pid=proof['pid'])
++            # restart holds these objects while RCON probes re-enter this guard.
++            # Keep the object so its subsequent fresh session/epoch update lands
++            # in the live map rather than a detached copy.
++            self.identities[server]['pid'] = proof['pid']
+         if not stopping and any(log.seen>MAX_LOG or log.failure for log in self.logs.values()):
+             self.guard_evidence('Owned output limit/capture failure', native, observers, owned)
+             raise ValueError('Owned native output exceeded the bounded retained prefix or capture failed')
+@@ -942,6 +968,44 @@
+                 dummy.guard_observer()
+             self.assertEqual(dummy.identities['A']['pid'], 100)
+             self.assertEqual(owned_native_proof(java, dummy.owners['A']['anchor'], expected)['ancestor_chain'][0]['start_ticks'], 200)
++
++        def test_reentrant_guard_keeps_live_identity_for_new_session_epoch_update(self):
++            dummy, _, java = self.own_fixture()
++            identity = dummy.identities['A']  # restart's active for-loop reference
++            scan = [{'pid': java['pid'], 'argv_sha256': java['argv_sha256'], 'cwd': java['cwd']}]
++            with patch.dict(globals(), {'processes': lambda: (scan, []),
++                    'process_snapshot': lambda _: java, 'referenced': lambda _: None}):
++                dummy.guard_observer()  # Re-entered by ct_test pid inside restart.
++                identity.update(session_id='fresh-boot-session', fencing_epoch=2)
++                self.assertIs(dummy.identities['A'], identity)
++                self.assertEqual(dummy.identities['A']['session_id'], 'fresh-boot-session')
++                self.assertEqual(dummy.identities['A']['fencing_epoch'], 2)
++                dummy.guard_observer()
++                self.assertIs(dummy.identities['A'], identity)
++                self.assertEqual((identity['pid'], identity['session_id'], identity['fencing_epoch']),
++                                 (100, 'fresh-boot-session', 2))
++
++        def test_missing_proc_children_falls_back_to_bounded_PPIDs_and_rechecks_ancestry(self):
++            dummy, expected, java = self.own_fixture()
++            parent = dict(java, argv=['bash', expected['launcher']], exe='/usr/bin/bash', cwd='/repo')
++            child = dict(java, pid=101, ppid=100, start_ticks=202)
++            foreign = dict(java, pid=300, ppid=1, start_ticks=250)
++            snapshots = {100: parent, 101: child, 300: foreign}
++            tree = owned_tree
++            with tempfile.TemporaryDirectory(prefix='rc-fallback-proc-offline-', dir=ROOT / 'scratch') as folder:
++                directory = Path(folder)
++                for pid, snapshot in snapshots.items():
++                    selected = directory / str(pid)
++                    selected.mkdir()
++                    (selected / 'stat').write_text(str(pid) + ' (synthetic) S ' + str(snapshot['ppid']) + '\n')
++                self.assertFalse((directory / '100/task/100/children').exists())
++                with patch.dict(globals(), {'process_snapshot': lambda pid: snapshots.get(pid)}):
++                    found = tree(dummy.owners['A']['anchor'], proc_root=directory)
++                    self.assertEqual({p['pid'] for p in found}, {100, 101})
++                    with patch.dict(globals(), {'owned_tree': lambda anchor: tree(anchor, proc_root=directory)}):
++                        proof = dummy.verified_stop_candidate('A')
++                self.assertEqual(proof['pid'], 101)
++                self.assertEqual([p['pid'] for p in proof['ancestor_chain']], [101, 100])
+ 
+         def test_same_arguments_without_own_ancestor_or_with_reused_PID_are_rejected(self):
+             dummy, expected, java = self.own_fixture()

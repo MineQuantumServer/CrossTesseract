@@ -1,0 +1,214 @@
+{
+  "generated_utc": "2026-10-17T17:24:57.213583+00:00",
+  "released": true,
+  "parent_actual_unified_exec_session": 65283,
+  "parent_actual_exit_code": 0,
+  "parent_actual_exit_evidence": "tools.write_stdin returned exit_code0 after controller completed; not inferred only from passed field",
+  "sequence": {
+    "path": "reports/rc-20261017/discovery-followup-0113ef3-20261017T155637Z-543147e1.json",
+    "sha256": "428abc7e7f6b8130149aa2f7abbc09f7d5070eae845cdf1e69f07e4fdbc05cd3"
+  },
+  "runtime_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+    "sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e"
+  },
+  "full_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565.json",
+    "sha256": "5d80977763ea2b334c4d2bea7d8424f2b3526eade736f58f33600756c39ff497"
+  },
+  "full_raw": {
+    "path": "scratch/rc-soak-rc-soak-v2-0113ef3-full-20261017T162057Z-242f149678/report.json",
+    "sha256": "39e96741e4e97b75c59adf47b57017ee4ae8870c36f1fd56798cbbdd9361c878"
+  },
+  "completion_original": {
+    "path": "scratch/rc-soak-rc-soak-v2-0113ef3-full-20261017T162057Z-242f149678/completion.json",
+    "sha256": "3851852d3f5d9e77b7be5d410bea78b9bd26edca7400e09501d10c61ad4c415b"
+  },
+  "completion_independent_byte_identical_public_archive": {
+    "path": "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565/completion.json",
+    "sha256": "3851852d3f5d9e77b7be5d410bea78b9bd26edca7400e09501d10c61ad4c415b"
+  },
+  "history": {
+    "path": "reports/rc-20261017/soak-history-post-stop-20261017T172344Z-a22e1d36.json",
+    "sha256": "585f32cb76e244f5176784cbbfce1bf2afe46843d6f26a96895c982f03ffc382"
+  },
+  "summary": [
+    {
+      "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.json",
+      "sha256": "b07b7de2eb4e9a4c009bee112c6d946c5901a0bc828736dba4189753158943e0"
+    },
+    {
+      "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.csv",
+      "sha256": "9dd8dc8de2c75a0c3d22457048b566bc0d5762f1d3d5dd31ef5f2b830a257648"
+    },
+    {
+      "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.md",
+      "sha256": "d973c165ed9ccb41e1dbea12f0eaf5f03e02c80a29c40d7cb0e9bd04eba25440"
+    }
+  ],
+  "all_stage_actual_exits": {
+    "freeze": 0,
+    "native_v2": 0,
+    "fe3": 0,
+    "resource_batch": 0,
+    "resource_fast": 0,
+    "smoke60": 0,
+    "full3600": 0,
+    "history_post_stop": 0,
+    "offline_summary": 0
+  },
+  "all_own_launcher_exits_by_stage": {
+    "fe3": {
+      "A": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+        "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f"
+      },
+      "B": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+        "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa"
+      },
+      "C": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+        "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7"
+      }
+    },
+    "resource_batch": {
+      "A": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+        "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f"
+      },
+      "B": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+        "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa"
+      },
+      "C": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+        "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7"
+      }
+    },
+    "resource_fast": {
+      "A": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+        "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f"
+      },
+      "B": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+        "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa"
+      },
+      "C": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+        "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7"
+      }
+    },
+    "smoke60": {
+      "A": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+        "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f"
+      },
+      "B": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+        "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa"
+      },
+      "C": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+        "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7"
+      }
+    },
+    "full3600": {
+      "A": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+        "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f"
+      },
+      "B": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+        "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa"
+      },
+      "C": {
+        "exit_code": 0,
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+        "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7"
+      }
+    }
+  },
+  "stopped_gate": {
+    "utc": "2026-10-17T17:24:57.210792+00:00",
+    "selected": [
+      "A",
+      "B",
+      "C",
+      "perf"
+    ],
+    "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+  },
+  "remaining_selected_controllers_or_observers": [],
+  "remaining_java_javac_jstat_PIDs": [],
+  "post_stop_config_raw_SHA_only_no_plaintext": [
+    {
+      "path": "run-A/cross-tesseract.properties",
+      "sha256": "85b8160cb70f9fa5c0d615e4dc08f674cea334d3db69dfe3139f7f8bbe720e2e"
+    },
+    {
+      "path": "run-A/server.properties",
+      "sha256": "1fa754c7bdd12ca2746e2682580193e3cbe2edec1619a8bc0b930850fcf1f4b6"
+    },
+    {
+      "path": "run-B/cross-tesseract.properties",
+      "sha256": "08d1b202cb985d4e8dc2b3b08d3c4e5b52eb54b9101238c52746cb47f4603aa4"
+    },
+    {
+      "path": "run-B/server.properties",
+      "sha256": "ad99467d7180e06456ce18f694e00a4b1403fa505effe046ddab33c56b8033e7"
+    },
+    {
+      "path": "run-C/cross-tesseract.properties",
+      "sha256": "587d5a17f27f571aa26cdd06c4f03d757ab2b2d17eb9fb6248f5f11738b8349b"
+    },
+    {
+      "path": "run-C/server.properties",
+      "sha256": "df59dd25a2f249f14c43e8879498a559912a3d8852d4b132f962a51e8eb2bf18"
+    }
+  ],
+  "source_after_stop": "cf17c9f512791416b2774ec16f90c65e2df5c654c63dc464ffe187040877bb26",
+  "source_qualification_all_true": true,
+  "full_key_gates": {
+    "passed": true,
+    "sixty_minute_gate": true,
+    "coverage_checks": {
+      "full_declared_observation_seconds": true,
+      "expected_monitor_samples_including_post_feed_terminal": true,
+      "monitor_scheduling_lateness_below_period": true,
+      "all_cold_probes_complete": true,
+      "all_planned_observation_cold_probes_attempted": true,
+      "no_cold_opportunity_lost": true,
+      "all_planned_holds_full_then_resumed": true,
+      "all_planned_component_batches_complete": true,
+      "two_stable_native_ITEM_payloads_at_least4KiB": true,
+      "multipart_large_chest_reply_observed": true,
+      "all_hot_and_mixed_FE_recipients_served": true,
+      "no_worker_error_rejection_quarantine": true,
+      "no_warmup_worker_error_rejection_quarantine": true,
+      "optional_full_window_probe_complete": true,
+      "final_conservation_and_zero_guard": true
+    }
+  },
+  "scope": [
+    "New0113/70a full cohort only. Historical f3/3647/full2 data and legitimate retained assets untouched.",
+    "Functional/provenance/hour completion does not erase frozen performance-gate failures.",
+    "Post-stop config SHA snapshot is separate evidence; absent raw config_file_end_sha256 remains UNMEASURED.",
+    "No private configuration bytes copied into public reports. All source/asset heavy analysis pauses after this RELEASE."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "execution": "OFFLINE_READ_ONLY_PREFLIGHT",
+  "utc": "2026-10-17T13:31:25.154400+00:00",
+  "source_proof": {
+    "native_result": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/result.json",
+      "sha256": "7e74f15160d35b7561ce9f1a246b11447e795ca3fbdab73ec5e0edd46628fd25",
+      "bytes": 1416
+    },
+    "native_log": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/native.log",
+      "sha256": "dd041212a81f7a1439117201369421dfd962be1478324daffe6ed2cbe2d66fa3",
+      "bytes": 649350
+    },
+    "native_marker": "CT_RC_GROUP_PASS endpoints=[5e600828-d988-45b8-b9e6-027bcbda4538, be817da3-e4e7-4335-8f53-572e86d036f2, 014dc2bd-d461-4903-aa93-a9decf1838e2, c70d8c84-7481-4c7d-8ad4-c6b133486e49] initial_native_input=384 actual_native_output=256 retained_TX=128 actual_groups=3+1 first_LOCAL=3 first_RESERVED=1 original_TX_ids_preserved=true",
+    "marker_endpoint_IDs": [
+      "5e600828-d988-45b8-b9e6-027bcbda4538",
+      "be817da3-e4e7-4335-8f53-572e86d036f2",
+      "014dc2bd-d461-4903-aa93-a9decf1838e2",
+      "c70d8c84-7481-4c7d-8ad4-c6b133486e49"
+    ],
+    "native_source_manifest_sha256": "998b3fc31ae9fd813f5f916a345240451d476283a9b05672b1bcc6c80cf89504",
+    "native_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+    "group_test_source": {
+      "path": "src/main/java/dev/crosstesseract/test/RcGroupGameTests.java",
+      "sha256": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "bytes": 13508
+    },
+    "original_world_id_file": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/game/world/cross_tesseract/world-id",
+      "sha256": "5b5ad49086776e1a3d90b92aadd3fafaa8e2dc16c1fc460bfa5928e66d0879e2",
+      "bytes": 36
+    },
+    "source_WAL_before": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/game/world/cross_tesseract/journal/5e600828-d988-45b8-b9e6-027bcbda4538.ctj",
+      "sha256": "f1de90732ded7dcf870abeeec42d7ab8e0fa3eef8fc842dd92acab7e1dda3db4",
+      "bytes": 2161
+    },
+    "source_WAL_after_preflight": {
+      "path": "scratch/rc-native/fault-4dc94971b6d8/game/world/cross_tesseract/journal/5e600828-d988-45b8-b9e6-027bcbda4538.ctj",
+      "sha256": "f1de90732ded7dcf870abeeec42d7ab8e0fa3eef8fc842dd92acab7e1dda3db4",
+      "bytes": 2161
+    },
+    "snapshot": {
+      "endpoint": "5e600828-d988-45b8-b9e6-027bcbda4538",
+      "world": "01a149a0-577a-7e16-9229-52352690a1ea",
+      "generation": 1,
+      "original_revision": 119,
+      "attempted_revision": 120,
+      "channel": "03633245-cf0e-45f9-8811-49fa998862eb",
+      "TX_FE": 32,
+      "deposit_count": 32,
+      "business_IDs": [
+        "01a149a0-7348-7547-b7a1-40246f6438d0",
+        "01a149a0-7348-71f5-b862-bcfe292c903b",
+        "01a149a0-7348-79d4-bb9a-6e4bce9b518f",
+        "01a149a0-7348-78d5-8e8a-a7988c16f186",
+        "01a149a0-7348-7894-b033-799c10d8ad90",
+        "01a149a0-7348-7a4f-b7f8-347b51597c73",
+        "01a149a0-7348-7b8c-9cfd-d08843a1384f",
+        "01a149a0-7348-722b-8bb3-1b3cef9b34da",
+        "01a149a0-7348-7f04-b981-b14722889549",
+        "01a149a0-7348-7732-89be-c66d4f9b6446",
+        "01a149a0-7348-7f75-acf7-ef473edbc3b2",
+        "01a149a0-7348-74e9-9e01-efa3ac9b53c1",
+        "01a149a0-7348-7e04-8726-c3fb75678c1e",
+        "01a149a0-7348-7447-b23a-3ba48aed4009",
+        "01a149a0-7348-7ebc-a41b-055774e8f82d",
+        "01a149a0-7348-7d98-b6ff-beaf95c8beca",
+        "01a149a0-7348-72b0-afde-5ad3abfa9ec6",
+        "01a149a0-7348-7e3d-9610-9d3ca3a22a97",
+        "01a149a0-7348-7415-b128-522ee3551315",
+        "01a149a0-7348-7d77-92b0-dd51c705ef4f",
+        "01a149a0-7348-77cc-a119-04cc46a45581",
+        "01a149a0-7348-7c20-a1c0-f1fa152540d1",
+        "01a149a0-7348-73f6-a27a-5cb4dd345456",
+        "01a149a0-7348-796e-b911-fe10c5ae9791",
+        "01a149a0-7348-7773-bf81-01d7cfa60950",
+        "01a149a0-7348-7d47-b87f-bf8f3878bbcc",
+        "01a149a0-7349-7ab0-82d8-e8e52c5258c6",
+        "01a149a0-7349-794a-9f43-9eceff7afeba",
+        "01a149a0-7349-7af8-9120-ba0cbc8699f7",
+        "01a149a0-7349-785b-ab2e-faca11e50aad",
+        "01a149a0-7349-7bbb-ac52-71431b67c5b9",
+        "01a149a0-7363-7424-a862-a2f25d33f736"
+      ],
+      "credit_tombstone_count": 0,
+      "positive_RX": 0,
+      "scope": "Current source WAL decode plus closed native assertions. No current SQL query or new asset is implied."
+    },
+    "native_lineage": "The SHA-bound native test proves384 actual FE input,256 actual native output, and four independently retained32FE TX sets with preserved IDs. The selected current WAL supplies its exact32 IDs; per-input business IDs were not separately logged at capability entry.",
+    "current_SQL_state": "UNMEASURED_NO_QUERY",
+    "source_mutations": false,
+    "copy_scope": "A later private copy has no database authorization and is never a second spendable asset, imported, replayed or refunded."
+  },
+  "recipe": {
+    "path": "scripts/rc_native_enospc_test.py",
+    "sha256": "e10dc00795d4d6a89518ac8b200d43edf27bafee75be49b600d8d301fa35ca8a",
+    "bytes": 24173
+  },
+  "proposed_java_probe": {
+    "path": "scripts/rc_native_enospc_probe.java",
+    "sha256": "03cbf3a8091941e81c93cb708998da55c8054c983613591d7800157ee6d09e66",
+    "bytes": 9660
+  },
+  "helpers": {
+    "scripts/rc_enospc_test.py": "b5d997d4612b6df7e28c7880da02ae14cd45e4e62f65f6ffd7812f949f4dcd90",
+    "scripts/optimization-restart-fallback-test.py": "61c0e399c3f8b2c0c0f6dba09def173374f13943cad343a8e54f2873aee4259c"
+  },
+  "Docker_JDK_SQL_native_ENOSPC": "NOT_RUN"
+}

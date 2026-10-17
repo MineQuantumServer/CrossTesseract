@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-17T18:05:35.495011+00:00",
+  "scope": "All six final offline tool suites after native release; synthetic control/decoder/attribution cases, no native/backend execution",
+  "results": [
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/test-rc-runtime-identity.py"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-closed-20261017T180534Z-670cabc7/0.log",
+      "sha256": "f8f7b0ac7f2b53ac4e96000f166430c488f2c37e059ad5502b09d60f29d363b8"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/test-rc-fe-identity.py"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-closed-20261017T180534Z-670cabc7/1.log",
+      "sha256": "e6ec182765cd965f2837d8eeaef5a64af48a104f245cd1a0b7281559194c57c1"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/test-rc-probe-file-readiness.py"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-closed-20261017T180534Z-670cabc7/2.log",
+      "sha256": "16ffca1d3a6486e8f09700f4e36e30f8f5fb003f94b7db9bfe0e207b68800885"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/rc-normal-fallback.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-closed-20261017T180534Z-670cabc7/3.log",
+      "sha256": "d1931342fcd031b1f51869037384fe31f06020a0c631a1f41504fcb1a3f83b6d"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/rc-native-matrix.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-closed-20261017T180534Z-670cabc7/4.log",
+      "sha256": "82277875c76ba4cfcd0699fabfc36b3163aadd5efd3582594cff800b920565d8"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/summarize-rc-mix.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-closed-20261017T180534Z-670cabc7/5.log",
+      "sha256": "d5fa3d82944353a76a5546798690357906877d4ce2802100e0f169f6f3601d5b"
+    }
+  ],
+  "passed": true
+}

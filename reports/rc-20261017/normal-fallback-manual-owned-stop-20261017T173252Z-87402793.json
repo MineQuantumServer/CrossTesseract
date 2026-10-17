@@ -1,0 +1,126 @@
+{
+  "kind": "independent_verified_owned_normal_stop_after_missing_proc_children",
+  "utc_start": "2026-10-17T17:32:52.713576+00:00",
+  "failed_running_report": "reports/rc-20261017/normal-fallback-rc-0113-fb-7c4a9e2d-20261017T172628Z-8e133b5c.json",
+  "failed_running_report_SHA_at_start": "76dd6862380b88ab212502295ddde6efd78ca23a29c3e2130473eb1d25d2438f",
+  "recipe_sha256": "4904d18d9c35c738a0af9372ea76ade2c7eb95aea7242f15140f5c3c3ffdb9b5",
+  "retained_controller": {
+    "pid": 540958,
+    "start_ticks": 2867600,
+    "argv_sha256": "3a21cc2efb3546c3a4adace9f2bf205a608143d5307e4f1fd920741af0799e40",
+    "cwd": "/workspace/CrossTesseract",
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12"
+  },
+  "reason": "Kernel lacks /proc/pid/task/pid/children. Original controller is the sole other observer and remains running with actual Popen/log readers. This cleanup verifies actual PPID ancestry independently.",
+  "new_input": 0,
+  "config_switches": 0,
+  "SQL_or_WAL_read_write": false,
+  "events": [
+    {
+      "server": "A",
+      "pid": 541044,
+      "command": "stop",
+      "utc": "2026-10-17T17:32:52.728483+00:00",
+      "outcome": "REPLY_OBSERVED",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "server": "B",
+      "pid": 541048,
+      "command": "stop",
+      "utc": "2026-10-17T17:32:52.733026+00:00",
+      "outcome": "REPLY_OBSERVED",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "server": "C",
+      "pid": 541069,
+      "command": "stop",
+      "utc": "2026-10-17T17:32:52.737744+00:00",
+      "outcome": "REPLY_OBSERVED",
+      "reply": "Stopping the server\n"
+    }
+  ],
+  "ownership": {
+    "A": {
+      "proof": {
+        "pid": 541044,
+        "argv_sha256": "57c84a424739cc438133eafa247fe559f734846a67fc1732d5ede4445707ebd6",
+        "cwd": "/workspace/CrossTesseract/run-A",
+        "exe": "/workspace/CrossTesseract/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "ancestor_chain": [
+          {
+            "pid": 541044,
+            "ppid": 541017,
+            "start_ticks": 2867711
+          },
+          {
+            "pid": 541017,
+            "ppid": 540958,
+            "start_ticks": 2867698
+          }
+        ],
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+        "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f",
+        "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/serverARunVmArgs.txt",
+        "vm_args_sha256": "fef09e95c1bbaab5997c2d160d6b90b57ff36dc8a19585f28d9419088960e4ae"
+      },
+      "RCON_PID_reply": "PID 541044\n",
+      "proc_children_absent": true
+    },
+    "B": {
+      "proof": {
+        "pid": 541048,
+        "argv_sha256": "fdf06713185c9206387e885dc97e0b6db8d64ebedcfad5320f6160c1850ec4f8",
+        "cwd": "/workspace/CrossTesseract/run-B",
+        "exe": "/workspace/CrossTesseract/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "ancestor_chain": [
+          {
+            "pid": 541048,
+            "ppid": 541019,
+            "start_ticks": 2867712
+          },
+          {
+            "pid": 541019,
+            "ppid": 540958,
+            "start_ticks": 2867698
+          }
+        ],
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+        "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa",
+        "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/serverBRunVmArgs.txt",
+        "vm_args_sha256": "38048ee5073434204029e943d40a6b415a97fee61ded9f4e1a35c679494befe4"
+      },
+      "RCON_PID_reply": "PID 541048\n",
+      "proc_children_absent": true
+    },
+    "C": {
+      "proof": {
+        "pid": 541069,
+        "argv_sha256": "98a4736be3c7c7410a51ad1cf69ecbde948b4e9d8453be45b11fbdffc3839afa",
+        "cwd": "/workspace/CrossTesseract/run-C",
+        "exe": "/workspace/CrossTesseract/scratch/jdk/jdk-21.0.8+9/bin/java",
+        "ancestor_chain": [
+          {
+            "pid": 541069,
+            "ppid": 541023,
+            "start_ticks": 2867713
+          },
+          {
+            "pid": 541023,
+            "ppid": 540958,
+            "start_ticks": 2867698
+          }
+        ],
+        "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+        "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7",
+        "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/serverCRunVmArgs.txt",
+        "vm_args_sha256": "bb5dd0529c733398477705f178fe85efca4c2d3a99a2cf8fa10f207e15379648"
+      },
+      "RCON_PID_reply": "PID 541069\n",
+      "proc_children_absent": true
+    }
+  },
+  "utc_end": "2026-10-17T17:32:52.741604+00:00",
+  "all_three_verified_stop_requested_once": true
+}

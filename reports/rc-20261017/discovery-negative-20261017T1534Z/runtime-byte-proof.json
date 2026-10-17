@@ -1,0 +1,21 @@
+{
+  "source_revision": "3647dede64cfc23e054dfa962fd127787cae14ec",
+  "runtime_source_sha256": "80b95fb787982bfc939eb1294750ab3790dc883f1ddee7c3ed907d13e1cd37c5",
+  "runtime_class_sha256": "172d4350cdff6084ece58b8130604d00bbe6ff59cef9df94315f27bd81e94907",
+  "jar_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+  "negative_fixture": "fault-a7cbf283ff7b",
+  "reproducer_JAR_sha256": "3924001f8c0e4bd0663359b86b343aed17281d4ba7d55fb7e2d93a8ecdea3b88",
+  "RuntimeService_class_byte_identical_to_1ae": true,
+  "native_input_FE": 288,
+  "actual_native_output_FE": 80,
+  "retained_channel_pool_FE": 128,
+  "retained_SQL_LOCAL_FE": 80,
+  "WAL_mirror_FE": 80,
+  "asset_total_FE": 208,
+  "valid_asset_total_excludes_WAL_mirror": true,
+  "original_business_IDs_preserved": true,
+  "native_exit": 0,
+  "negative_control_reproduced": true,
+  "candidate_functional_passed": false,
+  "scope": "New native test/registration only; old RuntimeService exact bytes. Eight seconds continuous native output, max gap101.776ms; old LOCAL remained positive. Retained independent asset, no replay/refund."
+}

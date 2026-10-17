@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "passed": true,
+  "state": "COMPLETE",
+  "utc_start": "2026-10-17T14:06:14.152949+00:00",
+  "controller": {
+    "path": "scripts/analysis/run-rc-v2-soak-retry-after-full2.py",
+    "sha256": "93d6f0250e5bf11879c6a6ac21c73591589d0001f3d2c9e13d4a4089971056af"
+  },
+  "continuation_of_failed_sequence": {
+    "path": "reports/rc-20261017/v2-remaining-sequence-20261017T121031Z-e1ace95d.json",
+    "sha256": "8dfcfb794514b0deeb3c6fd3a75d1551c6214aa0e87d7553a470c8bac416d44d"
+  },
+  "failed_second_continuation": {
+    "path": "reports/rc-20261017/v2-soak-continuation-20261017T124858Z-739a1a43.json",
+    "sha256": "1eb3016a5c3ab07992d4ef7de12051593584896284ff91a5b3f519c6b96bfe48"
+  },
+  "failed_full2_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-3647-full2-controller-20261017T125157Z-21551942.json",
+    "sha256": "8e049e67b0127794eda6c05d7d424a24923adc800d39b86eb1373845be044511"
+  },
+  "failed_full2_raw": {
+    "path": "scratch/rc-soak-rc-soak-v2-3647-full2-20261017T125230Z-ebbf4ef7fc/report.json",
+    "sha256": "65c60ca1b0f29bf656e72c25314622a5a2ce94850baadc1aa78c2bd76c4bea40"
+  },
+  "successful_smoke2_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-3647-smoke2-controller-20261017T124858Z-5b38b9ff.json",
+    "sha256": "2ee45731097f9a48948383810489b474f2275a3ac9f2e90acccafe4b0225f3cb"
+  },
+  "first_smoke_failure_audit": {
+    "path": "reports/rc-20261017/soak-first-smoke-failure-audit-20261017T1243Z.json",
+    "sha256": "1fc2e5e2ede8b6247ff9d945a944fa390ef9c2a65e4476e084e3ceb0ae5d8d2a"
+  },
+  "failed_first_smoke_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-3647-smoke-controller-20261017T124231Z-ce30b6b0.json",
+    "sha256": "49aa1c3843fb01e999cbb99651dc55af8fada9855786697f830ba9682ab801d6"
+  },
+  "full2_failure_asset_audit": {
+    "path": "reports/rc-20261017/full2-failure-assets-20261017T140222Z-0688ebfa.json",
+    "sha256": "65384913fb97a0702177a26dff20cc3104a44eeb299be0a554f80d37505a54d6"
+  },
+  "full2_export_late_read_audit": {
+    "path": "reports/rc-20261017/full2-probe-export-late-read-audit-20261017T1405Z.json",
+    "sha256": "72c925490c5dfb6c45514fd0a8e06706a61c9f871091cb7fc4c9e8fc0a9ab22c"
+  },
+  "prior_closed_children": {
+    "finalFE3": {
+      "path": "reports/rc-20261017/rc-fe-v2-final-controller-20261017T121031Z-b0a6bf0a.json",
+      "sha256": "5ec6d51d62a72da5b4a8e39ce89c0637dd5614c373ee8ea86666603556443ef8"
+    },
+    "f3Bmix": {
+      "path": "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+      "sha256": "f09c544ebdfba0b5ab2f464a0cac2b2b1a8ce2baac42d5e795127169ad9293f3"
+    },
+    "finalBmix": {
+      "path": "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+      "sha256": "3b018f964734b47cdc72405630eae8665baab6038fb5f296517f67350f918a77"
+    },
+    "finalFastMix": {
+      "path": "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+      "sha256": "af998599e30fc7f5243b43eed3965ac429b68e3b60a5d76a183d25b211fed97a"
+    },
+    "ablationDefault": {
+      "path": "reports/rc-20261017/rc-fe-v2-abl-default-controller-20261017T123415Z-6ffef180.json",
+      "sha256": "48bf3954a0de7ce7a9935709b9503e73d1f5c11f77a05d7244dc491ee0cef4e1"
+    },
+    "ablationNotification1000": {
+      "path": "reports/rc-20261017/rc-fe-v2-abl-notify-controller-20261017T123659Z-6a7e6761.json",
+      "sha256": "6c22bba00b4766379bfd1aa04cd4faaeb9265f20d3918b8d2928201519903bbf"
+    },
+    "ablationActive200": {
+      "path": "reports/rc-20261017/rc-fe-v2-abl-active-controller-20261017T123946Z-5c0d654d.json",
+      "sha256": "27d830c1c360cdb0f5237b40c5496f5c901db95a30eeee0d0464d936fefe11ab"
+    }
+  },
+  "f3_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+    "sha256": "4170d832c15a36933a4e458238b41f4073b5feb09e706f088f891ad5396345b6"
+  },
+  "final_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7"
+  },
+  "archived_observer_sources": [
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-v2-soak-retry-after-full2.py",
+        "sha256": "93d6f0250e5bf11879c6a6ac21c73591589d0001f3d2c9e13d4a4089971056af"
+      },
+      "archive": {
+        "path": "reports/raw/rc-probe-readiness-retry-sources-20261017T140614Z-c36d1f34/run-rc-v2-soak-retry-after-full2.py",
+        "sha256": "93d6f0250e5bf11879c6a6ac21c73591589d0001f3d2c9e13d4a4089971056af"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rc-probe-benchmark.py",
+        "sha256": "85d6319697f2e4a2892085a2b0f27c416b2da5d780a773b0cf16bfa7466232d4"
+      },
+      "archive": {
+        "path": "reports/raw/rc-probe-readiness-retry-sources-20261017T140614Z-c36d1f34/rc-probe-benchmark.py",
+        "sha256": "85d6319697f2e4a2892085a2b0f27c416b2da5d780a773b0cf16bfa7466232d4"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rc-soak.py",
+        "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+      },
+      "archive": {
+        "path": "reports/raw/rc-probe-readiness-retry-sources-20261017T140614Z-c36d1f34/rc-soak.py",
+        "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      },
+      "archive": {
+        "path": "reports/raw/rc-probe-readiness-retry-sources-20261017T140614Z-c36d1f34/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/test-rc-probe-file-readiness.py",
+        "sha256": "6a10d1beb7348c55cc9978ed896b5f2dbc03eecfde4af57443f4c5dbc8771343"
+      },
+      "archive": {
+        "path": "reports/raw/rc-probe-readiness-retry-sources-20261017T140614Z-c36d1f34/test-rc-probe-file-readiness.py",
+        "sha256": "6a10d1beb7348c55cc9978ed896b5f2dbc03eecfde4af57443f4c5dbc8771343"
+      }
+    }
+  ],
+  "failures": [],
+  "scope": "Fresh smoke3/full3, same frozen3647/v2 agent/input conditions. Only Python readiness reader changed. Old smoke1/full2 failed gates, worlds, IDs and retained assets remain unchanged. No replay, repair, refund or consumption of old assets.",
+  "runs": [
+    {
+      "name": "smoke60",
+      "state": "PASS",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--kind",
+        "smoke",
+        "--label",
+        "rc-soak-v2-3647-smoke3"
+      ],
+      "utc_start": "2026-10-17T14:06:14.162716+00:00",
+      "observer_start": 16662.343349675,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      },
+      "log": "logs/rc-v2-full2-retry-smoke60-20261017T140614Z-c36d1f34.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T14:09:22.103592+00:00",
+      "observer_end": 16850.284230428,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-3647-smoke3-controller-20261017T140614Z-54f4c9ce.json",
+          "sha256": "1d7486adeefa545093d6f095eed1c29bf56772ac6f405850cb21fec7bac2ddc2"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "scratch/rc-soak-rc-soak-v2-3647-smoke3-20261017T140651Z-d48918d480/report.json",
+          "sha256": "425bd4ee433574ebcbbc1109cea0c656ff342712cd6611db59d22cbd5ed21f7c"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-3647-smoke3-controller-20261017T140614Z-54f4c9ce.json",
+        "sha256": "1d7486adeefa545093d6f095eed1c29bf56772ac6f405850cb21fec7bac2ddc2"
+      }
+    },
+    {
+      "name": "full3600",
+      "state": "PASS",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--kind",
+        "full",
+        "--label",
+        "rc-soak-v2-3647-full3"
+      ],
+      "utc_start": "2026-10-17T14:09:22.104794+00:00",
+      "observer_start": 16850.285430444,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      },
+      "log": "logs/rc-v2-full2-retry-full3600-20261017T140614Z-c36d1f34.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T15:12:32.285169+00:00",
+      "observer_end": 20640.46581536,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+          "sha256": "7416932d888be3ece6571f2afffa744da24143bf6f3b1df017929248311dd25e"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "scratch/rc-soak-rc-soak-v2-3647-full3-20261017T140954Z-3939ceff22/report.json",
+          "sha256": "ecba2ef896e5041dcd690ee2393d0f4e576127d958d25c1bf76099236029ef19"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+        "sha256": "7416932d888be3ece6571f2afffa744da24143bf6f3b1df017929248311dd25e"
+      }
+    }
+  ],
+  "utc_end": "2026-10-17T15:12:32.286835+00:00"
+}

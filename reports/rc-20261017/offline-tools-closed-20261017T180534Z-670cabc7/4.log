@@ -1,0 +1,7 @@
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.017s
+
+OK
+{"mode": "OFFLINE", "native_Gradle_SQL_matrix": "NOT_RUN", "requires": "--execute --accept-eula after all A/B/C/Perf/GameTest JVMs stopped"}
+{"mode": "OFFLINE_SELF_TEST", "tests": 6, "failures": 0, "errors": 0, "native_Gradle_SQL_matrix": "NOT_RUN"}

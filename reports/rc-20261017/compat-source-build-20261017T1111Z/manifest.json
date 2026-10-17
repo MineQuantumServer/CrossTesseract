@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-17T11:10:54.915951+00:00",
+  "gregtech_commit": "c72dc16b52795cbb0456b6e15e13cc4a85c0ed1b",
+  "reference_source_modified": false,
+  "MUI_substitution": "3.3.1 built from 8ecb104d0c38b1eb9baab5c837624034db7ca873 instead of unavailable 3.3.1-jei19.57-preview1; not the original artifact",
+  "builds": [
+    {
+      "stage": "full-build",
+      "passed": false,
+      "log": "reports/rc-20261017/compat-source-build-20261017T1111Z/rc-gt-local-build-20261017T1108Z.log",
+      "sha256": "329abe880b61674eaae429fac0013d9d59985cc8186ab3ce2091a03b1b725b85"
+    },
+    {
+      "stage": "assemble",
+      "passed": true,
+      "log": "reports/rc-20261017/compat-source-build-20261017T1111Z/rc-gt-local-assemble-20261017T1105Z.log",
+      "sha256": "d5033f4473dba623ac67b2685f08214f45b37fbd2887943163939e9d6a1ce07b"
+    }
+  ],
+  "scope": "assemble creates the actual runtime; upstream spotless/full check NOT PASSED: shallow pinned checkout has no origin/1.21 ratchet ref. No upstream source was changed. Candidate native compatibility to be tested separately.",
+  "jar": {
+    "scratch/upstream/gregtech/build/libs/gtceu-1.21.1-8.0.0-sources.jar": {
+      "sha256": "d9b5385ec103ea8999372cd48319b7c20e9d67c3663e81f6010eb009753f33fb",
+      "bytes": 2775747
+    },
+    "scratch/upstream/gregtech/build/libs/gtceu-1.21.1-8.0.0.jar": {
+      "sha256": "49f435dd4c58f1593d41f7b8fec85f38801f8563e46319ebcb8e36127684008a",
+      "bytes": 16806832
+    }
+  }
+}

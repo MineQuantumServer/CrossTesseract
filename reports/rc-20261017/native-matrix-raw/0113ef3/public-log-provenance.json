@@ -1,0 +1,151 @@
+{
+  "matrix": "reports/rc-20261017/native-matrix-final-0113ef3-20261017T154321Z-c6d821fc61ba.json",
+  "matrix_sha256": "4b9e96b51a7dac38e1555d161874b39da95370a2163b94b14dd38d8b04a2345c",
+  "copies": [
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-base-049e056f3200/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/base/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-base-049e056f3200/native.log",
+        "bytes": 1953865,
+        "sha256": "825df0cc15d41dd5d5f50d53c9bb981c4f7ac0213e93942f96372fe8c0f29f48"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/base/native.log",
+      "sha256": "825df0cc15d41dd5d5f50d53c9bb981c4f7ac0213e93942f96372fe8c0f29f48"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-mekanism-f855be1ec540/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/mekanism/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-mekanism-f855be1ec540/native.log",
+        "bytes": 1839039,
+        "sha256": "c04c52ca06a0614b294368940f1eb4a9700c3563fc539e7cab714286558a4ab6"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/mekanism/native.log",
+      "sha256": "c04c52ca06a0614b294368940f1eb4a9700c3563fc539e7cab714286558a4ab6"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-b13684d72dd5/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-b13684d72dd5/native.log",
+        "bytes": 2024550,
+        "sha256": "03b4ce0536a76e99730b584353db1cbd28749de49c129b25177ea1d61bc94708"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2/native.log",
+      "sha256": "03b4ce0536a76e99730b584353db1cbd28749de49c129b25177ea1d61bc94708"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-mekanism-4cec2ea2b474/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2-mekanism/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-mekanism-4cec2ea2b474/native.log",
+        "bytes": 1750359,
+        "sha256": "e2bb96665879377ef24d0eed0be3b7eea5b8481d698b3901836f6019833bff33"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2-mekanism/native.log",
+      "sha256": "e2bb96665879377ef24d0eed0be3b7eea5b8481d698b3901836f6019833bff33"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-gregtech-ef0b35944fd1/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/gregtech/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-gregtech-ef0b35944fd1/native.log",
+        "bytes": 1634798,
+        "sha256": "4f6d9a57a7bda776b60517738590d4eefe68f3ad763064a6f5f717ecbf7ab4d4"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/gregtech/native.log",
+      "sha256": "4f6d9a57a7bda776b60517738590d4eefe68f3ad763064a6f5f717ecbf7ab4d4"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-gregtech-mekanism-7e1b0e04b4f7/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/gregtech-mekanism/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-gregtech-mekanism-7e1b0e04b4f7/native.log",
+        "bytes": 1448283,
+        "sha256": "5b32483f25ad47a38632c8311116cb444d1a0c05cf76c0517590ada2875278f2"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/gregtech-mekanism/native.log",
+      "sha256": "5b32483f25ad47a38632c8311116cb444d1a0c05cf76c0517590ada2875278f2"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-gregtech-0619d4648437/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2-gregtech/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-gregtech-0619d4648437/native.log",
+        "bytes": 1566650,
+        "sha256": "ab22368c81f885b5009e9746ad4fac82c0cc6c63d549eaacdc6767d40e837b28"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2-gregtech/native.log",
+      "sha256": "ab22368c81f885b5009e9746ad4fac82c0cc6c63d549eaacdc6767d40e837b28"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-gregtech-mekanism-ce48fd9e637b/build.log",
+        "bytes": 1158,
+        "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2-gregtech-mekanism/build.log",
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "original": {
+        "path": "scratch/rc-native/matrix-ae2-gregtech-mekanism-ce48fd9e637b/native.log",
+        "bytes": 1355420,
+        "sha256": "bc6473674a4799c1316d3edc93e416143240ffffbdd858fc9b961b261082d478"
+      },
+      "public_copy": "reports/rc-20261017/native-matrix-raw/0113ef3/ae2-gregtech-mekanism/native.log",
+      "sha256": "bc6473674a4799c1316d3edc93e416143240ffffbdd858fc9b961b261082d478"
+    }
+  ],
+  "scope": "byte-identical native/build logs only; no worlds, configs or upstream jars"
+}

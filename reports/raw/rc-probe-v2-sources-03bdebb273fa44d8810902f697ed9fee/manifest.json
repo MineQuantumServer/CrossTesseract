@@ -1,0 +1,73 @@
+{
+  "scope": "Actual v2 Java source bytes match the compiled native-PASS agent manifest. Other helpers are current pre-continuation source archives; f3 pre-exit-diagnostics controller separately archived. No performance outcome or future-stage PASS is asserted.",
+  "agent_manifest": "scratch/rc-probe/03bdebb273fa44d8810902f697ed9fee/manifest.json",
+  "agent_manifest_sha256": "87c9922de44226af78716191fd81f1e2ceb91f0e6f57c0fab3839d54e3641f23",
+  "files": [
+    {
+      "path": "scripts/rcprobe/ProbeAgent.java",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/rcprobe/ProbeAgent.java",
+      "sha256": "81cc57f8c4c8ef0f86d880d99991037995d96781241ae308bf6540f6ec1a4eb8",
+      "bytes": 9928
+    },
+    {
+      "path": "scripts/rcprobe/ProbeSelfTest.java",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/rcprobe/ProbeSelfTest.java",
+      "sha256": "3ae1254f1ee9e598de588dba348c484b11fc1c7a84e5b08822129340fd6e9a06",
+      "bytes": 16011
+    },
+    {
+      "path": "scripts/rcprobe/WindowStats.java",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/rcprobe/WindowStats.java",
+      "sha256": "c5997f82d92399b378e275c96485ca8ee4fa9763d2ed9fa45c8f6225051908f0",
+      "bytes": 24263
+    },
+    {
+      "path": "scripts/build-rc-probe.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/build-rc-probe.py",
+      "sha256": "9d4dea0d2dcbe8bbd137fffeb3731b593e94ba2cad092dd43895c99b29109f3d",
+      "bytes": 2401
+    },
+    {
+      "path": "scripts/rc-probe-benchmark.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/rc-probe-benchmark.py",
+      "sha256": "1acbf94fdb41cc630eaf67e6825f881a1fe14972216123b1de7e1eb90f0287a9",
+      "bytes": 14517
+    },
+    {
+      "path": "scripts/rc-probe-mix.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/rc-probe-mix.py",
+      "sha256": "91f05c98b38ff16eb7d421f41d1e827d1956335a0f0be5fe6aabedd564ddd07b",
+      "bytes": 19501
+    },
+    {
+      "path": "scripts/analysis/run-rc-v2-stage.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/analysis/run-rc-v2-stage.py",
+      "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d",
+      "bytes": 16606
+    },
+    {
+      "path": "scripts/analysis/run-rc-v2-soak.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/analysis/run-rc-v2-soak.py",
+      "sha256": "c93e5e7ca79eac8d548126f142e68796dbcf37dcfc60408a1de5db812641fb4c",
+      "bytes": 14069
+    },
+    {
+      "path": "scripts/analysis/run-rc-v2-remaining.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/analysis/run-rc-v2-remaining.py",
+      "sha256": "551c9d50ed39d0ae1809a03923c4d486d878a4464616b3243b04016f00d8045f",
+      "bytes": 5577
+    },
+    {
+      "path": "scripts/analysis/freeze-rc-v2-probe.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/analysis/freeze-rc-v2-probe.py",
+      "sha256": "d3f333648c52631fd92f2631059869c561acbc8a6d6f081f18bf08a83037becc",
+      "bytes": 7212
+    },
+    {
+      "path": "scripts/analysis/validate-rc-probe-v2.py",
+      "archive": "reports/raw/rc-probe-v2-sources-03bdebb273fa44d8810902f697ed9fee/scripts/analysis/validate-rc-probe-v2.py",
+      "sha256": "95277562fcb26665080624a00e875515b4906392f7f6132150ff21761bebc430",
+      "bytes": 6276
+    }
+  ]
+}

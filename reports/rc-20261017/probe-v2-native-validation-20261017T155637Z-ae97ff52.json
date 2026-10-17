@@ -1,0 +1,5187 @@
+{
+  "passed": true,
+  "utc_start": "2026-10-17T15:56:37.559073+00:00",
+  "manifest": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+  "manifest_sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e",
+  "commands": [
+    {
+      "command": "ct_test status",
+      "start": 23285.786879446,
+      "utc": "2026-10-17T15:56:37.606265+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23285.78798973
+    },
+    {
+      "command": "ct_test status",
+      "start": 23286.288702636,
+      "utc": "2026-10-17T15:56:38.108091+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23286.288925116
+    },
+    {
+      "command": "ct_test status",
+      "start": 23286.789504355,
+      "utc": "2026-10-17T15:56:38.608893+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23286.789762147
+    },
+    {
+      "command": "ct_test status",
+      "start": 23287.290829048,
+      "utc": "2026-10-17T15:56:39.110217+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23287.291070025
+    },
+    {
+      "command": "ct_test status",
+      "start": 23287.799459902,
+      "utc": "2026-10-17T15:56:39.618848+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23287.799680489
+    },
+    {
+      "command": "ct_test status",
+      "start": 23288.304063329,
+      "utc": "2026-10-17T15:56:40.123452+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23288.304306419
+    },
+    {
+      "command": "ct_test status",
+      "start": 23288.804889379,
+      "utc": "2026-10-17T15:56:40.624278+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23288.805228832
+    },
+    {
+      "command": "ct_test status",
+      "start": 23289.305925679,
+      "utc": "2026-10-17T15:56:41.125314+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23289.306164132
+    },
+    {
+      "command": "ct_test status",
+      "start": 23289.806795599,
+      "utc": "2026-10-17T15:56:41.626184+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23289.807064087
+    },
+    {
+      "command": "ct_test status",
+      "start": 23290.307813723,
+      "utc": "2026-10-17T15:56:42.127202+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23290.308164923
+    },
+    {
+      "command": "ct_test status",
+      "start": 23290.808865729,
+      "utc": "2026-10-17T15:56:42.628254+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23290.809174656
+    },
+    {
+      "command": "ct_test status",
+      "start": 23291.309817723,
+      "utc": "2026-10-17T15:56:43.129206+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23291.310036447
+    },
+    {
+      "command": "ct_test status",
+      "start": 23291.810716133,
+      "utc": "2026-10-17T15:56:43.630107+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23291.811972844
+    },
+    {
+      "command": "ct_test status",
+      "start": 23292.312630662,
+      "utc": "2026-10-17T15:56:44.132019+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23292.312853752
+    },
+    {
+      "command": "ct_test status",
+      "start": 23292.813682684,
+      "utc": "2026-10-17T15:56:44.633071+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23292.813904432
+    },
+    {
+      "command": "ct_test status",
+      "start": 23293.314583922,
+      "utc": "2026-10-17T15:56:45.133972+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23293.314820963
+    },
+    {
+      "command": "ct_test status",
+      "start": 23293.818650163,
+      "utc": "2026-10-17T15:56:45.638040+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23293.818983777
+    },
+    {
+      "command": "ct_test status",
+      "start": 23294.319797672,
+      "utc": "2026-10-17T15:56:46.139187+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23294.320242631
+    },
+    {
+      "command": "ct_test status",
+      "start": 23294.821225686,
+      "utc": "2026-10-17T15:56:46.640615+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23294.82171468
+    },
+    {
+      "command": "ct_test status",
+      "start": 23295.324469002,
+      "utc": "2026-10-17T15:56:47.143858+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23295.324800903
+    },
+    {
+      "command": "ct_test status",
+      "start": 23295.825741946,
+      "utc": "2026-10-17T15:56:47.645131+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23295.826037844
+    },
+    {
+      "command": "ct_test status",
+      "start": 23296.327050158,
+      "utc": "2026-10-17T15:56:48.146439+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23296.327390131
+    },
+    {
+      "command": "ct_test status",
+      "start": 23296.830553574,
+      "utc": "2026-10-17T15:56:48.649942+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23296.830789734
+    },
+    {
+      "command": "ct_test status",
+      "start": 23297.331495494,
+      "utc": "2026-10-17T15:56:49.150885+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23297.331796038
+    },
+    {
+      "command": "ct_test status",
+      "start": 23297.832691203,
+      "utc": "2026-10-17T15:56:49.652080+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 23297.832960762
+    },
+    {
+      "command": "ct_test status",
+      "start": 23298.333737536,
+      "utc": "2026-10-17T15:56:50.153127+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=1, tick_total_nanos=560039, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=4.7E-4, notify_ms_p95=0.027531, notify_ms_p99=0.027531, notify_ms_samples=2, completion_ms_p50=0.011568, completion_ms_p95=0.011568, completion_ms_p99=0.011568, completion_ms_samples=1, closing_ms_p50=8.81E-4, closing_ms_p95=8.81E-4, closing_ms_p99=8.81E-4, closing_ms_samples=1, tick_ms_p50=0.560039, tick_ms_p95=0.560039, tick_ms_p99=0.560039, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=10.960447, db_transaction_ms_p95=30.148704, db_transaction_ms_p99=30.148704, db_transaction_ms_samples=6, db_connection_wait_ms_p50=0.157343, db_connection_wait_ms_p95=270.701365, db_connection_wait_ms_p99=270.701365, db_connection_wait_ms_samples=7, db_transactions=6, db_transaction_attempts=6, db_statements=41, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=25.428857, mc_target_ticks_per_second=20.0}\n",
+      "end": 23299.000632274
+    },
+    {
+      "command": "forceload add 20160 20160",
+      "start": 23299.001282977,
+      "utc": "2026-10-17T15:56:50.820668+00:00",
+      "reply": "Marked chunk [1260, 1260] in Overworld to be force loaded\n",
+      "end": 23299.21677112
+    },
+    {
+      "command": "ct_test spawn 20160 20160 dceb40a4-ef05-4bfb-83fd-2e9c38ca57c1",
+      "start": 23299.217349897,
+      "utc": "2026-10-17T15:56:51.036736+00:00",
+      "reply": "SPAWN 91269df4-19c3-485d-b07e-ac991fb51c90\n",
+      "end": 23299.303859123
+    },
+    {
+      "command": "ct_test inspect 20160 20160",
+      "start": 23299.304770853,
+      "utc": "2026-10-17T15:56:51.124157+00:00",
+      "reply": "DEVICE 91269df4-19c3-485d-b07e-ac991fb51c90 registered=false pause=connecting channel=null txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=0\n",
+      "end": 23299.317072214
+    },
+    {
+      "command": "ct_test inspect 20160 20160",
+      "start": 23299.418617286,
+      "utc": "2026-10-17T15:56:51.238007+00:00",
+      "reply": "DEVICE 91269df4-19c3-485d-b07e-ac991fb51c90 registered=true pause= channel=null txFE=0 rxFE=0 txItem=0 rxItem=0 txFluid=0 rxFluid=0 checkpoint=0\n",
+      "end": 23299.461592861
+    },
+    {
+      "command": "data get block 20160 64 20160",
+      "start": 23299.549797778,
+      "utc": "2026-10-17T15:56:51.369184+00:00",
+      "reply": "20160, 64, 20160 has the following block data: {checkpoint: 0L, instance: [I; -1859740172, 432228445, -1333875559, 531963024], chunk_desired: 0b, whitelist: 0b, ports: {\"cross_tesseract:fluid\": {mode: \"OFF\", rate: 2000L, sides: 63}, \"cross_tesseract:fe\": {mode: \"OFF\", rate: 32000L, sides: 63}, \"cross_tesseract:item\": {mode: \"OFF\", rate: 64L, sides: 63}}, device_owner: [I; -588562268, -284865541, -2080559460, 952784833], eu_voltage: 32L, filter: \"\", eu_amperage: 1L, ae_enabled: 0b, x: 20160, ae_node: {}, y: 64, settings_version: 1L, z: 20160, id: \"cross_tesseract:tesseract\"}\n",
+      "end": 23299.558585338
+    },
+    {
+      "command": "stop",
+      "start": 23304.650467192,
+      "utc": "2026-10-17T15:56:56.469853+00:00",
+      "reply": "Stopping the server\n",
+      "end": 23304.653305904
+    }
+  ],
+  "failures": [],
+  "scope": "Fresh isolated perf world, one empty unbound BE, actual saveAdditional via vanilla data-get call. No FE/item/fluid input or consumption; not a world-save or performance sample.",
+  "source_before": {
+    "utc": "2026-10-17T15:56:37.575283+00:00",
+    "observer_start": 23285.751073787,
+    "observer_end": 23285.755909245,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "71243bc67600781b45d5bc36e45bdff6655c740a92b88263adf4ffcfd476abb6",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "a1cd988f988f103d2a66f01231d70062adfcdd18af56d3ed9112e628313a8969",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "12768529e2e6e8efe9de71e380270b2fa03d97ecca8bb4340ed83edaf9dddfbe",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcDiscoveryGameTests.java": "6c04611a51000a33c11b56a4e1e22559c6f5e48f050710bbb70d36635689436a",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "cf17c9f512791416b2774ec16f90c65e2df5c654c63dc464ffe187040877bb26",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "preparation": {
+    "command": [
+      "python3",
+      "scripts/configure-optimization.py",
+      "--servers",
+      "perf",
+      "--label",
+      "rc-v2-check-ae97ff52",
+      "--mode",
+      "fast"
+    ],
+    "exit": 0,
+    "stdout": "Prepared stopped development fixtures: perf mode=fast label=rc-v2-check-ae97ff52\nPrevious configs preserved at scratch/optimization/fixture-configs/20261017T155637601190Z\n",
+    "stderr": ""
+  },
+  "controller_launcher_PID": 381785,
+  "log": "logs/rc-probe-v2-native-ae97ff52c4f54226b207fdbfca1b5507.log",
+  "start": {
+    "perf": {
+      "source": {
+        "path": "reports/rc-20261017/probe-v2-final-20261017T155637Z-3aa01c5b-perf/778d6f1a-10c8-46b9-82df-4752bde7d8a7.start.json",
+        "sha256": "82b77c60d5ebe94f53e3a90e3cc4780b786f39e1cd6b2766008f0c9fc3a04f3b",
+        "bytes": 5097
+      },
+      "data": {
+        "token": "778d6f1a-10c8-46b9-82df-4752bde7d8a7",
+        "state": "ACTIVE",
+        "wall_start_ms": 1792252611334,
+        "nano_start": 23299514827204,
+        "transformed_classes": {
+          "dev/crosstesseract/backend/Authority": {
+            "original_class_sha256": "525f73807d88337dcc126a8d8844126042374e56c890199bece2ca6636f73036",
+            "methods": "channelBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/List;;publishBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/Map;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/backend/LocalJournal": {
+            "original_class_sha256": "5b28726d44f8535e5720ad99832955b3b7a4e08cf568e6e9ffbb9ba63005c816",
+            "methods": "write(Ldev/crosstesseract/core/LocalSnapshot;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/backend/Sql": {
+            "original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+            "methods": "transaction(Ldev/crosstesseract/backend/Sql$Work;)Ljava/lang/Object;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$EnergyPort": {
+            "original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+            "methods": "receiveEnergy(IZ)I;extractEnergy(IZ)I",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$FluidPort": {
+            "original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+            "methods": "fill(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)I;drain(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)Lnet/neoforged/neoforge/fluids/FluidStack;;drain(ILnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)Lnet/neoforged/neoforge/fluids/FluidStack;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$ItemPort": {
+            "original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+            "methods": "insertItem(ILnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;;extractItem(IIZ)Lnet/minecraft/world/item/ItemStack;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/TesseractBlockEntity": {
+            "original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+            "methods": "itemResource(Lnet/minecraft/world/item/ItemStack;)Ldev/crosstesseract/core/Resource;;fluidResource(Lnet/neoforged/neoforge/fluids/FluidStack;)Ldev/crosstesseract/core/Resource;;decodeItem(Ldev/crosstesseract/core/Resource;I)Lnet/minecraft/world/item/ItemStack;;decodeFluid(Ldev/crosstesseract/core/Resource;I)Lnet/neoforged/neoforge/fluids/FluidStack;;saveAdditional(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/core/LocalBuffer": {
+            "original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+            "methods": "credit(Ldev/crosstesseract/core/LocalSnapshot$Credit;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/runtime/RuntimeService": {
+            "original_class_sha256": "6bc612278155c74c3c4a40542886def195952e07c2cdd46d4a75d2ebcc9704f7",
+            "methods": "flushClosing(Ldev/crosstesseract/runtime/RuntimeService$Closing;)V;localChanged(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/lang/String;ZJ)V;wakeChannel(Ljava/util/UUID;Z)V;tick()V;exchangeLocal(Ldev/crosstesseract/block/TesseractBlockEntity;)V;capture(Ldev/crosstesseract/block/TesseractBlockEntity;)Ldev/crosstesseract/backend/TransferWork$Request;;preparePublication(Ldev/crosstesseract/runtime/ChannelCoordinator$Lease;Ljava/util/Map;Ljava/util/List;)V;finish(Ldev/crosstesseract/runtime/RuntimeService$Prepared;Ljava/lang/String;Z)V;processTicketWork(J)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/test/ThreeServerHarness": {
+            "original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+            "methods": "tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Post;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "net/minecraft/server/MinecraftServer": {
+            "original_class_sha256": "fd451d3afeb09f3736e88bb2510aa5aeca7e736f86e0982d40d72c2a03414947",
+            "methods": "tickServer(Ljava/util/function/BooleanSupplier;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/rc-v2-final-freeze-20261017T155637Z-3aa01c5b/dependencies/neoforge-21.1.252.jar%23137!/"
+          }
+        },
+        "transform_failures": {}
+      },
+      "observer_file_read_monotonic": 23299.548386338,
+      "observer_file_read_interval": {
+        "start": 23299.548280502,
+        "end": 23299.548386338
+      }
+    }
+  },
+  "fixed": {
+    "perf": {
+      "source": {
+        "path": "reports/rc-20261017/probe-v2-final-20261017T155637Z-3aa01c5b-perf/778d6f1a-10c8-46b9-82df-4752bde7d8a7.fixed.json",
+        "sha256": "696a39f3990df407ff400d0be888a030816679cfe4cbe3a6fa646a3b33ca8cbb",
+        "bytes": 18970
+      },
+      "data": {
+        "schema": 2,
+        "probe_revision": "v2_mod_roots",
+        "token": "778d6f1a-10c8-46b9-82df-4752bde7d8a7",
+        "scope": "Explicit test agent. All complete tickServer calls (normal or exceptional) in this window, including Neo Pre/Post; fixed bounded histograms, not rolling samples. Named nested method spans are inclusive/exclusive, not all summed. No game objects or file IO on server-thread probe callbacks.",
+        "clock": {
+          "nano_start": 23299514827204,
+          "wall_end_ms": 1792252616402,
+          "mapping_limit": "Same-host shared OS realtime anchors, 1ms quantization plus observed drift. Never subtract raw nanoTime from different JVMs.",
+          "wall_start_ms": 1792252611334,
+          "nano_end": 23304582762621
+        },
+        "window_closed": false,
+        "first_tick_start_ns": 23299515090714,
+        "last_tick_end_ns": 23304566000084,
+        "ticks": 102,
+        "elapsed_tick_starts_ns": 5049212608,
+        "actual_tps": 20.003118870450226,
+        "histogram_precision": "Upper bounds, <=3.125% width above32ns; count/sum/max exact; each window is bounded to180000 ticks.",
+        "spans": {
+          "server_tick": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 136425026,
+              "max_ns": 20945401,
+              "p50_ns_upper": 901119,
+              "p95_ns_upper": 2162687,
+              "p99_ns_upper": 7864319,
+              "histogram_upper_ns_count": [
+                [
+                  655359,
+                  1
+                ],
+                [
+                  671743,
+                  2
+                ],
+                [
+                  688127,
+                  6
+                ],
+                [
+                  704511,
+                  3
+                ],
+                [
+                  720895,
+                  2
+                ],
+                [
+                  737279,
+                  6
+                ],
+                [
+                  753663,
+                  2
+                ],
+                [
+                  770047,
+                  5
+                ],
+                [
+                  786431,
+                  1
+                ],
+                [
+                  802815,
+                  1
+                ],
+                [
+                  819199,
+                  5
+                ],
+                [
+                  835583,
+                  3
+                ],
+                [
+                  851967,
+                  3
+                ],
+                [
+                  868351,
+                  3
+                ],
+                [
+                  884735,
+                  7
+                ],
+                [
+                  901119,
+                  3
+                ],
+                [
+                  917503,
+                  1
+                ],
+                [
+                  933887,
+                  2
+                ],
+                [
+                  950271,
+                  1
+                ],
+                [
+                  966655,
+                  3
+                ],
+                [
+                  1015807,
+                  2
+                ],
+                [
+                  1032191,
+                  3
+                ],
+                [
+                  1048575,
+                  1
+                ],
+                [
+                  1081343,
+                  4
+                ],
+                [
+                  1114111,
+                  5
+                ],
+                [
+                  1146879,
+                  2
+                ],
+                [
+                  1212415,
+                  4
+                ],
+                [
+                  1245183,
+                  5
+                ],
+                [
+                  1310719,
+                  4
+                ],
+                [
+                  1474559,
+                  2
+                ],
+                [
+                  1507327,
+                  1
+                ],
+                [
+                  1572863,
+                  1
+                ],
+                [
+                  1835007,
+                  1
+                ],
+                [
+                  1998847,
+                  1
+                ],
+                [
+                  2162687,
+                  1
+                ],
+                [
+                  3473407,
+                  1
+                ],
+                [
+                  4456447,
+                  1
+                ],
+                [
+                  5898239,
+                  1
+                ],
+                [
+                  7864319,
+                  1
+                ],
+                [
+                  20971519,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 150203540,
+              "max_ns": 22129913,
+              "p50_ns_upper": 1032191,
+              "p95_ns_upper": 2228223,
+              "p99_ns_upper": 7995391,
+              "histogram_upper_ns_count": [
+                [
+                  770047,
+                  4
+                ],
+                [
+                  786431,
+                  3
+                ],
+                [
+                  802815,
+                  4
+                ],
+                [
+                  819199,
+                  2
+                ],
+                [
+                  835583,
+                  5
+                ],
+                [
+                  851967,
+                  3
+                ],
+                [
+                  868351,
+                  3
+                ],
+                [
+                  884735,
+                  1
+                ],
+                [
+                  901119,
+                  1
+                ],
+                [
+                  917503,
+                  2
+                ],
+                [
+                  933887,
+                  5
+                ],
+                [
+                  950271,
+                  4
+                ],
+                [
+                  966655,
+                  4
+                ],
+                [
+                  983039,
+                  4
+                ],
+                [
+                  999423,
+                  3
+                ],
+                [
+                  1032191,
+                  7
+                ],
+                [
+                  1048575,
+                  1
+                ],
+                [
+                  1081343,
+                  3
+                ],
+                [
+                  1114111,
+                  2
+                ],
+                [
+                  1146879,
+                  4
+                ],
+                [
+                  1179647,
+                  3
+                ],
+                [
+                  1212415,
+                  3
+                ],
+                [
+                  1245183,
+                  3
+                ],
+                [
+                  1310719,
+                  4
+                ],
+                [
+                  1343487,
+                  4
+                ],
+                [
+                  1376255,
+                  2
+                ],
+                [
+                  1409023,
+                  2
+                ],
+                [
+                  1441791,
+                  1
+                ],
+                [
+                  1474559,
+                  3
+                ],
+                [
+                  1605631,
+                  1
+                ],
+                [
+                  1638399,
+                  1
+                ],
+                [
+                  1703935,
+                  1
+                ],
+                [
+                  1998847,
+                  1
+                ],
+                [
+                  2097151,
+                  1
+                ],
+                [
+                  2162687,
+                  1
+                ],
+                [
+                  2228223,
+                  1
+                ],
+                [
+                  3604479,
+                  1
+                ],
+                [
+                  4587519,
+                  1
+                ],
+                [
+                  6029311,
+                  1
+                ],
+                [
+                  7995391,
+                  1
+                ],
+                [
+                  22544383,
+                  1
+                ]
+              ]
+            }
+          },
+          "runtime_tick": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 10903938,
+              "max_ns": 583664,
+              "p50_ns_upper": 92159,
+              "p95_ns_upper": 180223,
+              "p99_ns_upper": 278527,
+              "histogram_upper_ns_count": [
+                [
+                  67583,
+                  2
+                ],
+                [
+                  69631,
+                  2
+                ],
+                [
+                  71679,
+                  1
+                ],
+                [
+                  73727,
+                  1
+                ],
+                [
+                  75775,
+                  1
+                ],
+                [
+                  77823,
+                  5
+                ],
+                [
+                  79871,
+                  4
+                ],
+                [
+                  81919,
+                  9
+                ],
+                [
+                  83967,
+                  7
+                ],
+                [
+                  86015,
+                  6
+                ],
+                [
+                  88063,
+                  8
+                ],
+                [
+                  90111,
+                  4
+                ],
+                [
+                  92159,
+                  3
+                ],
+                [
+                  96255,
+                  5
+                ],
+                [
+                  98303,
+                  3
+                ],
+                [
+                  100351,
+                  1
+                ],
+                [
+                  102399,
+                  2
+                ],
+                [
+                  104447,
+                  4
+                ],
+                [
+                  106495,
+                  1
+                ],
+                [
+                  108543,
+                  3
+                ],
+                [
+                  110591,
+                  2
+                ],
+                [
+                  112639,
+                  1
+                ],
+                [
+                  114687,
+                  2
+                ],
+                [
+                  116735,
+                  4
+                ],
+                [
+                  118783,
+                  2
+                ],
+                [
+                  120831,
+                  1
+                ],
+                [
+                  124927,
+                  1
+                ],
+                [
+                  129023,
+                  1
+                ],
+                [
+                  131071,
+                  2
+                ],
+                [
+                  135167,
+                  2
+                ],
+                [
+                  139263,
+                  1
+                ],
+                [
+                  143359,
+                  1
+                ],
+                [
+                  147455,
+                  3
+                ],
+                [
+                  176127,
+                  1
+                ],
+                [
+                  180223,
+                  1
+                ],
+                [
+                  184319,
+                  2
+                ],
+                [
+                  221183,
+                  1
+                ],
+                [
+                  278527,
+                  1
+                ],
+                [
+                  589823,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 11325448,
+              "max_ns": 586859,
+              "p50_ns_upper": 96255,
+              "p95_ns_upper": 180223,
+              "p99_ns_upper": 286719,
+              "histogram_upper_ns_count": [
+                [
+                  73727,
+                  5
+                ],
+                [
+                  79871,
+                  4
+                ],
+                [
+                  81919,
+                  4
+                ],
+                [
+                  83967,
+                  6
+                ],
+                [
+                  86015,
+                  6
+                ],
+                [
+                  88063,
+                  8
+                ],
+                [
+                  90111,
+                  5
+                ],
+                [
+                  92159,
+                  7
+                ],
+                [
+                  94207,
+                  4
+                ],
+                [
+                  96255,
+                  2
+                ],
+                [
+                  98303,
+                  5
+                ],
+                [
+                  100351,
+                  2
+                ],
+                [
+                  102399,
+                  2
+                ],
+                [
+                  104447,
+                  1
+                ],
+                [
+                  106495,
+                  2
+                ],
+                [
+                  108543,
+                  5
+                ],
+                [
+                  110591,
+                  1
+                ],
+                [
+                  112639,
+                  4
+                ],
+                [
+                  114687,
+                  1
+                ],
+                [
+                  116735,
+                  2
+                ],
+                [
+                  118783,
+                  3
+                ],
+                [
+                  120831,
+                  1
+                ],
+                [
+                  122879,
+                  1
+                ],
+                [
+                  126975,
+                  3
+                ],
+                [
+                  129023,
+                  1
+                ],
+                [
+                  135167,
+                  3
+                ],
+                [
+                  139263,
+                  2
+                ],
+                [
+                  143359,
+                  1
+                ],
+                [
+                  147455,
+                  2
+                ],
+                [
+                  151551,
+                  2
+                ],
+                [
+                  180223,
+                  2
+                ],
+                [
+                  188415,
+                  1
+                ],
+                [
+                  192511,
+                  1
+                ],
+                [
+                  221183,
+                  1
+                ],
+                [
+                  286719,
+                  1
+                ],
+                [
+                  589823,
+                  1
+                ]
+              ]
+            }
+          },
+          "local_changed": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "notification_fanout": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "capture": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "prepare_publication": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "finish": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "neighbor_exchange": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "closing": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "tickets": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 421510,
+              "max_ns": 31526,
+              "p50_ns_upper": 2943,
+              "p95_ns_upper": 7423,
+              "p99_ns_upper": 17919,
+              "histogram_upper_ns_count": [
+                [
+                  1791,
+                  1
+                ],
+                [
+                  1855,
+                  1
+                ],
+                [
+                  1919,
+                  3
+                ],
+                [
+                  1983,
+                  1
+                ],
+                [
+                  2047,
+                  1
+                ],
+                [
+                  2111,
+                  1
+                ],
+                [
+                  2175,
+                  6
+                ],
+                [
+                  2239,
+                  2
+                ],
+                [
+                  2303,
+                  1
+                ],
+                [
+                  2367,
+                  1
+                ],
+                [
+                  2495,
+                  9
+                ],
+                [
+                  2559,
+                  4
+                ],
+                [
+                  2623,
+                  2
+                ],
+                [
+                  2687,
+                  7
+                ],
+                [
+                  2751,
+                  6
+                ],
+                [
+                  2815,
+                  2
+                ],
+                [
+                  2879,
+                  2
+                ],
+                [
+                  2943,
+                  4
+                ],
+                [
+                  3007,
+                  1
+                ],
+                [
+                  3071,
+                  2
+                ],
+                [
+                  3135,
+                  1
+                ],
+                [
+                  3199,
+                  3
+                ],
+                [
+                  3263,
+                  2
+                ],
+                [
+                  3391,
+                  1
+                ],
+                [
+                  3519,
+                  1
+                ],
+                [
+                  3583,
+                  2
+                ],
+                [
+                  3647,
+                  1
+                ],
+                [
+                  4351,
+                  1
+                ],
+                [
+                  4479,
+                  1
+                ],
+                [
+                  4607,
+                  2
+                ],
+                [
+                  4735,
+                  3
+                ],
+                [
+                  4863,
+                  1
+                ],
+                [
+                  4991,
+                  1
+                ],
+                [
+                  5119,
+                  3
+                ],
+                [
+                  5247,
+                  1
+                ],
+                [
+                  5375,
+                  1
+                ],
+                [
+                  5503,
+                  2
+                ],
+                [
+                  5631,
+                  1
+                ],
+                [
+                  5887,
+                  3
+                ],
+                [
+                  6015,
+                  1
+                ],
+                [
+                  6143,
+                  1
+                ],
+                [
+                  6271,
+                  2
+                ],
+                [
+                  6527,
+                  2
+                ],
+                [
+                  6783,
+                  1
+                ],
+                [
+                  7039,
+                  1
+                ],
+                [
+                  7423,
+                  1
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  12031,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  17919,
+                  1
+                ],
+                [
+                  31743,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 421510,
+              "max_ns": 31526,
+              "p50_ns_upper": 2943,
+              "p95_ns_upper": 7423,
+              "p99_ns_upper": 17919,
+              "histogram_upper_ns_count": [
+                [
+                  1791,
+                  1
+                ],
+                [
+                  1855,
+                  1
+                ],
+                [
+                  1919,
+                  3
+                ],
+                [
+                  1983,
+                  1
+                ],
+                [
+                  2047,
+                  1
+                ],
+                [
+                  2111,
+                  1
+                ],
+                [
+                  2175,
+                  6
+                ],
+                [
+                  2239,
+                  2
+                ],
+                [
+                  2303,
+                  1
+                ],
+                [
+                  2367,
+                  1
+                ],
+                [
+                  2495,
+                  9
+                ],
+                [
+                  2559,
+                  4
+                ],
+                [
+                  2623,
+                  2
+                ],
+                [
+                  2687,
+                  7
+                ],
+                [
+                  2751,
+                  6
+                ],
+                [
+                  2815,
+                  2
+                ],
+                [
+                  2879,
+                  2
+                ],
+                [
+                  2943,
+                  4
+                ],
+                [
+                  3007,
+                  1
+                ],
+                [
+                  3071,
+                  2
+                ],
+                [
+                  3135,
+                  1
+                ],
+                [
+                  3199,
+                  3
+                ],
+                [
+                  3263,
+                  2
+                ],
+                [
+                  3391,
+                  1
+                ],
+                [
+                  3519,
+                  1
+                ],
+                [
+                  3583,
+                  2
+                ],
+                [
+                  3647,
+                  1
+                ],
+                [
+                  4351,
+                  1
+                ],
+                [
+                  4479,
+                  1
+                ],
+                [
+                  4607,
+                  2
+                ],
+                [
+                  4735,
+                  3
+                ],
+                [
+                  4863,
+                  1
+                ],
+                [
+                  4991,
+                  1
+                ],
+                [
+                  5119,
+                  3
+                ],
+                [
+                  5247,
+                  1
+                ],
+                [
+                  5375,
+                  1
+                ],
+                [
+                  5503,
+                  2
+                ],
+                [
+                  5631,
+                  1
+                ],
+                [
+                  5887,
+                  3
+                ],
+                [
+                  6015,
+                  1
+                ],
+                [
+                  6143,
+                  1
+                ],
+                [
+                  6271,
+                  2
+                ],
+                [
+                  6527,
+                  2
+                ],
+                [
+                  6783,
+                  1
+                ],
+                [
+                  7039,
+                  1
+                ],
+                [
+                  7423,
+                  1
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  12031,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  17919,
+                  1
+                ],
+                [
+                  31743,
+                  1
+                ]
+              ]
+            }
+          },
+          "encode": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "decode": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "wal_write": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "channel_SQL": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "publish_SQL": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "SQL_transaction": {
+            "exclusive": {
+              "count": 8,
+              "sum_ns": 47551951,
+              "max_ns": 11279017,
+              "p50_ns_upper": 4718591,
+              "p95_ns_upper": 11279017,
+              "p99_ns_upper": 11279017,
+              "histogram_upper_ns_count": [
+                [
+                  2228223,
+                  1
+                ],
+                [
+                  2752511,
+                  1
+                ],
+                [
+                  4128767,
+                  1
+                ],
+                [
+                  4718591,
+                  1
+                ],
+                [
+                  5373951,
+                  1
+                ],
+                [
+                  7995391,
+                  1
+                ],
+                [
+                  9437183,
+                  1
+                ],
+                [
+                  11534335,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 8,
+              "sum_ns": 47551951,
+              "max_ns": 11279017,
+              "p50_ns_upper": 4718591,
+              "p95_ns_upper": 11279017,
+              "p99_ns_upper": 11279017,
+              "histogram_upper_ns_count": [
+                [
+                  2228223,
+                  1
+                ],
+                [
+                  2752511,
+                  1
+                ],
+                [
+                  4128767,
+                  1
+                ],
+                [
+                  4718591,
+                  1
+                ],
+                [
+                  5373951,
+                  1
+                ],
+                [
+                  7995391,
+                  1
+                ],
+                [
+                  9437183,
+                  1
+                ],
+                [
+                  11534335,
+                  1
+                ]
+              ]
+            }
+          },
+          "port": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "credit_apply": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "generator": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 1426357,
+              "max_ns": 78086,
+              "p50_ns_upper": 11263,
+              "p95_ns_upper": 36863,
+              "p99_ns_upper": 63487,
+              "histogram_upper_ns_count": [
+                [
+                  7295,
+                  1
+                ],
+                [
+                  8063,
+                  2
+                ],
+                [
+                  8191,
+                  3
+                ],
+                [
+                  8447,
+                  3
+                ],
+                [
+                  8703,
+                  3
+                ],
+                [
+                  8959,
+                  3
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  9471,
+                  5
+                ],
+                [
+                  9727,
+                  4
+                ],
+                [
+                  9983,
+                  5
+                ],
+                [
+                  10239,
+                  3
+                ],
+                [
+                  10495,
+                  2
+                ],
+                [
+                  10751,
+                  8
+                ],
+                [
+                  11007,
+                  4
+                ],
+                [
+                  11263,
+                  8
+                ],
+                [
+                  11519,
+                  6
+                ],
+                [
+                  11775,
+                  3
+                ],
+                [
+                  12031,
+                  4
+                ],
+                [
+                  12287,
+                  3
+                ],
+                [
+                  12543,
+                  2
+                ],
+                [
+                  12799,
+                  5
+                ],
+                [
+                  13055,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  13567,
+                  1
+                ],
+                [
+                  14335,
+                  1
+                ],
+                [
+                  14591,
+                  1
+                ],
+                [
+                  15103,
+                  4
+                ],
+                [
+                  15359,
+                  1
+                ],
+                [
+                  15615,
+                  1
+                ],
+                [
+                  16127,
+                  1
+                ],
+                [
+                  16895,
+                  2
+                ],
+                [
+                  17407,
+                  1
+                ],
+                [
+                  18943,
+                  1
+                ],
+                [
+                  26111,
+                  1
+                ],
+                [
+                  32255,
+                  1
+                ],
+                [
+                  36863,
+                  1
+                ],
+                [
+                  38911,
+                  2
+                ],
+                [
+                  57343,
+                  1
+                ],
+                [
+                  63487,
+                  1
+                ],
+                [
+                  79871,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 1426357,
+              "max_ns": 78086,
+              "p50_ns_upper": 11263,
+              "p95_ns_upper": 36863,
+              "p99_ns_upper": 63487,
+              "histogram_upper_ns_count": [
+                [
+                  7295,
+                  1
+                ],
+                [
+                  8063,
+                  2
+                ],
+                [
+                  8191,
+                  3
+                ],
+                [
+                  8447,
+                  3
+                ],
+                [
+                  8703,
+                  3
+                ],
+                [
+                  8959,
+                  3
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  9471,
+                  5
+                ],
+                [
+                  9727,
+                  4
+                ],
+                [
+                  9983,
+                  5
+                ],
+                [
+                  10239,
+                  3
+                ],
+                [
+                  10495,
+                  2
+                ],
+                [
+                  10751,
+                  8
+                ],
+                [
+                  11007,
+                  4
+                ],
+                [
+                  11263,
+                  8
+                ],
+                [
+                  11519,
+                  6
+                ],
+                [
+                  11775,
+                  3
+                ],
+                [
+                  12031,
+                  4
+                ],
+                [
+                  12287,
+                  3
+                ],
+                [
+                  12543,
+                  2
+                ],
+                [
+                  12799,
+                  5
+                ],
+                [
+                  13055,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  13567,
+                  1
+                ],
+                [
+                  14335,
+                  1
+                ],
+                [
+                  14591,
+                  1
+                ],
+                [
+                  15103,
+                  4
+                ],
+                [
+                  15359,
+                  1
+                ],
+                [
+                  15615,
+                  1
+                ],
+                [
+                  16127,
+                  1
+                ],
+                [
+                  16895,
+                  2
+                ],
+                [
+                  17407,
+                  1
+                ],
+                [
+                  18943,
+                  1
+                ],
+                [
+                  26111,
+                  1
+                ],
+                [
+                  32255,
+                  1
+                ],
+                [
+                  36863,
+                  1
+                ],
+                [
+                  38911,
+                  2
+                ],
+                [
+                  57343,
+                  1
+                ],
+                [
+                  63487,
+                  1
+                ],
+                [
+                  79871,
+                  1
+                ]
+              ]
+            }
+          },
+          "save_additional": {
+            "exclusive": {
+              "count": 2,
+              "sum_ns": 1104594,
+              "max_ns": 1026709,
+              "p50_ns_upper": 79871,
+              "p95_ns_upper": 1026709,
+              "p99_ns_upper": 1026709,
+              "histogram_upper_ns_count": [
+                [
+                  79871,
+                  1
+                ],
+                [
+                  1032191,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 2,
+              "sum_ns": 1104594,
+              "max_ns": 1026709,
+              "p50_ns_upper": 79871,
+              "p95_ns_upper": 1026709,
+              "p99_ns_upper": 1026709,
+              "histogram_upper_ns_count": [
+                [
+                  79871,
+                  1
+                ],
+                [
+                  1032191,
+                  1
+                ]
+              ]
+            }
+          },
+          "compat_changed": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "compat_port": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          }
+        },
+        "tick_intervals": {
+          "count": 101,
+          "sum_ns": 5049212608,
+          "max_ns": 57767705,
+          "p50_ns_upper": 50331647,
+          "p95_ns_upper": 50331647,
+          "p99_ns_upper": 51380223,
+          "histogram_upper_ns_count": [
+            [
+              42991615,
+              1
+            ],
+            [
+              49283071,
+              2
+            ],
+            [
+              50331647,
+              96
+            ],
+            [
+              51380223,
+              1
+            ],
+            [
+              58720255,
+              1
+            ]
+          ]
+        },
+        "mod_roots": {
+          "per_complete_tick": {
+            "count": 102,
+            "sum_ns": 12352157,
+            "max_ns": 1147918,
+            "p50_ns_upper": 96255,
+            "p95_ns_upper": 188415,
+            "p99_ns_upper": 589823,
+            "histogram_upper_ns_count": [
+              [
+                73727,
+                5
+              ],
+              [
+                79871,
+                4
+              ],
+              [
+                81919,
+                4
+              ],
+              [
+                83967,
+                6
+              ],
+              [
+                86015,
+                6
+              ],
+              [
+                88063,
+                8
+              ],
+              [
+                90111,
+                5
+              ],
+              [
+                92159,
+                7
+              ],
+              [
+                94207,
+                4
+              ],
+              [
+                96255,
+                2
+              ],
+              [
+                98303,
+                5
+              ],
+              [
+                100351,
+                2
+              ],
+              [
+                102399,
+                2
+              ],
+              [
+                104447,
+                1
+              ],
+              [
+                106495,
+                2
+              ],
+              [
+                108543,
+                5
+              ],
+              [
+                110591,
+                1
+              ],
+              [
+                112639,
+                4
+              ],
+              [
+                114687,
+                1
+              ],
+              [
+                116735,
+                2
+              ],
+              [
+                118783,
+                3
+              ],
+              [
+                120831,
+                1
+              ],
+              [
+                126975,
+                3
+              ],
+              [
+                129023,
+                1
+              ],
+              [
+                135167,
+                3
+              ],
+              [
+                139263,
+                2
+              ],
+              [
+                143359,
+                1
+              ],
+              [
+                147455,
+                2
+              ],
+              [
+                151551,
+                2
+              ],
+              [
+                180223,
+                2
+              ],
+              [
+                188415,
+                1
+              ],
+              [
+                192511,
+                1
+              ],
+              [
+                221183,
+                1
+              ],
+              [
+                286719,
+                1
+              ],
+              [
+                589823,
+                1
+              ],
+              [
+                1179647,
+                1
+              ]
+            ]
+          },
+          "outside_tick_main_thread_roots": {
+            "count": 1,
+            "sum_ns": 77885,
+            "max_ns": 77885,
+            "p50_ns_upper": 77885,
+            "p95_ns_upper": 77885,
+            "p99_ns_upper": 77885,
+            "histogram_upper_ns_count": [
+              [
+                79871,
+                1
+              ]
+            ]
+          },
+          "non_main_thread_roots": {
+            "count": 8,
+            "sum_ns": 47551951,
+            "max_ns": 11279017,
+            "p50_ns_upper": 4718591,
+            "p95_ns_upper": 11279017,
+            "p99_ns_upper": 11279017,
+            "histogram_upper_ns_count": [
+              [
+                2228223,
+                1
+              ],
+              [
+                2752511,
+                1
+              ],
+              [
+                4128767,
+                1
+              ],
+              [
+                4718591,
+                1
+              ],
+              [
+                5373951,
+                1
+              ],
+              [
+                7995391,
+                1
+              ],
+              [
+                9437183,
+                1
+              ],
+              [
+                11534335,
+                1
+              ]
+            ]
+          },
+          "root_calls_inside_ticks": 103,
+          "invalid_ticks": 0,
+          "main_thread_id": 51,
+          "main_thread_name": "Server thread",
+          "valid": true,
+          "included_sites": [
+            "sites1..17",
+            "save_additional",
+            "compat_changed",
+            "compat_port"
+          ],
+          "scope": "Per complete tickServer on that thread: union of outermost selected mod method intervals, including zero on idle ticks. Nested scopes counted once. Generator is not a mod root, but selected children are. Outside-tick main-thread and non-main-thread roots are separate per-call wall histograms, never assigned to a nearby tick. This is wall time, not CPU time or all mod work.",
+          "coverage_limits": "Explicit whitelist only. Includes actual TesseractBlockEntity.saveAdditional and selected compat.changed/AE insert-extract-inventory/GT energy mutation/Mek chemical-heat mutation entries. Uninstrumented GUI, other save/load hooks, other compat callbacks/getters, method prefixes/suffixes, and outside-tick work are excluded from the per-tick sum. Optional compat hooks with no actual calls remain unexercised; transformed_classes records actual loaded descriptors.",
+          "per_complete_logical_tick_cycle": {
+            "count": 101,
+            "sum_ns": 12303284,
+            "max_ns": 1225803,
+            "p50_ns_upper": 96255,
+            "p95_ns_upper": 188415,
+            "p99_ns_upper": 589823,
+            "histogram_upper_ns_count": [
+              [
+                73727,
+                5
+              ],
+              [
+                79871,
+                4
+              ],
+              [
+                81919,
+                4
+              ],
+              [
+                83967,
+                6
+              ],
+              [
+                86015,
+                6
+              ],
+              [
+                88063,
+                8
+              ],
+              [
+                90111,
+                5
+              ],
+              [
+                92159,
+                7
+              ],
+              [
+                94207,
+                4
+              ],
+              [
+                96255,
+                2
+              ],
+              [
+                98303,
+                5
+              ],
+              [
+                100351,
+                2
+              ],
+              [
+                102399,
+                2
+              ],
+              [
+                104447,
+                1
+              ],
+              [
+                106495,
+                2
+              ],
+              [
+                108543,
+                5
+              ],
+              [
+                110591,
+                1
+              ],
+              [
+                112639,
+                4
+              ],
+              [
+                114687,
+                1
+              ],
+              [
+                116735,
+                2
+              ],
+              [
+                118783,
+                3
+              ],
+              [
+                120831,
+                1
+              ],
+              [
+                126975,
+                2
+              ],
+              [
+                129023,
+                1
+              ],
+              [
+                135167,
+                3
+              ],
+              [
+                139263,
+                2
+              ],
+              [
+                143359,
+                1
+              ],
+              [
+                147455,
+                2
+              ],
+              [
+                151551,
+                2
+              ],
+              [
+                180223,
+                2
+              ],
+              [
+                188415,
+                1
+              ],
+              [
+                192511,
+                1
+              ],
+              [
+                221183,
+                1
+              ],
+              [
+                286719,
+                1
+              ],
+              [
+                589823,
+                1
+              ],
+              [
+                1245183,
+                1
+              ]
+            ]
+          },
+          "logical_tick_cycle_intervals": {
+            "count": 101,
+            "sum_ns": 5049212608,
+            "max_ns": 57767705,
+            "p50_ns_upper": 50331647,
+            "p95_ns_upper": 50331647,
+            "p99_ns_upper": 51380223,
+            "histogram_upper_ns_count": [
+              [
+                42991615,
+                1
+              ],
+              [
+                49283071,
+                2
+              ],
+              [
+                50331647,
+                96
+              ],
+              [
+                51380223,
+                1
+              ],
+              [
+                58720255,
+                1
+              ]
+            ]
+          },
+          "invalid_cycles": 0,
+          "logical_tick_cycle_scope": "Main-thread selected mod root union from one tickServer start to the next, including main-thread roots outside tickServer. Zero-work cycles count zero. A fixed live snapshot has one fewer completed cycle than completed tick frames; the current incomplete cycle is excluded. Stop seals at the next tick start, flushes the final complete cycle, and excludes that new tick frame; sealed cycles must equal tick frames. No raw cross-JVM clock subtraction and no claim of uninstrumented mod work or CPU time."
+        },
+        "item_events": [],
+        "trace_events_dropped": 0,
+        "trace_errors": 0,
+        "frame_depth_mismatches": 0,
+        "frame_overflow_calls": 0,
+        "limits": "Methods crossing window cutoffs/exceptional returns are not backend latency observations. Server/runtime samples include all completed instrumented calls; exceptional returns are separately counted. Calls crossing the cutoffs are excluded. Heap/GC/SQL asset counters are measured separately. Tracing copies identifiers/amounts only on the original calling thread.",
+        "checkpoint_name": "fixed",
+        "transformed_classes": {
+          "dev/crosstesseract/backend/Authority": {
+            "original_class_sha256": "525f73807d88337dcc126a8d8844126042374e56c890199bece2ca6636f73036",
+            "methods": "channelBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/List;;publishBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/Map;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/backend/LocalJournal": {
+            "original_class_sha256": "5b28726d44f8535e5720ad99832955b3b7a4e08cf568e6e9ffbb9ba63005c816",
+            "methods": "write(Ldev/crosstesseract/core/LocalSnapshot;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/backend/Sql": {
+            "original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+            "methods": "transaction(Ldev/crosstesseract/backend/Sql$Work;)Ljava/lang/Object;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$EnergyPort": {
+            "original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+            "methods": "receiveEnergy(IZ)I;extractEnergy(IZ)I",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$FluidPort": {
+            "original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+            "methods": "fill(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)I;drain(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)Lnet/neoforged/neoforge/fluids/FluidStack;;drain(ILnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)Lnet/neoforged/neoforge/fluids/FluidStack;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$ItemPort": {
+            "original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+            "methods": "insertItem(ILnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;;extractItem(IIZ)Lnet/minecraft/world/item/ItemStack;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/TesseractBlockEntity": {
+            "original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+            "methods": "itemResource(Lnet/minecraft/world/item/ItemStack;)Ldev/crosstesseract/core/Resource;;fluidResource(Lnet/neoforged/neoforge/fluids/FluidStack;)Ldev/crosstesseract/core/Resource;;decodeItem(Ldev/crosstesseract/core/Resource;I)Lnet/minecraft/world/item/ItemStack;;decodeFluid(Ldev/crosstesseract/core/Resource;I)Lnet/neoforged/neoforge/fluids/FluidStack;;saveAdditional(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/core/LocalBuffer": {
+            "original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+            "methods": "credit(Ldev/crosstesseract/core/LocalSnapshot$Credit;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/runtime/RuntimeService": {
+            "original_class_sha256": "6bc612278155c74c3c4a40542886def195952e07c2cdd46d4a75d2ebcc9704f7",
+            "methods": "flushClosing(Ldev/crosstesseract/runtime/RuntimeService$Closing;)V;localChanged(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/lang/String;ZJ)V;wakeChannel(Ljava/util/UUID;Z)V;tick()V;exchangeLocal(Ldev/crosstesseract/block/TesseractBlockEntity;)V;capture(Ldev/crosstesseract/block/TesseractBlockEntity;)Ldev/crosstesseract/backend/TransferWork$Request;;preparePublication(Ldev/crosstesseract/runtime/ChannelCoordinator$Lease;Ljava/util/Map;Ljava/util/List;)V;finish(Ldev/crosstesseract/runtime/RuntimeService$Prepared;Ljava/lang/String;Z)V;processTicketWork(J)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/test/ThreeServerHarness": {
+            "original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+            "methods": "tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Post;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "net/minecraft/server/MinecraftServer": {
+            "original_class_sha256": "fd451d3afeb09f3736e88bb2510aa5aeca7e736f86e0982d40d72c2a03414947",
+            "methods": "tickServer(Ljava/util/function/BooleanSupplier;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/rc-v2-final-freeze-20261017T155637Z-3aa01c5b/dependencies/neoforge-21.1.252.jar%23137!/"
+          }
+        },
+        "transform_failures": {}
+      },
+      "observer_file_read_monotonic": 23304.590568477,
+      "observer_file_read_interval": {
+        "start": 23304.59048928,
+        "end": 23304.590568477
+      }
+    }
+  },
+  "full": {
+    "perf": {
+      "source": {
+        "path": "reports/rc-20261017/probe-v2-final-20261017T155637Z-3aa01c5b-perf/778d6f1a-10c8-46b9-82df-4752bde7d8a7.json",
+        "sha256": "30fb1ca6871adb2eeeeb18ab38319726d4fd1ce958cb0911289042cb2f6ecebd",
+        "bytes": 18943
+      },
+      "data": {
+        "schema": 2,
+        "probe_revision": "v2_mod_roots",
+        "token": "778d6f1a-10c8-46b9-82df-4752bde7d8a7",
+        "scope": "Explicit test agent. All complete tickServer calls (normal or exceptional) in this window, including Neo Pre/Post; fixed bounded histograms, not rolling samples. Named nested method spans are inclusive/exclusive, not all summed. No game objects or file IO on server-thread probe callbacks.",
+        "clock": {
+          "nano_start": 23299514827204,
+          "wall_end_ms": 1792252616433,
+          "mapping_limit": "Same-host shared OS realtime anchors, 1ms quantization plus observed drift. Never subtract raw nanoTime from different JVMs.",
+          "wall_start_ms": 1792252611334,
+          "nano_end": 23304614277803
+        },
+        "window_closed": true,
+        "first_tick_start_ns": 23299515090714,
+        "last_tick_end_ns": 23304566000084,
+        "ticks": 102,
+        "elapsed_tick_starts_ns": 5049212608,
+        "actual_tps": 20.003118870450226,
+        "histogram_precision": "Upper bounds, <=3.125% width above32ns; count/sum/max exact; each window is bounded to180000 ticks.",
+        "spans": {
+          "server_tick": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 136425026,
+              "max_ns": 20945401,
+              "p50_ns_upper": 901119,
+              "p95_ns_upper": 2162687,
+              "p99_ns_upper": 7864319,
+              "histogram_upper_ns_count": [
+                [
+                  655359,
+                  1
+                ],
+                [
+                  671743,
+                  2
+                ],
+                [
+                  688127,
+                  6
+                ],
+                [
+                  704511,
+                  3
+                ],
+                [
+                  720895,
+                  2
+                ],
+                [
+                  737279,
+                  6
+                ],
+                [
+                  753663,
+                  2
+                ],
+                [
+                  770047,
+                  5
+                ],
+                [
+                  786431,
+                  1
+                ],
+                [
+                  802815,
+                  1
+                ],
+                [
+                  819199,
+                  5
+                ],
+                [
+                  835583,
+                  3
+                ],
+                [
+                  851967,
+                  3
+                ],
+                [
+                  868351,
+                  3
+                ],
+                [
+                  884735,
+                  7
+                ],
+                [
+                  901119,
+                  3
+                ],
+                [
+                  917503,
+                  1
+                ],
+                [
+                  933887,
+                  2
+                ],
+                [
+                  950271,
+                  1
+                ],
+                [
+                  966655,
+                  3
+                ],
+                [
+                  1015807,
+                  2
+                ],
+                [
+                  1032191,
+                  3
+                ],
+                [
+                  1048575,
+                  1
+                ],
+                [
+                  1081343,
+                  4
+                ],
+                [
+                  1114111,
+                  5
+                ],
+                [
+                  1146879,
+                  2
+                ],
+                [
+                  1212415,
+                  4
+                ],
+                [
+                  1245183,
+                  5
+                ],
+                [
+                  1310719,
+                  4
+                ],
+                [
+                  1474559,
+                  2
+                ],
+                [
+                  1507327,
+                  1
+                ],
+                [
+                  1572863,
+                  1
+                ],
+                [
+                  1835007,
+                  1
+                ],
+                [
+                  1998847,
+                  1
+                ],
+                [
+                  2162687,
+                  1
+                ],
+                [
+                  3473407,
+                  1
+                ],
+                [
+                  4456447,
+                  1
+                ],
+                [
+                  5898239,
+                  1
+                ],
+                [
+                  7864319,
+                  1
+                ],
+                [
+                  20971519,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 150203540,
+              "max_ns": 22129913,
+              "p50_ns_upper": 1032191,
+              "p95_ns_upper": 2228223,
+              "p99_ns_upper": 7995391,
+              "histogram_upper_ns_count": [
+                [
+                  770047,
+                  4
+                ],
+                [
+                  786431,
+                  3
+                ],
+                [
+                  802815,
+                  4
+                ],
+                [
+                  819199,
+                  2
+                ],
+                [
+                  835583,
+                  5
+                ],
+                [
+                  851967,
+                  3
+                ],
+                [
+                  868351,
+                  3
+                ],
+                [
+                  884735,
+                  1
+                ],
+                [
+                  901119,
+                  1
+                ],
+                [
+                  917503,
+                  2
+                ],
+                [
+                  933887,
+                  5
+                ],
+                [
+                  950271,
+                  4
+                ],
+                [
+                  966655,
+                  4
+                ],
+                [
+                  983039,
+                  4
+                ],
+                [
+                  999423,
+                  3
+                ],
+                [
+                  1032191,
+                  7
+                ],
+                [
+                  1048575,
+                  1
+                ],
+                [
+                  1081343,
+                  3
+                ],
+                [
+                  1114111,
+                  2
+                ],
+                [
+                  1146879,
+                  4
+                ],
+                [
+                  1179647,
+                  3
+                ],
+                [
+                  1212415,
+                  3
+                ],
+                [
+                  1245183,
+                  3
+                ],
+                [
+                  1310719,
+                  4
+                ],
+                [
+                  1343487,
+                  4
+                ],
+                [
+                  1376255,
+                  2
+                ],
+                [
+                  1409023,
+                  2
+                ],
+                [
+                  1441791,
+                  1
+                ],
+                [
+                  1474559,
+                  3
+                ],
+                [
+                  1605631,
+                  1
+                ],
+                [
+                  1638399,
+                  1
+                ],
+                [
+                  1703935,
+                  1
+                ],
+                [
+                  1998847,
+                  1
+                ],
+                [
+                  2097151,
+                  1
+                ],
+                [
+                  2162687,
+                  1
+                ],
+                [
+                  2228223,
+                  1
+                ],
+                [
+                  3604479,
+                  1
+                ],
+                [
+                  4587519,
+                  1
+                ],
+                [
+                  6029311,
+                  1
+                ],
+                [
+                  7995391,
+                  1
+                ],
+                [
+                  22544383,
+                  1
+                ]
+              ]
+            }
+          },
+          "runtime_tick": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 10903938,
+              "max_ns": 583664,
+              "p50_ns_upper": 92159,
+              "p95_ns_upper": 180223,
+              "p99_ns_upper": 278527,
+              "histogram_upper_ns_count": [
+                [
+                  67583,
+                  2
+                ],
+                [
+                  69631,
+                  2
+                ],
+                [
+                  71679,
+                  1
+                ],
+                [
+                  73727,
+                  1
+                ],
+                [
+                  75775,
+                  1
+                ],
+                [
+                  77823,
+                  5
+                ],
+                [
+                  79871,
+                  4
+                ],
+                [
+                  81919,
+                  9
+                ],
+                [
+                  83967,
+                  7
+                ],
+                [
+                  86015,
+                  6
+                ],
+                [
+                  88063,
+                  8
+                ],
+                [
+                  90111,
+                  4
+                ],
+                [
+                  92159,
+                  3
+                ],
+                [
+                  96255,
+                  5
+                ],
+                [
+                  98303,
+                  3
+                ],
+                [
+                  100351,
+                  1
+                ],
+                [
+                  102399,
+                  2
+                ],
+                [
+                  104447,
+                  4
+                ],
+                [
+                  106495,
+                  1
+                ],
+                [
+                  108543,
+                  3
+                ],
+                [
+                  110591,
+                  2
+                ],
+                [
+                  112639,
+                  1
+                ],
+                [
+                  114687,
+                  2
+                ],
+                [
+                  116735,
+                  4
+                ],
+                [
+                  118783,
+                  2
+                ],
+                [
+                  120831,
+                  1
+                ],
+                [
+                  124927,
+                  1
+                ],
+                [
+                  129023,
+                  1
+                ],
+                [
+                  131071,
+                  2
+                ],
+                [
+                  135167,
+                  2
+                ],
+                [
+                  139263,
+                  1
+                ],
+                [
+                  143359,
+                  1
+                ],
+                [
+                  147455,
+                  3
+                ],
+                [
+                  176127,
+                  1
+                ],
+                [
+                  180223,
+                  1
+                ],
+                [
+                  184319,
+                  2
+                ],
+                [
+                  221183,
+                  1
+                ],
+                [
+                  278527,
+                  1
+                ],
+                [
+                  589823,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 11325448,
+              "max_ns": 586859,
+              "p50_ns_upper": 96255,
+              "p95_ns_upper": 180223,
+              "p99_ns_upper": 286719,
+              "histogram_upper_ns_count": [
+                [
+                  73727,
+                  5
+                ],
+                [
+                  79871,
+                  4
+                ],
+                [
+                  81919,
+                  4
+                ],
+                [
+                  83967,
+                  6
+                ],
+                [
+                  86015,
+                  6
+                ],
+                [
+                  88063,
+                  8
+                ],
+                [
+                  90111,
+                  5
+                ],
+                [
+                  92159,
+                  7
+                ],
+                [
+                  94207,
+                  4
+                ],
+                [
+                  96255,
+                  2
+                ],
+                [
+                  98303,
+                  5
+                ],
+                [
+                  100351,
+                  2
+                ],
+                [
+                  102399,
+                  2
+                ],
+                [
+                  104447,
+                  1
+                ],
+                [
+                  106495,
+                  2
+                ],
+                [
+                  108543,
+                  5
+                ],
+                [
+                  110591,
+                  1
+                ],
+                [
+                  112639,
+                  4
+                ],
+                [
+                  114687,
+                  1
+                ],
+                [
+                  116735,
+                  2
+                ],
+                [
+                  118783,
+                  3
+                ],
+                [
+                  120831,
+                  1
+                ],
+                [
+                  122879,
+                  1
+                ],
+                [
+                  126975,
+                  3
+                ],
+                [
+                  129023,
+                  1
+                ],
+                [
+                  135167,
+                  3
+                ],
+                [
+                  139263,
+                  2
+                ],
+                [
+                  143359,
+                  1
+                ],
+                [
+                  147455,
+                  2
+                ],
+                [
+                  151551,
+                  2
+                ],
+                [
+                  180223,
+                  2
+                ],
+                [
+                  188415,
+                  1
+                ],
+                [
+                  192511,
+                  1
+                ],
+                [
+                  221183,
+                  1
+                ],
+                [
+                  286719,
+                  1
+                ],
+                [
+                  589823,
+                  1
+                ]
+              ]
+            }
+          },
+          "local_changed": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "notification_fanout": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "capture": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "prepare_publication": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "finish": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "neighbor_exchange": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "closing": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "tickets": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 421510,
+              "max_ns": 31526,
+              "p50_ns_upper": 2943,
+              "p95_ns_upper": 7423,
+              "p99_ns_upper": 17919,
+              "histogram_upper_ns_count": [
+                [
+                  1791,
+                  1
+                ],
+                [
+                  1855,
+                  1
+                ],
+                [
+                  1919,
+                  3
+                ],
+                [
+                  1983,
+                  1
+                ],
+                [
+                  2047,
+                  1
+                ],
+                [
+                  2111,
+                  1
+                ],
+                [
+                  2175,
+                  6
+                ],
+                [
+                  2239,
+                  2
+                ],
+                [
+                  2303,
+                  1
+                ],
+                [
+                  2367,
+                  1
+                ],
+                [
+                  2495,
+                  9
+                ],
+                [
+                  2559,
+                  4
+                ],
+                [
+                  2623,
+                  2
+                ],
+                [
+                  2687,
+                  7
+                ],
+                [
+                  2751,
+                  6
+                ],
+                [
+                  2815,
+                  2
+                ],
+                [
+                  2879,
+                  2
+                ],
+                [
+                  2943,
+                  4
+                ],
+                [
+                  3007,
+                  1
+                ],
+                [
+                  3071,
+                  2
+                ],
+                [
+                  3135,
+                  1
+                ],
+                [
+                  3199,
+                  3
+                ],
+                [
+                  3263,
+                  2
+                ],
+                [
+                  3391,
+                  1
+                ],
+                [
+                  3519,
+                  1
+                ],
+                [
+                  3583,
+                  2
+                ],
+                [
+                  3647,
+                  1
+                ],
+                [
+                  4351,
+                  1
+                ],
+                [
+                  4479,
+                  1
+                ],
+                [
+                  4607,
+                  2
+                ],
+                [
+                  4735,
+                  3
+                ],
+                [
+                  4863,
+                  1
+                ],
+                [
+                  4991,
+                  1
+                ],
+                [
+                  5119,
+                  3
+                ],
+                [
+                  5247,
+                  1
+                ],
+                [
+                  5375,
+                  1
+                ],
+                [
+                  5503,
+                  2
+                ],
+                [
+                  5631,
+                  1
+                ],
+                [
+                  5887,
+                  3
+                ],
+                [
+                  6015,
+                  1
+                ],
+                [
+                  6143,
+                  1
+                ],
+                [
+                  6271,
+                  2
+                ],
+                [
+                  6527,
+                  2
+                ],
+                [
+                  6783,
+                  1
+                ],
+                [
+                  7039,
+                  1
+                ],
+                [
+                  7423,
+                  1
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  12031,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  17919,
+                  1
+                ],
+                [
+                  31743,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 421510,
+              "max_ns": 31526,
+              "p50_ns_upper": 2943,
+              "p95_ns_upper": 7423,
+              "p99_ns_upper": 17919,
+              "histogram_upper_ns_count": [
+                [
+                  1791,
+                  1
+                ],
+                [
+                  1855,
+                  1
+                ],
+                [
+                  1919,
+                  3
+                ],
+                [
+                  1983,
+                  1
+                ],
+                [
+                  2047,
+                  1
+                ],
+                [
+                  2111,
+                  1
+                ],
+                [
+                  2175,
+                  6
+                ],
+                [
+                  2239,
+                  2
+                ],
+                [
+                  2303,
+                  1
+                ],
+                [
+                  2367,
+                  1
+                ],
+                [
+                  2495,
+                  9
+                ],
+                [
+                  2559,
+                  4
+                ],
+                [
+                  2623,
+                  2
+                ],
+                [
+                  2687,
+                  7
+                ],
+                [
+                  2751,
+                  6
+                ],
+                [
+                  2815,
+                  2
+                ],
+                [
+                  2879,
+                  2
+                ],
+                [
+                  2943,
+                  4
+                ],
+                [
+                  3007,
+                  1
+                ],
+                [
+                  3071,
+                  2
+                ],
+                [
+                  3135,
+                  1
+                ],
+                [
+                  3199,
+                  3
+                ],
+                [
+                  3263,
+                  2
+                ],
+                [
+                  3391,
+                  1
+                ],
+                [
+                  3519,
+                  1
+                ],
+                [
+                  3583,
+                  2
+                ],
+                [
+                  3647,
+                  1
+                ],
+                [
+                  4351,
+                  1
+                ],
+                [
+                  4479,
+                  1
+                ],
+                [
+                  4607,
+                  2
+                ],
+                [
+                  4735,
+                  3
+                ],
+                [
+                  4863,
+                  1
+                ],
+                [
+                  4991,
+                  1
+                ],
+                [
+                  5119,
+                  3
+                ],
+                [
+                  5247,
+                  1
+                ],
+                [
+                  5375,
+                  1
+                ],
+                [
+                  5503,
+                  2
+                ],
+                [
+                  5631,
+                  1
+                ],
+                [
+                  5887,
+                  3
+                ],
+                [
+                  6015,
+                  1
+                ],
+                [
+                  6143,
+                  1
+                ],
+                [
+                  6271,
+                  2
+                ],
+                [
+                  6527,
+                  2
+                ],
+                [
+                  6783,
+                  1
+                ],
+                [
+                  7039,
+                  1
+                ],
+                [
+                  7423,
+                  1
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  12031,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  17919,
+                  1
+                ],
+                [
+                  31743,
+                  1
+                ]
+              ]
+            }
+          },
+          "encode": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "decode": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "wal_write": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "channel_SQL": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "publish_SQL": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "SQL_transaction": {
+            "exclusive": {
+              "count": 8,
+              "sum_ns": 47551951,
+              "max_ns": 11279017,
+              "p50_ns_upper": 4718591,
+              "p95_ns_upper": 11279017,
+              "p99_ns_upper": 11279017,
+              "histogram_upper_ns_count": [
+                [
+                  2228223,
+                  1
+                ],
+                [
+                  2752511,
+                  1
+                ],
+                [
+                  4128767,
+                  1
+                ],
+                [
+                  4718591,
+                  1
+                ],
+                [
+                  5373951,
+                  1
+                ],
+                [
+                  7995391,
+                  1
+                ],
+                [
+                  9437183,
+                  1
+                ],
+                [
+                  11534335,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 8,
+              "sum_ns": 47551951,
+              "max_ns": 11279017,
+              "p50_ns_upper": 4718591,
+              "p95_ns_upper": 11279017,
+              "p99_ns_upper": 11279017,
+              "histogram_upper_ns_count": [
+                [
+                  2228223,
+                  1
+                ],
+                [
+                  2752511,
+                  1
+                ],
+                [
+                  4128767,
+                  1
+                ],
+                [
+                  4718591,
+                  1
+                ],
+                [
+                  5373951,
+                  1
+                ],
+                [
+                  7995391,
+                  1
+                ],
+                [
+                  9437183,
+                  1
+                ],
+                [
+                  11534335,
+                  1
+                ]
+              ]
+            }
+          },
+          "port": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "credit_apply": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "generator": {
+            "exclusive": {
+              "count": 102,
+              "sum_ns": 1426357,
+              "max_ns": 78086,
+              "p50_ns_upper": 11263,
+              "p95_ns_upper": 36863,
+              "p99_ns_upper": 63487,
+              "histogram_upper_ns_count": [
+                [
+                  7295,
+                  1
+                ],
+                [
+                  8063,
+                  2
+                ],
+                [
+                  8191,
+                  3
+                ],
+                [
+                  8447,
+                  3
+                ],
+                [
+                  8703,
+                  3
+                ],
+                [
+                  8959,
+                  3
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  9471,
+                  5
+                ],
+                [
+                  9727,
+                  4
+                ],
+                [
+                  9983,
+                  5
+                ],
+                [
+                  10239,
+                  3
+                ],
+                [
+                  10495,
+                  2
+                ],
+                [
+                  10751,
+                  8
+                ],
+                [
+                  11007,
+                  4
+                ],
+                [
+                  11263,
+                  8
+                ],
+                [
+                  11519,
+                  6
+                ],
+                [
+                  11775,
+                  3
+                ],
+                [
+                  12031,
+                  4
+                ],
+                [
+                  12287,
+                  3
+                ],
+                [
+                  12543,
+                  2
+                ],
+                [
+                  12799,
+                  5
+                ],
+                [
+                  13055,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  13567,
+                  1
+                ],
+                [
+                  14335,
+                  1
+                ],
+                [
+                  14591,
+                  1
+                ],
+                [
+                  15103,
+                  4
+                ],
+                [
+                  15359,
+                  1
+                ],
+                [
+                  15615,
+                  1
+                ],
+                [
+                  16127,
+                  1
+                ],
+                [
+                  16895,
+                  2
+                ],
+                [
+                  17407,
+                  1
+                ],
+                [
+                  18943,
+                  1
+                ],
+                [
+                  26111,
+                  1
+                ],
+                [
+                  32255,
+                  1
+                ],
+                [
+                  36863,
+                  1
+                ],
+                [
+                  38911,
+                  2
+                ],
+                [
+                  57343,
+                  1
+                ],
+                [
+                  63487,
+                  1
+                ],
+                [
+                  79871,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 102,
+              "sum_ns": 1426357,
+              "max_ns": 78086,
+              "p50_ns_upper": 11263,
+              "p95_ns_upper": 36863,
+              "p99_ns_upper": 63487,
+              "histogram_upper_ns_count": [
+                [
+                  7295,
+                  1
+                ],
+                [
+                  8063,
+                  2
+                ],
+                [
+                  8191,
+                  3
+                ],
+                [
+                  8447,
+                  3
+                ],
+                [
+                  8703,
+                  3
+                ],
+                [
+                  8959,
+                  3
+                ],
+                [
+                  9215,
+                  1
+                ],
+                [
+                  9471,
+                  5
+                ],
+                [
+                  9727,
+                  4
+                ],
+                [
+                  9983,
+                  5
+                ],
+                [
+                  10239,
+                  3
+                ],
+                [
+                  10495,
+                  2
+                ],
+                [
+                  10751,
+                  8
+                ],
+                [
+                  11007,
+                  4
+                ],
+                [
+                  11263,
+                  8
+                ],
+                [
+                  11519,
+                  6
+                ],
+                [
+                  11775,
+                  3
+                ],
+                [
+                  12031,
+                  4
+                ],
+                [
+                  12287,
+                  3
+                ],
+                [
+                  12543,
+                  2
+                ],
+                [
+                  12799,
+                  5
+                ],
+                [
+                  13055,
+                  1
+                ],
+                [
+                  13311,
+                  1
+                ],
+                [
+                  13567,
+                  1
+                ],
+                [
+                  14335,
+                  1
+                ],
+                [
+                  14591,
+                  1
+                ],
+                [
+                  15103,
+                  4
+                ],
+                [
+                  15359,
+                  1
+                ],
+                [
+                  15615,
+                  1
+                ],
+                [
+                  16127,
+                  1
+                ],
+                [
+                  16895,
+                  2
+                ],
+                [
+                  17407,
+                  1
+                ],
+                [
+                  18943,
+                  1
+                ],
+                [
+                  26111,
+                  1
+                ],
+                [
+                  32255,
+                  1
+                ],
+                [
+                  36863,
+                  1
+                ],
+                [
+                  38911,
+                  2
+                ],
+                [
+                  57343,
+                  1
+                ],
+                [
+                  63487,
+                  1
+                ],
+                [
+                  79871,
+                  1
+                ]
+              ]
+            }
+          },
+          "save_additional": {
+            "exclusive": {
+              "count": 2,
+              "sum_ns": 1104594,
+              "max_ns": 1026709,
+              "p50_ns_upper": 79871,
+              "p95_ns_upper": 1026709,
+              "p99_ns_upper": 1026709,
+              "histogram_upper_ns_count": [
+                [
+                  79871,
+                  1
+                ],
+                [
+                  1032191,
+                  1
+                ]
+              ]
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 2,
+              "sum_ns": 1104594,
+              "max_ns": 1026709,
+              "p50_ns_upper": 79871,
+              "p95_ns_upper": 1026709,
+              "p99_ns_upper": 1026709,
+              "histogram_upper_ns_count": [
+                [
+                  79871,
+                  1
+                ],
+                [
+                  1032191,
+                  1
+                ]
+              ]
+            }
+          },
+          "compat_changed": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          },
+          "compat_port": {
+            "exclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            },
+            "exceptional_returns": 0,
+            "inclusive": {
+              "count": 0,
+              "sum_ns": 0,
+              "max_ns": 0,
+              "histogram_upper_ns_count": []
+            }
+          }
+        },
+        "tick_intervals": {
+          "count": 101,
+          "sum_ns": 5049212608,
+          "max_ns": 57767705,
+          "p50_ns_upper": 50331647,
+          "p95_ns_upper": 50331647,
+          "p99_ns_upper": 51380223,
+          "histogram_upper_ns_count": [
+            [
+              42991615,
+              1
+            ],
+            [
+              49283071,
+              2
+            ],
+            [
+              50331647,
+              96
+            ],
+            [
+              51380223,
+              1
+            ],
+            [
+              58720255,
+              1
+            ]
+          ]
+        },
+        "mod_roots": {
+          "per_complete_tick": {
+            "count": 102,
+            "sum_ns": 12352157,
+            "max_ns": 1147918,
+            "p50_ns_upper": 96255,
+            "p95_ns_upper": 188415,
+            "p99_ns_upper": 589823,
+            "histogram_upper_ns_count": [
+              [
+                73727,
+                5
+              ],
+              [
+                79871,
+                4
+              ],
+              [
+                81919,
+                4
+              ],
+              [
+                83967,
+                6
+              ],
+              [
+                86015,
+                6
+              ],
+              [
+                88063,
+                8
+              ],
+              [
+                90111,
+                5
+              ],
+              [
+                92159,
+                7
+              ],
+              [
+                94207,
+                4
+              ],
+              [
+                96255,
+                2
+              ],
+              [
+                98303,
+                5
+              ],
+              [
+                100351,
+                2
+              ],
+              [
+                102399,
+                2
+              ],
+              [
+                104447,
+                1
+              ],
+              [
+                106495,
+                2
+              ],
+              [
+                108543,
+                5
+              ],
+              [
+                110591,
+                1
+              ],
+              [
+                112639,
+                4
+              ],
+              [
+                114687,
+                1
+              ],
+              [
+                116735,
+                2
+              ],
+              [
+                118783,
+                3
+              ],
+              [
+                120831,
+                1
+              ],
+              [
+                126975,
+                3
+              ],
+              [
+                129023,
+                1
+              ],
+              [
+                135167,
+                3
+              ],
+              [
+                139263,
+                2
+              ],
+              [
+                143359,
+                1
+              ],
+              [
+                147455,
+                2
+              ],
+              [
+                151551,
+                2
+              ],
+              [
+                180223,
+                2
+              ],
+              [
+                188415,
+                1
+              ],
+              [
+                192511,
+                1
+              ],
+              [
+                221183,
+                1
+              ],
+              [
+                286719,
+                1
+              ],
+              [
+                589823,
+                1
+              ],
+              [
+                1179647,
+                1
+              ]
+            ]
+          },
+          "outside_tick_main_thread_roots": {
+            "count": 1,
+            "sum_ns": 77885,
+            "max_ns": 77885,
+            "p50_ns_upper": 77885,
+            "p95_ns_upper": 77885,
+            "p99_ns_upper": 77885,
+            "histogram_upper_ns_count": [
+              [
+                79871,
+                1
+              ]
+            ]
+          },
+          "non_main_thread_roots": {
+            "count": 8,
+            "sum_ns": 47551951,
+            "max_ns": 11279017,
+            "p50_ns_upper": 4718591,
+            "p95_ns_upper": 11279017,
+            "p99_ns_upper": 11279017,
+            "histogram_upper_ns_count": [
+              [
+                2228223,
+                1
+              ],
+              [
+                2752511,
+                1
+              ],
+              [
+                4128767,
+                1
+              ],
+              [
+                4718591,
+                1
+              ],
+              [
+                5373951,
+                1
+              ],
+              [
+                7995391,
+                1
+              ],
+              [
+                9437183,
+                1
+              ],
+              [
+                11534335,
+                1
+              ]
+            ]
+          },
+          "root_calls_inside_ticks": 103,
+          "invalid_ticks": 0,
+          "main_thread_id": 51,
+          "main_thread_name": "Server thread",
+          "valid": true,
+          "included_sites": [
+            "sites1..17",
+            "save_additional",
+            "compat_changed",
+            "compat_port"
+          ],
+          "scope": "Per complete tickServer on that thread: union of outermost selected mod method intervals, including zero on idle ticks. Nested scopes counted once. Generator is not a mod root, but selected children are. Outside-tick main-thread and non-main-thread roots are separate per-call wall histograms, never assigned to a nearby tick. This is wall time, not CPU time or all mod work.",
+          "coverage_limits": "Explicit whitelist only. Includes actual TesseractBlockEntity.saveAdditional and selected compat.changed/AE insert-extract-inventory/GT energy mutation/Mek chemical-heat mutation entries. Uninstrumented GUI, other save/load hooks, other compat callbacks/getters, method prefixes/suffixes, and outside-tick work are excluded from the per-tick sum. Optional compat hooks with no actual calls remain unexercised; transformed_classes records actual loaded descriptors.",
+          "per_complete_logical_tick_cycle": {
+            "count": 102,
+            "sum_ns": 12430042,
+            "max_ns": 1225803,
+            "p50_ns_upper": 96255,
+            "p95_ns_upper": 188415,
+            "p99_ns_upper": 589823,
+            "histogram_upper_ns_count": [
+              [
+                73727,
+                5
+              ],
+              [
+                79871,
+                4
+              ],
+              [
+                81919,
+                4
+              ],
+              [
+                83967,
+                6
+              ],
+              [
+                86015,
+                6
+              ],
+              [
+                88063,
+                8
+              ],
+              [
+                90111,
+                5
+              ],
+              [
+                92159,
+                7
+              ],
+              [
+                94207,
+                4
+              ],
+              [
+                96255,
+                2
+              ],
+              [
+                98303,
+                5
+              ],
+              [
+                100351,
+                2
+              ],
+              [
+                102399,
+                2
+              ],
+              [
+                104447,
+                1
+              ],
+              [
+                106495,
+                2
+              ],
+              [
+                108543,
+                5
+              ],
+              [
+                110591,
+                1
+              ],
+              [
+                112639,
+                4
+              ],
+              [
+                114687,
+                1
+              ],
+              [
+                116735,
+                2
+              ],
+              [
+                118783,
+                3
+              ],
+              [
+                120831,
+                1
+              ],
+              [
+                126975,
+                3
+              ],
+              [
+                129023,
+                1
+              ],
+              [
+                135167,
+                3
+              ],
+              [
+                139263,
+                2
+              ],
+              [
+                143359,
+                1
+              ],
+              [
+                147455,
+                2
+              ],
+              [
+                151551,
+                2
+              ],
+              [
+                180223,
+                2
+              ],
+              [
+                188415,
+                1
+              ],
+              [
+                192511,
+                1
+              ],
+              [
+                221183,
+                1
+              ],
+              [
+                286719,
+                1
+              ],
+              [
+                589823,
+                1
+              ],
+              [
+                1245183,
+                1
+              ]
+            ]
+          },
+          "logical_tick_cycle_intervals": {
+            "count": 102,
+            "sum_ns": 5099187089,
+            "max_ns": 57767705,
+            "p50_ns_upper": 50331647,
+            "p95_ns_upper": 50331647,
+            "p99_ns_upper": 51380223,
+            "histogram_upper_ns_count": [
+              [
+                42991615,
+                1
+              ],
+              [
+                49283071,
+                2
+              ],
+              [
+                50331647,
+                97
+              ],
+              [
+                51380223,
+                1
+              ],
+              [
+                58720255,
+                1
+              ]
+            ]
+          },
+          "invalid_cycles": 0,
+          "logical_tick_cycle_scope": "Main-thread selected mod root union from one tickServer start to the next, including main-thread roots outside tickServer. Zero-work cycles count zero. A fixed live snapshot has one fewer completed cycle than completed tick frames; the current incomplete cycle is excluded. Stop seals at the next tick start, flushes the final complete cycle, and excludes that new tick frame; sealed cycles must equal tick frames. No raw cross-JVM clock subtraction and no claim of uninstrumented mod work or CPU time."
+        },
+        "item_events": [],
+        "trace_events_dropped": 0,
+        "trace_errors": 0,
+        "frame_depth_mismatches": 0,
+        "frame_overflow_calls": 0,
+        "limits": "Methods crossing window cutoffs/exceptional returns are not backend latency observations. Server/runtime samples include all completed instrumented calls; exceptional returns are separately counted. Calls crossing the cutoffs are excluded. Heap/GC/SQL asset counters are measured separately. Tracing copies identifiers/amounts only on the original calling thread.",
+        "transformed_classes": {
+          "dev/crosstesseract/backend/Authority": {
+            "original_class_sha256": "525f73807d88337dcc126a8d8844126042374e56c890199bece2ca6636f73036",
+            "methods": "channelBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/List;;publishBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/Map;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/backend/LocalJournal": {
+            "original_class_sha256": "5b28726d44f8535e5720ad99832955b3b7a4e08cf568e6e9ffbb9ba63005c816",
+            "methods": "write(Ldev/crosstesseract/core/LocalSnapshot;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/backend/Sql": {
+            "original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+            "methods": "transaction(Ldev/crosstesseract/backend/Sql$Work;)Ljava/lang/Object;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$EnergyPort": {
+            "original_class_sha256": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+            "methods": "receiveEnergy(IZ)I;extractEnergy(IZ)I",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$FluidPort": {
+            "original_class_sha256": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+            "methods": "fill(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)I;drain(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)Lnet/neoforged/neoforge/fluids/FluidStack;;drain(ILnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)Lnet/neoforged/neoforge/fluids/FluidStack;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/Ports$ItemPort": {
+            "original_class_sha256": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+            "methods": "insertItem(ILnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;;extractItem(IIZ)Lnet/minecraft/world/item/ItemStack;",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/block/TesseractBlockEntity": {
+            "original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+            "methods": "itemResource(Lnet/minecraft/world/item/ItemStack;)Ldev/crosstesseract/core/Resource;;fluidResource(Lnet/neoforged/neoforge/fluids/FluidStack;)Ldev/crosstesseract/core/Resource;;decodeItem(Ldev/crosstesseract/core/Resource;I)Lnet/minecraft/world/item/ItemStack;;decodeFluid(Ldev/crosstesseract/core/Resource;I)Lnet/neoforged/neoforge/fluids/FluidStack;;saveAdditional(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/core/LocalBuffer": {
+            "original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+            "methods": "credit(Ldev/crosstesseract/core/LocalSnapshot$Credit;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/runtime/RuntimeService": {
+            "original_class_sha256": "6bc612278155c74c3c4a40542886def195952e07c2cdd46d4a75d2ebcc9704f7",
+            "methods": "flushClosing(Ldev/crosstesseract/runtime/RuntimeService$Closing;)V;localChanged(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/lang/String;ZJ)V;wakeChannel(Ljava/util/UUID;Z)V;tick()V;exchangeLocal(Ldev/crosstesseract/block/TesseractBlockEntity;)V;capture(Ldev/crosstesseract/block/TesseractBlockEntity;)Ldev/crosstesseract/backend/TransferWork$Request;;preparePublication(Ldev/crosstesseract/runtime/ChannelCoordinator$Lease;Ljava/util/Map;Ljava/util/List;)V;finish(Ldev/crosstesseract/runtime/RuntimeService$Prepared;Ljava/lang/String;Z)V;processTicketWork(J)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "dev/crosstesseract/test/ThreeServerHarness": {
+            "original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25",
+            "methods": "tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Post;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/94c7e090f25c4367b37ae704cb5e319d/classes/%23139!/"
+          },
+          "net/minecraft/server/MinecraftServer": {
+            "original_class_sha256": "fd451d3afeb09f3736e88bb2510aa5aeca7e736f86e0982d40d72c2a03414947",
+            "methods": "tickServer(Ljava/util/function/BooleanSupplier;)V",
+            "code_source": "union:/workspace/CrossTesseract/scratch/rc-v2-final-freeze-20261017T155637Z-3aa01c5b/dependencies/neoforge-21.1.252.jar%23137!/"
+          }
+        },
+        "transform_failures": {}
+      },
+      "observer_file_read_monotonic": 23304.644628428,
+      "observer_file_read_interval": {
+        "start": 23304.644529792,
+        "end": 23304.644628428
+      }
+    }
+  },
+  "actual_transform_input_matches_frozen_classes": {
+    "dev/crosstesseract/backend/Authority": "525f73807d88337dcc126a8d8844126042374e56c890199bece2ca6636f73036",
+    "dev/crosstesseract/backend/LocalJournal": "5b28726d44f8535e5720ad99832955b3b7a4e08cf568e6e9ffbb9ba63005c816",
+    "dev/crosstesseract/backend/Sql": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78",
+    "dev/crosstesseract/block/Ports$EnergyPort": "ecd25719de86ac95747ded0b72bf8a6bff08a1569fead6bc32dcc895d5569d06",
+    "dev/crosstesseract/block/Ports$FluidPort": "2ae255ce311df9c1fb61b5c2f1751019f093845628e63ca8416b8a6169a52357",
+    "dev/crosstesseract/block/Ports$ItemPort": "ba8d1ba0551694846fd8b1d826a81fb41531f73028779aae0c504c63ee4600fe",
+    "dev/crosstesseract/block/TesseractBlockEntity": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527",
+    "dev/crosstesseract/core/LocalBuffer": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45",
+    "dev/crosstesseract/runtime/RuntimeService": "6bc612278155c74c3c4a40542886def195952e07c2cdd46d4a75d2ebcc9704f7",
+    "dev/crosstesseract/test/ThreeServerHarness": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25"
+  },
+  "functional_probe_pass": true,
+  "source_after_stop": {
+    "utc": "2026-10-17T15:56:58.952363+00:00",
+    "observer_start": 23307.129085942,
+    "observer_end": 23307.132998865,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "71243bc67600781b45d5bc36e45bdff6655c740a92b88263adf4ffcfd476abb6",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "a1cd988f988f103d2a66f01231d70062adfcdd18af56d3ed9112e628313a8969",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "12768529e2e6e8efe9de71e380270b2fa03d97ecca8bb4340ed83edaf9dddfbe",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcDiscoveryGameTests.java": "6c04611a51000a33c11b56a4e1e22559c6f5e48f050710bbb70d36635689436a",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "cf17c9f512791416b2774ec16f90c65e2df5c654c63dc464ffe187040877bb26",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "launcher_exit": 0,
+  "utc_end": "2026-10-17T15:56:58.952467+00:00"
+}

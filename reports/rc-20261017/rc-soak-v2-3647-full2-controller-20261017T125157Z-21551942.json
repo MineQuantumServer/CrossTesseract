@@ -1,0 +1,1888 @@
+{
+  "passed": false,
+  "functional_passed": false,
+  "qualified_passed": false,
+  "utc_start": "2026-10-17T12:51:57.492479+00:00",
+  "kind": "full",
+  "label": "rc-soak-v2-3647-full2",
+  "requested_observation_seconds": 3600,
+  "buffers.fe": 2000000,
+  "runtime_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7"
+  },
+  "runtime_revision": "3647dede64cfc23e054dfa962fd127787cae14ec",
+  "controller": {
+    "path": "scripts/analysis/run-rc-v2-soak.py",
+    "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+  },
+  "lifecycle": [
+    {
+      "action": "start_frozen_once",
+      "server": "A",
+      "PID": 108067,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/674932d05487476181a641f5e5f7a161/runServerA.sh",
+      "launcher_sha256": "f1ea3c434e11b280e275e16631a3ac85338eb677201bb3e8086d5e02600e01ba",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/674932d05487476181a641f5e5f7a161/serverARunVmArgs.txt",
+      "vm_args_sha256": "31bbdac3589344a5d63c0ab7a7fb0d8e82247635ed5ea4db46e19e4a6035e3d9",
+      "log": "logs/rc-soak-v2-3647-full2-20261017T125157Z-21551942-A.log",
+      "utc": "2026-10-17T12:51:57.541331+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "B",
+      "PID": 108071,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/5f561b7b55ca438b95a4c8b1ad482869/runServerB.sh",
+      "launcher_sha256": "69b942cc69d91cc02e5ab00b171562069728c974dbdba009727f86a58dda21f5",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/5f561b7b55ca438b95a4c8b1ad482869/serverBRunVmArgs.txt",
+      "vm_args_sha256": "c746b25111c81ddb66b13094a838698a1f4d3849b7c1992685a3f60f4e9c8460",
+      "log": "logs/rc-soak-v2-3647-full2-20261017T125157Z-21551942-B.log",
+      "utc": "2026-10-17T12:51:57.551289+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "C",
+      "PID": 108075,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/f68d8ec49fd94c04a6a240cb84a1ecc5/runServerC.sh",
+      "launcher_sha256": "2fcf4726458d0b8b85d1f5a558c0a4c7d0a23c0fa0bc0e0872592947666d8d23",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/f68d8ec49fd94c04a6a240cb84a1ecc5/serverCRunVmArgs.txt",
+      "vm_args_sha256": "4b75390bd1584ff51cce1e960668c73421d58eab93d7fadd926a641a0bd27636",
+      "log": "logs/rc-soak-v2-3647-full2-20261017T125157Z-21551942-C.log",
+      "utc": "2026-10-17T12:51:57.561226+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12205.742141502,
+      "utc": "2026-10-17T12:51:57.561526+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12205.743154302
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12205.743166811,
+      "utc": "2026-10-17T12:51:57.562551+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12205.743220731
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12205.743224296,
+      "utc": "2026-10-17T12:51:57.562607+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12205.743249734
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12206.252078435,
+      "utc": "2026-10-17T12:51:58.071467+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12206.252305571
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12206.252314625,
+      "utc": "2026-10-17T12:51:58.071698+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12206.252348655
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12206.252352571,
+      "utc": "2026-10-17T12:51:58.071736+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12206.252374133
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12206.752496717,
+      "utc": "2026-10-17T12:51:58.571885+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12206.752719908
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12206.752728801,
+      "utc": "2026-10-17T12:51:58.572112+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12206.752760778
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12206.752764424,
+      "utc": "2026-10-17T12:51:58.572148+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12206.752785915
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12207.252908981,
+      "utc": "2026-10-17T12:51:59.072299+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12207.253141906
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12207.25315109,
+      "utc": "2026-10-17T12:51:59.072535+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12207.253186623
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12207.253190438,
+      "utc": "2026-10-17T12:51:59.072574+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12207.253212441
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12207.753356123,
+      "utc": "2026-10-17T12:51:59.572746+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12207.753598192
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12207.7536103,
+      "utc": "2026-10-17T12:51:59.572994+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12207.753663469
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12207.753668406,
+      "utc": "2026-10-17T12:51:59.573052+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12207.753704159
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12208.253798607,
+      "utc": "2026-10-17T12:52:00.073188+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12208.254008729
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12208.254017772,
+      "utc": "2026-10-17T12:52:00.073401+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12208.254047907
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12208.254051592,
+      "utc": "2026-10-17T12:52:00.073435+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12208.254073865
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12208.754207828,
+      "utc": "2026-10-17T12:52:00.573596+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12208.754419571
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12208.754429056,
+      "utc": "2026-10-17T12:52:00.573812+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12208.754461494
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12208.754465399,
+      "utc": "2026-10-17T12:52:00.573848+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12208.754487823
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12209.254619772,
+      "utc": "2026-10-17T12:52:01.074009+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12209.25482707
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12209.254837094,
+      "utc": "2026-10-17T12:52:01.074221+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12209.25486812
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12209.254871736,
+      "utc": "2026-10-17T12:52:01.074255+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12209.25490182
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12209.755045583,
+      "utc": "2026-10-17T12:52:01.574435+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12209.755409782
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12209.755420829,
+      "utc": "2026-10-17T12:52:01.574804+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12209.755464473
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12209.755470793,
+      "utc": "2026-10-17T12:52:01.574854+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12209.755531453
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12210.257635951,
+      "utc": "2026-10-17T12:52:02.077025+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12210.257849848
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12210.257859132,
+      "utc": "2026-10-17T12:52:02.077243+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12210.257892411
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12210.257896046,
+      "utc": "2026-10-17T12:52:02.077279+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12210.25791861
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12210.758041523,
+      "utc": "2026-10-17T12:52:02.577431+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12210.758265705
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12210.758275079,
+      "utc": "2026-10-17T12:52:02.577659+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12210.75830991
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12210.758313426,
+      "utc": "2026-10-17T12:52:02.577697+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12210.758334557
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12211.259861331,
+      "utc": "2026-10-17T12:52:03.079250+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12211.26036695
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12211.260376755,
+      "utc": "2026-10-17T12:52:03.079760+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12211.260409653
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12211.260413559,
+      "utc": "2026-10-17T12:52:03.079797+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12211.260435171
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12211.764074594,
+      "utc": "2026-10-17T12:52:03.583464+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12211.764360538
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12211.764372886,
+      "utc": "2026-10-17T12:52:03.583757+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12211.764421578
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12211.764425434,
+      "utc": "2026-10-17T12:52:03.583809+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12211.764450852
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12212.271277416,
+      "utc": "2026-10-17T12:52:04.090666+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12212.271480516
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12212.2714898,
+      "utc": "2026-10-17T12:52:04.090873+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12212.271522278
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12212.271525924,
+      "utc": "2026-10-17T12:52:04.090909+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12212.271549639
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12212.771699374,
+      "utc": "2026-10-17T12:52:04.591089+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12212.771964406
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12212.771978948,
+      "utc": "2026-10-17T12:52:04.591363+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12212.772093007
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12212.772098976,
+      "utc": "2026-10-17T12:52:04.591482+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12212.772164172
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12213.274067479,
+      "utc": "2026-10-17T12:52:05.093456+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12213.274307614
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12213.274316518,
+      "utc": "2026-10-17T12:52:05.093700+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12213.274346041
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12213.274349807,
+      "utc": "2026-10-17T12:52:05.093733+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12213.274371609
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12213.774506897,
+      "utc": "2026-10-17T12:52:05.593897+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12213.774767874
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12213.774781965,
+      "utc": "2026-10-17T12:52:05.594166+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12213.774843366
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12213.774847692,
+      "utc": "2026-10-17T12:52:05.594231+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12213.774876655
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12214.275012799,
+      "utc": "2026-10-17T12:52:06.094402+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12214.275306945
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12214.27531744,
+      "utc": "2026-10-17T12:52:06.094701+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12214.275348006
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12214.275352622,
+      "utc": "2026-10-17T12:52:06.094736+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12214.275375066
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12214.775510223,
+      "utc": "2026-10-17T12:52:06.594899+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12214.775781125
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12214.775795967,
+      "utc": "2026-10-17T12:52:06.595180+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12214.775868023
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12214.775874443,
+      "utc": "2026-10-17T12:52:06.595258+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12214.775915333
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12215.278497231,
+      "utc": "2026-10-17T12:52:07.097887+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12215.27875335
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12215.278764827,
+      "utc": "2026-10-17T12:52:07.098148+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12215.278815703
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12215.27882084,
+      "utc": "2026-10-17T12:52:07.098204+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12215.278854059
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12215.799496118,
+      "utc": "2026-10-17T12:52:07.618886+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12215.799759308
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12215.799771136,
+      "utc": "2026-10-17T12:52:07.619155+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12215.799819257
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12215.799824034,
+      "utc": "2026-10-17T12:52:07.619207+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12215.799857164
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12216.304090595,
+      "utc": "2026-10-17T12:52:08.123480+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12216.304367546
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12216.304382558,
+      "utc": "2026-10-17T12:52:08.123767+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12216.304441986
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12216.304446883,
+      "utc": "2026-10-17T12:52:08.123830+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12216.304474474
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12216.80807352,
+      "utc": "2026-10-17T12:52:08.627463+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12216.808312414
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12216.808321006,
+      "utc": "2026-10-17T12:52:08.627704+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12216.808350129
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12216.808353444,
+      "utc": "2026-10-17T12:52:08.627737+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12216.808375397
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12217.308505439,
+      "utc": "2026-10-17T12:52:09.127894+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12217.308759515
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12217.308770161,
+      "utc": "2026-10-17T12:52:09.128153+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12217.308806515
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12217.308810872,
+      "utc": "2026-10-17T12:52:09.128194+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12217.308838983
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12217.808960923,
+      "utc": "2026-10-17T12:52:09.628350+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12217.809264754
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12217.809282109,
+      "utc": "2026-10-17T12:52:09.628668+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12217.809489957
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12217.809497248,
+      "utc": "2026-10-17T12:52:09.628881+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12217.809530287
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12218.309713543,
+      "utc": "2026-10-17T12:52:10.129103+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12218.310023262
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12218.310036331,
+      "utc": "2026-10-17T12:52:10.129420+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12218.310071514
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12218.31007551,
+      "utc": "2026-10-17T12:52:10.129459+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12218.310097011
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12218.810228175,
+      "utc": "2026-10-17T12:52:10.629617+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12218.810452537
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12218.810461611,
+      "utc": "2026-10-17T12:52:10.629845+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12218.810489833
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12218.810493538,
+      "utc": "2026-10-17T12:52:10.629877+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12218.810514018
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12219.310647136,
+      "utc": "2026-10-17T12:52:11.130036+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12219.310907852
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12219.31091996,
+      "utc": "2026-10-17T12:52:11.130304+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12219.310971857
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12219.310976824,
+      "utc": "2026-10-17T12:52:11.130360+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12219.311010374
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12219.811159139,
+      "utc": "2026-10-17T12:52:11.630548+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12219.81138251
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12219.811392134,
+      "utc": "2026-10-17T12:52:11.630776+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12219.811424903
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12219.811428798,
+      "utc": "2026-10-17T12:52:11.630812+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12219.811450911
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12220.311578579,
+      "utc": "2026-10-17T12:52:12.130967+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12220.311793287
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12220.31180211,
+      "utc": "2026-10-17T12:52:12.131186+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12220.311836051
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12220.311840127,
+      "utc": "2026-10-17T12:52:12.131223+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12220.311863932
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12220.811995271,
+      "utc": "2026-10-17T12:52:12.631402+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12220.812296798
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12220.812306933,
+      "utc": "2026-10-17T12:52:12.631690+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12220.812342696
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12220.812346592,
+      "utc": "2026-10-17T12:52:12.631730+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12220.812369275
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12221.316088595,
+      "utc": "2026-10-17T12:52:13.135478+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12221.316345615
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12221.316358314,
+      "utc": "2026-10-17T12:52:13.135742+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12221.316401058
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12221.316405664,
+      "utc": "2026-10-17T12:52:13.135789+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12221.316435178
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12221.816574609,
+      "utc": "2026-10-17T12:52:13.635963+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12221.816790869
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12221.816800133,
+      "utc": "2026-10-17T12:52:13.636184+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12221.81683215
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12221.816835836,
+      "utc": "2026-10-17T12:52:13.636219+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12221.816858169
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12222.320096295,
+      "utc": "2026-10-17T12:52:14.139507+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12222.320379865
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12222.320390892,
+      "utc": "2026-10-17T12:52:14.139775+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12222.320429078
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12222.320433184,
+      "utc": "2026-10-17T12:52:14.139816+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12222.320461787
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12222.820592975,
+      "utc": "2026-10-17T12:52:14.639982+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12222.820802826
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12222.820811919,
+      "utc": "2026-10-17T12:52:14.640195+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12222.820843276
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12222.820847061,
+      "utc": "2026-10-17T12:52:14.640230+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12222.820868794
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12223.320986994,
+      "utc": "2026-10-17T12:52:15.140376+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12223.321212228
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12223.321221291,
+      "utc": "2026-10-17T12:52:15.140605+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12223.321252527
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12223.321256413,
+      "utc": "2026-10-17T12:52:15.140639+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12223.321277945
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12223.824072726,
+      "utc": "2026-10-17T12:52:15.643462+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12223.824303769
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12223.824313834,
+      "utc": "2026-10-17T12:52:15.643697+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12223.824344269
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12223.824348205,
+      "utc": "2026-10-17T12:52:15.643731+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12223.824370708
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12224.324492938,
+      "utc": "2026-10-17T12:52:16.143882+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12224.324726724
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12224.324735668,
+      "utc": "2026-10-17T12:52:16.144119+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12224.324766924
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12224.32477077,
+      "utc": "2026-10-17T12:52:16.144154+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12224.324793283
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12224.828320676,
+      "utc": "2026-10-17T12:52:16.647709+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12224.828511218
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12224.828520132,
+      "utc": "2026-10-17T12:52:16.647904+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12224.828553231
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12224.828557156,
+      "utc": "2026-10-17T12:52:16.647940+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12224.8285796
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12225.328716271,
+      "utc": "2026-10-17T12:52:17.148105+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12225.328974875
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12225.32898549,
+      "utc": "2026-10-17T12:52:17.148369+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12225.329024178
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12225.329028274,
+      "utc": "2026-10-17T12:52:17.148411+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12225.329056476
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12225.829192868,
+      "utc": "2026-10-17T12:52:17.648581+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12225.829398252
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12225.829407516,
+      "utc": "2026-10-17T12:52:17.648791+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12225.829436859
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12225.829440385,
+      "utc": "2026-10-17T12:52:17.648823+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12225.829461897
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12226.329580161,
+      "utc": "2026-10-17T12:52:18.148970+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12226.329797313
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12226.329807107,
+      "utc": "2026-10-17T12:52:18.149190+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12226.329836611
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12226.329840116,
+      "utc": "2026-10-17T12:52:18.149223+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12226.329863821
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12226.829982482,
+      "utc": "2026-10-17T12:52:18.649372+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12226.830204981
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12226.830214075,
+      "utc": "2026-10-17T12:52:18.649597+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12226.830245401
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12226.830248886,
+      "utc": "2026-10-17T12:52:18.649632+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12226.830270709
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12227.330394674,
+      "utc": "2026-10-17T12:52:19.149784+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12227.330627408
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12227.330635991,
+      "utc": "2026-10-17T12:52:19.150019+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12227.330665395
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12227.330669761,
+      "utc": "2026-10-17T12:52:19.150053+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12227.330690832
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12227.830900079,
+      "utc": "2026-10-17T12:52:19.650289+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12227.831159113
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12227.831169158,
+      "utc": "2026-10-17T12:52:19.650553+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12227.831206012
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12227.831209648,
+      "utc": "2026-10-17T12:52:19.650593+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12227.831232261
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12228.336084481,
+      "utc": "2026-10-17T12:52:20.155473+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12228.336390134
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12228.336399988,
+      "utc": "2026-10-17T12:52:20.155783+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12228.336435481
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12228.336439487,
+      "utc": "2026-10-17T12:52:20.155823+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12228.336462
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12228.836582114,
+      "utc": "2026-10-17T12:52:20.655972+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12228.836803282
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12228.836812586,
+      "utc": "2026-10-17T12:52:20.656196+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12228.836842069
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12228.836845865,
+      "utc": "2026-10-17T12:52:20.656229+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12228.836868689
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12229.34008498,
+      "utc": "2026-10-17T12:52:21.159474+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12229.340317425
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12229.340326648,
+      "utc": "2026-10-17T12:52:21.159710+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12229.340356623
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12229.340360098,
+      "utc": "2026-10-17T12:52:21.159743+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12229.340382541
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12229.840500627,
+      "utc": "2026-10-17T12:52:21.659890+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12229.840716037
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12229.84072488,
+      "utc": "2026-10-17T12:52:21.660108+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12229.840755775
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12229.840759361,
+      "utc": "2026-10-17T12:52:21.660142+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12229.840780142
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12230.343472637,
+      "utc": "2026-10-17T12:52:22.162862+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12230.343691
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12230.343700164,
+      "utc": "2026-10-17T12:52:22.163083+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12230.343729157
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12230.343732892,
+      "utc": "2026-10-17T12:52:22.163116+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12230.343754865
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12230.844078451,
+      "utc": "2026-10-17T12:52:22.663468+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12230.844350224
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12230.844363343,
+      "utc": "2026-10-17T12:52:22.663747+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12230.844420798
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12230.844426917,
+      "utc": "2026-10-17T12:52:22.663810+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12230.844466816
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12231.344588167,
+      "utc": "2026-10-17T12:52:23.163977+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12231.34479258
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12231.344800892,
+      "utc": "2026-10-17T12:52:23.164184+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12231.344830166
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12231.344833931,
+      "utc": "2026-10-17T12:52:23.164217+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12231.344854572
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12231.848080518,
+      "utc": "2026-10-17T12:52:23.667470+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12231.848297129
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12231.848307835,
+      "utc": "2026-10-17T12:52:23.667692+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12231.848339852
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12231.848343287,
+      "utc": "2026-10-17T12:52:23.667726+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12231.84836569
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12232.34848056,
+      "utc": "2026-10-17T12:52:24.167870+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12232.348705944
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12232.348718463,
+      "utc": "2026-10-17T12:52:24.168102+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12232.348771451
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12232.348776809,
+      "utc": "2026-10-17T12:52:24.168160+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12232.348808626
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12232.848930018,
+      "utc": "2026-10-17T12:52:24.668318+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12232.849148933
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12232.849158056,
+      "utc": "2026-10-17T12:52:24.668541+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12232.849190574
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12232.849194059,
+      "utc": "2026-10-17T12:52:24.668577+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12232.849216392
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12233.34934626,
+      "utc": "2026-10-17T12:52:25.168735+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12233.349598684
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12233.349612134,
+      "utc": "2026-10-17T12:52:25.168996+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12233.349662529
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12233.349667606,
+      "utc": "2026-10-17T12:52:25.169051+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12233.349696249
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12233.849836347,
+      "utc": "2026-10-17T12:52:25.669226+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12233.850089963
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12233.850131554,
+      "utc": "2026-10-17T12:52:25.669516+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12233.850200607
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12233.850207657,
+      "utc": "2026-10-17T12:52:25.669591+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12233.850248728
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12234.350372097,
+      "utc": "2026-10-17T12:52:26.169761+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12234.350578082
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12234.350587396,
+      "utc": "2026-10-17T12:52:26.169971+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12234.350618252
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12234.350621637,
+      "utc": "2026-10-17T12:52:26.170005+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12234.350682917
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12234.851146155,
+      "utc": "2026-10-17T12:52:26.670535+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12234.851387322
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12234.851398389,
+      "utc": "2026-10-17T12:52:26.670782+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12234.851444056
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12234.851449354,
+      "utc": "2026-10-17T12:52:26.670833+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12234.851482593
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12235.352391711,
+      "utc": "2026-10-17T12:52:27.171781+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12235.352621852
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12235.352630465,
+      "utc": "2026-10-17T12:52:27.172014+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12235.352659498
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12235.352663233,
+      "utc": "2026-10-17T12:52:27.172046+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12235.352684034
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12235.852812931,
+      "utc": "2026-10-17T12:52:27.672202+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12235.85301475
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 12235.853023453,
+      "utc": "2026-10-17T12:52:27.672407+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=1, tick_total_nanos=790491, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=6.61E-4, notify_ms_p95=0.023585, notify_ms_p99=0.023585, notify_ms_samples=2, completion_ms_p50=0.014391, completion_ms_p95=0.014391, completion_ms_p99=0.014391, completion_ms_samples=1, closing_ms_p50=0.001793, closing_ms_p95=0.001793, closing_ms_p99=0.001793, closing_ms_samples=1, tick_ms_p50=0.790491, tick_ms_p95=0.790491, tick_ms_p99=0.790491, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=33.10196, db_transaction_ms_p95=79.145934, db_transaction_ms_p99=79.145934, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.059838, db_connection_wait_ms_p95=634.746152, db_connection_wait_ms_p99=634.746152, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=195.443378, mc_target_ticks_per_second=20.0}\n",
+      "end": 12236.160169131
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12236.160194218,
+      "utc": "2026-10-17T12:52:27.979582+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12236.16039152
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12236.660610481,
+      "utc": "2026-10-17T12:52:28.480000+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12236.661019467
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12236.661034299,
+      "utc": "2026-10-17T12:52:28.480419+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12236.661071163
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12237.163632353,
+      "utc": "2026-10-17T12:52:28.983021+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12237.163869945
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 12237.163885128,
+      "utc": "2026-10-17T12:52:28.983269+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=7, tick_total_nanos=1543937, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=4.2E-4, notify_ms_p95=0.064916, notify_ms_p99=0.064916, notify_ms_samples=14, completion_ms_p50=0.002393, completion_ms_p95=0.028832, completion_ms_p99=0.028832, completion_ms_samples=7, closing_ms_p50=4.7E-4, closing_ms_p95=0.001072, closing_ms_p99=0.001072, closing_ms_samples=7, tick_ms_p50=0.044836, tick_ms_p95=1.181891, tick_ms_p99=1.181891, tick_ms_samples=7, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=30.415611, db_transaction_ms_p95=98.060056, db_transaction_ms_p99=98.060056, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.087861, db_connection_wait_ms_p95=633.545883, db_connection_wait_ms_p99=633.545883, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=32.922895, mc_target_ticks_per_second=20.0}\n",
+      "end": 12237.225750231
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12237.726771885,
+      "utc": "2026-10-17T12:52:29.546160+00:00",
+      "uncertain_no_replay": "ConnectionRefusedError(111, 'Connection refused')",
+      "end": 12237.727132039
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 12238.227278582,
+      "utc": "2026-10-17T12:52:30.046668+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=5, tick_total_nanos=884441, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=5.31E-4, notify_ms_p95=0.017696, notify_ms_p99=0.017696, notify_ms_samples=10, completion_ms_p50=0.002924, completion_ms_p95=0.01384, completion_ms_p99=0.01384, completion_ms_samples=5, closing_ms_p50=5.81E-4, closing_ms_p95=0.001432, closing_ms_p99=0.001432, closing_ms_samples=5, tick_ms_p50=0.059989, tick_ms_p95=0.643443, tick_ms_p99=0.643443, tick_ms_samples=5, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=17.978665, db_transaction_ms_p95=97.053794, db_transaction_ms_p99=97.053794, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.078467, db_connection_wait_ms_p95=635.700409, db_connection_wait_ms_p99=635.700409, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=25.921979, mc_target_ticks_per_second=20.0}\n",
+      "end": 12238.24230626
+    },
+    {
+      "server": "A",
+      "command": "stop",
+      "start": 15934.207757999,
+      "utc": "2026-10-17T13:54:06.027146+00:00",
+      "reply": "Stopping the server\n",
+      "end": 15934.210771455
+    },
+    {
+      "server": "B",
+      "command": "stop",
+      "start": 15934.210784134,
+      "utc": "2026-10-17T13:54:06.030170+00:00",
+      "reply": "Stopping the server\n",
+      "end": 15934.21492887
+    },
+    {
+      "server": "C",
+      "command": "stop",
+      "start": 15934.214939125,
+      "utc": "2026-10-17T13:54:06.034325+00:00",
+      "reply": "Stopping the server\n",
+      "end": 15934.219807302
+    }
+  ],
+  "failures": [
+    "ValueError: Actual soak failed/incomplete; no replay or asset deletion"
+  ],
+  "scope": "Smoke never satisfies60min. Full requires3600s actual concurrent input, separate bounded tail drain, strict checkout source pre/post and actual frozen runtime bytes. Single observer. Wall-scope histograms include selected mod root cycles; uninstrumented GUI/other entries are not all mod CPU.",
+  "source_before": {
+    "utc": "2026-10-17T12:51:57.496372+00:00",
+    "observer_start": 12205.673701563,
+    "observer_end": 12205.676995161,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "bf93f470493eb3cb24e4527472a63406c22d6f7797f7055e25de591aa3657390",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "3264d4a0517c741f43f044ed787117d5ea60ece9e6865cd4e2237e32615355ff",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "80b95fb787982bfc939eb1294750ab3790dc883f1ddee7c3ed907d13e1cd37c5",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "11ed819b875a126cbd636a8bf6903f375b06fce7dd83496a58c38e5d66fcecf7",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "preparation": {
+    "argv": [
+      "python3",
+      "scripts/configure-optimization.py",
+      "--label",
+      "rc-soak-v2-3647-full2",
+      "--mode",
+      "fast"
+    ],
+    "exit": 0,
+    "stdout": "Prepared stopped development fixtures: A,B,C mode=fast label=rc-soak-v2-3647-full2\nPrevious configs preserved at scratch/optimization/fixture-configs/20261017T125157526341Z\n",
+    "stderr": ""
+  },
+  "effective_test_keys": {
+    "transfer.batchMillis": "200",
+    "transfer.activeWakeMillis": "50",
+    "transfer.notificationMillis": "100",
+    "limits.localWorkBudgetMicros": "2000",
+    "limits.endpointChecksPerTick": "16",
+    "buffers.fe": "2000000"
+  },
+  "state": "FAILED_RETAINED",
+  "argv": [
+    "python3",
+    "scripts/rc-soak.py",
+    "--execute",
+    "--probe-manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "--label",
+    "rc-soak-v2-3647-full2",
+    "--world-prefix",
+    "world-opt-rc-soak-v2-3647-full2",
+    "--operator-revision",
+    "3647dede64cfc23e054dfa962fd127787cae14ec",
+    "--seconds",
+    "3600"
+  ],
+  "driver": {
+    "path": "scripts/rc-soak.py",
+    "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+  },
+  "driver_log": "logs/rc-soak-v2-3647-full2-20261017T125157Z-21551942-driver.log",
+  "workload_utc_start": "2026-10-17T12:52:30.062042+00:00",
+  "workload_exit": 1,
+  "workload_utc_end": "2026-10-17T13:54:05.938010+00:00",
+  "source_after_workload": {
+    "utc": "2026-10-17T13:54:05.947764+00:00",
+    "observer_start": 15934.118668373,
+    "observer_end": 15934.128391052,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "bf93f470493eb3cb24e4527472a63406c22d6f7797f7055e25de591aa3657390",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "3264d4a0517c741f43f044ed787117d5ea60ece9e6865cd4e2237e32615355ff",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "80b95fb787982bfc939eb1294750ab3790dc883f1ddee7c3ed907d13e1cd37c5",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "11ed819b875a126cbd636a8bf6903f375b06fce7dd83496a58c38e5d66fcecf7",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "raw_report": {
+    "path": "scratch/rc-soak-rc-soak-v2-3647-full2-20261017T125230Z-ebbf4ef7fc/report.json",
+    "sha256": "65c60ca1b0f29bf656e72c25314622a5a2ce94850baadc1aa78c2bd76c4bea40"
+  },
+  "raw_passed": false,
+  "sixty_minute_gate": false,
+  "own_launcher_exits": {
+    "A": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/674932d05487476181a641f5e5f7a161/runServerA.sh",
+      "launcher_sha256": "f1ea3c434e11b280e275e16631a3ac85338eb677201bb3e8086d5e02600e01ba"
+    },
+    "B": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/5f561b7b55ca438b95a4c8b1ad482869/runServerB.sh",
+      "launcher_sha256": "69b942cc69d91cc02e5ab00b171562069728c974dbdba009727f86a58dda21f5"
+    },
+    "C": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/f68d8ec49fd94c04a6a240cb84a1ecc5/runServerC.sh",
+      "launcher_sha256": "2fcf4726458d0b8b85d1f5a558c0a4c7d0a23c0fa0bc0e0872592947666d8d23"
+    }
+  },
+  "all_own_launchers_exited_and_locks_free": true,
+  "source_after_stop": {
+    "utc": "2026-10-17T13:54:13.553075+00:00",
+    "observer_start": 15941.728212418,
+    "observer_end": 15941.733707805,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "bf93f470493eb3cb24e4527472a63406c22d6f7797f7055e25de591aa3657390",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "3264d4a0517c741f43f044ed787117d5ea60ece9e6865cd4e2237e32615355ff",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "80b95fb787982bfc939eb1294750ab3790dc883f1ddee7c3ed907d13e1cd37c5",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "11ed819b875a126cbd636a8bf6903f375b06fce7dd83496a58c38e5d66fcecf7",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "utc_end": "2026-10-17T13:54:13.553166+00:00",
+  "archived_raw_evidence": {
+    "manifest.json": {
+      "path": "reports/rc-20261017/rc-soak-v2-3647-full2-controller-20261017T125157Z-21551942/manifest.json",
+      "sha256": "5b5f9823c4331c784180c146abef16172a93f7efc8e654112f46cac9a18218d6",
+      "bytes": 700
+    },
+    "report.json": {
+      "path": "reports/rc-20261017/rc-soak-v2-3647-full2-controller-20261017T125157Z-21551942/report.json",
+      "sha256": "65c60ca1b0f29bf656e72c25314622a5a2ce94850baadc1aa78c2bd76c4bea40",
+      "bytes": 11962653
+    },
+    "events.jsonl": {
+      "path": "reports/rc-20261017/rc-soak-v2-3647-full2-controller-20261017T125157Z-21551942/events.jsonl",
+      "sha256": "d389b41c5c3cbdc5e99f126e2c0b9fbde22ea42b7c1b9c1c3bed979cc05003a9",
+      "bytes": 56129021
+    }
+  }
+}

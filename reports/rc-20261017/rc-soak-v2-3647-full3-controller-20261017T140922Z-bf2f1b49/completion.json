@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "procedure_completed": true,
+  "60min_gate": true,
+  "utc_end": "2026-10-17T15:12:24.338179+00:00",
+  "report": "scratch/rc-soak-rc-soak-v2-3647-full3-20261017T140954Z-3939ceff22/report.json",
+  "report_sha256": "ecba2ef896e5041dcd690ee2393d0f4e576127d958d25c1bf76099236029ef19"
+}

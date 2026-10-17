@@ -1,0 +1,374 @@
+{
+  "release_ready": true,
+  "utc": "2026-10-17T15:17:40.515176+00:00",
+  "references": {
+    "retry_sequence": {
+      "path": "reports/rc-20261017/v2-soak-full2-retry-20261017T140614Z-c36d1f34.json",
+      "sha256": "6cf0e750800f3ad4e95b86a52be3249ebbcfc98bb4d694f6300e3c01ff161eb3",
+      "bytes": 9663
+    },
+    "full3_controller": {
+      "path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+      "sha256": "7416932d888be3ece6571f2afffa744da24143bf6f3b1df017929248311dd25e",
+      "bytes": 83109
+    },
+    "runtime_manifest": {
+      "path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+      "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7",
+      "bytes": 98156
+    },
+    "history_audit": {
+      "path": "reports/rc-20261017/soak-history-post-stop-20261017T151243Z-97e2c72b.json",
+      "sha256": "662aeae15f75959e6eb55bda0a425d980a2da89e52227e86ad6d554e288bb279",
+      "bytes": 81049
+    },
+    "f3FAST_and_exact_restore": {
+      "path": "reports/rc-20261017/post-soak-f3-fast-resource-20261017T151304Z-c7cb64c1.json",
+      "sha256": "2e7b2b7926930cdab064715ef53c0e6733d4b8811cd1170934eb69abb756cefd",
+      "bytes": 9884
+    },
+    "full2_failure_asset_audit": {
+      "path": "reports/rc-20261017/full2-failure-assets-20261017T140222Z-0688ebfa.json",
+      "sha256": "65384913fb97a0702177a26dff20cc3104a44eeb299be0a554f80d37505a54d6",
+      "bytes": 88554
+    },
+    "full3_original_raw": {
+      "path": "scratch/rc-soak-rc-soak-v2-3647-full3-20261017T140954Z-3939ceff22/report.json",
+      "sha256": "ecba2ef896e5041dcd690ee2393d0f4e576127d958d25c1bf76099236029ef19",
+      "bytes": 14775931
+    },
+    "offline_summary_json": {
+      "path": "reports/rc-20261017/soak-final-3647-v2-full3-20261017.json",
+      "sha256": "22ce7754aa5b2d37e81931ce1a1ad695d1d9d1888f8710ee4a5587b15a741e00",
+      "bytes": 176451
+    },
+    "offline_summary_csv": {
+      "path": "reports/rc-20261017/soak-final-3647-v2-full3-20261017.csv",
+      "sha256": "b4011b001782f11d712ac3d4adf20fd36a46afd81bdc7473bfb11ee56e502ae2",
+      "bytes": 1938
+    },
+    "offline_summary_md": {
+      "path": "reports/rc-20261017/soak-final-3647-v2-full3-20261017.md",
+      "sha256": "fe9d632223dd4ab84a043e6e13049079bedf9e1d37f34678ed08c7e9edc5d058",
+      "bytes": 2153
+    }
+  },
+  "actual_CLI_exits": {
+    "new_retry_parent": 0,
+    "smoke3_controller": 0,
+    "full3_controller": 0,
+    "full3_workload": 0,
+    "history_audit": 0,
+    "post_soak_f3FAST_and_restore": 0,
+    "f3FAST_child": 0,
+    "offline_soak_summary": 0
+  },
+  "failed_evidence_preserved": [
+    "original smoke1 FAILED_RETAINED",
+    "full2 FAILED_RETAINED; terminal positive LOCAL assets preserved"
+  ],
+  "limitations": [
+    "f3FAST runs after full3; shared backend history was never reset. Four n1 material profiles are not identical database snapshots or statistical significance evidence.",
+    "f3FAST uses the bounded export-readiness Python fix; earlier finalFAST retains its old as-run helper SHA. Agent/JAR/workload unchanged; fixed counters precede export reading, full-tail observation cost can differ.",
+    "Raw full3 config_file_end_sha256 is absent and remains UNMEASURED; actual stopped/restored config bytes are measured separately."
+  ],
+  "retained_full2_owned_WAL_raw_archive": [
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/6c2f8315-73cd-4e6f-bdd6-4d9727f1533f.ctj",
+        "sha256": "fb80c6d8e43025d0d712f93e8109f8b6e1f00aadead5f5f6c1f4ee5456e99e74",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-6c2f8315-73cd-4e6f-bdd6-4d9727f1533f.ctj",
+        "sha256": "fb80c6d8e43025d0d712f93e8109f8b6e1f00aadead5f5f6c1f4ee5456e99e74",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/8dbac1ad-3608-40fa-9ee9-0d66b64a2ebd.ctj",
+        "sha256": "902bf2044147152a8cbbb7f9098b8f81c7f6192a387c5835cfd8c0125f6a605c",
+        "bytes": 297
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-8dbac1ad-3608-40fa-9ee9-0d66b64a2ebd.ctj",
+        "sha256": "902bf2044147152a8cbbb7f9098b8f81c7f6192a387c5835cfd8c0125f6a605c",
+        "bytes": 297
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-B/world-opt-rc-soak-v2-3647-full2-B/cross_tesseract/journal/ca4bbc0a-865d-40ba-8da0-a77cbbb0145f.ctj",
+        "sha256": "90546c6efc1f237b45a74c7e74985fc177a35fd79f2e699e7404291c15b0456a",
+        "bytes": 297
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/B-ca4bbc0a-865d-40ba-8da0-a77cbbb0145f.ctj",
+        "sha256": "90546c6efc1f237b45a74c7e74985fc177a35fd79f2e699e7404291c15b0456a",
+        "bytes": 297
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/267868f3-ed52-41fa-9b14-26890b03cddb.ctj",
+        "sha256": "0cf026c15e92b8db116fc0d87f046bed59e1eb219b42ea637a23e2c64403ae55",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-267868f3-ed52-41fa-9b14-26890b03cddb.ctj",
+        "sha256": "0cf026c15e92b8db116fc0d87f046bed59e1eb219b42ea637a23e2c64403ae55",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/edf941f5-8906-400a-9b4d-95a7504f8217.ctj",
+        "sha256": "c421530c3e6796b9b133dda2d28c3d90a20821a9a8905ab156363e50ac79aca4",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-edf941f5-8906-400a-9b4d-95a7504f8217.ctj",
+        "sha256": "c421530c3e6796b9b133dda2d28c3d90a20821a9a8905ab156363e50ac79aca4",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/405e9f1f-e982-4060-af64-b0d74bdd2d0c.ctj",
+        "sha256": "ff4a3f5f54930d9c820167f82ba937a51b2c7359e564d3cd69868365d2645bbc",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-405e9f1f-e982-4060-af64-b0d74bdd2d0c.ctj",
+        "sha256": "ff4a3f5f54930d9c820167f82ba937a51b2c7359e564d3cd69868365d2645bbc",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/8b69b6e8-8016-4628-b159-2e3a6344ef8c.ctj",
+        "sha256": "b1a74f52b4e78090962e60f4ad414ee938ba565871533ff916582fbc1c1ef8ad",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-8b69b6e8-8016-4628-b159-2e3a6344ef8c.ctj",
+        "sha256": "b1a74f52b4e78090962e60f4ad414ee938ba565871533ff916582fbc1c1ef8ad",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/0fabb2a9-c1e4-4473-9559-0e0e42aa81e1.ctj",
+        "sha256": "144f7e0515d0ad71478f02ac0466eb8a48f2ebbd1b860eb9087f3860b8e380f6",
+        "bytes": 257
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-0fabb2a9-c1e4-4473-9559-0e0e42aa81e1.ctj",
+        "sha256": "144f7e0515d0ad71478f02ac0466eb8a48f2ebbd1b860eb9087f3860b8e380f6",
+        "bytes": 257
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-B/world-opt-rc-soak-v2-3647-full2-B/cross_tesseract/journal/742a546d-6c92-4c36-8e5b-1def489981c7.ctj",
+        "sha256": "944d5df6cd38bf550ba7f4df5e66d512e538291ef0a97ef27faa2ead7092b417",
+        "bytes": 401
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/B-742a546d-6c92-4c36-8e5b-1def489981c7.ctj",
+        "sha256": "944d5df6cd38bf550ba7f4df5e66d512e538291ef0a97ef27faa2ead7092b417",
+        "bytes": 401
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-B/world-opt-rc-soak-v2-3647-full2-B/cross_tesseract/journal/271dc606-d4f6-4345-89f5-4174136f15d5.ctj",
+        "sha256": "1f3e67ff0fb937d43b7c654e7a766662f116c13f1828638b1caccad80201e1d7",
+        "bytes": 761
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/B-271dc606-d4f6-4345-89f5-4174136f15d5.ctj",
+        "sha256": "1f3e67ff0fb937d43b7c654e7a766662f116c13f1828638b1caccad80201e1d7",
+        "bytes": 761
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-C/world-opt-rc-soak-v2-3647-full2-C/cross_tesseract/journal/201960d5-e01b-4c1c-ae89-fc8dbacfc97c.ctj",
+        "sha256": "b98d8d3b326e600a5408f9c6b0eaec9ecf7fd235be7c85ce2ed81b4da143a10c",
+        "bytes": 257
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/C-201960d5-e01b-4c1c-ae89-fc8dbacfc97c.ctj",
+        "sha256": "b98d8d3b326e600a5408f9c6b0eaec9ecf7fd235be7c85ce2ed81b4da143a10c",
+        "bytes": 257
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/9dd7f6fe-fa16-4024-8249-2a98b42c7da0.ctj",
+        "sha256": "cbebc46757280e3cc42ce8a3a5782c91be1a60f34c91af1879995d5bbf1ad65b",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-9dd7f6fe-fa16-4024-8249-2a98b42c7da0.ctj",
+        "sha256": "cbebc46757280e3cc42ce8a3a5782c91be1a60f34c91af1879995d5bbf1ad65b",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/98274972-a627-44f2-96cb-0d18c4233624.ctj",
+        "sha256": "10d3da121996b69122c3e4fe7072aecb9c242c01ac40bba08b8646f5c9a5c3de",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-98274972-a627-44f2-96cb-0d18c4233624.ctj",
+        "sha256": "10d3da121996b69122c3e4fe7072aecb9c242c01ac40bba08b8646f5c9a5c3de",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/8bc59597-1bf0-4031-9808-8e9bef6d579a.ctj",
+        "sha256": "dd7cba78c6917a760742ff35208a2da0de631d93cd520b0af2775530129ea245",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-8bc59597-1bf0-4031-9808-8e9bef6d579a.ctj",
+        "sha256": "dd7cba78c6917a760742ff35208a2da0de631d93cd520b0af2775530129ea245",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-B/world-opt-rc-soak-v2-3647-full2-B/cross_tesseract/journal/4a061292-5c5f-480e-9a86-aebe0b75bb93.ctj",
+        "sha256": "efa0114b55985a340b36db5baaa5b2fa1c2769f603a02033a5e0ac11f405980e",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/B-4a061292-5c5f-480e-9a86-aebe0b75bb93.ctj",
+        "sha256": "efa0114b55985a340b36db5baaa5b2fa1c2769f603a02033a5e0ac11f405980e",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/08ca7e43-32ab-4e0e-b34b-abf5a123102b.ctj",
+        "sha256": "d280c9ba0d23bdf24d5b342c412db114db7caf1c1bd00a8aa7fda776ae9bf6dc",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-08ca7e43-32ab-4e0e-b34b-abf5a123102b.ctj",
+        "sha256": "d280c9ba0d23bdf24d5b342c412db114db7caf1c1bd00a8aa7fda776ae9bf6dc",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-C/world-opt-rc-soak-v2-3647-full2-C/cross_tesseract/journal/c69512e5-2d73-41b3-9000-ae9559f54636.ctj",
+        "sha256": "a3aa0707390dbfe0e9129b067e3e7697a62f3a81c1419033710870856c15df18",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/C-c69512e5-2d73-41b3-9000-ae9559f54636.ctj",
+        "sha256": "a3aa0707390dbfe0e9129b067e3e7697a62f3a81c1419033710870856c15df18",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/c3cc7ee8-1184-41fd-837a-d89311204214.ctj",
+        "sha256": "9054a471054a6ab0633148b88a343c4846fdc4066d05da3f8ce30e2cd972d07d",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-c3cc7ee8-1184-41fd-837a-d89311204214.ctj",
+        "sha256": "9054a471054a6ab0633148b88a343c4846fdc4066d05da3f8ce30e2cd972d07d",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-A/world-opt-rc-soak-v2-3647-full2-A/cross_tesseract/journal/7b463e85-b6f6-485b-abc6-0f06297768b1.ctj",
+        "sha256": "62038295b41ddea95d054d2fae93ddd5445135f9faea74840e32bd1f6f5b5e65",
+        "bytes": 185
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/A-7b463e85-b6f6-485b-abc6-0f06297768b1.ctj",
+        "sha256": "62038295b41ddea95d054d2fae93ddd5445135f9faea74840e32bd1f6f5b5e65",
+        "bytes": 185
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    },
+    {
+      "original": {
+        "path": "run-B/world-opt-rc-soak-v2-3647-full2-B/cross_tesseract/journal/b375e6b7-fd2e-4eaa-a33f-cdc779f9b711.ctj",
+        "sha256": "03f80d48f0bdeac69e066d56f2f3477396ea7be549964c4efecb03b467030329",
+        "bytes": 113
+      },
+      "archive": {
+        "path": "reports/raw/full2-failure-owned-WAL-20261017T1517Z/B-b375e6b7-fd2e-4eaa-a33f-cdc779f9b711.ctj",
+        "sha256": "03f80d48f0bdeac69e066d56f2f3477396ea7be549964c4efecb03b467030329",
+        "bytes": 113
+      },
+      "purpose": "Read-only failure evidence; never replay or copy into a world"
+    }
+  ],
+  "all_ABC_launch_locks_and_loopback_ports_free": true,
+  "remaining_Java_controller_observer_processes": [],
+  "restored_full3_configs_hash_match": true,
+  "all_own_launcher_exits": {
+    "A": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/674932d05487476181a641f5e5f7a161/runServerA.sh",
+      "launcher_sha256": "f1ea3c434e11b280e275e16631a3ac85338eb677201bb3e8086d5e02600e01ba"
+    },
+    "B": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/5f561b7b55ca438b95a4c8b1ad482869/runServerB.sh",
+      "launcher_sha256": "69b942cc69d91cc02e5ab00b171562069728c974dbdba009727f86a58dda21f5"
+    },
+    "C": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/f68d8ec49fd94c04a6a240cb84a1ecc5/runServerC.sh",
+      "launcher_sha256": "2fcf4726458d0b8b85d1f5a558c0a4c7d0a23c0fa0bc0e0872592947666d8d23"
+    }
+  },
+  "f3FAST_launcher_exits": {
+    "A": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/3178ead38a1e4e3ebce55481f270d518/runServerA.sh",
+      "launcher_sha256": "70d1a487dfb8931b35ae80dc97e6bf342cacbea54fc24dc921d714d21b6dc3e6"
+    },
+    "B": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/deba8f094c654f20aa202f102af0fe28/runServerB.sh",
+      "launcher_sha256": "f541cda80121cc3b855973ab7296d5bca417bf5bfab2daad17ef914e67eb3545"
+    },
+    "C": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/995dba2eeb7d4301a93421c30c4f09fb/runServerC.sh",
+      "launcher_sha256": "29536849215727d1006c21d21f8d18e50bbf018eaf353a752cc39bd437dc0b3d"
+    }
+  }
+}

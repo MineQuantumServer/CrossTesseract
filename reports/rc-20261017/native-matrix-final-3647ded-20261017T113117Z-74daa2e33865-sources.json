@@ -1,0 +1,451 @@
+{
+  "files": [
+    {
+      "path": "build.gradle",
+      "bytes": 7058,
+      "sha256": "31401281402e81459ae6b8c8ad1a625ac76cd4f39ab39ddc45ff35144d833ea4"
+    },
+    {
+      "path": "config/gametest.properties",
+      "bytes": 470,
+      "sha256": "6eed80de6bd6c81bd69ec534ee3b17ee1252efd48ad4c389292a5fd5dbf9ec01"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 43764,
+      "sha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 341,
+      "sha256": "0b47dabb7f821f9c71cc490955f67330ec07f80a7dd4fae250b7abb78a61aad6"
+    },
+    {
+      "path": "gradle.properties",
+      "bytes": 174,
+      "sha256": "9450b4e42df4e4c93ef779838ba0c81b7098c26603d31ab853de6e9ca89554a1"
+    },
+    {
+      "path": "gradlew",
+      "bytes": 8733,
+      "sha256": "b187b4c52e749f5760afdd6fadc31b2a98ad35fb249bf0dff03b72650f320409"
+    },
+    {
+      "path": "scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/capability/IEnergyContainer.java",
+      "bytes": 4154,
+      "sha256": "8d6318138badaf39bfe2f273e7f2db4459aa43ba968734a074b5877be15ff9c1"
+    },
+    {
+      "path": "scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/capability/IEnergyInfoProvider.java",
+      "bytes": 519,
+      "sha256": "051eeca5ab738de1c21fe95d67d07b54161d27b4f0a1cda8fc3c7cdd025d64dc"
+    },
+    {
+      "path": "scripts/freeze-dev-launch.py",
+      "bytes": 1870,
+      "sha256": "2b0cad8c24076cceafdec6c98e492c619e064d3f59e47be6ed2400d4de1532d0"
+    },
+    {
+      "path": "scripts/gradle-dev.sh",
+      "bytes": 971,
+      "sha256": "1394cdcfe812775c43e1cf79aee4990a1183bd6456ad1b592dbd0e7eb212e6d2"
+    },
+    {
+      "path": "scripts/rc-native-matrix.py",
+      "bytes": 38483,
+      "sha256": "7a42455c8855e52dd8b383d36d84a92537ddc6ad646e420680eb33627bdb4fd3"
+    },
+    {
+      "path": "settings.gradle",
+      "bytes": 156,
+      "sha256": "196ea049008ab1869c8dafd79864f140031c74d26527b82ddf9c328f5434994a"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/CrossTesseract.java",
+      "bytes": 5086,
+      "sha256": "bf93f470493eb3cb24e4527472a63406c22d6f7797f7055e25de591aa3657390"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/Authority.java",
+      "bytes": 108320,
+      "sha256": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/BackendConfig.java",
+      "bytes": 2500,
+      "sha256": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/LocalJournal.java",
+      "bytes": 9308,
+      "sha256": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/Migrations.java",
+      "bytes": 2619,
+      "sha256": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/RedisTransport.java",
+      "bytes": 6005,
+      "sha256": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/Sql.java",
+      "bytes": 7889,
+      "sha256": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/backend/TransferWork.java",
+      "bytes": 1784,
+      "sha256": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/block/NeighborPump.java",
+      "bytes": 8587,
+      "sha256": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/block/Ports.java",
+      "bytes": 7132,
+      "sha256": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/block/StackCodec.java",
+      "bytes": 5097,
+      "sha256": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/block/TesseractBlock.java",
+      "bytes": 2602,
+      "sha256": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/block/TesseractBlockEntity.java",
+      "bytes": 17267,
+      "sha256": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/block/TesseractMenu.java",
+      "bytes": 1525,
+      "sha256": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/client/ClientEntrypoint.java",
+      "bytes": 916,
+      "sha256": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/client/TesseractScreen.java",
+      "bytes": 21345,
+      "sha256": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/client/UiSmoke.java",
+      "bytes": 7721,
+      "sha256": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/CompatLoader.java",
+      "bytes": 1982,
+      "sha256": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/CompatModule.java",
+      "bytes": 938,
+      "sha256": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/ae2/AeGameTests.java",
+      "bytes": 8526,
+      "sha256": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/ae2/AeModule.java",
+      "bytes": 14434,
+      "sha256": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/gregtech/GtGameTests.java",
+      "bytes": 3829,
+      "sha256": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/gregtech/GtModule.java",
+      "bytes": 5787,
+      "sha256": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/mekanism/MekGameTests.java",
+      "bytes": 3940,
+      "sha256": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/compat/mekanism/MekModule.java",
+      "bytes": 5832,
+      "sha256": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/AeProxyPlanner.java",
+      "bytes": 1572,
+      "sha256": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/BusinessIds.java",
+      "bytes": 862,
+      "sha256": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/DomainException.java",
+      "bytes": 460,
+      "sha256": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/HeatModel.java",
+      "bytes": 1427,
+      "sha256": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/LocalBuffer.java",
+      "bytes": 10985,
+      "sha256": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/LocalSnapshot.java",
+      "bytes": 1319,
+      "sha256": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/ManagementLimiter.java",
+      "bytes": 625,
+      "sha256": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/Metrics.java",
+      "bytes": 4522,
+      "sha256": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/Models.java",
+      "bytes": 1741,
+      "sha256": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/Protocol.java",
+      "bytes": 1168,
+      "sha256": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/Resource.java",
+      "bytes": 1437,
+      "sha256": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/core/ThermalBuffer.java",
+      "bytes": 2610,
+      "sha256": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/network/Packets.java",
+      "bytes": 16931,
+      "sha256": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/ChannelCoordinator.java",
+      "bytes": 6831,
+      "sha256": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/ChunkTickets.java",
+      "bytes": 2807,
+      "sha256": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/Commands.java",
+      "bytes": 9635,
+      "sha256": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/CompletionMailbox.java",
+      "bytes": 2615,
+      "sha256": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/DemandRefresh.java",
+      "bytes": 1244,
+      "sha256": "3264d4a0517c741f43f044ed787117d5ea60ece9e6865cd4e2237e32615355ff"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/RuntimeEvents.java",
+      "bytes": 695,
+      "sha256": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/RuntimeLimits.java",
+      "bytes": 3331,
+      "sha256": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/RuntimeService.java",
+      "bytes": 68168,
+      "sha256": "80b95fb787982bfc939eb1294750ab3790dc883f1ddee7c3ed907d13e1cd37c5"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/runtime/WakeDeadline.java",
+      "bytes": 647,
+      "sha256": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/CoreBackendGameTests.java",
+      "bytes": 9617,
+      "sha256": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/Faults.java",
+      "bytes": 9816,
+      "sha256": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/Fixtures.java",
+      "bytes": 1757,
+      "sha256": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/GameTests.java",
+      "bytes": 5537,
+      "sha256": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/RcFaultGameTests.java",
+      "bytes": 5153,
+      "sha256": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/RcGroupGameTests.java",
+      "bytes": 13508,
+      "sha256": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/RcWakeGameTests.java",
+      "bytes": 14841,
+      "sha256": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/RegistrationRecoveryGameTests.java",
+      "bytes": 41801,
+      "sha256": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/RuntimeDeltaGameTests.java",
+      "bytes": 8460,
+      "sha256": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d"
+    },
+    {
+      "path": "src/main/java/dev/crosstesseract/test/ThreeServerHarness.java",
+      "bytes": 12429,
+      "sha256": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    {
+      "path": "src/main/resources/META-INF/LICENSE-cross_tesseract.txt",
+      "bytes": 1091,
+      "sha256": "015d4a924b170718e2b7cdf9cd7ac2ef330b8ef47315e2b14afc752f6292de93"
+    },
+    {
+      "path": "src/main/resources/META-INF/THIRD-PARTY-NOTICES.txt",
+      "bytes": 1136,
+      "sha256": "b9e20492b9c771249eda32e617b6809c1fe7301f8d8dcf0f58130c48b70bef2b"
+    },
+    {
+      "path": "src/main/resources/META-INF/neoforge.mods.toml",
+      "bytes": 852,
+      "sha256": "533f6e37a74154c9d169344481895dd9079ce9f993e00d8c6431363dda9e1b33"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/blockstates/tesseract.json",
+      "bytes": 89,
+      "sha256": "888d61451668b84f2e48893960d01406fe4e7cc653821cfd98188abada7e9f8e"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/lang/en_us.json",
+      "bytes": 13219,
+      "sha256": "9054f1e277af1ffaa4adabae6ffde31d46a018435deb715b5b381b08418a006d"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/lang/zh_cn.json",
+      "bytes": 14524,
+      "sha256": "b890a23f296628cca4f502bfd3ed08330535588b4b04e8fb9053c8549cc69513"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/models/block/tesseract.json",
+      "bytes": 425,
+      "sha256": "65021ca4301297a2ba1ef15422a99af56ebbdcd13f7434c63730cbb20f407e8b"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/models/item/tesseract.json",
+      "bytes": 50,
+      "sha256": "ce6a9232bf8b492aa049fc2d6431b63e07f67a34ef9ddff730248d28b6f0b61a"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/textures/block/tesseract_side.png",
+      "bytes": 660,
+      "sha256": "4ed3edc32d143814c0c5b265dfc40a48d096a58e3748cddb7b724d3207dc712e"
+    },
+    {
+      "path": "src/main/resources/assets/cross_tesseract/textures/block/tesseract_top.png",
+      "bytes": 691,
+      "sha256": "75ead055b62b19d04599be9fd9ccf1406f9bb3dd9a368450eb1aaea4bb67f3be"
+    },
+    {
+      "path": "src/main/resources/data/cross_tesseract/loot_table/blocks/tesseract.json",
+      "bytes": 314,
+      "sha256": "f839c42a6c60ad59cca31a1c72f4f12b626a616bcf7ee81169afc8a5da9a961a"
+    },
+    {
+      "path": "src/main/resources/data/cross_tesseract/recipe/tesseract.json",
+      "bytes": 372,
+      "sha256": "f4fb1352f7227a00db9070fc49186d8097ffb46b1c7fae37276b365a24ca2ddc"
+    },
+    {
+      "path": "src/main/resources/data/cross_tesseract/structure/empty.nbt",
+      "bytes": 111,
+      "sha256": "d2783835dd0ffc6ab2e8e95c6bef6ba7a8da2dd3b2103ff9058718e766c1befb"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "bytes": 74,
+      "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_iron_tool.json",
+      "bytes": 74,
+      "sha256": "b4789471e3fc35bd00fcad6b3a721d661f961f2138c923e24c719e5c65f8ca24"
+    },
+    {
+      "path": "src/main/resources/db/migration/V001__authority.sql",
+      "bytes": 9548,
+      "sha256": "30644147e04fea2d95ebe60c37e5028dbffdb080dcccf40598a7cbae70a4828a"
+    },
+    {
+      "path": "src/main/resources/db/migration/V002__thermal_and_ae.sql",
+      "bytes": 2277,
+      "sha256": "0bf4f630937a979f65335890ab17936a710326976dd69873983e4a5348dbf13e"
+    },
+    {
+      "path": "src/main/resources/db/migration/V003__bounded_history.sql",
+      "bytes": 1239,
+      "sha256": "299e68f5ee68a55ddd5d10f6ea4fba5e157e36d3849d4f15d3340d759829e607"
+    },
+    {
+      "path": "src/main/resources/db/migration/V004__stock_requests.sql",
+      "bytes": 973,
+      "sha256": "2247b93c82fb356af7299ad8d2ae27ccd7f54ecdc7e5333c9636e190d9c26226"
+    },
+    {
+      "path": "src/main/resources/pack.mcmeta",
+      "bytes": 102,
+      "sha256": "110f461bf1bf49b0a5db6f91c30697489c5aab3244bc42f8bb0f7f3fbff77b4b"
+    }
+  ],
+  "sha256": "879321b3b1fab34b19d4ce80289d6126f0005fbcd63dc89a609f97aff262d738",
+  "scope": "actual source/resources/build/helper/config inputs, not loaded-code attestation; frozen class/JAR manifests recorded separately"
+}

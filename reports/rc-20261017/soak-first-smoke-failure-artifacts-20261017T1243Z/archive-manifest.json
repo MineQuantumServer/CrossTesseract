@@ -1,0 +1,42 @@
+{
+  "generated_utc": "2026-10-17T12:57:55.266578+00:00",
+  "scope": "Closed first failed smoke original bytes only; invalid JSON is preserved, not repaired. No Minecraft source/class/JAR included.",
+  "files": [
+    {
+      "original": "scratch/rc-soak-rc-soak-v2-3647-smoke-20261017T124301Z-f59bc616dd/report.json",
+      "archive": "reports/rc-20261017/soak-first-smoke-failure-artifacts-20261017T1243Z/report.json.invalid",
+      "sha256": "9be51dbe0a0c229e60c7e9d871e8b943a13e6603e73dd597504d2ad51764a88a",
+      "bytes": 252863
+    },
+    {
+      "original": "scratch/rc-soak-rc-soak-v2-3647-smoke-20261017T124301Z-f59bc616dd/events.jsonl",
+      "archive": "reports/rc-20261017/soak-first-smoke-failure-artifacts-20261017T1243Z/events.jsonl",
+      "sha256": "ee0ae841726a5a005ae24265b88719746c1f8c9e703cd7edb3d5129ecfc72798",
+      "bytes": 20835
+    },
+    {
+      "original": "scratch/rc-soak-rc-soak-v2-3647-smoke-20261017T124301Z-f59bc616dd/manifest.json",
+      "archive": "reports/rc-20261017/soak-first-smoke-failure-artifacts-20261017T1243Z/manifest.json",
+      "sha256": "d4f32e3dcbdfbb8aba03622f6db531b9f1e0c5e51ed32daec0333aea6639c95a",
+      "bytes": 697
+    },
+    {
+      "original": "scratch/rc-soak-rc-soak-v2-3647-smoke-20261017T124301Z-f59bc616dd/completion.json",
+      "archive": "reports/rc-20261017/soak-first-smoke-failure-artifacts-20261017T1243Z/completion.json",
+      "sha256": "bd9a0e3e672e10d4ccce7e5e720c6fc48dd6fc116dca4d1b48d6fb584cf7d7b8",
+      "bytes": 305
+    },
+    {
+      "original": "logs/rc-soak-v2-3647-smoke-20261017T124231Z-ce30b6b0-driver.log",
+      "archive": "reports/rc-20261017/soak-first-smoke-failure-artifacts-20261017T1243Z/rc-soak-v2-3647-smoke-20261017T124231Z-ce30b6b0-driver.log",
+      "sha256": "c0c9ba444a46b0603f48ca2a9043f1b3fa1aabbeb92fc4f1dcae12352dfda667",
+      "bytes": 157
+    },
+    {
+      "original": "logs/rc-v2-smoke60-20261017T121031Z-e1ace95d.log",
+      "archive": "reports/rc-20261017/soak-first-smoke-failure-artifacts-20261017T1243Z/rc-v2-smoke60-20261017T121031Z-e1ace95d.log",
+      "sha256": "cb0ae31bb8de50b10dc7f29436300f04934b4e8e5aeea0a604f6af281b0dea86",
+      "bytes": 227
+    }
+  ]
+}

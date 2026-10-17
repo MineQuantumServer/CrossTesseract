@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-17T17:39:19.956797+00:00",
+  "kind": "offline_fallback_identity_and_missing_proc_children_regression",
+  "recipe": {
+    "path": "scripts/rc-normal-fallback.py",
+    "sha256": "96334df6ca0cb38d6d1e0d537132042a3f5d40ae646c0ab933ece30c23e6e17b"
+  },
+  "prior_as_run_recipe": {
+    "path": "reports/raw/rc-normal-fallback-4904d18d9c35c738a0af9372ea76ade2c7eb95aea7242f15140f5c3c3ffdb9b5.py",
+    "sha256": "4904d18d9c35c738a0af9372ea76ade2c7eb95aea7242f15140f5c3c3ffdb9b5"
+  },
+  "patch": {
+    "path": "reports/rc-20261017/normal-fallback-identity-proc-fix-20261017T173919Z-ef4ebb08.patch",
+    "sha256": "2473aef61e3dcfb0527fdb0a9fa048efde8be0287af1899f41fcfdb23de4065e"
+  },
+  "self_test_exit": 0,
+  "log": {
+    "path": "reports/rc-20261017/normal-fallback-identity-proc-fix-20261017T173919Z-ef4ebb08.log",
+    "sha256": "f9d11caf10dc59d0e555ca9ec9b8007ccac3d1b40c547e19bd0b03e451a49461"
+  },
+  "changes": [
+    "Update existing identity object PID in place so restart session/epoch update cannot target a detached dict.",
+    "If task/children is missing or unavailable, build one bounded16384-process PPID index per owned-tree read; still require exact birth, real ancestry, frozen argv/launcher/VM SHA/cwd/exe and actual RCON PID before a stop."
+  ],
+  "tests_expected": 16,
+  "native_SQL_RCON_JDK": "NOT_RUN",
+  "pending_before_any_new_native": "Original full raw session/epoch1 differs from the closed failed boot SQL epoch2. A separately reviewed explicit initial-entrypoint adoption is still needed; this patch does not relax that initial gate or retry any failed stage."
+}

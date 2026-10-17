@@ -1,0 +1,23 @@
+{
+  "generated_utc": "2026-10-17T11:06:33.420690+00:00",
+  "probe_manifest": "reports/rc-20261017/probe-launches-candidate-20261017T105444Z-bc18ae27.json",
+  "probe_manifest_sha256": "497f3d0293cb4aa3f27fe11cd705df7a1b2c24f03f3da9b8afa579101b9cfb7a",
+  "field": "sourcesJar",
+  "original_value": "NOT_USED; not rebuilt with this candidate",
+  "clarification": "Source archive was not used for runtime identity or class/JAR matching. The inherited template text saying it was not rebuilt with the candidate is inaccurate: ROOT final-core-build actually rebuilt it before this freeze. Original frozen manifest is preserved unchanged.",
+  "actual_build_evidence": "reports/rc-20261017/final-core-build/manifest.json",
+  "actual_build_evidence_sha256": "90734802a30e1ff3327a5a993caf897b74659b504fbf3b4cabbe666c7de9f908",
+  "actual_artifacts": [
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev-sources.jar",
+      "sha256": "39c2d384880ed3850ec6887bae042eebef5effe66bdbc565e5c132cb7d63df2d",
+      "bytes": 166593
+    },
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev.jar",
+      "sha256": "f8be85b5b44de325ebe139ecb2232757324e34ab78e105c35e6d47e8be7f4f6a",
+      "bytes": 4150378
+    }
+  ],
+  "scope": "Metadata clarification only; measured binary/classes/resources and all report hashes/data unchanged."
+}

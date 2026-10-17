@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-17T15:32:30.667972+00:00",
+  "scope": "As-run bytes before explicit approved runtime identity guard extension; original reports/manifests not changed.",
+  "files": [
+    {
+      "source": "scripts/analysis/freeze-rc-v2-probe.py",
+      "archive": "reports/raw/rc-analysis-tools-before-discovery-deadline-20261017T153230Z-27a6bbf9/freeze-rc-v2-probe.py",
+      "sha256": "d3f333648c52631fd92f2631059869c561acbc8a6d6f081f18bf08a83037becc",
+      "bytes": 7212
+    },
+    {
+      "source": "scripts/analysis/run-rc-v2-stage.py",
+      "archive": "reports/raw/rc-analysis-tools-before-discovery-deadline-20261017T153230Z-27a6bbf9/run-rc-v2-stage.py",
+      "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d",
+      "bytes": 16606
+    },
+    {
+      "source": "scripts/analysis/run-rc-v2-soak.py",
+      "archive": "reports/raw/rc-analysis-tools-before-discovery-deadline-20261017T153230Z-27a6bbf9/run-rc-v2-soak.py",
+      "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa",
+      "bytes": 14195
+    },
+    {
+      "source": "scripts/analysis/rc-soak-history-audit.py",
+      "archive": "reports/raw/rc-analysis-tools-before-discovery-deadline-20261017T153230Z-27a6bbf9/rc-soak-history-audit.py",
+      "sha256": "4ce57e1b0d6a2fc868194f32fb17bd84deaf9576bd0656a2745753cb558034a5",
+      "bytes": 16232
+    }
+  ]
+}

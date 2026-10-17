@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-17T10:53:17Z",
+  "checkout": "9af2a374778afe92dcef7ba93d45fe5c7742961d",
+  "functional_source_commit": "c66bc0777094b27075b5f787611dc1c88e1aee92",
+  "main_java_manifest_sha256": "f3882fa3aa74fd7118a0261b88dd6ff498389f4a6ff33a9210924a03ce92704c",
+  "tests": {
+    "tests": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "passed": true,
+  "command": "scripts/gradle-dev.sh --no-daemon --max-workers=2 build -Dct.integration=true createServerALaunchScript createServerBLaunchScript createServerCLaunchScript createServerPerfLaunchScript",
+  "artifacts": [
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev-sources.jar",
+      "sha256": "39c2d384880ed3850ec6887bae042eebef5effe66bdbc565e5c132cb7d63df2d",
+      "bytes": 166593
+    },
+    {
+      "path": "build/libs/cross_tesseract-0.1.0-dev.jar",
+      "sha256": "f8be85b5b44de325ebe139ecb2232757324e34ab78e105c35e6d47e8be7f4f6a",
+      "bytes": 4150378
+    }
+  ]
+}

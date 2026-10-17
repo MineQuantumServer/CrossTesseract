@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.RcRecoveryIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:06:31.810Z" hostname="0e33714fb4c9" time="1.019">
+  <properties/>
+  <testcase name="depositCommitOkIsLostOnWireAndOriginalWalBusinessIdCreditsOnlyOnce()" classname="dev.crosstesseract.RcRecoveryIntegrationTest" time="0.501"/>
+  <testcase name="localCommitOkIsLostOnWireAndSamePublicationCannotRestoreConsumedRemaining()" classname="dev.crosstesseract.RcRecoveryIntegrationTest" time="0.517"/>
+  <system-out><![CDATA[RC_RECOVERY_EVIDENCE scratch/rc-recovery-deposit-01a1498abe0371ab8a650c4d63aaf3d3/result.json
+RC_RECOVERY_EVIDENCE scratch/rc-recovery-local-01a1498abff9754988bc1e82fc763c50/result.json
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

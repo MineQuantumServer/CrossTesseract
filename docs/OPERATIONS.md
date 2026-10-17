@@ -1,6 +1,6 @@
 # 管理、诊断与安全恢复
 
-2026-10-17起缺失优化配置默认 `false/false` 保守模式，示例一致；`true/false` 为待重新验收的合批候选，`true/true` 为显式实验快速模式。启动记录 `CT_TRANSFER_MODE`，均需正常停服后以同一新版JAR重启。[本轮状态](RC_20261017_REPORT.md) 优先于下文历史68运行结论。
+2026-10-17起缺失优化配置默认 `false/false` 保守模式，示例一致；`true/false` 为合批候选（本轮小样本已修复严重箱子等待，仍未完成全部性能验收），`true/true` 为显式实验快速模式。启动记录 `CT_TRANSFER_MODE`，均需正常停服后以同一新版JAR重启。[本轮状态](RC_20261017_REPORT.md) 优先于下文历史68运行结论。
 
 管理员命令要求服务端 permission level 2；政策修改要求 level 4。控制台也可使用，审计 actor 为零 UUID。命令执行后显示处理中，数据库工作在受控后台队列中进行；“状态待确认”不能被解释为可安全退款。
 
@@ -43,7 +43,7 @@
 
 ## 合批配置与安全回退
 
-本轮新增的 transfer.channelBatches、transfer.localFastPath、maxBatchDevices/Records/PayloadBytes、activeWakeMillis、idlePollMillis、notificationMillis、limits.readyChannels、diagnostics.transferSampling 均只在启动读取；默认值见 config/cross-tesseract.properties.example。设备数 1–16，记录数 192–2048，载荷 8–16 MiB，默认 8/256/8 MiB。字节/记录同时约束第一阶段和按最新快照拆分的第二阶段；不扩大设备缓冲或历史容量。
+现有 transfer.channelBatches、transfer.localFastPath、maxBatchDevices/Records/PayloadBytes、activeWakeMillis、idlePollMillis、notificationMillis、limits.readyChannels、diagnostics.transferSampling 均只在启动读取；默认值见 config/cross-tesseract.properties.example。设备数 1–16，记录数 192–2048，载荷 8–16 MiB，默认 8/256/8 MiB。字节/记录同时约束第一阶段和按最新快照拆分的第二阶段；不扩大设备缓冲或历史容量。
 
 安全回退：停止外部输入，正常停服并确认 clean_stop；将 channelBatches=false、localFastPath=false 后使用同一新版 JAR 启动。无需 schema 回退/清库，不重放已完成业务。故障停服仍需按恢复流程审查，不能把开关当资产补偿工具。热/AE 原型的既有开关和语义不变。当前 V001–V004 校验和没有更改。
 
@@ -56,4 +56,6 @@
 
 同一核心68 JAR的正常重启回退已经实测：同服/跨服两个新频道在true/true→false/false→true/true之间保留正余额及原业务ID，各189FE输入/实际输出守恒，重复提取0。具体报告为 `reports/optimization-restart-fallback-68f32db-20261006T195817Z-df658dc1.json`。首两次观察器失败仍保留，并单列隔离开发环境中未提取的128FE资产（SQL状态LOCAL）；不能借此把生产未知外部动作标成已交付。版本/实例不匹配、后端租约过期或非干净停止仍按RECOVERY.md处理。
 
-仅合批模式false localFastPath保留旧的本地交换门：本轮混合资源持续负载下，物品实际输入到目的箱子接受出现明显延迟回归（中位71/78秒，个别超过110秒）。需要物品低延迟时不要只看事务数；完整快速模式缓解该等待，但部分场景增加SQL语句、WAL和主线程成本。配置选择应结合PERFORMANCE.md的全部重复和错误记录。
+历史68核心的仅合批模式保留旧的本地交换门：当时混合资源持续负载下，物品实际输入到目的箱子接受出现明显延迟回归（中位71/78秒，个别超过110秒）。2026-10-17候选已让各模式本地交换独立受预算调度；不能继续把旧行为描述为当前行为，也不能用旧快速模式结果替代候选验收。当前模式选择以RC报告的固定窗口、完整排空及错误记录为准。
+
+当前0113同一新版JAR的正常fast→保守→fast回退已实际通过：945新FE接受=输出、两次原ID的LOCAL75+pool61跨重启，OFF提取0，9个launcher正常退出，原配置精确恢复，持久配额不变。实际报告 `reports/rc-20261017/normal-fallback-rc-0113-fb-2bf6a319-20261017T175750Z-0f0f6f38.json`，闭合证明 `normal-fallback-release-0113ef3-20261017T180354Z-9b4c4143.json`。首轮工具失败保留；只覆盖正常停服后同一新版配置重启，不覆盖热切换、旧二进制或外部世界回档。详细步骤、原ID和失效域见 [RC报告](RC_20261017_REPORT.md)。

@@ -1,0 +1,8 @@
+# SHA-bound raw reports and archived recipes must retain their original bytes.
+reports/** -text
+reports/**/*.csv whitespace=cr-at-eol
+# Captured output/patches (including failures) are evidence, not editable sources.
+reports/**/*.log -whitespace
+reports/**/*.xml -whitespace
+reports/**/*.patch -whitespace
+reports/**/*.invalid -whitespace

@@ -1,0 +1,7 @@
+{"execution": "NOT_RUN", "requires": "--execute --completion CLOSED_FULL_SOAK_CONTROLLER --manifest SAME_FROZEN_RUNTIME --label NEW_RC_LABEL; explicit root release after the full soak"}
+{"execution": "OFFLINE_SELF_TEST", "tests": 20, "failures": 0, "errors": 0, "native_SQL_config_lifecycle": "NOT_RUN"}
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 0.047s
+
+OK

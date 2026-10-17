@@ -1,0 +1,29 @@
+{
+  "kind": "explicit_closed_zero_input_failed_fallback_entrypoint",
+  "utc": "2026-10-17T17:51:50.602709+00:00",
+  "scope": "Operator-selected identity continuation only. These immutable actual records bind the single zero-input failed observer boot and its real clean stop/empty SQL state. This is not a new full-soak pass and never permits retry of an uncertain asset command.",
+  "full_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565.json",
+    "sha256": "5d80977763ea2b334c4d2bea7d8424f2b3526eade736f58f33600756c39ff497"
+  },
+  "runtime_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+    "sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e"
+  },
+  "soak_raw": {
+    "path": "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565/report.json",
+    "sha256": "39e96741e4e97b75c59adf47b57017ee4ae8870c36f1fd56798cbbdd9361c878"
+  },
+  "failed_attempt": {
+    "path": "reports/rc-20261017/normal-fallback-rc-0113-fb-7c4a9e2d-20261017T172628Z-8e133b5c.json",
+    "sha256": "28be3360fdb87e1de2b869312c489e64eea537a33da44262f6e32c9a1bde07e0"
+  },
+  "closure": {
+    "path": "reports/rc-20261017/normal-fallback-closure-0113ef3-20261017T173403Z-1e4c0d2f.json",
+    "sha256": "0c14bd3e97cf7b52cce6a650d7618ab3cc514d751ee867b89be9dde082ceb1a2"
+  },
+  "poststop_SQL_audit": {
+    "path": "reports/rc-20261017/normal-fallback-poststop-SQL-0113ef3-20261017T173515Z-12b862db.json",
+    "sha256": "fd75c67323ba6cac2739c9d601fd3995d5c4cb10906aa1e9128cd54764d2316e"
+  }
+}

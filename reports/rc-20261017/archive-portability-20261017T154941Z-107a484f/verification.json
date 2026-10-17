@@ -1,0 +1,419 @@
+{
+  "utc_start": "2026-10-17T15:49:41.786514+00:00",
+  "kind": "isolated_public_archive_portability",
+  "temporary_root": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr",
+  "original_repository_denied": "/workspace/CrossTesseract",
+  "inputs": [
+    {
+      "source_path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+      "sha256": "7416932d888be3ece6571f2afffa744da24143bf6f3b1df017929248311dd25e",
+      "bytes": 83109
+    },
+    {
+      "source_path": "reports/rc-20261017/soak-final-3647-v2-full3-20261017.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/soak-final-3647-v2-full3-20261017.json",
+      "sha256": "22ce7754aa5b2d37e81931ce1a1ad695d1d9d1888f8710ee4a5587b15a741e00",
+      "bytes": 176451
+    },
+    {
+      "source_path": "reports/rc-20261017/soak-history-post-stop-20261017T151243Z-97e2c72b.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/soak-history-post-stop-20261017T151243Z-97e2c72b.json",
+      "sha256": "662aeae15f75959e6eb55bda0a425d980a2da89e52227e86ad6d554e288bb279",
+      "bytes": 81049
+    },
+    {
+      "source_path": "reports/rc-20261017/mix-summary-20261017T153326Z-2e8be30c9178.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/mix-summary-20261017T153326Z-2e8be30c9178.json",
+      "sha256": "b54879d015c0803a56a6cac18d331717b207d4180fbc745abca7259c3f61a7b2",
+      "bytes": 442170
+    },
+    {
+      "source_path": "scripts/analysis/summarize-rc-soak.py",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/scripts/analysis/summarize-rc-soak.py",
+      "sha256": "cc63bf6515c46bef48779ad21581636ef79d34b52f30b8aa31611567d12d1c84",
+      "bytes": 22368
+    },
+    {
+      "source_path": "scripts/analysis/rc-soak-history-audit.py",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/scripts/analysis/rc-soak-history-audit.py",
+      "sha256": "d7bcba6cf40152c3b917a017c401457d2c78bb7794bcf1989fc9f4abe8f506ee",
+      "bytes": 17219
+    },
+    {
+      "source_path": "scripts/analysis/rc_runtime_identity.py",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/scripts/analysis/rc_runtime_identity.py",
+      "sha256": "86e2fa5ecd26619ad3a64b2b9fbe5b4f2b3bf08a9d1dd14eacc1011cacce9279",
+      "bytes": 2588
+    },
+    {
+      "source_path": "scripts/analysis/summarize-rc-mix.py",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/scripts/analysis/summarize-rc-mix.py",
+      "sha256": "511de770736327e0a914bfabb2d8cb229635129703326a6f3e70d79a8841224d",
+      "bytes": 45534
+    },
+    {
+      "source_path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/manifest.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/manifest.json",
+      "sha256": "2279faef97dae24bb0b88ae36c2c63352d7cfeaba57dd16cebcebd47250a2497",
+      "bytes": 700
+    },
+    {
+      "source_path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/report.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/report.json",
+      "sha256": "ecba2ef896e5041dcd690ee2393d0f4e576127d958d25c1bf76099236029ef19",
+      "bytes": 14775931
+    },
+    {
+      "source_path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/events.jsonl",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/events.jsonl",
+      "sha256": "70e6ef9fda03d6b0b695c5927ca9941a835d24ec913dac7c09015079a5195c25",
+      "bytes": 57122306
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+      "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7",
+      "bytes": 98156
+    },
+    {
+      "source_path": "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+      "sha256": "f09c544ebdfba0b5ab2f464a0cac2b2b1a8ce2baac42d5e795127169ad9293f3",
+      "bytes": 82691
+    },
+    {
+      "source_path": "reports/optimization-rc-probe-mix-resource-mix-rc-f3b-v2-20261017T122434Z-ae7e98.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/optimization-rc-probe-mix-resource-mix-rc-f3b-v2-20261017T122434Z-ae7e98.json",
+      "sha256": "b86b71c6e033b44694d95580aeac2b13bacb9d34ed6147e46aecdb2615cd1c4a",
+      "bytes": 11928525
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+      "sha256": "4170d832c15a36933a4e458238b41f4073b5feb09e706f088f891ad5396345b6",
+      "bytes": 89964
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+      "sha256": "ecc893b356c26734dbccfec36745f8c15115416a032a30af7965aefd66808f9c",
+      "bytes": 56321
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+      "sha256": "f9c4eb74199ead8cca454a95909ba666c907b49d129afd59af640ee8b43aaae6",
+      "bytes": 26652
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+      "sha256": "9783a9212e906ffa1b7c1096ae18c1054e73672f8742dfeee18bf0c19ae253ca",
+      "bytes": 64873
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+      "sha256": "b0ee1c3bb2079b399e9688a599c0a82032bab47f4a39a819ea87936a1543060f",
+      "bytes": 56472
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+      "sha256": "7368d933721de37e5e04bd8f9dc921bf528f7b5c0268a1b96561ce244378853f",
+      "bytes": 26705
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+      "sha256": "533a601c1067c9accb84d5f93d750e56bc288da355f29ed9b71e25260ee30c1d",
+      "bytes": 64969
+    },
+    {
+      "source_path": "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+      "sha256": "3b018f964734b47cdc72405630eae8665baab6038fb5f296517f67350f918a77",
+      "bytes": 82256
+    },
+    {
+      "source_path": "reports/optimization-rc-probe-mix-resource-mix-rc-3647b-v2-20261017T122758Z-b5b90d.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/optimization-rc-probe-mix-resource-mix-rc-3647b-v2-20261017T122758Z-b5b90d.json",
+      "sha256": "90603d33bb8bff85ab97ccc617b656a8653d180d3c3102979853dc69297d7bf1",
+      "bytes": 7770421
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+      "sha256": "3ec34207c0814a1e4f82575b2eb241bf79fc3cbeb05ab991b022947dc61651b3",
+      "bytes": 69031
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+      "sha256": "c04d46d2d2ffcbccaf794cb593b3ee7a70d5af111f76907ca362bd184d10a140",
+      "bytes": 58574
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+      "sha256": "933710bcbdafa8bc1ff710e661c8394b589638823c5fe59f6d04ec29347dd0b8",
+      "bytes": 27440
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/19a9afcd-61ca-403d-9e17-335628db774e.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/19a9afcd-61ca-403d-9e17-335628db774e.json",
+      "sha256": "531a45f922f46c021dfbb2d5c03e3ae0a1dd865880ade9bd488cbd1678c8496d",
+      "bytes": 69100
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/19a9afcd-61ca-403d-9e17-335628db774e.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/19a9afcd-61ca-403d-9e17-335628db774e.json",
+      "sha256": "fdc29a92504d82e276521cf69fb9f28fcf13836d4638d8f5a6320ad0828aa422",
+      "bytes": 58661
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/19a9afcd-61ca-403d-9e17-335628db774e.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/19a9afcd-61ca-403d-9e17-335628db774e.json",
+      "sha256": "99c2b84efb76a5d15b36953f360a9842a35fe6bb1305d23542185302c8fd1d0d",
+      "bytes": 27523
+    },
+    {
+      "source_path": "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+      "sha256": "af998599e30fc7f5243b43eed3965ac429b68e3b60a5d76a183d25b211fed97a",
+      "bytes": 84183
+    },
+    {
+      "source_path": "reports/optimization-rc-probe-mix-resource-mix-rc-3647f-v2-20261017T123124Z-100ae2.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/optimization-rc-probe-mix-resource-mix-rc-3647f-v2-20261017T123124Z-100ae2.json",
+      "sha256": "ede9c1b3b4a63fe83d80e77d5df7c4c32c5d0a5cea56b23efdbd7799172cf56a",
+      "bytes": 7989734
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+      "sha256": "f06aff95beba95c2df6d069220572ff2c8ae0f4987d6568b9f5213fecf39645a",
+      "bytes": 77866
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+      "sha256": "a620cb85e9ddc9ddab2674d75509e0c90422ac6314fe566fbce7827520cb6198",
+      "bytes": 28011
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+      "sha256": "364df54c3cd5af14c332778a1f236765f6af0e0c9b30b22bbc854cfb242943b8",
+      "bytes": 66633
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+      "sha256": "e4636499aa1792777b8c07b92a3630c5651a3aea694dea1c27b6268f79acb2b6",
+      "bytes": 66618
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+      "sha256": "d1e0258e53637ef0f512e68789ae9e5918f7ad006ca235db1046ff2588822c8a",
+      "bytes": 28047
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+      "sha256": "ebd07ee51e94f8d19fec457ae041c71c931d587958f0108d7599aa7e4d385c70",
+      "bytes": 77874
+    },
+    {
+      "source_path": "reports/rc-20261017/resource-mix-rc-f3f-v2-controller-20261017T151305Z-1f1c1838.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/resource-mix-rc-f3f-v2-controller-20261017T151305Z-1f1c1838.json",
+      "sha256": "793e12398f5350c236b8faa8177a3e2363832d4dbd99fb18e80394def30fbcfd",
+      "bytes": 84635
+    },
+    {
+      "source_path": "reports/optimization-rc-probe-mix-resource-mix-rc-f3f-v2-20261017T151338Z-3afbb2.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/optimization-rc-probe-mix-resource-mix-rc-f3f-v2-20261017T151338Z-3afbb2.json",
+      "sha256": "ea02d7ec42acb78af12e2b7afa00042d6ee1d868977cd5528b5fe8ec2104279e",
+      "bytes": 7980440
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+      "sha256": "0f5c59f0a7e0189bdef259fddb474b9a716f03c5634a741d2a0ab5408727d743",
+      "bytes": 76492
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+      "sha256": "3759d248a92617b6b806315c0fedcf45c28839370e6939e120572ed748ce1edf",
+      "bytes": 66441
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+      "sha256": "a03dbd6f1ed46347af2d617c57fef622678a71ea86f697fe0ea75790343bec3a",
+      "bytes": 28472
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+      "sha256": "5edf0c29e10c8531f0cfe2c885c9b4a64457e8a39904dfe2fbe22473c91dc96f",
+      "bytes": 66509
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+      "sha256": "2199d6df8854a20d18e04b791a95ee8bb9c485aaa9623ecd490b85b3a46f8cf8",
+      "bytes": 76494
+    },
+    {
+      "source_path": "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+      "temporary_copy": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+      "sha256": "34cbc0b214b181d22eee0b46a88a348b41370894432f2bc06bd7fe067b011eaa",
+      "bytes": 28456
+    }
+  ],
+  "guard_harness_sha256": "f8a92efe1b07846f923ea71b92363b9f01b46537da3c0a99b4eb2916cb7cc8a6",
+  "scope": "Only copied public report bytes and necessary offline Python recipes. Original repository including scratch is denied by Python open audit hook; process/network creation denied. No SQL/WAL/JDK/native/process observation. Source reports unchanged.",
+  "cases": [
+    {
+      "case": "soak",
+      "exit_code": 0,
+      "command_recipe": "scripts/analysis/summarize-rc-soak.py",
+      "argv": [
+        "--controller",
+        "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+        "--history-report",
+        "reports/rc-20261017/soak-history-post-stop-20261017T151243Z-97e2c72b.json",
+        "--output-prefix",
+        "reports/rc-20261017/portable-soak-20261017T154941Z-107a484f"
+      ],
+      "original_access_denial_self_check": true,
+      "all_values_and_qualification_equal_excluding_archive_resolution": true,
+      "differing_payload_keys": [],
+      "used_archived_raw_and_events": true,
+      "expected_summary": {
+        "path": "reports/rc-20261017/soak-final-3647-v2-full3-20261017.json",
+        "sha256": "22ce7754aa5b2d37e81931ce1a1ad695d1d9d1888f8710ee4a5587b15a741e00"
+      },
+      "outputs": [
+        {
+          "path": "reports/rc-20261017/archive-portability-20261017T154941Z-107a484f/soak.json",
+          "temporary_path": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/portable-soak-20261017T154941Z-107a484f.json",
+          "sha256": "e6d4d23791dd0ee6c047065e296706488746533a2a242c6cc89526f9dfeee900",
+          "bytes": 176527
+        },
+        {
+          "path": "reports/rc-20261017/archive-portability-20261017T154941Z-107a484f/soak.csv",
+          "temporary_path": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/portable-soak-20261017T154941Z-107a484f.csv",
+          "sha256": "b4011b001782f11d712ac3d4adf20fd36a46afd81bdc7473bfb11ee56e502ae2",
+          "bytes": 1938
+        },
+        {
+          "path": "reports/rc-20261017/archive-portability-20261017T154941Z-107a484f/soak.md",
+          "temporary_path": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/portable-soak-20261017T154941Z-107a484f.md",
+          "sha256": "3b5a3b129d264db850bb073413e5733e2529bfa06b713717d9b8e07aa6d2efc8",
+          "bytes": 2166
+        }
+      ]
+    },
+    {
+      "case": "mix",
+      "exit_code": 0,
+      "command_recipe": "scripts/analysis/summarize-rc-mix.py",
+      "argv": [
+        "--controller",
+        "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+        "--controller",
+        "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+        "--controller",
+        "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+        "--controller",
+        "reports/rc-20261017/resource-mix-rc-f3f-v2-controller-20261017T151305Z-1f1c1838.json",
+        "--comparison-note",
+        "The f3 FAST material baseline was collected after full3, sequentially on the same isolated backend without resetting database history or clearing retained failed-fixture assets. It is n1 with matched profile inputs and probes; database snapshots are not identical and statistical significance is not established.",
+        "--comparison-note",
+        "The late f3 FAST sample uses the bounded Python probe-export readiness reader fix; the earlier final FAST sample retains its original as-run helper SHA. Agent, JAR and input loop identities remain separately bound. Fixed counter snapshots precede the export read; full tail observation and cost boundaries may differ between helpers."
+      ],
+      "original_access_denial_self_check": true,
+      "all_values_and_qualification_equal_excluding_generation_time": true,
+      "differing_payload_keys": [],
+      "expected_summary": {
+        "path": "reports/rc-20261017/mix-summary-20261017T153326Z-2e8be30c9178.json",
+        "sha256": "b54879d015c0803a56a6cac18d331717b207d4180fbc745abca7259c3f61a7b2"
+      },
+      "outputs": [
+        {
+          "path": "reports/rc-20261017/archive-portability-20261017T154941Z-107a484f/mix.json",
+          "temporary_path": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/mix-summary-20261017T154943Z-6373aff7394d.json",
+          "sha256": "205d1dd8f4a319239d1cfb0ca25988732d04ecdacec735abae36bbc24c74fa74",
+          "bytes": 442170
+        },
+        {
+          "path": "reports/rc-20261017/archive-portability-20261017T154941Z-107a484f/mix.csv",
+          "temporary_path": "/tmp/ct-rc-portability-20261017T154941Z-107a484f-jeclkkgr/reports/rc-20261017/mix-summary-20261017T154943Z-6373aff7394d.csv",
+          "sha256": "bab1718ee71ff858acc245873338331f37f6473f03c3fb3a3699cf0b7f3a1374",
+          "bytes": 103796
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "utc_end": "2026-10-17T15:49:43.159122+00:00",
+  "elapsed_seconds": 1.5250211989987292,
+  "temporary_path_manifest": [
+    "offline_guard.py",
+    "reports/optimization-rc-probe-mix-resource-mix-rc-3647b-v2-20261017T122758Z-b5b90d.json",
+    "reports/optimization-rc-probe-mix-resource-mix-rc-3647f-v2-20261017T123124Z-100ae2.json",
+    "reports/optimization-rc-probe-mix-resource-mix-rc-f3b-v2-20261017T122434Z-ae7e98.json",
+    "reports/optimization-rc-probe-mix-resource-mix-rc-f3f-v2-20261017T151338Z-3afbb2.json",
+    "reports/rc-20261017/mix-summary-20261017T153326Z-2e8be30c9178.json",
+    "reports/rc-20261017/mix-summary-20261017T154943Z-6373aff7394d.csv",
+    "reports/rc-20261017/mix-summary-20261017T154943Z-6373aff7394d.json",
+    "reports/rc-20261017/portable-soak-20261017T154941Z-107a484f.csv",
+    "reports/rc-20261017/portable-soak-20261017T154941Z-107a484f.json",
+    "reports/rc-20261017/portable-soak-20261017T154941Z-107a484f.md",
+    "reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+    "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-A/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-B/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/3d67cae5-83d0-45aa-8273-80b4e1460df3.fixed.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/3d67cae5-83d0-45aa-8273-80b4e1460df3.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.fixed.json",
+    "reports/rc-20261017/probe-v2-f3-20261017T115338Z-4eb29d3f-C/b32b5681-c83d-4e75-8c4f-6ed83dbaea52.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/19a9afcd-61ca-403d-9e17-335628db774e.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/19a9afcd-61ca-403d-9e17-335628db774e.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/19a9afcd-61ca-403d-9e17-335628db774e.fixed.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/19a9afcd-61ca-403d-9e17-335628db774e.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/f88c90ba-f7a0-4b33-886e-6724124263eb.fixed.json",
+    "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/f88c90ba-f7a0-4b33-886e-6724124263eb.json",
+    "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/events.jsonl",
+    "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/manifest.json",
+    "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49/report.json",
+    "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+    "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+    "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+    "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+    "reports/rc-20261017/resource-mix-rc-f3f-v2-controller-20261017T151305Z-1f1c1838.json",
+    "reports/rc-20261017/soak-final-3647-v2-full3-20261017.json",
+    "reports/rc-20261017/soak-history-post-stop-20261017T151243Z-97e2c72b.json",
+    "scripts/analysis/rc-soak-history-audit.py",
+    "scripts/analysis/rc_runtime_identity.py",
+    "scripts/analysis/summarize-rc-mix.py",
+    "scripts/analysis/summarize-rc-soak.py"
+  ]
+}

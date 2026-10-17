@@ -1,0 +1,1 @@
+[11:30:18] [Server thread/INFO] [de.cr.CrossTesseract/]: CT_RC_GROUP_PASS endpoints=[5e600828-d988-45b8-b9e6-027bcbda4538, be817da3-e4e7-4335-8f53-572e86d036f2, 014dc2bd-d461-4903-aa93-a9decf1838e2, c70d8c84-7481-4c7d-8ad4-c6b133486e49] initial_native_input=384 actual_native_output=256 retained_TX=128 actual_groups=3+1 first_LOCAL=3 first_RESERVED=1 original_TX_ids_preserved=true

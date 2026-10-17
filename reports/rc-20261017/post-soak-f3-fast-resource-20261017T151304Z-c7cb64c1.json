@@ -1,0 +1,210 @@
+{
+  "utc_start": "2026-10-17T15:13:04.947757+00:00",
+  "passed": true,
+  "state": "COMPLETE",
+  "controller": {
+    "path": "scripts/analysis/run-rc-f3-fast-resource-after-soak.py",
+    "sha256": "e1c207aead653fcbab4dc29ab3f6e3bac71f0ec46e834ef435c54f6adc8e9b86"
+  },
+  "original_sequence": {
+    "path": "reports/rc-20261017/v2-soak-full2-retry-20261017T140614Z-c36d1f34.json",
+    "sha256": "6cf0e750800f3ad4e95b86a52be3249ebbcfc98bb4d694f6300e3c01ff161eb3"
+  },
+  "closed_full_soak_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-3647-full3-controller-20261017T140922Z-bf2f1b49.json",
+    "sha256": "7416932d888be3ece6571f2afffa744da24143bf6f3b1df017929248311dd25e"
+  },
+  "closed_full_soak_raw": {
+    "path": "scratch/rc-soak-rc-soak-v2-3647-full3-20261017T140954Z-3939ceff22/report.json",
+    "sha256": "ecba2ef896e5041dcd690ee2393d0f4e576127d958d25c1bf76099236029ef19"
+  },
+  "f3_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+    "sha256": "4170d832c15a36933a4e458238b41f4073b5feb09e706f088f891ad5396345b6"
+  },
+  "final_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7"
+  },
+  "actual_append_point": "After original full3600, full drain and normal ABC EXIT0; not part of the original in-memory plan.",
+  "failures": [],
+  "scope": "One extra same-v2 f3 FAST resource baseline. Original raw reports/worlds/SQL/WAL unchanged; only exact stopped config byte restoration after the fresh stage.",
+  "preserved_failed_parent": {
+    "path": "reports/rc-20261017/v2-remaining-sequence-20261017T121031Z-e1ace95d.json",
+    "sha256": "8dfcfb794514b0deeb3c6fd3a75d1551c6214aa0e87d7553a470c8bac416d44d"
+  },
+  "full_soak_config_backups": [
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/A-full-server.properties",
+      "sha256": "cc99b82d667aba2b14f0a8a64c944029be34f3b66e19f61a41542c5d4144a437"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/A-full-cross-tesseract.properties",
+      "sha256": "b8e7956eee2c329040f654b77a4576d17da27cc4c52d081c3399390ec577c15c"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/B-full-server.properties",
+      "sha256": "cc5138c8e4a0b5141eef81c1f4925b44a55f874a1d6e4233ed2ba96ed1ccdfe2"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/B-full-cross-tesseract.properties",
+      "sha256": "e48a0f077b401f786260c83f35d27ebceabca96991dabb2640902e1aff32029e"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/C-full-server.properties",
+      "sha256": "64c1059cad1dc5ec051b1a728ffd97d05ead5121e2b46b3b8d91bc2318f8424f"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/C-full-cross-tesseract.properties",
+      "sha256": "f4f411ed97076559dc42643024d5b25bbef37dfe06fd36c1754af85a05332779"
+    }
+  ],
+  "full_soak_stopped_config_hash_scope": "Actual stopped bytes match each raw identity config_file_start_sha256. A raw end hash is checked when present; absent raw end hashes remain UNMEASURED, not synthesized into the original soak report. This controller measures the stopped pre-append hash.",
+  "pre_append_all_launch_locks_held_no_selected_JVM": true,
+  "command": [
+    "python3",
+    "scripts/analysis/run-rc-v2-stage.py",
+    "--execute",
+    "--manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+    "--tree-manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "--phase",
+    "mix",
+    "--mode",
+    "fast",
+    "--variant",
+    "default",
+    "--label",
+    "resource-mix-rc-f3f-v2"
+  ],
+  "helper": {
+    "path": "scripts/analysis/run-rc-v2-stage.py",
+    "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+  },
+  "log": "logs/post-soak-f3-fast-resource-20261017T151304Z-c7cb64c1.log",
+  "child_exit_code": 0,
+  "extra_controller": {
+    "path": "reports/rc-20261017/resource-mix-rc-f3f-v2-controller-20261017T151305Z-1f1c1838.json",
+    "sha256": "793e12398f5350c236b8faa8177a3e2363832d4dbd99fb18e80394def30fbcfd"
+  },
+  "extra_raw": {
+    "path": "reports/optimization-rc-probe-mix-resource-mix-rc-f3f-v2-20261017T151338Z-3afbb2.json",
+    "sha256": "ea02d7ec42acb78af12e2b7afa00042d6ee1d868977cd5528b5fe8ec2104279e"
+  },
+  "own_launcher_exits": {
+    "A": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/3178ead38a1e4e3ebce55481f270d518/runServerA.sh",
+      "launcher_sha256": "70d1a487dfb8931b35ae80dc97e6bf342cacbea54fc24dc921d714d21b6dc3e6"
+    },
+    "B": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/deba8f094c654f20aa202f102af0fe28/runServerB.sh",
+      "launcher_sha256": "f541cda80121cc3b855973ab7296d5bca417bf5bfab2daad17ef914e67eb3545"
+    },
+    "C": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/995dba2eeb7d4301a93421c30c4f09fb/runServerC.sh",
+      "launcher_sha256": "29536849215727d1006c21d21f8d18e50bbf018eaf353a752cc39bd437dc0b3d"
+    }
+  },
+  "pre_restore_configs": [
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/A-added-f3f-server.properties",
+      "sha256": "6a492166cfeb72c3370e277518360d8b0bdc4b60e2d6da3057942211e34baf2b"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/A-added-f3f-cross-tesseract.properties",
+      "sha256": "e0cc1281c109421b5327b1d3d4aaad97841b753132e7c25fe2a039e096368046"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/B-added-f3f-server.properties",
+      "sha256": "b354e21799207e86b05d35f4d8a469a682c1c4d59e1ef4796af290e1be67d698"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/B-added-f3f-cross-tesseract.properties",
+      "sha256": "0c43b3750de18c8a58f87f5e3d38f5f374d85a17612dbc338e52cffe2a707c23"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/C-added-f3f-server.properties",
+      "sha256": "e4022baa7ad6ad40066848e55cbfc2814d3ac91e17bd3d55b0e7db47c0512ea0"
+    },
+    {
+      "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/C-added-f3f-cross-tesseract.properties",
+      "sha256": "69c1641d18aeb6fd5f6f3708ea2041fc025b65c9787a135fd0817ce308d3e949"
+    }
+  ],
+  "restore_all_launch_locks_held_no_selected_JVM": true,
+  "restored_configs": [
+    {
+      "current": {
+        "path": "run-A/server.properties",
+        "sha256": "cc99b82d667aba2b14f0a8a64c944029be34f3b66e19f61a41542c5d4144a437"
+      },
+      "full_backup": {
+        "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/A-full-server.properties",
+        "sha256": "cc99b82d667aba2b14f0a8a64c944029be34f3b66e19f61a41542c5d4144a437"
+      },
+      "previous_added_sha256": "6a492166cfeb72c3370e277518360d8b0bdc4b60e2d6da3057942211e34baf2b"
+    },
+    {
+      "current": {
+        "path": "run-A/cross-tesseract.properties",
+        "sha256": "b8e7956eee2c329040f654b77a4576d17da27cc4c52d081c3399390ec577c15c"
+      },
+      "full_backup": {
+        "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/A-full-cross-tesseract.properties",
+        "sha256": "b8e7956eee2c329040f654b77a4576d17da27cc4c52d081c3399390ec577c15c"
+      },
+      "previous_added_sha256": "e0cc1281c109421b5327b1d3d4aaad97841b753132e7c25fe2a039e096368046"
+    },
+    {
+      "current": {
+        "path": "run-B/server.properties",
+        "sha256": "cc5138c8e4a0b5141eef81c1f4925b44a55f874a1d6e4233ed2ba96ed1ccdfe2"
+      },
+      "full_backup": {
+        "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/B-full-server.properties",
+        "sha256": "cc5138c8e4a0b5141eef81c1f4925b44a55f874a1d6e4233ed2ba96ed1ccdfe2"
+      },
+      "previous_added_sha256": "b354e21799207e86b05d35f4d8a469a682c1c4d59e1ef4796af290e1be67d698"
+    },
+    {
+      "current": {
+        "path": "run-B/cross-tesseract.properties",
+        "sha256": "e48a0f077b401f786260c83f35d27ebceabca96991dabb2640902e1aff32029e"
+      },
+      "full_backup": {
+        "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/B-full-cross-tesseract.properties",
+        "sha256": "e48a0f077b401f786260c83f35d27ebceabca96991dabb2640902e1aff32029e"
+      },
+      "previous_added_sha256": "0c43b3750de18c8a58f87f5e3d38f5f374d85a17612dbc338e52cffe2a707c23"
+    },
+    {
+      "current": {
+        "path": "run-C/server.properties",
+        "sha256": "64c1059cad1dc5ec051b1a728ffd97d05ead5121e2b46b3b8d91bc2318f8424f"
+      },
+      "full_backup": {
+        "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/C-full-server.properties",
+        "sha256": "64c1059cad1dc5ec051b1a728ffd97d05ead5121e2b46b3b8d91bc2318f8424f"
+      },
+      "previous_added_sha256": "e4022baa7ad6ad40066848e55cbfc2814d3ac91e17bd3d55b0e7db47c0512ea0"
+    },
+    {
+      "current": {
+        "path": "run-C/cross-tesseract.properties",
+        "sha256": "f4f411ed97076559dc42643024d5b25bbef37dfe06fd36c1754af85a05332779"
+      },
+      "full_backup": {
+        "path": "scratch/rc-private-post-soak-configs-20261017T151304Z-c7cb64c1/C-full-cross-tesseract.properties",
+        "sha256": "f4f411ed97076559dc42643024d5b25bbef37dfe06fd36c1754af85a05332779"
+      },
+      "previous_added_sha256": "69c1641d18aeb6fd5f6f3708ea2041fc025b65c9787a135fd0817ce308d3e949"
+    }
+  ],
+  "all_full_soak_config_bytes_restored": true,
+  "all_selected_JVMs_stopped_and_launch_locks_free_after_restore": true,
+  "utc_end": "2026-10-17T15:16:28.461669+00:00"
+}

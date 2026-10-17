@@ -1,0 +1,182 @@
+{
+  "utc": "2026-10-17T11:42:13.327703+00:00",
+  "report": "reports/rc-20261017/native-matrix-final-3647ded-r2-20261017T113417Z-7d0c0d98c45b.json",
+  "report_sha256": "db36ee145ae3da8a714d543f64fab0179e709c49ab5458b21fcf645f92ae079d",
+  "workspace_git_HEAD_at_admission": "3647dede64cfc23e054dfa962fd127787cae14ec",
+  "source_inputs_sha256": "f4f3b53fab9ed1eb68988355b5e094d0c302041b3ca5b636fccf09bf0e02cca0",
+  "all_8_groups_passed": true,
+  "actual_required_tests_passed": 156,
+  "mod_JAR_sha256_set": [
+    "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f"
+  ],
+  "frozen_class_resources_content_sha256_set": [
+    "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5"
+  ],
+  "source_and_locks_still_unchanged": true,
+  "remaining_named_native_JVMs": [],
+  "SQL_clean_stop": "NOT_SEPARATELY_QUERIED; native exit0 and no remaining JVMs are observed, not an independent clean_stop SQL attestation",
+  "scope": "real frozen development-class native GameTests plus actual loopback MySQL/Redis; no packaged-JAR cold-boot claim and no all-zero worker-error claim",
+  "first_attempt_retained": "reports/rc-20261017/native-matrix-final-3647ded-20261017T113117Z-74daa2e33865.json: exit1, base16 actual PASS and 7 optional groups native NOT_RUN due to tool reading LegacyClasspath instead of actual JVM RunClasspath",
+  "groups": [
+    {
+      "combination": "base",
+      "required_tests": 16,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "cross_tesseract",
+        "minecraft",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "mekanism",
+      "required_tests": 18,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "cross_tesseract",
+        "mekanism",
+        "minecraft",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "ae2",
+      "required_tests": 19,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "ae2",
+        "cross_tesseract",
+        "guideme",
+        "minecraft",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "ae2-mekanism",
+      "required_tests": 21,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "ae2",
+        "cross_tesseract",
+        "guideme",
+        "mekanism",
+        "minecraft",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "gregtech",
+      "required_tests": 18,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "configuration",
+        "cross_tesseract",
+        "gtceu",
+        "minecraft",
+        "modularui",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "gregtech-mekanism",
+      "required_tests": 20,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "configuration",
+        "cross_tesseract",
+        "gtceu",
+        "mekanism",
+        "minecraft",
+        "modularui",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "ae2-gregtech",
+      "required_tests": 21,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "ae2",
+        "configuration",
+        "cross_tesseract",
+        "gtceu",
+        "guideme",
+        "minecraft",
+        "modularui",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    },
+    {
+      "combination": "ae2-gregtech-mekanism",
+      "required_tests": 23,
+      "state": "PASS",
+      "native_exit": 0,
+      "three_positive_markers": true,
+      "loaded_mod_ids": [
+        "ae2",
+        "configuration",
+        "cross_tesseract",
+        "gtceu",
+        "guideme",
+        "mekanism",
+        "minecraft",
+        "modularui",
+        "neoforge"
+      ],
+      "mod_JAR_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+      "frozen_class_resources_content_sha256": "d5b0c6d4ee978b497d89817bfdb3ce6ffb875f89021b065d355d6b691b142ef5",
+      "frozen_class_resources_files": 152,
+      "mutable_main_classpath_absent": true,
+      "source_and_locks_unchanged": true
+    }
+  ]
+}

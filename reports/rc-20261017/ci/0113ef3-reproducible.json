@@ -1,0 +1,17 @@
+{
+  "source_commit": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+  "run": 39046319975,
+  "CI_build_backend_tests": "success",
+  "local_and_CI_JAR_SHA256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+  "local_and_CI_sources_SHA256": "0ada09659ae08de210fdb385f3360e78e4d5ace35dca3c22ebcc1b276b0929ed",
+  "artifact_API_id": 12105383390,
+  "artifact_size_bytes": 4509678,
+  "download_url": "https://github.com/MineQuantumServer/CrossTesseract/actions/runs/39046319975/artifacts/12105383390",
+  "artifact_API_expired": false,
+  "artifact_API_created_at": "2026-10-17T15:46:22Z",
+  "log": {
+    "path": "reports/rc-20261017/ci/0113ef3-success.log",
+    "sha256": "694c5f74980b7dfd92f90935ef35bcfdeda895975331ddb20c6a39476c08d84a"
+  },
+  "verification_scope": "CI success and exact JAR/sources SHA256 in actual logs plus artifact existence API; blob download not attempted in current restricted environment; GitHub login required, 90 day retention, no release"
+}

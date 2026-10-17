@@ -1,0 +1,947 @@
+{
+  "report_kind": "read_only_matrix_poststop_SQL_audit",
+  "utc_start": "2026-10-17T15:55:54.612638+00:00",
+  "utc_end": "2026-10-17T15:55:54.693451+00:00",
+  "query_elapsed_seconds": 0.08071615899825701,
+  "source_matrix": "reports/rc-20261017/native-matrix-final-0113ef3-20261017T154321Z-c6d821fc61ba.json",
+  "source_matrix_sha256": "4b9e96b51a7dac38e1555d161874b39da95370a2163b94b14dd38d8b04a2345c",
+  "query_template_source": {
+    "path": "reports/rc-20261017/matrix-poststop-sql-audit-3647ded-20261017T114439Z-f3d27d4e.json",
+    "sha256": "196e835aa43626be89cd19505478eab02fe70663ef45430ba14676f3c9d4e744"
+  },
+  "benchmark_window_confirmation": "ROOT explicitly retained the pre-performance window and granted one corrected scoped SELECT; no native/timing active.",
+  "backend": "fixed local Docker socket; existing ct-dev-mysql/cross_tesseract; one root-account SELECT only",
+  "SQL_mutations": false,
+  "WAL_read_or_write": false,
+  "asset_replay_or_refund": false,
+  "asset_scope": "Only these8 fresh matrix clusters. Pools and ALLOCATE remaining separated by kind/state; original record amount is historical, not remaining assets. Retained native partial-publication TX128 fixtures untouched and not inspected through WAL. SQL and WAL mirrors are never added.",
+  "statement": "SELECT JSON_OBJECT(\n 'db_utc',DATE_FORMAT(UTC_TIMESTAMP(6),'%Y-%m-%dT%H:%i:%s.%fZ'),\n 'db_session_timezone',@@session.time_zone,'db_system_timezone',@@system_time_zone,\n 'servers',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',cluster_id,'server',server_id,'world',world_id,'session',session_id,'epoch',fencing_epoch,'status',status,'clean_stop',clean_stop,'lease_until_db_session',CAST(lease_until AS CHAR),'lease_live_at_read',lease_until>CURRENT_TIMESTAMP(6))) FROM ct_servers WHERE cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b')),JSON_ARRAY()),\n 'positive_pool_rows',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',b.cluster_id,'channel',b.channel_id,'resource',b.resource_id,'kind',r.kind,'payload_hash',r.payload_hash,'amount',b.amount)) FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') AND b.amount>0),JSON_ARRAY()),\n 'allocation_summary',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',a.cluster_id,'kind',a.resource_kind,'state',a.state,'rows',a.row_count,'positive_rows',a.positive_rows,'original_amount',a.original_amount,'remaining',a.remaining)) FROM (SELECT t.cluster_id,r.kind AS resource_kind,t.state,COUNT(*) AS row_count,SUM(t.remaining>0) AS positive_rows,SUM(t.amount) AS original_amount,SUM(t.remaining) AS remaining FROM ct_transfers t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') AND t.kind='ALLOCATE' GROUP BY t.cluster_id,r.kind,t.state) a),JSON_ARRAY()),\n 'persistent_grants',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',g.cluster_id,'state',g.state,'desired',g.desired,'rows',g.row_count,'runtime_session_rows',g.runtime_session_rows,'runtime_live_rows',g.runtime_live_rows)) FROM (SELECT cluster_id,state,desired,COUNT(*) AS row_count,SUM(runtime_session IS NOT NULL) AS runtime_session_rows,SUM(runtime_until>CURRENT_TIMESTAMP(6)) AS runtime_live_rows FROM ct_chunk_grants WHERE cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') GROUP BY cluster_id,state,desired) g),JSON_ARRAY()),\n 'cluster_quotas',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',cluster_id,'quota_limit',quota_limit,'policy_version',policy_version)) FROM ct_clusters WHERE cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b')),JSON_ARRAY()),\n 'pool_summary',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',p.cluster_id,'kind',p.kind,'rows',p.row_count,'positive_rows',p.positive_rows,'amount',p.amount)) FROM (SELECT b.cluster_id,r.kind,COUNT(*) AS row_count,SUM(b.amount>0) AS positive_rows,SUM(b.amount) AS amount FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') GROUP BY b.cluster_id,r.kind) p),JSON_ARRAY())\n);",
+  "statement_sha256": "30cc963f8a049e71328b354acc6a46abdaec2d86802f5a8c0f3eb8aab4e64957",
+  "mysql_exit": 0,
+  "mysql_stdout_sha256": "1b98ad4dd803938349fea8426d146d309768c007bef705a880e170a7a6405937",
+  "raw_mysql_stdout": "{\"db_utc\": \"2026-10-17T15:55:54.681917Z\", \"servers\": [{\"epoch\": 1, \"world\": \"01a14a8a-9b5d-740d-a731-ea73a424da12\", \"server\": \"matrix-ae2-b13684d72dd5\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"session\": \"01a14a8a-9b5a-7a1f-83dc-02c3cdec6ad1\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:46:54.392604\"}, {\"epoch\": 1, \"world\": \"01a14a8f-6ff4-77e5-b685-544c5b7f6091\", \"server\": \"matrix-ae2-gregtech-0619d4648437\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"session\": \"01a14a8f-6ff1-7c4c-831c-045a0c58aaba\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:52:10.485513\"}, {\"epoch\": 1, \"world\": \"01a14a90-b8b0-7a45-84b1-0d2c820cad1e\", \"server\": \"matrix-ae2-gregtech-mekanism-ce48fd9e637b\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"session\": \"01a14a90-b8ad-7c18-a5f0-63055b81e4a6\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:53:32.908119\"}, {\"epoch\": 1, \"world\": \"01a14a8b-be11-7478-a101-1566808975e4\", \"server\": \"matrix-ae2-mekanism-4cec2ea2b474\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"session\": \"01a14a8b-be0d-7aa3-8f4a-4a47344c6cf3\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:48:06.408656\"}, {\"epoch\": 1, \"world\": \"01a14a88-723d-73ca-b735-88e1973fa581\", \"server\": \"matrix-base-049e056f3200\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"session\": \"01a14a88-7238-7e5a-8670-789c1a1112ce\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:44:30.381491\"}, {\"epoch\": 1, \"world\": \"01a14a8c-fab7-71af-a188-9e2d8c474644\", \"server\": \"matrix-gregtech-ef0b35944fd1\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"session\": \"01a14a8c-fab2-7d4e-92c6-58b36b2b3187\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:49:27.353760\"}, {\"epoch\": 1, \"world\": \"01a14a8e-36a0-7381-8c4c-7af9a18c1782\", \"server\": \"matrix-gregtech-mekanism-7e1b0e04b4f7\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"session\": \"01a14a8e-369c-7e1e-ac99-69ff305f1fb5\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:50:48.263760\"}, {\"epoch\": 1, \"world\": \"01a14a89-8a71-7edd-9b4a-fc607ae392f3\", \"server\": \"matrix-mekanism-f855be1ec540\", \"status\": \"STOPPED\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"session\": \"01a14a89-8a6d-7e70-9a90-eb8a3bde0158\", \"clean_stop\": 1, \"lease_live_at_read\": false, \"lease_until_db_session\": \"2026-10-17 15:45:42.354197\"}], \"pool_summary\": [{\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 5, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 5, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 5, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 5, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 11, \"amount\": 1, \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"positive_rows\": 1}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"positive_rows\": 0}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"amount\": 0, \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"positive_rows\": 0}], \"cluster_quotas\": [{\"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"quota_limit\": 2, \"policy_version\": 1}, {\"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"quota_limit\": 2, \"policy_version\": 1}], \"persistent_grants\": [], \"allocation_summary\": [{\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 30}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"remaining\": 28, \"positive_rows\": 3, \"original_amount\": 35}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 32, \"positive_rows\": 1, \"original_amount\": 64}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 30}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 32}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"remaining\": 28, \"positive_rows\": 3, \"original_amount\": 35}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 32, \"positive_rows\": 1, \"original_amount\": 64}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 30}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 63877, \"positive_rows\": 1, \"original_amount\": 64000}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 32}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"remaining\": 28, \"positive_rows\": 3, \"original_amount\": 35}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"remaining\": 63877, \"positive_rows\": 1, \"original_amount\": 64000}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 30}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:item\", \"rows\": 3, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"remaining\": 28, \"positive_rows\": 3, \"original_amount\": 35}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 25}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 25}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"remaining\": 32, \"positive_rows\": 1, \"original_amount\": 64}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 32}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 32, \"positive_rows\": 1, \"original_amount\": 64}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 25}, {\"kind\": \"cross_tesseract:gt_eu\", \"rows\": 1, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 32}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"remaining\": 63877, \"positive_rows\": 1, \"original_amount\": 64000}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 105, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 1056}, {\"kind\": \"cross_tesseract:fluid\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"remaining\": 1223, \"positive_rows\": 1, \"original_amount\": 2000}, {\"kind\": \"cross_tesseract:mek_chemical\", \"rows\": 1, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"remaining\": 63877, \"positive_rows\": 1, \"original_amount\": 64000}, {\"kind\": \"cross_tesseract:fe\", \"rows\": 6, \"state\": \"LOCAL\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"remaining\": 32309, \"positive_rows\": 6, \"original_amount\": 32455}, {\"kind\": \"cross_tesseract:item\", \"rows\": 2, \"state\": \"CONSUMED\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"remaining\": 0, \"positive_rows\": 0, \"original_amount\": 25}], \"db_system_timezone\": \"UTC\", \"positive_pool_rows\": [{\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"05af289e-7434-48e6-82f6-2b6677a237fb\", \"cluster\": \"test_rcmatrix_matrix_ae2_b13684d72dd5\", \"resource\": \"6ed3809b-e858-4b27-89e1-b2a0a6f9370a\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"d24107fb-a779-410a-9f03-3459b6229aea\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_0619d4648437\", \"resource\": \"835fa04d-6680-4795-8df3-cc79b226c7eb\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"9dbe0360-93d4-4eed-8ae1-f58c78b08afa\", \"cluster\": \"test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b\", \"resource\": \"9ce5304c-e54f-414c-b4b9-98e1164f2f77\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"487e612c-be41-45a3-92fb-7df1f1e70cd0\", \"cluster\": \"test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474\", \"resource\": \"1ae5897f-32e5-4986-a1dc-26279202b479\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"166fbc73-0ec5-46a5-bf6e-a9c815df0d95\", \"cluster\": \"test_rcmatrix_matrix_base_049e056f3200\", \"resource\": \"a7e90a82-f8e3-4351-8e25-dbca5f005c86\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"2a750699-c78f-4b1d-8782-0580c86f1b70\", \"cluster\": \"test_rcmatrix_matrix_gregtech_ef0b35944fd1\", \"resource\": \"8a054818-4ce7-464b-bf32-f10ee4ed2f90\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"192b13cb-88c5-4e8c-b938-496829d90c02\", \"cluster\": \"test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7\", \"resource\": \"9b1c1ea1-0318-486a-9b53-11bd2b214525\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"kind\": \"cross_tesseract:fe\", \"amount\": 1, \"channel\": \"fa394148-9cc2-4209-94e7-3ef6c4e72f67\", \"cluster\": \"test_rcmatrix_matrix_mekanism_f855be1ec540\", \"resource\": \"81839bfc-612d-448f-990d-3b63a4f1e92d\", \"payload_hash\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}], \"db_session_timezone\": \"SYSTEM\"}\n",
+  "raw_mysql_stderr": "",
+  "groups": [
+    {
+      "combination": "base",
+      "fixture": "scratch/rc-native/matrix-base-049e056f3200",
+      "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+      "server_id": "matrix-base-049e056f3200"
+    },
+    {
+      "combination": "mekanism",
+      "fixture": "scratch/rc-native/matrix-mekanism-f855be1ec540",
+      "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+      "server_id": "matrix-mekanism-f855be1ec540"
+    },
+    {
+      "combination": "ae2",
+      "fixture": "scratch/rc-native/matrix-ae2-b13684d72dd5",
+      "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+      "server_id": "matrix-ae2-b13684d72dd5"
+    },
+    {
+      "combination": "ae2-mekanism",
+      "fixture": "scratch/rc-native/matrix-ae2-mekanism-4cec2ea2b474",
+      "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+      "server_id": "matrix-ae2-mekanism-4cec2ea2b474"
+    },
+    {
+      "combination": "gregtech",
+      "fixture": "scratch/rc-native/matrix-gregtech-ef0b35944fd1",
+      "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+      "server_id": "matrix-gregtech-ef0b35944fd1"
+    },
+    {
+      "combination": "gregtech-mekanism",
+      "fixture": "scratch/rc-native/matrix-gregtech-mekanism-7e1b0e04b4f7",
+      "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+      "server_id": "matrix-gregtech-mekanism-7e1b0e04b4f7"
+    },
+    {
+      "combination": "ae2-gregtech",
+      "fixture": "scratch/rc-native/matrix-ae2-gregtech-0619d4648437",
+      "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+      "server_id": "matrix-ae2-gregtech-0619d4648437"
+    },
+    {
+      "combination": "ae2-gregtech-mekanism",
+      "fixture": "scratch/rc-native/matrix-ae2-gregtech-mekanism-ce48fd9e637b",
+      "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+      "server_id": "matrix-ae2-gregtech-mekanism-ce48fd9e637b"
+    }
+  ],
+  "passed": true,
+  "previous_failed_attempt": {
+    "path": "reports/rc-20261017/matrix-poststop-sql-audit-0113ef3-20261017T155454Z-d1f3fdc3e.json",
+    "sha256": "1eb99c22167458f47e926b367db87de762b504080d5ed55ddbbd03cd96e78a22",
+    "correction": "Restore exactly one COALESCE closing parenthesis removed by the previous suffix splice; same8 fixture clusters, no prior SQL mutation."
+  },
+  "sql_result": {
+    "db_utc": "2026-10-17T15:55:54.681917Z",
+    "servers": [
+      {
+        "epoch": 1,
+        "world": "01a14a8a-9b5d-740d-a731-ea73a424da12",
+        "server": "matrix-ae2-b13684d72dd5",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "session": "01a14a8a-9b5a-7a1f-83dc-02c3cdec6ad1",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:46:54.392604"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a8f-6ff4-77e5-b685-544c5b7f6091",
+        "server": "matrix-ae2-gregtech-0619d4648437",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "session": "01a14a8f-6ff1-7c4c-831c-045a0c58aaba",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:52:10.485513"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a90-b8b0-7a45-84b1-0d2c820cad1e",
+        "server": "matrix-ae2-gregtech-mekanism-ce48fd9e637b",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "session": "01a14a90-b8ad-7c18-a5f0-63055b81e4a6",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:53:32.908119"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a8b-be11-7478-a101-1566808975e4",
+        "server": "matrix-ae2-mekanism-4cec2ea2b474",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "session": "01a14a8b-be0d-7aa3-8f4a-4a47344c6cf3",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:48:06.408656"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a88-723d-73ca-b735-88e1973fa581",
+        "server": "matrix-base-049e056f3200",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "session": "01a14a88-7238-7e5a-8670-789c1a1112ce",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:44:30.381491"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a8c-fab7-71af-a188-9e2d8c474644",
+        "server": "matrix-gregtech-ef0b35944fd1",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "session": "01a14a8c-fab2-7d4e-92c6-58b36b2b3187",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:49:27.353760"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a8e-36a0-7381-8c4c-7af9a18c1782",
+        "server": "matrix-gregtech-mekanism-7e1b0e04b4f7",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "session": "01a14a8e-369c-7e1e-ac99-69ff305f1fb5",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:50:48.263760"
+      },
+      {
+        "epoch": 1,
+        "world": "01a14a89-8a71-7edd-9b4a-fc607ae392f3",
+        "server": "matrix-mekanism-f855be1ec540",
+        "status": "STOPPED",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "session": "01a14a89-8a6d-7e70-9a90-eb8a3bde0158",
+        "clean_stop": 1,
+        "lease_live_at_read": false,
+        "lease_until_db_session": "2026-10-17 15:45:42.354197"
+      }
+    ],
+    "pool_summary": [
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 5,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 5,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 5,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 5,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 11,
+        "amount": 1,
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "positive_rows": 1
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "positive_rows": 0
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "amount": 0,
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "positive_rows": 0
+      }
+    ],
+    "cluster_quotas": [
+      {
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "quota_limit": 2,
+        "policy_version": 1
+      },
+      {
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "quota_limit": 2,
+        "policy_version": 1
+      }
+    ],
+    "persistent_grants": [],
+    "allocation_summary": [
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 30
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "remaining": 28,
+        "positive_rows": 3,
+        "original_amount": 35
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 32,
+        "positive_rows": 1,
+        "original_amount": 64
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 30
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 32
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "remaining": 28,
+        "positive_rows": 3,
+        "original_amount": 35
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 32,
+        "positive_rows": 1,
+        "original_amount": 64
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 30
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 63877,
+        "positive_rows": 1,
+        "original_amount": 64000
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 32
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "remaining": 28,
+        "positive_rows": 3,
+        "original_amount": 35
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "remaining": 63877,
+        "positive_rows": 1,
+        "original_amount": 64000
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 30
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 3,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "remaining": 28,
+        "positive_rows": 3,
+        "original_amount": 35
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 25
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 25
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "remaining": 32,
+        "positive_rows": 1,
+        "original_amount": 64
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 32
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 32,
+        "positive_rows": 1,
+        "original_amount": 64
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 25
+      },
+      {
+        "kind": "cross_tesseract:gt_eu",
+        "rows": 1,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 32
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "remaining": 63877,
+        "positive_rows": 1,
+        "original_amount": 64000
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 105,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 1056
+      },
+      {
+        "kind": "cross_tesseract:fluid",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "remaining": 1223,
+        "positive_rows": 1,
+        "original_amount": 2000
+      },
+      {
+        "kind": "cross_tesseract:mek_chemical",
+        "rows": 1,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "remaining": 63877,
+        "positive_rows": 1,
+        "original_amount": 64000
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "rows": 6,
+        "state": "LOCAL",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "remaining": 32309,
+        "positive_rows": 6,
+        "original_amount": 32455
+      },
+      {
+        "kind": "cross_tesseract:item",
+        "rows": 2,
+        "state": "CONSUMED",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "remaining": 0,
+        "positive_rows": 0,
+        "original_amount": 25
+      }
+    ],
+    "db_system_timezone": "UTC",
+    "positive_pool_rows": [
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "05af289e-7434-48e6-82f6-2b6677a237fb",
+        "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+        "resource": "6ed3809b-e858-4b27-89e1-b2a0a6f9370a",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "d24107fb-a779-410a-9f03-3459b6229aea",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+        "resource": "835fa04d-6680-4795-8df3-cc79b226c7eb",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "9dbe0360-93d4-4eed-8ae1-f58c78b08afa",
+        "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+        "resource": "9ce5304c-e54f-414c-b4b9-98e1164f2f77",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "487e612c-be41-45a3-92fb-7df1f1e70cd0",
+        "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+        "resource": "1ae5897f-32e5-4986-a1dc-26279202b479",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "166fbc73-0ec5-46a5-bf6e-a9c815df0d95",
+        "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+        "resource": "a7e90a82-f8e3-4351-8e25-dbca5f005c86",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "2a750699-c78f-4b1d-8782-0580c86f1b70",
+        "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+        "resource": "8a054818-4ce7-464b-bf32-f10ee4ed2f90",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "192b13cb-88c5-4e8c-b938-496829d90c02",
+        "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+        "resource": "9b1c1ea1-0318-486a-9b53-11bd2b214525",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "cross_tesseract:fe",
+        "amount": 1,
+        "channel": "fa394148-9cc2-4209-94e7-3ef6c4e72f67",
+        "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+        "resource": "81839bfc-612d-448f-990d-3b63a4f1e92d",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "db_session_timezone": "SYSTEM"
+  },
+  "all_8_expected_servers_present": true,
+  "all_8_SQL_clean_stop_confirmed": true,
+  "all_8_cluster_quotas_present": true
+}

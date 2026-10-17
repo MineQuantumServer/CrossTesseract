@@ -1,0 +1,13 @@
+{
+  "scope": "Final candidate repeats the unchanged LocalJournal production implementation against actual private tmpfs ENOSPC. This does not simulate hardware power loss.",
+  "result": "reports/rc-20261017/fault-evidence/fab8180/enospc-repeat/result.json",
+  "prior_operator_invocation": {
+    "state": "NOT_RUN_IMAGE_LOOKUP_FAILURE",
+    "reason": "Mistyped local image SHA caused docker image inspect to fail before container/JDK/WAL execution. Retained as controller error, not an asset/protocol failure."
+  },
+  "files": {
+    "result.json": "a1b8352e084ced37e8e419e9acc0fb81f3ad4601c8d6db1af367f56c1b9b71fe",
+    "stderr.log": "3b7699e21ca38d1a06cac2fc13d85b95776053929cf5fa1579281f97065711ab",
+    "stdout.log": "01f7124ffd4b9f15a7ef28d816ffc17f556f205a4efcc985b602241d16d1e630"
+  }
+}

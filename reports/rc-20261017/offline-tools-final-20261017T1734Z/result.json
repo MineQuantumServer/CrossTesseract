@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-17T17:34:52.547484+00:00",
+  "scope": "offline test-tool self-tests, no backend/native execution; fallback recipe owned by parallel fix task and NOT_RUN here",
+  "results": [
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/test-rc-runtime-identity.py"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-final-20261017T1734Z/0.log",
+      "log_sha256": "f8f7b0ac7f2b53ac4e96000f166430c488f2c37e059ad5502b09d60f29d363b8"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/test-rc-fe-identity.py"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-final-20261017T1734Z/1.log",
+      "log_sha256": "e6ec182765cd965f2837d8eeaef5a64af48a104f245cd1a0b7281559194c57c1"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/test-rc-probe-file-readiness.py"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-final-20261017T1734Z/2.log",
+      "log_sha256": "ef007a87449f75fb93da01bdbc5323ffa6ead467bda57d7b568ee8678b18175b"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/rc-native-matrix.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-final-20261017T1734Z/4.log",
+      "log_sha256": "27c054a800dc7d217b162c18777f59ccb73a1bace5d7fdc15bd2d3e521c21d0a"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/analysis/summarize-rc-mix.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "log": "reports/rc-20261017/offline-tools-final-20261017T1734Z/5.log",
+      "log_sha256": "d5fa3d82944353a76a5546798690357906877d4ce2802100e0f169f6f3601d5b"
+    }
+  ],
+  "passed": true
+}

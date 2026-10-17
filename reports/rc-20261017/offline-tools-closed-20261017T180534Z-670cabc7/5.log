@@ -1,0 +1,15 @@
+test_archive_binding_and_escape (__main__.OfflineTests.test_archive_binding_and_escape) ... ok
+test_export_readiness_metadata_cannot_replace_actual_stop (__main__.OfflineTests.test_export_readiness_metadata_cannot_replace_actual_stop) ... ok
+test_external_bounds (__main__.OfflineTests.test_external_bounds) ... ok
+test_incomplete_controller_rejected (__main__.OfflineTests.test_incomplete_controller_rejected) ... ok
+test_matching_revision_wal (__main__.OfflineTests.test_matching_revision_wal) ... ok
+test_same_jvm_only (__main__.OfflineTests.test_same_jvm_only) ... ok
+test_signed_confirmation_observation (__main__.OfflineTests.test_signed_confirmation_observation) ... ok
+test_sql_payload_identity (__main__.OfflineTests.test_sql_payload_identity) ... ok
+test_unique_consumption_and_ambiguity (__main__.OfflineTests.test_unique_consumption_and_ambiguity) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+OK
+{"offline_self_test_passed": true, "native_SQL_RCON": "NOT RUN"}

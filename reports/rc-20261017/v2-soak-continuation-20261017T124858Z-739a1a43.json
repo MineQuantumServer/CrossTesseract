@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "utc_start": "2026-10-17T12:48:58.653241+00:00",
+  "passed": false,
+  "state": "FAILED_RETAINED",
+  "continuation_of_failed_sequence": {
+    "path": "reports/rc-20261017/v2-remaining-sequence-20261017T121031Z-e1ace95d.json",
+    "sha256": "8dfcfb794514b0deeb3c6fd3a75d1551c6214aa0e87d7553a470c8bac416d44d"
+  },
+  "failed_first_smoke_controller": {
+    "path": "reports/rc-20261017/rc-soak-v2-3647-smoke-controller-20261017T124231Z-ce30b6b0.json",
+    "sha256": "49aa1c3843fb01e999cbb99651dc55af8fada9855786697f830ba9682ab801d6"
+  },
+  "first_smoke_failure_audit": {
+    "path": "reports/rc-20261017/soak-first-smoke-failure-audit-20261017T1243Z.json",
+    "sha256": "1fc2e5e2ede8b6247ff9d945a944fa390ef9c2a65e4476e084e3ceb0ae5d8d2a"
+  },
+  "prior_closed_children": {
+    "finalFE3": {
+      "path": "reports/rc-20261017/rc-fe-v2-final-controller-20261017T121031Z-b0a6bf0a.json",
+      "sha256": "5ec6d51d62a72da5b4a8e39ce89c0637dd5614c373ee8ea86666603556443ef8"
+    },
+    "f3Bmix": {
+      "path": "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+      "sha256": "f09c544ebdfba0b5ab2f464a0cac2b2b1a8ce2baac42d5e795127169ad9293f3"
+    },
+    "finalBmix": {
+      "path": "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+      "sha256": "3b018f964734b47cdc72405630eae8665baab6038fb5f296517f67350f918a77"
+    },
+    "finalFastMix": {
+      "path": "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+      "sha256": "af998599e30fc7f5243b43eed3965ac429b68e3b60a5d76a183d25b211fed97a"
+    },
+    "ablationDefault": {
+      "path": "reports/rc-20261017/rc-fe-v2-abl-default-controller-20261017T123415Z-6ffef180.json",
+      "sha256": "48bf3954a0de7ce7a9935709b9503e73d1f5c11f77a05d7244dc491ee0cef4e1"
+    },
+    "ablationNotification1000": {
+      "path": "reports/rc-20261017/rc-fe-v2-abl-notify-controller-20261017T123659Z-6a7e6761.json",
+      "sha256": "6c22bba00b4766379bfd1aa04cd4faaeb9265f20d3918b8d2928201519903bbf"
+    },
+    "ablationActive200": {
+      "path": "reports/rc-20261017/rc-fe-v2-abl-active-controller-20261017T123946Z-5c0d654d.json",
+      "sha256": "27d830c1c360cdb0f5237b40c5496f5c901db95a30eeee0d0464d936fefe11ab"
+    }
+  },
+  "f3_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+    "sha256": "4170d832c15a36933a4e458238b41f4073b5feb09e706f088f891ad5396345b6"
+  },
+  "final_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7"
+  },
+  "controller": {
+    "path": "scripts/analysis/run-rc-v2-soak-continuation.py",
+    "sha256": "39c927af40efd5a0b97ccc5dfd724f1a23e271e4c73ed38b467f82c21edbacfc"
+  },
+  "archived_observer_sources": [
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-v2-soak-continuation.py",
+        "sha256": "39c927af40efd5a0b97ccc5dfd724f1a23e271e4c73ed38b467f82c21edbacfc"
+      },
+      "archive": {
+        "path": "reports/raw/rc-soak-observer-fix-sources-20261017T124858Z-739a1a43/run-rc-v2-soak-continuation.py",
+        "sha256": "39c927af40efd5a0b97ccc5dfd724f1a23e271e4c73ed38b467f82c21edbacfc"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rc-soak.py",
+        "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+      },
+      "archive": {
+        "path": "reports/raw/rc-soak-observer-fix-sources-20261017T124858Z-739a1a43/rc-soak.py",
+        "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      },
+      "archive": {
+        "path": "reports/raw/rc-soak-observer-fix-sources-20261017T124858Z-739a1a43/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      }
+    }
+  ],
+  "failures": [
+    "ValueError: Fresh child failed; retain assets/configs and leave later stages NOT_RUN"
+  ],
+  "scope": "New smoke2/full2 after confirmed observer framing/JSON fixes. Original parent and first smoke remain FAILED; original full remains NOT_RUN. No original mutation replay/world reuse.",
+  "runs": [
+    {
+      "name": "smoke60",
+      "state": "PASS",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--kind",
+        "smoke",
+        "--label",
+        "rc-soak-v2-3647-smoke2"
+      ],
+      "utc_start": "2026-10-17T12:48:58.653773+00:00",
+      "observer_start": 12026.834395343,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      },
+      "log": "logs/rc-v2-continuation-smoke60-20261017T124858Z-739a1a43.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:51:57.454860+00:00",
+      "observer_end": 12205.635497432,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-3647-smoke2-controller-20261017T124858Z-5b38b9ff.json",
+          "sha256": "2ee45731097f9a48948383810489b474f2275a3ac9f2e90acccafe4b0225f3cb"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "scratch/rc-soak-rc-soak-v2-3647-smoke2-20261017T124930Z-47e8c576d4/report.json",
+          "sha256": "a4cfd6da9c622cbbf3b9bf6f74f410f948963ade032a65c9a27d71695406752f"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-3647-smoke2-controller-20261017T124858Z-5b38b9ff.json",
+        "sha256": "2ee45731097f9a48948383810489b474f2275a3ac9f2e90acccafe4b0225f3cb"
+      }
+    },
+    {
+      "name": "full3600",
+      "state": "FAILED_RETAINED",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--kind",
+        "full",
+        "--label",
+        "rc-soak-v2-3647-full2"
+      ],
+      "utc_start": "2026-10-17T12:51:57.456023+00:00",
+      "observer_start": 12205.636645312,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "36582b89c73fa775c8797ea1e3473bd501943735b037cb6841528eec502cf8aa"
+      },
+      "log": "logs/rc-v2-continuation-full3600-20261017T124858Z-739a1a43.log",
+      "exit_code": 1,
+      "utc_end": "2026-10-17T13:54:13.919463+00:00",
+      "observer_end": 15942.100102784,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-3647-full2-controller-20261017T125157Z-21551942.json",
+          "sha256": "8e049e67b0127794eda6c05d7d424a24923adc800d39b86eb1373845be044511"
+        },
+        "passed": false,
+        "raw_report": {
+          "path": "scratch/rc-soak-rc-soak-v2-3647-full2-20261017T125230Z-ebbf4ef7fc/report.json",
+          "sha256": "65c60ca1b0f29bf656e72c25314622a5a2ce94850baadc1aa78c2bd76c4bea40"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-3647-full2-controller-20261017T125157Z-21551942.json",
+        "sha256": "8e049e67b0127794eda6c05d7d424a24923adc800d39b86eb1373845be044511"
+      }
+    }
+  ],
+  "utc_end": "2026-10-17T13:54:13.922060+00:00"
+}

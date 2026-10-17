@@ -1,0 +1,860 @@
+{
+  "passed": true,
+  "token": "f24fef2b-7bca-465c-9eb3-5f53d66b188f",
+  "utc_start": "2026-10-17T10:23:55.410809+00:00",
+  "launch_manifest": "reports/rc-20261017/probe-launches-f3-20261017T102323Z-c2268b1d.json",
+  "failures": [],
+  "probe_report": "reports/rc-20261017/probe-39c36906f55944539e7cbb1c5a2175c0-Perf/f24fef2b-7bca-465c-9eb3-5f53d66b188f.json",
+  "probe_report_sha256": "326095cdcfacda5ebdb1d76e100d39a6875aefeb930fe805f47733cfcb5173c7",
+  "ticks": 103,
+  "server_tick": {
+    "inclusive": {
+      "count": 103,
+      "sum_ns": 143071854,
+      "max_ns": 36834204,
+      "p50_ns_upper": 770047,
+      "p95_ns_upper": 1507327,
+      "p99_ns_upper": 19398655,
+      "histogram_upper_ns_count": [
+        [
+          475135,
+          1
+        ],
+        [
+          491519,
+          1
+        ],
+        [
+          507903,
+          2
+        ],
+        [
+          516095,
+          2
+        ],
+        [
+          540671,
+          1
+        ],
+        [
+          557055,
+          2
+        ],
+        [
+          573439,
+          2
+        ],
+        [
+          589823,
+          1
+        ],
+        [
+          606207,
+          7
+        ],
+        [
+          622591,
+          3
+        ],
+        [
+          638975,
+          6
+        ],
+        [
+          655359,
+          3
+        ],
+        [
+          671743,
+          3
+        ],
+        [
+          688127,
+          4
+        ],
+        [
+          704511,
+          3
+        ],
+        [
+          720895,
+          3
+        ],
+        [
+          737279,
+          2
+        ],
+        [
+          753663,
+          5
+        ],
+        [
+          770047,
+          3
+        ],
+        [
+          786431,
+          2
+        ],
+        [
+          819199,
+          4
+        ],
+        [
+          851967,
+          1
+        ],
+        [
+          868351,
+          1
+        ],
+        [
+          884735,
+          3
+        ],
+        [
+          901119,
+          4
+        ],
+        [
+          917503,
+          5
+        ],
+        [
+          933887,
+          2
+        ],
+        [
+          950271,
+          3
+        ],
+        [
+          983039,
+          3
+        ],
+        [
+          999423,
+          5
+        ],
+        [
+          1114111,
+          3
+        ],
+        [
+          1146879,
+          1
+        ],
+        [
+          1179647,
+          1
+        ],
+        [
+          1212415,
+          1
+        ],
+        [
+          1277951,
+          2
+        ],
+        [
+          1310719,
+          1
+        ],
+        [
+          1343487,
+          1
+        ],
+        [
+          1507327,
+          1
+        ],
+        [
+          2064383,
+          1
+        ],
+        [
+          3407871,
+          1
+        ],
+        [
+          4194303,
+          1
+        ],
+        [
+          19398655,
+          1
+        ],
+        [
+          37748735,
+          1
+        ]
+      ]
+    },
+    "exceptional_returns": 0,
+    "exclusive": {
+      "count": 103,
+      "sum_ns": 132389883,
+      "max_ns": 36675890,
+      "p50_ns_upper": 688127,
+      "p95_ns_upper": 1277951,
+      "p99_ns_upper": 18874367,
+      "histogram_upper_ns_count": [
+        [
+          401407,
+          1
+        ],
+        [
+          425983,
+          1
+        ],
+        [
+          450559,
+          1
+        ],
+        [
+          458751,
+          2
+        ],
+        [
+          466943,
+          1
+        ],
+        [
+          475135,
+          1
+        ],
+        [
+          483327,
+          1
+        ],
+        [
+          499711,
+          1
+        ],
+        [
+          516095,
+          2
+        ],
+        [
+          524287,
+          3
+        ],
+        [
+          540671,
+          2
+        ],
+        [
+          557055,
+          7
+        ],
+        [
+          573439,
+          3
+        ],
+        [
+          589823,
+          9
+        ],
+        [
+          606207,
+          2
+        ],
+        [
+          622591,
+          3
+        ],
+        [
+          638975,
+          4
+        ],
+        [
+          655359,
+          5
+        ],
+        [
+          671743,
+          2
+        ],
+        [
+          688127,
+          2
+        ],
+        [
+          704511,
+          4
+        ],
+        [
+          720895,
+          2
+        ],
+        [
+          753663,
+          2
+        ],
+        [
+          770047,
+          2
+        ],
+        [
+          786431,
+          3
+        ],
+        [
+          802815,
+          2
+        ],
+        [
+          819199,
+          2
+        ],
+        [
+          835583,
+          4
+        ],
+        [
+          851967,
+          3
+        ],
+        [
+          868351,
+          2
+        ],
+        [
+          884735,
+          2
+        ],
+        [
+          901119,
+          2
+        ],
+        [
+          917503,
+          2
+        ],
+        [
+          933887,
+          3
+        ],
+        [
+          950271,
+          1
+        ],
+        [
+          999423,
+          1
+        ],
+        [
+          1015807,
+          1
+        ],
+        [
+          1048575,
+          1
+        ],
+        [
+          1114111,
+          1
+        ],
+        [
+          1146879,
+          1
+        ],
+        [
+          1179647,
+          1
+        ],
+        [
+          1212415,
+          2
+        ],
+        [
+          1277951,
+          1
+        ],
+        [
+          1441791,
+          1
+        ],
+        [
+          1867775,
+          1
+        ],
+        [
+          4128767,
+          1
+        ],
+        [
+          18874367,
+          1
+        ],
+        [
+          36700159,
+          1
+        ]
+      ]
+    }
+  },
+  "runtime_tick": {
+    "inclusive": {
+      "count": 103,
+      "sum_ns": 9623088,
+      "max_ns": 2863792,
+      "p50_ns_upper": 49151,
+      "p95_ns_upper": 188415,
+      "p99_ns_upper": 376831,
+      "histogram_upper_ns_count": [
+        [
+          31231,
+          1
+        ],
+        [
+          34815,
+          2
+        ],
+        [
+          35839,
+          3
+        ],
+        [
+          36863,
+          4
+        ],
+        [
+          37887,
+          2
+        ],
+        [
+          38911,
+          6
+        ],
+        [
+          39935,
+          7
+        ],
+        [
+          40959,
+          1
+        ],
+        [
+          41983,
+          7
+        ],
+        [
+          43007,
+          5
+        ],
+        [
+          44031,
+          5
+        ],
+        [
+          45055,
+          3
+        ],
+        [
+          46079,
+          2
+        ],
+        [
+          47103,
+          3
+        ],
+        [
+          49151,
+          1
+        ],
+        [
+          51199,
+          1
+        ],
+        [
+          52223,
+          1
+        ],
+        [
+          53247,
+          2
+        ],
+        [
+          54271,
+          2
+        ],
+        [
+          55295,
+          2
+        ],
+        [
+          57343,
+          2
+        ],
+        [
+          58367,
+          3
+        ],
+        [
+          59391,
+          3
+        ],
+        [
+          60415,
+          1
+        ],
+        [
+          61439,
+          1
+        ],
+        [
+          62463,
+          1
+        ],
+        [
+          63487,
+          1
+        ],
+        [
+          64511,
+          1
+        ],
+        [
+          67583,
+          3
+        ],
+        [
+          69631,
+          2
+        ],
+        [
+          71679,
+          1
+        ],
+        [
+          73727,
+          2
+        ],
+        [
+          75775,
+          2
+        ],
+        [
+          77823,
+          1
+        ],
+        [
+          83967,
+          1
+        ],
+        [
+          86015,
+          1
+        ],
+        [
+          88063,
+          2
+        ],
+        [
+          90111,
+          1
+        ],
+        [
+          92159,
+          1
+        ],
+        [
+          94207,
+          1
+        ],
+        [
+          96255,
+          1
+        ],
+        [
+          108543,
+          1
+        ],
+        [
+          110591,
+          1
+        ],
+        [
+          120831,
+          1
+        ],
+        [
+          151551,
+          1
+        ],
+        [
+          167935,
+          1
+        ],
+        [
+          188415,
+          1
+        ],
+        [
+          200703,
+          1
+        ],
+        [
+          233471,
+          1
+        ],
+        [
+          327679,
+          1
+        ],
+        [
+          376831,
+          1
+        ],
+        [
+          2883583,
+          1
+        ]
+      ]
+    },
+    "exceptional_returns": 0,
+    "exclusive": {
+      "count": 103,
+      "sum_ns": 9253185,
+      "max_ns": 2861428,
+      "p50_ns_upper": 45055,
+      "p95_ns_upper": 188415,
+      "p99_ns_upper": 368639,
+      "histogram_upper_ns_count": [
+        [
+          29183,
+          1
+        ],
+        [
+          32255,
+          2
+        ],
+        [
+          33791,
+          3
+        ],
+        [
+          34815,
+          4
+        ],
+        [
+          35839,
+          4
+        ],
+        [
+          36863,
+          4
+        ],
+        [
+          37887,
+          8
+        ],
+        [
+          38911,
+          5
+        ],
+        [
+          39935,
+          4
+        ],
+        [
+          40959,
+          7
+        ],
+        [
+          41983,
+          4
+        ],
+        [
+          43007,
+          2
+        ],
+        [
+          44031,
+          2
+        ],
+        [
+          45055,
+          3
+        ],
+        [
+          47103,
+          2
+        ],
+        [
+          49151,
+          3
+        ],
+        [
+          50175,
+          1
+        ],
+        [
+          51199,
+          1
+        ],
+        [
+          52223,
+          3
+        ],
+        [
+          53247,
+          1
+        ],
+        [
+          55295,
+          4
+        ],
+        [
+          56319,
+          2
+        ],
+        [
+          57343,
+          2
+        ],
+        [
+          58367,
+          1
+        ],
+        [
+          59391,
+          1
+        ],
+        [
+          60415,
+          1
+        ],
+        [
+          61439,
+          1
+        ],
+        [
+          64511,
+          1
+        ],
+        [
+          65535,
+          2
+        ],
+        [
+          67583,
+          2
+        ],
+        [
+          71679,
+          1
+        ],
+        [
+          73727,
+          2
+        ],
+        [
+          75775,
+          2
+        ],
+        [
+          86015,
+          3
+        ],
+        [
+          90111,
+          2
+        ],
+        [
+          92159,
+          2
+        ],
+        [
+          108543,
+          1
+        ],
+        [
+          118783,
+          1
+        ],
+        [
+          151551,
+          1
+        ],
+        [
+          163839,
+          1
+        ],
+        [
+          188415,
+          1
+        ],
+        [
+          200703,
+          1
+        ],
+        [
+          233471,
+          1
+        ],
+        [
+          319487,
+          1
+        ],
+        [
+          368639,
+          1
+        ],
+        [
+          2883583,
+          1
+        ]
+      ]
+    }
+  },
+  "transformed_classes": {
+    "dev/crosstesseract/backend/Authority": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "channelBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/List;;publishBatch(Ljava/util/UUID;Ljava/util/List;)Ljava/util/Map;",
+      "original_class_sha256": "4079cd1b419ab5a1450f0d2fcb5cd6b93b77ef81b5a5f537d453155aefe7da36"
+    },
+    "dev/crosstesseract/backend/LocalJournal": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "write(Ldev/crosstesseract/core/LocalSnapshot;)V",
+      "original_class_sha256": "facb5474ce33d9eed68298c1519b0958ee9fa52e29921e078fc020064c76f485"
+    },
+    "dev/crosstesseract/backend/Sql": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "transaction(Ldev/crosstesseract/backend/Sql$Work;)Ljava/lang/Object;",
+      "original_class_sha256": "9a27a427278d79934f4bd60c12eaf1d2dc530a1fc30844179532eb99ec750a78"
+    },
+    "dev/crosstesseract/block/TesseractBlockEntity": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "itemResource(Lnet/minecraft/world/item/ItemStack;)Ldev/crosstesseract/core/Resource;;fluidResource(Lnet/neoforged/neoforge/fluids/FluidStack;)Ldev/crosstesseract/core/Resource;;decodeItem(Ldev/crosstesseract/core/Resource;I)Lnet/minecraft/world/item/ItemStack;;decodeFluid(Ldev/crosstesseract/core/Resource;I)Lnet/neoforged/neoforge/fluids/FluidStack;",
+      "original_class_sha256": "76e3eec3713a52e67c6e153e3bbc3a7d09ef273e5900b8488530400abfa4a527"
+    },
+    "dev/crosstesseract/core/LocalBuffer": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "credit(Ldev/crosstesseract/core/LocalSnapshot$Credit;)V",
+      "original_class_sha256": "b146d19073564c1e3145ae852e08d6573a5dd82d339b1ca7057ff310724d6d45"
+    },
+    "dev/crosstesseract/runtime/RuntimeService": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "flushClosing(Ldev/crosstesseract/runtime/RuntimeService$Closing;)V;localChanged(Ldev/crosstesseract/block/TesseractBlockEntity;Ljava/lang/String;ZJ)V;wakeChannel(Ljava/util/UUID;Z)V;tick()V;exchangeLocal(Ldev/crosstesseract/block/TesseractBlockEntity;)V;capture(Ldev/crosstesseract/block/TesseractBlockEntity;)Ldev/crosstesseract/backend/TransferWork$Request;;preparePublication(Ldev/crosstesseract/runtime/ChannelCoordinator$Lease;Ljava/util/Map;Ljava/util/List;)V;finish(Ldev/crosstesseract/runtime/RuntimeService$Prepared;Ljava/lang/String;Z)V;processTicketWork(J)V",
+      "original_class_sha256": "6c1275db1430d9ba4f852024bc29364967dc0c2c92ce747c6d25eedcd23d2beb"
+    },
+    "dev/crosstesseract/test/ThreeServerHarness": {
+      "code_source": "union:/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/classes/%23139!/",
+      "methods": "tick(Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Post;)V",
+      "original_class_sha256": "950dbf6cb811bf70b206c9f957dc28c82d338f43f24b31a0405c2f1926eb4e25"
+    },
+    "net/minecraft/server/MinecraftServer": {
+      "code_source": "union:/workspace/CrossTesseract/build/moddev/artifacts/neoforge-21.1.252.jar%23137!/",
+      "methods": "tickServer(Ljava/util/function/BooleanSupplier;)V",
+      "original_class_sha256": "fd451d3afeb09f3736e88bb2510aa5aeca7e736f86e0982d40d72c2a03414947"
+    }
+  },
+  "transform_failures": {},
+  "frame_depth_mismatches": 0,
+  "functional_probe_pass": true,
+  "utc_end": "2026-10-17T10:24:15.946427+00:00",
+  "server_log": "logs/rc-probe-nativecheck-f24fef2b-7bca-465c-9eb3-5f53d66b188f.log",
+  "launcher_exit_code": 0
+}

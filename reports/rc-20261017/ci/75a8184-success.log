@@ -1,0 +1,752 @@
+candidate	Set up job	﻿2026-10-17T11:12:25.5366189Z Current runner version: '2.337.0'
+candidate	Set up job	2026-10-17T11:12:25.5387295Z ##[group]Runner Image Provisioner
+candidate	Set up job	2026-10-17T11:12:25.5388492Z Hosted Compute Agent
+candidate	Set up job	2026-10-17T11:12:25.5388990Z Version: 20261012.601
+candidate	Set up job	2026-10-17T11:12:25.5389500Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+candidate	Set up job	2026-10-17T11:12:25.5390160Z Build Date: 2026-10-12T17:48:21Z
+candidate	Set up job	2026-10-17T11:12:25.5390750Z Worker ID: {57f83793-8a64-4c70-9b73-36a9f4c5044d}
+candidate	Set up job	2026-10-17T11:12:25.5391605Z Region: westus3
+candidate	Set up job	2026-10-17T11:12:25.5392061Z Cloud: Azure
+candidate	Set up job	2026-10-17T11:12:25.5392501Z ##[endgroup]
+candidate	Set up job	2026-10-17T11:12:25.5393781Z ##[group]Operating System
+candidate	Set up job	2026-10-17T11:12:25.5394299Z Ubuntu
+candidate	Set up job	2026-10-17T11:12:25.5394797Z 24.04.5
+candidate	Set up job	2026-10-17T11:12:25.5395237Z LTS
+candidate	Set up job	2026-10-17T11:12:25.5395672Z ##[endgroup]
+candidate	Set up job	2026-10-17T11:12:25.5396167Z ##[group]Runner Image
+candidate	Set up job	2026-10-17T11:12:25.5396729Z Image: ubuntu-24.04
+candidate	Set up job	2026-10-17T11:12:25.5397223Z Version: 20261012.334.1
+candidate	Set up job	2026-10-17T11:12:25.5398099Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+candidate	Set up job	2026-10-17T11:12:25.5399513Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+candidate	Set up job	2026-10-17T11:12:25.5400348Z ##[endgroup]
+candidate	Set up job	2026-10-17T11:12:25.5401258Z ##[group]GITHUB_TOKEN Permissions
+candidate	Set up job	2026-10-17T11:12:25.5403016Z Contents: read
+candidate	Set up job	2026-10-17T11:12:25.5403574Z Metadata: read
+candidate	Set up job	2026-10-17T11:12:25.5404048Z ##[endgroup]
+candidate	Set up job	2026-10-17T11:12:25.5405748Z Secret source: Actions
+candidate	Set up job	2026-10-17T11:12:25.5406591Z Cache mode: write
+candidate	Set up job	2026-10-17T11:12:25.5407149Z Prepare workflow directory
+candidate	Set up job	2026-10-17T11:12:25.7295405Z Prepare all required actions
+candidate	Set up job	2026-10-17T11:12:25.7335779Z Getting action download info
+candidate	Set up job	2026-10-17T11:12:26.0152617Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+candidate	Set up job	2026-10-17T11:12:26.4071878Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+candidate	Set up job	2026-10-17T11:12:26.6874831Z Complete job name: candidate
+candidate	Initialize containers	﻿2026-10-17T11:12:26.7532106Z ##[group]Checking docker version
+candidate	Initialize containers	2026-10-17T11:12:26.7542562Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+candidate	Initialize containers	2026-10-17T11:12:27.7227618Z '1.48'
+candidate	Initialize containers	2026-10-17T11:12:27.7237275Z Docker daemon API version: '1.48'
+candidate	Initialize containers	2026-10-17T11:12:27.7238229Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+candidate	Initialize containers	2026-10-17T11:12:27.7442152Z '1.48'
+candidate	Initialize containers	2026-10-17T11:12:27.7453595Z Docker client API version: '1.48'
+candidate	Initialize containers	2026-10-17T11:12:27.7458427Z ##[endgroup]
+candidate	Initialize containers	2026-10-17T11:12:27.7460907Z ##[group]Clean up resources from previous jobs
+candidate	Initialize containers	2026-10-17T11:12:27.7466803Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=e2d18e"
+candidate	Initialize containers	2026-10-17T11:12:27.7626459Z ##[command]/usr/bin/docker network prune --force --filter "label=e2d18e"
+candidate	Initialize containers	2026-10-17T11:12:27.7758116Z ##[endgroup]
+candidate	Initialize containers	2026-10-17T11:12:27.7759086Z ##[group]Create local container network
+candidate	Initialize containers	2026-10-17T11:12:27.7768031Z ##[command]/usr/bin/docker network create --label e2d18e github_network_f4946d30893342ddaf4a6f9b0eca751e
+candidate	Initialize containers	2026-10-17T11:12:27.8264229Z 5d95df14489951c37c8fd5cbab071f194e21882f2924a9050cc4c859cae634ed
+candidate	Initialize containers	2026-10-17T11:12:27.8287558Z ##[endgroup]
+candidate	Initialize containers	2026-10-17T11:12:27.8313617Z ##[group]Starting mysql service container
+candidate	Initialize containers	2026-10-17T11:12:27.8333955Z ##[command]/usr/bin/docker pull mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+candidate	Initialize containers	2026-10-17T11:12:28.4153149Z docker.io/library/mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903: Pulling from library/mysql
+candidate	Initialize containers	2026-10-17T11:12:28.6652932Z 658e67031dba: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6653450Z 023bf5ce6a48: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6653761Z 24675d427758: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6654053Z ad32417d60c2: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6654354Z 25809bf57a8f: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6654648Z b13420727c1c: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6654960Z ff6e8ae58e24: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6655256Z 93b034b0c553: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6676850Z ada6ad8c9d8c: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6677138Z 1fdbfdab0659: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:28.6677362Z 25809bf57a8f: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.6677602Z b13420727c1c: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.6677778Z ff6e8ae58e24: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.6677957Z 93b034b0c553: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.6678157Z ada6ad8c9d8c: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.6678325Z 1fdbfdab0659: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.6678490Z ad32417d60c2: Waiting
+candidate	Initialize containers	2026-10-17T11:12:28.8339128Z 023bf5ce6a48: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:28.8340261Z 023bf5ce6a48: Download complete
+candidate	Initialize containers	2026-10-17T11:12:28.8378925Z 24675d427758: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:28.8381063Z 24675d427758: Download complete
+candidate	Initialize containers	2026-10-17T11:12:28.9406841Z 658e67031dba: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:28.9407595Z 658e67031dba: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.0082603Z 25809bf57a8f: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:29.0085208Z 25809bf57a8f: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.0282459Z ad32417d60c2: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:29.0284430Z ad32417d60c2: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.1216034Z b13420727c1c: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:29.1217538Z b13420727c1c: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.1937851Z 93b034b0c553: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.3009660Z ff6e8ae58e24: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:29.3010156Z ff6e8ae58e24: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.3628487Z 1fdbfdab0659: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:29.6478504Z 1fdbfdab0659: Download complete
+candidate	Initialize containers	2026-10-17T11:12:29.6479465Z ada6ad8c9d8c: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:29.6479795Z ada6ad8c9d8c: Download complete
+candidate	Initialize containers	2026-10-17T11:12:30.0449960Z 658e67031dba: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:37.0787740Z 023bf5ce6a48: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:37.1120502Z 24675d427758: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:37.3343784Z ad32417d60c2: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:37.3430437Z 25809bf57a8f: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:37.3495644Z b13420727c1c: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:38.6390586Z ff6e8ae58e24: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:38.6479732Z 93b034b0c553: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:46.5542578Z ada6ad8c9d8c: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:46.5630595Z 1fdbfdab0659: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:46.5658617Z Digest: sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+candidate	Initialize containers	2026-10-17T11:12:46.5673224Z Status: Downloaded newer image for mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+candidate	Initialize containers	2026-10-17T11:12:46.5673981Z docker.io/library/mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+candidate	Initialize containers	2026-10-17T11:12:46.5745716Z ##[command]/usr/bin/docker create --name 6fb570ac02e24f56a0a7fac95e7d6533_mysqlsha2560426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903_0186c0 --label e2d18e --network github_network_f4946d30893342ddaf4a6f9b0eca751e --network-alias mysql -p 13306:3306 --health-cmd="mysqladmin ping -h 127.0.0.1" --health-interval=3s --health-timeout=2s --health-retries=40 -e "MYSQL_DATABASE=cross_tesseract" -e "MYSQL_USER=ct_dev" -e "MYSQL_PASSWORD=ct_dev_only" -e "MYSQL_ROOT_PASSWORD=ct_dev_root_only" -e GITHUB_ACTIONS=true -e CI=true mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+candidate	Initialize containers	2026-10-17T11:12:46.6077788Z 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:46.6097323Z ##[command]/usr/bin/docker start 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:47.2546369Z 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:47.2565603Z ##[command]/usr/bin/docker ps --all --filter id=6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+candidate	Initialize containers	2026-10-17T11:12:47.2666941Z 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37 Up Less than a second (health: starting)
+candidate	Initialize containers	2026-10-17T11:12:47.2682568Z ##[command]/usr/bin/docker port 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:47.2823961Z 3306/tcp -> 0.0.0.0:13306
+candidate	Initialize containers	2026-10-17T11:12:47.2824323Z 3306/tcp -> [::]:13306
+candidate	Initialize containers	2026-10-17T11:12:47.2869902Z ##[endgroup]
+candidate	Initialize containers	2026-10-17T11:12:47.2870925Z ##[group]Starting redis service container
+candidate	Initialize containers	2026-10-17T11:12:47.2872652Z ##[command]/usr/bin/docker pull redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+candidate	Initialize containers	2026-10-17T11:12:47.8447794Z docker.io/library/redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514: Pulling from library/redis
+candidate	Initialize containers	2026-10-17T11:12:48.0672991Z abe1fea37542: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0677169Z e08a885b7860: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0677709Z b1f4ace27ff2: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0679335Z 87862acd3083: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0679748Z 4c23e505b671: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0680023Z 7985e01408e3: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0680313Z 4f4fb700ef54: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0680614Z 477049afe86c: Pulling fs layer
+candidate	Initialize containers	2026-10-17T11:12:48.0680917Z 4c23e505b671: Waiting
+candidate	Initialize containers	2026-10-17T11:12:48.0681141Z 7985e01408e3: Waiting
+candidate	Initialize containers	2026-10-17T11:12:48.0681525Z 4f4fb700ef54: Waiting
+candidate	Initialize containers	2026-10-17T11:12:48.0681744Z 477049afe86c: Waiting
+candidate	Initialize containers	2026-10-17T11:12:48.0681996Z 87862acd3083: Waiting
+candidate	Initialize containers	2026-10-17T11:12:48.2354303Z b1f4ace27ff2: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.2355038Z e08a885b7860: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.2355778Z e08a885b7860: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.3114462Z abe1fea37542: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.3114857Z abe1fea37542: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.4121530Z 87862acd3083: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.4122242Z 87862acd3083: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.4528647Z 4c23e505b671: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.4535078Z 4c23e505b671: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.4868413Z 7985e01408e3: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.4868810Z 7985e01408e3: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.5864632Z 4f4fb700ef54: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.5865280Z 4f4fb700ef54: Download complete
+candidate	Initialize containers	2026-10-17T11:12:48.6181581Z 477049afe86c: Verifying Checksum
+candidate	Initialize containers	2026-10-17T11:12:48.6182012Z 477049afe86c: Download complete
+candidate	Initialize containers	2026-10-17T11:12:49.3056348Z abe1fea37542: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.0796125Z e08a885b7860: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.0909385Z b1f4ace27ff2: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.1425750Z 87862acd3083: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.5296386Z 4c23e505b671: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.5389313Z 7985e01408e3: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.5458763Z 4f4fb700ef54: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.5527736Z 477049afe86c: Pull complete
+candidate	Initialize containers	2026-10-17T11:12:50.5556020Z Digest: sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+candidate	Initialize containers	2026-10-17T11:12:50.5561871Z Status: Downloaded newer image for redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+candidate	Initialize containers	2026-10-17T11:12:50.5568789Z docker.io/library/redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+candidate	Initialize containers	2026-10-17T11:12:50.5581815Z ##[command]/usr/bin/docker create --name 7bce6723a5a24c258646bd089d2d79b1_redissha256a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514_7767fd --label e2d18e --network github_network_f4946d30893342ddaf4a6f9b0eca751e --network-alias redis -p 16379:6379  -e GITHUB_ACTIONS=true -e CI=true redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+candidate	Initialize containers	2026-10-17T11:12:50.5761761Z d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Initialize containers	2026-10-17T11:12:50.5772633Z ##[command]/usr/bin/docker start d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Initialize containers	2026-10-17T11:12:50.7329945Z d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Initialize containers	2026-10-17T11:12:50.7342693Z ##[command]/usr/bin/docker ps --all --filter id=d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+candidate	Initialize containers	2026-10-17T11:12:50.7444381Z d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194 Up Less than a second
+candidate	Initialize containers	2026-10-17T11:12:50.7455389Z ##[command]/usr/bin/docker port d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Initialize containers	2026-10-17T11:12:50.7554468Z 6379/tcp -> 0.0.0.0:16379
+candidate	Initialize containers	2026-10-17T11:12:50.7555113Z 6379/tcp -> [::]:16379
+candidate	Initialize containers	2026-10-17T11:12:50.7565657Z ##[endgroup]
+candidate	Initialize containers	2026-10-17T11:12:50.7575516Z ##[group]Waiting for all services to be ready
+candidate	Initialize containers	2026-10-17T11:12:50.7587048Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:50.7681769Z starting
+candidate	Initialize containers	2026-10-17T11:12:50.7697501Z mysql service is starting, waiting 2 seconds before checking again.
+candidate	Initialize containers	2026-10-17T11:12:52.7699127Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:52.7811785Z starting
+candidate	Initialize containers	2026-10-17T11:12:52.7823296Z mysql service is starting, waiting 3 seconds before checking again.
+candidate	Initialize containers	2026-10-17T11:12:56.4260518Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:12:56.4362679Z starting
+candidate	Initialize containers	2026-10-17T11:12:56.4380068Z mysql service is starting, waiting 8 seconds before checking again.
+candidate	Initialize containers	2026-10-17T11:13:04.4981976Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Initialize containers	2026-10-17T11:13:04.5089013Z healthy
+candidate	Initialize containers	2026-10-17T11:13:04.5103965Z mysql service is healthy.
+candidate	Initialize containers	2026-10-17T11:13:04.5104677Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Initialize containers	2026-10-17T11:13:04.5214926Z redis service is healthy.
+candidate	Initialize containers	2026-10-17T11:13:04.5215537Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-17T11:13:04.7062742Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7063289Z with:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7063494Z   repository: MineQuantumServer/CrossTesseract
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7065728Z   token: ***
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7065905Z   ssh-strict: true
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7066083Z   ssh-user: git
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7066255Z   persist-credentials: true
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7066448Z   clean: true
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7066635Z   sparse-checkout-cone-mode: true
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7066841Z   fetch-depth: 1
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7067005Z   fetch-tags: false
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7067176Z   show-progress: true
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7067349Z   lfs: false
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7067507Z   submodules: false
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7067677Z   set-safe-directory: true
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7067875Z   allow-unsafe-pr-checkout: false
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7068203Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7875341Z Syncing repository: MineQuantumServer/CrossTesseract
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7876855Z ##[group]Getting Git version info
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7877441Z Working directory is '/home/runner/work/CrossTesseract/CrossTesseract'
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7878172Z [command]/usr/bin/git version
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7939104Z git version 2.55.0
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7956170Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7969991Z Temporarily overriding HOME='/home/runner/work/_temp/b98736e0-2100-4ae2-9c37-4b5fd8073c17' before making global git config changes
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7970983Z Adding repository directory to the temporary git global config as a safe directory
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.7976471Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/CrossTesseract/CrossTesseract
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8022821Z Deleting the contents of '/home/runner/work/CrossTesseract/CrossTesseract'
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8026941Z ##[group]Initializing the repository
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8030660Z [command]/usr/bin/git init /home/runner/work/CrossTesseract/CrossTesseract
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8147369Z hint: Using 'master' as the name for the initial branch. This default branch name
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8148545Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8149438Z hint: to use in all of your new repositories, which will suppress this warning,
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8150185Z hint: call:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8150801Z hint:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8151193Z hint: 	git config --global init.defaultBranch <name>
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8151789Z hint:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8152168Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8152782Z hint: 'development'. The just-created branch can be renamed via this command:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8153097Z hint:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8153276Z hint: 	git branch -m <name>
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8153464Z hint:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8153751Z hint: Disable this message with "git config set advice.defaultBranchName false"
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8162661Z Initialized empty Git repository in /home/runner/work/CrossTesseract/CrossTesseract/.git/
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8165389Z [command]/usr/bin/git remote add origin https://github.com/MineQuantumServer/CrossTesseract
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8213889Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8214413Z ##[group]Disabling automatic garbage collection
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8221867Z [command]/usr/bin/git config --local gc.auto 0
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8245976Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8246520Z ##[group]Setting up auth
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8251988Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8279412Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8611544Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8642730Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8841773Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.8873114Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.9069630Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.9106462Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.9106820Z ##[group]Fetching the repository
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:04.9113941Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +75a8184fa15ce559c07c18a78bd01e18d451a0f8:refs/remotes/origin/perf/channel-coordinator
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1711598Z From https://github.com/MineQuantumServer/CrossTesseract
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1712134Z  * [new ref]         75a8184fa15ce559c07c18a78bd01e18d451a0f8 -> origin/perf/channel-coordinator
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1715660Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1715988Z ##[group]Determining the checkout info
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1718360Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1723652Z [command]/usr/bin/git sparse-checkout disable
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1773664Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1801507Z ##[group]Checking out the ref
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.1805157Z [command]/usr/bin/git checkout --progress --force -B perf/channel-coordinator refs/remotes/origin/perf/channel-coordinator
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.5857933Z Switched to a new branch 'perf/channel-coordinator'
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.5862164Z branch 'perf/channel-coordinator' set up to track 'origin/perf/channel-coordinator'.
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.5888288Z ##[endgroup]
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.5930855Z [command]/usr/bin/git log -1 --format=%H
+candidate	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:13:17.5954739Z 75a8184fa15ce559c07c18a78bd01e18d451a0f8
+candidate	Install exact Temurin archive with SHA256 verification	﻿2026-10-17T11:13:17.6235752Z ##[group]Run bash scripts/install-jdk.sh
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6236227Z [36;1mbash scripts/install-jdk.sh[0m
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6236699Z [36;1mecho "JAVA_HOME=$GITHUB_WORKSPACE/scratch/jdk/jdk-21.0.8+9" >> "$GITHUB_ENV"[0m
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6237160Z [36;1mecho "$GITHUB_WORKSPACE/scratch/jdk/jdk-21.0.8+9/bin" >> "$GITHUB_PATH"[0m
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6439361Z shell: /usr/bin/bash -e {0}
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6439687Z ##[endgroup]
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6954194Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6954827Z                                  Dload  Upload   Total   Spent    Left  Speed
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.6955128Z 
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.9133830Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:17.9134250Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:18.1009397Z 
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:18.6584855Z  21  197M   21 42.6M    0     0   105M      0  0:00:01 --:--:--  0:00:01  105M
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:18.6585501Z 100  197M  100  197M    0     0   205M      0 --:--:-- --:--:-- --:--:--  277M
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:19.8627683Z /tmp/ct-jdk.HK61Du.tar.gz: OK
+candidate	Install exact Temurin archive with SHA256 verification	2026-10-17T11:13:21.9082773Z javac 21.0.8
+candidate	Fetch pinned read-only compatibility API sources	﻿2026-10-17T11:13:22.1320741Z ##[group]Run bash scripts/fetch-references.sh
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.1321080Z [36;1mbash scripts/fetch-references.sh[0m
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.1379164Z shell: /usr/bin/bash -e {0}
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.1379372Z env:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.1379667Z   JAVA_HOME: /home/runner/work/CrossTesseract/CrossTesseract/scratch/jdk/jdk-21.0.8+9
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.1380007Z ##[endgroup]
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2416397Z hint: Using 'master' as the name for the initial branch. This default branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2417104Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2417534Z hint: to use in all of your new repositories, which will suppress this warning,
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2417857Z hint: call:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2418024Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2418234Z hint: 	git config --global init.defaultBranch <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2418475Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2418706Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2419085Z hint: 'development'. The just-created branch can be renamed via this command:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2419509Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2419685Z hint: 	git branch -m <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2419882Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:22.2420151Z hint: Disable this message with "git config set advice.defaultBranchName false"
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.4124833Z From https://github.com/AppliedEnergistics/Applied-Energistics-2
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.4125860Z  * branch            db17504a86128fdf3dae31f5fb7a112a646e0b93 -> FETCH_HEAD
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5809819Z HEAD is now at db17504 Remove neighbor updates from the Condenser caused by changes in the internal power level (#8934)
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5984495Z hint: Using 'master' as the name for the initial branch. This default branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5985182Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5985798Z hint: to use in all of your new repositories, which will suppress this warning,
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5986274Z hint: call:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5986533Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5986850Z hint: 	git config --global init.defaultBranch <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5987239Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5987596Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5988115Z hint: 'development'. The just-created branch can be renamed via this command:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5988409Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5988566Z hint: 	git branch -m <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5988743Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:23.5988985Z hint: Disable this message with "git config set advice.defaultBranchName false"
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.1974145Z From https://github.com/FortyTwoCn/GregTech-Modern
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.1974828Z  * branch            c72dc16b52795cbb0456b6e15e13cc4a85c0ed1b -> FETCH_HEAD
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6410750Z HEAD is now at c72dc16 Merge GregTechCEu/GregTech-Modern 1.21 into fork [no-snapshot]
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6463402Z hint: Using 'master' as the name for the initial branch. This default branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6464157Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6464942Z hint: to use in all of your new repositories, which will suppress this warning,
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6465337Z hint: call:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6465536Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6465799Z hint: 	git config --global init.defaultBranch <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6466108Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6466405Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6466935Z hint: 'development'. The just-created branch can be renamed via this command:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6467379Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6467638Z hint: 	git branch -m <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6468028Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:25.6468350Z hint: Disable this message with "git config set advice.defaultBranchName false"
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.5247554Z From https://github.com/mekanism/Mekanism
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.5248154Z  * branch            bcd7a8bf594cff9614eb12238fe3776f19da24d9 -> FETCH_HEAD
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9229165Z HEAD is now at bcd7a8b Update crowdin action to check the 26.3 branch
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9285474Z hint: Using 'master' as the name for the initial branch. This default branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9286153Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9286752Z hint: to use in all of your new repositories, which will suppress this warning,
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9287222Z hint: call:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9287448Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9287748Z hint: 	git config --global init.defaultBranch <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9288119Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9288474Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9288906Z hint: 'development'. The just-created branch can be renamed via this command:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9289208Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9289367Z hint: 	git branch -m <name>
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9289552Z hint:
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:27.9289798Z hint: Disable this message with "git config set advice.defaultBranchName false"
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:28.8424468Z From https://github.com/SuperMartijn642/Tesseract
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:28.8425190Z  * branch            cedf6df38a02d1f204733f2d8723d7f99861d972 -> FETCH_HEAD
+candidate	Fetch pinned read-only compatibility API sources	2026-10-17T11:13:28.8548989Z HEAD is now at cedf6df Update version
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	﻿2026-10-17T11:13:28.8666982Z ##[group]Run ./gradlew --no-daemon --max-workers=2 build -Dct.integration=true
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.8667441Z [36;1m./gradlew --no-daemon --max-workers=2 build -Dct.integration=true[0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.8723239Z shell: /usr/bin/bash -e {0}
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.8723451Z env:
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.8723736Z   JAVA_HOME: /home/runner/work/CrossTesseract/CrossTesseract/scratch/jdk/jdk-21.0.8+9
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.8724199Z   CT_TEST_MYSQL_CONTAINER: 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.8724541Z ##[endgroup]
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:28.9601709Z Downloading https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:30.2145938Z ............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2919793Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2920666Z Welcome to Gradle 9.2.1!
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2927306Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2927656Z Here are the highlights of this release:
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2928125Z  - Windows ARM support
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2928420Z  - Improved publishing APIs
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2928675Z  - Better guidance for dependency verification failures
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2928863Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2929039Z For more details see https://docs.gradle.org/9.2.1/release-notes.html
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.2929281Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:31.3916595Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:32.1914055Z Daemon will be stopped at the end of the build 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:38.3915492Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:38.3921583Z > Configure project :
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:38.3922718Z Creating Minecraft artifacts without recompilation.
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:58.6917235Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:58.6917999Z > Task :createMinecraftArtifacts
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:58.6918751Z Loaded 131 artifacts from /home/runner/work/CrossTesseract/CrossTesseract/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:58.7915654Z [1m*** Started working on [4mdownloadJson[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:58.7916909Z   ↓ https://piston-meta.mojang.com/mc/game/version_manifest_v2.json
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.0922391Z   ↓ https://piston-meta.mojang.com/v1/packages/499680d659b7a0ccb2fa9a809c345c5baf2ace7d/1.21.1.json
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.0952886Z  [1m[92m✓[23;0m Completed [4mdownloadJson[23;0m in 0.32s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.0973987Z [1m*** Started working on [4mdownloadClientMappings[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.0981979Z [1m*** Started working on [4mdownloadClient[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.1012049Z [1m*** Started working on [4mdownloadServer[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.1928961Z   ↓ https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.1929910Z   ↓ https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.1931042Z   ↓ https://piston-data.mojang.com/v1/objects/2244b6f072256667bcd9a73df124d6c58de77992/client.txt
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.4922828Z  [1m[92m✓[23;0m Completed [4mdownloadClientMappings[23;0m in 0.38s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.5985219Z [1m*** Started working on [4mmergeMappings[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.6012617Z  ↳ Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.7916988Z  [1m[92m✓[23;0m Completed [4mdownloadClient[23;0m in 0.68s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:13:59.8962541Z [1m*** Started working on [4mstripClient[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:00.0918486Z  [1m[92m✓[23;0m Completed [4mdownloadServer[23;0m in 0.93s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:00.1943418Z [1m*** Started working on [4mextractServer[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:00.1966430Z  ↳ Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:00.7912892Z  [1m[92m✓[23;0m Completed [4mextractServer[23;0m in 0.67s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:00.8913846Z [1m*** Started working on [4mstripServer[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:02.5913682Z  [1m[92m✓[23;0m Completed [4mmergeMappings[23;0m in 3.06s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:02.7918825Z  [1m[92m✓[23;0m Completed [4mstripClient[23;0m in 2.90s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:02.9914451Z  [1m[92m✓[23;0m Completed [4mstripServer[23;0m in 2.08s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:02.9915509Z [1m*** Started working on [4mmerge[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:02.9922485Z  ↳ Running external tool net.neoforged:mergetool:2.0.3:fatjar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:05.2922922Z  [1m[92m✓[23;0m Completed [4mmerge[23;0m in 2.31s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:05.3942523Z [1m*** Started working on [4mrename[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:05.3947036Z  ↳ Running external tool net.neoforged:AutoRenamingTool:2.0.3:all
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:09.6913253Z  [1m[92m✓[23;0m Completed [4mrename[23;0m in 4.32s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:09.6914177Z [1m*** Started working on [4mbinaryPatch[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:09.6915453Z   [33mWARNING: [23;0mnet.neoforged.installertools:binarypatcher:2.1.2:fatjar is not present in the artifact manifest
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:09.6916759Z   ↓ https://maven.neoforged.net/releases/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:09.8913085Z  ↳ Running external tool net.neoforged.installertools:binarypatcher:2.1.2:fatjar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:13.7912754Z  [1m[92m✓[23;0m Completed [4mbinaryPatch[23;0m in 4.14s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:13.7922224Z [1m*** Started working on [4mcopyUnpatchedClasses[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:15.1912754Z  [1m[92m✓[23;0m Completed [4mcopyUnpatchedClasses[23;0m in 1.32s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:15.1913803Z [1m*** Started working on [4mapplyDevTransforms[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:15.1914983Z  ↳ Running external tool net.neoforged.installertools:installertools:4.0.12:fatjar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:16.7913288Z  [1m[92m✓[23;0m Completed [4mapplyDevTransforms[23;0m in 1.66s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:16.8912163Z [1m*** Started working on [4mbinaryWithNeoForge[23;0m[23;0m
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:21.5923154Z  [1m[92m✓[23;0m Completed [4mbinaryWithNeoForge[23;0m in 4.68s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:21.6911736Z Total runtime: 23.16s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:21.6912217Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:30.2911114Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:30.2911939Z > Task :compileGtApiJava
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:30.2912404Z > Task :processGtApiResources NO-SOURCE
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:30.2912664Z > Task :gtApiClasses
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.1972543Z warning: [deprecation] StreamConsumersInfo in redis.clients.jedis.resps has been deprecated
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.1973120Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.1990134Z /home/runner/work/CrossTesseract/CrossTesseract/src/main/java/dev/crosstesseract/backend/RedisTransport.java:53: warning: [deprecation] UNRECEIVED_ENTRY in StreamEntryID has been deprecated
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.1991252Z > Task :compileJava
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.1995744Z             var messages=j.xreadGroup(group,consumer,XReadGroupParams.xReadGroupParams().count(64),Map.of(key,StreamEntryID.UNRECEIVED_ENTRY));
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.1996924Z                                                                                                                            ^
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.5914246Z /home/runner/work/CrossTesseract/CrossTesseract/src/main/java/dev/crosstesseract/block/NeighborPump.java:24: warning: [deprecation] hasChunkAt(BlockPos) in LevelReader has been deprecated
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.5916115Z         if(!level.hasChunkAt(pos) || level.getBlockEntity(pos) instanceof TesseractBlockEntity)return;
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.5916960Z                  ^
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.6928818Z /home/runner/work/CrossTesseract/CrossTesseract/src/main/java/dev/crosstesseract/block/TesseractBlock.java:39: warning: [deprecation] getCloneItemStack(LevelReader,BlockPos,BlockState) in Block has been deprecated
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.6939914Z     @Override public ItemStack getCloneItemStack(LevelReader level,BlockPos pos,BlockState state) { return CrossTesseract.ITEM.get().getDefaultInstance(); }
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:34.6940966Z                                ^
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:35.1932794Z 4 warnings
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.2913651Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.2916258Z > Task :processResources
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.2916870Z > Task :classes
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.2928833Z > Task :jarJar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.4912226Z > Task :jar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.4912618Z > Task :sourcesJar
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:36.4912912Z > Task :assemble
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.0953208Z /home/runner/work/CrossTesseract/CrossTesseract/src/test/java/dev/crosstesseract/AuthorityIntegrationTest.java:172: warning: [deprecation] UNRECEIVED_ENTRY in StreamEntryID has been deprecated
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.0955503Z             j.xreadGroup(group,"crashed-consumer",redis.clients.jedis.params.XReadGroupParams.xReadGroupParams().count(64),Map.of(key,redis.clients.jedis.StreamEntryID.UNRECEIVED_ENTRY));
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.0956445Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.0982159Z                                                                                                                                                                        ^
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.0982763Z > Task :compileTestJava
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.1912128Z 1 warning
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.3918742Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.3919609Z > Task :processTestResources NO-SOURCE
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:39.3920010Z > Task :testClasses
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:41.4916080Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:41.4935368Z > Task :test
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:41.4935826Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:41.4936422Z AeProxyAndThermalTest > duplicateBridgeAndLoopAdvertisementsAreCountedOnce() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:41.4937079Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:41.4937555Z AeProxyAndThermalTest > thermalPendingIsFrozenDurableAndResidualIsConserved() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.1917194Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.1918304Z AuthorityIntegrationTest > staleSessionIsFencedAndQuotaDoesNotExpireWithLease() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.2910809Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.2913505Z AuthorityIntegrationTest > sealedReservedReceiptIsNeverPromotedByCheckpointOrReclaimedWithUnprovenConsumption() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.3910998Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.3912047Z AuthorityIntegrationTest > duplicateServerIdIsRejectedAndCloneCannotClaimAnotherLocation() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.4913717Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.4915186Z AuthorityIntegrationTest > historyAdmissionIsAtomicRollsBackAndOldPrunedKeysCannotReplay() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.5911646Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.5912851Z AuthorityIntegrationTest > sameChunkCountsTwiceAndInstallFailureCompensates() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.7910947Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:42.7912320Z AuthorityIntegrationTest > savepointCleanupPreservesRealMysqlDeadlockAndRetriesOnlyUncommittedWork() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.0912782Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.0915369Z AuthorityIntegrationTest > outboxSurvivesUnpublishedCommitAndRedisIsNeverAssetAuthority() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.1911902Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.1920256Z AuthorityIntegrationTest > profileAndPacketQuantumAvoidWrongVoltageAndFractionalAmps() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.1922224Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.1922773Z AuthorityIntegrationTest > redisPendingConsumersDuplicateAndReorderedHintsAreRoutedAndIdempotent() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.3911106Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.3962647Z AuthorityIntegrationTest > sealedRecoveryUsesOriginalOwnershipAndCannotRepeatReclaimedAssets() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.5910831Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.5911634Z AuthorityIntegrationTest > stockPagingPendingCapExpirationAndBindingCancelAreBounded() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.6910853Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.6911716Z AuthorityIntegrationTest > threeServersRaceForTwoPersistentSlots() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.9910850Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:43.9911763Z AuthorityIntegrationTest > quarantinedAllocationsCannotBeReactivatedByCheckpointOrWalRestore() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:44.4910900Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:44.4911801Z AuthorityIntegrationTest > directedStockIntentIsPrivateIdempotentAndUsesExclusiveFairAllocations() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.0912012Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.0913053Z AuthorityIntegrationTest > passiveHeatUsesExclusivePreparedOwnershipAndNeverRefundsTimeouts() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.6910898Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.6911805Z AuthorityIntegrationTest > integerBalancesPartialDeliveryAndDuplicatesConserveAcrossThreeServers() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.8910846Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.8911756Z AuthorityIntegrationTest > quotaReductionIsDeterministicAndRetainsSlotsUntilRevocationAck() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.8912385Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.8912772Z AuthorityIntegrationTest > mysqlDeadlocksAreRetriedWithoutRepeatingCommittedMutations() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9911520Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9912803Z AuthorityIntegrationTest > invitationsArePrivateConcurrentIdempotentAndTransfersHaveOneOwner() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9913776Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9914317Z BufferSafetyTest > allAcceptedRawSlotsEnterTheCheckpointEvenNearThePendingLimit() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9915098Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9915848Z BufferSafetyTest > definiteLocalPartialRemaindersReturnToOriginalCreditsAndNeverSending() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9917022Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:45.9919799Z BufferSafetyTest > oldTimeBearingBusinessIdsCannotBecomeFreshOperationsAfterHistoryPruning() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.0912031Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.0914081Z ChannelBatchIntegrationTest > oneCorruptOutstandingPayloadIsQuarantinedWithoutRollingBackHealthyDeviceWork() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.2911197Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.2912379Z ChannelBatchIntegrationTest > replayingCapturedBusinessIdsDoesNotDuplicateDepositsCreditsOrPublication(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.3910939Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.3912156Z ChannelBatchIntegrationTest > authorizedReservedWalRecoveryConfirmsFencedSqlPublicationBeforeReturningCredit(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.3912647Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.3912960Z ChannelBatchIntegrationTest > allocationWithoutRenewalRetainsSqlDemandAndGlobalRemotePriority() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.4910353Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:46.4911228Z ChannelBatchIntegrationTest > staleVersionAndRevokedEndpointRollBackTheirSavepointsWhileAnotherDeviceCommits() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.3910898Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.3911838Z ChannelBatchIntegrationTest > fullOwnedItemAndFeCandidatesIncludingQuarantineCannotBlockOtherServers() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.6911190Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.6912213Z ChannelBatchIntegrationTest > registeredRemoteDemandKeepsPriorityOverLocalBatchesAndAllThreeAuthoritiesConserve() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.8911453Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.8912606Z ChannelBatchIntegrationTest > freshPublicationAuthorizationRejectsRevokedCreditWithoutRefundAndKeepsOthersWorking(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.9911791Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:47.9912912Z ChannelBatchIntegrationTest > differentCompletePayloadBytesRemainSeparateInDepositsAndAllocations() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.0911262Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.0912359Z ChannelBatchIntegrationTest > longOverflowRollsBackOneDeviceIncludingItsNewResourceWhileOtherDevicesCommit() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.1910651Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.1911425Z ChannelBatchIntegrationTest > aNewBootFencesBothOldSqlAndOldPublicationPhases(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.2911109Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.2912354Z ChannelBatchIntegrationTest > walReservedCreditCannotOpenAfterReceivePermissionWasRevoked(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.3910769Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.3912374Z ChannelBatchIntegrationTest > exhaustedWalCreditSurvivesRestoreUntilSqlCheckpointAndCannotBeRediscovered(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.6911144Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.6912227Z ChannelBatchIntegrationTest > multipleDeviceSqlAndWalPublicationPhasesEachCommitOneTransaction(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.6912671Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.6912986Z ChannelBatchIntegrationTest > checkpointOnlySkipsDiscoveryWithoutLosingReservedPositiveAssets(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7910791Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7922820Z ChannelCoordinatorTest > hotChannelRejoinsTailAfterEachLease() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7923314Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7923689Z ChannelCoordinatorTest > oldFinishCannotEraseAnExplicitNewSignalAfterRemoval() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7924183Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7924585Z ChannelCoordinatorTest > partialBatchesAndSignalsDuringFlightSurviveInDeviceOrder() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7925161Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7925460Z ChannelCoordinatorTest > clearAndForeignLeasesCannotFinishNewWork() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7925892Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7926795Z ChannelCoordinatorTest > invalidLimitsAndNullArgumentsAreRejectedWithoutAdmission() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7927327Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7927755Z ChannelCoordinatorTest > pendingProbeTracksNextRunSignalsAcrossFlightRemovalAndRebinding() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7928221Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7928464Z ChannelCoordinatorTest > duplicateSignalsHaveOneAdmissionAndOneImmutableLeaseEntry() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7928767Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7928984Z ChannelCoordinatorTest > channelAndEndpointBoundsIncludeFlightUntilCompletion() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7929265Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7929514Z ChannelCoordinatorTest > removingReadyWorkAndRevokedFlightWorkNeverResurrectsDevices() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7929832Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7930063Z CompletionMailboxTest > nullAndRepeatedCompletionsCannotReplaceOrDuplicateCallbacks() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7930385Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7930581Z CompletionMailboxTest > competingTerminalResultsPublishExactlyOneCallback() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7930855Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7931056Z CompletionMailboxTest > concurrentAdmissionCannotStartMoreWorkThanCapacity() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7931493Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7931723Z CompletionMailboxTest > concurrentWorkersKeepEveryAcceptedCallback() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7931986Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7932240Z CompletionMailboxTest > reservationsAndQueuedCallbacksShareOneBoundUntilPolled() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7932549Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7932686Z CompletionMailboxTest > invalidCapacityIsRejected() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7932893Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7933044Z CompletionMailboxTest > callbackFailureCannotLeakCapacity() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7933263Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7933496Z DemandRefreshTest > smallConsumptionDoesNotRenewEveryCreditButDepletionAndExpiryDo() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7934013Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7934195Z DemandRefreshTest > profilesQuantumAndTinyCapacitiesRemainDistinct() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7934433Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7934592Z DemandRefreshTest > missingConfigurationIsConservative(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7934813Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7935019Z JournalAndHeatTest > localCheckpointsRoundTripAndCorruptionFailsClosed(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7935289Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7935476Z JournalAndHeatTest > heatRejectsNaNInfinityIllegalCapacityAndColdToHot() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7935735Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7935976Z LocalDeltaTest > disabledCleanPendingDepositsDoNotRequestEmptySqlButRemainDurable(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7936292Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7936539Z LocalDeltaTest > prospectiveAdmissionHonorsPerKindCountsAndGlobalUnconfirmedTombstones() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7936863Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:48.7937150Z LocalDeltaTest > identicalWalVersionsMayRepeatButDifferentContentsAndOldVersionsAreRejected(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5911947Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5912815Z LocalDeltaTest > randomizedCapturedDeltasAndWalRestorationConserveWithFixedSeed(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5913536Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5914007Z LocalDeltaTest > prospectiveAdmissionIsNonMutatingAndAccountsForAllIncomingCreditsTogether() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5914440Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5914734Z LocalDeltaTest > capturedCompletionPreservesNewInputConsumptionAndUnconfirmedZeroCredits(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5915242Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5915734Z LocalRoomTest > positiveCredentialLimitAndPartialConsumptionControlAdmissionSeparatelyFromCapacity() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5916247Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:49.5916508Z LocalRoomTest > globalTombstoneBoundNeedsConfirmedCheckpointEvenWhenEveryRemainingIsZero() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:50.0910753Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:50.0911776Z MigrationConcurrencyTest > threeConcurrentFreshMigrationsAndInterruptedDdlFailClosed() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:50.7910898Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:50.7911872Z RcRecoveryIntegrationTest > depositCommitOkIsLostOnWireAndOriginalWalBusinessIdCreditsOnlyOnce() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.1911658Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.1912856Z RcRecoveryIntegrationTest > localCommitOkIsLostOnWireAndSamePublicationCannotRestoreConsumedRemaining() PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.1914340Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.1915018Z JournalBarrierTest > identicalVisibleFileCannotAcknowledgeFailedDirectoryBarrier(Path) PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.3910608Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.3912629Z BufferSafetyTest > partialExtractionSimulationAndRepeatedCreditsConserve PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.3913267Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.3913718Z ChannelCoordinatorTest > boundedSignalsDrainExactlyOnceAcrossPartialChannelBatches PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.3914283Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.3914663Z ChannelCoordinatorTest > stateChangesMatchPendingAndFlightAccounting PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4910896Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4912197Z JournalAndHeatTest > passiveHeatNeverOvershootsOrCreatesEnergy PASSED
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4912657Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4912794Z > Task :check
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4913038Z > Task :build
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4913176Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4913746Z [Incubating] Problems report is available at: file:///home/runner/work/CrossTesseract/CrossTesseract/build/reports/problems/problems-report.html
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4914439Z 
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4914560Z BUILD SUCCESSFUL in 1m 22s
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4914853Z 9 actionable tasks: 9 executed
+candidate	Build and real isolated backend tests (no Minecraft JVM or EULA assertion)	2026-10-17T11:14:51.4916148Z Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html
+candidate	Record exact source and artifact identity	﻿2026-10-17T11:14:51.6214999Z ##[group]Run mkdir -p build/rc-evidence
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6215313Z [36;1mmkdir -p build/rc-evidence[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6215583Z [36;1mgit rev-parse HEAD > build/rc-evidence/SOURCE_COMMIT[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6215903Z [36;1mif compgen -G 'build/libs/*.jar' > /dev/null; then[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6216223Z [36;1m  sha256sum build/libs/*.jar > build/rc-evidence/SHA256SUMS[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6216682Z [36;1melse[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6217027Z [36;1m  echo 'NO_JARS: build did not produce binaries; this is failure evidence only' > build/rc-evidence/SHA256SUMS[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6217403Z [36;1mfi[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6217568Z [36;1mpython3 - <<'PY'[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6217769Z [36;1mfrom pathlib import Path[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6217997Z [36;1mimport hashlib,json,subprocess[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6218267Z [36;1mfiles=sorted(Path('src/main/java').rglob('*.java'))[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6218746Z [36;1mmanifest=hashlib.sha256(b''.join(str(p).encode()+b'\0'+hashlib.sha256(p.read_bytes()).digest() for p in files)).hexdigest()[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6219922Z [36;1mPath('build/rc-evidence/build.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'main_java_manifest_sha256':manifest,'release':False,'Minecraft_JVM_EULA_performance_compatibility_soak_tests':'NOT_RUN in CI; consult separately attributed native reports'},indent=2)+'\n')[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6220858Z [36;1mPY[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6221105Z [36;1mcat build/rc-evidence/SHA256SUMS build/rc-evidence/build.json[0m
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6278275Z shell: /usr/bin/bash -e {0}
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6278507Z env:
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6278800Z   JAVA_HOME: /home/runner/work/CrossTesseract/CrossTesseract/scratch/jdk/jdk-21.0.8+9
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6279147Z ##[endgroup]
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6760456Z bfa1491bff5981c6a37d57ab6f95d10331891c3c8374b224a4d36f2e59001326  build/libs/cross_tesseract-0.1.0-dev-sources.jar
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6761655Z 56c14cb01c82007055c4e4e9b995ee6f7dfea40367fa1c4a9f2188597a3d3a31  build/libs/cross_tesseract-0.1.0-dev.jar
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6762363Z {
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6762807Z   "commit": "75a8184fa15ce559c07c18a78bd01e18d451a0f8",
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6763420Z   "main_java_manifest_sha256": "da40c56c8557dcb7698966ee2f9b06d7ce4450df2b27a3b9136b47b8b63e4620",
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6763975Z   "release": false,
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6764568Z   "Minecraft_JVM_EULA_performance_compatibility_soak_tests": "NOT_RUN in CI; consult separately attributed native reports"
+candidate	Record exact source and artifact identity	2026-10-17T11:14:51.6765217Z }
+candidate	Candidate JARs and evidence; no release published	﻿2026-10-17T11:14:51.6970636Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6970976Z with:
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6971243Z   name: CrossTesseract-RC-75a8184fa15ce559c07c18a78bd01e18d451a0f8
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6971734Z   retention-days: 90
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6971920Z   if-no-files-found: error
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6972428Z   path: build/libs/*.jar
+candidate	Candidate JARs and evidence; no release published	build/rc-evidence/
+candidate	Candidate JARs and evidence; no release published	build/test-results/test/
+candidate	Candidate JARs and evidence; no release published	reports/rc-20261017/
+candidate	Candidate JARs and evidence; no release published	docs/RC_20261017*.md
+candidate	Candidate JARs and evidence; no release published	
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6972861Z   compression-level: 6
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6973045Z   overwrite: false
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6973219Z   include-hidden-files: false
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6973411Z env:
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6973689Z   JAVA_HOME: /home/runner/work/CrossTesseract/CrossTesseract/scratch/jdk/jdk-21.0.8+9
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.6974036Z ##[endgroup]
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8305076Z (node:4421) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8305701Z (Use `node --trace-deprecation ...` to show where the warning was created)
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8496345Z Multiple search paths detected. Calculating the least common ancestor of all paths
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8499072Z The least common ancestor is /home/runner/work/CrossTesseract/CrossTesseract. This will be the root directory of the artifact
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8499833Z With the provided path, there will be 62 files uploaded
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8504830Z Artifact name is valid!
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:51.8505266Z Root directory input is valid!
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:52.2000526Z Beginning upload of artifact content to blob storage
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:52.3968383Z (node:4421) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.0923086Z Uploaded bytes 4429418
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.1483928Z Finished uploading artifact content to blob storage!
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.1484850Z SHA256 digest of uploaded artifact zip is 989cae93d5511e7378f03b4f55675114126127e218967aff2fad281a9ae2f42d
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.1486142Z Finalizing artifact upload
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.4347992Z Artifact CrossTesseract-RC-75a8184fa15ce559c07c18a78bd01e18d451a0f8.zip successfully finalized. Artifact ID 12099545488
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.4349329Z Artifact CrossTesseract-RC-75a8184fa15ce559c07c18a78bd01e18d451a0f8 has been successfully uploaded! Final size is 4429418 bytes. Artifact ID is 12099545488
+candidate	Candidate JARs and evidence; no release published	2026-10-17T11:14:53.4354500Z Artifact download URL: https://github.com/MineQuantumServer/CrossTesseract/actions/runs/39027803096/artifacts/12099545488
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-17T11:14:53.4806490Z Post job cleanup.
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5509279Z [command]/usr/bin/git version
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5544613Z git version 2.55.0
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5578861Z Temporarily overriding HOME='/home/runner/work/_temp/de18d348-88c9-4f04-be28-1914307a6de7' before making global git config changes
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5579688Z Adding repository directory to the temporary git global config as a safe directory
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5583876Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/CrossTesseract/CrossTesseract
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5618051Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5649509Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5865078Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5890846Z http.https://github.com/.extraheader
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5899529Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.5931003Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.6162330Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+candidate	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T11:14:53.6190825Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+candidate	Stop containers	﻿2026-10-17T11:14:53.6550053Z Print service container logs: 6fb570ac02e24f56a0a7fac95e7d6533_mysqlsha2560426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903_0186c0
+candidate	Stop containers	2026-10-17T11:14:53.6554540Z ##[command]/usr/bin/docker logs --details 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Stop containers	2026-10-17T11:14:53.6663070Z  2026-10-17 11:12:47+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.7-1.el9 started.
+candidate	Stop containers	2026-10-17T11:14:53.6666407Z  2026-10-17T11:12:47.610292Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+candidate	Stop containers	2026-10-17T11:14:53.6667528Z  2026-10-17 11:12:47+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+candidate	Stop containers	2026-10-17T11:14:53.6668413Z  2026-10-17 11:12:47+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.7-1.el9 started.
+candidate	Stop containers	2026-10-17T11:14:53.6669209Z  2026-10-17 11:12:47+00:00 [Note] [Entrypoint]: Initializing database files
+candidate	Stop containers	2026-10-17T11:14:53.6669954Z  2026-10-17 11:12:51+00:00 [Note] [Entrypoint]: Database files initialized
+candidate	Stop containers	2026-10-17T11:14:53.6670442Z  2026-10-17 11:12:51+00:00 [Note] [Entrypoint]: Starting temporary server
+candidate	Stop containers	2026-10-17T11:14:53.6670813Z  2026-10-17 11:12:52+00:00 [Note] [Entrypoint]: Temporary server started.
+candidate	Stop containers	2026-10-17T11:14:53.6671174Z  '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+candidate	Stop containers	2026-10-17T11:14:53.6671782Z  2026-10-17 11:12:53+00:00 [Note] [Entrypoint]: Creating database cross_tesseract
+candidate	Stop containers	2026-10-17T11:14:53.6672331Z  2026-10-17 11:12:53+00:00 [Note] [Entrypoint]: Creating user ct_dev
+candidate	Stop containers	2026-10-17T11:14:53.6672957Z  2026-10-17 11:12:53+00:00 [Note] [Entrypoint]: Giving user ct_dev access to schema cross_tesseract
+candidate	Stop containers	2026-10-17T11:14:53.6673814Z  
+candidate	Stop containers	2026-10-17T11:14:53.6674152Z  2026-10-17 11:12:53+00:00 [Note] [Entrypoint]: Stopping temporary server
+candidate	Stop containers	2026-10-17T11:14:53.6674668Z  2026-10-17 11:12:55+00:00 [Note] [Entrypoint]: Temporary server stopped
+candidate	Stop containers	2026-10-17T11:14:53.6675071Z  
+candidate	Stop containers	2026-10-17T11:14:53.6675333Z  2026-10-17 11:12:55+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+candidate	Stop containers	2026-10-17T11:14:53.6675644Z  
+candidate	Stop containers	2026-10-17T11:14:53.6676054Z  2026-10-17T11:12:47.611318Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.4.7) initializing of server in progress as process 80
+candidate	Stop containers	2026-10-17T11:14:53.6676606Z  2026-10-17T11:12:47.615170Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+candidate	Stop containers	2026-10-17T11:14:53.6677029Z  2026-10-17T11:12:48.157945Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+candidate	Stop containers	2026-10-17T11:14:53.6677652Z  2026-10-17T11:12:48.940301Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+candidate	Stop containers	2026-10-17T11:14:53.6678711Z  2026-10-17T11:12:51.893264Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+candidate	Stop containers	2026-10-17T11:14:53.6679366Z  2026-10-17T11:12:51.940829Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+candidate	Stop containers	2026-10-17T11:14:53.6680056Z  2026-10-17T11:12:52.104803Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.7) starting as process 127
+candidate	Stop containers	2026-10-17T11:14:53.6680787Z  2026-10-17T11:12:52.119594Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+candidate	Stop containers	2026-10-17T11:14:53.6681218Z  2026-10-17T11:12:52.392025Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+candidate	Stop containers	2026-10-17T11:14:53.6681809Z  2026-10-17T11:12:52.590196Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+candidate	Stop containers	2026-10-17T11:14:53.6682429Z  2026-10-17T11:12:52.590223Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+candidate	Stop containers	2026-10-17T11:14:53.6683339Z  2026-10-17T11:12:52.591457Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+candidate	Stop containers	2026-10-17T11:14:53.6684119Z  2026-10-17T11:12:52.621962Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+candidate	Stop containers	2026-10-17T11:14:53.6684856Z  2026-10-17T11:12:52.622026Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.7'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+candidate	Stop containers	2026-10-17T11:14:53.6685745Z  Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+candidate	Stop containers	2026-10-17T11:14:53.6686198Z  Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+candidate	Stop containers	2026-10-17T11:14:53.6686634Z  Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+candidate	Stop containers	2026-10-17T11:14:53.6687045Z  Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+candidate	Stop containers	2026-10-17T11:14:53.6687447Z  Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+candidate	Stop containers	2026-10-17T11:14:53.6687851Z  Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+candidate	Stop containers	2026-10-17T11:14:53.6688367Z  2026-10-17T11:12:53.924810Z 13 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.4.7).
+candidate	Stop containers	2026-10-17T11:14:53.6689008Z  2026-10-17T11:12:55.013589Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.4.7)  MySQL Community Server - GPL.
+candidate	Stop containers	2026-10-17T11:14:53.6689512Z  2026-10-17T11:12:55.013602Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+candidate	Stop containers	2026-10-17T11:14:53.6689876Z  2026-10-17T11:12:55.940288Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+candidate	Stop containers	2026-10-17T11:14:53.6690309Z  2026-10-17T11:12:56.116946Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.7) starting as process 1
+candidate	Stop containers	2026-10-17T11:14:53.6690917Z  2026-10-17T11:12:56.121352Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+candidate	Stop containers	2026-10-17T11:14:53.6691480Z  2026-10-17T11:12:56.784241Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+candidate	Stop containers	2026-10-17T11:14:53.6691927Z  2026-10-17T11:12:57.021252Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+candidate	Stop containers	2026-10-17T11:14:53.6692581Z  2026-10-17T11:12:57.021284Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+candidate	Stop containers	2026-10-17T11:14:53.6693518Z  2026-10-17T11:12:57.022539Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+candidate	Stop containers	2026-10-17T11:14:53.6694394Z  2026-10-17T11:12:57.037933Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+candidate	Stop containers	2026-10-17T11:14:53.6695217Z  2026-10-17T11:12:57.038014Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.7'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+candidate	Stop containers	2026-10-17T11:14:53.6700840Z Stop and remove container: 6fb570ac02e24f56a0a7fac95e7d6533_mysqlsha2560426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903_0186c0
+candidate	Stop containers	2026-10-17T11:14:53.6705352Z ##[command]/usr/bin/docker rm --force 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Stop containers	2026-10-17T11:14:54.1671620Z 6cc6b76a9d71644007df8ea314a234c52cf94dc5237aaca51d5f60021f8cab37
+candidate	Stop containers	2026-10-17T11:14:54.1691606Z Print service container logs: 7bce6723a5a24c258646bd089d2d79b1_redissha256a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514_7767fd
+candidate	Stop containers	2026-10-17T11:14:54.1692954Z ##[command]/usr/bin/docker logs --details d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Stop containers	2026-10-17T11:14:54.1799432Z  1:C 17 Oct 2026 11:12:50.726 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+candidate	Stop containers	2026-10-17T11:14:54.1801751Z  1:C 17 Oct 2026 11:12:50.727 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+candidate	Stop containers	2026-10-17T11:14:54.1802730Z  1:C 17 Oct 2026 11:12:50.727 * Redis version=7.4.6, bits=64, commit=00000000, modified=0, pid=1, just started
+candidate	Stop containers	2026-10-17T11:14:54.1803698Z  1:C 17 Oct 2026 11:12:50.727 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+candidate	Stop containers	2026-10-17T11:14:54.1804540Z  1:M 17 Oct 2026 11:12:50.727 * monotonic clock: POSIX clock_gettime
+candidate	Stop containers	2026-10-17T11:14:54.1805023Z  1:M 17 Oct 2026 11:12:50.727 * Running mode=standalone, port=6379.
+candidate	Stop containers	2026-10-17T11:14:54.1805469Z  1:M 17 Oct 2026 11:12:50.727 * Server initialized
+candidate	Stop containers	2026-10-17T11:14:54.1805889Z  1:M 17 Oct 2026 11:12:50.727 * Ready to accept connections tcp
+candidate	Stop containers	2026-10-17T11:14:54.1812422Z Stop and remove container: 7bce6723a5a24c258646bd089d2d79b1_redissha256a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514_7767fd
+candidate	Stop containers	2026-10-17T11:14:54.1813353Z ##[command]/usr/bin/docker rm --force d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Stop containers	2026-10-17T11:14:54.2757489Z d8f556ab9ac580ba1ce926941bfddbd3b9e333d6c41fdff4ccf2d03490e26194
+candidate	Stop containers	2026-10-17T11:14:54.2779476Z Remove container network: github_network_f4946d30893342ddaf4a6f9b0eca751e
+candidate	Stop containers	2026-10-17T11:14:54.2783511Z ##[command]/usr/bin/docker network rm github_network_f4946d30893342ddaf4a6f9b0eca751e
+candidate	Stop containers	2026-10-17T11:14:54.3723277Z github_network_f4946d30893342ddaf4a6f9b0eca751e
+candidate	Complete job	﻿2026-10-17T11:14:54.3785887Z Cleaning up orphan processes
+candidate	Complete job	2026-10-17T11:14:54.4104996Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

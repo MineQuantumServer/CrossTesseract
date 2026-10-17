@@ -1,0 +1,76 @@
+{
+  "report_kind": "read_only_matrix_poststop_SQL_audit",
+  "utc_start": "2026-10-17T15:54:53.989551+00:00",
+  "utc_end": "2026-10-17T15:54:54.070242+00:00",
+  "query_elapsed_seconds": 0.08067170999856899,
+  "source_matrix": "reports/rc-20261017/native-matrix-final-0113ef3-20261017T154321Z-c6d821fc61ba.json",
+  "source_matrix_sha256": "4b9e96b51a7dac38e1555d161874b39da95370a2163b94b14dd38d8b04a2345c",
+  "query_template_source": {
+    "path": "reports/rc-20261017/matrix-poststop-sql-audit-3647ded-20261017T114439Z-f3d27d4e.json",
+    "sha256": "196e835aa43626be89cd19505478eab02fe70663ef45430ba14676f3c9d4e744"
+  },
+  "benchmark_window_confirmation": "ROOT explicitly opened a30second read-only SQL window after164-test matrix closure; no game JVM/timing; ROOT only prepares Gradle launch arguments.",
+  "backend": "fixed local Docker socket; existing ct-dev-mysql/cross_tesseract; one root-account SELECT only",
+  "SQL_mutations": false,
+  "WAL_read_or_write": false,
+  "asset_replay_or_refund": false,
+  "asset_scope": "Only these8 fresh matrix clusters. Pools and ALLOCATE remaining separated by kind/state; original record amount is historical, not remaining assets. Retained native partial-publication TX128 fixtures untouched and not inspected through WAL. SQL and WAL mirrors are never added.",
+  "statement": "SELECT JSON_OBJECT(\n 'db_utc',DATE_FORMAT(UTC_TIMESTAMP(6),'%Y-%m-%dT%H:%i:%s.%fZ'),\n 'db_session_timezone',@@session.time_zone,'db_system_timezone',@@system_time_zone,\n 'servers',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',cluster_id,'server',server_id,'world',world_id,'session',session_id,'epoch',fencing_epoch,'status',status,'clean_stop',clean_stop,'lease_until_db_session',CAST(lease_until AS CHAR),'lease_live_at_read',lease_until>CURRENT_TIMESTAMP(6))) FROM ct_servers WHERE cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b')),JSON_ARRAY()),\n 'positive_pool_rows',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',b.cluster_id,'channel',b.channel_id,'resource',b.resource_id,'kind',r.kind,'payload_hash',r.payload_hash,'amount',b.amount)) FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') AND b.amount>0),JSON_ARRAY()),\n 'allocation_summary',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',a.cluster_id,'kind',a.resource_kind,'state',a.state,'rows',a.row_count,'positive_rows',a.positive_rows,'original_amount',a.original_amount,'remaining',a.remaining)) FROM (SELECT t.cluster_id,r.kind AS resource_kind,t.state,COUNT(*) AS row_count,SUM(t.remaining>0) AS positive_rows,SUM(t.amount) AS original_amount,SUM(t.remaining) AS remaining FROM ct_transfers t JOIN ct_resources r ON r.cluster_id=t.cluster_id AND r.resource_id=t.resource_id WHERE t.cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') AND t.kind='ALLOCATE' GROUP BY t.cluster_id,r.kind,t.state) a),JSON_ARRAY()),\n 'persistent_grants',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',g.cluster_id,'state',g.state,'desired',g.desired,'rows',g.row_count,'runtime_session_rows',g.runtime_session_rows,'runtime_live_rows',g.runtime_live_rows)) FROM (SELECT cluster_id,state,desired,COUNT(*) AS row_count,SUM(runtime_session IS NOT NULL) AS runtime_session_rows,SUM(runtime_until>CURRENT_TIMESTAMP(6)) AS runtime_live_rows FROM ct_chunk_grants WHERE cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') GROUP BY cluster_id,state,desired) g),JSON_ARRAY(),\n 'cluster_quotas',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',cluster_id,'quota_limit',quota_limit,'policy_version',policy_version)) FROM ct_clusters WHERE cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b')),JSON_ARRAY()),\n 'pool_summary',COALESCE((SELECT JSON_ARRAYAGG(JSON_OBJECT('cluster',p.cluster_id,'kind',p.kind,'rows',p.row_count,'positive_rows',p.positive_rows,'amount',p.amount)) FROM (SELECT b.cluster_id,r.kind,COUNT(*) AS row_count,SUM(b.amount>0) AS positive_rows,SUM(b.amount) AS amount FROM ct_balances b JOIN ct_resources r ON r.cluster_id=b.cluster_id AND r.resource_id=b.resource_id WHERE b.cluster_id IN ('test_rcmatrix_matrix_base_049e056f3200','test_rcmatrix_matrix_mekanism_f855be1ec540','test_rcmatrix_matrix_ae2_b13684d72dd5','test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474','test_rcmatrix_matrix_gregtech_ef0b35944fd1','test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7','test_rcmatrix_matrix_ae2_gregtech_0619d4648437','test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b') GROUP BY b.cluster_id,r.kind) p),JSON_ARRAY())\n);",
+  "statement_sha256": "4facdfa3b4c8ed4be6fb3dc7fc486c076491e81289bca897f2aeafcd724084c0",
+  "mysql_exit": 1,
+  "mysql_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw_mysql_stdout": "",
+  "raw_mysql_stderr": "ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 10\n",
+  "groups": [
+    {
+      "combination": "base",
+      "fixture": "scratch/rc-native/matrix-base-049e056f3200",
+      "cluster": "test_rcmatrix_matrix_base_049e056f3200",
+      "server_id": "matrix-base-049e056f3200"
+    },
+    {
+      "combination": "mekanism",
+      "fixture": "scratch/rc-native/matrix-mekanism-f855be1ec540",
+      "cluster": "test_rcmatrix_matrix_mekanism_f855be1ec540",
+      "server_id": "matrix-mekanism-f855be1ec540"
+    },
+    {
+      "combination": "ae2",
+      "fixture": "scratch/rc-native/matrix-ae2-b13684d72dd5",
+      "cluster": "test_rcmatrix_matrix_ae2_b13684d72dd5",
+      "server_id": "matrix-ae2-b13684d72dd5"
+    },
+    {
+      "combination": "ae2-mekanism",
+      "fixture": "scratch/rc-native/matrix-ae2-mekanism-4cec2ea2b474",
+      "cluster": "test_rcmatrix_matrix_ae2_mekanism_4cec2ea2b474",
+      "server_id": "matrix-ae2-mekanism-4cec2ea2b474"
+    },
+    {
+      "combination": "gregtech",
+      "fixture": "scratch/rc-native/matrix-gregtech-ef0b35944fd1",
+      "cluster": "test_rcmatrix_matrix_gregtech_ef0b35944fd1",
+      "server_id": "matrix-gregtech-ef0b35944fd1"
+    },
+    {
+      "combination": "gregtech-mekanism",
+      "fixture": "scratch/rc-native/matrix-gregtech-mekanism-7e1b0e04b4f7",
+      "cluster": "test_rcmatrix_matrix_gregtech_mekanism_7e1b0e04b4f7",
+      "server_id": "matrix-gregtech-mekanism-7e1b0e04b4f7"
+    },
+    {
+      "combination": "ae2-gregtech",
+      "fixture": "scratch/rc-native/matrix-ae2-gregtech-0619d4648437",
+      "cluster": "test_rcmatrix_matrix_ae2_gregtech_0619d4648437",
+      "server_id": "matrix-ae2-gregtech-0619d4648437"
+    },
+    {
+      "combination": "ae2-gregtech-mekanism",
+      "fixture": "scratch/rc-native/matrix-ae2-gregtech-mekanism-ce48fd9e637b",
+      "cluster": "test_rcmatrix_matrix_ae2_gregtech_mekanism_ce48fd9e637b",
+      "server_id": "matrix-ae2-gregtech-mekanism-ce48fd9e637b"
+    }
+  ],
+  "failure": "Scoped SELECT failed; no automatic retry",
+  "passed": false
+}

@@ -12,6 +12,10 @@
 
 各模块支持 `-Dcross_tesseract.compat.gtceu=false`、`.mekanism=false`、`.ae2=false` 启动开关；关闭后不访问对应 API，也不删除数据库中已有资源。修改开关需重启。metadata 可选依赖声明区分未安装与版本不支持，使用固定验证范围，不宣称整个 1.21.x 全兼容。
 
+当前0113ef3已在八种真实可选闭包重跑，共164项必需原生执行通过，详见 `reports/rc-20261017/native-matrix-final-0113ef3-20261017T154321Z-c6d821fc61ba.json`；JAR SHA70a02e…、源码/锁保持一致、三种兼容与基础缺席组合均实际运行。使用实际JAR对应冻结开发类，不是完整冷包安装认证；延迟变化下的热长期稳定性另未测。
+
+前一2026-10-17功能候选3647ded已在八种真实可选闭包重跑，共156项必需原生执行通过；首轮测试工具classpath预检错误保留，第二轮新fixture全部执行并正常停服。实际JAR对应类摘要、每组合测试数及原始日志见 `reports/rc-20261017/native-matrix-final-3647ded-r2-20261017T113417Z-7d0c0d98c45b.json`，不是沿用历史结果。普通调度优化覆盖EU/CHEMICAL，热维持独立状态机；此矩阵不等于长时间热稳定性或AE原生跨JVM网络合并完成。
+
 ## GregTech
 
 直接调查目标 fork 的 `IEnergyContainer`、`IEnergyInfoProvider`、GT 能力注册、EnergyContainerHandler、能量仓机器定义及方向属性。能力 ID `gtceu:energy_container`。`acceptEnergyFromNetwork(side, voltage, amperage)` 返回接受的安培数，结算必须乘以原电压。输出到相邻仓使用真实能力缓存和该接口，不调用外部 `changeEnergy` 绕过电气规则。

@@ -1,0 +1,113 @@
+{
+  "utc_start": "2026-10-17T10:39:09.790280+00:00",
+  "passed": true,
+  "state": "COMPLETE",
+  "source_revision": "f3c59b772dcbd343596174c73093b2fef536f19c",
+  "baseline_seal": "reports/rc-20261017/probe-launches-f3-20261017T102323Z-c2268b1d.json",
+  "baseline_seal_sha256": "f991d7e2d93ec24b38db473aae72552bcd6ac391596f7302d0ced616ccebd994",
+  "scenarios": [
+    "same",
+    "cross",
+    "mixed"
+  ],
+  "repeats": 1,
+  "scope": "Three FE layouts, one repeat per layout with40 low-flow probes each,30s warmup/120s steady. Continuous explicit test-agent window with fixed prefix and final complete drain+quiet cost; no peak/capacity claim.",
+  "lifecycle": [
+    {
+      "action": "start_frozen_once",
+      "server": "A",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/runServerA.sh",
+      "controller_launcher_PID": 20161,
+      "log": "logs/rc-baseline-env-fe-fast2-20261017T095358Z-a75d6375-A.log",
+      "utc": "2026-10-17T10:39:09.796973+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "B",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/runServerB.sh",
+      "controller_launcher_PID": 20162,
+      "log": "logs/rc-baseline-env-fe-fast2-20261017T095358Z-a75d6375-B.log",
+      "utc": "2026-10-17T10:39:09.798096+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "C",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/runServerC.sh",
+      "controller_launcher_PID": 20163,
+      "log": "logs/rc-baseline-env-fe-fast2-20261017T095358Z-a75d6375-C.log",
+      "utc": "2026-10-17T10:39:09.798691+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "C",
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.034491, tick_ms_p95=0.457548, tick_ms_p99=0.457548, tick_ms_samples=4, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=60.147598, db_transaction_ms_p95=99.391948, db_transaction_ms_p99=99.391948, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.051687, db_connection_wait_ms_p95=605.676588, db_connection_wait_ms_p99=605.676588, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=42.069108, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T10:39:40.082381+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "B",
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.037406, tick_ms_p95=0.541823, tick_ms_p99=0.541823, tick_ms_samples=2, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=17.773618, db_transaction_ms_p95=81.502483, db_transaction_ms_p99=81.502483, db_transaction_ms_samples=9, db_connection_wait_ms_p50=0.537946, db_connection_wait_ms_p95=399.253538, db_connection_wait_ms_p99=399.253538, db_connection_wait_ms_samples=10, db_transactions=9, db_transaction_attempts=9, db_statements=56, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=29.670567, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T10:39:40.702728+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "A",
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.04735, tick_ms_p95=0.402777, tick_ms_p99=0.402777, tick_ms_samples=7, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=8.453288, db_transaction_ms_p95=14.087229, db_transaction_ms_p99=14.087229, db_transaction_ms_samples=5, db_connection_wait_ms_p50=0.035001, db_connection_wait_ms_p95=399.988875, db_connection_wait_ms_p99=399.988875, db_connection_wait_ms_samples=6, db_transactions=5, db_transaction_attempts=5, db_statements=38, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=20.722699, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T10:39:42.717609+00:00"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "A",
+      "utc": "2026-10-17T10:52:38.426181+00:00",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "B",
+      "utc": "2026-10-17T10:52:38.429053+00:00",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "C",
+      "utc": "2026-10-17T10:52:38.458986+00:00",
+      "reply": "Stopping the server\n"
+    }
+  ],
+  "failures": [],
+  "original_reports_policy": "Unique output only; no historical raw report/world/asset reused or overwritten.",
+  "command": [
+    "python3",
+    "scripts/rc-probe-benchmark.py",
+    "--execute",
+    "--probe-manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-f3-20261017T102323Z-c2268b1d.json",
+    "--label",
+    "rc-fe-baseline-fast2",
+    "--operator-revision",
+    "f3c59b7",
+    "--warmup",
+    "30",
+    "--seconds",
+    "120",
+    "--repeats",
+    "1",
+    "--probes",
+    "40",
+    "--scenarios",
+    "same,cross,mixed"
+  ],
+  "workload_utc_start": "2026-10-17T10:39:42.718316+00:00",
+  "driver_log": "logs/rc-baseline-env-fe-fast2-20261017T095358Z-a75d6375-driver.log",
+  "driver_source_sha256": "5df5e2bd1be285d32bb9770bd929397c1fc018d015b42dde406ca0db642f64a8",
+  "workload_exit_code": 0,
+  "workload_utc_end": "2026-10-17T10:52:38.306795+00:00",
+  "raw_report": "reports/optimization-rc-probe-rc-fe-baseline-fast2-20261017T103942Z-d8e7ca.json",
+  "raw_report_sha256": "9afa0a4af733f526a530e610ebefc73e918f91a372c39e8c9e6f5775e49b2d2e",
+  "raw_passed": true,
+  "samples": 3,
+  "native_validation": null,
+  "functional_pass": true,
+  "all_own_launchers_exited_and_locks_free": true,
+  "utc_end": "2026-10-17T10:52:41.464693+00:00"
+}

@@ -1,0 +1,786 @@
+{
+  "schema": 1,
+  "passed": true,
+  "state": "COMPLETE",
+  "utc_start": "2026-10-17T15:56:37.128932+00:00",
+  "controller": {
+    "path": "scripts/analysis/run-rc-discovery-followup.py",
+    "sha256": "ca783fd0e5cbdc4b46d6dd2056a8e85e4aacd95e1570fe85b40e8b1b059ba1e9"
+  },
+  "expected_runtime_identity": {
+    "source_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+    "JAR_sha256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+    "role": "candidate"
+  },
+  "native_matrix": {
+    "path": "reports/rc-20261017/native-matrix-final-0113ef3-20261017T154321Z-c6d821fc61ba.json",
+    "sha256": "4b9e96b51a7dac38e1555d161874b39da95370a2163b94b14dd38d8b04a2345c"
+  },
+  "agent_manifest": {
+    "path": "scratch/rc-probe/03bdebb273fa44d8810902f697ed9fee/manifest.json",
+    "sha256": "87c9922de44226af78716191fd81f1e2ceb91f0e6f57c0fab3839d54e3641f23"
+  },
+  "run_tag": "0113ef3",
+  "archived_tool_sources": [
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-discovery-followup.py",
+        "sha256": "ca783fd0e5cbdc4b46d6dd2056a8e85e4aacd95e1570fe85b40e8b1b059ba1e9"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/run-rc-discovery-followup.py",
+        "sha256": "ca783fd0e5cbdc4b46d6dd2056a8e85e4aacd95e1570fe85b40e8b1b059ba1e9"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/rc_runtime_identity.py",
+        "sha256": "86e2fa5ecd26619ad3a64b2b9fbe5b4f2b3bf08a9d1dd14eacc1011cacce9279"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/rc_runtime_identity.py",
+        "sha256": "86e2fa5ecd26619ad3a64b2b9fbe5b4f2b3bf08a9d1dd14eacc1011cacce9279"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/freeze-rc-v2-probe.py",
+        "sha256": "f803d2f0d257db48d19e337515201898d302776c4306715fd2c9f4a63468bf04"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/freeze-rc-v2-probe.py",
+        "sha256": "f803d2f0d257db48d19e337515201898d302776c4306715fd2c9f4a63468bf04"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/validate-rc-probe-v2.py",
+        "sha256": "95277562fcb26665080624a00e875515b4906392f7f6132150ff21761bebc430"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/validate-rc-probe-v2.py",
+        "sha256": "95277562fcb26665080624a00e875515b4906392f7f6132150ff21761bebc430"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "c0124b22b55e8ce3a91cd00857553b0be7af7501608cd657dd5249f5fcb88024"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "c0124b22b55e8ce3a91cd00857553b0be7af7501608cd657dd5249f5fcb88024"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "863d499608e989c5d68c8908b8035def7089200a36d21d8fc800edc43eaa0d11"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "863d499608e989c5d68c8908b8035def7089200a36d21d8fc800edc43eaa0d11"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/rc-soak-history-audit.py",
+        "sha256": "d7bcba6cf40152c3b917a017c401457d2c78bb7794bcf1989fc9f4abe8f506ee"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/rc-soak-history-audit.py",
+        "sha256": "d7bcba6cf40152c3b917a017c401457d2c78bb7794bcf1989fc9f4abe8f506ee"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/run-rc-f3-fast-resource-after-soak.py",
+        "sha256": "e1c207aead653fcbab4dc29ab3f6e3bac71f0ec46e834ef435c54f6adc8e9b86"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/run-rc-f3-fast-resource-after-soak.py",
+        "sha256": "e1c207aead653fcbab4dc29ab3f6e3bac71f0ec46e834ef435c54f6adc8e9b86"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/analysis/summarize-rc-soak.py",
+        "sha256": "cc63bf6515c46bef48779ad21581636ef79d34b52f30b8aa31611567d12d1c84"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/analysis/summarize-rc-soak.py",
+        "sha256": "cc63bf6515c46bef48779ad21581636ef79d34b52f30b8aa31611567d12d1c84"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rc-probe-benchmark.py",
+        "sha256": "85d6319697f2e4a2892085a2b0f27c416b2da5d780a773b0cf16bfa7466232d4"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/rc-probe-benchmark.py",
+        "sha256": "85d6319697f2e4a2892085a2b0f27c416b2da5d780a773b0cf16bfa7466232d4"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rc-probe-mix.py",
+        "sha256": "91f05c98b38ff16eb7d421f41d1e827d1956335a0f0be5fe6aabedd564ddd07b"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/rc-probe-mix.py",
+        "sha256": "91f05c98b38ff16eb7d421f41d1e827d1956335a0f0be5fe6aabedd564ddd07b"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rc-soak.py",
+        "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/rc-soak.py",
+        "sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/optimization-benchmark.py",
+        "sha256": "d76f62434e2f55afcfa06f5de5c6c0f4db2d1a999e5d388248e993fc0142758f"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/optimization-benchmark.py",
+        "sha256": "d76f62434e2f55afcfa06f5de5c6c0f4db2d1a999e5d388248e993fc0142758f"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/optimization-resource-mix.py",
+        "sha256": "9fd545dac83abd63738f48e28080954ad85ce70cb1e301b8c556be7190933f6d"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/optimization-resource-mix.py",
+        "sha256": "9fd545dac83abd63738f48e28080954ad85ce70cb1e301b8c556be7190933f6d"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/optimization-container-benchmark.py",
+        "sha256": "611f3663635c5a37a8955c8b3295067c37fde9c8b518341337007780aff4b72c"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/optimization-container-benchmark.py",
+        "sha256": "611f3663635c5a37a8955c8b3295067c37fde9c8b518341337007780aff4b72c"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/optimization-monitor.py",
+        "sha256": "7cbb4666c731c1f54d8c635147aea8d9312e71e6c65120221b5d2f9e6365c589"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/optimization-monitor.py",
+        "sha256": "7cbb4666c731c1f54d8c635147aea8d9312e71e6c65120221b5d2f9e6365c589"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/rcon.py",
+        "sha256": "f09bd591c3042cf6b48fc11eddbc59cb2410e70a7a4b50fcd35a694da0f3b142"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/rcon.py",
+        "sha256": "f09bd591c3042cf6b48fc11eddbc59cb2410e70a7a4b50fcd35a694da0f3b142"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/configure-optimization.py",
+        "sha256": "81956e874e0bba46f40d6165f45c0b08e19d339cd96db34477fcc3034d399d42"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/configure-optimization.py",
+        "sha256": "81956e874e0bba46f40d6165f45c0b08e19d339cd96db34477fcc3034d399d42"
+      }
+    },
+    {
+      "source": {
+        "path": "scripts/start-frozen-dev.sh",
+        "sha256": "fab855fcadb60c6cfeed51c7910d740754f904797118ad9fb0c57c044a820cfa"
+      },
+      "archive": {
+        "path": "reports/raw/discovery-followup-tools-20261017T155637Z-543147e1/scripts/start-frozen-dev.sh",
+        "sha256": "fab855fcadb60c6cfeed51c7910d740754f904797118ad9fb0c57c044a820cfa"
+      }
+    }
+  ],
+  "failures": [],
+  "runs": [
+    {
+      "name": "freeze",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T15:56:37.136148+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/freeze-rc-v2-probe.py",
+        "--execute",
+        "--profile",
+        "final",
+        "--agent-manifest",
+        "/workspace/CrossTesseract/scratch/rc-probe/03bdebb273fa44d8810902f697ed9fee/manifest.json",
+        "--native-matrix",
+        "/workspace/CrossTesseract/reports/rc-20261017/native-matrix-final-0113ef3-20261017T154321Z-c6d821fc61ba.json",
+        "--expected-required-tests",
+        "164",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c"
+      ],
+      "utc_start": "2026-10-17T15:56:37.136173+00:00",
+      "observer_start": 23285.316793014,
+      "log": "logs/rc-discovery-0113ef3-freeze-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T15:56:37.508981+00:00",
+      "observer_end": 23285.689619043,
+      "completion": {
+        "manifest": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e",
+        "JAR_sha256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+        "source_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "bytes": 100452
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T15:56:37.518686+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "native_v2",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T15:56:37.524737+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/validate-rc-probe-v2.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json"
+      ],
+      "utc_start": "2026-10-17T15:56:37.524762+00:00",
+      "observer_start": 23285.705382741,
+      "log": "logs/rc-discovery-0113ef3-native_v2-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T15:56:58.964693+00:00",
+      "observer_end": 23307.145330316,
+      "completion": {
+        "report": "reports/rc-20261017/probe-v2-native-validation-20261017T155637Z-ae97ff52.json",
+        "sha256": "55e9c0dab6c149d9ab7d295986db0b82f266068f887f35c4ecff396e498362fe",
+        "passed": true,
+        "failures": []
+      },
+      "validation_report": {
+        "path": "reports/rc-20261017/probe-v2-native-validation-20261017T155637Z-ae97ff52.json",
+        "sha256": "55e9c0dab6c149d9ab7d295986db0b82f266068f887f35c4ecff396e498362fe"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T15:56:58.973158+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "fe3",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T15:56:58.978659+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+        "--phase",
+        "fe",
+        "--mode",
+        "fast",
+        "--label",
+        "rc-fe-v2-0113ef3"
+      ],
+      "utc_start": "2026-10-17T15:56:58.978693+00:00",
+      "observer_start": 23307.159312657,
+      "log": "logs/rc-discovery-0113ef3-fe3-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T16:10:36.854338+00:00",
+      "observer_end": 24125.034976328,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-fe-v2-0113ef3-controller-20261017T155659Z-3cd56483.json",
+          "sha256": "35b1dbfc1b22f8029004c9b659a77522f96c50b88006dec8d6b631d7624e69ed"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-rc-fe-v2-0113ef3-20261017T155734Z-908f89.json",
+          "sha256": "ee3fb4da9e86a4b7819a0a356ba85d3b5b85ebf0d9954e889a99e7dd6824f453"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-fe-v2-0113ef3-controller-20261017T155659Z-3cd56483.json",
+        "sha256": "35b1dbfc1b22f8029004c9b659a77522f96c50b88006dec8d6b631d7624e69ed"
+      },
+      "raw_report": {
+        "path": "reports/optimization-rc-probe-rc-fe-v2-0113ef3-20261017T155734Z-908f89.json",
+        "sha256": "ee3fb4da9e86a4b7819a0a356ba85d3b5b85ebf0d9954e889a99e7dd6824f453"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T16:10:36.915244+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "resource_batch",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T16:10:36.921145+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+        "--phase",
+        "mix",
+        "--mode",
+        "batch",
+        "--label",
+        "resource-mix-rc-0113ef3-b-v2"
+      ],
+      "utc_start": "2026-10-17T16:10:36.921175+00:00",
+      "observer_start": 24125.101796081,
+      "log": "logs/rc-discovery-0113ef3-resource_batch-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T16:14:06.778031+00:00",
+      "observer_end": 24334.958673435,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/resource-mix-rc-0113ef3-b-v2-controller-20261017T161036Z-2ed50188.json",
+          "sha256": "8d4a227c4a767fd91340f4c114d737e8708758c07754d8af543d991862e5ade9"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-mix-resource-mix-rc-0113ef3-b-v2-20261017T161112Z-a82fe1.json",
+          "sha256": "7d0d46db399eb22b3d61151d4193daadd7fed1bd688376cefb03fc491b9f861d"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/resource-mix-rc-0113ef3-b-v2-controller-20261017T161036Z-2ed50188.json",
+        "sha256": "8d4a227c4a767fd91340f4c114d737e8708758c07754d8af543d991862e5ade9"
+      },
+      "raw_report": {
+        "path": "reports/optimization-rc-probe-mix-resource-mix-rc-0113ef3-b-v2-20261017T161112Z-a82fe1.json",
+        "sha256": "7d0d46db399eb22b3d61151d4193daadd7fed1bd688376cefb03fc491b9f861d"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T16:14:06.838426+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "resource_fast",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T16:14:06.844230+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+        "--phase",
+        "mix",
+        "--mode",
+        "fast",
+        "--label",
+        "resource-mix-rc-0113ef3-f-v2"
+      ],
+      "utc_start": "2026-10-17T16:14:06.844277+00:00",
+      "observer_start": 24335.024898735,
+      "log": "logs/rc-discovery-0113ef3-resource_fast-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T16:17:29.544170+00:00",
+      "observer_end": 24537.72480588,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/resource-mix-rc-0113ef3-f-v2-controller-20261017T161406Z-61c7791b.json",
+          "sha256": "902b6340a61ea17f75219558a20078060155e29db5b3ab751666f8591f886b22"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-mix-resource-mix-rc-0113ef3-f-v2-20261017T161438Z-9e84be.json",
+          "sha256": "8f4c0c4c4f5fb1ba7a536e8b5702791c24fe92a68bf411bf9c5f0dfb34dcd18b"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/resource-mix-rc-0113ef3-f-v2-controller-20261017T161406Z-61c7791b.json",
+        "sha256": "902b6340a61ea17f75219558a20078060155e29db5b3ab751666f8591f886b22"
+      },
+      "raw_report": {
+        "path": "reports/optimization-rc-probe-mix-resource-mix-rc-0113ef3-f-v2-20261017T161438Z-9e84be.json",
+        "sha256": "8f4c0c4c4f5fb1ba7a536e8b5702791c24fe92a68bf411bf9c5f0dfb34dcd18b"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T16:17:29.602931+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "smoke60",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T16:17:29.609336+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+        "--kind",
+        "smoke",
+        "--label",
+        "rc-soak-v2-0113ef3-smoke"
+      ],
+      "utc_start": "2026-10-17T16:17:29.609365+00:00",
+      "observer_start": 24537.789985919,
+      "log": "logs/rc-discovery-0113ef3-smoke60-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T16:20:24.130938+00:00",
+      "observer_end": 24712.311573567,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-0113ef3-smoke-controller-20261017T161729Z-be527ad4.json",
+          "sha256": "91955208470014bf50646b3410ba39ec8ca7583204206ead0d3e85e0cc547f19"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "scratch/rc-soak-rc-soak-v2-0113ef3-smoke-20261017T161804Z-e293eacde1/report.json",
+          "sha256": "f2147edb10b9e44215d8493a1812f4b4fc74d795940ba50e37802fdffbcf7dc2"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-0113ef3-smoke-controller-20261017T161729Z-be527ad4.json",
+        "sha256": "91955208470014bf50646b3410ba39ec8ca7583204206ead0d3e85e0cc547f19"
+      },
+      "raw_report": {
+        "path": "scratch/rc-soak-rc-soak-v2-0113ef3-smoke-20261017T161804Z-e293eacde1/report.json",
+        "sha256": "f2147edb10b9e44215d8493a1812f4b4fc74d795940ba50e37802fdffbcf7dc2"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T16:20:24.160600+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "full3600",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T16:20:24.166719+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+        "--kind",
+        "full",
+        "--label",
+        "rc-soak-v2-0113ef3-full"
+      ],
+      "utc_start": "2026-10-17T16:20:24.166747+00:00",
+      "observer_start": 24712.347368063,
+      "log": "logs/rc-discovery-0113ef3-full3600-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T17:23:43.787843+00:00",
+      "observer_end": 28511.968491187,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565.json",
+          "sha256": "5d80977763ea2b334c4d2bea7d8424f2b3526eade736f58f33600756c39ff497"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "scratch/rc-soak-rc-soak-v2-0113ef3-full-20261017T162057Z-242f149678/report.json",
+          "sha256": "39e96741e4e97b75c59adf47b57017ee4ae8870c36f1fd56798cbbdd9361c878"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565.json",
+        "sha256": "5d80977763ea2b334c4d2bea7d8424f2b3526eade736f58f33600756c39ff497"
+      },
+      "raw_report": {
+        "path": "scratch/rc-soak-rc-soak-v2-0113ef3-full-20261017T162057Z-242f149678/report.json",
+        "sha256": "39e96741e4e97b75c59adf47b57017ee4ae8870c36f1fd56798cbbdd9361c878"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T17:23:43.895452+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "history_post_stop",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T17:23:43.902113+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/rc-soak-history-audit.py",
+        "--execute",
+        "--soak-controller",
+        "/workspace/CrossTesseract/reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565.json",
+        "--expected-revision",
+        "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+        "--expected-jar-sha256",
+        "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c"
+      ],
+      "utc_start": "2026-10-17T17:23:43.902145+00:00",
+      "observer_start": 28512.082810094,
+      "log": "logs/rc-discovery-0113ef3-history_post_stop-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T17:23:45.763019+00:00",
+      "observer_end": 28513.943657403,
+      "completion": {
+        "report": {
+          "path": "reports/rc-20261017/soak-history-post-stop-20261017T172344Z-a22e1d36.json",
+          "sha256": "585f32cb76e244f5176784cbbfce1bf2afe46843d6f26a96895c982f03ffc382"
+        },
+        "passed": true
+      },
+      "history_report": {
+        "path": "reports/rc-20261017/soak-history-post-stop-20261017T172344Z-a22e1d36.json",
+        "sha256": "585f32cb76e244f5176784cbbfce1bf2afe46843d6f26a96895c982f03ffc382"
+      },
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T17:23:45.771332+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    },
+    {
+      "name": "offline_summary",
+      "state": "PASS",
+      "pre_stage_stopped_gate": {
+        "utc": "2026-10-17T17:23:45.779009+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      },
+      "command": [
+        "python3",
+        "scripts/analysis/summarize-rc-soak.py",
+        "--controller",
+        "/workspace/CrossTesseract/reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565.json",
+        "--history-report",
+        "/workspace/CrossTesseract/reports/rc-20261017/soak-history-post-stop-20261017T172344Z-a22e1d36.json",
+        "--output-prefix",
+        "/workspace/CrossTesseract/reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1"
+      ],
+      "utc_start": "2026-10-17T17:23:45.779054+00:00",
+      "observer_start": 28513.959674665,
+      "log": "logs/rc-discovery-0113ef3-offline_summary-20261017T155637Z-543147e1.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T17:23:46.706272+00:00",
+      "observer_end": 28514.886910416,
+      "completion": {
+        "outputs": [
+          {
+            "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.json",
+            "sha256": "b07b7de2eb4e9a4c009bee112c6d946c5901a0bc828736dba4189753158943e0"
+          },
+          {
+            "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.csv",
+            "sha256": "9dd8dc8de2c75a0c3d22457048b566bc0d5762f1d3d5dd31ef5f2b830a257648"
+          },
+          {
+            "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.md",
+            "sha256": "d973c165ed9ccb41e1dbea12f0eaf5f03e02c80a29c40d7cb0e9bd04eba25440"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.json",
+          "sha256": "b07b7de2eb4e9a4c009bee112c6d946c5901a0bc828736dba4189753158943e0"
+        },
+        {
+          "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.csv",
+          "sha256": "9dd8dc8de2c75a0c3d22457048b566bc0d5762f1d3d5dd31ef5f2b830a257648"
+        },
+        {
+          "path": "reports/rc-20261017/soak-final-0113ef3-v2-20261017T155637Z-543147e1.md",
+          "sha256": "d973c165ed9ccb41e1dbea12f0eaf5f03e02c80a29c40d7cb0e9bd04eba25440"
+        }
+      ],
+      "post_stage_stopped_gate": {
+        "utc": "2026-10-17T17:23:46.713923+00:00",
+        "selected": [
+          "A",
+          "B",
+          "C",
+          "perf"
+        ],
+        "all_launch_locks_free_no_selected_JVM_and_ports_free": true
+      }
+    }
+  ],
+  "scope": [
+    "New0113 candidate; original f3 and3647/1ae raw values and retained assets are unchanged.",
+    "n1 FE40probes/30warm/120steady in each of3 layouts; resource B/FAST each n1 with unchanged inputs.",
+    "Fresh smoke60 never satisfies60min; fresh full requires3600s actual input, separate drain and normal stop.",
+    "Functional/provenance completion is separate from the unchanged frozen SQL/latency/main-thread performance goals.",
+    "No concurrent extra RCON/SQL observers or build. History only after full normal stop; offline summary last."
+  ],
+  "runtime_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+    "sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e"
+  },
+  "utc_end": "2026-10-17T17:23:46.714612+00:00"
+}

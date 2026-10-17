@@ -1,0 +1,98 @@
+{
+  "core": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+  "jar_sha256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+  "unit_backend_tests": 82,
+  "native_required": 8,
+  "files": [
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/build.log",
+      "bytes": 1158,
+      "sha256": "095e4c2cf99a5561e9874e4a1c4792f982d90a5e31e648b6ba533cd49d0e0457"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/full-build.log",
+      "bytes": 10511,
+      "sha256": "24562374dd60316e16a263ac88cf60b54a41ae8878bbb73161f46be470b779ca"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/native.log",
+      "bytes": 1503721,
+      "sha256": "ba15f6bcf746499f47e749e849bba85673f8026843a06d7a0f0d480f499e37fd"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/result.json",
+      "bytes": 1526,
+      "sha256": "31c9545a293a7b9b99d30026ab099fe36b8a5fc4c8d69409c1ba4864487cadd0"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.AeProxyAndThermalTest.xml",
+      "bytes": 609,
+      "sha256": "87b7e94e14e7d92c07a225161eadc50a166f30077c5098c226dd68ffcdbf2add"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.AuthorityIntegrationTest.xml",
+      "bytes": 3478,
+      "sha256": "c002d97fe6e1580084f1f0338789b941a35af8107e050360ededc8cfac4c2160"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.BufferSafetyTest.xml",
+      "bytes": 1699,
+      "sha256": "cb8985ff575d49d93579e988e19864d944240854fad5e2db425c0e8f87f12e24"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.ChannelBatchIntegrationTest.xml",
+      "bytes": 2857,
+      "sha256": "a988fb7a24ba39736ea706a062e6282d5e27c9870cdf4394f702db4ef4a7eb17"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.ChannelCoordinatorTest.xml",
+      "bytes": 3464,
+      "sha256": "faca567a16fc029e38313444fc48bbcde77e7cdce71c4f2ef01ec710c0618bea"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.CompletionMailboxTest.xml",
+      "bytes": 1268,
+      "sha256": "28265f686d91136e099b8aaf12963a47ef2c622241962b091909442650b4aee4"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.DemandRefreshTest.xml",
+      "bytes": 1147,
+      "sha256": "7360000b77efb422d73581c9c7090f56dfa9b010c4390edba02b73c48dedf384"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.JournalAndHeatTest.xml",
+      "bytes": 1503,
+      "sha256": "38c05c6bc21021380161ba39f8edfda24d39cb767b188472aa643a3f90dd991b"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.LocalDeltaTest.xml",
+      "bytes": 1292,
+      "sha256": "b71099d4f8cf34b64bbaba2f310a474b8f8659e730d3b3a6a90f6229874abcc6"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.LocalRoomTest.xml",
+      "bytes": 636,
+      "sha256": "0c555aa1efd2aaa14aef25e9e1de3297ba96b757a69be1dd1e22a19e0f548fdd"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.MigrationConcurrencyTest.xml",
+      "bytes": 481,
+      "sha256": "84c8caf57e479aa016f00f00180bf27730fe5b7f34334ae3c8ff986b8cfb6d65"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.RcRecoveryIntegrationTest.xml",
+      "bytes": 845,
+      "sha256": "529110135d1da8a46f40cbac8ff86c08cf907ac90af543e996f87444ff95645e"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.backend.JournalBarrierTest.xml",
+      "bytes": 491,
+      "sha256": "a38ba420376daf2dc359fda09ab11d488c819fb06d2d89bf56ed8ac7324e93a2"
+    },
+    {
+      "path": "reports/rc-20261017/discovery-positive-0113ef3/unit-xml/TEST-dev.crosstesseract.runtime.WakeDeadlineTest.xml",
+      "bytes": 766,
+      "sha256": "b456f684a6fbbe353d55482c31c295c85ac43a3908b0a6d19f4c06297e97edc7"
+    }
+  ]
+}

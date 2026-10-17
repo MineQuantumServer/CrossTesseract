@@ -1,0 +1,107 @@
+{
+  "kind": "verified_owned_normal_stop_after_failed_fallback",
+  "failed_report": "reports/rc-20261017/normal-fallback-rc-full3-fb-152155-3a10-20261017T152155Z-57a0bfbf.json",
+  "utc_start": "2026-10-17T15:29:23.559203+00:00",
+  "state": "NORMAL_STOP_CONFIRMED",
+  "mutations": "one ordinary RCON stop per verified own JVM; no asset input, SQL/WAL mutation, config rewrite or kill",
+  "processes": {
+    "A": {
+      "pid": 377307,
+      "ppid": 377280,
+      "cwd": "/workspace/CrossTesseract/run-A",
+      "exe": "/workspace/CrossTesseract/scratch/jdk/jdk-21.0.8+9/bin/java",
+      "argv_sha256": "55704e34b4ec4572328f8676f2371e62316f02233b87bb37393740822589b830",
+      "frozen_vm_args": "scratch/dev-launch/674932d05487476181a641f5e5f7a161/serverARunVmArgs.txt",
+      "vm_args_sha256": "31bbdac3589344a5d63c0ab7a7fb0d8e82247635ed5ea4db46e19e4a6035e3d9",
+      "launcher": "scratch/dev-launch/674932d05487476181a641f5e5f7a161/runServerA.sh",
+      "launcher_sha256": "f1ea3c434e11b280e275e16631a3ac85338eb677201bb3e8086d5e02600e01ba",
+      "actual_RCON_PID_reply": "PID 377307\n"
+    },
+    "B": {
+      "pid": 377315,
+      "ppid": 377282,
+      "cwd": "/workspace/CrossTesseract/run-B",
+      "exe": "/workspace/CrossTesseract/scratch/jdk/jdk-21.0.8+9/bin/java",
+      "argv_sha256": "c4ddd226c2aa218af5f070a407183ca20a1848c8b62c6b7f51064995cc808c4c",
+      "frozen_vm_args": "scratch/dev-launch/5f561b7b55ca438b95a4c8b1ad482869/serverBRunVmArgs.txt",
+      "vm_args_sha256": "c746b25111c81ddb66b13094a838698a1f4d3849b7c1992685a3f60f4e9c8460",
+      "launcher": "scratch/dev-launch/5f561b7b55ca438b95a4c8b1ad482869/runServerB.sh",
+      "launcher_sha256": "69b942cc69d91cc02e5ab00b171562069728c974dbdba009727f86a58dda21f5",
+      "actual_RCON_PID_reply": "PID 377315\n"
+    },
+    "C": {
+      "pid": 377314,
+      "ppid": 377284,
+      "cwd": "/workspace/CrossTesseract/run-C",
+      "exe": "/workspace/CrossTesseract/scratch/jdk/jdk-21.0.8+9/bin/java",
+      "argv_sha256": "a082b55c260fd3e3a6be5a071c15074facfc4f4ff3482b9fbb42d0c4ff66064f",
+      "frozen_vm_args": "scratch/dev-launch/f68d8ec49fd94c04a6a240cb84a1ecc5/serverCRunVmArgs.txt",
+      "vm_args_sha256": "4b75390bd1584ff51cce1e960668c73421d58eab93d7fadd926a641a0bd27636",
+      "launcher": "scratch/dev-launch/f68d8ec49fd94c04a6a240cb84a1ecc5/runServerC.sh",
+      "launcher_sha256": "2fcf4726458d0b8b85d1f5a558c0a4c7d0a23c0fa0bc0e0872592947666d8d23",
+      "actual_RCON_PID_reply": "PID 377314\n"
+    }
+  },
+  "events": [
+    {
+      "server": "A",
+      "pid": 377307,
+      "command": "stop",
+      "utc": "2026-10-17T15:29:23.614177+00:00",
+      "outcome": "REPLY_OBSERVED",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "server": "B",
+      "pid": 377315,
+      "command": "stop",
+      "utc": "2026-10-17T15:29:23.617210+00:00",
+      "outcome": "REPLY_OBSERVED",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "server": "C",
+      "pid": 377314,
+      "command": "stop",
+      "utc": "2026-10-17T15:29:23.620622+00:00",
+      "outcome": "REPLY_OBSERVED",
+      "reply": "Stopping the server\n"
+    }
+  ],
+  "launcher_exit_codes": "UNMEASURED: original Popen parent already exited",
+  "remaining_live_owned_pids": [],
+  "all_owned_launch_locks_free": true,
+  "post_stop_SQL": {
+    "servers": [
+      {
+        "epoch": 2,
+        "world": "01a14a32-8db0-7d05-8642-8533b5ef0c7d",
+        "server": "opt-rc-soak-v2-3647-full3-A",
+        "status": "STOPPED",
+        "session": "01a14a75-08b4-7923-b102-3fcecb36157c",
+        "clean_stop": 1,
+        "lease_live": false
+      },
+      {
+        "epoch": 2,
+        "world": "01a14a32-90ac-7d82-9724-40de998f8301",
+        "server": "opt-rc-soak-v2-3647-full3-B",
+        "status": "STOPPED",
+        "session": "01a14a75-03b0-7ef7-8e28-13e3a1530c18",
+        "clean_stop": 1,
+        "lease_live": false
+      },
+      {
+        "epoch": 2,
+        "world": "01a14a32-886a-7311-85ab-3928d83f06c0",
+        "server": "opt-rc-soak-v2-3647-full3-C",
+        "status": "STOPPED",
+        "session": "01a14a75-0b26-7e1f-a28c-94f34c7dd8f3",
+        "clean_stop": 1,
+        "lease_live": false
+      }
+    ]
+  },
+  "SQL_clean_stop_confirmed": true,
+  "utc_end": "2026-10-17T15:29:25.733409+00:00"
+}

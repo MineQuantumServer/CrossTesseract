@@ -2,6 +2,14 @@
 
 2026-10-17新增WAL目录屏障失败重试、真实COMMIT应答丢失、独立ENOSPC和原生部分组/完成容量证据见 [RC报告](RC_20261017_REPORT.md)。同版本完整内容相等只有具备已完成的进程内文件/目录屏障证明才能免刷；失败或新进程须重新建立屏障。历史原128FE不在新环境，不重放、退款或改账。
 
+本轮故障按实际失效域区分：TCP代理只吞真实MySQL成功COMMIT应答；私有tmpfs返回真实ENOSPC；目录force失败为受控IOException；发布组中断为受控worker SQLException；原生完成邮箱测试占满实际容量。它们都带正数量，来源范围不同：原ENOSPC是独立构造的128FE WAL数据，没有原生能力输入/SQL来源链，不能称原生Runtime磁盘故障通过。具体补测状态以RC报告为准。这些故障不能互相替代，也不是硬件掉电。当前0113ef3原生及八组合164次执行重跑完成邮箱、多发布组和库存提示/连续消费回归；原ENOSPC所用LocalJournal与0113候选逐字节未变。运行版本和失败首轮都在RC证据中保留。
+
+WAL的可见性和持久性不同：原子替换成功后目录force仍可能失败。此时读取相同revision/相同全内容只能证明文件可见，不能开放新的资源额度。当前进程仅在文件force及目录force全部完成后保存有界持久证明；未知证明、重启或前次失败必须重新force文件及目录。相同revision但不同内容仍拒绝，旧revision仍拒绝覆盖。证明缓存淘汰只增加屏障，不允许省略屏障；没有引入group commit。
+
+本轮仅验证Linux环境中的Java文件/目录屏障调用及私有tmpfs的ENOSPC行为；没有验证实际存储设备断电后的持久性，Windows/macOS也未测。原子替换或目录force失败会暂停（IOException映射journal_unavailable），不能降级为跳过屏障后继续发布额度。
+
+多端点发布组不承诺跨组原子：前组LOCAL成功、后组仍RESERVED是合法可恢复状态。只能按各原allocation ID核对，目的端先前WAL与SQL是同一资产的记录；后组不因超时退款。新回调只添加新credit、扣除已确认的TX业务ID，不用后台旧快照恢复remaining。完成邮箱满时拒绝尚未接纳的新任务，已预留的完成结果继续终结设备与频道lease。
+
 MySQL 事务、本模组 WAL、Minecraft 区块存档及第三方机器存档是不同事务域。Redis/MySQL 可靠提交不能使任意外部机器与整个世界原子保存。可信运营方管理员可改库、二进制和世界文件，本项目不宣称防御恶意管理员。
 
 ## 可保证的范围
@@ -22,13 +30,13 @@ MySQL 事务、本模组 WAL、Minecraft 区块存档及第三方机器存档是
 
 ## 实测故障
 
-当前68f32db fast模式（两个开关均true）的 [五halt](../reports/faults-68f32db-fast.json) 已实际结束：after_send_wal、after_deposit、after_allocation、after_receive_wal、after_local_sql各一次halt(97)，重启后核对新epoch隔离、WAL/SQL所有权保留与不按超时退款。after_deposit在SQL提交后中断进程，不是人为切断COMMIT应答网络；这些fixture没有覆盖多端点/多publication分组的部分组提交中断或第三方存档回退。
+历史68f32db fast模式（两个开关均true）的 [五halt](../reports/faults-68f32db-fast.json) 已实际结束：after_send_wal、after_deposit、after_allocation、after_receive_wal、after_local_sql各一次halt(97)，重启后核对新epoch隔离、WAL/SQL所有权保留与不按超时退款。after_deposit在SQL提交后中断进程，不是人为切断COMMIT应答网络；这些fixture没有覆盖多端点/多publication分组的部分组提交中断或第三方存档回退。
 
 同模式 [恢复/Redis](../reports/recovery-68f32db-fast.json) 已实际验证正常重启恢复合法ticking票据、实际停止Redis时撤票但保留配额、重启/FLUSHDB不删权威配额，以及硬kill Minecraft后新epoch隔离且不恢复旧票据。当前回归的来源声明按运行套件源码/启动归档核对，不能外推其他配置或独立classloader认证。
 
 同模式 [MySQL实际停止/重启](../reports/mysql-68f32db-fast.json) 也已完成：测试耗时7.918233秒，停库快照实际票据0、持久名额1、新设备批准0，恢复票据1。故障中一次管理RCON应答0.980320ms，内容为database_unavailable，表示拒绝与响应而非数据库操作成功；故障errors=1与末尾累计errors=2保留。该次短故障不证明全部连接/COMMIT模糊结果或任意长期断网恢复。
 
-## 当前回退验证与保留的失败证据
+## 历史68回退验证与保留的失败证据
 
 [extra父序列](../reports/optimization-extra-sequence-68f32db.json) 因后续回退验证器失败而保持FAILED；它之前原87/B68/C68各三次真实混合窗通过，子报告SHA和功能结果独立保留，不能互相改写。首轮回退在fast_prepare_positive_assets，strip丢失合法FE空HEX列后终止，尚未切换配置。[首轮只读审计](../reports/optimization-restart-fallback-first-failure-audit.json) 确认实际输入128 FE、输出0，SQL余额0/独占LOCAL128与校验通过的同凭证WAL镜像128一致，有效资产总计128，不把镜像相加为256。保留该fixture，修复测试使用新UUID，不重放原输入或按验证失败退款。
 
@@ -48,7 +56,7 @@ MySQL 事务、本模组 WAL、Minecraft 区块存档及第三方机器存档是
 
 `reports/faults-55d87e9.json`：在 `55d87e9` 的发送 WAL 后/SQL 前、DEPOSIT 后/确认前、独占划拨后/目的 WAL 前、目的 WAL 后/LOCAL 前、LOCAL 提交后/内存应用前以真实 JVM halt(97) 注入。检查 WAL/SQL 的资源阶段、隔离和不可提取，不按超时退款。脚本先保存设备身份，随后故意不保存传输动作，区分身份恢复与外部资源保存问题。这些结果不等于对任意第三方箱子回档的证明。
 
-上述两份55报告不替代当前68结果。68f32db的注册恢复、WAL/SQL确认异常与关闭重试另由13项基础原生及八组合132次执行验证，见 [TESTING.md](TESTING.md)；其中checked SQLException注入不是真正停止数据库，实际停库证据使用当前独立MySQL报告。
+上述两份55报告不替代历史68结果。68f32db的注册恢复、WAL/SQL确认异常与关闭重试另由13项基础原生及八组合132次执行验证，见 [TESTING.md](TESTING.md)；其中checked SQLException注入不是真正停止数据库，实际停库证据使用历史68独立MySQL报告。
 
 ## 恢复流程
 
@@ -96,3 +104,5 @@ SQL 连接异常可能发生在新的恢复 WAL 已落盘、主线程尚未恢�
 历史容量行首次访问改用无增量的 `INSERT ... ON DUPLICATE KEY UPDATE used=used`，直接取得排他锁，随后仍执行有界条件增量与同事务回滚。没有取消历史容量、余额锁、权限或fencing。真实MySQL回归制造事务内savepoint死锁，确认原始异常被识别、清理异常被保留以及两份变更各提交一次；这不是证明所有死锁都消失。提交确认不明确仍查询原业务记录，不按超时退款。
 
 干净但SEND已关闭的pending仍保存在原WAL/内存资产阶段，不再反复安排没有可发送记录的SQL工作；dirty检查点、恢复状态与重新开启SEND仍会正常调度。OFF不删除或退款资源。
+
+当前0113同一新版JAR的正常fast→保守→fast回退已实际通过：945新FE接受=输出、两次原ID的LOCAL75+pool61跨重启，OFF提取0，9个launcher正常退出，原配置精确恢复，持久配额不变。实际报告 `reports/rc-20261017/normal-fallback-rc-0113-fb-2bf6a319-20261017T175750Z-0f0f6f38.json`，闭合证明 `normal-fallback-release-0113ef3-20261017T180354Z-9b4c4143.json`。首轮工具失败保留；只覆盖正常停服后同一新版配置重启，不覆盖热切换、旧二进制或外部世界回档。详细步骤、原ID和失效域见 [RC报告](RC_20261017_REPORT.md)。

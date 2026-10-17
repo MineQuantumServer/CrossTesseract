@@ -2,13 +2,126 @@
 
 2026-10-17本轮真实测试、失败及候选身份见 [RC报告](RC_20261017_REPORT.md)。下文68系列结果均保留其原版本归属，不代替新源码验证。独立正资产原生故障可用 `python3 scripts/rc-native-faults.py --execute --accept-eula` 重现；EULA需操作者已自行接受。
 
+## 当前0113ef3与前一3647ded的覆盖（2026-10-17）
+
+当前0113ef3已真实通过82项单元/性质/真实后端测试及8项原生测试，0跳过；新八组合164次必需原生执行也已通过，新独立3600.000101秒观察及尾部实际排空已通过；性能门以RC报告逐项为准（SQL20%与cross较严门仍失败）。新增连续RX消费负对照和修复原始证据分别在 `discovery-negative-20261017T1534Z/`、`discovery-positive-0113ef3/`，新矩阵每组合增加此用例，总164次必需执行。
+
+前一3647ded的79项单元/性质/真实MySQL和Redis测试通过，无跳过；7项必需原生测试通过（4基础、2正资产故障、1库存发现回归）。八种可选闭包分别执行16/18/19/21/18/20/21/23项必需原生测试，合计156次执行，包含组合间重复，不是156个独立测试用例。JAR身份1ae89579…、完整SHA、命令和日志见 `reports/rc-20261017/intent-final-build-20261017T1130Z/` 及RC报告。
+
+```bash
+scripts/gradle-dev.sh --no-daemon --max-workers=2 build -Dct.integration=true \
+  createServerALaunchScript createServerBLaunchScript createServerCLaunchScript createServerPerfLaunchScript
+python3 scripts/rc-native-faults.py --execute --accept-eula
+python3 scripts/rc-native-matrix.py --help
+```
+
+原生矩阵使用冻结开发类，逐字节对应本候选JAR；没有把这种测试写成打包JAR冷安装矩阵。MUI/GT依赖变体及上游Spotless失败见COMPATIBILITY.md。各fixture正常停服的只读SQL审计保留合法残余资产，不重置账本。
+
+性能探针是测试用独立Java agent，不打包进模组。v1方法p99不能代替每tick模组总成本；v2按实际插桩manifest记录同一主线程最外层调用，分别报告tickServer frame和tick-start之间的逻辑cycle、frame外调用与worker。重叠scope不相加，生成器单列，GUI等未插桩入口不冒充完整模组CPU。完整固定窗/排空窗与旧数字门的约束见 [测量修订](RC_20261017_MEASUREMENT_AMENDMENT.md)。v2首次启动冻结路径错误在Minecraft加载前失败，修正工具后新UUID原生校验通过，两份记录都保留。
+
+真实ENOSPC、受控目录屏障错误、真实MySQL COMMIT应答丢失、完成容量与多发布组中断是不同故障。正资产反例还验证了已排队检查点不能吞掉库存发现提示；失败fixture的128FE保留在pool，修复用新fixture，不把旧资产重新输入。
+
+本轮长窗口和性能验收以RC报告逐项为准。历史1000端点、旧版本halt和旧回退PASS不代替本候选。物品小样本不外推总体p95；跨JVM nanoTime不直接相减；SQL/WAL镜像不重复计入库存。
+
+### 本轮证据离线复算
+
+提交的JSON、controller及各 `probe-v2-*` 原始文件足以复算以下FE门，不需要Minecraft、JDK、数据库或本机 `scratch`。脚本只创建新UUID输出，退出2表示冻结性能门未全达；本轮实际结果就是退出2。新生成文件的时间/UUID不同，原始输入SHA和数值应相同。
+
+已在独立临时目录实际验证：仅复制46份报告、脚本和两份冻结文档，共25,812,148字节，没有src/build/.git/scratch，复算退出2且目标、资格、全部samples/limits/门结果逐值相同。证据 `reports/rc-20261017/offline-archive-only-recompute-20261017T140551Z-9532bf796f1e.json`。另已用只含45份公开报告及必要Python文件的独立临时根复算旧1ae完整小时和四模式材料：实际读取公开raw/events归档，全部数值与资格一致，材料CSV逐字节一致。Python隔离模式及审计hook拒绝原仓库/scratch读取、网络和子进程；这是reader约束，不冒称OS容器隔离。证据 `reports/rc-20261017/archive-portability-20261017T154941Z-107a484f/verification.json`。
+
+当前0113严格FE门也已独立验证只用46份公开输入（25,963,387字节）：没有src/build/.git/scratch，原仓库/网络/子进程由审计hook拒绝，实际退出2且全部samples、limits、身份和失败门逐值一致。证据 `reports/rc-20261017/archive-portability-0113-fe-20261017T174550Z-11757c58/verification.json`，同目录包含实际recipe及复算JSON/CSV，不把派生重算当成新的性能样本。
+
+首次复制遗漏目标文档的验证器失败另存 `offline-recompute-first-copy-failure-0b6d654cb45c.json`，不是业务测试失败，原数据不改。
+
+```bash
+python3 scripts/analysis/compare-rc-fe.py \
+  --baseline reports/optimization-rc-probe-rc-fe-v2-f3-20261017T115502Z-3649ba.json \
+  --candidate reports/optimization-rc-probe-rc-fe-v2-0113ef3-20261017T155734Z-908f89.json \
+  --baseline-controller reports/rc-20261017/rc-fe-v2-f3-controller-20261017T115431Z-b399eefe.json \
+  --candidate-controller reports/rc-20261017/rc-fe-v2-0113ef3-controller-20261017T155659Z-3cd56483.json
+python3 scripts/analysis/summarize-rc-fe-scheduling.py \
+  --controller reports/rc-20261017/rc-fe-v2-f3-controller-20261017T115431Z-b399eefe.json \
+  --controller reports/rc-20261017/rc-fe-v2-final-controller-20261017T121031Z-b0a6bf0a.json \
+  --controller reports/rc-20261017/rc-fe-v2-0113ef3-controller-20261017T155659Z-3cd56483.json
+python3 scripts/analysis/summarize-rc-mix.py --help
+```
+
+材料汇总用重复的 `--controller` 选择RC报告中的闭合mix控制器；不能传仍在运行、smoke、失败或仅有raw而没有身份链的窗口。调用/信号/有效检查点不是独立资产业务，缺少的renewal和旧f3原因字段为UNMEASURED。
+
+### 在另一个隔离环境重建同条件输入
+
+以下是**新重建recipe**，不是伪称最初内联冻结命令曾有独立脚本。开发后端必须是本机隔离MySQL8.4.7/Redis7.4.6，操作者需自行接受EULA；不得在其他测试或服进程运行时构建/冻结/执行。先按README安装固定JDK21.0.8+9、获取固定参考源码和开发后端。需要两个构建：根工作区为候选同一main源码，独立worktree为f3，禁止reset现有工作区。
+
+```bash
+git worktree add --detach scratch/rc-rebuild-f3 f3c59b772dcbd343596174c73093b2fef536f19c
+(
+  cd scratch/rc-rebuild-f3
+  scripts/install-jdk.sh
+  scripts/fetch-references.sh
+  scripts/gradle-dev.sh --no-daemon --max-workers=2 build -Dct.integration=true \
+    createServerALaunchScript createServerBLaunchScript createServerCLaunchScript createServerPerfLaunchScript
+)
+```
+
+`freeze-rc-v2-probe.py`是本轮审计用入口，明确检查既有矩阵证明和候选JAR，不是通用任意版本启动器。其f3输入目录固定为 `scratch/rc-baseline-env-20261017T095358Z-a75d6375/frozen-f3-baseline`。在**尚无该目录**的新复现环境中，可按以下结构重建；命令拒绝覆盖，且JAR不匹配就停下审查，不把新差异隐藏成原始基线：
+
+```bash
+python3 - <<'PY'
+from pathlib import Path
+import hashlib, shutil
+root = Path.cwd()
+source = root / 'scratch/rc-rebuild-f3'
+target = root / 'scratch/rc-baseline-env-20261017T095358Z-a75d6375/frozen-f3-baseline'
+jar = source / 'build/libs/cross_tesseract-0.1.0-dev.jar'
+assert hashlib.sha256(jar.read_bytes()).hexdigest() == '7924ab808667c69aabbbe71c2c92f1294437a7cc8bb19e409c366af1f682553a'
+assert not target.exists(), 'Never overwrite an existing frozen baseline'
+target.mkdir(parents=True)
+for origin, name in [('build/classes/java/main', 'classes'), ('build/resources/main', 'resources'), ('src/main', 'source-main')]:
+    shutil.copytree(source / origin, target / name)
+(target / 'artifacts').mkdir()
+for filename in ['cross_tesseract-0.1.0-dev.jar', 'cross_tesseract-0.1.0-dev-sources.jar']:
+    shutil.copyfile(source / 'build/libs' / filename, target / 'artifacts' / filename)
+PY
+scripts/gradle-dev.sh --no-daemon --max-workers=2 build -Dct.integration=true \
+  createServerALaunchScript createServerBLaunchScript createServerCLaunchScript createServerPerfLaunchScript
+python3 scripts/build-rc-probe.py
+```
+
+探针构建会输出一个新 `scratch/rc-probe/<UUID>/manifest.json`；将其显式传给下列命令，两种profile须用**同一个**新agent。它们输出新的启动manifest，随后逐个执行，不能并行喂同一A/B/C端口。`--tree-manifest`始终指候选源码manifest，即使实际运行f3类；运行身份和当前checkout源码校验分别记录。
+
+```bash
+python3 scripts/rc-native-matrix.py --execute --accept-eula --label rc-new-matrix
+python3 scripts/analysis/freeze-rc-v2-probe.py --profile final --agent-manifest <NEW_AGENT_MANIFEST> --execute \
+  --expected-revision 0113ef30f2269f9ea51e7c15e585792828fd2a51 \
+  --expected-jar-sha256 70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c \
+  --native-matrix <NEW_MATRIX_REPORT> --expected-required-tests 164
+python3 scripts/analysis/freeze-rc-v2-probe.py --profile f3 --agent-manifest <SAME_NEW_AGENT_MANIFEST> --execute \
+  --expected-revision 0113ef30f2269f9ea51e7c15e585792828fd2a51 \
+  --expected-jar-sha256 70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c \
+  --native-matrix <SAME_NEW_MATRIX_REPORT> --expected-required-tests 164
+python3 scripts/analysis/run-rc-v2-stage.py --execute --manifest <NEW_F3_MANIFEST> \
+  --tree-manifest <NEW_FINAL_MANIFEST> --phase fe --mode fast --label rc-repro-f3
+python3 scripts/analysis/run-rc-v2-stage.py --execute --manifest <NEW_FINAL_MANIFEST> \
+  --tree-manifest <NEW_FINAL_MANIFEST> --phase fe --mode fast --label rc-repro-final \
+  --expected-revision 0113ef30f2269f9ea51e7c15e585792828fd2a51 \
+  --expected-jar-sha256 70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c
+python3 scripts/analysis/run-rc-v2-stage.py --execute --manifest <NEW_FINAL_MANIFEST> \
+  --tree-manifest <NEW_FINAL_MANIFEST> --phase mix --mode batch --label rc-repro-batch \
+  --expected-revision 0113ef30f2269f9ea51e7c15e585792828fd2a51 \
+  --expected-jar-sha256 70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c
+```
+
+将 `phase` 改为 `mix`、`mode` 改为 `fast`可重做材料fast窗；`phase=ablation`配 `variant=notification1000` 或 `active200`只改对应测试参数。各窗口使用新世界/频道/业务ID并正常停服。持续测试入口 `run-rc-v2-soak.py --execute --manifest <NEW_FINAL_MANIFEST> --expected-revision 0113ef30f2269f9ea51e7c15e585792828fd2a51 --expected-jar-sha256 70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c --kind smoke|full --label <NEW_SAFE_LABEL>`，full固定3600秒，结束后另做真实排空，不能把smoke接续为full。同世界回退只接受闭合且正常退出的full controller，见 `rc-normal-fallback.py --help`。
+
+本轮实际在已有缓存环境创建并校验了冻结目录，执行记录见各controller；以上**从全空缓存重建的整段recipe未再次实跑**。新环境若固定依赖/产物SHA不符应保留错误，不替换或改写既有验收数据。绝对路径、时间和新UUID会变化，不能期待新manifest文件SHA与旧manifest相同。
+
 ## 本轮频道合批与本地调度验证（2026-10-06）
 
-当前源码 `68f32db` 已完成68项单位/性质/真实后端测试（35项单位/性质、33项真实后端；失败、错误、跳过均0）及13项基础原生GameTest。XML/HTML在 `reports/optimization-tests-ready-final/`，命令、源码/JAR摘要在 `reports/optimization-artifact-ready-final.json`，日志 `logs/optimization-build-ready-final.log`。LocalRoomTest 验证快速空间探测的凭证/零额边界；ChannelCoordinatorTest 新增 pending 查询和首次在途信号测试，并在 partial-batch、150组随机模型中逐步核对查询结果。
+以下历史源码 `68f32db` 在当时完成68项单位/性质/真实后端测试（35项单位/性质、33项真实后端；失败、错误、跳过均0）及13项基础原生GameTest。XML/HTML在 `reports/optimization-tests-ready-final/`，命令、源码/JAR摘要在 `reports/optimization-artifact-ready-final.json`，日志 `logs/optimization-build-ready-final.log`。LocalRoomTest 验证快速空间探测的凭证/零额边界；ChannelCoordinatorTest 新增 pending 查询和首次在途信号测试，并在 partial-batch、150组随机模型中逐步核对查询结果。
 
 同一修订八种可选组合全部通过，共132项必需原生执行（组合之间包含重复测试，不是132个独立测试）：`reports/compat-matrix-68f32db.json`、`logs/optimization-matrix-68f32db/`。官方冷安装的同一JAR完成实际1234FE输入/输出，Java正常退出0：`reports/packaged-smoke-68f32db.json`、`logs/optimization-packaged-68f32db.log`。925/753/4cf/e405及下方客户端报告均是注明版本的历史实际运行，不能替代当前修订的性能或三服故障复测。
 
-当前规模六窗通过：100/500/1000真实端点，各OFF与ACTIVE120秒、五秒预热、一次重复，业务与监测器正常退出；`reports/performance-opt-fast-68f32db.json`、`reports/optimization-scale-comparison-68f32db.md`。每频道最多256端点，1000档分为四频道；没有称为单频道1000端点。ACTIVE主线程滚动p95相对原版仍有回归，首次观察器在输入前启动失败的报告保留。
+历史68规模六窗通过：100/500/1000真实端点，各OFF与ACTIVE120秒、五秒预热、一次重复，业务与监测器正常退出；`reports/performance-opt-fast-68f32db.json`、`reports/optimization-scale-comparison-68f32db.md`。每频道最多256端点，1000档分为四频道；没有称为单频道1000端点。ACTIVE主线程滚动p95相对原版仍有回归，首次观察器在输入前启动失败的报告保留。
 
 三个真实JVM中的普通箱子六次探测和压力六窗均通过，原始文件路径及SHA见 `reports/optimization-container-comparison-68f32db.json` 与 `reports/optimization-pressure-comparison-68f32db.json`。箱子源实际扣除、目的外箱实际接受、SQL余额/独占remaining与本地余量独立核对；压力包括满载后恢复和热点/低流量频道共同竞争。计时是容器/能力实际接受，不表示世界立即存盘。
 
@@ -18,7 +131,7 @@
 
 正式同频道混合原87/仅合批68/快速68各三次30秒预热、120秒观察，九窗均真实执行且passed。三份子报告是 `reports/optimization-resource-mix-original87-20261006T185321Z-8c23fc.json`、`reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json`、`reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json`，SHA与 `reports/optimization-extra-sequence-68f32db.json` 的唯一引用一致。每稳态窗两种稳定CUSTOM_NAME石头各32个，经实际源箱/外箱；FE与水各240次原生能力输入，按独立单位账本和最终SQL/本地零余量核对。仅合批两种组件输入→外箱完整接受上界中位71.097889/78.184268秒，原版29.287011/30.355341秒，严重等待回归保留；功能通过不能代替性能目标。成本窗口/源扫描等待/上下界/所有重复见 [PERFORMANCE.md](PERFORMANCE.md)。
 
-当前68核心的fast模式（`channelBatches=true/localFastPath=true`）已结束五个独立回归阶段：
+历史68核心的fast模式（`channelBatches=true/localFastPath=true`）已结束五个独立回归阶段：
 
 - `reports/three-68f32db-fast.json`：三真实JVM邀请/接受、FE/item/fluid守恒、A/B多发送与BOTH旧RX不回流、同区块独立票据、三服竞争两个配额以及移成员后能力关闭，套件exit0。接收缓冲合计76000 FE、144 item、6000 fluid，报告保留正RX，不将它称为全体外部提取后的零余量。两次预期配额拒绝与C末累计 `errors=2`、`db_deadlock_retries=2` 均保留，不能称全轮零错误。
 - `reports/optimization-topology-final-fast-68f32db-20261006T192008Z-6be3bb.json`：不同区块、跨维度、ABC三发三收、RECEIVE→OFF→RECEIVE、空设备拆除后新ID五case全部passed。不同区块4096 FE、跨维度3072 FE均实际提取并静止核对；ABC共3456 FE，三个接收端896/1280/1280，不要求均分。独立窗口新增错误/拒绝/隔离/死锁重试为0，之前累计计数仍保留；不覆盖在途强制卸载、正余额拆除回收或任意第三方机器。
@@ -134,3 +247,5 @@ python3 scripts/packaged-smoke.py
 任意外部容器保存回退不具原子保证；生产 TLS/可信代理认证、所有大型 modpack、网络高延迟/丢包、1000 端点多 JVM 热点物品组件及完整 AE crafting 恢复未验证。性能脚本与指标含义见 [性能报告](PERFORMANCE.md)。不要把短测试外推为长期生产完整性或吞吐承诺。
 
 `9258a6a` 八组合实际全部通过，13/15/16/18/15/17/18/20，共132项，报告 `compat-matrix-9258a6a.json` 与 `logs/optimization-matrix-9258a6a/`。官方冷包最终JAR也完成1234 FE输入/输出并退出0，报告 `packaged-smoke-9258a6a.json`。首次冷包在spawn时碰到旧时间取模坐标的location_sealed，实际未输入资源；失败日志/报告 `packaged-smoke-9258a6a-first-failed.*` 保留。烟雾驱动改用新UUID坐标后独立重跑，不删除封存记录、不接受新EULA。
+
+当前0113同一新版JAR的正常fast→保守→fast回退已实际通过：945新FE接受=输出、两次原ID的LOCAL75+pool61跨重启，OFF提取0，9个launcher正常退出，原配置精确恢复，持久配额不变。实际报告 `reports/rc-20261017/normal-fallback-rc-0113-fb-2bf6a319-20261017T175750Z-0f0f6f38.json`，闭合证明 `normal-fallback-release-0113ef3-20261017T180354Z-9b4c4143.json`。首轮工具失败保留；只覆盖正常停服后同一新版配置重启，不覆盖热切换、旧二进制或外部世界回档。详细步骤、原ID和失效域见 [RC报告](RC_20261017_REPORT.md)。

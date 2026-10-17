@@ -1,0 +1,114 @@
+{
+  "utc_start": "2026-10-17T11:10:00.553657+00:00",
+  "passed": true,
+  "state": "COMPLETE",
+  "source_revision": "fab818087d4b8387031e2a30193b30525a466ac6",
+  "baseline_seal": "reports/rc-20261017/probe-launches-candidate-20261017T110704Z-b96deda3.json",
+  "baseline_seal_sha256": "c710183c538ed511965ca0143485077786498b1e2377af18f5bc57902a3c4ebf",
+  "scenarios": [
+    "same",
+    "cross",
+    "mixed"
+  ],
+  "repeats": 1,
+  "scope": "Three FE layouts, one repeat per layout with40 low-flow probes each,30s warmup/120s steady. Continuous explicit test-agent window with fixed prefix and final complete drain+quiet cost; no peak/capacity claim.",
+  "lifecycle": [
+    {
+      "action": "start_frozen_once",
+      "server": "A",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/655731fb08be427f8f72022089f8316e/runServerA.sh",
+      "controller_launcher_PID": 33723,
+      "log": "logs/rc-fe-fab-fast-20261017T095358Z-a75d6375-A.log",
+      "utc": "2026-10-17T11:10:00.557181+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "B",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/4450b9d38e8e4a6b9f157a046aea0c71/runServerB.sh",
+      "controller_launcher_PID": 33724,
+      "log": "logs/rc-fe-fab-fast-20261017T095358Z-a75d6375-B.log",
+      "utc": "2026-10-17T11:10:00.557741+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "C",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/32e611cc59a144cd826e66eaaa1f9fa3/runServerC.sh",
+      "controller_launcher_PID": 33725,
+      "log": "logs/rc-fe-fab-fast-20261017T095358Z-a75d6375-C.log",
+      "utc": "2026-10-17T11:10:00.558366+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "C",
+      "reply": "STATUS online tickets=0 {tick_total_calls=7, tick_total_nanos=849700, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=6.51E-4, notify_ms_p95=0.023956, notify_ms_p99=0.023956, notify_ms_samples=14, completion_ms_p50=0.003154, completion_ms_p95=0.013981, completion_ms_p99=0.013981, completion_ms_samples=7, closing_ms_p50=7.21E-4, closing_ms_p95=0.001202, closing_ms_p99=0.001202, closing_ms_samples=7, tick_ms_p50=0.064125, tick_ms_p95=0.493902, tick_ms_p99=0.493902, tick_ms_samples=7, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=33.389972, db_transaction_ms_p95=111.028013, db_transaction_ms_p99=111.028013, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.035022, db_connection_wait_ms_p95=558.558029, db_connection_wait_ms_p99=558.558029, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=41.376446, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T11:10:30.795918+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "A",
+      "reply": "STATUS online tickets=0 {tick_total_calls=1, tick_total_nanos=599458, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=4.5E-4, notify_ms_p95=0.01413, notify_ms_p99=0.01413, notify_ms_samples=2, completion_ms_p50=0.012779, completion_ms_p95=0.012779, completion_ms_p99=0.012779, completion_ms_samples=1, closing_ms_p50=0.001282, closing_ms_p95=0.001282, closing_ms_p99=0.001282, closing_ms_samples=1, tick_ms_p50=0.599458, tick_ms_p95=0.599458, tick_ms_p99=0.599458, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=27.872645, db_transaction_ms_p95=63.025865, db_transaction_ms_p99=63.025865, db_transaction_ms_samples=5, db_connection_wait_ms_p50=0.052428, db_connection_wait_ms_p95=613.763341, db_connection_wait_ms_p99=613.763341, db_connection_wait_ms_samples=6, db_transactions=5, db_transaction_attempts=5, db_statements=38, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=19.169307, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T11:10:31.886539+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "B",
+      "reply": "STATUS online tickets=0 {tick_total_calls=8, tick_total_nanos=968495, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=4.8E-4, notify_ms_p95=0.022343, notify_ms_p99=0.022343, notify_ms_samples=16, completion_ms_p50=0.002563, completion_ms_p95=0.011698, completion_ms_p99=0.011698, completion_ms_samples=8, closing_ms_p50=7.51E-4, closing_ms_p95=0.001272, closing_ms_p99=0.001272, closing_ms_samples=8, tick_ms_p50=0.049263, tick_ms_p95=0.596564, tick_ms_p99=0.596564, tick_ms_samples=8, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=23.360869, db_transaction_ms_p95=68.211018, db_transaction_ms_p99=68.211018, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.043605, db_connection_wait_ms_p95=610.345965, db_connection_wait_ms_p99=610.345965, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=27.02578, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T11:10:31.933184+00:00"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "A",
+      "utc": "2026-10-17T11:23:39.781716+00:00",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "B",
+      "utc": "2026-10-17T11:23:39.820398+00:00",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "C",
+      "utc": "2026-10-17T11:23:39.827464+00:00",
+      "reply": "Stopping the server\n"
+    }
+  ],
+  "failures": [],
+  "frozen_targets_policy": "Report all three complete functional windows even if latency/cost targets fail; no goal redefinition; resource/protocol failures stop.",
+  "original_reports_policy": "Unique output only; no historical raw report/world/asset reused or overwritten.",
+  "command": [
+    "python3",
+    "scripts/rc-probe-benchmark.py",
+    "--execute",
+    "--probe-manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-candidate-20261017T110704Z-b96deda3.json",
+    "--label",
+    "rc-fe-fab-fast",
+    "--operator-revision",
+    "fab8180",
+    "--warmup",
+    "30",
+    "--seconds",
+    "120",
+    "--repeats",
+    "1",
+    "--probes",
+    "40",
+    "--scenarios",
+    "same,cross,mixed"
+  ],
+  "workload_utc_start": "2026-10-17T11:10:31.933937+00:00",
+  "driver_log": "logs/rc-fe-fab-fast-20261017T095358Z-a75d6375-driver.log",
+  "driver_source_sha256": "5df5e2bd1be285d32bb9770bd929397c1fc018d015b42dde406ca0db642f64a8",
+  "workload_exit_code": 0,
+  "workload_utc_end": "2026-10-17T11:23:39.697240+00:00",
+  "raw_report": "reports/optimization-rc-probe-rc-fe-fab-fast-20261017T111032Z-f7d313.json",
+  "raw_report_sha256": "373db4cb1299e57e0160fc337e59cd0f6067c552282d3ab1df16119a30999e63",
+  "raw_passed": true,
+  "samples": 3,
+  "native_validation": null,
+  "functional_pass": true,
+  "all_own_launchers_exited_and_locks_free": true,
+  "utc_end": "2026-10-17T11:23:43.334787+00:00"
+}

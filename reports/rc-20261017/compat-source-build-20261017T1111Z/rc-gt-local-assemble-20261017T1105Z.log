@@ -1,0 +1,155 @@
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :copyAccessTransformersPublications
+> Task :copyInterfaceInjectionDataPublications
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :createMinecraftArtifacts
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+Loaded 131 artifacts from /workspace/CrossTesseract/scratch/upstream/gregtech/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ ✓ Completed downloadJson in 0.02s
+*** Started working on downloadServer
+*** Started working on downloadClient
+*** Started working on downloadClientMappings
+ ✓ Completed downloadServer in 0.02s
+ ✓ Completed downloadClient in 0.02s
+ ✓ Completed downloadClientMappings in 0.03s
+*** Started working on mergeMappings
+ ↳ Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+*** Started working on stripClient
+*** Started working on extractServer
+ ♻ Used cache of extractServer in 0.00s
+*** Started working on stripServer
+ ✓ Completed stripServer in 2.40s
+ ✓ Completed mergeMappings in 2.63s
+ ✓ Completed stripClient in 2.66s
+*** Started working on merge
+ ♻ Used cache of merge in 0.00s
+*** Started working on rename
+ ↳ Running external tool net.neoforged:AutoRenamingTool:2.0.3:all
+ ✓ Completed rename in 4.89s
+*** Started working on decompile
+ ↳ Running external tool org.vineflower:vineflower:1.10.1
+ ✓ Completed decompile in 62.70s
+*** Started working on inject
+ ✓ Completed inject in 1.93s
+*** Started working on patch
+ ↳ Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ ✓ Completed patch in 1.90s
+*** Started working on applyNeoforgePatches
+ ↳ Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ ✓ Completed applyNeoforgePatches in 1.69s
+*** Started working on transformSources
+ ↳ Running external tool net.neoforged.jst:jst-cli-bundle:2.0.6
+ ✓ Completed transformSources in 14.59s
+*** Started working on recompile
+ 96 items on the compile classpath
+ 1 items on the sourcepath
+*** Started working on sourcesWithNeoForge
+ Compiling 5364 source files
+ ✓ Completed sourcesWithNeoForge in 1.84s
+Copied 0 resource files
+ ✓ Completed recompile in 32.00s
+*** Started working on compiledWithNeoForge
+ ✓ Completed compiledWithNeoForge in 3.67s
+*** Started working on sourcesAndCompiledWithNeoForge
+ ✓ Completed sourcesAndCompiledWithNeoForge in 2.31s
+Total runtime: 129.33s
+
+
+> Task :compileKotlin NO-SOURCE
+> Task :generateModMetadata
+> Task :processResources
+> Task :jarJar
+> Task :generateEffectiveLombokConfig
+> Task :compileJava
+warning: The following options were not recognized by any processor: '[quiet]'
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use or override a deprecated API that is marked for removal.
+Note: Recompile with -Xlint:removal for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+
+> Task :classes
+> Task :jar
+
+> Task :delombok
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/item/LampBlockItem.java:59: warning: [removal] initializeClient(java.util.function.Consumer<net.neoforged.neoforge.client.extensions.common.IClientItemExtensions>) in net.minecraft.world.item.Item has been deprecated and marked for removal
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+                ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/core/mixins/ReloadableServerResourcesMixin.java:59: warning: [removal] parent(net.minecraft.resources.ResourceLocation) in net.minecraft.advancements.Advancement.Builder has been deprecated and marked for removal
+                return Advancement.Builder.recipeAdvancement().parent(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT);
+                                                              ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/integration/map/layer/builtin/FluidRenderLayer.java:25: warning: [removal] getDisplayName() in net.neoforged.neoforge.fluids.FluidStack has been deprecated and marked for removal
+        return entry.asStack().getDisplayName();
+                              ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/integration/map/ftbchunks/FTBChunksOptions.java:51: warning: [removal] loadDefaulted(dev.ftb.mods.ftblibrary.snbt.config.SNBTConfig,java.nio.file.Path,java.lang.String,java.lang.String) in dev.ftb.mods.ftblibrary.snbt.config.ConfigUtil has been deprecated and marked for removal
+        ConfigUtil.loadDefaulted(CONFIG, ConfigUtil.LOCAL_DIR.resolve("gtceu"), "gtceu", "client-config.snbt");
+                  ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/integration/ae2/machine/MEOutputHatchPartMachine.java:141: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+        flow.child(new DynamicSyncedWidget<>()
+                       ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/integration/ae2/machine/MEOutputBusPartMachine.java:143: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+        flow.child(new DynamicSyncedWidget<>()
+                       ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/cover/ender/AbstractEnderLinkCover.java:294: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+                .child(new DynamicSyncedWidget<>().syncHandler(dynamicLinkedSyncHandler))
+                           ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/cover/ender/AbstractEnderLinkCover.java:404: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+        col.child(new DynamicSyncedWidget<>()
+                      ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/registry/GTRegistries.java:187: warning: [removal] net.neoforged.neoforge.registries.IdMappingEvent in net.neoforged.neoforge.registries has been deprecated and marked for removal
+    private static void onFreeze(IdMappingEvent event) {
+                                 ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/registry/GTRegistries.java:187: warning: [removal] net.neoforged.neoforge.registries.IdMappingEvent in net.neoforged.neoforge.registries has been deprecated and marked for removal
+    private static void onFreeze(IdMappingEvent event) {
+                                 ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/registry/GTRegistries.java:187: warning: [removal] net.neoforged.neoforge.registries.IdMappingEvent in net.neoforged.neoforge.registries has been deprecated and marked for removal
+    private static void onFreeze(IdMappingEvent event) {
+                                 ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/registry/GTRegistries.java:187: warning: [removal] net.neoforged.neoforge.registries.IdMappingEvent in net.neoforged.neoforge.registries has been deprecated and marked for removal
+    private static void onFreeze(IdMappingEvent event) {
+                                 ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/api/registry/GTRegistries.java:187: warning: [removal] net.neoforged.neoforge.registries.IdMappingEvent in net.neoforged.neoforge.registries has been deprecated and marked for removal
+    private static void onFreeze(IdMappingEvent event) {
+                                 ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/widgets/prospector/ProspectorMapHandler.java:75: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+                                StringValue searchValue, DynamicSyncedWidget<?> searchListWidget,
+                                                         ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/widgets/prospector/ProspectorMapHandler.java:75: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+                                StringValue searchValue, DynamicSyncedWidget<?> searchListWidget,
+                                                         ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/widgets/prospector/ProspectorMapHandler.java:75: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+                                StringValue searchValue, DynamicSyncedWidget<?> searchListWidget,
+                                                         ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/widgets/prospector/ProspectorMapHandler.java:75: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+                                StringValue searchValue, DynamicSyncedWidget<?> searchListWidget,
+                                                         ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/widgets/prospector/ProspectorMapHandler.java:75: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+                                StringValue searchValue, DynamicSyncedWidget<?> searchListWidget,
+                                                         ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/GTMultiblockTextUtil.java:636: warning: [removal] getDisplayName() in net.neoforged.neoforge.fluids.FluidStack has been deprecated and marked for removal
+                                    .tooltip(r -> r.add(stack.getDisplayName())))
+                                                             ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/mui/GTMultiblockTextUtil.java:650: warning: [removal] getDisplayName() in net.neoforged.neoforge.fluids.FluidStack has been deprecated and marked for removal
+                                    .tooltip(r -> r.add(stack.getDisplayName())))
+                                                             ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/item/behavior/ProspectorScannerBehavior.java:111: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+        DynamicSyncedWidget<?> searchList = new DynamicSyncedWidget<>();
+        ^
+/workspace/CrossTesseract/scratch/upstream/gregtech/src/main/java/com/gregtechceu/gtceu/common/item/behavior/ProspectorScannerBehavior.java:111: warning: [removal] brachy.modularui.widgets.DynamicSyncedWidget in brachy.modularui.widgets has been deprecated and marked for removal
+        DynamicSyncedWidget<?> searchList = new DynamicSyncedWidget<>();
+                                                ^
+
+> Task :sourcesJar
+> Task :assemble
+
+[Incubating] Problems report is available at: file:///workspace/CrossTesseract/scratch/upstream/gregtech/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 4m 27s
+11 actionable tasks: 11 executed

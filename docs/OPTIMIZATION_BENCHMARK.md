@@ -1,5 +1,7 @@
 # 优化基准方法与复现
 
+2026-10-17在这些原始脚本之上增加可选完整窗口探针与严格源码/启动归档，冻结目标和计时修订见 [RC目标](RC_20261017_TARGETS.md) 与 [测量修订](RC_20261017_MEASUREMENT_AMENDMENT.md)。基础观察器口径仍适用，实际命令/运行来源按每轮controller和manifest；新旧探针数据不拼接为同条件收益。
+
 本文件定义 `scripts/optimization-benchmark.py` 的观察口径与复现条件。实际通过情况、性能值、失败及回归以对应 `reports/optimization-*.json` 为准；本文不填入估计性能。脚本可在未经优化的 `87bf217` 上运行，不依赖新的 Java 测试命令、迁移或生产配置。
 
 ## 环境与隔离

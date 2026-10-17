@@ -1,0 +1,21 @@
+{
+  "kind": "normal_fallback_tool_offline_validation",
+  "utc": "2026-10-17T17:57:04.469112+00:00",
+  "recipe": {
+    "path": "scripts/rc-normal-fallback.py",
+    "sha256": "51b618b6ad64072317dcffef0eac3e50fae273b8232d65bb14da5a841e70ea3d"
+  },
+  "as_reviewed_recipe_archive": {
+    "path": "reports/raw/rc-normal-fallback-51b618b6ad64072317dcffef0eac3e50fae273b8232d65bb14da5a841e70ea3d.py",
+    "sha256": "51b618b6ad64072317dcffef0eac3e50fae273b8232d65bb14da5a841e70ea3d"
+  },
+  "self_test_exit": 0,
+  "self_test_log": {
+    "path": "reports/rc-20261017/normal-fallback-positive-entrypoint-offline-20261017T175704Z-7b9d5abe.log",
+    "sha256": "b8c214a0646e1d2e8e90738da89822a7d789d015dcc254786cbdf94663f7c530"
+  },
+  "syntax": "PASS",
+  "git_diff_check_exit": 0,
+  "git_diff_check_output": "",
+  "scope": "Offline synthetic controls/ledger orchestration only; native/SQL/RCON/config/process lifecycle execution NOT_RUN. Await explicit root RELEASE."
+}

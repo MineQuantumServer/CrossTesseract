@@ -1,0 +1,192 @@
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileGtApiJava UP-TO-DATE
+> Task :processGtApiResources NO-SOURCE
+> Task :gtApiClasses UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jarJar UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :sourcesJar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+
+AeProxyAndThermalTest > duplicateBridgeAndLoopAdvertisementsAreCountedOnce() PASSED
+
+AeProxyAndThermalTest > thermalPendingIsFrozenDurableAndResidualIsConserved() PASSED
+
+AuthorityIntegrationTest > staleSessionIsFencedAndQuotaDoesNotExpireWithLease() PASSED
+
+AuthorityIntegrationTest > sealedReservedReceiptIsNeverPromotedByCheckpointOrReclaimedWithUnprovenConsumption() PASSED
+
+AuthorityIntegrationTest > duplicateServerIdIsRejectedAndCloneCannotClaimAnotherLocation() PASSED
+
+AuthorityIntegrationTest > historyAdmissionIsAtomicRollsBackAndOldPrunedKeysCannotReplay() PASSED
+
+AuthorityIntegrationTest > sameChunkCountsTwiceAndInstallFailureCompensates() PASSED
+
+AuthorityIntegrationTest > savepointCleanupPreservesRealMysqlDeadlockAndRetriesOnlyUncommittedWork() PASSED
+
+AuthorityIntegrationTest > outboxSurvivesUnpublishedCommitAndRedisIsNeverAssetAuthority() PASSED
+
+AuthorityIntegrationTest > profileAndPacketQuantumAvoidWrongVoltageAndFractionalAmps() PASSED
+
+AuthorityIntegrationTest > redisPendingConsumersDuplicateAndReorderedHintsAreRoutedAndIdempotent() PASSED
+
+AuthorityIntegrationTest > sealedRecoveryUsesOriginalOwnershipAndCannotRepeatReclaimedAssets() PASSED
+
+AuthorityIntegrationTest > stockPagingPendingCapExpirationAndBindingCancelAreBounded() PASSED
+
+AuthorityIntegrationTest > threeServersRaceForTwoPersistentSlots() PASSED
+
+AuthorityIntegrationTest > quarantinedAllocationsCannotBeReactivatedByCheckpointOrWalRestore() PASSED
+
+AuthorityIntegrationTest > directedStockIntentIsPrivateIdempotentAndUsesExclusiveFairAllocations() PASSED
+
+AuthorityIntegrationTest > passiveHeatUsesExclusivePreparedOwnershipAndNeverRefundsTimeouts() PASSED
+
+AuthorityIntegrationTest > integerBalancesPartialDeliveryAndDuplicatesConserveAcrossThreeServers() PASSED
+
+AuthorityIntegrationTest > quotaReductionIsDeterministicAndRetainsSlotsUntilRevocationAck() PASSED
+
+AuthorityIntegrationTest > mysqlDeadlocksAreRetriedWithoutRepeatingCommittedMutations() PASSED
+
+AuthorityIntegrationTest > invitationsArePrivateConcurrentIdempotentAndTransfersHaveOneOwner() PASSED
+
+BufferSafetyTest > allAcceptedRawSlotsEnterTheCheckpointEvenNearThePendingLimit() PASSED
+
+BufferSafetyTest > definiteLocalPartialRemaindersReturnToOriginalCreditsAndNeverSending() PASSED
+
+BufferSafetyTest > oldTimeBearingBusinessIdsCannotBecomeFreshOperationsAfterHistoryPruning() PASSED
+
+ChannelBatchIntegrationTest > oneCorruptOutstandingPayloadIsQuarantinedWithoutRollingBackHealthyDeviceWork() PASSED
+
+ChannelBatchIntegrationTest > replayingCapturedBusinessIdsDoesNotDuplicateDepositsCreditsOrPublication(Path) PASSED
+
+ChannelBatchIntegrationTest > authorizedReservedWalRecoveryConfirmsFencedSqlPublicationBeforeReturningCredit(Path) PASSED
+
+ChannelBatchIntegrationTest > allocationWithoutRenewalRetainsSqlDemandAndGlobalRemotePriority() PASSED
+
+ChannelBatchIntegrationTest > staleVersionAndRevokedEndpointRollBackTheirSavepointsWhileAnotherDeviceCommits() PASSED
+
+ChannelBatchIntegrationTest > fullOwnedItemAndFeCandidatesIncludingQuarantineCannotBlockOtherServers() PASSED
+
+ChannelBatchIntegrationTest > registeredRemoteDemandKeepsPriorityOverLocalBatchesAndAllThreeAuthoritiesConserve() PASSED
+
+ChannelBatchIntegrationTest > freshPublicationAuthorizationRejectsRevokedCreditWithoutRefundAndKeepsOthersWorking(Path) PASSED
+
+ChannelBatchIntegrationTest > differentCompletePayloadBytesRemainSeparateInDepositsAndAllocations() PASSED
+
+ChannelBatchIntegrationTest > longOverflowRollsBackOneDeviceIncludingItsNewResourceWhileOtherDevicesCommit() PASSED
+
+ChannelBatchIntegrationTest > aNewBootFencesBothOldSqlAndOldPublicationPhases(Path) PASSED
+
+ChannelBatchIntegrationTest > walReservedCreditCannotOpenAfterReceivePermissionWasRevoked(Path) PASSED
+
+ChannelBatchIntegrationTest > exhaustedWalCreditSurvivesRestoreUntilSqlCheckpointAndCannotBeRediscovered(Path) PASSED
+
+ChannelBatchIntegrationTest > multipleDeviceSqlAndWalPublicationPhasesEachCommitOneTransaction(Path) PASSED
+
+ChannelBatchIntegrationTest > checkpointOnlySkipsDiscoveryWithoutLosingReservedPositiveAssets(Path) PASSED
+
+ChannelCoordinatorTest > hotChannelRejoinsTailAfterEachLease() PASSED
+
+ChannelCoordinatorTest > oldFinishCannotEraseAnExplicitNewSignalAfterRemoval() PASSED
+
+ChannelCoordinatorTest > partialBatchesAndSignalsDuringFlightSurviveInDeviceOrder() PASSED
+
+ChannelCoordinatorTest > clearAndForeignLeasesCannotFinishNewWork() PASSED
+
+ChannelCoordinatorTest > invalidLimitsAndNullArgumentsAreRejectedWithoutAdmission() PASSED
+
+ChannelCoordinatorTest > pendingProbeTracksNextRunSignalsAcrossFlightRemovalAndRebinding() PASSED
+
+ChannelCoordinatorTest > duplicateSignalsHaveOneAdmissionAndOneImmutableLeaseEntry() PASSED
+
+ChannelCoordinatorTest > channelAndEndpointBoundsIncludeFlightUntilCompletion() PASSED
+
+ChannelCoordinatorTest > removingReadyWorkAndRevokedFlightWorkNeverResurrectsDevices() PASSED
+
+CompletionMailboxTest > nullAndRepeatedCompletionsCannotReplaceOrDuplicateCallbacks() PASSED
+
+CompletionMailboxTest > competingTerminalResultsPublishExactlyOneCallback() PASSED
+
+CompletionMailboxTest > concurrentAdmissionCannotStartMoreWorkThanCapacity() PASSED
+
+CompletionMailboxTest > concurrentWorkersKeepEveryAcceptedCallback() PASSED
+
+CompletionMailboxTest > reservationsAndQueuedCallbacksShareOneBoundUntilPolled() PASSED
+
+CompletionMailboxTest > invalidCapacityIsRejected() PASSED
+
+CompletionMailboxTest > callbackFailureCannotLeakCapacity() PASSED
+
+DemandRefreshTest > smallConsumptionDoesNotRenewEveryCreditButDepletionAndExpiryDo() PASSED
+
+DemandRefreshTest > profilesQuantumAndTinyCapacitiesRemainDistinct() PASSED
+
+DemandRefreshTest > missingConfigurationIsConservative(Path) PASSED
+
+JournalAndHeatTest > localCheckpointsRoundTripAndCorruptionFailsClosed(Path) PASSED
+
+JournalAndHeatTest > heatRejectsNaNInfinityIllegalCapacityAndColdToHot() PASSED
+
+LocalDeltaTest > disabledCleanPendingDepositsDoNotRequestEmptySqlButRemainDurable(Path) PASSED
+
+LocalDeltaTest > prospectiveAdmissionHonorsPerKindCountsAndGlobalUnconfirmedTombstones() PASSED
+
+LocalDeltaTest > identicalWalVersionsMayRepeatButDifferentContentsAndOldVersionsAreRejected(Path) PASSED
+
+LocalDeltaTest > randomizedCapturedDeltasAndWalRestorationConserveWithFixedSeed(Path) PASSED
+
+LocalDeltaTest > prospectiveAdmissionIsNonMutatingAndAccountsForAllIncomingCreditsTogether() PASSED
+
+LocalDeltaTest > capturedCompletionPreservesNewInputConsumptionAndUnconfirmedZeroCredits(Path) PASSED
+
+LocalRoomTest > positiveCredentialLimitAndPartialConsumptionControlAdmissionSeparatelyFromCapacity() PASSED
+
+LocalRoomTest > globalTombstoneBoundNeedsConfirmedCheckpointEvenWhenEveryRemainingIsZero() PASSED
+
+MigrationConcurrencyTest > threeConcurrentFreshMigrationsAndInterruptedDdlFailClosed() PASSED
+
+RcRecoveryIntegrationTest > depositCommitOkIsLostOnWireAndOriginalWalBusinessIdCreditsOnlyOnce() PASSED
+
+RcRecoveryIntegrationTest > localCommitOkIsLostOnWireAndSamePublicationCannotRestoreConsumedRemaining() PASSED
+
+JournalBarrierTest > identicalVisibleFileCannotAcknowledgeFailedDirectoryBarrier(Path) PASSED
+
+BufferSafetyTest > partialExtractionSimulationAndRepeatedCreditsConserve PASSED
+
+ChannelCoordinatorTest > boundedSignalsDrainExactlyOnceAcrossPartialChannelBatches PASSED
+
+ChannelCoordinatorTest > stateChangesMatchPendingAndFlightAccounting PASSED
+
+JournalAndHeatTest > passiveHeatNeverOvershootsOrCreatesEnergy PASSED
+
+> Task :check
+> Task :build
+> Task :downloadAssets UP-TO-DATE
+> Task :writeServerALegacyClasspath UP-TO-DATE
+> Task :prepareServerARun UP-TO-DATE
+> Task :createServerALaunchScript UP-TO-DATE
+> Task :writeServerBLegacyClasspath UP-TO-DATE
+> Task :prepareServerBRun UP-TO-DATE
+> Task :createServerBLaunchScript UP-TO-DATE
+> Task :writeServerCLegacyClasspath UP-TO-DATE
+> Task :prepareServerCRun UP-TO-DATE
+> Task :createServerCLaunchScript UP-TO-DATE
+> Task :writeServerPerfLegacyClasspath UP-TO-DATE
+> Task :prepareServerPerfRun UP-TO-DATE
+> Task :createServerPerfLaunchScript UP-TO-DATE
+
+BUILD SUCCESSFUL in 18s
+22 actionable tasks: 2 executed, 20 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

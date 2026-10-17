@@ -1,0 +1,793 @@
+{
+  "kind": "normal_fallback_actual_exit_and_window_release",
+  "utc": "2026-10-17T18:03:54.734411+00:00",
+  "actual_CLI_exec_session": 16142,
+  "actual_CLI_exit_code": 0,
+  "report": {
+    "path": "reports/rc-20261017/normal-fallback-rc-0113-fb-2bf6a319-20261017T175750Z-0f0f6f38.json",
+    "sha256": "18d963039d67eb458bad6d5e1f212a236d1142f1ee62b5f7d6729d05a26f8f9f"
+  },
+  "recipe": {
+    "path": "scripts/rc-normal-fallback.py",
+    "sha256": "51b618b6ad64072317dcffef0eac3e50fae273b8232d65bb14da5a841e70ea3d"
+  },
+  "native_totals": {
+    "accepted_FE": 945,
+    "output_FE": 945,
+    "empty_stage_FE": 567,
+    "cross_config_positive_handoff_FE": 378
+  },
+  "stages": [
+    {
+      "name": "fast_initial",
+      "flags": [
+        "true",
+        "true"
+      ],
+      "accepted": 189,
+      "output": 189,
+      "per_receiver": {
+        "c358046c-b515-4585-be3b-f218cccbfe04": 63,
+        "aeee29af-3cb2-444e-bf09-c1b102153287": 126
+      },
+      "duplicate_output": 0,
+      "business_ids": [
+        "01a14b03-f258-7e31-b002-a793b139bd0e",
+        "01a14b03-f361-7556-b70d-bcf9bf3b6b3d",
+        "01a14b04-0c1f-7310-bcf9-20336e2c4dfe",
+        "01a14b04-0c1f-7cf3-9f72-b5bcb2b4d034",
+        "01a14b04-1d1d-7b25-a495-54055c57d69b",
+        "01a14b04-1df4-7e3a-aa97-6d54fd4ee4ad"
+      ],
+      "passed": true
+    },
+    {
+      "name": "legacy",
+      "flags": [
+        "false",
+        "false"
+      ],
+      "accepted": 189,
+      "output": 189,
+      "per_receiver": {
+        "c358046c-b515-4585-be3b-f218cccbfe04": 63,
+        "aeee29af-3cb2-444e-bf09-c1b102153287": 126
+      },
+      "duplicate_output": 0,
+      "business_ids": [
+        "01a14b05-ad89-7dca-9126-a92925d6df9d",
+        "01a14b05-ae45-7665-9de9-829c6c5f861c",
+        "01a14b05-ceef-7f52-b1f1-678d8f007520",
+        "01a14b05-cf53-7b36-9d2e-4ad4c4650879",
+        "01a14b05-e91b-7223-9d4d-67d4f8a6c815",
+        "01a14b05-ea0a-7638-ba8b-2db7e26fe8ae"
+      ],
+      "passed": true
+    },
+    {
+      "name": "fast_restored",
+      "flags": [
+        "true",
+        "true"
+      ],
+      "accepted": 189,
+      "output": 189,
+      "per_receiver": {
+        "c358046c-b515-4585-be3b-f218cccbfe04": 126,
+        "aeee29af-3cb2-444e-bf09-c1b102153287": 63
+      },
+      "duplicate_output": 0,
+      "business_ids": [
+        "01a14b07-cb92-76b7-8bb3-b24a7f7194bb",
+        "01a14b07-cb92-7fe4-ad37-85c6072b3aee",
+        "01a14b07-ea09-7d95-936f-cbb1286d5729",
+        "01a14b07-eab7-7d2a-b56c-30da7b03014a",
+        "01a14b08-0917-78d8-916c-a69d3ff9c9cc",
+        "01a14b08-0917-7dae-b7c9-c9e892e0871a"
+      ],
+      "passed": true
+    }
+  ],
+  "positive_handoffs": [
+    {
+      "name": "fast_initial_positive_to_next_config",
+      "held_receiver": "aeee29af-3cb2-444e-bf09-c1b102153287",
+      "original_allocation": "01a14b04-5a4f-7b3f-b819-65fb5dc633a3",
+      "original_DEPOSIT_and_ALLOCATE_rows": [
+        {
+          "id": "01a14b04-59a9-786a-a14f-ea1f58d12752",
+          "kind": "DEPOSIT",
+          "state": "COMMITTED",
+          "amount": 128,
+          "endpoint": "c23810b3-5139-4840-862c-cba3f6237c36",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "id": "01a14b04-5a4f-7b3f-b819-65fb5dc633a3",
+          "kind": "ALLOCATE",
+          "state": "LOCAL",
+          "amount": 128,
+          "endpoint": "aeee29af-3cb2-444e-bf09-c1b102153287",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 75
+        },
+        {
+          "id": "01a14b04-7ba5-7e5c-b184-b4112310a65c",
+          "kind": "DEPOSIT",
+          "state": "COMMITTED",
+          "amount": 61,
+          "endpoint": "c23810b3-5139-4840-862c-cba3f6237c36",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        }
+      ],
+      "original_rows_unchanged_after_restart": true,
+      "held_pool": 61,
+      "held_SQL_owned": 75,
+      "after_restart_OFF_actual_outputs": [
+        0,
+        0
+      ],
+      "actual_OFF_TTL_wait_seconds": 7.141158941001777,
+      "all_new_business_IDs": [
+        "01a14b04-59a9-786a-a14f-ea1f58d12752",
+        "01a14b04-5a4f-7b3f-b819-65fb5dc633a3",
+        "01a14b04-7ba5-7e5c-b184-b4112310a65c",
+        "01a14b05-566e-777b-97dd-3e32da7cd2a7"
+      ],
+      "accepted": 189,
+      "output": 189,
+      "duplicate_output": 0,
+      "per_receiver": {
+        "c358046c-b515-4585-be3b-f218cccbfe04": 61,
+        "aeee29af-3cb2-444e-bf09-c1b102153287": 128
+      },
+      "ledger_before_restart": {
+        "actually_accepted_FE": 189,
+        "actually_extracted_FE": 53,
+        "SQL_pool_FE": 61,
+        "SQL_owned_remaining_FE": 75,
+        "conserved": true,
+        "scope": "SQL ownership ledger; local/WAL receipts are verified mirrors, not additional assets."
+      },
+      "ledger_after_restart": {
+        "actually_accepted_FE": 189,
+        "actually_extracted_FE": 189,
+        "SQL_pool_FE": 0,
+        "SQL_owned_remaining_FE": 0,
+        "conserved": true,
+        "scope": "SQL ownership ledger; local/WAL receipts are verified mirrors, not additional assets."
+      }
+    },
+    {
+      "name": "legacy_positive_to_next_config",
+      "held_receiver": "c358046c-b515-4585-be3b-f218cccbfe04",
+      "original_allocation": "01a14b06-3385-7128-a57f-c7e07394ce28",
+      "original_DEPOSIT_and_ALLOCATE_rows": [
+        {
+          "id": "01a14b06-328b-7b06-8bd2-22d8d97f6f4a",
+          "kind": "DEPOSIT",
+          "state": "COMMITTED",
+          "amount": 128,
+          "endpoint": "c23810b3-5139-4840-862c-cba3f6237c36",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "id": "01a14b06-3385-7128-a57f-c7e07394ce28",
+          "kind": "ALLOCATE",
+          "state": "LOCAL",
+          "amount": 128,
+          "endpoint": "c358046c-b515-4585-be3b-f218cccbfe04",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 75
+        },
+        {
+          "id": "01a14b06-5ced-7f06-ab8c-292b9f9ad643",
+          "kind": "DEPOSIT",
+          "state": "COMMITTED",
+          "amount": 61,
+          "endpoint": "c23810b3-5139-4840-862c-cba3f6237c36",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        }
+      ],
+      "original_rows_unchanged_after_restart": true,
+      "held_pool": 61,
+      "held_SQL_owned": 75,
+      "after_restart_OFF_actual_outputs": [
+        0,
+        0
+      ],
+      "actual_OFF_TTL_wait_seconds": 6.80297332400005,
+      "all_new_business_IDs": [
+        "01a14b06-328b-7b06-8bd2-22d8d97f6f4a",
+        "01a14b06-3385-7128-a57f-c7e07394ce28",
+        "01a14b06-5ced-7f06-ab8c-292b9f9ad643",
+        "01a14b07-6e4e-7dbe-9686-6d1d084120d4"
+      ],
+      "accepted": 189,
+      "output": 189,
+      "duplicate_output": 0,
+      "per_receiver": {
+        "c358046c-b515-4585-be3b-f218cccbfe04": 128,
+        "aeee29af-3cb2-444e-bf09-c1b102153287": 61
+      },
+      "ledger_before_restart": {
+        "actually_accepted_FE": 189,
+        "actually_extracted_FE": 53,
+        "SQL_pool_FE": 61,
+        "SQL_owned_remaining_FE": 75,
+        "conserved": true,
+        "scope": "SQL ownership ledger; local/WAL receipts are verified mirrors, not additional assets."
+      },
+      "ledger_after_restart": {
+        "actually_accepted_FE": 189,
+        "actually_extracted_FE": 189,
+        "SQL_pool_FE": 0,
+        "SQL_owned_remaining_FE": 0,
+        "conserved": true,
+        "scope": "SQL ownership ledger; local/WAL receipts are verified mirrors, not additional assets."
+      }
+    }
+  ],
+  "boots": [
+    {
+      "fast_initial": {
+        "A": {
+          "session_id": "01a14b03-b5fa-78d1-8e67-5c30c9c2e747",
+          "fencing_epoch": 3,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-A",
+          "world_id": "01a14aaa-7efb-79ee-b55d-2186554ba3ae"
+        },
+        "B": {
+          "session_id": "01a14b03-bb4c-7212-8c6e-28f390db0e36",
+          "fencing_epoch": 3,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-B",
+          "world_id": "01a14aaa-8081-76b1-a750-9f831feb20b8"
+        },
+        "C": {
+          "session_id": "01a14b03-c9f9-7422-a546-b8fae1d0dd19",
+          "fencing_epoch": 3,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-C",
+          "world_id": "01a14aaa-89e3-70cd-8695-03cfa3654b93"
+        }
+      }
+    },
+    {
+      "legacy": {
+        "A": {
+          "session_id": "01a14b04-fe91-7bd3-ba75-132e1a1166ae",
+          "fencing_epoch": 4,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-A",
+          "world_id": "01a14aaa-7efb-79ee-b55d-2186554ba3ae"
+        },
+        "B": {
+          "session_id": "01a14b05-09d7-71d4-80a4-1b001cd70103",
+          "fencing_epoch": 4,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-B",
+          "world_id": "01a14aaa-8081-76b1-a750-9f831feb20b8"
+        },
+        "C": {
+          "session_id": "01a14b05-09db-7547-ba27-4e0c2b123c3f",
+          "fencing_epoch": 4,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-C",
+          "world_id": "01a14aaa-89e3-70cd-8695-03cfa3654b93"
+        }
+      }
+    },
+    {
+      "fast_restored": {
+        "A": {
+          "session_id": "01a14b06-ebbb-7554-9fbb-0058de85b4d4",
+          "fencing_epoch": 5,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-A",
+          "world_id": "01a14aaa-7efb-79ee-b55d-2186554ba3ae"
+        },
+        "B": {
+          "session_id": "01a14b07-01e4-7f6e-b3f7-86b63304ae8e",
+          "fencing_epoch": 5,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-B",
+          "world_id": "01a14aaa-8081-76b1-a750-9f831feb20b8"
+        },
+        "C": {
+          "session_id": "01a14b06-fe7a-7560-89fd-9fa8c3b5adf1",
+          "fencing_epoch": 5,
+          "server_id": "opt-rc-soak-v2-0113ef3-full-C",
+          "world_id": "01a14aaa-89e3-70cd-8695-03cfa3654b93"
+        }
+      }
+    }
+  ],
+  "actual_launcher_exits_and_SQL_stopped": [
+    {
+      "stage": "fast_initial",
+      "launcher_exit_codes": {
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "SQL": {
+        "servers": [
+          {
+            "epoch": 3,
+            "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+            "server": "opt-rc-soak-v2-0113ef3-full-A",
+            "status": "STOPPED",
+            "session": "01a14b03-b5fa-78d1-8e67-5c30c9c2e747",
+            "clean_stop": 1,
+            "lease_live": false
+          },
+          {
+            "epoch": 3,
+            "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+            "server": "opt-rc-soak-v2-0113ef3-full-B",
+            "status": "STOPPED",
+            "session": "01a14b03-bb4c-7212-8c6e-28f390db0e36",
+            "clean_stop": 1,
+            "lease_live": false
+          },
+          {
+            "epoch": 3,
+            "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+            "server": "opt-rc-soak-v2-0113ef3-full-C",
+            "status": "STOPPED",
+            "session": "01a14b03-c9f9-7422-a546-b8fae1d0dd19",
+            "clean_stop": 1,
+            "lease_live": false
+          }
+        ],
+        "other_live": 0
+      }
+    },
+    {
+      "stage": "legacy",
+      "launcher_exit_codes": {
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "SQL": {
+        "servers": [
+          {
+            "epoch": 4,
+            "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+            "server": "opt-rc-soak-v2-0113ef3-full-A",
+            "status": "STOPPED",
+            "session": "01a14b04-fe91-7bd3-ba75-132e1a1166ae",
+            "clean_stop": 1,
+            "lease_live": false
+          },
+          {
+            "epoch": 4,
+            "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+            "server": "opt-rc-soak-v2-0113ef3-full-B",
+            "status": "STOPPED",
+            "session": "01a14b05-09d7-71d4-80a4-1b001cd70103",
+            "clean_stop": 1,
+            "lease_live": false
+          },
+          {
+            "epoch": 4,
+            "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+            "server": "opt-rc-soak-v2-0113ef3-full-C",
+            "status": "STOPPED",
+            "session": "01a14b05-09db-7547-ba27-4e0c2b123c3f",
+            "clean_stop": 1,
+            "lease_live": false
+          }
+        ],
+        "other_live": 0
+      }
+    },
+    {
+      "stage": "fast_restored",
+      "launcher_exit_codes": {
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "SQL": {
+        "servers": [
+          {
+            "epoch": 5,
+            "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+            "server": "opt-rc-soak-v2-0113ef3-full-A",
+            "status": "STOPPED",
+            "session": "01a14b06-ebbb-7554-9fbb-0058de85b4d4",
+            "clean_stop": 1,
+            "lease_live": false
+          },
+          {
+            "epoch": 5,
+            "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+            "server": "opt-rc-soak-v2-0113ef3-full-B",
+            "status": "STOPPED",
+            "session": "01a14b07-01e4-7f6e-b3f7-86b63304ae8e",
+            "clean_stop": 1,
+            "lease_live": false
+          },
+          {
+            "epoch": 5,
+            "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+            "server": "opt-rc-soak-v2-0113ef3-full-C",
+            "status": "STOPPED",
+            "session": "01a14b06-fe7a-7560-89fd-9fa8c3b5adf1",
+            "clean_stop": 1,
+            "lease_live": false
+          }
+        ],
+        "other_live": 0
+      }
+    }
+  ],
+  "persistent_quota_unchanged": {
+    "quota_limit": 2,
+    "policy_version": 1,
+    "grant_count": 0,
+    "desired_grant_count": 0,
+    "grants": []
+  },
+  "all_original_soak_SQL_final": {
+    "name": "fast_restored_stopped",
+    "utc": "2026-10-17T18:03:13.009333+00:00",
+    "SQL": {
+      "grants": [],
+      "endpoints": [
+        {
+          "id": "0952b812-8b24-4c76-b186-82e7e09fa697",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "09b70253-fdfb-46a8-b3f8-f05af09da40c",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b"
+        },
+        {
+          "id": "14d72c78-06ad-4e06-a867-e0380df864a0",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+          "server": "opt-rc-soak-v2-0113ef3-full-B",
+          "channel": "a20c5510-b51d-464d-8cc9-889014510284"
+        },
+        {
+          "id": "29fa1df1-d3ca-47f9-bc9f-2667ac248c43",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d"
+        },
+        {
+          "id": "3185b6e5-9310-4bdb-b0e3-a56b2b3e14a9",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+          "server": "opt-rc-soak-v2-0113ef3-full-C",
+          "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b"
+        },
+        {
+          "id": "76847e42-505b-4a41-8b5f-e30efd6f28f7",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "7ec3f36e-5a9e-475c-b067-bfda7ecb724f",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d"
+        },
+        {
+          "id": "7fe35087-7071-45d5-8bd0-bf9d60f21f4d",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf"
+        },
+        {
+          "id": "809c5b03-602f-4da1-b92e-878f01f37065",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "8370ac24-ca44-4f4f-b764-0b5dd216c0a1",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+          "server": "opt-rc-soak-v2-0113ef3-full-B",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "990047da-78dd-4fe8-ad3c-50e5cfb259a0",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+          "server": "opt-rc-soak-v2-0113ef3-full-B",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d"
+        },
+        {
+          "id": "9c7d12c2-3c80-4bcc-8e86-563bec347950",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "a20c5510-b51d-464d-8cc9-889014510284"
+        },
+        {
+          "id": "aeee29af-3cb2-444e-bf09-c1b102153287",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+          "server": "opt-rc-soak-v2-0113ef3-full-B",
+          "channel": "3da8925b-d619-4a10-9e08-93c52d344a19"
+        },
+        {
+          "id": "b307de38-b828-4841-a45f-0426487810f5",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-89e3-70cd-8695-03cfa3654b93",
+          "server": "opt-rc-soak-v2-0113ef3-full-C",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "b639030d-9fb3-4fe1-a548-2f5c8f1f771e",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-8081-76b1-a750-9f831feb20b8",
+          "server": "opt-rc-soak-v2-0113ef3-full-B",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "c23810b3-5139-4840-862c-cba3f6237c36",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "3da8925b-d619-4a10-9e08-93c52d344a19"
+        },
+        {
+          "id": "c358046c-b515-4585-be3b-f218cccbfe04",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "3da8925b-d619-4a10-9e08-93c52d344a19"
+        },
+        {
+          "id": "c53ae934-0b05-4a22-98bf-0bfe75b1258a",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "efdf5afb-6413-4a3f-84b6-b13f1500748f",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39"
+        },
+        {
+          "id": "fbe88d53-1f25-45b2-bf44-bf8e5a19f851",
+          "owner": "c2920fff-3dc1-4ff3-a026-8571bf9778a4",
+          "state": "ACTIVE",
+          "world": "01a14aaa-7efb-79ee-b55d-2186554ba3ae",
+          "server": "opt-rc-soak-v2-0113ef3-full-A",
+          "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf"
+        }
+      ],
+      "pool_rows": [
+        {
+          "kind": "cross_tesseract:fluid",
+          "amount": 0,
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "6ea81da9-2e3e-40af-8f47-6073ab565eed"
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "amount": 0,
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+        },
+        {
+          "kind": "cross_tesseract:item",
+          "amount": 0,
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "7bee0d72-1cd2-4702-9565-bb879ef6d7d7"
+        },
+        {
+          "kind": "cross_tesseract:item",
+          "amount": 0,
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "e0d83eab-f23e-4d1c-a85f-6da518799ffd"
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "amount": 0,
+          "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "amount": 0,
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "amount": 0,
+          "channel": "a20c5510-b51d-464d-8cc9-889014510284",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "amount": 0,
+          "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "amount": 0,
+          "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695"
+        }
+      ],
+      "quota_limit": 2,
+      "policy_version": 1,
+      "allocation_rows": [
+        {
+          "kind": "cross_tesseract:fluid",
+          "count": 3444,
+          "state": "CONSUMED",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "6ea81da9-2e3e-40af-8f47-6073ab565eed",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "count": 3400,
+          "state": "CONSUMED",
+          "channel": "5f100844-5cf5-4c79-b4b5-5d93f48c6f39",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "count": 3310,
+          "state": "CONSUMED",
+          "channel": "3da8925b-d619-4a10-9e08-93c52d344a19",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "count": 3448,
+          "state": "CONSUMED",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "count": 121,
+          "state": "CONSUMED",
+          "channel": "ebb82b9e-4ca6-4862-82f5-196d321cbcaf",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "count": 121,
+          "state": "CONSUMED",
+          "channel": "a20c5510-b51d-464d-8cc9-889014510284",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fe",
+          "count": 121,
+          "state": "CONSUMED",
+          "channel": "b91fcd97-2faa-49af-a567-cf88265ea51b",
+          "resource": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:item",
+          "count": 30,
+          "state": "CONSUMED",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "7bee0d72-1cd2-4702-9565-bb879ef6d7d7",
+          "remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:item",
+          "count": 30,
+          "state": "CONSUMED",
+          "channel": "028b69d8-1b3d-4dbc-89b5-de797f06740d",
+          "resource": "e0d83eab-f23e-4d1c-a85f-6da518799ffd",
+          "remaining": 0
+        }
+      ]
+    },
+    "persistent_quota": {
+      "quota_limit": 2,
+      "policy_version": 1,
+      "grant_count": 0,
+      "desired_grant_count": 0,
+      "grants": []
+    },
+    "all_resource_pool_zero": true,
+    "all_resource_allocation_remaining_zero": true,
+    "selected_positive_handoff": null,
+    "scope": "Every original soak channel/resource checked separately; no cross-resource or SQL/WAL asset sum."
+  },
+  "configs": {
+    "A": {
+      "current_sha256": "85b8160cb70f9fa5c0d615e4dc08f674cea334d3db69dfe3139f7f8bbe720e2e",
+      "initial_sha256": "85b8160cb70f9fa5c0d615e4dc08f674cea334d3db69dfe3139f7f8bbe720e2e",
+      "exact_original_bytes_restored": true
+    },
+    "B": {
+      "current_sha256": "08d1b202cb985d4e8dc2b3b08d3c4e5b52eb54b9101238c52746cb47f4603aa4",
+      "initial_sha256": "08d1b202cb985d4e8dc2b3b08d3c4e5b52eb54b9101238c52746cb47f4603aa4",
+      "exact_original_bytes_restored": true
+    },
+    "C": {
+      "current_sha256": "587d5a17f27f571aa26cdd06c4f03d757ab2b2d17eb9fb6248f5f11738b8349b",
+      "initial_sha256": "587d5a17f27f571aa26cdd06c4f03d757ab2b2d17eb9fb6248f5f11738b8349b",
+      "exact_original_bytes_restored": true
+    }
+  },
+  "probe_old_STOP_and_all_original_report_bytes_unchanged": true,
+  "original_full_and_first_failed_report_SHA_unchanged": {
+    "reports/rc-20261017/rc-soak-v2-0113ef3-full-controller-20261017T162024Z-7a118565/report.json": "39e96741e4e97b75c59adf47b57017ee4ae8870c36f1fd56798cbbdd9361c878",
+    "reports/rc-20261017/normal-fallback-rc-0113-fb-7c4a9e2d-20261017T172628Z-8e133b5c.json": "28be3360fdb87e1de2b869312c489e64eea537a33da44262f6e32c9a1bde07e0"
+  },
+  "remaining_java_javac_jstat": [],
+  "remaining_native_controllers_observers": [],
+  "launch_and_observer_locks": [
+    {
+      "path": "scratch/server-A.launch.lock",
+      "available": true
+    },
+    {
+      "path": "scratch/server-B.launch.lock",
+      "available": true
+    },
+    {
+      "path": "scratch/server-C.launch.lock",
+      "available": true
+    },
+    {
+      "path": "scratch/server-perf.launch.lock",
+      "available": true
+    },
+    {
+      "path": "scratch/rc-normal-fallback-observer.lock",
+      "available": true
+    }
+  ],
+  "remaining_selected_listen_ports": [],
+  "no_online_SQL_RCON_after_CLI_exit": true,
+  "asset_scope": "945 new native FE accepted/output in the original 0113 full cohort; old retained assets untouched. SQL/WAL are separate mirrors and never added."
+}

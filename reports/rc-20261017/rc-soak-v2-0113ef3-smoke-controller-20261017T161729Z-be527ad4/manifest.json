@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "utc_created": "2026-10-17T16:18:04.482377+00:00",
+  "state": "PREPARED_NOT_RUN",
+  "label": "rc-soak-v2-0113ef3-smoke",
+  "cluster": "dev_three_v1",
+  "world_prefix": "world-opt-rc-soak-v2-0113ef3-smoke",
+  "operator_runtime_revision_declared": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+  "scope": "operator declaration; actual launch manifests/PID/world/session verified separately",
+  "required_observation_seconds": 60,
+  "smoke": true,
+  "60min_gate": false,
+  "source_path": "scripts/rc-soak.py",
+  "source_sha256": "a8665e8bf3dd63e360f4963ecc95cd324b31cfaa9671c96da74abf0d027b62e6",
+  "no_server_or_container_lifecycle": true,
+  "historical_fixtures_reused": false
+}

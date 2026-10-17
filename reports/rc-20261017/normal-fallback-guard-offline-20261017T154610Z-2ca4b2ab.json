@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-17T15:46:10.366916+00:00",
+  "kind": "offline_normal_fallback_guard_self_test",
+  "recipe": {
+    "path": "scripts/rc-normal-fallback.py",
+    "sha256": "4904d18d9c35c738a0af9372ea76ade2c7eb95aea7242f15140f5c3c3ffdb9b5"
+  },
+  "previous_recipe": {
+    "path": "reports/raw/rc-normal-fallback-09c34d82558b0a44b348e7e8cc088c15ca76862ca52c6193674b501096ad3394.py",
+    "sha256": "09c34d82558b0a44b348e7e8cc088c15ca76862ca52c6193674b501096ad3394"
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "scripts/rc-normal-fallback.py",
+    "--self-test"
+  ],
+  "exit_code": 0,
+  "log": {
+    "path": "logs/rc-normal-fallback-guard-offline-20261017T154610Z-2ca4b2ab.log",
+    "sha256": "89a3988a11ba1de90308a30be40ba33ac7eceea677c034eea08eb21422bcb390"
+  },
+  "scope": "Pure offline synthetic ownership/lifecycle tests and bounded local file checks. No JVM/native/SQL/RCON/config changes or fallback execution. Historical1ae failure is unchanged.",
+  "native_execution": "NOT_RUN",
+  "new_artifact_tuple": {
+    "source_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+    "main_sha256": "99837a57935c9f35543024d05e28b192d3d93b721e41cd5463d3df6ad6917434",
+    "jar_sha256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c"
+  }
+}

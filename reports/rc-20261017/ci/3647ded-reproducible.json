@@ -1,0 +1,15 @@
+{
+  "source_commit": "3647dede64cfc23e054dfa962fd127787cae14ec",
+  "main_java_manifest_sha256": "998b3fc31ae9fd813f5f916a345240451d476283a9b05672b1bcc6c80cf89504",
+  "run": 39028980854,
+  "CI_conclusion": "success",
+  "tests": 79,
+  "artifact_id": 12099865685,
+  "artifact_url": "https://github.com/MineQuantumServer/CrossTesseract/actions/runs/39028980854/artifacts/12099865685",
+  "retention_days": 90,
+  "binary_sha256": "1ae895792a44ca791a8ae1b6516ab35014f4c7e769e4aaccc016aa9adb2d074f",
+  "sources_sha256": "cf063cd5de253348bb0d2ac20045b5857aed66b43d699b1e59e69ab1ddcec052",
+  "clean_CI_and_local_archives_identical": true,
+  "proof": "Exact sha256sum/main source manifest in log matches local intent-final-build manifest; no native/performance tests run in CI. See separately attributed native reports.",
+  "log_sha256": "24915b5fcd42a1cb12481f90c509a859c9391d0671bfd162f7e63d1b582d9abb"
+}

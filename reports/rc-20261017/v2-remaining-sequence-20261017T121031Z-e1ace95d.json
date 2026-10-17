@@ -1,0 +1,415 @@
+{
+  "utc_start": "2026-10-17T12:10:31.030606+00:00",
+  "passed": false,
+  "state": "FAILED_RETAINED",
+  "completed_f3_controller": {
+    "path": "reports/rc-20261017/rc-fe-v2-f3-controller-20261017T115431Z-b399eefe.json",
+    "sha256": "cfdffa07915d8d649948ec0fbda1844a222eb9667b060cc3baff0021b98ca9af"
+  },
+  "f3_raw": {
+    "path": "reports/optimization-rc-probe-rc-fe-v2-f3-20261017T115502Z-3649ba.json",
+    "sha256": "a4b797f82f09c027f0a84275fce48b1c705a84fabadb7d08bfa4cf0db8d08007"
+  },
+  "f3_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+    "sha256": "4170d832c15a36933a4e458238b41f4073b5feb09e706f088f891ad5396345b6"
+  },
+  "final_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+    "sha256": "decb34ff60e85dbc63ac4ac1a38ffee280ec2e9186e3d37daf552a2eae5561e7"
+  },
+  "controller": {
+    "path": "scripts/analysis/run-rc-v2-remaining.py",
+    "sha256": "551c9d50ed39d0ae1809a03923c4d486d878a4464616b3243b04016f00d8045f"
+  },
+  "runs": [
+    {
+      "name": "finalFE3",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "fe",
+        "--mode",
+        "fast",
+        "--variant",
+        "default",
+        "--label",
+        "rc-fe-v2-final"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:10:31.038160+00:00",
+      "observer_start": 9719.21878815,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-finalFE3-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:24:03.045200+00:00",
+      "observer_end": 10531.225850105,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-fe-v2-final-controller-20261017T121031Z-b0a6bf0a.json",
+          "sha256": "5ec6d51d62a72da5b4a8e39ce89c0637dd5614c373ee8ea86666603556443ef8"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-rc-fe-v2-final-20261017T121103Z-325b7f.json",
+          "sha256": "1d1df5e2fafcddf58adf57ea4e976f9dc5478f9cc148c1117c7ee48a468959ce"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-fe-v2-final-controller-20261017T121031Z-b0a6bf0a.json",
+        "sha256": "5ec6d51d62a72da5b4a8e39ce89c0637dd5614c373ee8ea86666603556443ef8"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "f3Bmix",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-f3-20261017T115338Z-4eb29d3f.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "mix",
+        "--mode",
+        "batch",
+        "--variant",
+        "default",
+        "--label",
+        "resource-mix-rc-f3b-v2"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:24:03.046675+00:00",
+      "observer_start": 10531.227297177,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-f3Bmix-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:27:28.052049+00:00",
+      "observer_end": 10736.232688985,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+          "sha256": "f09c544ebdfba0b5ab2f464a0cac2b2b1a8ce2baac42d5e795127169ad9293f3"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-mix-resource-mix-rc-f3b-v2-20261017T122434Z-ae7e98.json",
+          "sha256": "b86b71c6e033b44694d95580aeac2b13bacb9d34ed6147e46aecdb2615cd1c4a"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/resource-mix-rc-f3b-v2-controller-20261017T122403Z-9fcf2912.json",
+        "sha256": "f09c544ebdfba0b5ab2f464a0cac2b2b1a8ce2baac42d5e795127169ad9293f3"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "finalBmix",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "mix",
+        "--mode",
+        "batch",
+        "--variant",
+        "default",
+        "--label",
+        "resource-mix-rc-3647b-v2"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:27:28.053599+00:00",
+      "observer_start": 10736.234226692,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-finalBmix-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:30:52.657332+00:00",
+      "observer_end": 10940.837964766,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+          "sha256": "3b018f964734b47cdc72405630eae8665baab6038fb5f296517f67350f918a77"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-mix-resource-mix-rc-3647b-v2-20261017T122758Z-b5b90d.json",
+          "sha256": "90603d33bb8bff85ab97ccc617b656a8653d180d3c3102979853dc69297d7bf1"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/resource-mix-rc-3647b-v2-controller-20261017T122728Z-59098b30.json",
+        "sha256": "3b018f964734b47cdc72405630eae8665baab6038fb5f296517f67350f918a77"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "finalFastMix",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "mix",
+        "--mode",
+        "fast",
+        "--variant",
+        "default",
+        "--label",
+        "resource-mix-rc-3647f-v2"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:30:52.659095+00:00",
+      "observer_start": 10940.839717692,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-finalFastMix-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:34:15.839588+00:00",
+      "observer_end": 11144.020223515,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+          "sha256": "af998599e30fc7f5243b43eed3965ac429b68e3b60a5d76a183d25b211fed97a"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-mix-resource-mix-rc-3647f-v2-20261017T123124Z-100ae2.json",
+          "sha256": "ede9c1b3b4a63fe83d80e77d5df7c4c32c5d0a5cea56b23efdbd7799172cf56a"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/resource-mix-rc-3647f-v2-controller-20261017T123052Z-5624f640.json",
+        "sha256": "af998599e30fc7f5243b43eed3965ac429b68e3b60a5d76a183d25b211fed97a"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "ablationDefault",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "ablation",
+        "--mode",
+        "fast",
+        "--variant",
+        "default",
+        "--label",
+        "rc-fe-v2-abl-default"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:34:15.840591+00:00",
+      "observer_start": 11144.0212131,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-ablationDefault-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:36:59.855772+00:00",
+      "observer_end": 11308.036408064,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-fe-v2-abl-default-controller-20261017T123415Z-6ffef180.json",
+          "sha256": "48bf3954a0de7ce7a9935709b9503e73d1f5c11f77a05d7244dc491ee0cef4e1"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-rc-fe-v2-abl-default-20261017T123447Z-8ca7cb.json",
+          "sha256": "d3eb993530e0c5a03f648b48e77b1aae01c4879c447282c7f4181e8d53652f34"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-fe-v2-abl-default-controller-20261017T123415Z-6ffef180.json",
+        "sha256": "48bf3954a0de7ce7a9935709b9503e73d1f5c11f77a05d7244dc491ee0cef4e1"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "ablationNotification1000",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "ablation",
+        "--mode",
+        "fast",
+        "--variant",
+        "notification1000",
+        "--label",
+        "rc-fe-v2-abl-notify"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:36:59.857074+00:00",
+      "observer_start": 11308.037696113,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-ablationNotification1000-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:39:46.856200+00:00",
+      "observer_end": 11475.036832838,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-fe-v2-abl-notify-controller-20261017T123659Z-6a7e6761.json",
+          "sha256": "6c22bba00b4766379bfd1aa04cd4faaeb9265f20d3918b8d2928201519903bbf"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-rc-fe-v2-abl-notify-20261017T123735Z-b92946.json",
+          "sha256": "e273025138a1a14265b8da7173ef37e305e56849630b1e99fd26f22c02028c2e"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-fe-v2-abl-notify-controller-20261017T123659Z-6a7e6761.json",
+        "sha256": "6c22bba00b4766379bfd1aa04cd4faaeb9265f20d3918b8d2928201519903bbf"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "ablationActive200",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-stage.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--tree-manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--phase",
+        "ablation",
+        "--mode",
+        "fast",
+        "--variant",
+        "active200",
+        "--label",
+        "rc-fe-v2-abl-active"
+      ],
+      "state": "PASS",
+      "utc_start": "2026-10-17T12:39:46.857230+00:00",
+      "observer_start": 11475.037851887,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-stage.py",
+        "sha256": "b748b7fcd1860218307949a19fc1e7f05cb09cf801409fa3aabea7adad72ca3d"
+      },
+      "log": "logs/rc-v2-ablationActive200-20261017T121031Z-e1ace95d.log",
+      "exit_code": 0,
+      "utc_end": "2026-10-17T12:42:31.281003+00:00",
+      "observer_end": 11639.461636541,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-fe-v2-abl-active-controller-20261017T123946Z-5c0d654d.json",
+          "sha256": "27d830c1c360cdb0f5237b40c5496f5c901db95a30eeee0d0464d936fefe11ab"
+        },
+        "passed": true,
+        "raw_report": {
+          "path": "reports/optimization-rc-probe-rc-fe-v2-abl-active-20261017T124018Z-f45aa8.json",
+          "sha256": "0c7674d83947ed427733719270e261a3105dde5fd4e99332e099edb64bb8db98"
+        }
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-fe-v2-abl-active-controller-20261017T123946Z-5c0d654d.json",
+        "sha256": "27d830c1c360cdb0f5237b40c5496f5c901db95a30eeee0d0464d936fefe11ab"
+      },
+      "child_passed": true
+    },
+    {
+      "name": "smoke60",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--kind",
+        "smoke",
+        "--label",
+        "rc-soak-v2-3647-smoke"
+      ],
+      "state": "FAILED_RETAINED",
+      "utc_start": "2026-10-17T12:42:31.282080+00:00",
+      "observer_start": 11639.46270257,
+      "helper": {
+        "path": "scripts/analysis/run-rc-v2-soak.py",
+        "sha256": "c93e5e7ca79eac8d548126f142e68796dbcf37dcfc60408a1de5db812641fb4c"
+      },
+      "log": "logs/rc-v2-smoke60-20261017T121031Z-e1ace95d.log",
+      "exit_code": 1,
+      "utc_end": "2026-10-17T12:43:10.108130+00:00",
+      "observer_end": 11678.288763991,
+      "completion": {
+        "controller": {
+          "path": "reports/rc-20261017/rc-soak-v2-3647-smoke-controller-20261017T124231Z-ce30b6b0.json",
+          "sha256": "49aa1c3843fb01e999cbb99651dc55af8fada9855786697f830ba9682ab801d6"
+        },
+        "passed": false,
+        "raw_report": null
+      },
+      "child_controller": {
+        "path": "reports/rc-20261017/rc-soak-v2-3647-smoke-controller-20261017T124231Z-ce30b6b0.json",
+        "sha256": "49aa1c3843fb01e999cbb99651dc55af8fada9855786697f830ba9682ab801d6"
+      },
+      "child_passed": false,
+      "completion_error": "AssertionError: "
+    },
+    {
+      "name": "full3600",
+      "command": [
+        "python3",
+        "scripts/analysis/run-rc-v2-soak.py",
+        "--execute",
+        "--manifest",
+        "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T115320Z-19157594.json",
+        "--kind",
+        "full",
+        "--label",
+        "rc-soak-v2-3647-full"
+      ],
+      "state": "NOT_RUN"
+    }
+  ],
+  "failures": [
+    "RuntimeError: Child failed; later stages remain NOT_RUN: smoke60"
+  ],
+  "scope": "n1 primary FE3 and resource profiles, independent short ablations, explicit smoke60 then real3600s. Functional pass is separate from frozen latency/SQL targets. No overlap/heavy work; input drivers unchanged during execution.",
+  "utc_end": "2026-10-17T12:43:10.109319+00:00"
+}

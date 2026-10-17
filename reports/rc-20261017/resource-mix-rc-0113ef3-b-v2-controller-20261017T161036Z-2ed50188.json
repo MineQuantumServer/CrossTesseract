@@ -1,0 +1,2014 @@
+{
+  "utc_start": "2026-10-17T16:10:36.968353+00:00",
+  "passed": true,
+  "functional_passed": true,
+  "qualified_passed": true,
+  "phase": "mix",
+  "mode": "batch",
+  "variant": "default",
+  "runtime_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+    "sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e"
+  },
+  "runtime_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+  "expected_runtime_identity": {
+    "source_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+    "JAR_sha256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+    "role": "candidate",
+    "operator_explicit_pair": true
+  },
+  "checkout_source_identity": {
+    "source_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+    "JAR_sha256": "70a02e49900dee34fc996bfcf95360689ea9e42c35996c581c52df2ee6fdb07c",
+    "role": "candidate"
+  },
+  "runtime_identity_guard": {
+    "path": "scripts/analysis/rc_runtime_identity.py",
+    "sha256": "86e2fa5ecd26619ad3a64b2b9fbe5b4f2b3bf08a9d1dd14eacc1011cacce9279"
+  },
+  "checkout_source_guard_manifest": {
+    "path": "reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+    "sha256": "33e50bdec1008e45364f7409e24d546cb23d4f119bee30aa61606d901b69688e"
+  },
+  "source_guard_expected_revision": "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+  "controller": {
+    "path": "scripts/analysis/run-rc-v2-stage.py",
+    "sha256": "c0124b22b55e8ce3a91cd00857553b0be7af7501608cd657dd5249f5fcb88024"
+  },
+  "lifecycle": [
+    {
+      "action": "start_frozen_once",
+      "server": "A",
+      "PID": 388814,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+      "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/serverARunVmArgs.txt",
+      "vm_args_sha256": "fef09e95c1bbaab5997c2d160d6b90b57ff36dc8a19585f28d9419088960e4ae",
+      "log": "logs/resource-mix-rc-0113ef3-b-v2-20261017T161036Z-2ed50188-A.log",
+      "utc": "2026-10-17T16:10:37.020252+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "B",
+      "PID": 388818,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+      "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/serverBRunVmArgs.txt",
+      "vm_args_sha256": "38048ee5073434204029e943d40a6b415a97fee61ded9f4e1a35c679494befe4",
+      "log": "logs/resource-mix-rc-0113ef3-b-v2-20261017T161036Z-2ed50188-B.log",
+      "utc": "2026-10-17T16:10:37.032021+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "C",
+      "PID": 388822,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+      "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/serverCRunVmArgs.txt",
+      "vm_args_sha256": "bb5dd0529c733398477705f178fe85efca4c2d3a99a2cf8fa10f207e15379648",
+      "log": "logs/resource-mix-rc-0113ef3-b-v2-20261017T161036Z-2ed50188-C.log",
+      "utc": "2026-10-17T16:10:37.042770+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24125.2237619,
+      "utc": "2026-10-17T16:10:37.043146+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24125.224910191
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24125.224926765,
+      "utc": "2026-10-17T16:10:37.044310+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24125.224986063
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24125.224990199,
+      "utc": "2026-10-17T16:10:37.044373+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24125.22501751
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24125.725562072,
+      "utc": "2026-10-17T16:10:37.544949+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24125.72576371
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24125.725774256,
+      "utc": "2026-10-17T16:10:37.545158+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24125.725809197
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24125.725814245,
+      "utc": "2026-10-17T16:10:37.545197+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24125.72583782
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24126.228917324,
+      "utc": "2026-10-17T16:10:38.048305+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24126.229201965
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24126.229216136,
+      "utc": "2026-10-17T16:10:38.048600+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24126.229276335
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24126.229282995,
+      "utc": "2026-10-17T16:10:38.048666+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24126.229323355
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24126.729460097,
+      "utc": "2026-10-17T16:10:38.548848+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24126.729721324
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24126.729734804,
+      "utc": "2026-10-17T16:10:38.549118+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24126.729796475
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24126.729803265,
+      "utc": "2026-10-17T16:10:38.549186+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24126.729839759
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24127.229975912,
+      "utc": "2026-10-17T16:10:39.049363+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24127.230199443
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24127.230209307,
+      "utc": "2026-10-17T16:10:39.049593+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24127.230244149
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24127.230248435,
+      "utc": "2026-10-17T16:10:39.049632+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24127.230280423
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24127.731005496,
+      "utc": "2026-10-17T16:10:39.550392+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24127.731506237
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24127.731517354,
+      "utc": "2026-10-17T16:10:39.550901+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24127.731559036
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24127.73156893,
+      "utc": "2026-10-17T16:10:39.550952+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24127.731594308
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24128.235182375,
+      "utc": "2026-10-17T16:10:40.054570+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24128.235430612
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24128.235443922,
+      "utc": "2026-10-17T16:10:40.054827+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24128.235501497
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24128.235508147,
+      "utc": "2026-10-17T16:10:40.054891+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24128.235554906
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24128.735696737,
+      "utc": "2026-10-17T16:10:40.555126+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24128.735973727
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24128.735984533,
+      "utc": "2026-10-17T16:10:40.555368+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24128.736057071
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24128.736061928,
+      "utc": "2026-10-17T16:10:40.555445+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24128.736088007
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24129.2400788,
+      "utc": "2026-10-17T16:10:41.059467+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24129.240361468
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24129.240371543,
+      "utc": "2026-10-17T16:10:41.059755+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24129.240401347
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24129.240405734,
+      "utc": "2026-10-17T16:10:41.059789+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24129.240427867
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24129.741443065,
+      "utc": "2026-10-17T16:10:41.560830+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24129.741658644
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24129.741668399,
+      "utc": "2026-10-17T16:10:41.561052+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24129.741697832
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24129.741702049,
+      "utc": "2026-10-17T16:10:41.561085+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24129.741724071
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24130.24415845,
+      "utc": "2026-10-17T16:10:42.063546+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24130.244363103
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24130.244372678,
+      "utc": "2026-10-17T16:10:42.063756+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24130.244402141
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24130.244406608,
+      "utc": "2026-10-17T16:10:42.063790+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24130.244427909
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24130.745347125,
+      "utc": "2026-10-17T16:10:42.564735+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24130.745558838
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24130.745567962,
+      "utc": "2026-10-17T16:10:42.564951+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24130.745599158
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24130.745603404,
+      "utc": "2026-10-17T16:10:42.564987+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24130.745625086
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24131.248087027,
+      "utc": "2026-10-17T16:10:43.067475+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24131.248367523
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24131.248384928,
+      "utc": "2026-10-17T16:10:43.067769+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24131.248452689
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24131.24846024,
+      "utc": "2026-10-17T16:10:43.067844+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24131.248498917
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24131.750600478,
+      "utc": "2026-10-17T16:10:43.569988+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24131.750805542
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24131.750814866,
+      "utc": "2026-10-17T16:10:43.570198+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24131.750844149
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24131.750848405,
+      "utc": "2026-10-17T16:10:43.570232+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24131.750870138
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24132.251046259,
+      "utc": "2026-10-17T16:10:44.070433+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24132.25128335
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24132.251293745,
+      "utc": "2026-10-17T16:10:44.070677+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24132.25132424
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24132.251328477,
+      "utc": "2026-10-17T16:10:44.070712+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24132.25135116
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24132.751472476,
+      "utc": "2026-10-17T16:10:44.570860+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24132.751675777
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24132.751685561,
+      "utc": "2026-10-17T16:10:44.571069+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24132.751716387
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24132.751720373,
+      "utc": "2026-10-17T16:10:44.571103+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24132.751742746
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24133.251865149,
+      "utc": "2026-10-17T16:10:45.071253+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24133.252103011
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24133.252131153,
+      "utc": "2026-10-17T16:10:45.071515+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24133.252168027
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24133.252172213,
+      "utc": "2026-10-17T16:10:45.071555+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24133.252194396
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24133.756089444,
+      "utc": "2026-10-17T16:10:45.575477+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24133.756339634
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24133.756349689,
+      "utc": "2026-10-17T16:10:45.575733+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24133.756408967
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24133.756413714,
+      "utc": "2026-10-17T16:10:45.575797+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24133.75643803
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24134.257424577,
+      "utc": "2026-10-17T16:10:46.076813+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24134.257693786
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24134.257705393,
+      "utc": "2026-10-17T16:10:46.077089+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24134.257750459
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24134.257756128,
+      "utc": "2026-10-17T16:10:46.077139+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24134.257790879
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24134.757937081,
+      "utc": "2026-10-17T16:10:46.577325+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24134.758217096
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24134.758230265,
+      "utc": "2026-10-17T16:10:46.577614+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24134.758283795
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24134.758289744,
+      "utc": "2026-10-17T16:10:46.577673+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24134.758409521
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24135.258563476,
+      "utc": "2026-10-17T16:10:47.077951+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24135.258848898
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24135.258861367,
+      "utc": "2026-10-17T16:10:47.078245+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24135.258908817
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24135.258914625,
+      "utc": "2026-10-17T16:10:47.078298+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24135.258945531
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24135.760529497,
+      "utc": "2026-10-17T16:10:47.579917+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24135.76072707
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24135.760738587,
+      "utc": "2026-10-17T16:10:47.580122+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24135.760771315
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24135.760775521,
+      "utc": "2026-10-17T16:10:47.580159+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24135.760797374
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24136.264074793,
+      "utc": "2026-10-17T16:10:48.083462+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24136.264306706
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24136.264316811,
+      "utc": "2026-10-17T16:10:48.083700+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24136.264347016
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24136.264351042,
+      "utc": "2026-10-17T16:10:48.083734+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24136.264373325
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24136.764504501,
+      "utc": "2026-10-17T16:10:48.583892+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24136.764759749
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24136.764771256,
+      "utc": "2026-10-17T16:10:48.584155+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24136.764810814
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24136.764816072,
+      "utc": "2026-10-17T16:10:48.584199+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24136.764847418
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24137.265212995,
+      "utc": "2026-10-17T16:10:49.084601+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24137.265463386
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24137.265477086,
+      "utc": "2026-10-17T16:10:49.084861+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24137.265537205
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24137.265544486,
+      "utc": "2026-10-17T16:10:49.084958+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24137.265634439
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24137.765779135,
+      "utc": "2026-10-17T16:10:49.585166+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24137.766042044
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24137.766056215,
+      "utc": "2026-10-17T16:10:49.585440+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24137.766211285
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24137.766220368,
+      "utc": "2026-10-17T16:10:49.585604+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24137.766293937
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24138.266439429,
+      "utc": "2026-10-17T16:10:50.085827+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24138.266700626
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24138.266712483,
+      "utc": "2026-10-17T16:10:50.086096+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24138.266760564
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24138.266766453,
+      "utc": "2026-10-17T16:10:50.086150+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24138.266807404
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24138.772085204,
+      "utc": "2026-10-17T16:10:50.591473+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24138.772356636
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24138.772368633,
+      "utc": "2026-10-17T16:10:50.591752+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24138.772407371
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24138.772412228,
+      "utc": "2026-10-17T16:10:50.591795+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24138.7724407
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24139.272585476,
+      "utc": "2026-10-17T16:10:51.091974+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24139.272844239
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24139.272855856,
+      "utc": "2026-10-17T16:10:51.092239+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24139.27289933
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24139.272904748,
+      "utc": "2026-10-17T16:10:51.092288+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24139.272936826
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24139.773063467,
+      "utc": "2026-10-17T16:10:51.592451+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24139.773310042
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24139.773321929,
+      "utc": "2026-10-17T16:10:51.592706+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24139.773358243
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24139.77336259,
+      "utc": "2026-10-17T16:10:51.592746+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24139.773386225
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24140.27352372,
+      "utc": "2026-10-17T16:10:52.092912+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24140.273774481
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24140.27378721,
+      "utc": "2026-10-17T16:10:52.093171+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24140.273828961
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24140.273834359,
+      "utc": "2026-10-17T16:10:52.093218+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24140.273867378
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24140.774014011,
+      "utc": "2026-10-17T16:10:52.593402+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24140.774289058
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24140.774300855,
+      "utc": "2026-10-17T16:10:52.593684+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24140.774338301
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24140.774343749,
+      "utc": "2026-10-17T16:10:52.593727+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24140.774370829
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24141.274497932,
+      "utc": "2026-10-17T16:10:53.093885+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24141.274717647
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24141.274727742,
+      "utc": "2026-10-17T16:10:53.094111+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24141.274757286
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24141.274761993,
+      "utc": "2026-10-17T16:10:53.094145+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24141.274784206
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24141.774981087,
+      "utc": "2026-10-17T16:10:53.594369+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24141.775303544
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24141.77531375,
+      "utc": "2026-10-17T16:10:53.594697+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24141.775344605
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24141.775349042,
+      "utc": "2026-10-17T16:10:53.594732+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24141.775370283
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24142.299463557,
+      "utc": "2026-10-17T16:10:54.118851+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24142.299680228
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24142.299689522,
+      "utc": "2026-10-17T16:10:54.119073+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24142.299719045
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24142.299723171,
+      "utc": "2026-10-17T16:10:54.119106+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24142.299744944
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24142.800284298,
+      "utc": "2026-10-17T16:10:54.619672+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24142.800489782
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24142.800500338,
+      "utc": "2026-10-17T16:10:54.619884+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24142.800529701
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24142.800534058,
+      "utc": "2026-10-17T16:10:54.619917+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24142.800555019
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24143.300678916,
+      "utc": "2026-10-17T16:10:55.120066+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24143.300881677
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24143.300892122,
+      "utc": "2026-10-17T16:10:55.120275+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24143.300921806
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24143.300926213,
+      "utc": "2026-10-17T16:10:55.120309+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24143.300947514
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24143.80408548,
+      "utc": "2026-10-17T16:10:55.623473+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24143.804375099
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24143.804387487,
+      "utc": "2026-10-17T16:10:55.623771+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24143.804434517
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24143.804439865,
+      "utc": "2026-10-17T16:10:55.623823+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24143.804493154
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24144.304638323,
+      "utc": "2026-10-17T16:10:56.124026+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24144.304898118
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24144.304910906,
+      "utc": "2026-10-17T16:10:56.124295+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24144.304952308
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24144.304957345,
+      "utc": "2026-10-17T16:10:56.124341+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24144.30498764
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24144.806590484,
+      "utc": "2026-10-17T16:10:56.625978+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24144.806804621
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24144.806814025,
+      "utc": "2026-10-17T16:10:56.626197+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24144.806843959
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24144.806848365,
+      "utc": "2026-10-17T16:10:56.626231+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24144.806870458
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24145.307012188,
+      "utc": "2026-10-17T16:10:57.126400+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24145.307301927
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24145.307314175,
+      "utc": "2026-10-17T16:10:57.126698+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24145.30735805
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24145.307363508,
+      "utc": "2026-10-17T16:10:57.126747+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24145.307393663
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24145.807535302,
+      "utc": "2026-10-17T16:10:57.626923+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24145.807795127
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24145.807808327,
+      "utc": "2026-10-17T16:10:57.627192+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24145.807868195
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24145.807874735,
+      "utc": "2026-10-17T16:10:57.627258+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24145.807915375
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24146.308317416,
+      "utc": "2026-10-17T16:10:58.127705+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24146.308583349
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24146.30859764,
+      "utc": "2026-10-17T16:10:58.127981+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24146.308664149
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24146.3086718,
+      "utc": "2026-10-17T16:10:58.128055+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24146.308723056
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24146.812093785,
+      "utc": "2026-10-17T16:10:58.631481+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24146.812372428
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24146.812386809,
+      "utc": "2026-10-17T16:10:58.631770+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24146.812433568
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24146.812439317,
+      "utc": "2026-10-17T16:10:58.631823+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24146.812476212
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24147.316080181,
+      "utc": "2026-10-17T16:10:59.135467+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24147.31630906
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24147.316318204,
+      "utc": "2026-10-17T16:10:59.135701+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24147.316348058
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24147.316352264,
+      "utc": "2026-10-17T16:10:59.135735+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24147.316374227
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24147.81650549,
+      "utc": "2026-10-17T16:10:59.635893+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24147.816706137
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24147.816716092,
+      "utc": "2026-10-17T16:10:59.636100+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24147.81674832
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24147.816752636,
+      "utc": "2026-10-17T16:10:59.636136+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24147.816776712
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24148.316921233,
+      "utc": "2026-10-17T16:11:00.136309+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24148.31720909
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24148.317223481,
+      "utc": "2026-10-17T16:11:00.136608+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24148.317282639
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24148.317288447,
+      "utc": "2026-10-17T16:11:00.136672+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24148.317322508
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24148.817447171,
+      "utc": "2026-10-17T16:11:00.636835+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24148.817666906
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24148.817676641,
+      "utc": "2026-10-17T16:11:00.637060+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24148.817705724
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24148.817710331,
+      "utc": "2026-10-17T16:11:00.637094+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24148.817732123
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24149.320087168,
+      "utc": "2026-10-17T16:11:01.139474+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24149.320295857
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24149.320305171,
+      "utc": "2026-10-17T16:11:01.139689+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24149.320337138
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24149.320341344,
+      "utc": "2026-10-17T16:11:01.139725+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24149.320363387
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24149.82048903,
+      "utc": "2026-10-17T16:11:01.639876+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24149.820703017
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24149.820712671,
+      "utc": "2026-10-17T16:11:01.640096+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24149.820744348
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24149.820748614,
+      "utc": "2026-10-17T16:11:01.640132+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24149.820770186
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24150.32089254,
+      "utc": "2026-10-17T16:11:02.140280+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24150.321131784
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24150.321143571,
+      "utc": "2026-10-17T16:11:02.140527+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24150.321181487
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24150.321185584,
+      "utc": "2026-10-17T16:11:02.140569+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24150.321207316
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24150.82134407,
+      "utc": "2026-10-17T16:11:02.640732+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24150.821599228
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24150.821613179,
+      "utc": "2026-10-17T16:11:02.640997+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24150.821662021
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24150.821667379,
+      "utc": "2026-10-17T16:11:02.641051+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24150.821699927
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24151.321840938,
+      "utc": "2026-10-17T16:11:03.141229+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24151.322104278
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24151.322154302,
+      "utc": "2026-10-17T16:11:03.141538+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24151.322217436
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24151.322223945,
+      "utc": "2026-10-17T16:11:03.141607+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24151.32226763
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24151.822396253,
+      "utc": "2026-10-17T16:11:03.641784+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24151.822711259
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24151.822721895,
+      "utc": "2026-10-17T16:11:03.642105+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24151.822756005
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24151.822760342,
+      "utc": "2026-10-17T16:11:03.642144+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24151.822784427
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24152.322911905,
+      "utc": "2026-10-17T16:11:04.142300+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24152.323178018
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24152.323189756,
+      "utc": "2026-10-17T16:11:04.142573+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24152.323230937
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24152.323235213,
+      "utc": "2026-10-17T16:11:04.142618+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24152.323261933
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24152.823396864,
+      "utc": "2026-10-17T16:11:04.642784+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24152.823621747
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24152.823633785,
+      "utc": "2026-10-17T16:11:04.643017+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24152.8236776
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24152.823682798,
+      "utc": "2026-10-17T16:11:04.643066+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24152.823721775
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24153.332141206,
+      "utc": "2026-10-17T16:11:05.151529+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24153.332405637
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24153.332422342,
+      "utc": "2026-10-17T16:11:05.151807+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24153.332492456
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24153.332499166,
+      "utc": "2026-10-17T16:11:05.151883+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24153.332537853
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24153.832667217,
+      "utc": "2026-10-17T16:11:05.652054+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24153.832887894
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24153.83289859,
+      "utc": "2026-10-17T16:11:05.652282+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24153.832930868
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24153.832935134,
+      "utc": "2026-10-17T16:11:05.652318+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24153.832957006
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24154.333237619,
+      "utc": "2026-10-17T16:11:06.152625+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24154.333452417
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24154.333463484,
+      "utc": "2026-10-17T16:11:06.152847+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24154.333499907
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24154.333504494,
+      "utc": "2026-10-17T16:11:06.152888+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24154.333526807
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24154.833651995,
+      "utc": "2026-10-17T16:11:06.653040+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24154.83386522
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24154.833874354,
+      "utc": "2026-10-17T16:11:06.653258+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24154.833915054
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24154.833921484,
+      "utc": "2026-10-17T16:11:06.653305+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24154.834026489
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24155.334161922,
+      "utc": "2026-10-17T16:11:07.153550+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24155.33437614
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24155.334385103,
+      "utc": "2026-10-17T16:11:07.153768+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24155.334415758
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24155.334419894,
+      "utc": "2026-10-17T16:11:07.153803+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24155.334442858
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24155.834577234,
+      "utc": "2026-10-17T16:11:07.653965+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24155.834774376
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24155.834784421,
+      "utc": "2026-10-17T16:11:07.654168+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24155.834814185
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24155.834818181,
+      "utc": "2026-10-17T16:11:07.654201+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24155.834840234
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24156.335644449,
+      "utc": "2026-10-17T16:11:08.155033+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24156.335889051
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24156.33590194,
+      "utc": "2026-10-17T16:11:08.155285+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24156.335944483
+    },
+    {
+      "server": "C",
+      "command": "ct_test status",
+      "start": 24156.335949811,
+      "utc": "2026-10-17T16:11:08.155333+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=1, tick_total_nanos=857659, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=5.1E-4, notify_ms_p95=0.021081, notify_ms_p99=0.021081, notify_ms_samples=2, completion_ms_p50=0.037916, completion_ms_p95=0.037916, completion_ms_p99=0.037916, completion_ms_samples=1, closing_ms_p50=0.001121, closing_ms_p95=0.001121, closing_ms_p99=0.001121, closing_ms_samples=1, tick_ms_p50=0.857659, tick_ms_p95=0.857659, tick_ms_p99=0.857659, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=27.462455, db_transaction_ms_p95=472.323736, db_transaction_ms_p99=472.323736, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.118636, db_connection_wait_ms_p95=735.584297, db_connection_wait_ms_p99=735.584297, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=69.128881, mc_target_ticks_per_second=20.0}\n",
+      "end": 24156.745192516
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24157.245325083,
+      "utc": "2026-10-17T16:11:09.064712+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24157.245515435
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24157.245525009,
+      "utc": "2026-10-17T16:11:09.064908+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24157.245554102
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24157.745691081,
+      "utc": "2026-10-17T16:11:09.565079+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24157.74593367
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24157.745945127,
+      "utc": "2026-10-17T16:11:09.565329+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24157.745982673
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24158.248082316,
+      "utc": "2026-10-17T16:11:10.067470+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24158.248317624
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24158.24832805,
+      "utc": "2026-10-17T16:11:10.067711+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24158.248386426
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24158.751261016,
+      "utc": "2026-10-17T16:11:10.570649+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24158.751539989
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24158.751551125,
+      "utc": "2026-10-17T16:11:10.570935+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24158.751594539
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24159.256088616,
+      "utc": "2026-10-17T16:11:11.075477+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24159.256417012
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24159.256433326,
+      "utc": "2026-10-17T16:11:11.075818+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24159.256490761
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24159.75683819,
+      "utc": "2026-10-17T16:11:11.576228+00:00",
+      "uncertain_no_mutation_replay": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "end": 24159.757151905
+    },
+    {
+      "server": "B",
+      "command": "ct_test status",
+      "start": 24159.757162521,
+      "utc": "2026-10-17T16:11:11.576546+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=4, tick_total_nanos=785652, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=4.61E-4, notify_ms_p95=0.025057, notify_ms_p99=0.025057, notify_ms_samples=8, completion_ms_p50=0.002453, completion_ms_p95=0.010476, completion_ms_p99=0.010476, completion_ms_samples=4, closing_ms_p50=7.22E-4, closing_ms_p95=0.001042, closing_ms_p99=0.001042, closing_ms_samples=4, tick_ms_p50=0.044296, tick_ms_p95=0.578616, tick_ms_p99=0.578616, tick_ms_samples=4, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=22.235338, db_transaction_ms_p95=590.151399, db_transaction_ms_p99=590.151399, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.140678, db_connection_wait_ms_p95=753.328962, db_connection_wait_ms_p99=753.328962, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=39.549473, mc_target_ticks_per_second=20.0}\n",
+      "end": 24159.818775582
+    },
+    {
+      "server": "A",
+      "command": "ct_test status",
+      "start": 24160.318933389,
+      "utc": "2026-10-17T16:11:12.138321+00:00",
+      "reply": "STATUS online tickets=0 {tick_total_calls=1, tick_total_nanos=492098, registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, notify_ms_p50=4.91E-4, notify_ms_p95=0.028222, notify_ms_p99=0.028222, notify_ms_samples=2, completion_ms_p50=0.010556, completion_ms_p95=0.010556, completion_ms_p99=0.010556, completion_ms_samples=1, closing_ms_p50=8.31E-4, closing_ms_p95=8.31E-4, closing_ms_p99=8.31E-4, closing_ms_samples=1, tick_ms_p50=0.492098, tick_ms_p95=0.492098, tick_ms_p99=0.492098, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=35.128834, db_transaction_ms_p95=493.893184, db_transaction_ms_p99=493.893184, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.117173, db_connection_wait_ms_p95=708.572554, db_connection_wait_ms_p99=708.572554, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_unproved_barrier_retries=0, wal_barriers=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=19.789886, mc_target_ticks_per_second=20.0}\n",
+      "end": 24160.384316205
+    },
+    {
+      "server": "A",
+      "command": "stop",
+      "start": 24331.908088063,
+      "utc": "2026-10-17T16:14:03.727482+00:00",
+      "reply": "Stopping the server\n",
+      "end": 24331.911370262
+    },
+    {
+      "server": "B",
+      "command": "stop",
+      "start": 24331.911384002,
+      "utc": "2026-10-17T16:14:03.730770+00:00",
+      "reply": "Stopping the server\n",
+      "end": 24331.933365864
+    },
+    {
+      "server": "C",
+      "command": "stop",
+      "start": 24331.933381808,
+      "utc": "2026-10-17T16:14:03.752769+00:00",
+      "reply": "Stopping the server\n",
+      "end": 24331.936777194
+    }
+  ],
+  "failures": [],
+  "scope": "n1; single RCON workload observer, normal stopped fresh-world config changes only. Short ablations never replace the primary40/30/120 windows or frozen targets. Raw functional evidence and complete checkout Java-tree qualification are separate.",
+  "source_before": {
+    "utc": "2026-10-17T16:10:36.973330+00:00",
+    "observer_start": 24125.149785108,
+    "observer_end": 24125.153955104,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "71243bc67600781b45d5bc36e45bdff6655c740a92b88263adf4ffcfd476abb6",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "a1cd988f988f103d2a66f01231d70062adfcdd18af56d3ed9112e628313a8969",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "12768529e2e6e8efe9de71e380270b2fa03d97ecca8bb4340ed83edaf9dddfbe",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcDiscoveryGameTests.java": "6c04611a51000a33c11b56a4e1e22559c6f5e48f050710bbb70d36635689436a",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "cf17c9f512791416b2774ec16f90c65e2df5c654c63dc464ffe187040877bb26",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "fixture_preparation": {
+    "argv": [
+      "python3",
+      "scripts/configure-optimization.py",
+      "--label",
+      "resource-mix-rc-0113ef3-b-v2",
+      "--mode",
+      "batch"
+    ],
+    "exit": 0,
+    "stdout": "Prepared stopped development fixtures: A,B,C mode=batch label=resource-mix-rc-0113ef3-b-v2\nPrevious configs preserved at scratch/optimization/fixture-configs/20261017T161037001663Z\n",
+    "stderr": ""
+  },
+  "effective_test_keys": {
+    "transfer.batchMillis": "200",
+    "transfer.activeWakeMillis": "50",
+    "transfer.notificationMillis": "100",
+    "limits.localWorkBudgetMicros": "2000",
+    "limits.endpointChecksPerTick": "16",
+    "buffers.fe": "2000000"
+  },
+  "fixture_configs": {
+    "A": {
+      "config_sha256": "ec9cda697ab0c7bc5ef8cdc659e8b5d954d9c49f870a37e9901ad43ffd789393",
+      "server_id": "opt-resource-mix-rc-0113ef3-b-v2-A",
+      "world": "world-opt-resource-mix-rc-0113ef3-b-v2-A"
+    },
+    "B": {
+      "config_sha256": "b4d85283f5a574818d3e0589fdedf4cd84bb1d3e1852dbbde5df42e28cb89fbd",
+      "server_id": "opt-resource-mix-rc-0113ef3-b-v2-B",
+      "world": "world-opt-resource-mix-rc-0113ef3-b-v2-B"
+    },
+    "C": {
+      "config_sha256": "0284f83bcbea4dc23f05381194e0c865b852c9ad344449b3995c58cb811cf89d",
+      "server_id": "opt-resource-mix-rc-0113ef3-b-v2-C",
+      "world": "world-opt-resource-mix-rc-0113ef3-b-v2-C"
+    }
+  },
+  "state": "COMPLETE",
+  "command": [
+    "python3",
+    "scripts/rc-probe-mix.py",
+    "--execute",
+    "--probe-manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-v2-final-20261017T155637Z-3aa01c5b.json",
+    "--label",
+    "resource-mix-rc-0113ef3-b-v2",
+    "--operator-revision",
+    "0113ef30f2269f9ea51e7c15e585792828fd2a51",
+    "--warmup",
+    "30",
+    "--seconds",
+    "120",
+    "--repeats",
+    "1"
+  ],
+  "workload_utc_start": "2026-10-17T16:11:12.204285+00:00",
+  "driver": {
+    "path": "scripts/rc-probe-mix.py",
+    "sha256": "91f05c98b38ff16eb7d421f41d1e827d1956335a0f0be5fe6aabedd564ddd07b"
+  },
+  "driver_log": "logs/resource-mix-rc-0113ef3-b-v2-20261017T161036Z-2ed50188-driver.log",
+  "workload_exit": 0,
+  "workload_utc_end": "2026-10-17T16:14:03.590726+00:00",
+  "source_after_workload": {
+    "utc": "2026-10-17T16:14:03.602338+00:00",
+    "observer_start": 24331.771368546,
+    "observer_end": 24331.782977342,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "71243bc67600781b45d5bc36e45bdff6655c740a92b88263adf4ffcfd476abb6",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "a1cd988f988f103d2a66f01231d70062adfcdd18af56d3ed9112e628313a8969",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "12768529e2e6e8efe9de71e380270b2fa03d97ecca8bb4340ed83edaf9dddfbe",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcDiscoveryGameTests.java": "6c04611a51000a33c11b56a4e1e22559c6f5e48f050710bbb70d36635689436a",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "cf17c9f512791416b2774ec16f90c65e2df5c654c63dc464ffe187040877bb26",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "raw_report": {
+    "path": "reports/optimization-rc-probe-mix-resource-mix-rc-0113ef3-b-v2-20261017T161112Z-a82fe1.json",
+    "sha256": "7d0d46db399eb22b3d61151d4193daadd7fed1bd688376cefb03fc491b9f861d"
+  },
+  "raw_passed": true,
+  "samples": 1,
+  "own_launcher_exits": {
+    "A": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/47c393fe04b542f4850b1b66ec2f906a/runServerA.sh",
+      "launcher_sha256": "1ab82b8b3ad1d6d14db2aba14f47fc978c91f4d35525bdcc02fc2f2eda85358f"
+    },
+    "B": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/d9a936659a4c42fb830a5038b4762bc6/runServerB.sh",
+      "launcher_sha256": "2d354c986ad96fb991c375f42ee5c00ba7895ce7433fb7d0d860b0ffda0fd8fa"
+    },
+    "C": {
+      "exit_code": 0,
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/bd196b19402f4c58aa7a0e6c9bec714d/runServerC.sh",
+      "launcher_sha256": "3e16ed5acb87f55f4a2e518ea52df1c3213984ec3aca971a54645701910a38f7"
+    }
+  },
+  "all_own_launchers_exited_and_locks_free": true,
+  "source_after_stop": {
+    "utc": "2026-10-17T16:14:06.764824+00:00",
+    "observer_start": 24334.941039073,
+    "observer_end": 24334.945456693,
+    "files": {
+      "dev/crosstesseract/CrossTesseract.java": "71243bc67600781b45d5bc36e45bdff6655c740a92b88263adf4ffcfd476abb6",
+      "dev/crosstesseract/backend/Authority.java": "a768dd86b38df8db1f7c67a8d2cfec2468fe5d9a3690bb7fe83cf3e3202b10f3",
+      "dev/crosstesseract/backend/BackendConfig.java": "71ac33292d273b715e526a4175fbe4a19c54a5feefaec5eec2d57088442d3e89",
+      "dev/crosstesseract/backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+      "dev/crosstesseract/backend/Migrations.java": "fbb53af4306441533823f93c51fa4e919067599d2cc068620de67ca9b1dbdea0",
+      "dev/crosstesseract/backend/RedisTransport.java": "181526f0552b43927eae6603765a2f8d10200db63030945c6a2299051cafa05c",
+      "dev/crosstesseract/backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+      "dev/crosstesseract/backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+      "dev/crosstesseract/block/NeighborPump.java": "1cfef1f518babde545c147a6cbdf53df66dba2c36bd4bd0bf9b9bac54aa17cce",
+      "dev/crosstesseract/block/Ports.java": "57d33da407f45f094b4b4d47608f46f3546c2f3a1ab029aa9c70f146eac7c1d1",
+      "dev/crosstesseract/block/StackCodec.java": "664c97c498ca61c368cf8dde43f5b2631ba9f6f1aaaa84df6aa16203fa8b1058",
+      "dev/crosstesseract/block/TesseractBlock.java": "7a03d0817e39c7c04b32c8edae123349e39c13d52961c6b88b0887e19429850b",
+      "dev/crosstesseract/block/TesseractBlockEntity.java": "1df7fb757efee2d07db602f8ee465969ab674be1cb15bb820a3d0ffa4205f743",
+      "dev/crosstesseract/block/TesseractMenu.java": "bbdc8865b0a8b7a3b54a6a98b19a204b57a65e2a14c28bac15bbbe7fdccb7188",
+      "dev/crosstesseract/client/ClientEntrypoint.java": "fc536c1eee5f6b4aacd89c66a69aec4f2916d7877daa5cd5cecb71e86e2ee9f3",
+      "dev/crosstesseract/client/TesseractScreen.java": "a9f3b3a3882af365b88b64815c67a53bae93b25fe9a25911d206a58b0c3ab11a",
+      "dev/crosstesseract/client/UiSmoke.java": "1ede3535e31129fc1040e550b463fb6a5a0f45913dee6ae4539078ef88765772",
+      "dev/crosstesseract/compat/CompatLoader.java": "2bbb9eb53c562b34319c965c8f2713713d9f35f0095404e4f301184b45cc0147",
+      "dev/crosstesseract/compat/CompatModule.java": "97168d523ec21921917d33fff518d67653ffa838335f3588d4586a609a97c76c",
+      "dev/crosstesseract/compat/ae2/AeGameTests.java": "3a330d843474f85b46b591009146a59d42700df49acf72022a65329314606d52",
+      "dev/crosstesseract/compat/ae2/AeModule.java": "dc584d741b72f5613496e62d573c35a314d8e2fa67ff93187b4795c7d299d9d9",
+      "dev/crosstesseract/compat/gregtech/GtGameTests.java": "ca8710d9eeb05d8511d1b8421a4c3f384cf594bec6c5b8b107b108d4f6fcc561",
+      "dev/crosstesseract/compat/gregtech/GtModule.java": "85bbfd63efafab5332e7fd77e0a92723128421422c27d1f817af81725f27e367",
+      "dev/crosstesseract/compat/mekanism/MekGameTests.java": "5d5bb58dd4023a8fb7109d5045ff465a225a7e2071ca2c16754171e1a32107c0",
+      "dev/crosstesseract/compat/mekanism/MekModule.java": "a7062ff4a98d46c0c571538fd3b866eeb884383c8c5ab3eafc8cbcb86f7bddf8",
+      "dev/crosstesseract/core/AeProxyPlanner.java": "8207186ad6f6a50da5bbe261d2b569307b379d1820c57222daeb6e19582c8229",
+      "dev/crosstesseract/core/BusinessIds.java": "c28ef1fa51ca3c6e779c655a55a56f33359add7b8f5a4c8ca56abb0e7f461285",
+      "dev/crosstesseract/core/DomainException.java": "892dbcb87e910be231df43ec04b62738fb0491604a809a29e202e459ae6395ab",
+      "dev/crosstesseract/core/HeatModel.java": "00ccaefc18de35471acf9df4c55f0e117acbf13f07d091bd9f64cb2fff67f69c",
+      "dev/crosstesseract/core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+      "dev/crosstesseract/core/LocalSnapshot.java": "4fd8db479832627b3ef66b0493439dce5c70b386c3be51808d510900faba30d5",
+      "dev/crosstesseract/core/ManagementLimiter.java": "60e31c9f659b634b3edeabdb1f3c17553f251b115be50bd8a0cab9fe7f7e1385",
+      "dev/crosstesseract/core/Metrics.java": "e0d1e1ccd1638da26b9471bf177a81c9820b956fef1a6b5da95044a181b32b32",
+      "dev/crosstesseract/core/Models.java": "9c42615f6da0620b2459dc14abba3021a4e93af40ccc440581d583f2bfc23cdb",
+      "dev/crosstesseract/core/Protocol.java": "a383ab55e5a222ca48266a91476bc2eedfabf79e8f43152c9a3d769c3656ba5b",
+      "dev/crosstesseract/core/Resource.java": "fad972736052e16be535777e11e7cbeace52c2293d6afdac241e8bcaafe9f095",
+      "dev/crosstesseract/core/ThermalBuffer.java": "2cd7ab2e615d6aa67a8be61f78c132ca437f8a27c9bbb0defd4827485a65a15b",
+      "dev/crosstesseract/network/Packets.java": "6f07afd725788bc05c84ba4ff6d20f926144aab230a473158d5f005db8286882",
+      "dev/crosstesseract/runtime/ChannelCoordinator.java": "71c7c114e848ba6c1974dbe0cd37830786a4c3c5f6eff4b5d886c79b7ad591e3",
+      "dev/crosstesseract/runtime/ChunkTickets.java": "9844b8fbe123c93a3f318d234ac0ae6f2f3b16968427dbf5efc1138f71dcd925",
+      "dev/crosstesseract/runtime/Commands.java": "141d5903659c2b60e859b86c6ecb6f45298d941d2d171f22f2061204e14d7974",
+      "dev/crosstesseract/runtime/CompletionMailbox.java": "6a5f53291d14759c26cb6a0834751fda19d645340cf9f88938b6f91327aaac09",
+      "dev/crosstesseract/runtime/DemandRefresh.java": "a1cd988f988f103d2a66f01231d70062adfcdd18af56d3ed9112e628313a8969",
+      "dev/crosstesseract/runtime/RuntimeEvents.java": "ad1f52d441e3ad883b81f05414aaa646bd902e8d8edb07cc5785a2eaab58ded6",
+      "dev/crosstesseract/runtime/RuntimeLimits.java": "dec5c22abf667f99e79b9a5940fc382220b34ea2c3782c15ed1c5f88ef1e0ffc",
+      "dev/crosstesseract/runtime/RuntimeService.java": "12768529e2e6e8efe9de71e380270b2fa03d97ecca8bb4340ed83edaf9dddfbe",
+      "dev/crosstesseract/runtime/WakeDeadline.java": "3f81b4653c628cbc84de4ebf1ad957041aa031ad16763fdb08cbd49dabb7232e",
+      "dev/crosstesseract/test/CoreBackendGameTests.java": "21c285fc70c1dcb12bbd84c0d2a25582c88ed18f5c11567c18ac870611937ac5",
+      "dev/crosstesseract/test/Faults.java": "2d1466050b80ecd3432f0aac6f2d7dfdc024a7e26b237b42a3a4d940567c1e92",
+      "dev/crosstesseract/test/Fixtures.java": "83f3f80a3a23105d5b1cdb76e7bf05fb29b582e2cadb662e39c10a2649eedcd8",
+      "dev/crosstesseract/test/GameTests.java": "ef5d0b8ec5e555627355cdda46c06f68e01efe6ae36abdd730434e580dd860b9",
+      "dev/crosstesseract/test/RcDiscoveryGameTests.java": "6c04611a51000a33c11b56a4e1e22559c6f5e48f050710bbb70d36635689436a",
+      "dev/crosstesseract/test/RcFaultGameTests.java": "3fc1779ba06469de648248469efc38a4f2bc40018a9b19c49a49f4e4233d22a3",
+      "dev/crosstesseract/test/RcGroupGameTests.java": "7ce04044a4197223d5195309adf6eebe6082a3dcfe2ad5e8e369259e9f84d49d",
+      "dev/crosstesseract/test/RcWakeGameTests.java": "a18073329885b3cd1ab97a792f5c9a7c45cb09edc093f2165309cdf068673313",
+      "dev/crosstesseract/test/RegistrationRecoveryGameTests.java": "4ab5ed7585e372968bbd4385abeacf88430e6f21f13af227975f6ad511490be4",
+      "dev/crosstesseract/test/RuntimeDeltaGameTests.java": "c806de69ab1533b7f8fb29a9b3e3d1e2f9f53d4d0a10cf2619ba2665d2312a6d",
+      "dev/crosstesseract/test/ThreeServerHarness.java": "b2665d6c8c0ecf4bab6dfd2a60aa28ee901f93d6134a44ca63885f8ea781a69b"
+    },
+    "canonical_sha256": "cf17c9f512791416b2774ec16f90c65e2df5c654c63dc464ffe187040877bb26",
+    "matches_expected": true,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "utc_end": "2026-10-17T16:14:06.764918+00:00"
+}

@@ -1,0 +1,285 @@
+{
+  "scope": "Post-failure late-read artifacts and source-mechanism audit only. Original full2 failed gates unchanged. Partial bytes read at failure were not saved; exact interleaving is not proven.",
+  "original_failed_raw_sha256": "65c60ca1b0f29bf656e72c25314622a5a2ce94850baadc1aa78c2bd76c4bea40",
+  "asset_audit": {
+    "path": "reports/rc-20261017/full2-failure-assets-20261017T140222Z-0688ebfa.json",
+    "sha256": "65384913fb97a0702177a26dff20cc3104a44eeb299be0a554f80d37505a54d6"
+  },
+  "exports": [
+    {
+      "server": "A",
+      "source": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/3d43249d-1717-462c-8503-5d08975df88b.fixed.json",
+      "archive": "reports/raw/full2-completed-probe-exports-20261017T1405Z/A.fixed.json",
+      "sha256": "a623ccbbf8acd119d1130eb1e74658c4086f2d6f57c4e2bf36b842df02a0c93c",
+      "bytes": 145716,
+      "token": "3d43249d-1717-462c-8503-5d08975df88b",
+      "window_closed": false,
+      "ticks": 72006,
+      "mod_roots_valid": true,
+      "ends_newline": true
+    },
+    {
+      "server": "A",
+      "source": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-A/3d43249d-1717-462c-8503-5d08975df88b.json",
+      "archive": "reports/raw/full2-completed-probe-exports-20261017T1405Z/A.json",
+      "sha256": "26166b61afd6cab7ca99f16689b3a4abba4f0d1cb06460a6811544a8aa0d599d",
+      "bytes": 145742,
+      "token": "3d43249d-1717-462c-8503-5d08975df88b",
+      "window_closed": true,
+      "ticks": 72008,
+      "mod_roots_valid": true,
+      "ends_newline": true
+    },
+    {
+      "server": "B",
+      "source": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/3d43249d-1717-462c-8503-5d08975df88b.fixed.json",
+      "archive": "reports/raw/full2-completed-probe-exports-20261017T1405Z/B.fixed.json",
+      "sha256": "3ce0d48092dbbb5b6babfe4627b3719cfe62f0c12364d4cb72e820f97ebe515f",
+      "bytes": 133998,
+      "token": "3d43249d-1717-462c-8503-5d08975df88b",
+      "window_closed": false,
+      "ticks": 72005,
+      "mod_roots_valid": true,
+      "ends_newline": true
+    },
+    {
+      "server": "B",
+      "source": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-B/3d43249d-1717-462c-8503-5d08975df88b.json",
+      "archive": "reports/raw/full2-completed-probe-exports-20261017T1405Z/B.json",
+      "sha256": "ffdd8207739c93106a948c4b1823aa0b90381ceae49d1fb27f12c5ee82877521",
+      "bytes": 134041,
+      "token": "3d43249d-1717-462c-8503-5d08975df88b",
+      "window_closed": true,
+      "ticks": 72008,
+      "mod_roots_valid": true,
+      "ends_newline": true
+    },
+    {
+      "server": "C",
+      "source": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/3d43249d-1717-462c-8503-5d08975df88b.fixed.json",
+      "archive": "reports/raw/full2-completed-probe-exports-20261017T1405Z/C.fixed.json",
+      "sha256": "4d98077f5783e8245f869bbd3c15cf268c19c4631407f95e61384d3a2ede035b",
+      "bytes": 116084,
+      "token": "3d43249d-1717-462c-8503-5d08975df88b",
+      "window_closed": false,
+      "ticks": 72006,
+      "mod_roots_valid": true,
+      "ends_newline": true
+    },
+    {
+      "server": "C",
+      "source": "reports/rc-20261017/probe-v2-final-20261017T115320Z-19157594-C/3d43249d-1717-462c-8503-5d08975df88b.json",
+      "archive": "reports/raw/full2-completed-probe-exports-20261017T1405Z/C.json",
+      "sha256": "d1144598197994145a5b04286572c7a5f840b4ff100ea4ea4849766c0b4760ac",
+      "bytes": 116057,
+      "token": "3d43249d-1717-462c-8503-5d08975df88b",
+      "window_closed": true,
+      "ticks": 72008,
+      "mod_roots_valid": true,
+      "ends_newline": true
+    }
+  ],
+  "writer_source": {
+    "path": "scripts/rcprobe/WindowStats.java",
+    "sha256": "c5997f82d92399b378e275c96485ca8ee4fa9763d2ed9fa45c8f6225051908f0",
+    "mechanism": "CREATE_NEW final pathname, writeString serialized body and trailing newline directly; file exists before write completion."
+  },
+  "as_run_reader": {
+    "path": "reports/raw/rc-probe-benchmark-before-bounded-file-readiness-fix-20261017T1403Z.py",
+    "sha256": "1acbf94fdb41cc630eaf67e6825f881a1fe14972216123b1de7e1eb90f0287a9",
+    "mechanism": "path.is_file then immediate json.loads(path.read_text), no complete-file/newline readiness wait."
+  },
+  "fixed_reader": {
+    "path": "scripts/rc-probe-benchmark.py",
+    "sha256": "85d6319697f2e4a2892085a2b0f27c416b2da5d780a773b0cf16bfa7466232d4"
+  },
+  "journal": {
+    "path": "scratch/rc-soak-rc-soak-v2-3647-full2-20261017T125230Z-ebbf4ef7fc/events.jsonl",
+    "sha256": "d389b41c5c3cbdc5e99f126e2c0b9fbde22ea42b7c1b9c1c3bed979cc05003a9",
+    "RCON_records": 79906
+  },
+  "business_mutation_commands_after_observation_end": [],
+  "last_acknowledged_mode_commands": [
+    {
+      "server": "A",
+      "command": "ct_test mode 6254052 164 cross_tesseract:item SEND",
+      "start": 3574.5051148850016,
+      "utc_request_start": "2026-10-17T13:52:04.717051+00:00",
+      "reply": "MODE SEND\n",
+      "end": 3574.5057378770016,
+      "utc_reply_end": "2026-10-17T13:52:04.717674+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254116 164 cross_tesseract:fe RECEIVE",
+      "start": 57.505177978000575,
+      "utc_request_start": "2026-10-17T12:53:27.717114+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.50567147900074,
+      "utc_reply_end": "2026-10-17T12:53:27.717608+00:00"
+    },
+    {
+      "server": "B",
+      "command": "ct_test mode 6254180 164 cross_tesseract:fe RECEIVE",
+      "start": 57.50844895800037,
+      "utc_request_start": "2026-10-17T12:53:27.720385+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.5100501500001,
+      "utc_reply_end": "2026-10-17T12:53:27.721989+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254244 164 cross_tesseract:fe SEND",
+      "start": 57.5140140830008,
+      "utc_request_start": "2026-10-17T12:53:27.725950+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.51449603700166,
+      "utc_reply_end": "2026-10-17T12:53:27.726433+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254308 164 cross_tesseract:fe SEND",
+      "start": 57.52000507900084,
+      "utc_request_start": "2026-10-17T12:53:27.731941+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.5204303190003,
+      "utc_reply_end": "2026-10-17T12:53:27.732367+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254372 164 cross_tesseract:fe SEND",
+      "start": 57.521785386001284,
+      "utc_request_start": "2026-10-17T12:53:27.733721+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.52224733100047,
+      "utc_reply_end": "2026-10-17T12:53:27.734184+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254436 164 cross_tesseract:fe SEND",
+      "start": 57.52310915800081,
+      "utc_request_start": "2026-10-17T12:53:27.735045+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.523442892001185,
+      "utc_reply_end": "2026-10-17T12:53:27.735379+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254500 164 cross_tesseract:fe RECEIVE",
+      "start": 57.52421909200166,
+      "utc_request_start": "2026-10-17T12:53:27.736155+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.52458772800128,
+      "utc_reply_end": "2026-10-17T12:53:27.736524+00:00"
+    },
+    {
+      "server": "B",
+      "command": "ct_test mode 6254564 164 cross_tesseract:fe RECEIVE",
+      "start": 57.52660044000004,
+      "utc_request_start": "2026-10-17T12:53:27.738536+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.52713354000116,
+      "utc_reply_end": "2026-10-17T12:53:27.739070+00:00"
+    },
+    {
+      "server": "B",
+      "command": "ct_test mode 6254628 164 cross_tesseract:fe RECEIVE",
+      "start": 57.52898152800117,
+      "utc_request_start": "2026-10-17T12:53:27.740917+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.529509320000216,
+      "utc_reply_end": "2026-10-17T12:53:27.741446+00:00"
+    },
+    {
+      "server": "C",
+      "command": "ct_test mode 6254692 164 cross_tesseract:fe RECEIVE",
+      "start": 57.53162142400106,
+      "utc_request_start": "2026-10-17T12:53:27.743557+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.53208159600035,
+      "utc_reply_end": "2026-10-17T12:53:27.744018+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254756 164 cross_tesseract:fe SEND",
+      "start": 57.533241144001295,
+      "utc_request_start": "2026-10-17T12:53:27.745177+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.533639524001046,
+      "utc_reply_end": "2026-10-17T12:53:27.745576+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254820 164 cross_tesseract:fe RECEIVE",
+      "start": 57.5346887980013,
+      "utc_request_start": "2026-10-17T12:53:27.746625+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.53527408500122,
+      "utc_reply_end": "2026-10-17T12:53:27.747211+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6254884 164 cross_tesseract:fe SEND",
+      "start": 57.53627866400166,
+      "utc_request_start": "2026-10-17T12:53:27.748214+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.53707508400112,
+      "utc_reply_end": "2026-10-17T12:53:27.749012+00:00"
+    },
+    {
+      "server": "B",
+      "command": "ct_test mode 6254948 164 cross_tesseract:fe RECEIVE",
+      "start": 57.53905663000114,
+      "utc_request_start": "2026-10-17T12:53:27.750992+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.53971997200097,
+      "utc_reply_end": "2026-10-17T12:53:27.751657+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6255012 164 cross_tesseract:fe SEND",
+      "start": 57.5415169150001,
+      "utc_request_start": "2026-10-17T12:53:27.753453+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.54204056100025,
+      "utc_reply_end": "2026-10-17T12:53:27.753977+00:00"
+    },
+    {
+      "server": "C",
+      "command": "ct_test mode 6255076 164 cross_tesseract:fe RECEIVE",
+      "start": 57.54370547700091,
+      "utc_request_start": "2026-10-17T12:53:27.755641+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.54437974600114,
+      "utc_reply_end": "2026-10-17T12:53:27.756316+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6255140 164 cross_tesseract:fe SEND",
+      "start": 57.545734183000604,
+      "utc_request_start": "2026-10-17T12:53:27.757670+00:00",
+      "reply": "MODE SEND\n",
+      "end": 57.54635048599994,
+      "utc_reply_end": "2026-10-17T12:53:27.758287+00:00"
+    },
+    {
+      "server": "A",
+      "command": "ct_test mode 6255204 164 cross_tesseract:fe RECEIVE",
+      "start": 57.55007905500133,
+      "utc_request_start": "2026-10-17T12:53:27.762015+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.55082469900117,
+      "utc_reply_end": "2026-10-17T12:53:27.762761+00:00"
+    },
+    {
+      "server": "B",
+      "command": "ct_test mode 6255268 164 cross_tesseract:fe RECEIVE",
+      "start": 57.55371779500092,
+      "utc_request_start": "2026-10-17T12:53:27.765654+00:00",
+      "reply": "MODE RECEIVE\n",
+      "end": 57.55421603300056,
+      "utc_reply_end": "2026-10-17T12:53:27.766152+00:00"
+    }
+  ],
+  "stopped_mode_NBT_decode": "UNMEASURED; commands are as-run acknowledgement evidence only"
+}

@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-17T10:23:23.619673+00:00",
+  "source_revision": "f3c59b772dcbd343596174c73093b2fef536f19c",
+  "baseline_seal": "scratch/rc-baseline-env-20261017T095358Z-a75d6375/baseline-frozen.json",
+  "baseline_seal_sha256": "a06205fcd80f21908d355e1e0998d7c222c21b8122aaa7e8f6827f0925897281",
+  "probe_manifest": "scratch/rc-probe/f5e2d222d2db43d6a923b4bfd11b6194/manifest.json",
+  "probe_manifest_sha256": "23e5ae8277b00a5b10b50aee5f1fa18d3f3c443656bf8116fabe175d331a4c95",
+  "probe": {
+    "test_agent": true,
+    "mod_JAR_modified": false,
+    "directory": "/workspace/CrossTesseract/scratch/rc-probe/f5e2d222d2db43d6a923b4bfd11b6194",
+    "ASM": {
+      "version": "9.8",
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+      "license": "BSD-3-Clause; external test dependency, not included in mod"
+    },
+    "sources": {
+      "scripts/rcprobe/ProbeAgent.java": "312c8d88b17b9d61b164b1bd70e14599a7005070d0af7b92d1c99859784bda0a",
+      "scripts/rcprobe/ProbeSelfTest.java": "d0a9cbee66a1d60a571c453160e6918752a05f3fe13e401f803483ee207bba7e",
+      "scripts/rcprobe/WindowStats.java": "a6e84cf508f0e0c3fbf3851d27972b0c07d302b251c92ce649b00530edb15087"
+    },
+    "artifacts": [
+      {
+        "path": "/workspace/CrossTesseract/scratch/rc-probe/f5e2d222d2db43d6a923b4bfd11b6194/asm-9.8.jar",
+        "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+      },
+      {
+        "path": "/workspace/CrossTesseract/scratch/rc-probe/f5e2d222d2db43d6a923b4bfd11b6194/rc-probe-agent.jar",
+        "sha256": "09f3f2f8802ab37b423e7fb75c39a4f534f51c681e279eb68afaa5c61f147554"
+      },
+      {
+        "path": "/workspace/CrossTesseract/scratch/rc-probe/f5e2d222d2db43d6a923b4bfd11b6194/rc-probe-stats.jar",
+        "sha256": "7cf6b12241b7da5644c190fb14c355d00b524180017eaed4e972858a2f185749"
+      }
+    ]
+  },
+  "launches": {
+    "A": {
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/runServerA.sh",
+      "source_launcher": "/workspace/CrossTesseract/scratch/dev-launch/b1c6ca097bbd405f8943e4d8aaa294da/runServerA.sh",
+      "launcher_sha256": "dfa0cb2a7e9c428508dab4080a05899d8d0af937980850bf30ac8494c07359aa",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/serverARunVmArgs.txt",
+      "vm_args_sha256": "521fd3231361615616269c8ca73a7a3450625580ff9303f79ff01ca7aba3fcb8",
+      "control": "/workspace/CrossTesseract/scratch/dev-launch/c9d5c83c81b64594be7db1261a84c16c/probe-control.txt",
+      "output": "/workspace/CrossTesseract/reports/rc-20261017/probe-c9d5c83c81b64594be7db1261a84c16c-A",
+      "f3_classes_unchanged": true,
+      "f3_resources_unchanged": true
+    },
+    "B": {
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/runServerB.sh",
+      "source_launcher": "/workspace/CrossTesseract/scratch/dev-launch/a6e0c3a40b0647c2abcd94a679a62b20/runServerB.sh",
+      "launcher_sha256": "1a53798ebf5adca9247e9b66ef7649d00887b93ffa7a123697227a0ffec13a5f",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/serverBRunVmArgs.txt",
+      "vm_args_sha256": "18624c33e32ad5e7a12c9a7274db9256b50500ccc6f63cb3d89ed2df798feb7e",
+      "control": "/workspace/CrossTesseract/scratch/dev-launch/5e0a4cad04e6490fbf04ddc0e295f974/probe-control.txt",
+      "output": "/workspace/CrossTesseract/reports/rc-20261017/probe-5e0a4cad04e6490fbf04ddc0e295f974-B",
+      "f3_classes_unchanged": true,
+      "f3_resources_unchanged": true
+    },
+    "C": {
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/runServerC.sh",
+      "source_launcher": "/workspace/CrossTesseract/scratch/dev-launch/3330405efc374e7292d345aae5b12ace/runServerC.sh",
+      "launcher_sha256": "c6d26fa79f948c5b9130624c479b64802962cf068fbfcb8f791eb3e5549d1a44",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/serverCRunVmArgs.txt",
+      "vm_args_sha256": "de30d62a0882b89b1e513dafc18058a752debd0f96607650b6f1cfc802bb2fed",
+      "control": "/workspace/CrossTesseract/scratch/dev-launch/441516ecbe164ee18ec11e743e34ac55/probe-control.txt",
+      "output": "/workspace/CrossTesseract/reports/rc-20261017/probe-441516ecbe164ee18ec11e743e34ac55-C",
+      "f3_classes_unchanged": true,
+      "f3_resources_unchanged": true
+    },
+    "Perf": {
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/runServerPerf.sh",
+      "source_launcher": "/workspace/CrossTesseract/scratch/dev-launch/caa3ec5a1dc443b48db31a16e57221d7/runServerPerf.sh",
+      "launcher_sha256": "3e1c8f1338c470a7039235a8dc9fdf06a493c5010d4b119e794e2336ac261304",
+      "vm_args": "/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/serverPerfRunVmArgs.txt",
+      "vm_args_sha256": "0a2b919b4e9e1ea22552f62def083d02a123e52a86b091e4e418dedaf1335058",
+      "control": "/workspace/CrossTesseract/scratch/dev-launch/39c36906f55944539e7cbb1c5a2175c0/probe-control.txt",
+      "output": "/workspace/CrossTesseract/reports/rc-20261017/probe-39c36906f55944539e7cbb1c5a2175c0-Perf",
+      "f3_classes_unchanged": true,
+      "f3_resources_unchanged": true
+    }
+  }
+}

@@ -34,6 +34,14 @@ jobs:
           echo "$GITHUB_WORKSPACE/scratch/jdk/jdk-21.0.8+9/bin" >> "$GITHUB_PATH"
       - name: Fetch pinned read-only compatibility API sources
         run: bash scripts/fetch-references.sh
+      - name: Offline RC attribution and test-tool safety boundaries
+        run: |
+          python3 scripts/analysis/test-rc-runtime-identity.py
+          python3 scripts/analysis/test-rc-fe-identity.py
+          python3 scripts/analysis/test-rc-probe-file-readiness.py
+          python3 scripts/rc-normal-fallback.py --self-test
+          python3 scripts/rc-native-matrix.py --self-test
+          python3 scripts/analysis/summarize-rc-mix.py --self-test
       - name: Build and real isolated backend tests (no Minecraft JVM or EULA assertion)
         env:
           CT_TEST_MYSQL_CONTAINER: ${{ job.services.mysql.id }}
@@ -68,4 +76,9 @@ jobs:
             build/rc-evidence/
             build/test-results/test/
             reports/rc-20261017/
+            reports/optimization-rc-probe-*.json
+            reports/raw/
+            scripts/analysis/
             docs/RC_20261017*.md
+            !reports/**/*.ctj
+            !reports/**/*.pending.json
