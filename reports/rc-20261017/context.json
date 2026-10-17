@@ -1,0 +1,24 @@
+{
+  "recorded_utc": "2026-10-17T09:57:46.974321+00:00",
+  "user_timezone": "Asia/Shanghai",
+  "branch": "perf/channel-coordinator",
+  "head": "f3c59b772dcbd343596174c73093b2fef536f19c",
+  "historical_tested_core": "68f32db439f445b8f72faf92dc62fbc5b9dce738",
+  "main_java_identical_to_historical_core": true,
+  "java_source_manifest_sha256": "76ae7eca7b1f3a6df0a1d3ee80250ad5a4f7fd143ad2eb4aa008dc6ec8ec7577",
+  "workspace_at_start": "new environment; no checkout, world, database, JAR or previous EULA acceptance file present",
+  "restored_by": "non-destructive single-branch clone from specified perf/channel-coordinator",
+  "historical128_FE": {
+    "status": "Historical legitimate asset, not present in this environment",
+    "ledger_changes": "NONE; must never recreate, replay, refund or zero it",
+    "historical_audit": "reports/optimization-restart-fallback-final-retained128-audit.json"
+  },
+  "baseline_status": "new fixed-JDK build and real backend tests in progress; old reports are historical references only",
+  "new_reports_prefix": "reports/rc-20261017/",
+  "eula": {
+    "state": "USER_EXPLICITLY_ACCEPTED",
+    "answer": "我已接受 EULA，允许创建隔离测试实例",
+    "observed_utc": "2026-10-17T10:06:41.817830+00:00",
+    "action": "create fresh dev instances only; no reconstruction of old record"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "scope": "read-only historical decomposition; not this-round reproduction",
+  "rows": [
+    {
+      "historical_profile": "batch",
+      "repeat": 1,
+      "variant": "A",
+      "source_wait_upper_ms": 106234.52756299957,
+      "source_to_full_output_upper_ms": 6150.705783999001,
+      "input_to_full_output_upper_ms": 112277.58893099963,
+      "source": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "source_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1"
+    },
+    {
+      "historical_profile": "batch",
+      "repeat": 1,
+      "variant": "B",
+      "source_wait_upper_ms": 111628.24253799772,
+      "source_to_full_output_upper_ms": 1693.7990380029078,
+      "input_to_full_output_upper_ms": 113215.01634699962,
+      "source": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "source_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1"
+    },
+    {
+      "historical_profile": "batch",
+      "repeat": 2,
+      "variant": "A",
+      "source_wait_upper_ms": 68881.38968899875,
+      "source_to_full_output_upper_ms": 2323.243739003374,
+      "input_to_full_output_upper_ms": 71097.88867900352,
+      "source": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "source_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1"
+    },
+    {
+      "historical_profile": "batch",
+      "repeat": 2,
+      "variant": "B",
+      "source_wait_upper_ms": 70144.39934099937,
+      "source_to_full_output_upper_ms": 8147.746034002921,
+      "input_to_full_output_upper_ms": 78184.26804699993,
+      "source": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "source_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1"
+    },
+    {
+      "historical_profile": "batch",
+      "repeat": 3,
+      "variant": "A",
+      "source_wait_upper_ms": 53509.85321000189,
+      "source_to_full_output_upper_ms": 7471.098932997847,
+      "input_to_full_output_upper_ms": 60875.42561299779,
+      "source": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "source_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1"
+    },
+    {
+      "historical_profile": "batch",
+      "repeat": 3,
+      "variant": "B",
+      "source_wait_upper_ms": 55187.523373999284,
+      "source_to_full_output_upper_ms": 2527.4237339981482,
+      "input_to_full_output_upper_ms": 57607.18844299845,
+      "source": "reports/optimization-resource-mix-batch68-20261006T190206Z-258fe6.json",
+      "source_sha256": "0072955658ca11189c91524c67fd5f0610930238690010fd08884cee1a6a9ed1"
+    },
+    {
+      "historical_profile": "fast",
+      "repeat": 1,
+      "variant": "A",
+      "source_wait_upper_ms": 5563.062957997317,
+      "source_to_full_output_upper_ms": 440.5931680012145,
+      "input_to_full_output_upper_ms": 5892.329495000013,
+      "source": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "source_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e"
+    },
+    {
+      "historical_profile": "fast",
+      "repeat": 1,
+      "variant": "B",
+      "source_wait_upper_ms": 5876.60434099962,
+      "source_to_full_output_upper_ms": 656.0514559969306,
+      "input_to_full_output_upper_ms": 6421.588541001256,
+      "source": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "source_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e"
+    },
+    {
+      "historical_profile": "fast",
+      "repeat": 2,
+      "variant": "A",
+      "source_wait_upper_ms": 1504.8672379998607,
+      "source_to_full_output_upper_ms": 216.7231860003085,
+      "input_to_full_output_upper_ms": 1613.9264359953813,
+      "source": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "source_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e"
+    },
+    {
+      "historical_profile": "fast",
+      "repeat": 2,
+      "variant": "B",
+      "source_wait_upper_ms": 1821.194193995325,
+      "source_to_full_output_upper_ms": 754.4942710010218,
+      "input_to_full_output_upper_ms": 2467.643190000672,
+      "source": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "source_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e"
+    },
+    {
+      "historical_profile": "fast",
+      "repeat": 3,
+      "variant": "A",
+      "source_wait_upper_ms": 3930.0801800054614,
+      "source_to_full_output_upper_ms": 630.6258299955516,
+      "input_to_full_output_upper_ms": 4454.451962999883,
+      "source": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "source_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e"
+    },
+    {
+      "historical_profile": "fast",
+      "repeat": 3,
+      "variant": "B",
+      "source_wait_upper_ms": 4240.92745300004,
+      "source_to_full_output_upper_ms": 422.4752529989928,
+      "input_to_full_output_upper_ms": 4557.07658600295,
+      "source": "reports/optimization-resource-mix-fast68-20261006T191056Z-43958a.json",
+      "source_sha256": "91cbe29e9d8082c251543da6521e925e44ddb2f2b54385bd28a901003c62dd9e"
+    }
+  ]
+}

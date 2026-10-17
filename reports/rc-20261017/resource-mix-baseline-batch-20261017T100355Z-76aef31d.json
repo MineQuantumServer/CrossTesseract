@@ -1,0 +1,105 @@
+{
+  "utc_start": "2026-10-17T10:03:55.643696+00:00",
+  "passed": true,
+  "state": "COMPLETE",
+  "source_revision": "f3c59b772dcbd343596174c73093b2fef536f19c",
+  "baseline_seal": "scratch/rc-baseline-env-20261017T095358Z-a75d6375/baseline-frozen.json",
+  "baseline_seal_sha256": "a06205fcd80f21908d355e1e0998d7c222c21b8122aaa7e8f6827f0925897281",
+  "scenarios": [
+    "mixed"
+  ],
+  "repeats": 1,
+  "scope": "One mixed resource reproduction, not n3 or peak/TPS; true thirty-second warmup/two-minute steady with separately retained drain. One RCON workload observer, no overlapping lifecycle reads.",
+  "lifecycle": [
+    {
+      "action": "start_frozen_once",
+      "server": "A",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/b1c6ca097bbd405f8943e4d8aaa294da/runServerA.sh",
+      "controller_launcher_PID": 3530,
+      "log": "logs/rc-baseline-env-resource-batch-20261017T095358Z-a75d6375-A.log",
+      "utc": "2026-10-17T10:03:55.649532+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "B",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/a6e0c3a40b0647c2abcd94a679a62b20/runServerB.sh",
+      "controller_launcher_PID": 3531,
+      "log": "logs/rc-baseline-env-resource-batch-20261017T095358Z-a75d6375-B.log",
+      "utc": "2026-10-17T10:03:55.650110+00:00"
+    },
+    {
+      "action": "start_frozen_once",
+      "server": "C",
+      "launcher": "/workspace/CrossTesseract/scratch/dev-launch/3330405efc374e7292d345aae5b12ace/runServerC.sh",
+      "controller_launcher_PID": 3532,
+      "log": "logs/rc-baseline-env-resource-batch-20261017T095358Z-a75d6375-C.log",
+      "utc": "2026-10-17T10:03:55.650668+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "C",
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.465579, tick_ms_p95=0.465579, tick_ms_p99=0.465579, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=38.920746, db_transaction_ms_p95=84.786085, db_transaction_ms_p99=84.786085, db_transaction_ms_samples=5, db_connection_wait_ms_p50=0.039478, db_connection_wait_ms_p95=563.309966, db_connection_wait_ms_p99=563.309966, db_connection_wait_ms_samples=6, db_transactions=5, db_transaction_attempts=5, db_statements=38, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=20.350812, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T10:04:22.884397+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "A",
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=0.301596, tick_ms_p95=0.301596, tick_ms_p99=0.301596, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=13.382707, db_transaction_ms_p95=39.363482, db_transaction_ms_p99=39.363482, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.084786, db_connection_wait_ms_p95=464.28633, db_connection_wait_ms_p99=464.28633, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=20.381822, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T10:04:24.466510+00:00"
+    },
+    {
+      "action": "startup_read_only_status",
+      "server": "B",
+      "reply": "STATUS online tickets=0 {registered_loaded_endpoints=0, active_endpoints=0, worker_queue=0, actual_tickets=0, transactions=0, errors=0, queue_rejected=0, quarantined=0, deferred_registry_decodes=0, dropped_wake_hints=0, local_exchange_calls=0, local_input_units=0, local_output_units=0, batch_devices=0, batch_records=0, batch_payload_bytes=0, local_wakes=0, remote_hint_wakes=0, poll_fallback=0, empty_batches=0, allocation_misses=0, local_credit_publications=0, tick_ms_p50=1.101319, tick_ms_p95=1.101319, tick_ms_p99=1.101319, tick_ms_samples=1, delivery_ms_p50=0.0, delivery_ms_p95=0.0, delivery_ms_p99=0.0, delivery_ms_samples=0, sql_ms_p50=0.0, sql_ms_p95=0.0, sql_ms_p99=0.0, sql_ms_samples=0, db_transaction_ms_p50=32.624088, db_transaction_ms_p95=39.374027, db_transaction_ms_p99=39.374027, db_transaction_ms_samples=7, db_connection_wait_ms_p50=0.037515, db_connection_wait_ms_p95=813.824318, db_connection_wait_ms_p99=813.824318, db_connection_wait_ms_samples=8, db_transactions=7, db_transaction_attempts=7, db_statements=47, db_deadlock_retries=0, db_active_connections=0, wal_writes=0, wal_bytes=0, wal_identical_skipped=0, wal_barrier_ms_p50=0.0, wal_barrier_ms_p95=0.0, wal_barrier_ms_p99=0.0, wal_barrier_ms_samples=0, completion_admitted=0, ready_channels=0, ready_devices=0, closing_devices=0, mc_recorded_tick_ms_avg100=90.973266, mc_target_ticks_per_second=20.0}\n",
+      "utc": "2026-10-17T10:04:24.730510+00:00"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "A",
+      "utc": "2026-10-17T10:07:16.706846+00:00",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "B",
+      "utc": "2026-10-17T10:07:16.708115+00:00",
+      "reply": "Stopping the server\n"
+    },
+    {
+      "action": "normal_stop_once",
+      "server": "C",
+      "utc": "2026-10-17T10:07:16.709349+00:00",
+      "reply": "Stopping the server\n"
+    }
+  ],
+  "failures": [],
+  "original_reports_policy": "Unique output only; no historical raw report/world/asset reused or overwritten.",
+  "command": [
+    "python3",
+    "scripts/optimization-resource-mix.py",
+    "--execute",
+    "--label",
+    "rc-baseline-batch",
+    "--operator-revision",
+    "f3c59b7",
+    "--warmup",
+    "30",
+    "--seconds",
+    "120",
+    "--repeats",
+    "1"
+  ],
+  "workload_utc_start": "2026-10-17T10:04:24.731244+00:00",
+  "driver_log": "logs/rc-baseline-env-resource-batch-20261017T095358Z-a75d6375-driver.log",
+  "driver_source_sha256": "9fd545dac83abd63738f48e28080954ad85ce70cb1e301b8c556be7190933f6d",
+  "workload_exit_code": 0,
+  "workload_utc_end": "2026-10-17T10:07:16.630703+00:00",
+  "raw_report": "reports/optimization-resource-mix-rc-baseline-batch-20261017T100424Z-433f8d.json",
+  "raw_report_sha256": "9cb38b58aaa770827b4eda4d611978b08f5197465828b381ec536f7576ec2b9a",
+  "raw_passed": true,
+  "samples": 1,
+  "native_validation": "COMPLETED_REAL_GUARDED_WINDOWS",
+  "functional_pass": true,
+  "all_own_launchers_exited_and_locks_free": true,
+  "utc_end": "2026-10-17T10:07:19.225794+00:00"
+}

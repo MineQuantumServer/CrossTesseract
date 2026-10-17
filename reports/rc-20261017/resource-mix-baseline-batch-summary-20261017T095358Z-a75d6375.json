@@ -1,0 +1,985 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-17T10:09:33.244268+00:00",
+  "functional_passed": true,
+  "source": {
+    "path": "reports/optimization-resource-mix-rc-baseline-batch-20261017T100424Z-433f8d.json",
+    "sha256": "9cb38b58aaa770827b4eda4d611978b08f5197465828b381ec536f7576ec2b9a"
+  },
+  "controller": {
+    "path": "reports/rc-20261017/resource-mix-baseline-batch-20261017T100355Z-76aef31d.json",
+    "sha256": "2fc14a050985f15d266bb1c6b3769cfe50565d561c9910ad7ad770f00e8913e7"
+  },
+  "baseline_seal": {
+    "path": "scratch/rc-baseline-env-20261017T095358Z-a75d6375/baseline-frozen.json",
+    "sha256": "a06205fcd80f21908d355e1e0998d7c222c21b8122aaa7e8f6827f0925897281"
+  },
+  "operator_revision": "f3c59b7",
+  "raw_git_head": "f3c59b772dcbd343596174c73093b2fef536f19c",
+  "conditions": {
+    "scenarios": [
+      "mixed"
+    ],
+    "warmup_seconds": 30.0,
+    "observation_seconds": 120.0,
+    "repeats": 1,
+    "feed_period_seconds": 0.5,
+    "poll_seconds": 0.1,
+    "fixed_attempts_per_round": {
+      "FE": 32000,
+      "water_mB": 1000
+    },
+    "fixed_item_pair_per_observation_window": {
+      "named_stone_A": 32,
+      "named_stone_B": 32,
+      "warmup_items": 0,
+      "injection": "At observation entry, two sequential validated vanilla writes; no atomic pair claim or refeeding."
+    },
+    "item": "minecraft:stone",
+    "CUSTOM_NAME": {
+      "A": "CT mixed A",
+      "B": "CT mixed B"
+    },
+    "item_source_slots": {
+      "A": 0,
+      "B": 1
+    },
+    "maximum_inflight_item_batches": 1,
+    "sources_per_channel": 1,
+    "endpoint_spacing_blocks": 64,
+    "be_y": 64,
+    "chest_side": "EAST",
+    "quiet_seconds": 2.2,
+    "item_guard_interval_seconds": 0.5,
+    "post_phase_drain_timeout_seconds": 1200,
+    "world_prefix": "world-opt-resource-mix-",
+    "observer": "single Python/RCON"
+  },
+  "sample_count": 1,
+  "scope_notes": [
+    "One mixed sample and one ITEM batch per variant; no n3/p50/p95 population or capacity/TPS inference.",
+    "Each resource ledger retains its own units. SQL allocation/WAL/local copies are mirrors, not extra assets.",
+    "Input-to-source/first/full bounds use a single Python monotonic observer with retained RCON spans, not exact world-save time or cross-JVM nanoTime.",
+    "Fixed-window counters end before final drain. Lifecycle counters separately include drain/quiet through completion.",
+    "SQL-helper statements and MySQL account statement events have distinct definitions; completed worker tasks are not database transactions.",
+    "No full-window MC main/Runtime/CPU profile was collected in this one-off B reproduction.",
+    "Claimed f3 source is bound to actual immutable selected class/resource/JAR hashes, not independent class-loader CodeSource attestation."
+  ],
+  "steady": {
+    "start": 43.31520534099991,
+    "end": 163.31534011199983,
+    "requested_seconds": 120.0,
+    "planned_rounds": 240,
+    "scheduled_rounds": 240,
+    "late_rounds": 0,
+    "observer_saturated": false,
+    "observer_cost": {
+      "actual_seconds": 120.00013477099992,
+      "RCON_commands": 8449,
+      "RCON_request_reply_seconds_sum": 5.953224406996469,
+      "RCON_request_reply_seconds_max": 0.0176647570001478,
+      "guard_SQL_SELECTs": 1,
+      "guard_SQL_seconds_sum": 0.08112841699994533,
+      "scope": "Observer-side synchronous spans include waiting; not CPU. Only resource guard SQL individually timed. Inherited preflight/statement SQL included in total/capture spans, not these guard-only sums."
+    },
+    "input_completeness": {
+      "FE": {
+        "attempts": 240,
+        "requested": 7680000,
+        "actually_accepted": 7680000,
+        "fully_accepted_attempts": 240,
+        "partial_or_zero_acceptance_attempts": 0,
+        "scope": "Validated native returns or validated vanilla writes; failed/unknown events abort, never replaced by SQL totals."
+      },
+      "water": {
+        "attempts": 240,
+        "requested": 240000,
+        "actually_accepted": 240000,
+        "fully_accepted_attempts": 240,
+        "partial_or_zero_acceptance_attempts": 0,
+        "scope": "Validated native returns or validated vanilla writes; failed/unknown events abort, never replaced by SQL totals."
+      },
+      "item_A": {
+        "attempts": 1,
+        "requested": 32,
+        "actually_accepted": 32,
+        "fully_accepted_attempts": 1,
+        "partial_or_zero_acceptance_attempts": 0,
+        "scope": "Validated native returns or validated vanilla writes; failed/unknown events abort, never replaced by SQL totals."
+      },
+      "item_B": {
+        "attempts": 1,
+        "requested": 32,
+        "actually_accepted": 32,
+        "fully_accepted_attempts": 1,
+        "partial_or_zero_acceptance_attempts": 0,
+        "scope": "Validated native returns or validated vanilla writes; failed/unknown events abort, never replaced by SQL totals."
+      }
+    },
+    "ledger_change": {
+      "FE": {
+        "unit": "FE",
+        "accepted": 7680000,
+        "source_actual_decrement": null,
+        "external_output": 7616000,
+        "input_by_endpoint": {
+          "mixed_source_0": 7680000
+        },
+        "output_by_endpoint": {
+          "mixed_sink_0": 3776000,
+          "mixed_sink_1": 3840000
+        }
+      },
+      "water": {
+        "unit": "mB",
+        "accepted": 240000,
+        "source_actual_decrement": null,
+        "external_output": 238000,
+        "input_by_endpoint": {
+          "mixed_source_0": 240000
+        },
+        "output_by_endpoint": {
+          "mixed_sink_0": 118000,
+          "mixed_sink_1": 120000
+        }
+      },
+      "item_A": {
+        "unit": "items",
+        "accepted": 32,
+        "source_actual_decrement": 32,
+        "external_output": 32,
+        "input_by_endpoint": {
+          "mixed_source_0": 32
+        },
+        "output_by_endpoint": {
+          "mixed_sink_0": 32
+        }
+      },
+      "item_B": {
+        "unit": "items",
+        "accepted": 32,
+        "source_actual_decrement": 32,
+        "external_output": 32,
+        "input_by_endpoint": {
+          "mixed_source_0": 32
+        },
+        "output_by_endpoint": {
+          "mixed_sink_1": 32
+        }
+      }
+    },
+    "throughput": {
+      "FE": {
+        "unit_per_second": "FE/s",
+        "actual_external_output_per_second": 63466.59538786232,
+        "accepted_input": 7680000,
+        "actual_external_output": 7616000
+      },
+      "water": {
+        "unit_per_second": "mB/s",
+        "actual_external_output_per_second": 1983.3311058706975,
+        "accepted_input": 240000,
+        "actual_external_output": 238000
+      },
+      "item_A": {
+        "unit_per_second": "items/s",
+        "actual_external_output_per_second": 0.2666663671758921,
+        "accepted_input": 32,
+        "actual_external_output": 32
+      },
+      "item_B": {
+        "unit_per_second": "items/s",
+        "actual_external_output_per_second": 0.2666663671758921,
+        "accepted_input": 32,
+        "actual_external_output": 32
+      }
+    }
+  },
+  "steady_plus_tail_ledger": {
+    "FE": {
+      "unit": "FE",
+      "accepted": 7680000,
+      "source_actual_decrement": null,
+      "external_output": 7680000,
+      "input_by_endpoint": {
+        "mixed_source_0": 7680000
+      },
+      "output_by_endpoint": {
+        "mixed_sink_0": 3776000,
+        "mixed_sink_1": 3904000
+      }
+    },
+    "water": {
+      "unit": "mB",
+      "accepted": 240000,
+      "source_actual_decrement": null,
+      "external_output": 240000,
+      "input_by_endpoint": {
+        "mixed_source_0": 240000
+      },
+      "output_by_endpoint": {
+        "mixed_sink_0": 118000,
+        "mixed_sink_1": 122000
+      }
+    },
+    "item_A": {
+      "unit": "items",
+      "accepted": 32,
+      "source_actual_decrement": 32,
+      "external_output": 32,
+      "input_by_endpoint": {
+        "mixed_source_0": 32
+      },
+      "output_by_endpoint": {
+        "mixed_sink_0": 32
+      }
+    },
+    "item_B": {
+      "unit": "items",
+      "accepted": 32,
+      "source_actual_decrement": 32,
+      "external_output": 32,
+      "input_by_endpoint": {
+        "mixed_source_0": 32
+      },
+      "output_by_endpoint": {
+        "mixed_sink_1": 32
+      }
+    }
+  },
+  "item_batches": [
+    {
+      "phase": "steady",
+      "repeat": 1,
+      "sequence": 1,
+      "passed": true,
+      "completed": 165.4709161019996,
+      "item_quiet_seconds": 2.3536638999999013,
+      "variants": {
+        "A": {
+          "injection": {
+            "start": 43.3189215149996,
+            "end": 43.32650306300002,
+            "RCON_trace_index": 1490
+          },
+          "source_first_decrement": {
+            "start": 147.5474930839996,
+            "end": 147.65375599499976,
+            "observation_span_ms": 106.26291100015806,
+            "origin": "last_source_read_to_first_decrement"
+          },
+          "source_empty_interval": {
+            "start": 147.5474930839996,
+            "end": 147.65375599499976,
+            "observation_span_ms": 106.26291100015806
+          },
+          "first_output": {
+            "start": 156.4344267229999,
+            "end": 156.539302915,
+            "observation_span_ms": 104.87619200011977
+          },
+          "full_output": {
+            "start": 156.4344267229999,
+            "end": 156.539302915,
+            "observation_span_ms": 104.87619200011977
+          },
+          "outputs_by_sink": {
+            "mixed_sink_1": 0,
+            "mixed_sink_0": 32
+          },
+          "input_to_source_bounds": {
+            "lower_ms": 104220.99002099958,
+            "upper_ms": 104334.83448000015,
+            "source_observation_span_ms": 7.58154800041666,
+            "target_observation_span_ms": 106.26291100015806
+          },
+          "input_to_first_output_bounds": {
+            "lower_ms": 113107.92365999987,
+            "upper_ms": 113220.3814000004,
+            "source_observation_span_ms": 7.58154800041666,
+            "target_observation_span_ms": 104.87619200011977
+          },
+          "input_to_full_output_bounds": {
+            "lower_ms": 113107.92365999987,
+            "upper_ms": 113220.3814000004,
+            "source_observation_span_ms": 7.58154800041666,
+            "target_observation_span_ms": 104.87619200011977
+          },
+          "source_to_first_output_bounds": {
+            "lower_ms": 8780.670728000132,
+            "upper_ms": 8991.80983100041,
+            "source_observation_span_ms": 106.26291100015806,
+            "target_observation_span_ms": 104.87619200011977
+          },
+          "source_to_full_output_bounds": {
+            "lower_ms": 8780.670728000132,
+            "upper_ms": 8991.80983100041,
+            "source_observation_span_ms": 106.26291100015806,
+            "target_observation_span_ms": 104.87619200011977
+          }
+        },
+        "B": {
+          "injection": {
+            "start": 43.33063784599972,
+            "end": 43.33209961099965,
+            "RCON_trace_index": 1492
+          },
+          "source_first_decrement": {
+            "start": 152.98888834199988,
+            "end": 153.09444224299978,
+            "observation_span_ms": 105.55390099989381,
+            "origin": "last_source_read_to_first_decrement"
+          },
+          "source_empty_interval": {
+            "start": 152.98888834199988,
+            "end": 153.09444224299978,
+            "observation_span_ms": 105.55390099989381
+          },
+          "first_output": {
+            "start": 162.91941692599994,
+            "end": 163.02666886499992,
+            "observation_span_ms": 107.25193899997976
+          },
+          "full_output": {
+            "start": 162.91941692599994,
+            "end": 163.02666886499992,
+            "observation_span_ms": 107.25193899997976
+          },
+          "outputs_by_sink": {
+            "mixed_sink_1": 32,
+            "mixed_sink_0": 0
+          },
+          "input_to_source_bounds": {
+            "lower_ms": 109656.78873100024,
+            "upper_ms": 109763.80439700006,
+            "source_observation_span_ms": 1.4617649999308924,
+            "target_observation_span_ms": 105.55390099989381
+          },
+          "input_to_first_output_bounds": {
+            "lower_ms": 119587.31731500028,
+            "upper_ms": 119696.0310190002,
+            "source_observation_span_ms": 1.4617649999308924,
+            "target_observation_span_ms": 107.25193899997976
+          },
+          "input_to_full_output_bounds": {
+            "lower_ms": 119587.31731500028,
+            "upper_ms": 119696.0310190002,
+            "source_observation_span_ms": 1.4617649999308924,
+            "target_observation_span_ms": 107.25193899997976
+          },
+          "source_to_first_output_bounds": {
+            "lower_ms": 9824.974683000164,
+            "upper_ms": 10037.780523000038,
+            "source_observation_span_ms": 105.55390099989381,
+            "target_observation_span_ms": 107.25193899997976
+          },
+          "source_to_full_output_bounds": {
+            "lower_ms": 9824.974683000164,
+            "upper_ms": 10037.780523000038,
+            "source_observation_span_ms": 105.55390099989381,
+            "target_observation_span_ms": 107.25193899997976
+          }
+        }
+      }
+    }
+  ],
+  "cost": {
+    "fixed_window": {
+      "sum": {
+        "db_transactions": 1987,
+        "db_deadlock_retries": 0,
+        "transactions": 729,
+        "errors": 0,
+        "queue_rejected": 0,
+        "quarantined": 0,
+        "db_transaction_attempts": 1987,
+        "db_statements": 20876,
+        "deferred_registry_decodes": 0,
+        "dropped_wake_hints": 0,
+        "local_exchange_calls": 877,
+        "local_input_units": 7920064,
+        "local_output_units": 7854064,
+        "batch_devices": 528,
+        "batch_records": 1954,
+        "batch_payload_bytes": 14268,
+        "local_wakes": 0,
+        "remote_hint_wakes": 302,
+        "poll_fallback": 268,
+        "empty_batches": 42,
+        "allocation_misses": 981,
+        "local_credit_publications": 202,
+        "wal_writes": 597,
+        "wal_bytes": 147613,
+        "wal_identical_skipped": 10
+      },
+      "per_server": {
+        "A": {
+          "db_transactions": 1079,
+          "db_deadlock_retries": 0,
+          "transactions": 464,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 1079,
+          "db_statements": 11939,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 679,
+          "local_input_units": 7920064,
+          "local_output_units": 3894032,
+          "batch_devices": 314,
+          "batch_records": 1074,
+          "batch_payload_bytes": 8859,
+          "local_wakes": 0,
+          "remote_hint_wakes": 151,
+          "poll_fallback": 205,
+          "empty_batches": 42,
+          "allocation_misses": 492,
+          "local_credit_publications": 101,
+          "wal_writes": 393,
+          "wal_bytes": 92403,
+          "wal_identical_skipped": 10
+        },
+        "B": {
+          "db_transactions": 679,
+          "db_deadlock_retries": 0,
+          "transactions": 265,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 679,
+          "db_statements": 7954,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 198,
+          "local_input_units": 0,
+          "local_output_units": 3960032,
+          "batch_devices": 214,
+          "batch_records": 880,
+          "batch_payload_bytes": 5409,
+          "local_wakes": 0,
+          "remote_hint_wakes": 151,
+          "poll_fallback": 63,
+          "empty_batches": 0,
+          "allocation_misses": 489,
+          "local_credit_publications": 101,
+          "wal_writes": 204,
+          "wal_bytes": 55210,
+          "wal_identical_skipped": 0
+        },
+        "C": {
+          "db_transactions": 229,
+          "db_deadlock_retries": 0,
+          "transactions": 0,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 229,
+          "db_statements": 983,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 0,
+          "local_input_units": 0,
+          "local_output_units": 0,
+          "batch_devices": 0,
+          "batch_records": 0,
+          "batch_payload_bytes": 0,
+          "local_wakes": 0,
+          "remote_hint_wakes": 0,
+          "poll_fallback": 0,
+          "empty_batches": 0,
+          "allocation_misses": 0,
+          "local_credit_publications": 0,
+          "wal_writes": 0,
+          "wal_bytes": 0,
+          "wal_identical_skipped": 0
+        }
+      },
+      "measurement_status": {
+        "db_transactions": "MEASURED",
+        "db_deadlock_retries": "MEASURED",
+        "transactions": "MEASURED",
+        "errors": "MEASURED",
+        "queue_rejected": "MEASURED",
+        "quarantined": "MEASURED",
+        "db_transaction_attempts": "MEASURED",
+        "db_statements": "MEASURED",
+        "deferred_registry_decodes": "MEASURED",
+        "dropped_wake_hints": "MEASURED",
+        "local_exchange_calls": "MEASURED",
+        "local_input_units": "MEASURED",
+        "local_output_units": "MEASURED",
+        "batch_devices": "MEASURED",
+        "batch_records": "MEASURED",
+        "batch_payload_bytes": "MEASURED",
+        "local_wakes": "MEASURED",
+        "remote_hint_wakes": "MEASURED",
+        "poll_fallback": "MEASURED",
+        "empty_batches": "MEASURED",
+        "allocation_misses": "MEASURED",
+        "local_credit_publications": "MEASURED",
+        "wal_writes": "MEASURED",
+        "wal_bytes": "MEASURED",
+        "wal_identical_skipped": "MEASURED"
+      },
+      "account_statement_events": {
+        "events": 30863,
+        "timer_picoseconds": 8310319463000,
+        "errors": 0
+      },
+      "scope": "Actual per-server cumulative status and root-observed ct_dev SQL attempts; missing counters UNMEASURED. End rings/avg100 are snapshots, not window percentiles. Credit publications include cross delivery. Native local_input/output_units may mix resource units and are diagnostics, not external throughput/asset totals."
+    },
+    "steady_full_lifecycle": {
+      "sum": {
+        "db_transactions": 2027,
+        "db_deadlock_retries": 0,
+        "transactions": 741,
+        "errors": 0,
+        "queue_rejected": 0,
+        "quarantined": 0,
+        "db_transaction_attempts": 2027,
+        "db_statements": 21239,
+        "deferred_registry_decodes": 0,
+        "dropped_wake_hints": 0,
+        "local_exchange_calls": 880,
+        "local_input_units": 7920064,
+        "local_output_units": 7920064,
+        "batch_devices": 538,
+        "batch_records": 1987,
+        "batch_payload_bytes": 14379,
+        "local_wakes": 0,
+        "remote_hint_wakes": 305,
+        "poll_fallback": 277,
+        "empty_batches": 44,
+        "allocation_misses": 1005,
+        "local_credit_publications": 204,
+        "wal_writes": 605,
+        "wal_bytes": 149237,
+        "wal_identical_skipped": 10
+      },
+      "per_server": {
+        "A": {
+          "db_transactions": 1096,
+          "db_deadlock_retries": 0,
+          "transactions": 470,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 1096,
+          "db_statements": 12093,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 679,
+          "local_input_units": 7920064,
+          "local_output_units": 3894032,
+          "batch_devices": 319,
+          "batch_records": 1088,
+          "batch_payload_bytes": 8896,
+          "local_wakes": 0,
+          "remote_hint_wakes": 152,
+          "poll_fallback": 211,
+          "empty_batches": 44,
+          "allocation_misses": 504,
+          "local_credit_publications": 101,
+          "wal_writes": 396,
+          "wal_bytes": 92910,
+          "wal_identical_skipped": 10
+        },
+        "B": {
+          "db_transactions": 697,
+          "db_deadlock_retries": 0,
+          "transactions": 271,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 697,
+          "db_statements": 8141,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 201,
+          "local_input_units": 0,
+          "local_output_units": 4026032,
+          "batch_devices": 219,
+          "batch_records": 899,
+          "batch_payload_bytes": 5483,
+          "local_wakes": 0,
+          "remote_hint_wakes": 153,
+          "poll_fallback": 66,
+          "empty_batches": 0,
+          "allocation_misses": 501,
+          "local_credit_publications": 103,
+          "wal_writes": 209,
+          "wal_bytes": 56327,
+          "wal_identical_skipped": 0
+        },
+        "C": {
+          "db_transactions": 234,
+          "db_deadlock_retries": 0,
+          "transactions": 0,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 234,
+          "db_statements": 1005,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 0,
+          "local_input_units": 0,
+          "local_output_units": 0,
+          "batch_devices": 0,
+          "batch_records": 0,
+          "batch_payload_bytes": 0,
+          "local_wakes": 0,
+          "remote_hint_wakes": 0,
+          "poll_fallback": 0,
+          "empty_batches": 0,
+          "allocation_misses": 0,
+          "local_credit_publications": 0,
+          "wal_writes": 0,
+          "wal_bytes": 0,
+          "wal_identical_skipped": 0
+        }
+      },
+      "measurement_status": {
+        "db_transactions": "MEASURED",
+        "db_deadlock_retries": "MEASURED",
+        "transactions": "MEASURED",
+        "errors": "MEASURED",
+        "queue_rejected": "MEASURED",
+        "quarantined": "MEASURED",
+        "db_transaction_attempts": "MEASURED",
+        "db_statements": "MEASURED",
+        "deferred_registry_decodes": "MEASURED",
+        "dropped_wake_hints": "MEASURED",
+        "local_exchange_calls": "MEASURED",
+        "local_input_units": "MEASURED",
+        "local_output_units": "MEASURED",
+        "batch_devices": "MEASURED",
+        "batch_records": "MEASURED",
+        "batch_payload_bytes": "MEASURED",
+        "local_wakes": "MEASURED",
+        "remote_hint_wakes": "MEASURED",
+        "poll_fallback": "MEASURED",
+        "empty_batches": "MEASURED",
+        "allocation_misses": "MEASURED",
+        "local_credit_publications": "MEASURED",
+        "wal_writes": "MEASURED",
+        "wal_bytes": "MEASURED",
+        "wal_identical_skipped": "MEASURED"
+      },
+      "account_statement_events": {
+        "events": 31424,
+        "timer_picoseconds": 8454554687000,
+        "errors": 0
+      },
+      "scope": "Actual per-server cumulative status and root-observed ct_dev SQL attempts; missing counters UNMEASURED. End rings/avg100 are snapshots, not window percentiles. Credit publications include cross delivery. Native local_input/output_units may mix resource units and are diagnostics, not external throughput/asset totals."
+    },
+    "warmup_and_drain": {
+      "sum": {
+        "db_transactions": 559,
+        "db_deadlock_retries": 0,
+        "transactions": 207,
+        "errors": 0,
+        "queue_rejected": 0,
+        "quarantined": 0,
+        "db_transaction_attempts": 559,
+        "db_statements": 5878,
+        "deferred_registry_decodes": 0,
+        "dropped_wake_hints": 0,
+        "local_exchange_calls": 220,
+        "local_input_units": 1980000,
+        "local_output_units": 1980000,
+        "batch_devices": 149,
+        "batch_records": 544,
+        "batch_payload_bytes": 3256,
+        "local_wakes": 0,
+        "remote_hint_wakes": 87,
+        "poll_fallback": 73,
+        "empty_batches": 11,
+        "allocation_misses": 273,
+        "local_credit_publications": 58,
+        "wal_writes": 171,
+        "wal_bytes": 40963,
+        "wal_identical_skipped": 4
+      },
+      "per_server": {
+        "A": {
+          "db_transactions": 309,
+          "db_deadlock_retries": 0,
+          "transactions": 134,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 309,
+          "db_statements": 3427,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 172,
+          "local_input_units": 1980000,
+          "local_output_units": 1023000,
+          "batch_devices": 90,
+          "batch_records": 305,
+          "batch_payload_bytes": 2183,
+          "local_wakes": 0,
+          "remote_hint_wakes": 44,
+          "poll_fallback": 57,
+          "empty_batches": 11,
+          "allocation_misses": 138,
+          "local_credit_publications": 30,
+          "wal_writes": 115,
+          "wal_bytes": 26435,
+          "wal_identical_skipped": 4
+        },
+        "B": {
+          "db_transactions": 187,
+          "db_deadlock_retries": 0,
+          "transactions": 73,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 187,
+          "db_statements": 2182,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 48,
+          "local_input_units": 0,
+          "local_output_units": 957000,
+          "batch_devices": 59,
+          "batch_records": 239,
+          "batch_payload_bytes": 1073,
+          "local_wakes": 0,
+          "remote_hint_wakes": 43,
+          "poll_fallback": 16,
+          "empty_batches": 0,
+          "allocation_misses": 135,
+          "local_credit_publications": 28,
+          "wal_writes": 56,
+          "wal_bytes": 14528,
+          "wal_identical_skipped": 0
+        },
+        "C": {
+          "db_transactions": 63,
+          "db_deadlock_retries": 0,
+          "transactions": 0,
+          "errors": 0,
+          "queue_rejected": 0,
+          "quarantined": 0,
+          "db_transaction_attempts": 63,
+          "db_statements": 269,
+          "deferred_registry_decodes": 0,
+          "dropped_wake_hints": 0,
+          "local_exchange_calls": 0,
+          "local_input_units": 0,
+          "local_output_units": 0,
+          "batch_devices": 0,
+          "batch_records": 0,
+          "batch_payload_bytes": 0,
+          "local_wakes": 0,
+          "remote_hint_wakes": 0,
+          "poll_fallback": 0,
+          "empty_batches": 0,
+          "allocation_misses": 0,
+          "local_credit_publications": 0,
+          "wal_writes": 0,
+          "wal_bytes": 0,
+          "wal_identical_skipped": 0
+        }
+      },
+      "measurement_status": {
+        "db_transactions": "MEASURED",
+        "db_deadlock_retries": "MEASURED",
+        "transactions": "MEASURED",
+        "errors": "MEASURED",
+        "queue_rejected": "MEASURED",
+        "quarantined": "MEASURED",
+        "db_transaction_attempts": "MEASURED",
+        "db_statements": "MEASURED",
+        "deferred_registry_decodes": "MEASURED",
+        "dropped_wake_hints": "MEASURED",
+        "local_exchange_calls": "MEASURED",
+        "local_input_units": "MEASURED",
+        "local_output_units": "MEASURED",
+        "batch_devices": "MEASURED",
+        "batch_records": "MEASURED",
+        "batch_payload_bytes": "MEASURED",
+        "local_wakes": "MEASURED",
+        "remote_hint_wakes": "MEASURED",
+        "poll_fallback": "MEASURED",
+        "empty_batches": "MEASURED",
+        "allocation_misses": "MEASURED",
+        "local_credit_publications": "MEASURED",
+        "wal_writes": "MEASURED",
+        "wal_bytes": "MEASURED",
+        "wal_identical_skipped": "MEASURED"
+      },
+      "account_statement_events": {
+        "events": 8718,
+        "timer_picoseconds": 2370424675000,
+        "errors": 0
+      },
+      "scope": "Actual per-server cumulative status and root-observed ct_dev SQL attempts; missing counters UNMEASURED. End rings/avg100 are snapshots, not window percentiles. Credit publications include cross delivery. Native local_input/output_units may mix resource units and are diagnostics, not external throughput/asset totals."
+    }
+  },
+  "recovered_SQL_failures": {
+    "db_deadlock_retries": 0,
+    "account_statement_errors": 0,
+    "warmup_and_drain": {
+      "db_deadlock_retries": 0,
+      "account_statement_errors": 0
+    },
+    "steady_plus_tail": {
+      "db_deadlock_retries": 0,
+      "account_statement_errors": 0
+    }
+  },
+  "conservation": {
+    "passed": true,
+    "start": 163.3940047279998,
+    "end": 167.8289897689997,
+    "quiet_seconds": 2.2796282960002827,
+    "actual_final_zero_residue": {
+      "resources": [
+        {
+          "kind": "cross_tesseract:fe",
+          "resource_id": "7222a36c-3c39-4c92-b3fe-28a0ac801695",
+          "format_version": 1,
+          "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "pool": 0,
+          "allocation_remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:fluid",
+          "resource_id": "6ea81da9-2e3e-40af-8f47-6073ab565eed",
+          "format_version": 1,
+          "payload_hash": "db53fe4a1e86b4f22ef1e1ae13e55cf497de43c7ff9d6d69da8dcf795c9bbd65",
+          "pool": 0,
+          "allocation_remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:item",
+          "resource_id": "4f6c6625-c1b7-44ff-a29f-c7ded8dce013",
+          "format_version": 1,
+          "payload_hash": "bc7f6c0ba5a57cc1ce9f977318c87fb7ddf3a535c71a6cd6e72edb7d79c56443",
+          "pool": 0,
+          "allocation_remaining": 0
+        },
+        {
+          "kind": "cross_tesseract:item",
+          "resource_id": "be0d786a-c5c8-43ac-86b8-28ab57d13ddf",
+          "format_version": 1,
+          "payload_hash": "9c7984fd6e0f3c0773e455a68f0ca7186edb888070ffa1e99bd8cdffc9e5b51b",
+          "pool": 0,
+          "allocation_remaining": 0
+        }
+      ],
+      "by_kind": {
+        "cross_tesseract:item": {
+          "pool": 0,
+          "allocation_remaining": 0
+        },
+        "cross_tesseract:fluid": {
+          "pool": 0,
+          "allocation_remaining": 0
+        },
+        "cross_tesseract:fe": {
+          "pool": 0,
+          "allocation_remaining": 0
+        }
+      },
+      "local_buffers": {
+        "mixed_source_0": {
+          "txFE": 0,
+          "rxFE": 0,
+          "txItem": 0,
+          "rxItem": 0,
+          "txFluid": 0,
+          "rxFluid": 0,
+          "checkpoint": 1256,
+          "id": "bbc5064c-283a-43f9-a5e6-12eed3354f29",
+          "registered": true,
+          "pause": "",
+          "channel": "603347be-d96e-4a33-b907-02b07a69ed7a"
+        },
+        "mixed_sink_0": {
+          "txFE": 0,
+          "rxFE": 0,
+          "txItem": 0,
+          "rxItem": 0,
+          "txFluid": 0,
+          "rxFluid": 0,
+          "checkpoint": 576,
+          "id": "45d0ce7e-d447-44ec-8117-a02a41aeeefc",
+          "registered": true,
+          "pause": "",
+          "channel": "603347be-d96e-4a33-b907-02b07a69ed7a"
+        },
+        "mixed_sink_1": {
+          "txFE": 0,
+          "rxFE": 0,
+          "txItem": 0,
+          "rxItem": 0,
+          "txFluid": 0,
+          "rxFluid": 0,
+          "checkpoint": 577,
+          "id": "fe01ff6f-ac01-44af-abf9-affa028c80f5",
+          "registered": true,
+          "pause": "",
+          "channel": "603347be-d96e-4a33-b907-02b07a69ed7a"
+        }
+      },
+      "guard_SQL_trace_index": 20,
+      "scope": "Separate zero tests; allocations/local/WAL may mirror the same asset."
+    }
+  },
+  "receiver_service": {
+    "steady_window_actual_receiver_service": {
+      "mixed": {
+        "FE": {
+          "mixed_sink_0": 3776000,
+          "mixed_sink_1": 3840000
+        },
+        "water": {
+          "mixed_sink_0": 118000,
+          "mixed_sink_1": 120000
+        },
+        "named_stone_total": {
+          "mixed_sink_0": 32,
+          "mixed_sink_1": 32
+        }
+      }
+    },
+    "steady_plus_tail_actual_receiver_service": {
+      "mixed": {
+        "FE": {
+          "mixed_sink_0": 3776000,
+          "mixed_sink_1": 3904000
+        },
+        "water": {
+          "mixed_sink_0": 118000,
+          "mixed_sink_1": 122000
+        },
+        "named_stone_total": {
+          "mixed_sink_0": 32,
+          "mixed_sink_1": 32
+        }
+      }
+    },
+    "all_phase_actual_receiver_service": {
+      "mixed": {
+        "FE": {
+          "mixed_sink_0": 4768000,
+          "mixed_sink_1": 4832000
+        },
+        "water": {
+          "mixed_sink_0": 149000,
+          "mixed_sink_1": 151000
+        },
+        "named_stone_total": {
+          "mixed_sink_0": 32,
+          "mixed_sink_1": 32
+        }
+      }
+    }
+  },
+  "normal_stop_verified_by_controller": true
+}
