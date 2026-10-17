@@ -1,0 +1,31 @@
+{
+  "fixture": "fault-5ab3c4e257c9",
+  "cluster": "test_rcnative_fault_5ab3c4e257c9",
+  "source_manifest_sha256": "f3882fa3aa74fd7118a0261b88dd6ff498389f4a6ff33a9210924a03ce92704c",
+  "utc_start": "2026-10-17T10:37:50Z",
+  "passed": true,
+  "operator_asserted_EULA": true,
+  "scope": "real Minecraft/Authority/WAL; capacity exhaustion and controlled worker interruption after first actual publication group; not power loss or COMMIT ACK loss",
+  "build_command": [
+    "scripts/gradle-dev.sh",
+    "--no-daemon",
+    "--max-workers=2",
+    "classes",
+    "jar",
+    "createGameTestServerLaunchScript",
+    "-PrcFaultTests",
+    "-PrcFixture=fault-5ab3c4e257c9"
+  ],
+  "build_exit": 0,
+  "JAR_sha256": "f8be85b5b44de325ebe139ecb2232757324e34ab78e105c35e6d47e8be7f4f6a",
+  "pid": 19990,
+  "native_exit": 0,
+  "capacity_positive_pass_marker": true,
+  "actual_split_positive_pass_marker": true,
+  "utc_end": "2026-10-17T10:38:29Z",
+  "source_unchanged": true,
+  "logs": {
+    "build.log": "31b943274e0f055711675c04b9c20bf98e225de233a823cff6bbc7e7728f9c9f",
+    "native.log": "c622444c4d3cf30ceefd28560928ca26841ea26997f68ac18f72f094671f184f"
+  }
+}

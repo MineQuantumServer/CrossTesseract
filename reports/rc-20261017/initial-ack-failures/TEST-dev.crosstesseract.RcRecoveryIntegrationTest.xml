@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.RcRecoveryIntegrationTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2026-10-17T10:25:27.506Z" hostname="0e33714fb4c9" time="0.78">
+  <properties/>
+  <testcase name="depositCommitOkIsLostOnWireAndOriginalWalBusinessIdCreditsOnlyOnce()" classname="dev.crosstesseract.RcRecoveryIntegrationTest" time="0.405">
+    <failure message="org.opentest4j.AssertionFailedError: Expected java.sql.SQLException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Expected java.sql.SQLException to be thrown, but nothing was thrown.
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at app//org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+	at app//dev.crosstesseract.RcRecoveryIntegrationTest.depositCommitOkIsLostOnWireAndOriginalWalBusinessIdCreditsOnlyOnce(RcRecoveryIntegrationTest.java:70)
+	at java.base@21.0.8/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.8/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.8/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="localCommitOkIsLostOnWireAndSamePublicationCannotRestoreConsumedRemaining()" classname="dev.crosstesseract.RcRecoveryIntegrationTest" time="0.375">
+    <failure message="org.opentest4j.AssertionFailedError: Expected java.sql.SQLException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Expected java.sql.SQLException to be thrown, but nothing was thrown.
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at app//org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+	at app//dev.crosstesseract.RcRecoveryIntegrationTest.localCommitOkIsLostOnWireAndSamePublicationCannotRestoreConsumedRemaining(RcRecoveryIntegrationTest.java:130)
+	at java.base@21.0.8/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.8/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.8/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[RC_RECOVERY_EVIDENCE scratch/rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/result.json
+RC_RECOVERY_EVIDENCE scratch/rc-recovery-local-01a149652567771f918d270bb3f14cd6/result.json
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

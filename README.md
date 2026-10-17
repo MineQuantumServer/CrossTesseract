@@ -75,3 +75,5 @@ AE2 安装并开启物资桥后增加库存页，区分本地立即可取、远�
 本项目原创代码/材质为 MIT。原始 Tesseract 为受限许可参考，不包含其代码、PNG、模型或改色资源。
 
 本轮性能核心及证据归属见 [交付记录](docs/DELIVERY.md) 和 [闭合验证索引](reports/optimization-final-validation-index-68f32db.json)。同服路径仍经过MySQL独占划拨和WAL；延迟改善、SQL/WAL成本回归、未达目标及未验证范围分别保留，不宣称全部性能目标通过。
+
+2026-10-17性能回归修复与发布候选状态见 [本轮RC报告](docs/RC_20261017_REPORT.md)。缺失配置默认保守false/false；快速路径需显式启用，未完成全部验收前不作为正式上线保证。候选构建及真实后端CI产物通过仓库Actions提供，不发布正式发行版。

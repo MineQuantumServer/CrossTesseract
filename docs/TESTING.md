@@ -1,5 +1,7 @@
 # 实际测试与复现
 
+2026-10-17本轮真实测试、失败及候选身份见 [RC报告](RC_20261017_REPORT.md)。下文68系列结果均保留其原版本归属，不代替新源码验证。独立正资产原生故障可用 `python3 scripts/rc-native-faults.py --execute --accept-eula` 重现；EULA需操作者已自行接受。
+
 ## 本轮频道合批与本地调度验证（2026-10-06）
 
 当前源码 `68f32db` 已完成68项单位/性质/真实后端测试（35项单位/性质、33项真实后端；失败、错误、跳过均0）及13项基础原生GameTest。XML/HTML在 `reports/optimization-tests-ready-final/`，命令、源码/JAR摘要在 `reports/optimization-artifact-ready-final.json`，日志 `logs/optimization-build-ready-final.log`。LocalRoomTest 验证快速空间探测的凭证/零额边界；ChannelCoordinatorTest 新增 pending 查询和首次在途信号测试，并在 partial-batch、150组随机模型中逐步核对查询结果。

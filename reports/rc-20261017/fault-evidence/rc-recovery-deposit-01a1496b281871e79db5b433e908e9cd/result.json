@@ -1,0 +1,72 @@
+{
+  "cluster": "test_rc_01a1496b281871e79db5b433e908e9cd",
+  "wal_snapshots": [
+    {
+      "path": "scratch/rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/before_commit-01a1496b-29de-7e8f-bbe2-9c45a50321d6.ctj",
+      "endpoint": "01a1496b-29de-7e8f-bbe2-9c45a50321d6",
+      "sha256": "561e11e8c41c930cc38f98c02eb9e47eec59df17c4cc63945fb166030e394f9e",
+      "RX_mirror_remaining_FE": 0,
+      "pending_TX_FE": 128,
+      "label": "before_commit",
+      "revision": 2
+    },
+    {
+      "path": "scratch/rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/after_same_id_acknowledgement-01a1496b-29de-7e8f-bbe2-9c45a50321d6.ctj",
+      "endpoint": "01a1496b-29de-7e8f-bbe2-9c45a50321d6",
+      "sha256": "cf726545e994fc3edfdfdf7bebcaa15892562b6f1930786ce03ff7ed9faac7a6",
+      "RX_mirror_remaining_FE": 0,
+      "pending_TX_FE": 0,
+      "label": "after_same_id_acknowledgement",
+      "revision": 3
+    }
+  ],
+  "WAL_and_SQL_mirrors_not_added": true,
+  "channel": "d2c316f0-3880-4fdf-8274-d20b17b38779",
+  "historical_assets_accessed": false,
+  "confirmed_LocalBuffer_extraction_FE": 0,
+  "utc_end": "2026-10-17T10:32:02.658099322Z",
+  "confirmed_domain_input_FE": 128,
+  "caller_sql_state": "08S01",
+  "world": "01a1496b-2818-7677-86b4-2c65415c8059",
+  "native_capability_input_or_output": "NOT_RUN",
+  "proxy_script_sha256": "42e20cda96833fb10b7e03294c7499c38d66dee8e00f1aeb542b109451783785",
+  "scope": "real MySQL COMMIT OK dropped on loopback; independent direct SQL; production LocalJournal/LocalBuffer; no Minecraft/native/world rollback or hardware power-loss claim",
+  "caller_sql_error_code": 0,
+  "final_ledger": {
+    "pool_FE": 128,
+    "transfer_rows": 1,
+    "deposited_FE": 128,
+    "owned_remaining_FE": 0
+  },
+  "proxy_exit_code": 0,
+  "passed": true,
+  "phase": "deposit",
+  "generation": 1,
+  "target_business_uuid": "01a1496b-29fa-7d66-a6e9-33e0eee4c830",
+  "after_same_id_retry": {
+    "pool_FE": 128,
+    "transfer_rows": 1,
+    "deposited_FE": 128,
+    "owned_remaining_FE": 0
+  },
+  "proxy_events": "scratch/rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/proxy-events.jsonl",
+  "source_files_at_test_start_sha256": {
+    "backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+    "backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+    "backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+    "core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+    "backend/Authority.java": "46be26d2bee085c0c722492bce26916ab1337092602f4cfa5213ae7a1a059cf2"
+  },
+  "real_commit_OK_observed_and_not_forwarded": true,
+  "proxy_process_log": "scratch/rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/proxy-process.log",
+  "post_lost_response": {
+    "pool_FE": 128,
+    "transfer_rows": 1,
+    "deposited_FE": 128,
+    "owned_remaining_FE": 0
+  },
+  "utc_start": "2026-10-17T10:32:01.823648106Z",
+  "owned_proxy_pid": 18491,
+  "caller_exception_class": "com.mysql.cj.jdbc.exceptions.CommunicationsException",
+  "actual_database_outage": false
+}

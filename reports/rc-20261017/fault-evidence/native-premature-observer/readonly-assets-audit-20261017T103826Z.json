@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "audit_kind": "new_capacity_fixture_observer_failure_readonly_assets",
+  "utc_start": "2026-10-17T10:38:26.570357+00:00",
+  "utc_end": "2026-10-17T10:38:26.664480+00:00",
+  "cluster": "test_rcnative_fault_9a69a103cd3f",
+  "fixture": "scratch/rc-native/fault-9a69a103cd3f",
+  "endpoint": "7aef37a0-2920-4de1-b509-76551598563d",
+  "SQL_statement": "SELECT JSON_OBJECT('endpoint',JSON_OBJECT('endpoint_id',e.endpoint_id,'world_id',e.world_id,'server_id',e.server_id,'channel_id',e.channel_id,'state',e.state,'pause_reason',e.pause_reason,'checkpoint',e.checkpoint,'recovery_generation',e.recovery_generation,'last_epoch',e.last_epoch),'server',JSON_OBJECT('session_id',s.session_id,'fencing_epoch',s.fencing_epoch,'status',s.status,'clean_stop',s.clean_stop,'lease_until',s.lease_until),'transfers',(SELECT JSON_ARRAYAGG(JSON_OBJECT('business_uuid',t.transfer_id,'endpoint_id',t.endpoint_id,'channel_id',t.channel_id,'resource_id',t.resource_id,'kind',t.kind,'state',t.state,'amount',t.amount,'remaining',t.remaining,'epoch',t.epoch)) FROM ct_transfers t WHERE t.cluster_id=e.cluster_id AND t.endpoint_id=e.endpoint_id),'balances',(SELECT JSON_ARRAYAGG(JSON_OBJECT('resource_id',b.resource_id,'amount',b.amount)) FROM ct_balances b WHERE b.cluster_id=e.cluster_id AND b.channel_id=e.channel_id),'resources',(SELECT JSON_ARRAYAGG(JSON_OBJECT('resource_id',r.resource_id,'kind',r.kind,'format_version',r.format_version,'payload_hash',r.payload_hash,'payload_hex',HEX(r.payload))) FROM ct_resources r WHERE r.cluster_id=e.cluster_id AND EXISTS(SELECT 1 FROM ct_transfers t WHERE t.cluster_id=e.cluster_id AND t.endpoint_id=e.endpoint_id AND t.resource_id=r.resource_id)),'quarantine',(SELECT JSON_ARRAYAGG(JSON_OBJECT('record_id',q.record_id,'transfer_id',q.transfer_id,'reason',q.reason,'state',q.state)) FROM ct_quarantine q WHERE q.cluster_id=e.cluster_id AND q.endpoint_id=e.endpoint_id)) FROM ct_endpoints e JOIN ct_servers s ON s.cluster_id=e.cluster_id AND s.server_id=e.server_id WHERE e.cluster_id='test_rcnative_fault_9a69a103cd3f' AND e.endpoint_id='7aef37a0-2920-4de1-b509-76551598563d'",
+  "SQL": {
+    "server": {
+      "status": "ONLINE",
+      "clean_stop": 0,
+      "session_id": "01a1496c-f754-76d2-b395-40537b39f6d5",
+      "lease_until": "2026-10-17 10:35:16.418435",
+      "fencing_epoch": 1
+    },
+    "balances": [
+      {
+        "amount": 0,
+        "resource_id": "570925b9-8907-4d1d-a0ac-3574077abe1f"
+      }
+    ],
+    "endpoint": {
+      "state": "ACTIVE",
+      "world_id": "01a1496c-f759-7300-add7-c4f42b96f5f9",
+      "server_id": "fault-9a69a103cd3f",
+      "channel_id": "92850695-9106-4113-b0bd-5245dc5db31f",
+      "checkpoint": 8,
+      "last_epoch": 1,
+      "endpoint_id": "7aef37a0-2920-4de1-b509-76551598563d",
+      "pause_reason": "",
+      "recovery_generation": 1
+    },
+    "resources": [
+      {
+        "kind": "cross_tesseract:fe",
+        "payload_hex": "",
+        "resource_id": "570925b9-8907-4d1d-a0ac-3574077abe1f",
+        "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "format_version": 1
+      }
+    ],
+    "transfers": [
+      {
+        "kind": "DEPOSIT",
+        "epoch": 1,
+        "state": "COMMITTED",
+        "amount": 128,
+        "remaining": 0,
+        "channel_id": "92850695-9106-4113-b0bd-5245dc5db31f",
+        "endpoint_id": "7aef37a0-2920-4de1-b509-76551598563d",
+        "resource_id": "570925b9-8907-4d1d-a0ac-3574077abe1f",
+        "business_uuid": "01a1496c-ff86-733c-9c56-adfd0385ed4c"
+      },
+      {
+        "kind": "ALLOCATE",
+        "epoch": 1,
+        "state": "CONSUMED",
+        "amount": 128,
+        "remaining": 0,
+        "channel_id": "92850695-9106-4113-b0bd-5245dc5db31f",
+        "endpoint_id": "7aef37a0-2920-4de1-b509-76551598563d",
+        "resource_id": "570925b9-8907-4d1d-a0ac-3574077abe1f",
+        "business_uuid": "01a1496d-1313-72b4-9fe7-b6e305035860"
+      }
+    ],
+    "quarantine": null
+  },
+  "WAL": {
+    "endpoint": "7aef37a0-2920-4de1-b509-76551598563d",
+    "world": "01a1496c-f759-7300-add7-c4f42b96f5f9",
+    "generation": 1,
+    "revision": 8,
+    "deposits": [],
+    "credits": [],
+    "thermal": {
+      "microjoules": 0,
+      "residual": 0.0,
+      "pending": false
+    }
+  },
+  "WAL_file": "scratch/rc-native/fault-9a69a103cd3f/game/world/cross_tesseract/journal/7aef37a0-2920-4de1-b509-76551598563d.ctj",
+  "WAL_file_sha256": "a197bc4de2eb25f27797e146ee2bdfa25ad6978fe12d68885890ab3c15055d6b",
+  "WAL_checksum_valid": true,
+  "pending_file_present": false,
+  "log_file": "logs/rc-native-faults-second-20261017T1035Z.log",
+  "log_sha256": "c9add95428050592bf8ecd6014231637c8793211b6cf055bb88a8858f4a39725",
+  "summary": {
+    "native_input_FE_log": 128,
+    "native_external_output_FE_log": 128,
+    "duplicate_pull_FE_log": 0,
+    "deposit_count": 1,
+    "deposit_amount": 128,
+    "allocation_count": 1,
+    "SQL_allocation_remaining": 0,
+    "SQL_pool": 0,
+    "WAL_pending_TX": 0,
+    "WAL_credit_remaining": 0,
+    "SQL_WAL_mirrors_added": false
+  },
+  "scope": "one read-only SELECT scoped to newly created test fixture plus unchanged WAL/log reads; no replay, refund, SQL/WAL modification, historical assets or process lifecycle operation",
+  "clean_stop_proven": false,
+  "termination": "parent reported SIGTERM143; failure/unclean evidence preserved"
+}

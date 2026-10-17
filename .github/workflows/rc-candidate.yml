@@ -1,0 +1,61 @@
+name: Isolated RC build and downloadable evidence
+on:
+  push:
+    branches: [perf/channel-coordinator]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rc-build-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    services:
+      mysql:
+        image: mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+        env:
+          MYSQL_DATABASE: cross_tesseract
+          MYSQL_USER: ct_dev
+          MYSQL_PASSWORD: ct_dev_only
+          MYSQL_ROOT_PASSWORD: ct_root_dev
+        ports: [13306:3306]
+        options: --health-cmd="mysqladmin ping -h 127.0.0.1" --health-interval=3s --health-timeout=2s --health-retries=40
+      redis:
+        image: redis@sha256:a9cc41d6d01da2aa26c219e4f99ecbeead955a7b656c1c499cce8922311b2514
+        ports: [16379:6379]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: 21.0.8+9
+      - name: Build and real isolated backend tests (no Minecraft JVM or EULA assertion)
+        run: ./gradlew --no-daemon --max-workers=2 build -Dct.integration=true
+      - name: Record exact source and artifact identity
+        if: always()
+        run: |
+          mkdir -p build/rc-evidence
+          git rev-parse HEAD > build/rc-evidence/SOURCE_COMMIT
+          sha256sum build/libs/*.jar > build/rc-evidence/SHA256SUMS
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          files=sorted(Path('src/main/java').rglob('*.java'))
+          manifest=hashlib.sha256(b''.join(str(p).encode()+b'\0'+hashlib.sha256(p.read_bytes()).digest() for p in files)).hexdigest()
+          Path('build/rc-evidence/build.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'main_java_manifest_sha256':manifest,'release':False,'Minecraft_JVM_EULA_performance_compatibility_soak_tests':'NOT_RUN in CI; consult separately attributed native reports'},indent=2)+'\n')
+          PY
+      - name: Candidate JARs and evidence; no release published
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: CrossTesseract-RC-${{ github.sha }}
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            build/libs/*.jar
+            build/rc-evidence/
+            build/test-results/test/
+            reports/rc-20261017/
+            docs/RC_20261017*.md

@@ -1,0 +1,10 @@
+{
+  "result": "FAILED",
+  "total_tests": 76,
+  "failed_tests": 2,
+  "reason": "proxy did not decode negotiated CLIENT_QUERY_ATTRIBUTES zero-parameter prefix; no ACK loss actually injected",
+  "files": {
+    "TEST-dev.crosstesseract.RcRecoveryIntegrationTest.xml": "a3fde26310cf29b835a854ae3986710aecc7e7dbee2c4deeaa41889f3e519306",
+    "rc-candidate-second-build-20261017T1025Z.log": "a7ff38de6621869b8e6c43ef678d78acc2cf385ca7a6d2cf5c4f8cdb587b0c34"
+  }
+}

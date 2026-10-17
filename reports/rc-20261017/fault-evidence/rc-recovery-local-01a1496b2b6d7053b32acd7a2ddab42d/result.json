@@ -1,0 +1,72 @@
+{
+  "cluster": "test_rc_01a1496b2b6d7053b32acd7a2ddab42d",
+  "wal_snapshots": [
+    {
+      "path": "scratch/rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/before_LOCAL_commit-01a1496b-2c2d-79e6-8fe5-f6adc0b654bc.ctj",
+      "endpoint": "01a1496b-2c2d-79e6-8fe5-f6adc0b654bc",
+      "sha256": "cddf5a56f03c5c1fb35c02eb5f2f4c2cbe3a47c1d34e7b999c60f7d793ea9714",
+      "RX_mirror_remaining_FE": 128,
+      "pending_TX_FE": 0,
+      "label": "before_LOCAL_commit",
+      "revision": 1
+    },
+    {
+      "path": "scratch/rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/after_monotone_consumption-01a1496b-2c2d-79e6-8fe5-f6adc0b654bc.ctj",
+      "endpoint": "01a1496b-2c2d-79e6-8fe5-f6adc0b654bc",
+      "sha256": "2dea4510180a6abe14e0eea61017ddeead09c53abb5cc0f263948510f7df9997",
+      "RX_mirror_remaining_FE": 0,
+      "pending_TX_FE": 0,
+      "label": "after_monotone_consumption",
+      "revision": 4
+    }
+  ],
+  "WAL_and_SQL_mirrors_not_added": true,
+  "channel": "140d3124-4bc1-425b-b74c-925a43a459a3",
+  "historical_assets_accessed": false,
+  "confirmed_LocalBuffer_extraction_FE": 128,
+  "utc_end": "2026-10-17T10:32:03.236423134Z",
+  "after_same_id_retry_and_consumption": {
+    "pool_FE": 0,
+    "transfer_rows": 2,
+    "deposited_FE": 128,
+    "owned_remaining_FE": 0
+  },
+  "confirmed_domain_input_FE": 128,
+  "caller_sql_state": "08S01",
+  "world": "01a1496b-2b6d-7de5-b31d-d992c1ad50e0",
+  "native_capability_input_or_output": "NOT_RUN",
+  "proxy_script_sha256": "42e20cda96833fb10b7e03294c7499c38d66dee8e00f1aeb542b109451783785",
+  "scope": "real MySQL COMMIT OK dropped on loopback; independent direct SQL; production LocalJournal/LocalBuffer; no Minecraft/native/world rollback or hardware power-loss claim",
+  "caller_sql_error_code": 0,
+  "final_ledger": {
+    "pool_FE": 0,
+    "transfer_rows": 2,
+    "deposited_FE": 128,
+    "owned_remaining_FE": 0
+  },
+  "proxy_exit_code": 0,
+  "passed": true,
+  "phase": "local",
+  "generation": 1,
+  "target_business_uuid": "01a1496b-2c5f-7b91-b004-891e39ed4116",
+  "proxy_events": "scratch/rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/proxy-events.jsonl",
+  "source_files_at_test_start_sha256": {
+    "backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+    "backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+    "backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+    "core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+    "backend/Authority.java": "46be26d2bee085c0c722492bce26916ab1337092602f4cfa5213ae7a1a059cf2"
+  },
+  "real_commit_OK_observed_and_not_forwarded": true,
+  "proxy_process_log": "scratch/rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/proxy-process.log",
+  "post_lost_response": {
+    "pool_FE": 0,
+    "transfer_rows": 2,
+    "deposited_FE": 128,
+    "owned_remaining_FE": 128
+  },
+  "utc_start": "2026-10-17T10:32:02.670077054Z",
+  "owned_proxy_pid": 18505,
+  "caller_exception_class": "com.mysql.cj.jdbc.exceptions.CommunicationsException",
+  "actual_database_outage": false
+}

@@ -1,0 +1,201 @@
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileGtApiJava
+> Task :processGtApiResources NO-SOURCE
+> Task :gtApiClasses
+
+> Task :compileJava
+/workspace/CrossTesseract/src/main/java/dev/crosstesseract/block/TesseractBlock.java:39: warning: [deprecation] getCloneItemStack(LevelReader,BlockPos,BlockState) in Block has been deprecated
+    @Override public ItemStack getCloneItemStack(LevelReader level,BlockPos pos,BlockState state) { return CrossTesseract.ITEM.get().getDefaultInstance(); }
+                               ^
+/workspace/CrossTesseract/src/main/java/dev/crosstesseract/block/NeighborPump.java:24: warning: [deprecation] hasChunkAt(BlockPos) in LevelReader has been deprecated
+        if(!level.hasChunkAt(pos) || level.getBlockEntity(pos) instanceof TesseractBlockEntity)return;
+                 ^
+2 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jarJar UP-TO-DATE
+> Task :jar
+> Task :sourcesJar
+> Task :assemble
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+
+AeProxyAndThermalTest > duplicateBridgeAndLoopAdvertisementsAreCountedOnce() PASSED
+
+AeProxyAndThermalTest > thermalPendingIsFrozenDurableAndResidualIsConserved() PASSED
+
+AuthorityIntegrationTest > staleSessionIsFencedAndQuotaDoesNotExpireWithLease() PASSED
+
+AuthorityIntegrationTest > sealedReservedReceiptIsNeverPromotedByCheckpointOrReclaimedWithUnprovenConsumption() PASSED
+
+AuthorityIntegrationTest > duplicateServerIdIsRejectedAndCloneCannotClaimAnotherLocation() PASSED
+
+AuthorityIntegrationTest > historyAdmissionIsAtomicRollsBackAndOldPrunedKeysCannotReplay() PASSED
+
+AuthorityIntegrationTest > sameChunkCountsTwiceAndInstallFailureCompensates() PASSED
+
+AuthorityIntegrationTest > savepointCleanupPreservesRealMysqlDeadlockAndRetriesOnlyUncommittedWork() PASSED
+
+AuthorityIntegrationTest > outboxSurvivesUnpublishedCommitAndRedisIsNeverAssetAuthority() PASSED
+
+AuthorityIntegrationTest > profileAndPacketQuantumAvoidWrongVoltageAndFractionalAmps() PASSED
+
+AuthorityIntegrationTest > redisPendingConsumersDuplicateAndReorderedHintsAreRoutedAndIdempotent() PASSED
+
+AuthorityIntegrationTest > sealedRecoveryUsesOriginalOwnershipAndCannotRepeatReclaimedAssets() PASSED
+
+AuthorityIntegrationTest > stockPagingPendingCapExpirationAndBindingCancelAreBounded() PASSED
+
+AuthorityIntegrationTest > threeServersRaceForTwoPersistentSlots() PASSED
+
+AuthorityIntegrationTest > quarantinedAllocationsCannotBeReactivatedByCheckpointOrWalRestore() PASSED
+
+AuthorityIntegrationTest > directedStockIntentIsPrivateIdempotentAndUsesExclusiveFairAllocations() PASSED
+
+AuthorityIntegrationTest > passiveHeatUsesExclusivePreparedOwnershipAndNeverRefundsTimeouts() PASSED
+
+AuthorityIntegrationTest > integerBalancesPartialDeliveryAndDuplicatesConserveAcrossThreeServers() PASSED
+
+AuthorityIntegrationTest > quotaReductionIsDeterministicAndRetainsSlotsUntilRevocationAck() PASSED
+
+AuthorityIntegrationTest > mysqlDeadlocksAreRetriedWithoutRepeatingCommittedMutations() PASSED
+
+AuthorityIntegrationTest > invitationsArePrivateConcurrentIdempotentAndTransfersHaveOneOwner() PASSED
+
+BufferSafetyTest > allAcceptedRawSlotsEnterTheCheckpointEvenNearThePendingLimit() PASSED
+
+BufferSafetyTest > definiteLocalPartialRemaindersReturnToOriginalCreditsAndNeverSending() PASSED
+
+BufferSafetyTest > oldTimeBearingBusinessIdsCannotBecomeFreshOperationsAfterHistoryPruning() PASSED
+
+ChannelBatchIntegrationTest > oneCorruptOutstandingPayloadIsQuarantinedWithoutRollingBackHealthyDeviceWork() PASSED
+
+ChannelBatchIntegrationTest > replayingCapturedBusinessIdsDoesNotDuplicateDepositsCreditsOrPublication(Path) PASSED
+
+ChannelBatchIntegrationTest > authorizedReservedWalRecoveryConfirmsFencedSqlPublicationBeforeReturningCredit(Path) PASSED
+
+ChannelBatchIntegrationTest > allocationWithoutRenewalRetainsSqlDemandAndGlobalRemotePriority() PASSED
+
+ChannelBatchIntegrationTest > staleVersionAndRevokedEndpointRollBackTheirSavepointsWhileAnotherDeviceCommits() PASSED
+
+ChannelBatchIntegrationTest > fullOwnedItemAndFeCandidatesIncludingQuarantineCannotBlockOtherServers() PASSED
+
+ChannelBatchIntegrationTest > registeredRemoteDemandKeepsPriorityOverLocalBatchesAndAllThreeAuthoritiesConserve() PASSED
+
+ChannelBatchIntegrationTest > freshPublicationAuthorizationRejectsRevokedCreditWithoutRefundAndKeepsOthersWorking(Path) PASSED
+
+ChannelBatchIntegrationTest > differentCompletePayloadBytesRemainSeparateInDepositsAndAllocations() PASSED
+
+ChannelBatchIntegrationTest > longOverflowRollsBackOneDeviceIncludingItsNewResourceWhileOtherDevicesCommit() PASSED
+
+ChannelBatchIntegrationTest > aNewBootFencesBothOldSqlAndOldPublicationPhases(Path) PASSED
+
+ChannelBatchIntegrationTest > walReservedCreditCannotOpenAfterReceivePermissionWasRevoked(Path) PASSED
+
+ChannelBatchIntegrationTest > exhaustedWalCreditSurvivesRestoreUntilSqlCheckpointAndCannotBeRediscovered(Path) PASSED
+
+ChannelBatchIntegrationTest > multipleDeviceSqlAndWalPublicationPhasesEachCommitOneTransaction(Path) PASSED
+
+ChannelBatchIntegrationTest > checkpointOnlySkipsDiscoveryWithoutLosingReservedPositiveAssets(Path) PASSED
+
+ChannelCoordinatorTest > hotChannelRejoinsTailAfterEachLease() PASSED
+
+ChannelCoordinatorTest > oldFinishCannotEraseAnExplicitNewSignalAfterRemoval() PASSED
+
+ChannelCoordinatorTest > partialBatchesAndSignalsDuringFlightSurviveInDeviceOrder() PASSED
+
+ChannelCoordinatorTest > clearAndForeignLeasesCannotFinishNewWork() PASSED
+
+ChannelCoordinatorTest > invalidLimitsAndNullArgumentsAreRejectedWithoutAdmission() PASSED
+
+ChannelCoordinatorTest > pendingProbeTracksNextRunSignalsAcrossFlightRemovalAndRebinding() PASSED
+
+ChannelCoordinatorTest > duplicateSignalsHaveOneAdmissionAndOneImmutableLeaseEntry() PASSED
+
+ChannelCoordinatorTest > channelAndEndpointBoundsIncludeFlightUntilCompletion() PASSED
+
+ChannelCoordinatorTest > removingReadyWorkAndRevokedFlightWorkNeverResurrectsDevices() PASSED
+
+CompletionMailboxTest > nullAndRepeatedCompletionsCannotReplaceOrDuplicateCallbacks() PASSED
+
+CompletionMailboxTest > competingTerminalResultsPublishExactlyOneCallback() PASSED
+
+CompletionMailboxTest > concurrentAdmissionCannotStartMoreWorkThanCapacity() PASSED
+
+CompletionMailboxTest > concurrentWorkersKeepEveryAcceptedCallback() PASSED
+
+CompletionMailboxTest > reservationsAndQueuedCallbacksShareOneBoundUntilPolled() PASSED
+
+CompletionMailboxTest > invalidCapacityIsRejected() PASSED
+
+CompletionMailboxTest > callbackFailureCannotLeakCapacity() PASSED
+
+DemandRefreshTest > smallConsumptionDoesNotRenewEveryCreditButDepletionAndExpiryDo() PASSED
+
+DemandRefreshTest > profilesQuantumAndTinyCapacitiesRemainDistinct() PASSED
+
+DemandRefreshTest > missingConfigurationIsConservative(Path) PASSED
+
+JournalAndHeatTest > localCheckpointsRoundTripAndCorruptionFailsClosed(Path) PASSED
+
+JournalAndHeatTest > heatRejectsNaNInfinityIllegalCapacityAndColdToHot() PASSED
+
+LocalDeltaTest > disabledCleanPendingDepositsDoNotRequestEmptySqlButRemainDurable(Path) PASSED
+
+LocalDeltaTest > prospectiveAdmissionHonorsPerKindCountsAndGlobalUnconfirmedTombstones() PASSED
+
+LocalDeltaTest > identicalWalVersionsMayRepeatButDifferentContentsAndOldVersionsAreRejected(Path) PASSED
+
+LocalDeltaTest > randomizedCapturedDeltasAndWalRestorationConserveWithFixedSeed(Path) PASSED
+
+LocalDeltaTest > prospectiveAdmissionIsNonMutatingAndAccountsForAllIncomingCreditsTogether() PASSED
+
+LocalDeltaTest > capturedCompletionPreservesNewInputConsumptionAndUnconfirmedZeroCredits(Path) PASSED
+
+LocalRoomTest > positiveCredentialLimitAndPartialConsumptionControlAdmissionSeparatelyFromCapacity() PASSED
+
+LocalRoomTest > globalTombstoneBoundNeedsConfirmedCheckpointEvenWhenEveryRemainingIsZero() PASSED
+
+MigrationConcurrencyTest > threeConcurrentFreshMigrationsAndInterruptedDdlFailClosed() PASSED
+
+RcRecoveryIntegrationTest > depositCommitOkIsLostOnWireAndOriginalWalBusinessIdCreditsOnlyOnce() FAILED
+    org.opentest4j.AssertionFailedError at RcRecoveryIntegrationTest.java:70
+
+RcRecoveryIntegrationTest > localCommitOkIsLostOnWireAndSamePublicationCannotRestoreConsumedRemaining() FAILED
+    org.opentest4j.AssertionFailedError at RcRecoveryIntegrationTest.java:130
+
+JournalBarrierTest > identicalVisibleFileCannotAcknowledgeFailedDirectoryBarrier(Path) PASSED
+
+BufferSafetyTest > partialExtractionSimulationAndRepeatedCreditsConserve PASSED
+
+ChannelCoordinatorTest > boundedSignalsDrainExactlyOnceAcrossPartialChannelBatches PASSED
+
+ChannelCoordinatorTest > stateChangesMatchPendingAndFlightAccounting PASSED
+
+JournalAndHeatTest > passiveHeatNeverOvershootsOrCreatesEnergy PASSED
+
+76 tests completed, 2 failed
+
+> Task :test FAILED
+
+[Incubating] Problems report is available at: file:///workspace/CrossTesseract/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///workspace/CrossTesseract/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 17s
+9 actionable tasks: 6 executed, 3 up-to-date

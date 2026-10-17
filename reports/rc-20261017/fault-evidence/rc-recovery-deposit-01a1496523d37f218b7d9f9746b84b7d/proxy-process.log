@@ -1,0 +1,2 @@
+{"mode": "EXECUTING", "listen": ["127.0.0.1", 13307], "upstream": ["127.0.0.1", 13306], "independent_SQL_and_asset_verification": "NOT_RUN_BY_PROXY"}
+{"counters": {"connections_admitted": 1}, "failure": null, "fault_executed": false, "independent_SQL_and_asset_verification": "NOT_RUN_BY_PROXY", "mode": "EXECUTED", "state": "NOT_EXECUTED"}

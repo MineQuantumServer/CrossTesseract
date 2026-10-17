@@ -1,0 +1,34 @@
+{
+  "phase": "deposit",
+  "generation": 1,
+  "cluster": "test_rc_01a1496523d37f218b7d9f9746b84b7d",
+  "wal_snapshots": [{
+    "path": "scratch/rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/before_commit-01a14965-246c-7491-9ff0-7afa0e8ed4ce.ctj",
+    "endpoint": "01a14965-246c-7491-9ff0-7afa0e8ed4ce",
+    "sha256": "3eabf4f1466179987e28382fab638269ac85c5f3277dcb9c72977c928bd2b4ee",
+    "RX_mirror_remaining_FE": 0,
+    "pending_TX_FE": 128,
+    "label": "before_commit",
+    "revision": 2
+  }],
+  "target_business_uuid": "01a14965-2477-7fe4-a131-c181e212067b",
+  "channel": "f9bb6694-b6fc-4664-9cfd-bfb50f7c41e7",
+  "proxy_events": "scratch/rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/proxy-events.jsonl",
+  "historical_assets_accessed": false,
+  "source_files_at_test_start_sha256": {
+    "backend/Sql.java": "50eaa73c082e8cd6657212b57571eef79876c59af8fc6838d1144136003b47c9",
+    "backend/LocalJournal.java": "5996a512c86d99ddea3b7590b873f81fd740b0819ae2457ad073b717ccada5f6",
+    "backend/TransferWork.java": "1e62430a59da65d9dbbdb2972a724741b6039e7759c854d5756954d2398ed28f",
+    "core/LocalBuffer.java": "d4c4eb76e7aa5af8e33143f0001fab288e074ba3c98b2afd822559b9bff26c6c",
+    "backend/Authority.java": "46be26d2bee085c0c722492bce26916ab1337092602f4cfa5213ae7a1a059cf2"
+  },
+  "utc_end": "2026-10-17T10:25:27.906031947Z",
+  "proxy_process_log": "scratch/rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/proxy-process.log",
+  "world": "01a14965-23d3-717a-84e7-0f934dbd4d58",
+  "proxy_script_sha256": "ef1504f8399110498b2eae1c9bd39907ac8a0e53b42ac47d54cffb5b267b4d26",
+  "scope": "real MySQL COMMIT OK dropped on loopback; independent direct SQL; production LocalJournal/LocalBuffer; no Minecraft/native/world rollback or hardware power-loss claim",
+  "utc_start": "2026-10-17T10:25:27.508489193Z",
+  "proxy_exit_code": 3,
+  "owned_proxy_pid": 16828,
+  "passed": false
+}

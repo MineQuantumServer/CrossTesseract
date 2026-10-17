@@ -1,0 +1,4 @@
+{"event":"proxy_start","fault_executed":false,"listen_port":13307,"max_connections":16,"max_packet_bytes":2097152,"monotonic_ns":3415801370876,"phase":"loopback_only","script_sha256":"ef1504f8399110498b2eae1c9bd39907ac8a0e53b42ac47d54cffb5b267b4d26","upstream_port":13306,"utc":"2026-10-17T10:25:27.620744+00:00"}
+{"connection":1,"event":"server_greeting","monotonic_ns":3415821856085,"phase":"authentication","server_connection_id":106,"utc":"2026-10-17T10:25:27.641229+00:00"}
+{"connection":1,"event":"authentication_completed","monotonic_ns":3415822480840,"phase":"transparent_relay","server_connection_id":106,"utc":"2026-10-17T10:25:27.641859+00:00"}
+{"counters":{"connections_admitted":1},"event":"proxy_stop","failure":null,"fault_executed":false,"independent_SQL_and_asset_verification":"NOT_RUN_BY_PROXY","mode":"EXECUTED","monotonic_ns":3416071658482,"phase":"finished","state":"NOT_EXECUTED","utc":"2026-10-17T10:25:27.891025+00:00"}

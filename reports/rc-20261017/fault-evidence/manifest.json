@@ -1,0 +1,32 @@
+{
+  "scope": "unaltered isolated fault outputs; no world, backend config or production credentials bundled",
+  "files": {
+    "enospc-DAC-failed/result.json": "00b0adfcb989ce22423358978d0a2ce893b0736a2f1ef590926a550958d7eaf2",
+    "enospc-DAC-failed/stderr.log": "4f7ed0bdbbecf29e6493a040a85699c815587d12ca5aca20f123300c1ede6251",
+    "enospc-DAC-failed/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "enospc-final-pass/result.json": "f63084d9c7e3412c7d235c77230ee3632ad94e11250daf05f94319f0a8449923",
+    "enospc-final-pass/stderr.log": "3b7699e21ca38d1a06cac2fc13d85b95776053929cf5fa1579281f97065711ab",
+    "enospc-final-pass/stdout.log": "fee360ee78a7dd81d2b482828059876347e90b9c983cd01a1555b709ff103251",
+    "native-final-pass/build.log": "31b943274e0f055711675c04b9c20bf98e225de233a823cff6bbc7e7728f9c9f",
+    "native-final-pass/native.log": "c622444c4d3cf30ceefd28560928ca26841ea26997f68ac18f72f094671f184f",
+    "native-final-pass/result.json": "d173fb605e20a76acd129634d5f6cb69db976e19d30ecfc0c89f5c443505d1e2",
+    "native-initial-timeout/rc-native-faults-20261017T1033Z.log": "4317d7b485e45d92805d17ca76dddb9855b70835bbe8c3408c8f1cb5507aaf40",
+    "native-lost-fallback-failed/build.log": "87acd651fc830c1560f65569fb6946d1cd489acc226554a06dcc58c4db6cbcc1",
+    "native-lost-fallback-failed/native.log": "1dd5ba67d399b4383e7235f6b361c4f1a9e191fa57389fd5dd28a2dcc06a1cc2",
+    "native-lost-fallback-failed/result.json": "0df006b0f9e689b9b73c2c39ff365a73e9e1ddbb243c8be6c90d6ef856aa0645",
+    "native-premature-observer/rc-native-faults-second-20261017T1035Z.log": "c9add95428050592bf8ecd6014231637c8793211b6cf055bb88a8858f4a39725",
+    "native-premature-observer/readonly-assets-audit-20261017T103826Z.json": "cefaa92fded3d19a153415896fb9d018242045a1b48cd5565092ba8e4282e712",
+    "rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/proxy-events.jsonl": "413d5c1c22ffd64069c63524b1ccc6206207ba4a66874a5292634026b281927e",
+    "rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/proxy-process.log": "80ab4e03d4fe5a1e2b6216a014979a3b277e2b2c2dadb2ee4933b9db29cb5655",
+    "rc-recovery-deposit-01a1496523d37f218b7d9f9746b84b7d/result.json": "66573c14b3318ec70d847b36d0e68227dc43d96cff3a6e3207f19b12d284c8f3",
+    "rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/proxy-events.jsonl": "a2d542714a53f580f402bfac2fa303ed3f81c6fbd9146bc58e9c84d8edf6f9b2",
+    "rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/proxy-process.log": "19d34fdf3a1f5dea84023ef264fcbd4333a3190c7197f3f50b84db142444f5a2",
+    "rc-recovery-deposit-01a1496b281871e79db5b433e908e9cd/result.json": "1c36b26c350309309827b4e850205419ea318830e9eeb6b317e798498283b417",
+    "rc-recovery-local-01a149652567771f918d270bb3f14cd6/proxy-events.jsonl": "fa574427360303e689d034445e7b8c56a36c809de872b0e2ec67be937adde78d",
+    "rc-recovery-local-01a149652567771f918d270bb3f14cd6/proxy-process.log": "80ab4e03d4fe5a1e2b6216a014979a3b277e2b2c2dadb2ee4933b9db29cb5655",
+    "rc-recovery-local-01a149652567771f918d270bb3f14cd6/result.json": "1aeeba87b750e314ab218cd798b9514c0d211f097c479520000df7ec73e20298",
+    "rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/proxy-events.jsonl": "c099ed3e6e442fd84cdb6bde28debe293d951ee30ef0fb6363773faec4a926f8",
+    "rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/proxy-process.log": "ec8e6b5f881ecefb913f79a8a183ecc03be2c10aed8b046a87e4fb216331e577",
+    "rc-recovery-local-01a1496b2b6d7053b32acd7a2ddab42d/result.json": "b868b02d18bb24525fe7cff768254a41c4645c3c0009516260b63b917851f17b"
+  }
+}
