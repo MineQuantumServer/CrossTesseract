@@ -636,7 +636,7 @@ public final class Authority implements AutoCloseable {
                 else if(type.equals("STOCK_REQUESTED")){channel=uuid(row,"stock_channel");endpoint=uuid(row,"stock_endpoint");}
                 else if(type.equals("ENDPOINT_CHANGED"))endpoint=uuid(row,"subject_id");
                 if(endpoint!=null){if(!endpoint.equals(uuid(row,"current_endpoint")) || channel!=null && !channel.equals(uuid(row,"current_channel")))continue;channel=uuid(row,"current_channel");}
-                if(channel!=null)result.add(new RedisTransport.Hint(type,channel,endpoint));
+                if(channel!=null)result.add(new RedisTransport.Hint(type,channel,endpoint,uuid(row,"subject_id")));
             }
             return List.copyOf(result);
         });

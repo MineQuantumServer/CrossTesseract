@@ -36,6 +36,8 @@ public final class RuntimeService {
     private final Map<UUID,EnumSet<Reason>> reasons=new HashMap<>();
     private final Map<UUID,DemandRefresh> demandRefresh=new HashMap<>();
     private final Map<UUID,Set<Reason>> capturedReasons=new HashMap<>();
+    // Scheduling dedup only. Eviction can cause a query, never repeat asset application.
+    private final LinkedHashSet<UUID> appliedAllocations=new LinkedHashSet<>();
     private final Map<UUID,LinkedHashSet<UUID>> channelEndpoints=new HashMap<>();
     private final Map<UUID,UUID> indexedChannels=new HashMap<>();
     private record Scheduled(UUID endpoint,long due){}
@@ -387,7 +389,13 @@ public final class RuntimeService {
         }
         if(online()){
             phase=System.nanoTime();
-            var wake=new LinkedHashSet<UUID>();for(int i=0;i<16 && System.nanoTime()-start<limits.tickNanos();i++){var hint=hints.poll();if(hint==null)break;wake.add(hint.channel());if(hint.endpoint()!=null){var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))ready(be,Reason.REMOTE_HINT);}}for(UUID channel:wake)wakeChannel(channel,true);
+            var wake=new LinkedHashSet<UUID>();for(int i=0;i<16 && System.nanoTime()-start<limits.tickNanos();i++){
+                var hint=hints.poll();if(hint==null)break;
+                if(hint.endpoint()!=null){
+                    if(hint.type().equals("ALLOCATION_READY") && appliedAllocations.contains(hint.subject()))continue;
+                    var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))ready(be,Reason.REMOTE_HINT);
+                }else wake.add(hint.channel());
+            }for(UUID channel:wake)wakeChannel(channel,true);
             int wakeUsed=drainWake(start,limits.checks());
             metrics.sample(Metrics.Timer.NOTIFY,System.nanoTime()-phase);
             for(int i=0;i<limits.checks() && !dueWork.isEmpty() && dueWork.first().due()<=now && System.nanoTime()-start<limits.tickNanos();i++){
@@ -442,7 +450,10 @@ public final class RuntimeService {
             long captured=System.nanoTime();var request=capture(be);metrics.sample(Metrics.Timer.CAPTURE,System.nanoTime()-captured);if(request==null){primedSources.remove(id);schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()));continue;}
             int count=request.snapshot().credits().size()+request.snapshot().deposits().size()+request.demands().size();long payloadBytes=request.snapshot().credits().stream().mapToLong(c->c.resource().size()).sum()+request.snapshot().deposits().stream().mapToLong(d->d.resource().size()).sum();
             if(records+count>limits.transfer().records() || bytes+payloadBytes>limits.transfer().bytes()){be.buffer().touch();signal(lease.channel(),id);continue;}
-            nextPoll.remove(id);records+=count;bytes+=payloadBytes;var item=new Prepared(be,request,System.nanoTime(),ioVersions.getOrDefault(id,0L),capturedReasons.remove(id),primedSources.remove(id));prepared.put(id,item);transfers.put(id,item);be.inFlight(true);requests.add(request);
+            // Direct admission (hint/priming) supersedes the old fallback deadline.
+            // Signals arriving AFTER this capture still create their own next deadline.
+            nextPoll.remove(id);var oldDue=dueByEndpoint.remove(id);if(oldDue!=null)dueWork.remove(oldDue);
+            records+=count;bytes+=payloadBytes;var item=new Prepared(be,request,System.nanoTime(),ioVersions.getOrDefault(id,0L),capturedReasons.remove(id),primedSources.remove(id));prepared.put(id,item);transfers.put(id,item);be.inFlight(true);requests.add(request);
         }
         if(requests.isEmpty()){metrics.emptyBatches.increment();coordinator.complete(lease);return;}
         metrics.batchDevices.add(requests.size());metrics.batchRecords.add(records);metrics.batchBytes.add(bytes);
@@ -513,7 +524,7 @@ public final class RuntimeService {
             try{for(var publication:immutable){UUID id=publication.snapshot().endpoint();var item=publishing.get(id);if(transfers.get(id)!=item)continue;String error=errors.get(id);
                 try{
                     DomainException.require(item.be.id().equals(id) && Objects.equals(item.be.channel(),publication.channel()),"binding_changed");
-                    if(error==null){for(var credit:publication.received()){item.be.buffer().credit(credit);metrics.delivered(System.nanoTime()-item.started);metrics.localPublications.increment();}
+                    if(error==null){for(var credit:publication.received()){item.be.buffer().credit(credit);appliedAllocations.add(credit.transaction());while(appliedAllocations.size()>4096)appliedAllocations.removeFirst();metrics.delivered(System.nanoTime()-item.started);metrics.localPublications.increment();}
                         for(var module:CompatLoader.modules())if(!item.be.isRemoved())module.changed(item.be);
                         if(limits.transfer().localFast() && same(item.be,id) && !publication.received().isEmpty())localReady.add(id);
                     }

@@ -33,7 +33,9 @@ public final class RedisTransport implements AutoCloseable {
         // Crash here repeats hints. One SQL transaction marks the successfully published batch.
         authority.published(events.stream().map(Event::id).toList());
     }
-    public record Hint(String type,UUID channel,UUID endpoint){}
+    public record Hint(String type,UUID channel,UUID endpoint,UUID subject){
+        public Hint(String type,UUID channel,UUID endpoint){this(type,channel,endpoint,null);}
+    }
     public record DrainResult(int directed,List<Hint> hints){public DrainResult{hints=List.copyOf(hints);}}
     private final Set<String> groups=new HashSet<>();
     private final Map<String,StreamEntryID> clusterCursors=new HashMap<>();
