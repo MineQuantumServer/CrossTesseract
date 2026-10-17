@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.CompletionMailboxTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:29:49.844Z" hostname="0e33714fb4c9" time="0.016">
+  <properties/>
+  <testcase name="nullAndRepeatedCompletionsCannotReplaceOrDuplicateCallbacks()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.001"/>
+  <testcase name="competingTerminalResultsPublishExactlyOneCallback()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.001"/>
+  <testcase name="concurrentAdmissionCannotStartMoreWorkThanCapacity()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.006"/>
+  <testcase name="concurrentWorkersKeepEveryAcceptedCallback()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.005"/>
+  <testcase name="reservationsAndQueuedCallbacksShareOneBoundUntilPolled()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.0"/>
+  <testcase name="invalidCapacityIsRejected()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.0"/>
+  <testcase name="callbackFailureCannotLeakCapacity()" classname="dev.crosstesseract.CompletionMailboxTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+{
+  "expected_result": "native failure at first-SQL allocation assertion before a later poll can rescue it",
+  "actual_native_exit": 1,
+  "failure_test": "channelHintUpgradesPendingCheckpointBeforeTheFirstAllocation",
+  "unchanged_logic": "old drainWake hasPendingSignal early-continue; only native test registration/hooks were added",
+  "asset": "independent legitimate128 FE pool retained, not historical128; no replay/refund/zeroing",
+  "normal_stop": "SQL clean_stop=1, actual normal native GameTest shutdown",
+  "next": "new fixture only for reason-merge fix; this negative fixture is preserved"
+}

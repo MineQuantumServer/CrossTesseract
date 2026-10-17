@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.runtime.WakeDeadlineTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:29:51.487Z" hostname="0e33714fb4c9" time="0.002">
+  <properties/>
+  <testcase name="expiredAndFutureAnchorsKeepTheWaitBounded()" classname="dev.crosstesseract.runtime.WakeDeadlineTest" time="0.001"/>
+  <testcase name="negativeNanoTimesAndClockWrapStillUseElapsedDurations()" classname="dev.crosstesseract.runtime.WakeDeadlineTest" time="0.0"/>
+  <testcase name="signalsWithinOneTickShareTheSameDeadlineInsteadOfAddingAnotherTick()" classname="dev.crosstesseract.runtime.WakeDeadlineTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

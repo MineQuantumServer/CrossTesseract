@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.AeProxyAndThermalTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:29:45.214Z" hostname="0e33714fb4c9" time="0.037">
+  <properties/>
+  <testcase name="duplicateBridgeAndLoopAdvertisementsAreCountedOnce()" classname="dev.crosstesseract.AeProxyAndThermalTest" time="0.024"/>
+  <testcase name="thermalPendingIsFrozenDurableAndResidualIsConserved()" classname="dev.crosstesseract.AeProxyAndThermalTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

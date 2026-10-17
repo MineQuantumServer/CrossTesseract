@@ -46,8 +46,9 @@ def main():
     try:report['SIGTERM_exit']=proc.wait(timeout=30)
     except subprocess.TimeoutExpired:report['owned_process_still_running']=True
     raise RuntimeError('native timeout; SIGTERM requested, no hard kill/refund/replay')
-  text=(out/'native.log').read_text();report['capacity_positive_pass_marker']='CT_RC_CAPACITY_PASS' in text;report['actual_split_positive_pass_marker']='CT_RC_GROUP_PASS' in text
-  report['passed']=report['native_exit']==0 and all(report[k] for k in ('capacity_positive_pass_marker','actual_split_positive_pass_marker')) and 'required tests passed' in text and ' failed at ' not in text
+  text=(out/'native.log').read_text();report['capacity_positive_pass_marker']='CT_RC_CAPACITY_PASS' in text;report['actual_split_positive_pass_marker']='CT_RC_GROUP_PASS' in text;report['wake_first_batch_positive_pass_marker']=text.count('CT_RC_WAKE_PASS')==1
+  counts=re.findall(r'All (\d+) required tests passed',text);report['required_native_tests']=int(counts[-1]) if counts else None
+  report['passed']=report['native_exit']==0 and all(report[k] for k in ('capacity_positive_pass_marker','actual_split_positive_pass_marker','wake_first_batch_positive_pass_marker')) and report['required_native_tests']==7 and ' failed at ' not in text
  except Exception as failure:report['failure']=type(failure).__name__+': '+str(failure)
  finally:
   report['utc_end']=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime());report['source_unchanged']=sources()==report['source_manifest_sha256'];report['passed']=report['passed'] and report['source_unchanged'];report['logs']={f.name:digest(f) for f in out.glob('*.log')}

@@ -1,0 +1,48 @@
+Picked up JAVA_TOOL_OPTIONS:  -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.* -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileGtApiJava UP-TO-DATE
+> Task :processGtApiResources NO-SOURCE
+> Task :gtApiClasses UP-TO-DATE
+
+> Task :compileJava
+/workspace/CrossTesseract/src/main/java/dev/crosstesseract/block/TesseractBlock.java:39: warning: [deprecation] getCloneItemStack(LevelReader,BlockPos,BlockState) in Block has been deprecated
+    @Override public ItemStack getCloneItemStack(LevelReader level,BlockPos pos,BlockState state) { return CrossTesseract.ITEM.get().getDefaultInstance(); }
+                               ^
+/workspace/CrossTesseract/src/main/java/dev/crosstesseract/block/NeighborPump.java:24: warning: [deprecation] hasChunkAt(BlockPos) in LevelReader has been deprecated
+        if(!level.hasChunkAt(pos) || level.getBlockEntity(pos) instanceof TesseractBlockEntity)return;
+                 ^
+2 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jarJar UP-TO-DATE
+> Task :jar
+> Task :sourcesJar
+> Task :assemble
+
+> Task :compileTestJava FAILED
+/workspace/CrossTesseract/src/test/java/dev/crosstesseract/runtime/WakeDeadlineTest.java:17: error: invalid method declaration; return type required
+    @Test void_negativeNanoTimesAndClockWrapStillUseElapsedDurations(){
+          ^
+1 error
+
+[Incubating] Problems report is available at: file:///workspace/CrossTesseract/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler output below.
+  /workspace/CrossTesseract/src/test/java/dev/crosstesseract/runtime/WakeDeadlineTest.java:17: error: invalid method declaration; return type required
+      @Test void_negativeNanoTimesAndClockWrapStillUseElapsedDurations(){
+            ^
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 9s
+8 actionable tasks: 4 executed, 4 up-to-date

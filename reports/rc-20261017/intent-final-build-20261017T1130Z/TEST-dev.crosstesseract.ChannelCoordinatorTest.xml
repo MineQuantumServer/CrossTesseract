@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.crosstesseract.ChannelCoordinatorTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:29:49.836Z" hostname="0e33714fb4c9" time="1.867">
+  <properties/>
+  <testcase name="hotChannelRejoinsTailAfterEachLease()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.001"/>
+  <testcase name="oldFinishCannotEraseAnExplicitNewSignalAfterRemoval()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.0"/>
+  <testcase name="partialBatchesAndSignalsDuringFlightSurviveInDeviceOrder()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.001"/>
+  <testcase name="clearAndForeignLeasesCannotFinishNewWork()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.0"/>
+  <testcase name="invalidLimitsAndNullArgumentsAreRejectedWithoutAdmission()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.002"/>
+  <testcase name="pendingProbeTracksNextRunSignalsAcrossFlightRemovalAndRebinding()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.0"/>
+  <testcase name="duplicateSignalsHaveOneAdmissionAndOneImmutableLeaseEntry()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.001"/>
+  <testcase name="channelAndEndpointBoundsIncludeFlightUntilCompletion()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.001"/>
+  <testcase name="removingReadyWorkAndRevokedFlightWorkNeverResurrectsDevices()" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.0"/>
+  <testcase name="boundedSignalsDrainExactlyOnceAcrossPartialChannelBatches" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.039"/>
+  <testcase name="stateChangesMatchPendingAndFlightAccounting" classname="dev.crosstesseract.ChannelCoordinatorTest" time="0.026"/>
+  <system-out><![CDATA[timestamp = 2026-10-17T11:29:51.677523881, ChannelCoordinatorTest:boundedSignalsDrainExactlyOnceAcrossPartialChannelBatches = 
+                              |-----------------------jqwik-----------------------
+tries = 150                   | # of calls to property
+checks = 150                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 24         | # of all combined edge cases
+edge-cases#tried = 20         | # of edge cases tried in current run
+seed = -5217238378637627321   | random seed to reproduce generated values
+
+
+timestamp = 2026-10-17T11:29:51.703610297, ChannelCoordinatorTest:stateChangesMatchPendingAndFlightAccounting = 
+                              |-----------------------jqwik-----------------------
+tries = 150                   | # of calls to property
+checks = 150                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 6          | # of all combined edge cases
+edge-cases#tried = 3          | # of edge cases tried in current run
+seed = 5863802840173083577    | random seed to reproduce generated values
+
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

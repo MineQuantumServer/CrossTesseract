@@ -86,6 +86,7 @@ public final class RuntimeService {
     private volatile long lastInternalTrace;
     private long lastClosingRejection;
     private long nextHistorySweep;
+    private long localTickStarted=System.nanoTime();
     private RuntimeService(MinecraftServer server,BackendConfig config,RuntimeLimits limits) {
         this.server=server;this.config=config;this.limits=limits;effectiveQuota=config.quota();tickets=new ChunkTickets(server);
         workers=pool("ct-backend",Math.max(1,config.poolSize()-1),config.queueSize());control=pool("ct-control",1,16);
@@ -154,6 +155,14 @@ public final class RuntimeService {
     public void testReadyBatch(List<UUID> endpoints){
         DomainException.require(server.isSameThread() && Boolean.getBoolean("cross_tesseract.rcFaultTests") && (config.cluster().startsWith("test_")||config.cluster().startsWith("dev_")) && endpoints.size()<=16,"forbidden");
         for(UUID endpoint:endpoints){var be=loaded.get(endpoint);DomainException.require(be!=null && be.channel()!=null,"endpoint_not_found");reasons.computeIfAbsent(endpoint,x->EnumSet.noneOf(Reason.class)).add(Reason.DEMAND);signal(be.channel(),endpoint);}
+    }
+    public void testReadyCheckpointBatch(List<UUID> endpoints){
+        DomainException.require(server.isSameThread() && Boolean.getBoolean("cross_tesseract.rcFaultTests") && (config.cluster().startsWith("test_")||config.cluster().startsWith("dev_")) && endpoints.size()<=16,"forbidden");
+        for(UUID endpoint:endpoints){var be=loaded.get(endpoint);DomainException.require(be!=null && be.channel()!=null,"endpoint_not_found");reasons.put(endpoint,EnumSet.of(Reason.RX_CONSUMED));signal(be.channel(),endpoint);}
+    }
+    public void testWakeChannel(UUID channel){
+        DomainException.require(server.isSameThread() && Boolean.getBoolean("cross_tesseract.rcFaultTests") && (config.cluster().startsWith("test_")||config.cluster().startsWith("dev_")) && channelEndpoints.containsKey(channel),"forbidden");
+        wakeChannel(channel,false);
     }
     public final class TestCapacity implements AutoCloseable{
         private final List<CompletionMailbox.Reservation> reservations;private final long expires=System.nanoTime()+TimeUnit.SECONDS.toNanos(5);private boolean closed;
@@ -317,7 +326,16 @@ public final class RuntimeService {
         var pending=reasons.computeIfAbsent(be.id(),x->EnumSet.noneOf(Reason.class));
         if(pending.add(reason))metrics.reason(reason.name(),false);
         // Fixed earliest deadline: a continuous stream cannot slide this window forever.
-        scheduleEarlier(be.id(),System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().activeMillis()));
+        long now=System.nanoTime();
+        scheduleEarlier(be.id(),WakeDeadline.afterTick(now,localTickStarted,TimeUnit.MILLISECONDS.toNanos(limits.transfer().activeMillis())));
+    }
+    private void hinted(TesseractBlockEntity be,Reason reason,boolean immediate){
+        if(!same(be,be.id()) || be.channel()==null)return;
+        // A queued checkpoint does NOT imply queued inventory discovery. Always
+        // merge intent, even when scheduling the device again would be redundant.
+        boolean pending=coordinator.hasPendingSignal(be.channel(),be.id());
+        if(reasons.computeIfAbsent(be.id(),x->EnumSet.noneOf(Reason.class)).add(reason))metrics.reason(reason.name(),false);
+        if(!pending){if(immediate)signal(be.channel(),be.id());else ready(be,reason);}
     }
     public void demandChanged(TesseractBlockEntity be){DomainException.require(server.isSameThread(),"forbidden");if(same(be,be.id())){demandRefresh.remove(be.id());ready(be,Reason.DEMAND);}}
     private boolean signal(UUID channel,UUID id){if(coordinator.signal(channel,id))return true;schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));metrics.retries.increment();return false;}
@@ -348,18 +366,11 @@ public final class RuntimeService {
             if(!cursor.hasNext()){wakeCursors.remove(channel);if(repeatWake.remove(channel))dirtyChannels.add(channel);else{remoteWake.remove(channel);admissionWake.remove(channel);}continue;}
             UUID id=cursor.next();dirtyChannels.add(channel);var be=loaded.get(id);
             if(be==null || !be.registered() || !be.pauseReason().isEmpty() || be.channel()==null || be.binding())continue;
-            // A previously recorded hint already schedules a fresh capture and SQL checks.
-            // Do not mistake an in-flight lease without a next-run signal for pending work.
-            if(coordinator.hasPendingSignal(channel,id))continue;
             for(String kind:CompatLoader.resources())if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){
                 Reason reason=remoteWake.contains(channel)?Reason.REMOTE_HINT:Reason.LOCAL_HINT;
-                if(admissionWake.contains(channel)){
-                    // Join the source's SQL lease, not a second post-COMMIT pipeline.
-                    // This is scheduling only: the global SQL allocator still chooses
-                    // the oldest eligible demand, including remote endpoints.
-                    if(reasons.computeIfAbsent(id,x->EnumSet.noneOf(Reason.class)).add(reason))metrics.reason(reason.name(),false);
-                    signal(channel,id);
-                }else ready(be,reason);
+                // Committed remote hints already passed a bounded notification batch;
+                // they need no additional local input-coalescing timer. SQL remains final.
+                hinted(be,reason,admissionWake.contains(channel) || limits.transfer().localFast() && remoteWake.contains(channel));
                 break;
             }
         }
@@ -367,7 +378,7 @@ public final class RuntimeService {
     }
     private boolean tracked(TesseractBlockEntity be){var entry=closing.get(be.id());return loaded.get(be.id())==be || entry!=null && entry.be==be;}
     public void tick(){
-        long start=System.nanoTime();codecBudget=limits.encodes();tickCounter++;
+        long start=System.nanoTime();localTickStarted=start;codecBudget=limits.encodes();tickCounter++;
         if(testCapacity!=null && start>=testCapacity.expires)testCapacity.close();
         if(!online()){tickets.clear();ticketWork.clear();}
         Runnable refresh=maintenanceCompletion.getAndSet(null);if(refresh!=null)try{refresh.run();}catch(RuntimeException error){fail(error);}
@@ -393,7 +404,7 @@ public final class RuntimeService {
                 var hint=hints.poll();if(hint==null)break;
                 if(hint.endpoint()!=null){
                     if(hint.type().equals("ALLOCATION_READY") && appliedAllocations.contains(hint.subject()))continue;
-                    var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))ready(be,Reason.REMOTE_HINT);
+                    var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))hinted(be,Reason.REMOTE_HINT,limits.transfer().localFast());
                 }else wake.add(hint.channel());
             }for(UUID channel:wake)wakeChannel(channel,true);
             int wakeUsed=drainWake(start,limits.checks());
