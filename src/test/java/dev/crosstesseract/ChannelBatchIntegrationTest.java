@@ -107,6 +107,14 @@ class ChannelBatchIntegrationTest {
         assertEquals("RESERVED", state(secondCredit.transaction()));
         assertConserved(channel, resource, 100);
 
+        var readyEvents=authority.unpublished(256).stream().filter(e->e.type().equals("ALLOCATION_READY")
+                && Set.of(firstCredit.transaction(),secondCredit.transaction()).contains(e.subject())).toList();
+        assertEquals(2,readyEvents.size());
+        var hints=authority.receiveEvents(readyEvents.stream().map(e->e.event()).toList());
+        assertEquals(Set.of(firstCredit.transaction(),secondCredit.transaction()),hints.stream().map(h->h.subject()).collect(Collectors.toSet()));
+        assertEquals(Set.of(firstReceiver.id(),secondReceiver.id()),hints.stream().map(h->h.endpoint()).collect(Collectors.toSet()));
+        assertTrue(hints.stream().allMatch(h->h.channel().equals(channel)));
+
         var publications = new ArrayList<TransferWork.Publication>();
         for (var request : requests) {
             publications.add(durablePublication(journal, request, result(results, request.endpoint())));

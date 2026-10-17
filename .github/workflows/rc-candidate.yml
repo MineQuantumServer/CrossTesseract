@@ -19,7 +19,7 @@ jobs:
           MYSQL_DATABASE: cross_tesseract
           MYSQL_USER: ct_dev
           MYSQL_PASSWORD: ct_dev_only
-          MYSQL_ROOT_PASSWORD: ct_root_dev
+          MYSQL_ROOT_PASSWORD: ct_dev_root_only
         ports: [13306:3306]
         options: --health-cmd="mysqladmin ping -h 127.0.0.1" --health-interval=3s --health-timeout=2s --health-retries=40
       redis:
@@ -35,6 +35,8 @@ jobs:
       - name: Fetch pinned read-only compatibility API sources
         run: bash scripts/fetch-references.sh
       - name: Build and real isolated backend tests (no Minecraft JVM or EULA assertion)
+        env:
+          CT_TEST_MYSQL_CONTAINER: ${{ job.services.mysql.id }}
         run: ./gradlew --no-daemon --max-workers=2 build -Dct.integration=true
       - name: Record exact source and artifact identity
         if: always()

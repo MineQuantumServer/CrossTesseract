@@ -24,7 +24,10 @@ class MigrationConcurrencyTest {
         }finally{executor.shutdownNow();servers.forEach(Authority::close);root("DROP DATABASE "+database+";");}
     }
     private static void root(String sql) throws Exception {
-        var builder=new ProcessBuilder("docker","--host=unix:///var/run/docker.sock","exec","-i","-e","MYSQL_PWD=ct_dev_root_only","ct-dev-mysql","mysql","-u","root","--batch","--skip-column-names");for(String name:List.of("DOCKER_HOST","DOCKER_CONTEXT","DOCKER_TLS","DOCKER_TLS_VERIFY","DOCKER_CERT_PATH"))builder.environment().remove(name);
+        String container=System.getenv().getOrDefault("CT_TEST_MYSQL_CONTAINER","ct-dev-mysql");
+        // Explicit isolated fixture identity; CI service containers have generated names.
+        assertTrue(container.matches("[A-Za-z0-9][A-Za-z0-9_.-]{0,127}"));
+        var builder=new ProcessBuilder("docker","--host=unix:///var/run/docker.sock","exec","-i","-e","MYSQL_PWD=ct_dev_root_only",container,"mysql","-u","root","--batch","--skip-column-names");for(String name:List.of("DOCKER_HOST","DOCKER_CONTEXT","DOCKER_TLS","DOCKER_TLS_VERIFY","DOCKER_CERT_PATH"))builder.environment().remove(name);
         var process=builder.start();try(var out=process.getOutputStream()){out.write(sql.getBytes(java.nio.charset.StandardCharsets.UTF_8));}assertTrue(process.waitFor(20,TimeUnit.SECONDS));assertEquals(0,process.exitValue(),new String(process.getErrorStream().readAllBytes()));
     }
 }
