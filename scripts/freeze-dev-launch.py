@@ -7,7 +7,9 @@ import shutil,sys,uuid
 root=Path(__file__).resolve().parents[1]
 script=root/sys.argv[1]
 if script.parent!=root/'build/moddev' or not script.is_file():raise ValueError('generated local launch script required')
-match=script.name.replace('runServer','server').replace('.sh','RunVmArgs.txt')
+run_name=script.stem.removeprefix('run')
+if not run_name or not run_name[0].isupper():raise ValueError('generated named run required')
+match=run_name[0].lower()+run_name[1:]+'RunVmArgs.txt'
 for proc in Path('/proc').iterdir():
     if not proc.name.isdigit():continue
     try:

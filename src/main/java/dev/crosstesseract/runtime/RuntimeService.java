@@ -31,7 +31,7 @@ public final class RuntimeService {
     private final ChannelCoordinator coordinator;
     private final LinkedHashSet<UUID> localReady=new LinkedHashSet<>(),dirtyChannels=new LinkedHashSet<>();
     private final Map<UUID,Iterator<UUID>> wakeCursors=new HashMap<>();
-    private final Set<UUID> repeatWake=new HashSet<>(),remoteWake=new HashSet<>();
+    private final Set<UUID> repeatWake=new HashSet<>(),remoteWake=new HashSet<>(),admissionWake=new HashSet<>(),primedSources=new HashSet<>();
     private enum Reason{INPUT,RX_CONSUMED,DEMAND,RENEWAL,RECOVERY,LOCAL_HINT,REMOTE_HINT,POLL}
     private final Map<UUID,EnumSet<Reason>> reasons=new HashMap<>();
     private final Map<UUID,DemandRefresh> demandRefresh=new HashMap<>();
@@ -52,7 +52,7 @@ public final class RuntimeService {
     private final Map<UUID,Long> nextHeat=new HashMap<>();
     private final Set<UUID> heatInFlight=new HashSet<>();
     private static final class Closing{final TesseractBlockEntity be;String sealReason,quarantineReason;boolean writing;long retry;Closing(TesseractBlockEntity be,String reason){this.be=be;this.sealReason=reason;}}
-    private static final class Prepared{final TesseractBlockEntity be;final TransferWork.Request request;final long started,ioVersion;final Set<Reason> reasons;Prepared(TesseractBlockEntity be,TransferWork.Request request,long started,long ioVersion,Set<Reason> reasons){this.be=be;this.request=request;this.started=started;this.ioVersion=ioVersion;this.reasons=reasons;}}
+    private static final class Prepared{final TesseractBlockEntity be;final TransferWork.Request request;final long started,ioVersion;final Set<Reason> reasons;final boolean primed;Prepared(TesseractBlockEntity be,TransferWork.Request request,long started,long ioVersion,Set<Reason> reasons,boolean primed){this.be=be;this.request=request;this.started=started;this.ioVersion=ioVersion;this.reasons=reasons;this.primed=primed;}}
     private final ConcurrentHashMap<UUID,TesseractBlockEntity> loaded=new ConcurrentHashMap<>();
     private final ArrayDeque<UUID> rotation=new ArrayDeque<>();
     private final Map<UUID,Long> nextPoll=new HashMap<>();
@@ -321,12 +321,12 @@ public final class RuntimeService {
     private boolean signal(UUID channel,UUID id){if(coordinator.signal(channel,id))return true;schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));metrics.retries.increment();return false;}
     private void index(TesseractBlockEntity be){
         UUID previous=indexedChannels.get(be.id());if(Objects.equals(previous,be.channel()))return;
-        demandRefresh.remove(be.id());reasons.remove(be.id());if(previous!=null)wakeCursors.remove(previous);if(be.channel()!=null)wakeCursors.remove(be.channel());
+        demandRefresh.remove(be.id());reasons.remove(be.id());primedSources.remove(be.id());if(previous!=null)wakeCursors.remove(previous);if(be.channel()!=null)wakeCursors.remove(be.channel());
         if(previous!=null){var ids=channelEndpoints.get(previous);if(ids!=null){ids.remove(be.id());if(ids.isEmpty())channelEndpoints.remove(previous);}coordinator.remove(be.id());}
         if(be.channel()==null)indexedChannels.remove(be.id());else{indexedChannels.put(be.id(),be.channel());channelEndpoints.computeIfAbsent(be.channel(),x->new LinkedHashSet<>()).add(be.id());}
         schedule(be.id(),System.nanoTime());
     }
-    private void unindex(UUID id){UUID old=indexedChannels.remove(id);if(old!=null){wakeCursors.remove(old);var ids=channelEndpoints.get(old);if(ids!=null){ids.remove(id);if(ids.isEmpty())channelEndpoints.remove(old);}}coordinator.remove(id);localReady.remove(id);reasons.remove(id);demandRefresh.remove(id);capturedReasons.remove(id);var due=dueByEndpoint.remove(id);if(due!=null)dueWork.remove(due);}
+    private void unindex(UUID id){UUID old=indexedChannels.remove(id);if(old!=null){wakeCursors.remove(old);var ids=channelEndpoints.get(old);if(ids!=null){ids.remove(id);if(ids.isEmpty())channelEndpoints.remove(old);}}coordinator.remove(id);localReady.remove(id);primedSources.remove(id);reasons.remove(id);demandRefresh.remove(id);capturedReasons.remove(id);var due=dueByEndpoint.remove(id);if(due!=null)dueWork.remove(due);}
     public void localChanged(TesseractBlockEntity be,String kind,boolean sending,long amount){
         metrics.localCalls.increment();if(sending)metrics.localInput.add(amount);else metrics.localOutput.add(amount);
         if(limits.transfer().localFast() && same(be,be.id())){ioVersions.merge(be.id(),1L,Math::addExact);ready(be,sending?Reason.INPUT:Reason.RX_CONSUMED);metrics.localWake.increment();}
@@ -338,19 +338,30 @@ public final class RuntimeService {
         dirtyChannels.add(channel);if(remote)remoteWake.add(channel);
         if(remote)metrics.remoteWake.increment();else metrics.localWake.increment();
     }
-    private void drainWake(long started){
-        for(int i=0;i<limits.checks() && !dirtyChannels.isEmpty() && System.nanoTime()-started<limits.tickNanos();i++){
+    private int drainWake(long started,int budget){
+        int used=0;for(;used<budget && !dirtyChannels.isEmpty() && System.nanoTime()-started<limits.tickNanos();used++){
             UUID channel=dirtyChannels.removeFirst();var ids=channelEndpoints.get(channel);
-            if(ids==null){wakeCursors.remove(channel);repeatWake.remove(channel);remoteWake.remove(channel);continue;}
+            if(ids==null){wakeCursors.remove(channel);repeatWake.remove(channel);remoteWake.remove(channel);admissionWake.remove(channel);continue;}
             var cursor=wakeCursors.computeIfAbsent(channel,x->ids.iterator());
-            if(!cursor.hasNext()){wakeCursors.remove(channel);if(repeatWake.remove(channel))dirtyChannels.add(channel);else remoteWake.remove(channel);continue;}
+            if(!cursor.hasNext()){wakeCursors.remove(channel);if(repeatWake.remove(channel))dirtyChannels.add(channel);else{remoteWake.remove(channel);admissionWake.remove(channel);}continue;}
             UUID id=cursor.next();dirtyChannels.add(channel);var be=loaded.get(id);
             if(be==null || !be.registered() || !be.pauseReason().isEmpty() || be.channel()==null || be.binding())continue;
             // A previously recorded hint already schedules a fresh capture and SQL checks.
             // Do not mistake an in-flight lease without a next-run signal for pending work.
             if(coordinator.hasPendingSignal(channel,id))continue;
-            for(String kind:CompatLoader.resources())if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){ready(be,remoteWake.contains(channel)?Reason.REMOTE_HINT:Reason.LOCAL_HINT);break;}
+            for(String kind:CompatLoader.resources())if(!kind.equals(Protocol.HEAT) && be.allowed(kind,null,false) && be.buffer().receiveRoom(kind)>0){
+                Reason reason=remoteWake.contains(channel)?Reason.REMOTE_HINT:Reason.LOCAL_HINT;
+                if(admissionWake.contains(channel)){
+                    // Join the source's SQL lease, not a second post-COMMIT pipeline.
+                    // This is scheduling only: the global SQL allocator still chooses
+                    // the oldest eligible demand, including remote endpoints.
+                    if(reasons.computeIfAbsent(id,x->EnumSet.noneOf(Reason.class)).add(reason))metrics.reason(reason.name(),false);
+                    signal(channel,id);
+                }else ready(be,reason);
+                break;
+            }
         }
+        return used;
     }
     private boolean tracked(TesseractBlockEntity be){var entry=closing.get(be.id());return loaded.get(be.id())==be || entry!=null && entry.be==be;}
     public void tick(){
@@ -377,13 +388,20 @@ public final class RuntimeService {
         if(online()){
             phase=System.nanoTime();
             var wake=new LinkedHashSet<UUID>();for(int i=0;i<16 && System.nanoTime()-start<limits.tickNanos();i++){var hint=hints.poll();if(hint==null)break;wake.add(hint.channel());if(hint.endpoint()!=null){var be=loaded.get(hint.endpoint());if(be!=null&&hint.channel().equals(be.channel()))ready(be,Reason.REMOTE_HINT);}}for(UUID channel:wake)wakeChannel(channel,true);
-            drainWake(start);
+            int wakeUsed=drainWake(start,limits.checks());
             metrics.sample(Metrics.Timer.NOTIFY,System.nanoTime()-phase);
             for(int i=0;i<limits.checks() && !dueWork.isEmpty() && dueWork.first().due()<=now && System.nanoTime()-start<limits.tickNanos();i++){
                 var due=dueWork.pollFirst();dueByEndpoint.remove(due.endpoint(),due);var be=loaded.get(due.endpoint());
-                if(be!=null && be.registered() && be.channel()!=null && be.pauseReason().isEmpty()){if(!reasons.containsKey(be.id())){reasons.put(be.id(),EnumSet.of(Reason.POLL));metrics.reason(Reason.POLL.name(),false);metrics.pollFallback.increment();}signal(be.channel(),be.id());}
+                if(be!=null && be.registered() && be.channel()!=null && be.pauseReason().isEmpty()){
+                    if(!reasons.containsKey(be.id())){reasons.put(be.id(),EnumSet.of(Reason.POLL));metrics.reason(Reason.POLL.name(),false);metrics.pollFallback.increment();}
+                    signal(be.channel(),be.id());
+                    if(limits.transfer().localFast() && !be.inFlight() && CompatLoader.resources().stream().anyMatch(kind->!kind.equals(Protocol.HEAT) && be.allowed(kind,null,true) && be.buffer().sendAmount(kind)>0)){
+                        wakeChannel(be.channel(),false);admissionWake.add(be.channel());primedSources.add(be.id());
+                    }
+                }
                 else if(be!=null)schedule(be.id(),now+TimeUnit.SECONDS.toNanos(1));
             }
+            phase=System.nanoTime();drainWake(start,limits.checks()-wakeUsed);metrics.sample(Metrics.Timer.NOTIFY,System.nanoTime()-phase);
             for(int jobs=0;jobs<Math.max(1,config.poolSize()-1) && System.nanoTime()-start<limits.tickNanos();jobs++){
                 if(workers.getQueue().size()>=config.queueSize()*3/4 || completions.count()>=completions.capacity()-16)break;
                 var lease=coordinator.poll(limits.transfer().channelBatches()?limits.transfer().devices():1);if(lease==null)break;transfer(lease);
@@ -421,10 +439,10 @@ public final class RuntimeService {
         for(UUID id:lease.endpoints()){
             var be=loaded.get(id);if(be==null || !same(be,id) || !be.registered() || !lease.channel().equals(be.channel()) || !be.pauseReason().isEmpty())continue;
             if(be.inFlight() || heatInFlight.contains(id) || be.thermal().frozen()){schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(config.batchMillis()));continue;}
-            long captured=System.nanoTime();var request=capture(be);metrics.sample(Metrics.Timer.CAPTURE,System.nanoTime()-captured);if(request==null){schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()));continue;}
+            long captured=System.nanoTime();var request=capture(be);metrics.sample(Metrics.Timer.CAPTURE,System.nanoTime()-captured);if(request==null){primedSources.remove(id);schedule(id,System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(limits.transfer().idleMillis()));continue;}
             int count=request.snapshot().credits().size()+request.snapshot().deposits().size()+request.demands().size();long payloadBytes=request.snapshot().credits().stream().mapToLong(c->c.resource().size()).sum()+request.snapshot().deposits().stream().mapToLong(d->d.resource().size()).sum();
             if(records+count>limits.transfer().records() || bytes+payloadBytes>limits.transfer().bytes()){be.buffer().touch();signal(lease.channel(),id);continue;}
-            nextPoll.remove(id);records+=count;bytes+=payloadBytes;var item=new Prepared(be,request,System.nanoTime(),ioVersions.getOrDefault(id,0L),capturedReasons.remove(id));prepared.put(id,item);transfers.put(id,item);be.inFlight(true);requests.add(request);
+            nextPoll.remove(id);records+=count;bytes+=payloadBytes;var item=new Prepared(be,request,System.nanoTime(),ioVersions.getOrDefault(id,0L),capturedReasons.remove(id),primedSources.remove(id));prepared.put(id,item);transfers.put(id,item);be.inFlight(true);requests.add(request);
         }
         if(requests.isEmpty()){metrics.emptyBatches.increment();coordinator.complete(lease);return;}
         metrics.batchDevices.add(requests.size());metrics.batchRecords.add(records);metrics.batchBytes.add(bytes);
@@ -457,7 +475,7 @@ public final class RuntimeService {
                 for(var demand:item.request.demands())if(demand.announce())refresh.confirmed(demand.kind(),demand.room(),demand.profile(),demand.quantum(),item.started);
                 for(var credit:result.received())if(item.request.demands().stream().anyMatch(d->d.transaction().equals(credit.transaction())))refresh.allocated(credit.resource().kind(),credit.remaining());
             }else demandRefresh.remove(be.id());
-            if(limits.transfer().localFast() && !result.committed().isEmpty())wakeChannel(item.request.channel(),false);
+            if(limits.transfer().localFast() && !item.primed && !result.committed().isEmpty())wakeChannel(item.request.channel(),false);
             // Delta merge only: neither captured TX nor captured remaining overwrites later local IO.
             be.buffer().committed(result.committed());be.buffer().checkpointed(result.consumed());
             if(result.committed().isEmpty() && result.received().isEmpty()){metrics.allocationMiss.add(item.request.demands().size());finish(item,result.error(),false);continue;}

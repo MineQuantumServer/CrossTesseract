@@ -32,8 +32,13 @@ def main():
   if built.returncode:raise RuntimeError('native fault build failed; no Minecraft launched')
   jar=ROOT/'build/libs/cross_tesseract-0.1.0-dev.jar';report['JAR_sha256']=digest(jar)
   if sources()!=report['source_manifest_sha256']:raise RuntimeError('source changed during build')
+  # Use immutable classes/resources/argument copies, as the three-server launcher does.
+  frozen=subprocess.check_output(['flock','-s','scratch/dev-build.lock','python3','scripts/freeze-dev-launch.py','build/moddev/runGameTestServer.sh'],cwd=ROOT,text=True,timeout=30).strip()
+  launcher=Path(frozen);expected=ROOT/'scratch/dev-launch'
+  if launcher.parent.parent!=expected or not re.fullmatch('[a-f0-9]{32}',launcher.parent.name) or launcher.name!='runGameTestServer.sh':raise RuntimeError('unexpected immutable GameTest launcher')
+  report['frozen_launcher']=str(launcher.relative_to(ROOT));report['frozen_launcher_sha256']=digest(launcher)
   with (out/'native.log').open('x') as stream:
-   proc=subprocess.Popen(['bash','build/moddev/runGameTestServer.sh'],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT)
+   proc=subprocess.Popen(['bash',str(launcher)],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT)
    report['pid']=proc.pid
    try:report['native_exit']=proc.wait(timeout=120)
    except subprocess.TimeoutExpired:

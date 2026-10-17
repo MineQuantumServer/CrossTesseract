@@ -32,6 +32,8 @@ jobs:
           bash scripts/install-jdk.sh
           echo "JAVA_HOME=$GITHUB_WORKSPACE/scratch/jdk/jdk-21.0.8+9" >> "$GITHUB_ENV"
           echo "$GITHUB_WORKSPACE/scratch/jdk/jdk-21.0.8+9/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned read-only compatibility API sources
+        run: bash scripts/fetch-references.sh
       - name: Build and real isolated backend tests (no Minecraft JVM or EULA assertion)
         run: ./gradlew --no-daemon --max-workers=2 build -Dct.integration=true
       - name: Record exact source and artifact identity

@@ -1,0 +1,216 @@
+{
+  "utc_start": "2026-10-17T10:59:16.128136+00:00",
+  "state": "INTENTIONAL_GATE_STOP_SENT_NORMAL_JVM_STOP_OWNED_BY_CONTROLLER",
+  "scope": "Root-authorized stop gate. Read-only local log polling only; no RCON/SQL/profiling. Signal own workload Python once after a completed sample; lifecycle controller owns normal JVM stop.",
+  "passed": true,
+  "signal_sent": true,
+  "baseline_raw": "reports/optimization-rc-probe-rc-fe-baseline-fast2-20261017T103942Z-d8e7ca.json",
+  "baseline_raw_sha256": "9afa0a4af733f526a530e610ebefc73e918f91a372c39e8c9e6f5775e49b2d2e",
+  "candidate_raw": "reports/optimization-rc-probe-rc-fe-candidate-fast-20261017T105527Z-0d45b4.json",
+  "candidate_in_progress_snapshot": "reports/raw/rc-fe-c66-complete-first-same-before-gate-20261017T105916Z-9c8b8087.json",
+  "candidate_snapshot_sha256": "54b38bdb95d43eea6fb5b2c41e292e94d1791fe08e9fb66403223f5afc179b43",
+  "functional_same_passed": true,
+  "FE_p95": {
+    "baseline_ms_upper": 207.85195699954784,
+    "candidate_ms_upper": 414.0314850001232,
+    "relative_limit_ms_upper": 307.85195699954784,
+    "absolute_limit_ms_upper": 800
+  },
+  "same_actual_input": true,
+  "costs": {
+    "counter_delta": {
+      "db_transactions": {
+        "baseline": 2419,
+        "candidate": 3557,
+        "reduction_percent": -47.04423315419595
+      },
+      "db_statements": {
+        "baseline": 20760,
+        "candidate": 24516,
+        "reduction_percent": -18.09248554913295
+      },
+      "transactions": {
+        "baseline": 793,
+        "candidate": 1201,
+        "reduction_percent": -51.45018915510718
+      },
+      "batch_devices": {
+        "baseline": 793,
+        "candidate": 960,
+        "reduction_percent": -21.059268600252206
+      },
+      "batch_records": {
+        "baseline": 1345,
+        "candidate": 1226,
+        "reduction_percent": 8.847583643122677
+      },
+      "batch_payload_bytes": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "wal_writes": {
+        "baseline": 1199,
+        "candidate": 1438,
+        "reduction_percent": -19.93327773144287
+      },
+      "wal_bytes": {
+        "baseline": 202615,
+        "candidate": 229622,
+        "reduction_percent": -13.329220442711545
+      },
+      "wal_identical_skipped": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "db_deadlock_retries": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "errors": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "queue_rejected": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "quarantined": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "account_statements": {
+        "baseline": {
+          "events": 31674,
+          "timer_picoseconds": 8916538686000,
+          "errors": 0
+        },
+        "candidate": {
+          "events": 39049,
+          "timer_picoseconds": 10970057055000,
+          "errors": 0
+        },
+        "reduction_percent": -23.284081581107532
+      }
+    },
+    "lifecycle_counter_delta": {
+      "db_transactions": {
+        "baseline": 2434,
+        "candidate": 3569,
+        "reduction_percent": -46.631059983566146
+      },
+      "db_statements": {
+        "baseline": 20842,
+        "candidate": 24576,
+        "reduction_percent": -17.91574704922752
+      },
+      "transactions": {
+        "baseline": 796,
+        "candidate": 1203,
+        "reduction_percent": -51.13065326633166
+      },
+      "batch_devices": {
+        "baseline": 796,
+        "candidate": 962,
+        "reduction_percent": -20.85427135678392
+      },
+      "batch_records": {
+        "baseline": 1350,
+        "candidate": 1228,
+        "reduction_percent": 9.037037037037036
+      },
+      "batch_payload_bytes": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "wal_writes": {
+        "baseline": 1201,
+        "candidate": 1440,
+        "reduction_percent": -19.900083263946712
+      },
+      "wal_bytes": {
+        "baseline": 202913,
+        "candidate": 229920,
+        "reduction_percent": -13.309645020279628
+      },
+      "wal_identical_skipped": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "db_deadlock_retries": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "errors": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "queue_rejected": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "quarantined": {
+        "baseline": 0,
+        "candidate": 0,
+        "reduction_percent": null
+      },
+      "account_statements": {
+        "baseline": {
+          "events": 31813,
+          "timer_picoseconds": 8972154373000,
+          "errors": 0
+        },
+        "candidate": {
+          "events": 39136,
+          "timer_picoseconds": 10993307287000,
+          "errors": 0
+        },
+        "reduction_percent": -23.018891648068397
+      }
+    }
+  },
+  "gate_failures": [
+    "same_FE_p95_relative",
+    "counter_delta_db_transactions_20percent",
+    "counter_delta_db_statements_20percent",
+    "lifecycle_counter_delta_db_transactions_20percent",
+    "lifecycle_counter_delta_db_statements_20percent"
+  ],
+  "gate_passed": false,
+  "signal_target_PID": 28136,
+  "signal_target_parent_PID": 27838,
+  "signal_target_argv": [
+    "python3",
+    "scripts/rc-probe-benchmark.py",
+    "--execute",
+    "--probe-manifest",
+    "/workspace/CrossTesseract/reports/rc-20261017/probe-launches-candidate-20261017T105444Z-bc18ae27.json",
+    "--label",
+    "rc-fe-candidate-fast",
+    "--operator-revision",
+    "c66bc077",
+    "--warmup",
+    "30",
+    "--seconds",
+    "120",
+    "--repeats",
+    "1",
+    "--probes",
+    "40",
+    "--scenarios",
+    "same,cross,mixed"
+  ],
+  "signal": "SIGINT",
+  "signal_request_utc": "2026-10-17T10:59:59.185860+00:00",
+  "utc_end": "2026-10-17T10:59:59.186143+00:00"
+}
